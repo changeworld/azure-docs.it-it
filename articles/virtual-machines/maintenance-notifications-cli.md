@@ -1,6 +1,6 @@
 ---
-title: Ottenere notifiche di manutenzione usando l'interfaccia della riga di comando
-description: Visualizzare le notifiche di manutenzione per le macchine virtuali in esecuzione in Azure e avviare la manutenzione Self-Service usando l'interfaccia della riga di comando di Azure.
+title: Ottenere notifiche di manutenzione tramite l'interfaccia della riga di comando
+description: Visualizzare le notifiche di manutenzione per le macchine virtuali in esecuzione in Azure e avviare la manutenzione self-service usando l'interfaccia della riga di comando di Azure.
 author: shants123
 ms.service: virtual-machines
 ms.subservice: maintenance-control
@@ -8,18 +8,18 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: shants
-ms.openlocfilehash: cd042ce09533cbefe37cb2e4d311a3857e3dfdec
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d8a9b7ec6425a3cd32b597c3f14f8227fde67064
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102552406"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107777870"
 ---
-# <a name="handling-planned-maintenance-notifications-using-the-azure-cli"></a>Gestione delle notifiche di manutenzione pianificata tramite l'interfaccia della riga di comando
+# <a name="handling-planned-maintenance-notifications-using-the-azure-cli"></a>Gestione delle notifiche di manutenzione pianificata tramite l'interfaccia della riga di comando di Azure
 
-**Questo articolo si applica alle macchine virtuali che eseguono sia Linux che Windows.**
+**Questo articolo si applica alle macchine virtuali che eseguono Sia Linux che Windows.**
 
-È possibile usare l'interfaccia della riga di comando per vedere quando le macchine virtuali sono pianificate per la [manutenzione](maintenance-notifications.md). Le informazioni di manutenzione pianificate sono disponibili in [AZ VM Get-instance-View](/cli/azure/vm#az-vm-get-instance-view).
+È possibile usare l'interfaccia della riga di comando per vedere quando le macchine virtuali sono pianificate per la [manutenzione.](maintenance-notifications.md) Le informazioni sulla manutenzione pianificata sono [disponibili in az vm get-instance-view](/cli/azure/vm#az_vm_get_instance_view).
  
 Le informazioni vengono restituite solo se è presente una manutenzione pianificata. 
 
@@ -40,9 +40,9 @@ Output
       "preMaintenanceWindowStartTime": "2018-05-14T12:30:00+00:00"
 ```
 
-## <a name="start-maintenance"></a>Avvia manutenzione
+## <a name="start-maintenance"></a>Avviare la manutenzione
 
-La chiamata seguente avvierà la manutenzione in una macchina virtuale se `IsCustomerInitiatedMaintenanceAllowed` è impostato su true.
+La chiamata seguente avvia la manutenzione in una macchina virtuale se `IsCustomerInitiatedMaintenanceAllowed` è impostato su true.
 
 ```azurecli-interactive
 az vm perform-maintenance -g myResourceGroup -n myVM 
@@ -74,4 +74,4 @@ azure compute virtual-machine initiate-maintenance --service-name myService --na
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-È anche possibile gestire la manutenzione pianificata usando il [Azure PowerShell](maintenance-notifications-powershell.md) o il [portale](maintenance-notifications-portal.md).
+È anche possibile gestire la manutenzione pianificata usando il [Azure PowerShell](maintenance-notifications-powershell.md) o [il portale](maintenance-notifications-portal.md).

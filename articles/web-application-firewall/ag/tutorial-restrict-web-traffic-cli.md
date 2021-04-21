@@ -8,12 +8,12 @@ ms.date: 03/29/2021
 ms.author: victorh
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d53f4b640154e4d7b02115d5043b37f6bb6e89ba
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 390fdd4d9e9d0bc62589484ab0c4ba7468bcaf4b
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105731140"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107773100"
 ---
 # <a name="enable-web-application-firewall-using-the-azure-cli"></a>Abilitare Web Application Firewall usando l'interfaccia della riga di comando di Azure
 
@@ -38,7 +38,7 @@ Se si preferisce, è possibile completare questa procedura usando [Azure PowerSh
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-Un gruppo di risorse è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. Creare un gruppo di risorse di Azure denominato *myResourceGroupAG* tramite [az group create](/cli/azure/group#az-group-create).
+Un gruppo di risorse è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. Creare un gruppo di risorse di Azure denominato *myResourceGroupAG* tramite [az group create](/cli/azure/group#az_group_create).
 
 ```azurecli-interactive
 az group create --name myResourceGroupAG --location eastus
@@ -107,9 +107,9 @@ Il processo di creazione del gateway applicazione può richiedere alcuni minuti.
 
 ## <a name="create-a-virtual-machine-scale-set"></a>Creare un set di scalabilità di macchine virtuali
 
-In questo esempio viene creato un set di scalabilità di macchine virtuali che fornisce due server per il pool back-end nel gateway applicazione. Le macchine virtuali nel set di scalabilità sono associate alla subnet *myBackendSubnet*. Per creare il set di scalabilità, è possibile usare [az vmss create](/cli/azure/vmss#az-vmss-create).
+In questo esempio viene creato un set di scalabilità di macchine virtuali che fornisce due server per il pool back-end nel gateway applicazione. Le macchine virtuali nel set di scalabilità sono associate alla subnet *myBackendSubnet*. Per creare il set di scalabilità, è possibile usare [az vmss create](/cli/azure/vmss#az_vmss_create).
 
-Sostituire \<username> e \<password> con i valori prima di eseguire questa operazione.
+Sostituire \<username> e con i valori prima di eseguire questa \<password> operazione.
 
 ```azurecli-interactive
 az vmss create \
@@ -145,7 +145,7 @@ In questo articolo il gateway applicazione usa un account di archiviazione per a
 
 ### <a name="create-a-storage-account"></a>Creare un account di archiviazione
 
-Creare un account di archiviazione denominato *myagstore1* tramite [az storage account create](/cli/azure/storage/account#az-storage-account-create).
+Creare un account di archiviazione denominato *myagstore1* tramite [az storage account create](/cli/azure/storage/account#az_storage_account_create).
 
 ```azurecli-interactive
 az storage account create \
@@ -158,7 +158,7 @@ az storage account create \
 
 ### <a name="configure-diagnostics"></a>Configurare la diagnostica
 
-Configurare la diagnostica per registrare i dati nei log ApplicationGatewayAccessLog, ApplicationGatewayPerformanceLog e ApplicationGatewayFirewallLog. Sostituire `<subscriptionId>` con l'identificatore di sottoscrizione e quindi configurare la diagnostica con [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create).
+Configurare la diagnostica per registrare i dati nei log ApplicationGatewayAccessLog, ApplicationGatewayPerformanceLog e ApplicationGatewayFirewallLog. Sostituire `<subscriptionId>` con l'identificatore di sottoscrizione e quindi configurare la diagnostica con [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_create).
 
 ```azurecli-interactive
 appgwid=$(az network application-gateway show --name myAppGateway --resource-group myResourceGroupAG --query id -o tsv)
@@ -172,7 +172,7 @@ az monitor diagnostic-settings create --name appgwdiag --resource $appgwid \
 
 ## <a name="test-the-application-gateway"></a>Testare il gateway applicazione
 
-Per ottenere l'indirizzo IP pubblico del gateway applicazione, usare [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show). Copiare l'indirizzo IP pubblico e quindi incollarlo nella barra degli indirizzi del browser.
+Per ottenere l'indirizzo IP pubblico del gateway applicazione, usare [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show). Copiare l'indirizzo IP pubblico e quindi incollarlo nella barra degli indirizzi del browser.
 
 ```azurecli-interactive
 az network public-ip show \

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2021
 ms.author: mnayak
-ms.openlocfilehash: 2291767c162953f8339fb8cc27e55b96290ef795
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 58b91c105ed48617b64356904942f5ab6b461cda
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101665958"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107776556"
 ---
 # <a name="configure-routing-preference-for-a-public-ip-address-using-azure-cli"></a>Configurare la preferenza di routing per un indirizzo IP pubblico con l'interfaccia della riga di comando di Azure
 
@@ -40,14 +40,14 @@ Per impostazione predefinita, la preferenza di routing per l'indirizzo IP pubbli
 - Questo articolo richiede la versione 2.0.49 o successiva dell'interfaccia della riga di comando di Azure. Se si usa Azure Cloud Shell, la versione più recente è già installata.
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
-Creare un gruppo di risorse con il comando [az group create](/cli/azure/group#az-group-create). L'esempio seguente crea un gruppo di risorse nell'area di Azure **Stati Uniti orientali**:
+Creare un gruppo di risorse con il comando [az group create](/cli/azure/group#az_group_create). L'esempio seguente crea un gruppo di risorse nell'area di Azure **Stati Uniti orientali**:
 
 ```azurecli
   az group create --name myResourceGroup --location eastus
 ```
 ## <a name="create-a-public-ip-address"></a>Creare un indirizzo IP pubblico
 
-Creare un indirizzo IP pubblico con preferenza di routing di tipo **Internet** usando il comando [AZ Network Public-IP create](/cli/azure/network/public-ip#az-network-public-ip-create), con il formato riportato di seguito.
+Creare un indirizzo IP pubblico con preferenza di routing di **tipo Internet** usando il comando [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create), con il formato illustrato di seguito.
 
 Il comando seguente crea un nuovo indirizzo IP pubblico con preferenza di routing **Internet** nell'area di Azure **Stati Uniti orientali**.
 
@@ -71,4 +71,3 @@ az network public-ip create \
 
 - Altre informazioni sulla [preferenza di routing per gli indirizzi IP pubblici](routing-preference-overview.md). 
 - [Configurare la preferenza di routing per una macchina virtuale con l'interfaccia della riga di comando di Azure](configure-routing-preference-virtual-machine-cli.md).
-

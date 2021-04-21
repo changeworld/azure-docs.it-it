@@ -3,12 +3,12 @@ title: Configurare l'accesso pubblico al registro
 description: Configurare le regole IP per consentire l'accesso a un registro contenitori di Azure da indirizzi o intervalli di indirizzi IP pubblici selezionati.
 ms.topic: article
 ms.date: 03/08/2021
-ms.openlocfilehash: 727aa1dc028b5f52a022e54c2cd252ae372e78fe
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 00912f0e66c84feff40e6439d59ccdfa82a4ab6a
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104773063"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107785837"
 ---
 # <a name="configure-public-ip-network-rules"></a>Configurare le regole di rete per IP pubblico
 
@@ -66,7 +66,7 @@ az acr network-rule add \
 Facoltativamente, disabilitare l'endpoint pubblico nel registro di sistema. La disabilitazione dell'endpoint pubblico sostituisce tutte le configurazioni del firewall. Ad esempio, potrebbe essere necessario disabilitare l'accesso pubblico a un registro protetto in una rete virtuale usando un [collegamento privato](container-registry-private-link.md).
 
 > [!NOTE]
-> Se il registro di sistema è configurato in una rete virtuale con un [endpoint del servizio](container-registry-vnet.md), la disabilitazione dell'accesso all'endpoint pubblico del registro di sistema Disabilita anche l'accesso al registro di sistema all'interno della rete virtuale.
+> Se il Registro di sistema è configurato in una rete virtuale con un [endpoint](container-registry-vnet.md)di servizio, la disabilitazione dell'accesso all'endpoint pubblico del registro disabilita anche l'accesso al Registro di sistema all'interno della rete virtuale.
 
 ### <a name="disable-public-access---cli"></a>Disabilitare l'accesso pubblico - Interfaccia della riga di comando
 
@@ -108,9 +108,9 @@ az acr update --name myContainerRegistry --public-network-enabled true
 
 ## <a name="troubleshoot"></a>Risolvere problemi
 
-Se viene impostata una regola di rete pubblica o l'accesso pubblico al registro di sistema viene negato, i tentativi di accesso al registro di sistema da una rete pubblica non consentita avranno esito negativo. L'accesso client da dietro un proxy HTTPS avrà esito negativo anche se non è impostata una regola di accesso per il proxy. Verrà visualizzato un messaggio di errore simile a `Error response from daemon: login attempt failed with status: 403 Forbidden` o `Looks like you don't have access to registry` .
+Se viene impostata una regola di rete pubblica o viene negato l'accesso pubblico al Registro di sistema, i tentativi di accesso al Registro di sistema da una rete pubblica non consentita avranno esito negativo. L'accesso client da dietro un proxy HTTPS avrà esito negativo anche se non è impostata una regola di accesso per il proxy. Verrà visualizzato un messaggio di errore simile a `Error response from daemon: login attempt failed with status: 403 Forbidden` o `Looks like you don't have access to registry` .
 
-Questi errori possono verificarsi anche se si usa un proxy HTTPS consentito da una regola di accesso alla rete, ma il proxy non è configurato correttamente nell'ambiente client. Verificare che il client Docker e il daemon Docker siano configurati per il comportamento del proxy. Per informazioni dettagliate, vedere [proxy HTTP/HTTPS](https://docs.docker.com/config/daemon/systemd/#httphttps-proxy) nella documentazione di Docker.
+Questi errori possono verificarsi anche se si usa un proxy HTTPS consentito da una regola di accesso alla rete, ma il proxy non è configurato correttamente nell'ambiente client. Verificare che sia il client Docker che il daemon Docker siano configurati per il comportamento del proxy. Per informazioni dettagliate, [vedere Proxy HTTP/HTTPS](https://docs.docker.com/config/daemon/systemd/#httphttps-proxy) nella documentazione di Docker.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -118,12 +118,12 @@ Questi errori possono verificarsi anche se si usa un proxy HTTPS consentito da u
 * Per limitare l'accesso a un registro usando un endpoint privato in una rete virtuale, vedere [Configurare un collegamento privato di Azure per un registro contenitori di Azure](container-registry-private-link.md).
 * Per configurare regole di accesso al registro da dietro un firewall del client, vedere [Configurare le regole per accedere a un registro contenitori di Azure dietro un firewall](container-registry-firewall-access-rules.md).
 
-[az-acr-login]: /cli/azure/acr#az-acr-login
-[az-acr-network-rule-add]: /cli/azure/acr/network-rule/#az-acr-network-rule-add
-[az-acr-network-rule-remove]: /cli/azure/acr/network-rule/#az-acr-network-rule-remove
-[az-acr-network-rule-list]: /cli/azure/acr/network-rule/#az-acr-network-rule-list
-[az-acr-run]: /cli/azure/acr#az-acr-run
-[az-acr-update]: /cli/azure/acr#az-acr-update
+[az-acr-login]: /cli/azure/acr#az_acr_login
+[az-acr-network-rule-add]: /cli/azure/acr/network-rule/#az_acr_network_rule_add
+[az-acr-network-rule-remove]: /cli/azure/acr/network-rule/#az_acr_network_rule_remove
+[az-acr-network-rule-list]: /cli/azure/acr/network-rule/#az_acr_network_rule_list
+[az-acr-run]: /cli/azure/acr#az_acr_run
+[az-acr-update]: /cli/azure/acr#az_acr_update
 [quickstart-portal]: container-registry-get-started-portal.md
 [quickstart-cli]: container-registry-get-started-azure-cli.md
 [azure-portal]: https://portal.azure.com

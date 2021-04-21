@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: devx-track-python, devx-track-azurepowershell
-ms.openlocfilehash: 2f15aa394f7a271d6b3af49f0106611c4fc943a1
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: e06881d078b4e881174c3e931f7898cb622ad7f9
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/20/2021
-ms.locfileid: "107753083"
+ms.locfileid: "107766354"
 ---
 # <a name="quickstart-azure-key-vault-secret-client-library-for-python"></a>Avvio rapido: Libreria client dei segreti di Azure Key Vault per Python
 
@@ -170,7 +170,7 @@ retrieved_secret = client.get_secret(secretName)
 
 Il valore del segreto è contenuto in `retrieved_secret.value`.
 
-È anche possibile recuperare un segreto con il comando [az keyvault secret show](/cli/azure/keyvault/secret?#az-keyvault-secret-show) dell'interfaccia della riga di comando di Azure.
+È anche possibile recuperare un segreto con il comando [az keyvault secret show](/cli/azure/keyvault/secret?#az_keyvault_secret_show) dell'interfaccia della riga di comando di Azure.
 
 ### <a name="delete-a-secret"></a>consente di eliminare un segreto
 
@@ -183,7 +183,7 @@ deleted_secret = poller.result()
 
 Il `begin_delete_secret` metodo è asincrono e restituisce un oggetto poller. La chiamata al metodo `result` dell'oggetto poller attende il relativo completamento.
 
-Per verificare se il segreto è stato rimosso, è possibile usare il comando [az keyvault secret show](/cli/azure/keyvault/secret?#az-keyvault-secret-show) dell'interfaccia della riga di comando di Azure.
+Per verificare se il segreto è stato rimosso, è possibile usare il comando [az keyvault secret show](/cli/azure/keyvault/secret?#az_keyvault_secret_show) dell'interfaccia della riga di comando di Azure.
 
 Una volta eliminato, un segreto rimane in uno stato eliminato ma recuperabile per un periodo di tempo. Se si esegue di nuovo il codice, usare un nome di segreto diverso.
 

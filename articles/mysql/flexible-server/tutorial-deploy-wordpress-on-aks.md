@@ -6,13 +6,13 @@ author: mksuni
 ms.author: sumuth
 ms.topic: tutorial
 ms.date: 11/25/2020
-ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: b631173ed92905870e73e6c560d90aab08476ce1
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.custom: vc, devx-track-azurecli
+ms.openlocfilehash: 0c6211f4cd647addd6f1d18a153695d16a9d9952
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107480155"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107770166"
 ---
 # <a name="tutorial-deploy-wordpress-app-on-aks-with-azure-database-for-mysql---flexible-server"></a>Esercitazione: Distribuire un'app WordPress nel servizio Azure Kubernetes con il server flessibile di Database di Azure per MySQL
 
@@ -60,7 +60,7 @@ L'output di esempio seguente mostra il gruppo di risorse creato correttamente:
 
 ## <a name="create-aks-cluster"></a>Creare un cluster del servizio Azure Container
 
-Usare il comando [az aks create](/cli/azure/aks#az-aks-create) per creare un cluster del servizio Azure Kubernetes. L'esempio seguente crea un cluster denominato *myAKSCluster* con un nodo. Questa operazione richiede alcuni minuti.
+Usare il comando [az aks create](/cli/azure/aks#az_aks_create) per creare un cluster del servizio Azure Kubernetes. L'esempio seguente crea un cluster denominato *myAKSCluster* con un nodo. Questa operazione richiede alcuni minuti.
 
 ```azurecli-interactive
 az aks create --resource-group wordpress-project --name myAKSCluster --node-count 1 --generate-ssh-keys
@@ -73,13 +73,13 @@ Il comando viene completato dopo pochi minuti e vengono restituite informazioni 
 
 ## <a name="connect-to-the-cluster"></a>Stabilire la connessione al cluster
 
-Per gestire un cluster Kubernetes, usare [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/), il client da riga di comando di Kubernetes. Se si usa Azure Cloud Shell, `kubectl` è già installato. Per installare `kubectl` in locale, usare il comando [az aks install-cli](/cli/azure/aks#az-aks-install-cli):
+Per gestire un cluster Kubernetes, usare [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/), il client da riga di comando di Kubernetes. Se si usa Azure Cloud Shell, `kubectl` è già installato. Per installare `kubectl` in locale, usare il comando [az aks install-cli](/cli/azure/aks#az_aks_install_cli):
 
 ```azurecli-interactive
 az aks install-cli
 ```
 
-Per configurare `kubectl` per la connessione al cluster Kubernetes, usare il comando [az aks get-credentials](/cli/azure/aks#az-aks-get-credentials). Questo comando scarica le credenziali e configura l'interfaccia della riga di comando di Kubernetes per usarli.
+Per configurare `kubectl` per la connessione al cluster Kubernetes, usare il comando [az aks get-credentials](/cli/azure/aks#az_aks_get_credentials). Questo comando scarica le credenziali e configura l'interfaccia della riga di comando di Kubernetes per usarli.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group wordpress-project --name myAKSCluster
@@ -121,20 +121,20 @@ Il server creato ha gli attributi seguenti:
 Scaricare l'[ultima versione di WordPress](https://wordpress.org/download/). Creare una nuova directory ```my-wordpress-app``` per il progetto e usare questa semplice struttura della cartella
 
 ```
-â””â”€â”€â”€my-wordpress-app
-    â””â”€â”€â”€public
-        â”œâ”€â”€â”€wp-admin
-        â”‚   â”œâ”€â”€â”€css
+└───my-wordpress-app
+    └───public
+        ├───wp-admin
+        │   ├───css
         . . . . . . .
-        â”œâ”€â”€â”€wp-content
-        â”‚   â”œâ”€â”€â”€plugins
+        ├───wp-content
+        │   ├───plugins
         . . . . . . .
-        â””â”€â”€â”€wp-includes
+        └───wp-includes
         . . . . . . .
-        â”œâ”€â”€â”€wp-config-sample.php
-        â”œâ”€â”€â”€index.php
+        ├───wp-config-sample.php
+        ├───index.php
         . . . . . . .
-    â””â”€â”€â”€ Dockerfile
+    └─── Dockerfile
 
 ```
 
@@ -327,4 +327,3 @@ az group delete --name wordpress-project --yes --no-wait
 - Informazioni su come [dimensionare il cluster](../../aks/tutorial-kubernetes-scale.md)
 - Informazioni su come gestire il [server flessibile MySQL](./quickstart-create-server-cli.md)
 - Informazioni su come [configurare i parametri del server ](./how-to-configure-server-parameters-cli.md) di database.
-

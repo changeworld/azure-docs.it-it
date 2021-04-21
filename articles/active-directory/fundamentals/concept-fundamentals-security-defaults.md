@@ -5,25 +5,25 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 05/13/2020
+ms.date: 04/20/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: efaf6060c0b09e071546038d9e30f2c8065059e7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: efa88e1be5c5df5dd09cb5a97c8ece352496ccdb
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98600139"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107769698"
 ---
 # <a name="what-are-security-defaults"></a>Cosa sono le impostazioni predefinite per la sicurezza?
 
-La gestione della sicurezza può essere difficile grazie a attacchi comuni correlati all'identità, ad esempio spray per la password, riproduzione e phishing che diventano sempre più diffusi. Le impostazioni predefinite per la sicurezza consentono di proteggere l'organizzazione da questi attacchi con impostazioni di sicurezza preconfigurate:
+La gestione della sicurezza può essere difficile con attacchi comuni correlati all'identità, ad esempio password spraying, riproduzione e phishing, che diventano sempre più diffusi. Le impostazioni predefinite per la sicurezza consentono di proteggere l'organizzazione da questi attacchi con impostazioni di sicurezza preconfigurate:
 
-- Richiedere a tutti gli utenti di registrarsi per Azure AD Multi-Factor Authentication.
+- Richiedere a tutti gli utenti di registrarsi Azure AD Multi-Factor Authentication.
 - Richiedendo agli amministratori di eseguire l'autenticazione a più fattori.
 - Bloccando i protocolli di autenticazione legacy.
 - Richiedendo agli utenti di eseguire l'autenticazione a più fattori quando necessario.
@@ -35,7 +35,7 @@ Per altre informazioni sui motivi per cui vengono rese disponibili le impostazio
 
 ## <a name="availability"></a>Disponibilità
 
-Microsoft sta rendendo disponibili le impostazioni predefinite per la sicurezza a tutti gli utenti. L'obiettivo consiste nel garantire che tutte le organizzazioni dispongano di un livello di sicurezza base abilitato senza costi aggiuntivi. Si attivano le impostazioni predefinite per la sicurezza nel portale di Azure. Se il tenant è stato creato a partire dal 22 ottobre 2019, è possibile che le impostazioni predefinite per la sicurezza siano già abilitate nel tenant. Per garantire la protezione di tutti gli utenti, le impostazioni predefinite per la sicurezza vengono implementate per tutti i nuovi tenant creati.
+Microsoft sta rendendo disponibili le impostazioni predefinite per la sicurezza a tutti gli utenti. L'obiettivo consiste nel garantire che tutte le organizzazioni dispongano di un livello di sicurezza base abilitato senza costi aggiuntivi. Si attivano le impostazioni predefinite per la sicurezza nel portale di Azure. Se il tenant è stato creato a partire dal 22 ottobre 2019, è possibile che le impostazioni predefinite per la sicurezza siano già abilitate nel tenant. Per proteggere tutti gli utenti, le impostazioni predefinite per la sicurezza vengono implementazioni in tutti i nuovi tenant creati.
 
 ### <a name="whos-it-for"></a>A chi sono destinate le impostazioni predefinite per la sicurezza?
 
@@ -52,13 +52,13 @@ Microsoft sta rendendo disponibili le impostazioni predefinite per la sicurezza 
 
 ### <a name="unified-multi-factor-authentication-registration"></a>Registrazione per l'autenticazione a più fattori unificata
 
-Tutti gli utenti nel tenant devono registrarsi per l'autenticazione a più fattori sotto forma di Azure AD Multi-Factor Authentication. Gli utenti hanno 14 giorni per la registrazione Azure AD Multi-Factor Authentication usando l'app Microsoft Authenticator. Dopo i 14 giorni, l'utente non sarà in grado di accedere fino al completamento della registrazione. Il periodo di 14 giorni di un utente inizia dopo il primo accesso interattivo completato dopo l'abilitazione delle impostazioni predefinite per la sicurezza.
+Tutti gli utenti nel tenant devono registrarsi per l'autenticazione a più fattori (MFA) sotto forma di Azure AD Multi-Factor Authentication. Gli utenti hanno 14 giorni per registrarsi Azure AD Multi-Factor Authentication usando l'app Microsoft Authenticator. Dopo i 14 giorni, l'utente non sarà in grado di accedere fino al completamento della registrazione. Il periodo di 14 giorni di un utente inizia dopo il primo accesso interattivo completato dopo l'abilitazione delle impostazioni predefinite per la sicurezza.
 
 ### <a name="protecting-administrators"></a>Protezione degli amministratori
 
 Gli utenti con accesso con privilegi hanno un accesso maggiore all'ambiente. Considerate le facoltà di questi account, è consigliabile trattarli con particolare attenzione. Un metodo comune per migliorare la protezione degli account con privilegi consiste nel richiedere una forma di verifica degli account più avanzata per l'accesso. In Azure AD è possibile richiedere l'autenticazione a più fattori per ottenere una verifica degli account più avanzata.
 
-Al termine della registrazione con Azure AD Multi-Factor Authentication, verranno richiesti i nove ruoli di amministratore Azure AD seguenti per eseguire un'autenticazione aggiuntiva ogni volta che accedono:
+Al termine della registrazione Azure AD Multi-Factor Authentication, i nove ruoli di amministratore di Azure AD seguenti saranno necessari per eseguire un'autenticazione aggiuntiva ogni volta che eseguono l'accesso:
 
 - Amministratore globale
 - Amministratore di SharePoint
@@ -70,39 +70,42 @@ Al termine della registrazione con Azure AD Multi-Factor Authentication, verrann
 - Amministratore utenti
 - Amministratore dell'autenticazione
 
+> [!WARNING]
+> Assicurarsi che alla directory siano assegnati almeno due account con privilegi di amministratore globale. Ciò sarà utile nel caso in cui un amministratore globale sia bloccato. Per altri dettagli, vedere l'articolo [Gestire gli account di accesso](../roles/security-emergency-access.md)di emergenza in Azure AD .
+
 ### <a name="protecting-all-users"></a>Protezione di tutti gli utenti
 
 Si tende a pensare che gli account amministratore siano gli unici account che richiedono livelli aggiuntivi di autenticazione. Gli amministratori hanno accesso esteso alle informazioni sensibili e possono apportare modifiche alle impostazioni a livello di sottoscrizione. Ma gli utenti malintenzionati spesso hanno come obiettivo gli utenti finali. 
 
 Una volta che gli utenti malintenzionati ottengono l'accesso, possono richiedere l'accesso alle informazioni con privilegi per conto del titolare dell'account originale. Possono anche scaricare l'intera directory per eseguire un attacco di phishing all'intera organizzazione. 
 
-Un metodo comune per migliorare la protezione per tutti gli utenti è quello di richiedere una forma più avanzata di verifica dell'account, come Multi-Factor Authentication, per tutti. Al termine della registrazione a Multi-Factor Authentication, gli utenti riceveranno la richiesta di autenticazione aggiuntiva ogni volta che è necessario. Gli utenti verranno richiesti principalmente quando eseguono l'autenticazione con un nuovo dispositivo o un'applicazione o quando eseguono attività e ruoli critici. Questa funzionalità protegge tutte le applicazioni registrate con Azure AD incluse le applicazioni SaaS.
+Un metodo comune per migliorare la protezione per tutti gli utenti è quello di richiedere una forma più avanzata di verifica dell'account, come Multi-Factor Authentication, per tutti. Al termine della registrazione a Multi-Factor Authentication, gli utenti riceveranno la richiesta di autenticazione aggiuntiva ogni volta che è necessario. Gli utenti riceveranno una richiesta principalmente quando eseguono l'autenticazione usando un nuovo dispositivo o applicazione o quando eseguono attività e ruoli critici. Questa funzionalità protegge tutte le applicazioni registrate con Azure AD incluse le applicazioni SaaS.
 
 ### <a name="blocking-legacy-authentication"></a>Bloccare l'autenticazione legacy
 
-Per consentire agli utenti di accedere facilmente alle app cloud, Azure AD supporta una vasta gamma di protocolli di autenticazione, inclusa l'autenticazione legacy. Con il termine *autenticazione legacy* si fa riferimento a una richiesta di autenticazione effettuata da:
+Per consentire agli utenti di accedere facilmente alle app cloud, Azure AD supporta vari protocolli di autenticazione, inclusa l'autenticazione legacy. Con il termine *autenticazione legacy* si fa riferimento a una richiesta di autenticazione effettuata da:
 
 - Client che non usano l'autenticazione moderna (ad esempio, un client Office 2010).
 - Qualsiasi client che usi protocolli di posta elettronica precedenti come IMAP, SMTP o POP3.
 
-Oggi la maggior parte dei tentativi di accesso che compromettono la sicurezza derivano dall'autenticazione legacy. L'autenticazione legacy non supporta Multi-Factor Authentication. Anche se nella directory è abilitato un criterio di Multi-Factor Authentication, un utente malintenzionato può eseguire l'autenticazione usando un protocollo precedente e ignorare Multi-Factor Authentication. 
+Attualmente, la maggior parte dei tentativi di accesso compromessi deriva dall'autenticazione legacy. L'autenticazione legacy non supporta Multi-Factor Authentication. Anche se nella directory è abilitato un criterio di Multi-Factor Authentication, un utente malintenzionato può eseguire l'autenticazione usando un protocollo precedente e ignorare Multi-Factor Authentication. 
 
 Una volta abilitate le impostazioni predefinite per la sicurezza nel tenant, tutte le richieste di autenticazione effettuate da un protocollo precedente verranno bloccate. Le impostazioni predefinite per la sicurezza bloccano l'autenticazione di base Exchange Active Sync.
 
 > [!WARNING]
 > Prima di abilitare le impostazioni predefinite per la sicurezza, assicurarsi che gli amministratori non usino protocolli di autenticazione precedenti. Per altre informazioni, vedere [Come passare dall'autenticazione legacy a un'altra autenticazione](concept-fundamentals-block-legacy-authentication.md).
 
-- [Come configurare un dispositivo multifunzione o un'applicazione per l'invio di messaggi di posta elettronica tramite Microsoft 365](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-microsoft-365-or-office-365)
+- [Come configurare un dispositivo multifunzione o un'applicazione per inviare messaggi di posta elettronica usando Microsoft 365](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-microsoft-365-or-office-365)
 
 ### <a name="protecting-privileged-actions"></a>Protezione delle azioni con privilegi
 
-Le organizzazioni usano un'ampia gamma di servizi di Azure gestiti tramite l'API Azure Resource Manager, come:
+Le organizzazioni usano vari servizi di Azure gestiti tramite l'API Azure Resource Manager, tra cui:
 
 - Portale di Azure 
 - Azure PowerShell 
 - Interfaccia della riga di comando di Azure
 
-L'uso di Azure Resource Manager per gestire i servizi è un'azione con privilegi elevati. Azure Resource Manager può modificare le configurazioni a livello di tenant, ad esempio le impostazioni del servizio e la fatturazione della sottoscrizione. L'autenticazione a fattore singolo è vulnerabile a numerosi attacchi, come phishing e password spraying. 
+L'uso di Azure Resource Manager per gestire i servizi è un'azione con privilegi elevati. Azure Resource Manager può modificare le configurazioni a livello di tenant, ad esempio le impostazioni del servizio e la fatturazione della sottoscrizione. L'autenticazione a fattore singolo è vulnerabile a vari attacchi, ad esempio phishing e password spraying. 
 
 È importante verificare l'identità degli utenti che vogliono accedere alle configurazioni di Azure Resource Manager e di aggiornamento. Per verificarne l'identità, è necessario eseguire un'autenticazione aggiuntiva prima di consentire l'accesso.
 
@@ -120,7 +123,7 @@ Di seguito sono riportate alcune considerazioni aggiuntive relative alla distrib
 
 ### <a name="authentication-methods"></a>Metodi di autenticazione
 
-Queste impostazioni predefinite di sicurezza gratuite consentono la registrazione e l'uso di Azure AD Multi-Factor Authentication **usando solo l'app Microsoft Authenticator usando le notifiche**. L'accesso condizionale consente di usare qualsiasi metodo di autenticazione che l'amministratore sceglie di abilitare.
+Queste impostazioni predefinite di sicurezza gratuite consentono la registrazione e l'uso Azure AD Multi-Factor Authentication usando solo l'app Microsoft Authenticator **usando le notifiche**. L'accesso condizionale consente di usare qualsiasi metodo di autenticazione che l'amministratore sceglie di abilitare.
 
 | Metodo | Impostazioni predefinite di sicurezza | Accesso condizionale |
 | --- | --- | --- |
@@ -135,7 +138,7 @@ Queste impostazioni predefinite di sicurezza gratuite consentono la registrazion
 
 ### <a name="disabled-mfa-status"></a>Stato MFA disabilitato
 
-Se l'organizzazione è un utente precedente di Azure AD Multi-Factor Authentication basato su utente, non è necessario che gli utenti abbiano lo stato **abilitato** o **applicato** se si esamina la pagina stato di autenticazione a più fattori. **Disabled** è lo stato appropriato per gli utenti che usano le impostazioni predefinite di sicurezza o l'accesso condizionale basato Azure ad multi-factor authentication.
+Se l'organizzazione è un utente precedente di Azure AD Multi-Factor Authentication per utente, non allarmarsi  per non visualizzare gli utenti con stato Abilitato o Applicato se si visualizza la pagina di stato Multi-FactorAuth.  **Disabilitato** è lo stato appropriato per gli utenti che usano impostazioni predefinite di sicurezza o l'accesso condizionale Azure AD Multi-Factor Authentication.
 
 ### <a name="conditional-access"></a>Accesso condizionale
 
@@ -149,7 +152,7 @@ Di seguito sono riportate istruzioni dettagliate su come usare l'accesso condizi
 - [Richiedere l'autenticazione a più fattori per la gestione di Azure](../conditional-access/howto-conditional-access-policy-azure-management.md)
 - [Bloccare l'autenticazione legacy](../conditional-access/howto-conditional-access-policy-block-legacy.md)
 - [Richiedere l'autenticazione a più fattori per tutti gli utenti](../conditional-access/howto-conditional-access-policy-all-users-mfa.md)
-- [Richiedi Azure ad registrazione](../identity-protection/howto-identity-protection-configure-mfa-policy.md) con autenticazione a più fattori: richiede Azure ad Identity Protection parte di Azure ad Premium P2.
+- [Richiedi Azure AD registrazione MFA:](../identity-protection/howto-identity-protection-configure-mfa-policy.md) Azure AD Identity Protection parte Azure AD Premium P2.
 
 ## <a name="enabling-security-defaults"></a>Abilitazione delle impostazioni predefinite per la sicurezza
 

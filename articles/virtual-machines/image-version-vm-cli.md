@@ -1,6 +1,6 @@
 ---
 title: Creare un'immagine da una macchina virtuale usando l'interfaccia della riga di comando di Azure
-description: Informazioni su come creare un'immagine in una raccolta di immagini condivise da una macchina virtuale in Azure.
+description: Informazioni su come creare un'immagine in una raccolta immagini condivise da una macchina virtuale in Azure.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: shared-image-gallery
@@ -10,39 +10,39 @@ ms.date: 05/01/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 7c35be8821b6763531b43ec85b10325e91f8bc5f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7bfe8b1255c88878c2dc4661e9daa3e16397e9f4
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102556861"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107792274"
 ---
-# <a name="create-an-image-version-from-a-vm-in-azure-using-the-azure-cli"></a>Creare una versione di immagine da una macchina virtuale in Azure tramite l'interfaccia della riga di comando di Azure
+# <a name="create-an-image-version-from-a-vm-in-azure-using-the-azure-cli"></a>Creare una versione dell'immagine da una macchina virtuale in Azure usando l'interfaccia della riga di comando di Azure
 
-Se è presente una macchina virtuale esistente che si vuole usare per creare più macchine virtuali identiche, è possibile usare tale macchina virtuale per creare un'immagine in una raccolta di immagini condivise usando l'interfaccia della riga di comando di Azure. È anche possibile creare un'immagine da una macchina virtuale usando [Azure PowerShell](image-version-vm-powershell.md).
+Se si dispone di una macchina virtuale esistente che si vuole usare per creare più macchine virtuali identiche, è possibile usarla per creare un'immagine in una raccolta di immagini condivise usando l'interfaccia della riga di comando di Azure. È anche possibile creare un'immagine da una macchina [virtuale usando Azure PowerShell](image-version-vm-powershell.md).
 
-Una **versione dell'immagine** è quella che si usa per creare una macchina virtuale quando si usa una raccolta di immagini condivise. È possibile avere più versioni di un'immagine in base alle necessità del proprio ambiente. Quando si usa una versione di immagine per creare una macchina virtuale, la versione dell'immagine viene usata per creare i dischi per la nuova macchina virtuale. Le versioni delle immagini possono essere usate più volte.
+Una **versione dell'immagine** è quella che si usa per creare una macchina virtuale quando si usa una raccolta di immagini condivise. È possibile avere più versioni di un'immagine in base alle necessità del proprio ambiente. Quando si usa una versione dell'immagine per creare una macchina virtuale, la versione dell'immagine viene usata per creare dischi per la nuova macchina virtuale. Le versioni delle immagini possono essere usate più volte.
 
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
 Per completare questo articolo, è necessario disporre di una raccolta di immagini condivise esistente. 
 
-È inoltre necessario disporre di una macchina virtuale esistente in Azure, nella stessa area della raccolta. 
+È anche necessario avere una macchina virtuale esistente in Azure, nella stessa area della raccolta. 
 
-Se la macchina virtuale dispone di un disco dati collegato, le dimensioni del disco dati non possono superare 1 TB.
+Se la macchina virtuale ha un disco dati collegato, le dimensioni del disco dati non possono essere superiori a 1 TB.
 
-Quando si lavora in questo articolo, sostituire i nomi delle risorse laddove necessario.
+Quando si lavora con questo articolo, sostituire i nomi delle risorse dove necessario.
 
 ## <a name="get-information-about-the-vm"></a>Ottenere informazioni sulla VM
 
-Per visualizzare un elenco delle macchine virtuali disponibili, usare [az vm list](/cli/azure/vm#az-vm-list). 
+Per visualizzare un elenco delle macchine virtuali disponibili, usare [az vm list](/cli/azure/vm#az_vm_list). 
 
 ```azurecli-interactive
 az vm list --output table
 ```
 
-Quando si conosce il nome della macchina virtuale e il gruppo di risorse in cui si trova, per ottenere l'ID della macchina virtuale usare [az vm get-instance-view](/cli/azure/vm#az-vm-get-instance-view). 
+Quando si conosce il nome della macchina virtuale e il gruppo di risorse in cui si trova, per ottenere l'ID della macchina virtuale usare [az vm get-instance-view](/cli/azure/vm#az_vm_get_instance_view). 
 
 ```azurecli-interactive
 az vm get-instance-view -g MyResourceGroup -n MyVm --query id
@@ -59,7 +59,7 @@ Assicurarsi che la definizione di immagine sia del tipo corretto. Se la VM è st
 
 Per altre informazioni sui valori che è possibile specificare per la definizione di immagine, vedere [Definizioni di immagini](./shared-image-galleries.md#image-definitions).
 
-Creare una definizione di immagine nella raccolta usando [az sig image-definition create](/cli/azure/sig/image-definition#az-sig-image-definition-create).
+Creare una definizione di immagine nella raccolta usando [az sig image-definition create](/cli/azure/sig/image-definition#az_sig_image_definition_create).
 
 In questo esempio la definizione di immagine è denominata *myImageDefinition* ed è relativa a un'immagine [specializzata](./shared-image-galleries.md#generalized-and-specialized-images) del sistema operativo Linux. Per creare una definizione per le immagini usando un sistema operativo Windows, usare `--os-type Windows`. 
 
@@ -78,7 +78,7 @@ az sig image-definition create \
 
 ## <a name="create-the-image-version"></a>Creare una versione di immagine
 
-Creare una versione di immagine dalla VM usando [az image gallery create-image-version](/cli/azure/sig/image-version#az-sig-image-version-create).  
+Creare una versione di immagine dalla VM usando [az image gallery create-image-version](/cli/azure/sig/image-version#az_sig_image_version_create).  
 
 I caratteri consentiti per le versioni delle immagini sono numeri e punti. I numeri devono essere compresi nell'intervallo di un valore Integer a 32 bit. Formato: *MajorVersion*.*MinorVersion*.*Patch*.
 
@@ -100,11 +100,11 @@ az sig image-version create \
 > [!NOTE]
 > È necessario attendere che la creazione della versione dell'immagine venga interamente completata e replicata prima di poter usare la stessa immagine gestita o creare un'altra versione di immagine.
 >
-> Per archiviare l'immagine nell'archiviazione Premium, è anche possibile aggiungere `--storage-account-type  premium_lrs` o l' [archiviazione con ridondanza della zona](../storage/common/storage-redundancy.md) aggiungendo `--storage-account-type  standard_zrs` quando si crea la versione dell'immagine.
+> È anche possibile archiviare l'immagine nell'archiviazione Premium aggiungendo o Archiviazione con ridondanza della zona aggiungendo `--storage-account-type  premium_lrs` quando si crea la versione [](../storage/common/storage-redundancy.md) `--storage-account-type  standard_zrs` dell'immagine.
 >
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Creare una VM dall' [immagine generalizzata](vm-generalized-image-version-cli.md) usando l'interfaccia della riga di comando di Azure.
+Creare una macchina virtuale [dall'immagine generalizzata usando l'interfaccia](vm-generalized-image-version-cli.md) della riga di comando di Azure.
 
-Per informazioni su come fornire informazioni sul piano di acquisto, vedere [fornire informazioni sul piano di acquisto di Azure Marketplace durante la creazione di immagini](marketplace-images.md).
+Per informazioni su come fornire informazioni sul piano di acquisto, vedere Fornire Azure Marketplace informazioni sul piano di acquisto [durante la creazione di immagini.](marketplace-images.md)

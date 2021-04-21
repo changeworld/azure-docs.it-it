@@ -10,12 +10,12 @@ ms.subservice: keys
 ms.topic: tutorial
 ms.date: 02/04/2021
 ms.author: ambapat
-ms.openlocfilehash: 4a3eaddd160acb8d4d2ae9f0da43ce6cb0236055
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: f1b5d6499594e9026e1615be5361c52c9ce2f4ef
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "102198150"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107774810"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault-byok"></a>Importare chiavi con protezione HSM in Key Vault
 
@@ -66,13 +66,13 @@ La tabella seguente elenca i prerequisiti per l'uso di BYOK in Azure Key Vault:
 |Securosys SA|Produttore,<br/>modulo di protezione hardware come servizio|Famiglia di moduli di protezione hardware Primus, Securosys Clouds HSM|[Strumento BYOK e documentazione di Primus](https://www.securosys.com/primus-azure-byok)|
 |StorMagic|ISV (Enterprise Key Management System)|Più marchi e modelli di moduli di protezione hardware, tra cui<ul><li>Utimaco</li><li>Thales</li><li>nCipher</li></ul>Per dettagli, vedere il [sito di StorMagic](https://stormagic.com/doc/svkms/Content/Integrations/Azure_KeyVault_BYOK.htm)|[SvKMS e BYOK di Azure Key Vault](https://stormagic.com/doc/svkms/Content/Integrations/Azure_KeyVault_BYOK.htm)|
 |IBM|Produttore|IBM 476x, CryptoExpress|[IBM Enterprise Key Management Foundation](https://www.ibm.com/security/key-management/ekmf-bring-your-own-key-azure)|
-|Utimaco|Produttore,<br/>modulo di protezione hardware come servizio|u. trust anchor, CryptoServer|[Guida all'integrazione e allo strumento Utimaco BYOK](https://support.hsm.utimaco.com/support/downloads/byok)|
+|Utimaco|Produttore,<br/>modulo di protezione hardware come servizio|u.trust Anchor, CryptoServer|[Strumento BYOK Utimaco e guida all'integrazione](https://support.hsm.utimaco.com/support/downloads/byok)|
 ||||
 
 
 ## <a name="supported-key-types"></a>Tipi di chiave supportati
 
-|Nome della chiave|Tipo di chiave|Dimensioni/curva chiave|Origine|Descrizione|
+|Nome della chiave|Tipo di chiave|Dimensioni chiave/curva|Origine|Descrizione|
 |---|---|---|---|---|
 |Chiave KEK (Key Exchange Key)|RSA| A 2.048 bit<br />A 3.072 bit<br />A 4.096 bit|Modulo di protezione hardware di Azure Key Vault|Coppia di chiavi RSA supportata da modulo di protezione hardware generata in Azure Key Vault|
 |Chiave di destinazione|
@@ -101,7 +101,7 @@ La chiave KEK deve essere:
 > [!NOTE]
 > La chiave KEK deve avere 'import' come unica operazione di chiave consentita. L'operazione 'import' e tutte le altre operazioni delle chiavi si escludono a vicenda.
 
-Usare il comando [az keyvault key create](/cli/azure/keyvault/key#az-keyvault-key-create) per creare una chiave KEK con operazioni della chiave impostate su `import`. Registrare l'identificatore della chiave (`kid`) restituito dal comando seguente. Il valore `kid` verrà usato nel [Passaggio 3](#step-3-generate-and-prepare-your-key-for-transfer).
+Usare il comando [az keyvault key create](/cli/azure/keyvault/key#az_keyvault_key_create) per creare una chiave KEK con operazioni della chiave impostate su `import`. Registrare l'identificatore della chiave (`kid`) restituito dal comando seguente. Il valore `kid` verrà usato nel [Passaggio 3](#step-3-generate-and-prepare-your-key-for-transfer).
 
 ```azurecli
 az keyvault key create --kty RSA-HSM --size 4096 --name KEKforBYOK --ops import --vault-name ContosoKeyVaultHSM
@@ -109,7 +109,7 @@ az keyvault key create --kty RSA-HSM --size 4096 --name KEKforBYOK --ops import 
 
 ### <a name="step-2-download-the-kek-public-key"></a>Passaggio 2: Scaricare la chiave pubblica KEK
 
-Usare [az keyvault key download](/cli/azure/keyvault/key#az-keyvault-key-download) per scaricare la chiave pubblica KEK in un file PEM. La chiave di destinazione importata viene crittografata mediante la chiave pubblica KEK.
+Usare [az keyvault key download](/cli/azure/keyvault/key#az_keyvault_key_download) per scaricare la chiave pubblica KEK in un file PEM. La chiave di destinazione importata viene crittografata mediante la chiave pubblica KEK.
 
 ```azurecli
 az keyvault key download --name KEKforBYOK --vault-name ContosoKeyVaultHSM --file KEKforBYOK.publickey.pem
@@ -124,15 +124,15 @@ Vedere la documentazione del fornitore del modulo di protezione hardware per sca
 Trasferire il file BYOK nel computer connesso.
 
 > [!NOTE] 
-> L'importazione delle chiavi RSA a 1.024 bit non è supportata. L'importazione della chiave a curva ellittica con la curva P-256K non è supportata.
+> L'importazione delle chiavi RSA a 1.024 bit non è supportata. L'importazione della chiave della curva ellittica con curva P-256K non è supportata.
 > 
 > **Problema noto**: l'importazione di una chiave di destinazione RSA 4K da moduli di protezione hardware di Luna è supportata solo con firmware 7.4.0 o versioni successive.
 
 ### <a name="step-4-transfer-your-key-to-azure-key-vault"></a>Passaggio 4: Trasferire la chiave ad Azure Key Vault
 
-Per completare l'importazione della chiave, trasferire il pacchetto di trasferimento della chiave, ovvero un file BYOK, dal computer disconnesso al computer connesso a Internet. Usare il comando [az keyvault key import](/cli/azure/keyvault/key#az-keyvault-key-import) per caricare il file BYOK nel modulo di protezione hardware di Key Vault.
+Per completare l'importazione della chiave, trasferire il pacchetto di trasferimento della chiave, ovvero un file BYOK, dal computer disconnesso al computer connesso a Internet. Usare il comando [az keyvault key import](/cli/azure/keyvault/key#az_keyvault_key_import) per caricare il file BYOK nel modulo di protezione hardware di Key Vault.
 
-Per importare una chiave RSA, utilizzare il comando seguente. Parameter--KTY è facoltativo e il valore predefinito è' RSA-HSM '.
+Per importare una chiave RSA, usare il comando seguente. Il parametro --kty è facoltativo e il valore predefinito è 'RSA-HSM'.
 ```azurecli
 az keyvault key import --vault-name ContosoKeyVaultHSM --name ContosoFirstHSMkey --byok-file KeyTransferPackage-ContosoFirstHSMkey.byok
 ```
@@ -148,6 +148,3 @@ Se il caricamento ha esito positivo, l'interfaccia della riga di comando di Azur
 ## <a name="next-steps"></a>Passaggi successivi
 
 È ora possibile usare questa chiave HSM protetta nell'insieme di credenziali delle chiavi. Per altre informazioni, vedere [questo confronto tra prezzi e funzionalità](https://azure.microsoft.com/pricing/details/key-vault/).
-
-
-

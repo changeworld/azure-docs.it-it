@@ -7,12 +7,13 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b04b9ababfe0e4c2a60d14044b9d3ee120837dc5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 04bc6ecd6e0a32e9234d07e995a7e012b17e3bbe
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96491044"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107769158"
 ---
 # <a name="automation-with-service-principals"></a>Automazione con le entità servizio
 
@@ -38,7 +39,7 @@ I certificati e le credenziali delle entità servizio possono essere archiviati 
 
 ## <a name="add-service-principals-to-server-admin-role"></a>Aggiungere le entità servizio al ruolo di amministratore del server
 
-Prima di poter usare un'entità servizio per le operazioni di gestione del server Analysis Services, è necessario aggiungerla al ruolo di amministratore del server. Le entità servizio devono essere aggiunte direttamente al ruolo di amministratore del server. L'aggiunta di un'entità servizio a un gruppo di sicurezza e l'aggiunta del gruppo di sicurezza al ruolo di amministratore del server non è supportata. Per altre informazioni, vedere [Aggiungere un'entità servizio al ruolo di amministratore del server](analysis-services-addservprinc-admins.md).
+Prima di poter usare un'entità servizio per le operazioni di gestione del server Analysis Services, è necessario aggiungerla al ruolo di amministratore del server. Le entità servizio devono essere aggiunte direttamente al ruolo di amministratore del server. L'aggiunta di un'entità servizio a un gruppo di sicurezza e quindi l'aggiunta di tale gruppo di sicurezza al ruolo di amministratore del server non è supportata. Per altre informazioni, vedere [Aggiungere un'entità servizio al ruolo di amministratore del server](analysis-services-addservprinc-admins.md).
 
 ## <a name="service-principals-in-connection-strings"></a>Entità servizio nelle stringhe di connessione
 

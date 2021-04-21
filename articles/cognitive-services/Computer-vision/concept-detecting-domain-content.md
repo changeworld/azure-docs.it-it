@@ -1,5 +1,5 @@
 ---
-title: Contenuto specifico di dominio-Visione artificiale
+title: Contenuto specifico di dominio - Visione artificiale
 titleSuffix: Azure Cognitive Services
 description: Informazioni su come specificare un dominio di classificazione delle immagini per restituire informazioni più dettagliate su un'immagine.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 5cd872d66088e165bfc8356ab6d96a0a6135a0e0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 530ca81cedad06c949323889cc02d2a233dd0c02
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "94538309"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107778824"
 ---
 # <a name="detect-domain-specific-content"></a>Rilevare contenuti specifici di dominio
 
@@ -26,11 +26,11 @@ Oltre all'assegnazione di tag e alla classificazione di primo livello, Visione a
 
 ### <a name="scoped-analysis"></a>Analisi con ambito
 
-È possibile analizzare un'immagine usando solo il modello specifico di dominio scelto chiamando l'API [models/ \<model\> /Analyze](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) .
+È possibile analizzare un'immagine usando solo il modello specifico di dominio scelto chiamando l'API [Models/ \<model\> /Analyze.](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-ga/operations/56f91f2e778daf14a499f21b)
 
 Di seguito è riportata una risposta JSON di esempio restituita dall'API **models/celebrities/analyze** per l'immagine specificata:
 
-![NADELLA in piedi, sorridente](./images/satya.jpeg)
+![Satya Nadella in piedi, sorridente](./images/satya.jpeg)
 
 ```json
 {
@@ -57,7 +57,7 @@ Di seguito è riportata una risposta JSON di esempio restituita dall'API **model
 
 ### <a name="enhanced-categorization-analysis"></a>Analisi avanzata della categorizzazione
 
-È anche possibile usare i modelli specifici di dominio per integrare l'analisi generale delle immagini. È possibile eseguire questa operazione come parte della [categorizzazione di alto livello](concept-categorizing-images.md) indicando modelli specifici di dominio nel parametro *details* della chiamata API [Analyze](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b).
+È anche possibile usare i modelli specifici di dominio per integrare l'analisi generale delle immagini. È possibile eseguire questa operazione come parte della [categorizzazione di alto livello](concept-categorizing-images.md) indicando modelli specifici di dominio nel parametro *details* della chiamata API [Analyze](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-ga/operations/56f91f2e778daf14a499f21b).
 
 In questo caso, viene chiamato per primo lo strumento di classificazione della tassonomia di 86 categorie. Se per una delle categorie è presente un modello specifico di dominio corrispondente, l'immagine viene passata anche attraverso il modello e vengono aggiunti i risultati.
 
@@ -105,7 +105,7 @@ Visione artificiale supporta attualmente i modelli specifici di dominio seguenti
 | celebrities | Riconoscimento di personaggi famosi, supportato per le immagini classificate nella categoria `people_` |
 | landmarks | Riconoscimento di luoghi di interesse, supportato per le immagini classificate nella categoria `outdoor_` o `building_` |
 
-La chiamata dell'API [Models](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f20e) restituisce queste informazioni insieme alle categorie cui può essere applicato ogni modello:
+La chiamata dell'API [Models](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-ga/operations/56f91f2e778daf14a499f20e) restituisce queste informazioni insieme alle categorie cui può essere applicato ogni modello:
 
 ```json
 {

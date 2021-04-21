@@ -1,22 +1,22 @@
 ---
-title: 'Esercitazione: abilitare il componente aggiuntivo del controller di ingresso per un nuovo cluster AKS con un nuovo gateway applicazione Azure'
-description: Usare questa esercitazione per informazioni su come abilitare il componente aggiuntivo del controller di ingresso per il nuovo cluster AKS con una nuova istanza del gateway applicazione.
+title: 'Esercitazione: Abilitare il componente aggiuntivo Controller di ingresso per un nuovo cluster del servizio Web Disassoce con un nuovo gateway applicazione di Azure'
+description: Usare questa esercitazione per informazioni su come abilitare il componente aggiuntivo Controller di ingresso per il nuovo cluster del servizio Web Disassoce con una nuova istanza del gateway applicazione.
 services: application-gateway
 author: caya
 ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 03/02/2021
 ms.author: caya
-ms.openlocfilehash: c37168c5165f5402dd4f57c8557bc2b7b3603533
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aad57c75481230db16a63aec7fb04fc5987ae8f0
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101720189"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107772807"
 ---
-# <a name="tutorial-enable-the-ingress-controller-add-on-for-a-new-aks-cluster-with-a-new-application-gateway-instance"></a>Esercitazione: abilitare il componente aggiuntivo del controller di ingresso per un nuovo cluster AKS con una nuova istanza del gateway applicazione
+# <a name="tutorial-enable-the-ingress-controller-add-on-for-a-new-aks-cluster-with-a-new-application-gateway-instance"></a>Esercitazione: Abilitare il componente aggiuntivo Controller di ingresso per un nuovo cluster del servizio Web Disassoce con una nuova istanza del gateway applicazione
 
-È possibile usare l'interfaccia della riga di comando di Azure per abilitare il componente aggiuntivo [controller di ingresso del gateway applicazione (AGIC)](ingress-controller-overview.md) per un nuovo cluster [Azure KUBERNETES Services (AKS)](https://azure.microsoft.com/services/kubernetes-service/) .
+È possibile usare l'interfaccia della riga di comando di Azure per abilitare il componente aggiuntivo [Controller di](ingress-controller-overview.md) ingresso del gateway applicazione per un nuovo cluster del servizio [Azure Kubernetes.](https://azure.microsoft.com/services/kubernetes-service/)
 
 In questa esercitazione verrà creato un cluster del servizio Azure Kubernetes con il componente aggiuntivo Controller in ingresso del gateway applicazione abilitato. Quando si crea il cluster, viene creata automaticamente un'istanza del gateway applicazione di Azure da usare. Verrà quindi distribuita un'applicazione di esempio che userà il componente aggiuntivo per esporre l'applicazione tramite il gateway applicazione. 
 
@@ -36,7 +36,7 @@ In questa esercitazione verranno illustrate le procedure per:
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-In Azure, si allocano le risorse correlate a un gruppo di risorse. Creare un gruppo di risorse usando [az group create](/cli/azure/group#az-group-create). L'esempio seguente consente di creare un gruppo di risorse denominato *myResourceGroup* nella località (area) *canadacentral*: 
+In Azure, si allocano le risorse correlate a un gruppo di risorse. Creare un gruppo di risorse usando [az group create](/cli/azure/group#az_group_create). L'esempio seguente consente di creare un gruppo di risorse denominato *myResourceGroup* nella località (area) *canadacentral*: 
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location canadacentral
@@ -60,7 +60,7 @@ Se si distribuisce un nuovo cluster del servizio Azure Kubernetes con il compone
 az aks create -n myCluster -g myResourceGroup --network-plugin azure --enable-managed-identity -a ingress-appgw --appgw-name myApplicationGateway --appgw-subnet-cidr "10.2.0.0/16" --generate-ssh-keys
 ```
 
-Per configurare parametri aggiuntivi per il comando `az aks create`, vedere [questi argomenti di riferimento](/cli/azure/aks#az-aks-create). 
+Per configurare parametri aggiuntivi per il comando `az aks create`, vedere [questi argomenti di riferimento](/cli/azure/aks#az_aks_create). 
 
 > [!NOTE]
 > Il cluster del servizio Azure Kubernetes creato verrà visualizzato nel gruppo di risorse creato, ovvero *myResourceGroup*. Tuttavia, l'istanza del gateway applicazione creata automaticamente si troverà nel gruppo di risorse del nodo, in cui si trovano i pool di agenti. Per impostazione predefinita, il nome del gruppo di risorse del nodo è *MC_resource-group-name_cluster-name_location*, ma può essere modificato. 

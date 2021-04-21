@@ -4,12 +4,12 @@ description: Introduzione rapida ai comandi per Batch nell'interfaccia della rig
 ms.topic: how-to
 ms.date: 07/24/2018
 ms.custom: H1Hack27Feb2017, devx-track-azurecli
-ms.openlocfilehash: bee25d9b8985f1627a5cfc05bfb336b83be60f74
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: befe2f6fe67ce7c2c4bb61153344103ee2aa70cb
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92144752"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107768434"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Gestire le risorse di Batch con l'interfaccia della riga di comando di Azure
 
@@ -54,7 +54,7 @@ Per accedere ad Azure è possibile procedere in diversi modi, descritti nel dett
 1. [Accedere modo interattivo](/cli/azure/authenticate-azure-cli). Accedere in modo interattivo quando si eseguono comandi dell'interfaccia della riga di comando di Azure direttamente dalla riga di comando.
 2. [Accedere con un'entità servizio](/cli/azure/authenticate-azure-cli). Accedere con un'entità servizio quando si eseguono comandi dell'interfaccia della riga di comando di Azure da uno script o un'applicazione.
 
-Ai fini di questo articolo, viene illustrato come accedere ad Azure in modo interattivo. Digitare [az login](/cli/azure/reference-index#az-login) nella riga di comando:
+Ai fini di questo articolo, viene illustrato come accedere ad Azure in modo interattivo. Digitare [az login](/cli/azure/reference-index#az_login) nella riga di comando:
 
 ```azurecli
 # Log in to Azure and authenticate interactively.
@@ -69,7 +69,7 @@ Gli esempi riportati nella sezione Script della shell di esempio mostrano anche 
 
 ### <a name="log-in-to-your-batch-account"></a>Accedere all'account Batch
 
-Per usare l'interfaccia della riga di comando di Azure per gestire le risorse di Batch, come pool, processi e attività, è necessario accedere all'account Batch ed eseguire l'autenticazione. Per accedere al servizio Batch, usare il comando [az batch account login](/cli/azure/batch/account#az-batch-account-login). 
+Per usare l'interfaccia della riga di comando di Azure per gestire le risorse di Batch, come pool, processi e attività, è necessario accedere all'account Batch ed eseguire l'autenticazione. Per accedere al servizio Batch, usare il comando [az batch account login](/cli/azure/batch/account#az_batch_account_login). 
 
 Per l'autenticazione con l'account Batch è possibile procedere in due modi:
 
@@ -79,9 +79,9 @@ Per l'autenticazione con l'account Batch è possibile procedere in due modi:
     
     Quando si accede ad Azure in modo interattivo, come descritto nella sezione precedente, le credenziali vengono memorizzate nella cache per accedere tramite l'interfaccia della riga di comando di Azure al proprio account Batch usando le stesse credenziali. Se si accede ad Azure usando un'entità servizio, tali credenziali vengono usate anche per accedere all'account Batch.
 
-    Un vantaggio di Azure AD è che offre il controllo degli accessi in base al ruolo di Azure (RBAC di Azure). Con il controllo degli accessi in base al ruolo di Azure, l'accesso di un utente dipende dal ruolo assegnato, anziché dal fatto che dispongano o meno delle chiavi dell'account. Anziché gestire le chiavi dell'account, è possibile gestire i ruoli di Azure e consentire Azure AD gestire l'accesso e l'autenticazione.  
+    Un vantaggio della Azure AD è che offre il controllo degli accessi in base al ruolo di Azure. Con il controllo degli accessi in base al ruolo di Azure, l'accesso di un utente dipende dal ruolo assegnato, anziché dal fatto che possieda o meno le chiavi dell'account. Anziché gestire le chiavi dell'account, è possibile gestire i ruoli di Azure e consentire Azure AD l'accesso e l'autenticazione.  
 
-     Per accedere all'account Batch con Azure AD, chiamare il comando [az batch account login](/cli/azure/batch/account#az-batch-account-login): 
+     Per accedere all'account Batch con Azure AD, chiamare il comando [az batch account login](/cli/azure/batch/account#az_batch_account_login): 
 
     ```azurecli
     az batch account login -g myresource group -n mybatchaccount

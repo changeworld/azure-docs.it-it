@@ -9,12 +9,12 @@ ms.subservice: disks
 ms.date: 10/15/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: e6630cbb44157f25bd2cbfcff25ec3132c74c61c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d347be4e6727cdda659620befe20824678160020
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105565572"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107792436"
 ---
 # <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-the-azure-cli"></a>Crittografare il disco del sistema operativo e i dischi dati collegati in un set di scalabilità di macchine virtuali con l'interfaccia della riga di comando di Azure
 
@@ -87,7 +87,7 @@ az keyvault update --name $keyvault_name --enabled-for-disk-encryption
 
 ## <a name="enable-encryption"></a>Abilitare la crittografia
 
-Per crittografare le istanze di macchine virtuali in un set di scalabilità, ottenere prima alcune informazioni sull'ID risorsa dell'insieme di credenziali delle chiavi con [az keyvault show](/cli/azure/keyvault#ext-keyvault-preview-az-keyvault-show). Queste variabili vengono quindi usate per avviare il processo di crittografia con il comando [az vmss encryption enable](/cli/azure/vmss/encryption#az-vmss-encryption-enable):
+Per crittografare le istanze di macchine virtuali in un set di scalabilità, ottenere prima alcune informazioni sull'ID risorsa dell'insieme di credenziali delle chiavi con [az keyvault show](/cli/azure/keyvault#ext-keyvault-preview-az-keyvault-show). Queste variabili vengono quindi usate per avviare il processo di crittografia con il comando [az vmss encryption enable](/cli/azure/vmss/encryption#az_vmss_encryption_enable):
 
 ```azurecli-interactive
 # Get the resource ID of the Key Vault
@@ -103,7 +103,7 @@ az vmss encryption enable \
 
 Il completamento del processo di crittografia potrebbe richiedere un minuto o due.
 
-Poiché il criterio di aggiornamento per il set di scalabilità creato in un passaggio precedente è impostato come *automatico*, le istanze di macchine virtuali avviano automaticamente il processo di crittografia. Nei set di scalabilità in cui il criterio di aggiornamento è manuale, avviare il criterio di crittografia nelle istanze di macchine virtuali con [az vmss update-instances](/cli/azure/vmss#az-vmss-update-instances).
+Poiché il criterio di aggiornamento per il set di scalabilità creato in un passaggio precedente è impostato come *automatico*, le istanze di macchine virtuali avviano automaticamente il processo di crittografia. Nei set di scalabilità in cui il criterio di aggiornamento è manuale, avviare il criterio di crittografia nelle istanze di macchine virtuali con [az vmss update-instances](/cli/azure/vmss#az_vmss_update_instances).
 
 ### <a name="enable-encryption-using-kek-to-wrap-the-key"></a>Abilitare la crittografia con la chiave di crittografia della chiave per eseguire il wrapping della chiave
 
@@ -131,7 +131,7 @@ https://[nome-insieme-credenziali-della-chiave].vault.azure.net/keys/[nome-chiav
 
 ## <a name="check-encryption-progress"></a>Verificare lo stato della crittografia
 
-Per controllare lo stato della crittografia dei dischi, usare [az vmss encryption show](/cli/azure/vmss/encryption#az-vmss-encryption-show):
+Per controllare lo stato della crittografia dei dischi, usare [az vmss encryption show](/cli/azure/vmss/encryption#az_vmss_encryption_show):
 
 ```azurecli-interactive
 az vmss encryption show --resource-group myResourceGroup --name myScaleSet
@@ -166,7 +166,7 @@ Quando le istanze di macchine virtuali sono crittografate, il codice di stato in
 
 ## <a name="disable-encryption"></a>Disabilitare la crittografia
 
-Se non si vogliono più usare i dischi delle istanze di macchine virtuali crittografate, è possibile disabilitare la crittografia con [az vmss encryption disable](/cli/azure/vmss/encryption#az-vmss-encryption-disable), come segue:
+Se non si vogliono più usare i dischi delle istanze di macchine virtuali crittografate, è possibile disabilitare la crittografia con [az vmss encryption disable](/cli/azure/vmss/encryption#az_vmss_encryption_disable), come segue:
 
 ```azurecli-interactive
 az vmss encryption disable --resource-group myResourceGroup --name myScaleSet

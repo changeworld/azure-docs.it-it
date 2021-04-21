@@ -5,12 +5,12 @@ description: Informazioni su come creare in modo dinamico un volume persistente 
 services: container-service
 ms.topic: article
 ms.date: 07/01/2020
-ms.openlocfilehash: 2ad2affee34348e8c2fc7b734c8b49d0aec8db40
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f301a01e479d03647bebf7cb042564a258e9250e
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96744910"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107776124"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>Creare dinamicamente e usare un volume persistente con File di Azure nel servizio Azure Kubernetes
 
@@ -33,7 +33,7 @@ Una classe di archiviazione permette di definire come creare una condivisione fi
 * *Standard_ZRS*: archiviazione con ridondanza della zona standard (ZRS)
 * *Standard_RAGRS*: archiviazione con ridondanza geografica e accesso in lettura standard
 * *Premium_LRS*: archiviazione con ridondanza locale Premium (LRS)
-* *Premium_ZRS* -archiviazione con ridondanza della zona Premium (ZRS)
+* *Premium_ZRS* - Archiviazione con ridondanza della zona Premium (ZRS)
 
 > [!NOTE]
 > File di Azure supporta l'archiviazione Premium nei cluster del servizio Azure Kubernetes che eseguono Kubernetes 1.13 o versione successiva. Le dimensioni minime della condivisione file Premium sono pari a 100 GB
@@ -106,7 +106,7 @@ my-azurefile   Bound     pvc-8436e62e-a0d9-11e5-8521-5a8664dc0477   5Gi        R
 
 ## <a name="use-the-persistent-volume"></a>Usare il volume permanente
 
-Il seguente YAML crea un pod che usa il volume permanente Claim *My-azurefile* per montare la condivisione file di Azure nel percorso */mnt/Azure* . Per i contenitori Windows Server specificare un valore per *mountPath* usando la convenzione di percorso di Windows, ad esempio *'D:'* .
+Il codice YAML seguente crea un pod che usa l'attestazione di volume *permanente my-azurefile* per montare la condivisione file di Azure nel *percorso /mnt/azure.* Per i contenitori Windows Server specificare un valore per *mountPath* usando la convenzione di percorso di Windows, ad esempio *'D:'* .
 
 Creare un file denominato `azure-pvc-files.yaml` e copiarlo nel codice YAML seguente. Assicurarsi che *claimName* corrisponda all'attestazione di volume permanente creata nell'ultimo passaggio.
 
@@ -190,7 +190,7 @@ parameters:
 
 Per le procedure consigliate associate, vedere [Procedure consigliate per archiviazione e backup nel servizio Azure Kubernetes][operator-best-practices-storage].
 
-Per i parametri della classe di archiviazione, vedere [provisioning dinamico](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/docs/driver-parameters.md#dynamic-provision).
+Per i parametri della classe di archiviazione, vedere [Provisioning dinamico](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/docs/driver-parameters.md#dynamic-provision).
 
 Altre informazioni sui volumi Kubernetes che usano File di Azure.
 
@@ -211,18 +211,18 @@ Altre informazioni sui volumi Kubernetes che usano File di Azure.
 [smb-overview]: /windows/desktop/FileIO/microsoft-smb-protocol-and-cifs-protocol-overview
 
 <!-- LINKS - internal -->
-[az-group-create]: /cli/azure/group#az-group-create
-[az-group-list]: /cli/azure/group#az-group-list
-[az-resource-show]: /cli/azure/aks#az-aks-show
-[az-storage-account-create]: /cli/azure/storage/account#az-storage-account-create
-[az-storage-create]: /cli/azure/storage/account#az-storage-account-create
-[az-storage-key-list]: /cli/azure/storage/account/keys#az-storage-account-keys-list
-[az-storage-share-create]: /cli/azure/storage/share#az-storage-share-create
+[az-group-create]: /cli/azure/group#az_group_create
+[az-group-list]: /cli/azure/group#az_group_list
+[az-resource-show]: /cli/azure/aks#az_aks_show
+[az-storage-account-create]: /cli/azure/storage/account#az_storage_account_create
+[az-storage-create]: /cli/azure/storage/account#az_storage_account_create
+[az-storage-key-list]: /cli/azure/storage/account/keys#az_storage_account_keys_list
+[az-storage-share-create]: /cli/azure/storage/share#az_storage_share_create
 [mount-options]: #mount-options
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli
-[az-aks-show]: /cli/azure/aks#az-aks-show
+[az-aks-show]: /cli/azure/aks#az_aks_show
 [storage-skus]: ../storage/common/storage-redundancy.md
 [kubernetes-rbac]: concepts-identity.md#role-based-access-controls-rbac
 [operator-best-practices-storage]: operator-best-practices-storage.md

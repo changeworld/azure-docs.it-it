@@ -7,12 +7,12 @@ ms.service: internet-analyzer
 ms.topic: tutorial
 ms.date: 10/16/2019
 ms.author: mebeatty
-ms.openlocfilehash: a9a9fe93ebe302a76d69249dc56933e1bcc924d1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 46caae53ed81de335c2b9d5ddbd3fd7f89424fdd
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102200088"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107780416"
 ---
 # <a name="create-an-internet-analyzer-test-using-cli-preview"></a>Creare un test dell'analizzatore Internet con l'interfaccia della riga di comando (anteprima)
 
@@ -50,7 +50,7 @@ L'interfaccia della riga di comando dell'analizzatore Internet espone i tipi di 
 
 5. Selezionare l'ID sottoscrizione a cui è stato concesso l'accesso all'anteprima pubblica dell'analizzatore Internet.
 
-    Dopo l'accesso, viene visualizzato un elenco di sottoscrizioni associate all'account Azure. Le informazioni della sottoscrizione con `isDefault: true` rappresentano la sottoscrizione attualmente attivata dopo l'accesso. Per selezionare un'altra sottoscrizione, usare il comando [az account set](/cli/azure/account#az-account-set) con l'ID sottoscrizione a cui passare. Per altre informazioni sulla selezione delle sottoscrizioni, vedere [Usare più sottoscrizioni di Azure](/cli/azure/manage-azure-subscriptions-azure-cli).
+    Dopo l'accesso, viene visualizzato un elenco di sottoscrizioni associate all'account Azure. Le informazioni della sottoscrizione con `isDefault: true` rappresentano la sottoscrizione attualmente attivata dopo l'accesso. Per selezionare un'altra sottoscrizione, usare il comando [az account set](/cli/azure/account#az_account_set) con l'ID sottoscrizione a cui passare. Per altre informazioni sulla selezione delle sottoscrizioni, vedere [Usare più sottoscrizioni di Azure](/cli/azure/manage-azure-subscriptions-azure-cli).
 
     È possibile accedere in modo non interattivo, come illustrato nei dettagli in [Accedere con l'interfaccia della riga di comando di Azure](/cli/azure/authenticate-azure-cli).
 

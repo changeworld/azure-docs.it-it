@@ -5,12 +5,12 @@ description: Informazioni su come proteggere il traffico in ingresso e in uscita
 services: container-service
 ms.topic: article
 ms.date: 03/16/2021
-ms.openlocfilehash: 17e14859ecdfe11872d5b0526d755d01bc1b034a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b05c4add0a62f07b187376d670f23179ba97f3a8
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104577853"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107767440"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Proteggere il traffico tra i pod usando criteri di rete nel servizio Azure Kubernetes
 
@@ -122,9 +122,9 @@ az role assignment create --assignee $SP_ID --scope $VNET_ID --role Contributor
 SUBNET_ID=$(az network vnet subnet show --resource-group $RESOURCE_GROUP_NAME --vnet-name myVnet --name myAKSSubnet --query id -o tsv)
 ```
 
-### <a name="create-an-aks-cluster-for-azure-network-policies"></a>Creare un cluster AKS per i criteri di rete di Azure
+### <a name="create-an-aks-cluster-for-azure-network-policies"></a>Creare un cluster del servizio AzureKs per i criteri di rete di Azure
 
-Creare il cluster AKS e specificare la rete virtuale, le informazioni sull'entità servizio e *Azure* per il plug-in di rete e i criteri di rete.
+Creare il cluster del servizio AzureKs e specificare la rete virtuale, le informazioni sull'entità servizio e *Azure per* il plug-in di rete e i criteri di rete.
 
 ```azurecli
 az aks create \
@@ -148,13 +148,13 @@ La creazione del cluster richiede alcuni minuti. Al termine, configurare `kubect
 az aks get-credentials --resource-group $RESOURCE_GROUP_NAME --name $CLUSTER_NAME
 ```
 
-### <a name="create-an-aks-cluster-for-calico-network-policies"></a>Creare un cluster AKS per i criteri di rete di calice
+### <a name="create-an-aks-cluster-for-calico-network-policies"></a>Creare un cluster del servizio Web Dink per i criteri di rete Calico
 
-Creare il cluster AKS e specificare la rete virtuale, le informazioni sull'entità servizio, *Azure* per il plug-in di rete e il *calice* per i criteri di rete. L'uso di *calice* come criterio di rete Abilita la rete di calice nei pool di nodi Linux e Windows.
+Creare il cluster del servizio AzureKs e specificare la rete virtuale, le informazioni sull'entità servizio, *Azure* per il plug-in di rete e *calico* per i criteri di rete. *L'uso di calico* come criterio di rete abilita la rete Calico nei pool di nodi Sia Linux che Windows.
 
-Se si prevede di aggiungere pool di nodi di Windows al cluster, includere `windows-admin-username` i `windows-admin-password` parametri e con che soddisfano i requisiti per le [password di Windows Server][windows-server-password]. Per usare calice con i pool di nodi di Windows, è necessario registrare anche il `Microsoft.ContainerService/EnableAKSWindowsCalico` .
+Se si prevede di aggiungere pool di nodi Windows al cluster, includere i parametri e `windows-admin-username` `windows-admin-password` con che soddisfano i requisiti delle password [di Windows Server.][windows-server-password] Per usare Calico con i pool di nodi Windows, è anche necessario registrare `Microsoft.ContainerService/EnableAKSWindowsCalico` .
 
-Registrare il `EnableAKSWindowsCalico` flag feature usando il comando [AZ feature Register][az-feature-register] , come illustrato nell'esempio seguente:
+Registrare `EnableAKSWindowsCalico` il flag di funzionalità usando il comando [az feature register,][az-feature-register] come illustrato nell'esempio seguente:
 
 ```azurecli-interactive
 az feature register --namespace "Microsoft.ContainerService" --name "EnableAKSWindowsCalico"
@@ -166,22 +166,22 @@ az feature register --namespace "Microsoft.ContainerService" --name "EnableAKSWi
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableAKSWindowsCalico')].{Name:name,State:properties.state}"
 ```
 
-Quando si è pronti, aggiornare la registrazione del provider di risorse *Microsoft. servizio contenitore* usando il comando [AZ provider Register][az-provider-register] :
+Quando si è pronti, aggiornare la registrazione del provider di risorse *Microsoft.ContainerService* usando il [comando az provider register:][az-provider-register]
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
 ```
 
 > [!IMPORTANT]
-> A questo punto, l'uso di criteri di rete di calice con nodi Windows è disponibile nei nuovi cluster con Kubernetes versione 1,20 o successiva con calice 3.17.2 e richiede l'uso della rete CNI di Azure. Per i nodi Windows nei cluster AKS con calice abilitato è inoltre abilitato [Direct Server Return (DSR)][dsr] per impostazione predefinita.
+> Al momento, l'uso dei criteri di rete Calico con nodi Windows è disponibile nei nuovi cluster che usano Kubernetes versione 1.20 o successiva con Calico 3.17.2 e richiede l'uso di Azure CNI rete. I nodi Windows nei cluster del servizio Web Disassociato con Calico abilitato hanno anche [Direct Server Return (DSR)][dsr] abilitato per impostazione predefinita.
 >
-> Per i cluster con solo pool di nodi Linux che eseguono Kubernetes 1,20 con versioni precedenti di calice, la versione di calice verrà aggiornata automaticamente a 3.17.2.
+> Per i cluster con solo pool di nodi Linux che eseguono Kubernetes 1.20 con versioni precedenti di Calico, la versione calico verrà aggiornata automaticamente alla versione 3.17.2.
 
-I criteri di rete di calice con nodi Windows sono attualmente in anteprima.
+I criteri di rete Calico con nodi Windows sono attualmente in anteprima.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-Creare un nome utente da usare come credenziali di amministratore per i contenitori di Windows Server nel cluster. I comandi seguenti richiedono un nome utente e lo impostano WINDOWS_USERNAME per l'uso in un comando successivo. tenere presente che i comandi in questo articolo sono immessi in una shell BASH.
+Creare un nome utente da usare come credenziali di amministratore per i contenitori di Windows Server nel cluster. I comandi seguenti consentono di richiedere un nome utente e di impostarlo WINDOWS_USERNAME per l'uso in un comando successivo(tenere presente che i comandi in questo articolo vengono immessi in una shell BASH).
 
 ```azurecli-interactive
 echo "Please enter the username to use as administrator credentials for Windows Server containers on your cluster: " && read WINDOWS_USERNAME
@@ -206,7 +206,7 @@ az aks create \
     --network-policy calico
 ```
 
-La creazione del cluster richiede alcuni minuti. Per impostazione predefinita, il cluster viene creato solo con un pool di nodi Linux. Se si desidera utilizzare i pool di nodi di Windows, è possibile aggiungerne uno. Ad esempio:
+La creazione del cluster richiede alcuni minuti. Per impostazione predefinita, il cluster viene creato solo con un pool di nodi Linux. Se si desidera usare i pool di nodi di Windows, è possibile aggiungerne uno. Ad esempio:
 
 ```azurecli
 az aks nodepool add \
@@ -225,7 +225,7 @@ az aks get-credentials --resource-group $RESOURCE_GROUP_NAME --name $CLUSTER_NAM
 
 ## <a name="deny-all-inbound-traffic-to-a-pod"></a>Rifiutare tutto il traffico in ingresso verso un pod
 
-Prima di definire le regole per consentire il traffico di rete specifico, creare innanzitutto un criterio di rete per rifiutare tutto il traffico. Questo criterio fornisce un punto di partenza per iniziare a creare un oggetto allow per solo il traffico desiderato. Si vede anche chiaramente che il traffico viene eliminato quando si applica il criterio di rete.
+Prima di definire le regole per consentire il traffico di rete specifico, creare innanzitutto un criterio di rete per rifiutare tutto il traffico. Questo criterio offre un punto di partenza per iniziare a creare un elenco di indirizzi consentiti solo per il traffico desiderato. Si vede anche chiaramente che il traffico viene eliminato quando si applica il criterio di rete.
 
 Per l'ambiente dell'applicazione di esempio e le regole del traffico, è necessario creare per prima cosa uno spazio dei nomi chiamato *development* per eseguire i pod di esempio:
 
@@ -561,12 +561,12 @@ Per altre informazioni sui criteri, fare riferimento ai [Criteri di rete Kuberne
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli
 [use-advanced-networking]: configure-azure-cni.md
-[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
+[az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
 [concepts-network]: concepts-network.md
-[az-feature-register]: /cli/azure/feature#az-feature-register
-[az-feature-list]: /cli/azure/feature#az-feature-list
-[az-provider-register]: /cli/azure/provider#az-provider-register
+[az-feature-register]: /cli/azure/feature#az_feature_register
+[az-feature-list]: /cli/azure/feature#az_feature_list
+[az-provider-register]: /cli/azure/provider#az_provider_register
 [windows-server-password]: /windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#reference
-[az-extension-add]: /cli/azure/extension#az-extension-add
-[az-extension-update]: /cli/azure/extension#az-extension-update
+[az-extension-add]: /cli/azure/extension#az_extension_add
+[az-extension-update]: /cli/azure/extension#az_extension_update
 [dsr]: ../load-balancer/load-balancer-multivip-overview.md#rule-type-2-backend-port-reuse-by-using-floating-ip

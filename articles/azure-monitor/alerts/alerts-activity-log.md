@@ -3,12 +3,12 @@ title: Creare, visualizzare e gestire gli avvisi del log attività in Monitoragg
 description: Creare avvisi del log attività usando il portale di Azure, un modello di Azure Resource Manager e Azure PowerShell.
 ms.topic: conceptual
 ms.date: 06/25/2019
-ms.openlocfilehash: 26ca755f6675fa19c3b122c3528e05d1e8d76845
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 647378d7e93ab383441b363315a84cea8a5ab773
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102045531"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107772542"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-by-using-azure-monitor"></a>Creare, visualizzare e gestire gli avvisi del log attività usando Monitoraggio di Azure  
 
@@ -26,10 +26,10 @@ Quando si creano le regole di avviso, verificare quanto segue:
 - La sottoscrizione nell'ambito non deve essere diversa dalla sottoscrizione in cui viene creato l'avviso.
 - I criteri devono essere livello, stato, chiamante, gruppo di risorse, ID risorsa, tipo di risorsa o categoria di eventi in cui è stato configurato l'avviso.
 - È consentita una sola condizione "allOf".
-- ' AnyOf ' può essere usato per consentire più condizioni su più campi, ad esempio se i campi "status" o "SubStatus" sono uguali a un determinato valore. Si noti che l'uso di ' AnyOf ' è attualmente limitato alla creazione della regola di avviso mediante una distribuzione di modelli ARM.
-- È possibile utilizzare ' ContainsAny ' per consentire più valori dello stesso campo, ad esempio se "Operation" è uguale a "Delete" o "Modify". Si noti che l'uso di ' ContainsAny ' è attualmente limitato alla creazione della regola di avviso mediante una distribuzione di modelli ARM.
+- È possibile usare 'AnyOf' per consentire più condizioni su più campi, ad esempio se i campi "status" o "subStatus" sono uguali a un determinato valore. Si noti che l'uso di 'AnyOf' è attualmente limitato alla creazione della regola di avviso tramite una distribuzione di modelli di Gestione risorse di Microsoft.
+- 'ContainsAny' può essere usato per consentire più valori dello stesso campo (ad esempio, se "operation" è uguale a 'delete' o 'modify'). Si noti che l'uso di 'ContainsAny' è attualmente limitato alla creazione della regola di avviso tramite la distribuzione di un modello arm.
 - Se la categoria è impostata su "Administrative", nell'avviso è necessario specificare almeno uno dei criteri precedenti. Non è possibile creare un avviso che viene attivato ogni volta che si crea un evento nei log attività.
-- Non è possibile creare avvisi per gli eventi nella categoria avvisi del log attività.
+- Non è possibile creare avvisi per gli eventi nella categoria Avvisi del log attività.
 
 ## <a name="azure-portal"></a>Portale di Azure
 
@@ -112,7 +112,7 @@ Una semplice analogia per comprendere le condizioni in base a cui è possibile c
 
 1. Nel portale di Azure selezionare **Monitoraggio** > **Avvisi**. Selezionare **Gestisci regole di avviso** nell'angolo superiore sinistro della finestra.
 
-    ![Screenshot mostra il log attività con la casella di ricerca evidenziata.](media/alerts-activity-log/manage-alert-rules.png)
+    ![Screenshot che mostra il log attività con la casella di ricerca evidenziata.](media/alerts-activity-log/manage-alert-rules.png)
 
     Viene visualizzato l'elenco delle regole disponibili.
 
@@ -205,8 +205,8 @@ Il codice JSON di esempio precedente può essere salvato, ad esempio con il nome
 
   > [!NOTE]
   > 
-  > Si noti che è possibile definire gli avvisi del log attività di livello più alto è Subscription.
-  > Il che significa che non è possibile definire un avviso per due sottoscrizioni, pertanto la definizione deve essere un avviso per ogni sottoscrizione.
+  > Si noti che gli avvisi del log attività di livello superiore possono essere definiti come sottoscrizione.
+  > Ciò significa che non è possibile definire un avviso per un paio di sottoscrizioni, pertanto la definizione deve essere un avviso per ogni sottoscrizione.
 
 I campi seguenti sono le opzioni che è possibile usare nel modello di Azure Resource Manager per i campi delle condizioni: Si noti che "Resource Health", "Advisor" e "Service Health" hanno campi di proprietà aggiuntivi per i propri campi speciali. 
 1. resourceId:  ID risorsa della risorsa interessata nell'evento del log attività su cui deve essere generato l'avviso.
@@ -276,13 +276,13 @@ Per la gestione delle regole di avviso del log attività sono disponibili comand
 
 Per creare una nuova regola di avviso del log attività, usare i comandi seguenti nell'ordine indicato:
 
-1. [az monitor activity-log alert create](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-create): creare una nuova risorsa di regola di avviso del log attività.
+1. [az monitor activity-log alert create](/cli/azure/monitor/activity-log/alert#az_monitor_activity_log_alert_create): creare una nuova risorsa di regola di avviso del log attività.
 1. [az monitor activity-log alert scope](/cli/azure/monitor/activity-log/alert/scope): aggiungere l'ambito per la regola di avviso del log attività creata.
 1. [az monitor activity-log alert action-group](/cli/azure/monitor/activity-log/alert/action-group): aggiungere un gruppo di azioni alla regola di avviso del log attività.
 
-Per recuperare una risorsa di regola di avviso del log attività, usare il comando [az monitor activity-log alert show](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-show
-) dell'interfaccia della riga di comando di Azure. Per visualizzare tutte le risorse di regola di avviso del log attività in un gruppo di risorse, usare [az monitor activity-log alert list](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-list).
-Le risorse di regola di avviso del log attività possono essere rimosse usando il comando [az monitor activity-log alert delete](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-delete) dell'interfaccia della riga di comando di Azure.
+Per recuperare una risorsa di regola di avviso del log attività, usare il comando [az monitor activity-log alert show](/cli/azure/monitor/activity-log/alert#az_monitor_activity_log_alert_show
+) dell'interfaccia della riga di comando di Azure. Per visualizzare tutte le risorse di regola di avviso del log attività in un gruppo di risorse, usare [az monitor activity-log alert list](/cli/azure/monitor/activity-log/alert#az_monitor_activity_log_alert_list).
+Le risorse di regola di avviso del log attività possono essere rimosse usando il comando [az monitor activity-log alert delete](/cli/azure/monitor/activity-log/alert#az_monitor_activity_log_alert_delete) dell'interfaccia della riga di comando di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

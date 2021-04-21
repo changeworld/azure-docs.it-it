@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 02/09/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: eaf512915532b482c25e830cd9f2e01d61aa4524
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5740c1c299e8a6a2e8874bd13aae76b0353cc6a2
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100572787"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107775871"
 ---
 # <a name="configure-an-aks-cluster"></a>Configurare un cluster del servizio Azure Kubernetes
 
@@ -19,33 +19,33 @@ Per creare un cluster AKS, potrebbe essere necessario personalizzare la configur
 
 ## <a name="os-configuration"></a>Configurazione del sistema operativo
 
-AKS supporta ora Ubuntu 18,04 come sistema operativo del nodo predefinito (sistema operativo) in disponibilità generale per i cluster in versioni di kubernetes superiori a 1,18 per le versioni precedenti 1,18, AKS Ubuntu 16,04 è ancora l'immagine di base predefinita. Da kubernetes v 1.18 e versioni successive, la base predefinita è AKS Ubuntu 18,04.
+Il servizio Kubernetes supporta ora Ubuntu 18.04 come sistema operativo del nodo predefinito nella disponibilità generale (GA) per i cluster nelle versioni kubernetes superiori alla 1.18 Per le versioni successive alla 1.18, il servizio Kubernetes Ubuntu 16.04 è ancora l'immagine di base predefinita. Da kubernetes v1.18 e versioni successive, la base predefinita è AKS Ubuntu 18.04.
 
 > [!IMPORTANT]
-> Pool di nodi creati in Kubernetes v 1.18 o superiore per impostazione predefinita nell' `AKS Ubuntu 18.04` immagine del nodo. I pool di nodi in una versione Kubernetes supportata inferiore a 1,18 ricevono `AKS Ubuntu 16.04` come immagine del nodo, ma verranno aggiornati a `AKS Ubuntu 18.04` una volta che la versione Kubernetes del pool di nodi verrà aggiornata a v 1.18 o successiva.
+> I pool di nodi creati in Kubernetes v1.18 o versione successiva hanno come impostazione predefinita `AKS Ubuntu 18.04` l'immagine del nodo. I pool di nodi in una versione kubernetes supportata inferiore alla 1.18 ricevono come immagine del nodo, ma verranno aggiornati a dopo l'aggiornamento della versione kubernetes del pool di nodi alla `AKS Ubuntu 16.04` `AKS Ubuntu 18.04` versione 1.18 o successiva.
 > 
-> Si consiglia vivamente di testare i carichi di lavoro nei pool di nodi AKS Ubuntu 18,04 prima di usare i cluster in 1,18 o versione successiva.
+> È consigliabile testare i carichi di lavoro nei pool di nodi Ubuntu 18.04 del servizio Web del servizio AKS prima di usare i cluster nella versione 1.18 o successiva.
 
 
-### <a name="use-aks-ubuntu-1804-ga-on-new-clusters"></a>Usare AKS Ubuntu 18,04 (GA) in nuovi cluster
+### <a name="use-aks-ubuntu-1804-ga-on-new-clusters"></a>Usare AKS Ubuntu 18.04 (GA) nei nuovi cluster
 
-I cluster creati in Kubernetes v 1.18 o versione successiva vengono predefiniti per l' `AKS Ubuntu 18.04` immagine del nodo. I pool di nodi in una versione Kubernetes supportata inferiore a 1,18 continueranno `AKS Ubuntu 16.04` a essere visualizzati come immagine del nodo, ma verranno aggiornati in `AKS Ubuntu 18.04` una volta che la versione Kubernetes del cluster o del pool di nodi verrà aggiornata a v 1.18 o versione successiva.
+I cluster creati in Kubernetes v1.18 o versione successiva hanno come impostazione predefinita `AKS Ubuntu 18.04` l'immagine del nodo. I pool di nodi in una versione di Kubernetes supportata inferiore alla 1.18 riceveranno comunque come immagine del nodo, ma verranno aggiornati a dopo l'aggiornamento della versione kubernetes del cluster o del pool di nodi alla `AKS Ubuntu 16.04` `AKS Ubuntu 18.04` versione 1.18 o successiva.
 
-Si consiglia vivamente di testare i carichi di lavoro nei pool di nodi AKS Ubuntu 18,04 prima di usare i cluster in 1,18 o versione successiva.
+È consigliabile testare i carichi di lavoro nei pool di nodi Ubuntu 18.04 del servizio AKS prima di usare cluster nella versione 1.18 o successiva.
 
-Per creare un cluster usando un' `AKS Ubuntu 18.04` immagine del nodo, è sufficiente creare un cluster che esegue kubernetes v 1.18 o versione successiva, come illustrato di seguito.
+Per creare un cluster usando l'immagine del nodo, è sufficiente creare un cluster che esegue `AKS Ubuntu 18.04` kubernetes v1.18 o versione successiva, come illustrato di seguito
 
 ```azurecli
 az aks create --name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.18.14
 ```
 
-### <a name="use-aks-ubuntu-1804-ga-on-existing-clusters"></a>Usare AKS Ubuntu 18,04 (GA) sui cluster esistenti
+### <a name="use-aks-ubuntu-1804-ga-on-existing-clusters"></a>Usare AKS Ubuntu 18.04 (GA) nei cluster esistenti
 
-I cluster creati in Kubernetes v 1.18 o versione successiva vengono predefiniti per l' `AKS Ubuntu 18.04` immagine del nodo. I pool di nodi in una versione Kubernetes supportata inferiore a 1,18 continueranno `AKS Ubuntu 16.04` a essere visualizzati come immagine del nodo, ma verranno aggiornati in `AKS Ubuntu 18.04` una volta che la versione Kubernetes del cluster o del pool di nodi verrà aggiornata a v 1.18 o versione successiva.
+I cluster creati in Kubernetes v1.18 o versione successiva hanno come impostazione predefinita `AKS Ubuntu 18.04` l'immagine del nodo. I pool di nodi in una versione di Kubernetes supportata inferiore alla 1.18 riceveranno comunque come immagine del nodo, ma verranno aggiornati a dopo l'aggiornamento della versione kubernetes del cluster o del pool di nodi alla `AKS Ubuntu 16.04` `AKS Ubuntu 18.04` versione 1.18 o successiva.
 
-Si consiglia vivamente di testare i carichi di lavoro nei pool di nodi AKS Ubuntu 18,04 prima di usare i cluster in 1,18 o versione successiva.
+È consigliabile testare i carichi di lavoro nei pool di nodi Ubuntu 18.04 del servizio Web del servizio AKS prima di usare i cluster nella versione 1.18 o successiva.
 
-Se i cluster o i pool di nodi sono pronti per l' `AKS Ubuntu 18.04` immagine del nodo, è possibile aggiornarli semplicemente a un v 1.18 o versione successiva, come indicato di seguito.
+Se i cluster o i pool di nodi sono pronti per l'immagine del nodo, è sufficiente `AKS Ubuntu 18.04` aggiornarli a una versione 1.18 o successiva, come indicato di seguito.
 
 ```azurecli
 az aks upgrade --name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.18.14
@@ -57,14 +57,14 @@ Se si vuole solo aggiornare un solo pool di nodi:
 az aks nodepool upgrade -name ubuntu1804 --cluster-name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.18.14
 ```
 
-### <a name="test-aks-ubuntu-1804-ga-on-existing-clusters"></a>Test AKS Ubuntu 18,04 (GA) sui cluster esistenti
+### <a name="test-aks-ubuntu-1804-ga-on-existing-clusters"></a>Testare AKS Ubuntu 18.04 (GA) in cluster esistenti
 
-Pool di nodi creati in Kubernetes v 1.18 o superiore per impostazione predefinita nell' `AKS Ubuntu 18.04` immagine del nodo. I pool di nodi in una versione Kubernetes supportata inferiore a 1,18 continueranno `AKS Ubuntu 16.04` a essere visualizzati come immagine del nodo, ma verranno aggiornati a `AKS Ubuntu 18.04` una volta che la versione Kubernetes del pool di nodi verrà aggiornata a v 1.18 o successiva.
+I pool di nodi creati in Kubernetes v1.18 o versione successiva hanno come impostazione predefinita `AKS Ubuntu 18.04` l'immagine del nodo. I pool di nodi in una versione di Kubernetes supportata inferiore alla 1.18 riceveranno comunque come immagine del nodo, ma verranno aggiornati a dopo l'aggiornamento della versione kubernetes del pool di nodi alla `AKS Ubuntu 16.04` `AKS Ubuntu 18.04` versione 1.18 o successiva.
 
-Si consiglia vivamente di testare i carichi di lavoro nei pool di nodi AKS Ubuntu 18,04 prima di aggiornare i pool di nodi di produzione.
+È consigliabile testare i carichi di lavoro nei pool di nodi di Ubuntu Ubuntu 18.04 del AKS prima di aggiornare i pool di nodi di produzione.
 
-Per creare un pool di nodi usando un' `AKS Ubuntu 18.04` immagine del nodo, è sufficiente creare un pool di nodi che esegue kubernetes v 1.18 o versione successiva. Il piano di controllo del cluster deve essere almeno in v 1.18 o superiore, ma gli altri pool di nodi possono rimanere in una versione precedente di kubernetes.
-Di seguito viene prima di tutto aggiornato il piano di controllo e quindi viene creato un nuovo pool di nodi con v 1.18 che riceverà la nuova versione del sistema operativo dell'immagine del nodo.
+Per creare un pool di nodi usando l'immagine del nodo, è sufficiente creare un pool di nodi che `AKS Ubuntu 18.04` esegue kubernetes v1.18 o versione successiva. Il piano di controllo del cluster deve essere almeno sulla versione 1.18 o successiva, ma gli altri pool di nodi possono rimanere in una versione precedente di kubernetes.
+Di seguito viene prima aggiornato il piano di controllo e quindi viene creato un nuovo pool di nodi con la versione 1.18 che riceverà la nuova versione del sistema operativo dell'immagine del nodo.
 
 ```azurecli
 az aks upgrade --name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.18.14 --control-plane-only
@@ -74,89 +74,89 @@ az aks nodepool add --name ubuntu1804 --cluster-name myAKSCluster --resource-gro
 
 ## <a name="container-runtime-configuration"></a>Configurazione del runtime del contenitore
 
-Un runtime contenitore è un software che esegue contenitori e gestisce le immagini del contenitore in un nodo. Il runtime consente di astrarre la funzionalità sys-calls o del sistema operativo (OS) specifica per l'esecuzione di contenitori in Linux o Windows. I cluster AKS che usano i pool di nodi Kubernetes versione 1,19 e sono più usati `containerd` come runtime del contenitore. I cluster AKS che usano Kubernetes prima della versione 1.19 per i pool di nodi usano [Moby](https://mobyproject.org/) (upstream Docker) come runtime del contenitore.
+Un runtime del contenitore è un software che esegue contenitori e gestisce le immagini dei contenitori in un nodo. Il runtime consente di astrarre le chiamate sys o funzionalità specifiche del sistema operativo per eseguire contenitori in Linux o Windows. Cluster del servizio Kubernetes che usano pool di nodi Kubernetes versione 1.19 e un uso maggiore `containerd` come runtime del contenitore. I cluster del servizio Kubernetes che usano Kubernetes prima della versione 1.19 per i pool di nodi usano [Moby](https://mobyproject.org/) (docker upstream) come runtime del contenitore.
 
-![IRC Docker 1](media/cluster-configuration/docker-cri.png)
+![Docker CRI 1](media/cluster-configuration/docker-cri.png)
 
-[`Containerd`](https://containerd.io/) è un runtime del contenitore principale conforme a [OCI](https://opencontainers.org/) (Open Container Initiative) che fornisce il set minimo di funzionalità necessarie per l'esecuzione di contenitori e la gestione delle immagini in un nodo. È stata [donata](https://www.cncf.io/announcement/2017/03/29/containerd-joins-cloud-native-computing-foundation/) al cloud native Compute Foundation (CNCF) a marzo 2017. La versione corrente di Moby usata da AKS usa già e si basa su `containerd` , come illustrato in precedenza.
+[`Containerd`](https://containerd.io/) è un runtime del contenitore core conforme a [OCI](https://opencontainers.org/) (Open Container Initiative) che fornisce il set minimo di funzionalità necessarie per eseguire contenitori e gestire le immagini in un nodo. È stato [donato](https://www.cncf.io/announcement/2017/03/29/containerd-joins-cloud-native-computing-foundation/) a Cloud Native Compute Foundation (CNCF) nel marzo del 2017. La versione corrente di Moby utilizzata dal supporto di AKS sfrutta già e si basa su `containerd` , come illustrato in precedenza.
 
-Con un `containerd` nodo basato su e i pool di nodi, anziché comunicare con `dockershim` , il kubelet parlerà direttamente con `containerd` il plug-in dell'interfaccia di runtime del contenitore, rimuovendo gli hop aggiuntivi nel flusso rispetto all'implementazione di IRC di Docker. Di conseguenza, si noterà una migliore latenza di avvio del Pod e un minor utilizzo di risorse (CPU e memoria).
+Con un pool di nodi e nodi basato su , invece di parlare con , il kubelet parlerà direttamente con tramite il plug-in CRI (interfaccia di runtime del contenitore), rimuovendo hop aggiuntivi nel flusso rispetto all'implementazione di `containerd` `dockershim` `containerd` Docker CRI. Di conseguenza, si può vedere una migliore latenza di avvio dei pod e un minore utilizzo di risorse (CPU e memoria).
 
-Usando `containerd` per i nodi AKS, la latenza di avvio del Pod migliora e l'utilizzo delle risorse del nodo da parte del runtime del contenitore diminuisce. Questi miglioramenti sono abilitati da questa nuova architettura, in cui kubelet comunica direttamente con `containerd` il plug-in di cri, mentre nell'architettura di Moby/Docker kubelet comunicherà con il `dockershim` motore Docker e prima di raggiungere `containerd` , ottenendo hop aggiuntivi nel flusso.
+Usando per i nodi del servizio Contenitore di Microsoft Container, la latenza di avvio dei pod migliora e l'utilizzo delle risorse del nodo da parte del `containerd` runtime del contenitore diminuisce. Questi miglioramenti sono abilitati da questa nuova architettura in cui kubelet dialoga direttamente con tramite il `containerd` plug-in CRI, mentre nell'architettura Moby/docker kubelet parla con il motore Docker e prima di raggiungere , con hop aggiuntivi nel `dockershim` `containerd` flusso.
 
-![CRI di Docker 2](media/cluster-configuration/containerd-cri.png)
+![Docker CRI 2](media/cluster-configuration/containerd-cri.png)
 
-`Containerd` funziona a ogni versione GA di Kubernetes in AKS e in ogni versione Kubernetes upstream precedente alla versione 1.19 e supporta tutte le funzionalità Kubernetes e AKS.
+`Containerd` funziona in ogni versione ga di Kubernetes nel servizio Kubernetes e in ogni versione upstream di Kubernetes precedente alla versione 1.19 e supporta tutte le funzionalità di Kubernetes e del servizio Kubernetes.
 
 > [!IMPORTANT]
-> I cluster con pool di nodi creati in Kubernetes v 1.19 o superiore vengono predefiniti per `containerd` il runtime del contenitore. I cluster con pool di nodi in una versione Kubernetes supportata inferiore a 1,19 ricevono `Moby` per il runtime del contenitore, ma verranno aggiornati a `ContainerD` una volta che la versione Kubernetes del pool di nodi verrà aggiornata a v 1.19 o successiva. È comunque possibile usare `Moby` i pool di nodi e i cluster in versioni precedenti supportate fino a quando non sono disponibili supporto.
+> Per impostazione predefinita, i cluster con pool di nodi creati in Kubernetes v1.19 o versione successiva sono `containerd` per il runtime del contenitore. I cluster con pool di nodi in una versione di Kubernetes supportata precedente alla 1.19 ricevono per il runtime del contenitore, ma verranno aggiornati a dopo che la versione di Kubernetes del pool di nodi è stata aggiornata alla `Moby` `ContainerD` versione 1.19 o successiva. È comunque possibile usare i pool di nodi e i cluster nelle versioni supportate precedenti fino `Moby` a quando non viene disattivato il supporto.
 > 
-> Si consiglia vivamente di testare i carichi di lavoro nei pool di nodi AKS con `containerD` prima di usare i cluster 1,19 o versione successiva.
+> È consigliabile testare i carichi di lavoro nei pool di nodi del servizio Web Diaks con prima di usare `containerD` i cluster nella versione 1.19 o successiva.
 
 ### <a name="containerd-limitationsdifferences"></a>`Containerd` limitazioni/differenze
 
-* Per usare `containerd` come runtime del contenitore è necessario usare AKS Ubuntu 18,04 come immagine del sistema operativo di base.
-* Mentre il set di strumenti Docker è ancora presente nei nodi, Kubernetes USA `containerd` come runtime del contenitore. Quindi, poiché Moby/Docker non gestisce i contenitori creati da Kubernetes nei nodi, non è possibile visualizzare o interagire con i contenitori usando i comandi di Docker (ad esempio `docker ps` ) o l'API docker.
-* Per `containerd` , è consigliabile usare [`crictl`](https://kubernetes.io/docs/tasks/debug-application-cluster/crictl) come interfaccia della riga di comando sostitutiva anziché l'interfaccia della riga di comando di Docker per la **risoluzione dei problemi relativi** a Pod, contenitori e immagini contenitore nei nodi Kubernetes (ad esempio, `crictl ps` ). 
-   * Non fornisce la funzionalità completa dell'interfaccia della riga di comando di Docker. È progettato solo per la risoluzione dei problemi.
-   * `crictl` offre una visualizzazione più intuitiva dei contenitori, con concetti quali pod e così via.
-* `Containerd` imposta la registrazione usando il formato di registrazione standardizzato, `cri` che è diverso da quello attualmente ottenuto dal driver JSON di Docker. La soluzione di registrazione deve supportare il `cri` formato di registrazione, ad esempio [monitoraggio di Azure per i contenitori](../azure-monitor/containers/container-insights-enable-new-cluster.md).
-* Non è più possibile accedere al motore Docker, `/var/run/docker.sock` o usare Docker-in-Docker (DinD).
-  * Se al momento si estraggono i registri applicazioni o i dati di monitoraggio dal motore Docker, usare invece un elemento come [monitoraggio di Azure per i contenitori](../azure-monitor/containers/container-insights-enable-new-cluster.md) . Inoltre, AKS non supporta l'esecuzione di comandi fuori banda sui nodi dell'agente che potrebbero causare instabilità.
-  * Anche quando si usa Moby/Docker, la creazione di immagini e la possibilità di sfruttare direttamente il motore Docker con i metodi precedenti sono fortemente sconsigliate. Kubernetes non è in grado di riconoscere le risorse [usate e questi](https://securityboulevard.com/2018/05/escaping-the-whale-things-you-probably-shouldnt-do-with-docker-part-1/)approcci presentano molti problemi descritti [qui](https://jpetazzo.github.io/2015/09/03/do-not-use-docker-in-docker-for-ci/) , ad esempio.
-* Compilazione di immagini: è possibile continuare a usare il flusso di lavoro di compilazione Docker corrente come di consueto, a meno che non si stiano compilando immagini all'interno del cluster AKS. In questo caso, si consiglia di passare all'approccio consigliato per la creazione di immagini con [attività ACR](../container-registry/container-registry-quickstart-task-cli.md)o un'opzione in cluster più sicura, ad esempio [Docker buildx](https://github.com/docker/buildx).
+* Per usare `containerd` come runtime del contenitore, è necessario usare il servizio Contenitore di AKS Ubuntu 18.04 come immagine del sistema operativo di base.
+* Mentre il set di strumenti Docker è ancora presente nei nodi, Kubernetes usa `containerd` come runtime del contenitore. Pertanto, poiché Moby/Docker non gestisce i contenitori creati da Kubernetes nei nodi, non è possibile visualizzare o interagire con i contenitori usando comandi Docker (ad esempio ) o `docker ps` l'API Docker.
+* Per , è consigliabile usare come interfaccia della riga di comando sostitutiva anziché l'interfaccia della riga di comando di Docker per la risoluzione dei problemi relativi a pod, contenitori e immagini del contenitore nei `containerd` [`crictl`](https://kubernetes.io/docs/tasks/debug-application-cluster/crictl) nodi Kubernetes,  ad esempio `crictl ps` . 
+   * Non fornisce la funzionalità completa dell'interfaccia della riga di comando di Docker. È destinato solo alla risoluzione dei problemi.
+   * `crictl` offre una visualizzazione dei contenitori più facile da usare per kubernetes, con concetti come pod e così via.
+* `Containerd` configura la registrazione usando il formato di registrazione standardizzato, che è diverso da quello attualmente disponibile `cri` nel driver JSON di Docker. La soluzione di registrazione deve supportare il formato di registrazione (ad esempio `cri` Monitoraggio di Azure per [contenitori](../azure-monitor/containers/container-insights-enable-new-cluster.md))
+* Non è più possibile accedere al motore `/var/run/docker.sock` Docker, o usare Docker-in-Docker (DinD).
+  * Se attualmente si estraggono i log dell'applicazione o i dati di monitoraggio dal motore Docker, usare qualcosa di simile [Monitoraggio di Azure per i contenitori.](../azure-monitor/containers/container-insights-enable-new-cluster.md) Inoltre, il servizio Web Del servizio App non supporta l'esecuzione di comandi fuori banda nei nodi dell'agente che potrebbero causare instabilità.
+  * Anche quando si usa Moby/docker, la creazione di immagini e l'uso diretto del motore Docker tramite i metodi precedenti sono fortemente sconsigliati. Kubernetes non è completamente a conoscenza di queste risorse utilizzate [](https://jpetazzo.github.io/2015/09/03/do-not-use-docker-in-docker-for-ci/) e questi approcci presentano numerosi problemi descritti in dettaglio qui e [qui,](https://securityboulevard.com/2018/05/escaping-the-whale-things-you-probably-shouldnt-do-with-docker-part-1/)ad esempio.
+* Compilazione di immagini: è possibile continuare a usare il flusso di lavoro di compilazione docker corrente come di consueto, a meno che non si compilano immagini all'interno del cluster del servizio AKS. In questo caso, è consigliabile passare all'approccio consigliato per la compilazione di immagini usando attività del registro di controllo di accesso o un'opzione in cluster più sicura, ad esempio [docker buildx](https://github.com/docker/buildx). [](../container-registry/container-registry-quickstart-task-cli.md)
 
 ## <a name="generation-2-virtual-machines"></a>Macchine virtuali di seconda generazione
 
-Azure supporta [macchine virtuali (Gen2) di seconda generazione](../virtual-machines/generation-2.md). Le macchine virtuali di seconda generazione supportano le funzionalità principali che non sono supportate nelle macchine virtuali di prima generazione (Gen1). Queste funzionalità includono una maggior quantità di memoria, Intel Software Guard Extensions (Intel SGX) e la memoria persistente virtuale (vPMEM).
+Azure supporta macchine [virtuali (VM)](../virtual-machines/generation-2.md)di seconda generazione . Le macchine virtuali di seconda generazione supportano funzionalità chiave non supportate nelle macchine virtuali di prima generazione (Gen1). Queste funzionalità includono una maggior quantità di memoria, Intel Software Guard Extensions (Intel SGX) e la memoria persistente virtuale (vPMEM).
 
 Le macchine virtuali di seconda generazione usano la nuova architettura di avvio basata su UEFI anziché l'architettura basata su BIOS usata dalle macchine virtuali di prima generazione.
-Solo SKU e dimensioni specifiche supportano le VM Gen2. Controllare l' [elenco delle dimensioni supportate](../virtual-machines/generation-2.md#generation-2-vm-sizes)per verificare se lo SKU supporta o richiede Gen2.
+Solo SKU e dimensioni specifiche supportano macchine virtuali di generazione 2. Controllare [l'elenco delle dimensioni supportate](../virtual-machines/generation-2.md#generation-2-vm-sizes)per verificare se lo SKU supporta o richiede Gen2.
 
-Inoltre, non tutte le immagini di macchina virtuale supportano Gen2, nelle macchine virtuali AKS Gen2 utilizzeranno la nuova [immagine AKS Ubuntu 18,04](#os-configuration). Questa immagine supporta tutti gli SKU e le dimensioni di Gen2.
+Inoltre, non tutte le immagini di macchine virtuali supportano Gen2, nelle macchine virtuali del servizio Web Del servizio Web di AKS Gen2 verrà utilizzata la nuova immagine del servizio [AKS Ubuntu 18.04.](#os-configuration) Questa immagine supporta tutti gli SKU e le dimensioni di Gen2.
 
-## <a name="ephemeral-os"></a>Sistema operativo temporaneo
+## <a name="ephemeral-os"></a>Sistema operativo ffemero
 
-Per impostazione predefinita, Azure replica automaticamente il disco del sistema operativo per una macchina virtuale in archiviazione di Azure, in modo da evitare la perdita di dati se la VM deve essere rilocata in un altro host. Tuttavia, poiché i contenitori non sono progettati per lo stato locale in modo permanente, questo comportamento offre un valore limitato, offrendo alcuni svantaggi, tra cui il provisioning di nodi più lenti e una latenza di lettura/scrittura superiore.
+Per impostazione predefinita, Azure replica automaticamente il disco del sistema operativo per una macchina virtuale nell'archiviazione di Azure per evitare la perdita di dati nel caso in cui la macchina virtuale debba essere rilocata in un altro host. Tuttavia, poiché i contenitori non sono progettati per rendere persistente lo stato locale, questo comportamento offre un valore limitato, offrendo al tempo stesso alcuni svantaggi, tra cui il provisioning più lento dei nodi e una latenza di lettura/scrittura più elevata.
 
-Al contrario, i dischi del sistema operativo temporanei vengono archiviati solo nel computer host, proprio come un disco temporaneo. Questo garantisce una latenza di lettura/scrittura più bassa, oltre a un aumento più rapido dei nodi e agli aggiornamenti del cluster.
+Al contrario, i dischi temporanei del sistema operativo vengono archiviati solo nel computer host, proprio come un disco temporaneo. In questo modo si riduce la latenza di lettura/scrittura, oltre a un ridimensionamento più rapido dei nodi e agli aggiornamenti del cluster.
 
-Come il disco temporaneo, un disco del sistema operativo temporaneo è incluso nel prezzo della macchina virtuale, pertanto non si verificano costi di archiviazione aggiuntivi.
+Analogamente al disco temporaneo, un disco temporaneo del sistema operativo è incluso nel prezzo della macchina virtuale, quindi non si incorre in costi di archiviazione aggiuntivi.
 
 > [!IMPORTANT]
->Quando un utente non richiede in modo esplicito i dischi gestiti per il sistema operativo, AKS utilizzerà per impostazione predefinita il sistema operativo temporaneo, se possibile, per una determinata configurazione nodepool.
+>Quando un utente non richiede in modo esplicito i dischi gestiti per il sistema operativo, il servizio Web Del servizio Web del servizio Windows Server 2003 imposta il sistema operativo ffimetto, se possibile, per una determinata configurazione del pool di nodi.
 
-Quando si usa il sistema operativo temporaneo, il disco del sistema operativo deve adattarsi alla cache della VM. Le dimensioni della cache VM sono disponibili nella [documentazione di Azure](../virtual-machines/dv3-dsv3-series.md) tra parentesi accanto alla velocità effettiva di i/o ("dimensioni della cache in Gib").
+Quando si usa un sistema operativo ffemero, il disco del sistema operativo deve essere contenuto nella cache della macchina virtuale. Le dimensioni della cache delle macchine virtuali sono disponibili nella documentazione [di Azure](../virtual-machines/dv3-dsv3-series.md) tra parentesi accanto alla velocità effettiva di I/O ("dimensioni della cache in GiB").
 
-Usando le dimensioni della macchina virtuale AKS predefinite Standard_DS2_v2 con le dimensioni del disco del sistema operativo predefinite di 100 GB come esempio, questa dimensione della VM supporta il sistema operativo temporaneo, ma ha solo 86GB di dimensioni della cache. Per impostazione predefinita, questa configurazione gestirà i dischi se l'utente non specifica in modo esplicito. Se un utente ha richiesto in modo esplicito il sistema operativo temporaneo, riceverebbe un errore di convalida.
+Usando le dimensioni predefinite della macchina virtuale del servizio Standard_DS2_v2 con le dimensioni predefinite del disco del sistema operativo di 100 GB, ad esempio, queste dimensioni della macchina virtuale supportano il sistema operativo ffemero ma hanno solo 86 GB di dimensioni della cache. Questa configurazione verrà impostata per impostazione predefinita su managed disks se l'utente non specifica in modo esplicito. Se un utente ha richiesto in modo esplicito un sistema operativo ffemero, riceverebbe un errore di convalida.
 
-Se un utente richiede lo stesso Standard_DS2_v2 con un disco del sistema operativo da 60 GB, questa configurazione per impostazione predefinita è il sistema operativo temporaneo: la dimensione richiesta di 60 GB è inferiore alla dimensione massima della cache di 86GB.
+Se un utente richiede lo stesso Standard_DS2_v2 con un disco del sistema operativo da 60 GB, per impostazione predefinita questa configurazione corrisponde al sistema operativo ffimetto: le dimensioni richieste di 60 GB sono inferiori alle dimensioni massime della cache di 86 GB.
 
-Usando Standard_D8s_v3 con il disco del sistema operativo 100 GB, questa dimensione della VM supporta il sistema operativo temporaneo e ha 200 GB di spazio nella cache. Se un utente non specifica il tipo di disco del sistema operativo, per impostazione predefinita il nodepool riceverà il sistema operativo temporaneo. 
+Usando Standard_D8s_v3 con disco del sistema operativo da 100 GB, le dimensioni della macchina virtuale supportano il sistema operativo ffemero e hanno 200 GB di spazio nella cache. Se un utente non specifica il tipo di disco del sistema operativo, per impostazione predefinita il pool di nodi riceverà un sistema operativo ffemero. 
 
-Il sistema operativo temporaneo richiede almeno la versione 2.15.0 dell'interfaccia della riga di comando di Azure.
+Il sistema operativo ffemeral richiede almeno la versione 2.15.0 dell'interfaccia della riga di comando di Azure.
 
-### <a name="use-ephemeral-os-on-new-clusters"></a>Usare il sistema operativo temporaneo nei nuovi cluster
+### <a name="use-ephemeral-os-on-new-clusters"></a>Usare il sistema operativo ffemeral nei nuovi cluster
 
-Configurare il cluster per l'uso di dischi del sistema operativo temporanei quando viene creato il cluster. Usare il `--node-osdisk-type` flag per impostare il sistema operativo temporaneo come tipo di disco del sistema operativo per il nuovo cluster.
+Configurare il cluster per l'uso dei dischi del sistema operativo ffemeri al momento della creazione del cluster. Usare il `--node-osdisk-type` flag per impostare Ephemeral OS come tipo di disco del sistema operativo per il nuovo cluster.
 
 ```azurecli
 az aks create --name myAKSCluster --resource-group myResourceGroup -s Standard_DS3_v2 --node-osdisk-type Ephemeral
 ```
 
-Se si vuole creare un cluster normale usando dischi del sistema operativo collegati alla rete, è possibile specificare `--node-osdisk-type=Managed` . È anche possibile scegliere di aggiungere più pool di nodi del sistema operativo temporanei come indicato di seguito.
+Per creare un cluster normale usando dischi del sistema operativo collegati alla rete, è possibile specificare `--node-osdisk-type=Managed` . È anche possibile scegliere di aggiungere altri pool di nodi del sistema operativo effimeri come indicato di seguito.
 
-### <a name="use-ephemeral-os-on-existing-clusters"></a>USA sistema operativo temporaneo nei cluster esistenti
-Configurare un nuovo pool di nodi per l'uso di dischi del sistema operativo temporanei. Usare il `--node-osdisk-type` flag per impostare come tipo di disco del sistema operativo come tipo di disco del sistema operativo per il pool di nodi.
+### <a name="use-ephemeral-os-on-existing-clusters"></a>Usare il sistema operativo ffemeral nei cluster esistenti
+Configurare un nuovo pool di nodi per l'uso dei dischi del sistema operativo ffemeri. Usare il flag per impostare come tipo di disco del sistema operativo il tipo di disco `--node-osdisk-type` del sistema operativo per il pool di nodi.
 
 ```azurecli
 az aks nodepool add --name ephemeral --cluster-name myAKSCluster --resource-group myResourceGroup -s Standard_DS3_v2 --node-osdisk-type Ephemeral
 ```
 
 > [!IMPORTANT]
-> Con il sistema operativo temporaneo è possibile distribuire le immagini di macchine virtuali e istanze fino alla dimensione della cache VM. Nel caso di AKS, la configurazione del disco del sistema operativo del nodo predefinito usa 128GB, il che significa che è necessario disporre di una dimensione della macchina virtuale con una cache maggiore di 128GB. Il Standard_DS2_v2 predefinito ha una dimensione della cache di 86GB, che non è sufficientemente grande. Il Standard_DS3_v2 ha una dimensione della cache di 172GB, che è sufficientemente grande. È anche possibile ridurre le dimensioni predefinite del disco del sistema operativo usando `--node-osdisk-size` . La dimensione minima per le immagini AKS è 30 GB. 
+> Con il sistema operativo phemeral è possibile distribuire immagini di macchine virtuali e istanze fino alle dimensioni della cache della macchina virtuale. Nel caso del servizio AKS, la configurazione predefinita del disco del sistema operativo del nodo usa 128 GB, il che significa che è necessaria una dimensione della macchina virtuale con una cache maggiore di 128 GB. Il valore Standard_DS2_v2 ha una dimensione della cache di 86 GB, che non è sufficientemente grande. La Standard_DS3_v2 ha una dimensione della cache di 172 GB, che è sufficientemente grande. È anche possibile ridurre le dimensioni predefinite del disco del sistema operativo usando `--node-osdisk-size` . Le dimensioni minime per le immagini del server del server del supporto di Microsoft Sono 30 GB. 
 
-Se si desidera creare pool di nodi con dischi del sistema operativo collegati alla rete, è possibile specificare `--node-osdisk-type Managed` .
+Per creare pool di nodi con dischi del sistema operativo collegati alla rete, è possibile specificare `--node-osdisk-type Managed` .
 
 ## <a name="custom-resource-group-name"></a>Nome del gruppo di risorse personalizzato
 
@@ -180,20 +180,20 @@ Quando si lavora con il gruppo di risorse del nodo, tenere presente che non è p
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni su come [aggiornare le immagini dei nodi](node-image-upgrade.md) nel cluster.
+- Informazioni su [come aggiornare le immagini dei](node-image-upgrade.md) nodi nel cluster.
 - Per informazioni su come aggiornare il cluster alla versione più recente di Kubernetes, vedere [Aggiornare un cluster del servizio Azure Kubernetes](upgrade-cluster.md).
-- Scopri di più su [ `containerd` e Kubernetes](https://kubernetes.io/blog/2018/05/24/kubernetes-containerd-integration-goes-ga/)
+- Altre informazioni [ `containerd` su e Kubernetes](https://kubernetes.io/blog/2018/05/24/kubernetes-containerd-integration-goes-ga/)
 - Per trovare le risposte ad alcune domande comuni su AKS, vedere l'elenco delle [domande frequenti su AKS](faq.md).
-- Scopri di più sui [dischi del sistema operativo temporaneo](../virtual-machines/ephemeral-os-disks.md).
+- Altre informazioni sui dischi del sistema operativo [effimeri](../virtual-machines/ephemeral-os-disks.md).
 
 
 <!-- LINKS - internal -->
 [azure-cli-install]: /cli/azure/install-azure-cli
-[az-feature-register]: /cli/azure/feature#az-feature-register
-[az-feature-list]: /cli/azure/feature#az-feature-list
-[az-provider-register]: /cli/azure/provider#az-provider-register
-[az-extension-add]: /cli/azure/extension#az-extension-add
-[az-extension-update]: /cli/azure/extension#az-extension-update
-[az-feature-register]: /cli/azure/feature#az-feature-register
-[az-feature-list]: /cli/azure/feature#az-feature-list
-[az-provider-register]: /cli/azure/provider#az-provider-register
+[az-feature-register]: /cli/azure/feature#az_feature_register
+[az-feature-list]: /cli/azure/feature#az_feature_list
+[az-provider-register]: /cli/azure/provider#az_provider_register
+[az-extension-add]: /cli/azure/extension#az_extension_add
+[az-extension-update]: /cli/azure/extension#az_extension_update
+[az-feature-register]: /cli/azure/feature#az_feature_register
+[az-feature-list]: /cli/azure/feature#az_feature_list
+[az-provider-register]: /cli/azure/provider#az_provider_register

@@ -1,55 +1,55 @@
 ---
 title: Visualizzare i log del controller del servizio Azure Kubernetes
-description: Informazioni su come abilitare e visualizzare i log per il piano di controllo Kubernetes in Azure Kubernetes Service (AKS)
+description: Informazioni su come abilitare e visualizzare i log per il piano di controllo Kubernetes in servizio Azure Kubernetes (AKS)
 services: container-service
 ms.topic: article
 ms.date: 01/27/2020
-ms.openlocfilehash: 4027b2ca66b4d4319f7df347df6d671e6d48b772
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 395422ca97b43488a7d7ad1c7434b20ccc59f2b0
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101735132"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107767292"
 ---
-# <a name="enable-and-review-kubernetes-control-plane-logs-in-azure-kubernetes-service-aks"></a>Abilitare ed esaminare i log del piano di controllo Kubernetes in Azure Kubernetes Service (AKS)
+# <a name="enable-and-review-kubernetes-control-plane-logs-in-azure-kubernetes-service-aks"></a>Abilitare ed esaminare i log del piano di controllo Kubernetes in servizio Azure Kubernetes (AKS)
 
-Con il servizio Azure Kubernetes (AKS), i componenti del piano di controllo, ad esempio *Kube-apiserver* e *Kube-Controller-Manager* , vengono forniti come un servizio gestito. Si creano e si gestiscono i nodi che eseguono *kubelet* e il runtime del contenitore e si distribuiscono le applicazioni attraverso il server API Kubernetes gestito. Per semplificare la risoluzione dei problemi relativi all'applicazione e ai servizi, potrebbe essere necessario visualizzare i log generati da questi componenti del piano di controllo. Questo articolo illustra come usare i log di monitoraggio di Azure per abilitare ed eseguire query sui log dai componenti del piano di controllo Kubernetes.
+Con servizio Azure Kubernetes(AKS), i componenti del piano di controllo, ad esempio *kube-apiserver* e *kube-controller-manager,* vengono forniti come servizio gestito. Si creano e si gestiscono i nodi che eseguono *kubelet* e il runtime del contenitore e si distribuiscono le applicazioni attraverso il server API Kubernetes gestito. Per risolvere i problemi relativi all'applicazione e ai servizi, potrebbe essere necessario visualizzare i log generati da questi componenti del piano di controllo. Questo articolo illustra come usare i log Monitoraggio di Azure per abilitare ed eseguire query nei log dai componenti del piano di controllo Kubernetes.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Questo articolo richiede un cluster del servizio Azure Kubernetes esistente in esecuzione nel proprio account di Azure. Se non si dispone ancora di un cluster del servizio Azure Kubernetes, crearne uno usando l'[interfaccia della riga di comando di Azure][cli-quickstart] oppure il [portale di Azure][portal-quickstart]. Log di monitoraggio di Azure funziona con i cluster Kubernetes RBAC, Azure RBAC e non RBAC abilitati.
+Questo articolo richiede un cluster del servizio Azure Kubernetes esistente in esecuzione nel proprio account di Azure. Se non si dispone ancora di un cluster del servizio Azure Kubernetes, crearne uno usando l'[interfaccia della riga di comando di Azure][cli-quickstart] oppure il [portale di Azure][portal-quickstart]. Monitoraggio di Azure i log funzionano con il controllo degli accessi in base al ruolo di Kubernetes, il controllo degli accessi in base al ruolo di Azure e i cluster del servizio Azure Kubernetes abilitati per il controllo degli accessi in base al ruolo.
 
 ## <a name="enable-resource-logs"></a>Abilitare i log risorse
 
 Per raccogliere e rivedere i dati da più origini, i log di Monitoraggio di Azure forniscono un linguaggio di query e un motore di analisi che offrono informazioni dettagliate per l'ambiente in uso. Viene usata un'area di lavoro per collazionare e analizzare i dati che possa integrarsi con altri servizi di Azure, ad esempio Application Insights e Centro sicurezza. Per usare una piattaforma diversa per analizzare i log, è invece possibile scegliere di inviare i log delle risorse a un account di archiviazione di Azure o a un hub eventi. Per altre informazioni, vedere [Analizzare i dati di log in Monitoraggio di Azure][log-analytics-overview].
 
-I log di monitoraggio di Azure sono abilitati e gestiti nella portale di Azure. Per abilitare la raccolta dei log per i componenti del piano di controllo Kubernetes nel cluster AKS, aprire il portale di Azure in un Web browser e completare i passaggi seguenti:
+Monitoraggio di Azure i log vengono abilitati e gestiti nel portale di Azure. Per abilitare la raccolta di log per i componenti del piano di controllo Kubernetes nel cluster del servizio Kubernetes, aprire il portale di Azure in un Web browser e completare la procedura seguente:
 
 1. Selezionare il gruppo di risorse per il cluster servizio Azure Kubernetes, ad esempio *myResourceGroup*. Non selezionare il gruppo di risorse che contiene le singole risorse del cluster servizio Azure Kubernetes, ad esempio *MC_myResourceGroup_myservizio Azure KubernetesCluster_eastus*.
 
 2. Sul lato sinistro, scegliere **Impostazioni di diagnostica**.
 
-3. Selezionare il cluster AKS, ad esempio *myAKSCluster*, quindi scegliere di **aggiungere l'impostazione di diagnostica**.
-  :::image type="content" source="media\view-control-plane-logs\select-add-diagnostic-setting.PNG" alt-text="Screenshot del portale di Azure in una finestra del browser che mostra le impostazioni di diagnostica, che indicano che è necessario selezionare l'opzione &quot;Aggiungi impostazioni di diagnostica&quot;":::
+3. Selezionare il cluster del servizio AKS, ad esempio *myAKSCluster,* quindi scegliere **Aggiungi impostazione di diagnostica.**
+  :::image type="content" source="media\view-control-plane-logs\select-add-diagnostic-setting.PNG" alt-text="Screenshot della portale di Azure in una finestra del browser che mostra le impostazioni di diagnostica, che indicano che è necessario selezionare 'Aggiungi impostazione di diagnostica'":::
 
 4. Immettere un nome, ad esempio *myAKSClusterLogs*, quindi selezionare l'opzione **Send to Log Analytics workspace** (Invia ad area di lavoro Log Analytics).
 
-5. Selezionare un'area di lavoro esistente o crearne una nuova. Se si crea un'area di lavoro, specificare un nome per l'area di lavoro, un gruppo di risorse e un percorso.
+5. Selezionare un'area di lavoro esistente o crearne una nuova. Se si crea un'area di lavoro, specificare un nome dell'area di lavoro, un gruppo di risorse e una posizione.
 
-6. Nell'elenco dei log disponibili selezionare i log che si desidera abilitare. Per questo esempio, abilitare i log *Kube-audit* e *Kube-audit-admin* . I log comuni includono *Kube-apiserver*, *Kube-Controller-Manager* e *Kube-Scheduler*. È possibile restituire e modificare i log raccolti dopo l'abilitazione delle aree di lavoro di Log Analytics.
+6. Nell'elenco dei log disponibili selezionare i log che si desidera abilitare. Per questo esempio, abilitare i *log kube-audit* e *kube-audit-admin.* I log comuni includono *kube-apiserver*, *kube-controller-manager* e *kube-scheduler*. È possibile restituire e modificare i log raccolti dopo l'abilitazione delle aree di lavoro di Log Analytics.
 
 7. Quando si è pronti, selezionare **Salva** per abilitare la raccolta dei log selezionati.
-  :::image type="content" source="media\view-control-plane-logs\settings-selected.PNG" alt-text="Screenshot della schermata ' Aggiungi impostazione di diagnostica ' del portale di Azure. È stata selezionata la destinazione ' Invia a Log Analytics area di lavoro ' e i log ' Kube-audit ' è Kube-audit-admin '":::
+  :::image type="content" source="media\view-control-plane-logs\settings-selected.PNG" alt-text="Screenshot della schermata portale di Azure 'Aggiungi impostazione di diagnostica' di portale di Azure. È selezionata la destinazione &quot;Invia all'area di lavoro Log Analytics&quot; e i log &quot;kube-audit&quot; e &quot;kube-audit-admin&quot; sono selezionati":::
 
 ## <a name="log-categories"></a>Categorie di log
 
-Oltre alle voci scritte da Kubernetes, i log di controllo del progetto hanno anche voci da AKS.
+Oltre alle voci scritte da Kubernetes, i log di controllo del progetto hanno anche voci dal servizio Web di servizio Web.
 
-I log di controllo vengono registrati in tre categorie: *Kube-audit*, *Kube-audit-admin* e *Guard*.
+I log di controllo vengono registrati in tre categorie: *kube-audit*, *kube-audit-admin* e *guard*.
 
-- La categoria *Kube-audit* contiene tutti i dati del log di controllo per ogni evento di controllo, inclusi *Get*, *List*, *create*, *Update*, *Delete*, *patch* e *post*.
-- La categoria *Kube-audit-admin* è un subset della categoria *Kube-audit* log. *Kube-audit-admin* riduce significativamente il numero di log escludendo gli eventi di controllo *Get* ed *List* dal log.
-- La categoria *Guard* è gestita Azure ad e controlli RBAC di Azure. Per Azure AD gestiti: token in, informazioni sull'utente. Per il controllo degli accessi in base al ruolo di Azure: verifiche di accesso.
+- La *categoria kube-audit* contiene tutti i dati del log di controllo per ogni evento di controllo, inclusi *get*, *list*, *create,* *update,* *delete,* *patch* e *post*.
+- La *categoria kube-audit-admin* è un subset della categoria di log *kube-audit.* *kube-audit-admin* riduce significativamente il numero di log escludendo gli eventi di controllo *get* ed *list* dal log.
+- La *categoria guard* è gestita per i Azure AD controllo degli accessi in base al ruolo di Azure. Per i Azure AD gestiti: token in, informazioni utente in uscita. Per il controllo degli accessi in base al ruolo di Azure: verifiche di accesso in e in uscita.
 
 ## <a name="schedule-a-test-pod-on-the-aks-cluster"></a>Pianificare un pod di test nel cluster servizio Azure Kubernetes
 
@@ -87,14 +87,14 @@ pod/nginx created
 
 ## <a name="view-collected-logs"></a>Visualizzare i log raccolti
 
-Potrebbero essere necessari fino a 10 minuti per abilitare e visualizzare i log di diagnostica.
+Potrebbero essere disponibili fino a 10 minuti prima che i log di diagnostica vengano abilitati e visualizzati.
 
 > [!NOTE]
-> Se sono necessari tutti i dati dei log di controllo per la conformità o altri scopi, raccoglierli e archiviarli in una risorsa di archiviazione economica, ad esempio l'archiviazione BLOB. Usare la categoria di log *Kube-audit-admin* per raccogliere e salvare un set significativo di dati dei log di controllo a scopo di monitoraggio e avviso.
+> Se sono necessari tutti i dati del log di controllo per motivi di conformità o per altri scopi, raccoglierlo e archiviarlo in un archivio economico, ad esempio l'archiviazione BLOB. Usare la categoria di log *kube-audit-admin* per raccogliere e salvare un set significativo di dati del log di controllo a scopo di monitoraggio e avviso.
 
-Nel portale di Azure passare al cluster AKS e selezionare **logs (registri** ) sul lato sinistro. Chiudere la finestra *query di esempio* , se visualizzata.
+Nell'portale di Azure passare al cluster del servizio Web Disassoce e selezionare **Log** sul lato sinistro. Chiudere la *finestra Query di* esempio, se visualizzata.
 
-Sul lato sinistro scegliere **Log**. Per visualizzare i log di *controllo Kube* , immettere la query seguente nella casella di testo:
+Sul lato sinistro scegliere **Log**. Per visualizzare i *log kube-audit,* immettere la query seguente nella casella di testo:
 
 ```
 AzureDiagnostics
@@ -102,7 +102,7 @@ AzureDiagnostics
 | project log_s
 ```
 
-È probabile che vengano restituiti molti log. Per limitare l'ambito della query per visualizzare i log relativi al Pod NGINX creato nel passaggio precedente, aggiungere un'istruzione *where* aggiuntiva per cercare *nginx* , come illustrato nella query di esempio seguente:
+È probabile che siano restituiti molti log. Per impostare l'ambito della query per visualizzare i log relativi al pod NGINX creato nel passaggio precedente, aggiungere un'ulteriore istruzione *where* per cercare *nginx,* come illustrato nella query di esempio seguente:
 
 ```
 AzureDiagnostics
@@ -111,7 +111,7 @@ AzureDiagnostics
 | project log_s
 ```
 
-Per visualizzare i log di *Kube-audit-admin* , immettere la query seguente nella casella di testo:
+Per visualizzare i *log di kube-audit-admin,* immettere la query seguente nella casella di testo:
 
 ```
 AzureDiagnostics
@@ -119,7 +119,7 @@ AzureDiagnostics
 | project log_s
 ```
 
-In questo esempio la query Mostra tutti i processi di creazione in *Kube-audit-admin*. Ci sono probabilmente molti risultati restituiti, per limitare l'ambito della query per visualizzare i log relativi al Pod NGINX creato nel passaggio precedente, aggiungere un'istruzione *where* aggiuntiva per cercare *nginx* , come illustrato nella query di esempio seguente.
+In questo esempio la query mostra tutti i processi di creazione in *kube-audit-admin.* È probabile che siano stati restituiti molti risultati. Per impostare l'ambito della query per visualizzare i log sul pod NGINX creato nel passaggio precedente, aggiungere un'ulteriore istruzione *where* per cercare *nginx,* come illustrato nella query di esempio seguente.
 
 ```
 AzureDiagnostics
@@ -129,11 +129,11 @@ AzureDiagnostics
 ```
 
 
-Per altre informazioni su come eseguire una query e filtrare i dati di log, vedere [visualizzare o analizzare i dati raccolti con la ricerca log di log Analytics][analyze-log-analytics].
+Per altre informazioni su come eseguire query e filtrare i dati di log, vedere Visualizzare o analizzare i dati raccolti con la ricerca [log di Log Analytics.][analyze-log-analytics]
 
 ## <a name="log-event-schema"></a>Schema di eventi del log
 
-AKS registra gli eventi seguenti:
+Il programma AKS registra gli eventi seguenti:
 
 * [AzureActivity][log-schema-azureactivity]
 * [AzureDiagnostics][log-schema-azurediagnostics]
@@ -151,19 +151,19 @@ AKS registra gli eventi seguenti:
 * [KubeNodeInventory][log-schema-kubenodeinventory]
 * [KubePodInventory][log-schema-kubepodinventory]
 * [KubeServices][log-schema-kubeservices]
-* [Prestazioni][log-schema-perf]
+* [Perf][log-schema-perf]
 
-## <a name="log-roles"></a>Ruoli di log
+## <a name="log-roles"></a>Ruoli del log
 
 | Ruolo                     | Descrizione |
 |--------------------------|-------------|
 | *aksService*             | Nome visualizzato nel log di controllo per l'operazione del piano di controllo (da hcpService) |
-| *MasterClient*           | Nome visualizzato nel log di controllo per MasterClientCertificate, il certificato ottenuto da AZ AKS Get-credentials |
-| *nodeclient*             | Nome visualizzato per ClientCertificate, utilizzato dai nodi di Agent |
+| *masterclient*           | Il nome visualizzato nel log di controllo per MasterClientCertificate, il certificato che si ottiene da az aks get-credentials |
+| *nodeclient*             | Nome visualizzato per ClientCertificate, usato dai nodi dell'agente |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo si è appreso come abilitare ed esaminare i log per i componenti del piano di controllo Kubernetes nel cluster AKS. Per monitorare ulteriormente e risolvere eventuali problemi, è anche possibile [visualizzare i log di Kubelet][kubelet-logs] e [abilitare l'accesso ai nodi SSH][aks-ssh].
+In questo articolo si è appreso come abilitare ed esaminare i log per i componenti del piano di controllo Kubernetes nel cluster del servizio Kubernetes. Per monitorare ulteriormente e risolvere eventuali problemi, è anche possibile [visualizzare i log di Kubelet][kubelet-logs] e [abilitare l'accesso ai nodi SSH][aks-ssh].
 
 <!-- LINKS - external -->
 [kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
@@ -175,9 +175,9 @@ In questo articolo si è appreso come abilitare ed esaminare i log per i compone
 [analyze-log-analytics]: ../azure-monitor/logs/log-analytics-tutorial.md
 [kubelet-logs]: kubelet-logs.md
 [aks-ssh]: ssh.md
-[az-feature-register]: /cli/azure/feature#az-feature-register
-[az-feature-list]: /cli/azure/feature#az-feature-list
-[az-provider-register]: /cli/azure/provider#az-provider-register
+[az-feature-register]: /cli/azure/feature#az_feature_register
+[az-feature-list]: /cli/azure/feature#az_feature_list
+[az-provider-register]: /cli/azure/provider#az_provider_register
 [log-schema-azureactivity]: /azure/azure-monitor/reference/tables/azureactivity
 [log-schema-azurediagnostics]: /azure/azure-monitor/reference/tables/azurediagnostics
 [log-schema-azuremetrics]: /azure/azure-monitor/reference/tables/azuremetrics
