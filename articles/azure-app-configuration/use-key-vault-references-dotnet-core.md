@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 04/08/2020
 ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 37bc7fbcd366455668d5316e45ffbf79127a49f3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 57abbeefe8e3f2abe527f2b282d643db766b9dc9
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99981224"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107775746"
 ---
 # <a name="tutorial-use-key-vault-references-in-an-aspnet-core-app"></a>Esercitazione: Usare i riferimenti a Key Vault in un'app ASP.NET Core
 
@@ -93,7 +93,7 @@ Per aggiungere un segreto all'insieme di credenziali, sono sufficienti alcuni pa
 
 ## <a name="connect-to-key-vault"></a>Connettersi a Key Vault
 
-1. Per questa esercitazione viene usata un'entità servizio per l'autenticazione in Key Vault. Per creare questa entità servizio, usare il comando [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) dell'interfaccia della riga di comando di Azure:
+1. Per questa esercitazione viene usata un'entità servizio per l'autenticazione in Key Vault. Per creare questa entità servizio, usare il comando [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) dell'interfaccia della riga di comando di Azure:
 
     ```azurecli
     az ad sp create-for-rbac -n "http://mySP" --sdk-auth

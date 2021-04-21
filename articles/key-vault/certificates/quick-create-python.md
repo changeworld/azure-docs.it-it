@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
 ms.custom: devx-track-python
-ms.openlocfilehash: 598bbef0ceb24f3eb5932239a4146e1693521f24
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 62249f579909c3f8bfa9bcdf4e77e45453fcb68b
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/20/2021
-ms.locfileid: "107751329"
+ms.locfileid: "107792022"
 ---
 # <a name="quickstart-azure-key-vault-certificate-client-library-for-python"></a>Avvio rapido: Libreria client dei certificati di Azure Key Vault per Python
 
@@ -183,7 +183,7 @@ Per leggere un certificato da Key Vault, usare il metodo [get_certificate](/pyth
 retrieved_certificate = client.get_certificate(certificateName)
  ```
 
-È anche possibile verificare che il certificato sia stato impostato con il comando [az keyvault certificate show](/cli/azure/keyvault/certificate?#az-keyvault-certificate-show) dell'interfaccia della riga di comando di Azure.
+È anche possibile verificare che il certificato sia stato impostato con il comando [az keyvault certificate show](/cli/azure/keyvault/certificate?#az_keyvault_certificate_show) dell'interfaccia della riga di comando di Azure.
 
 ### <a name="delete-a-certificate"></a>Eliminare un certificato
 
@@ -196,7 +196,7 @@ deleted_certificate = poller.result()
 
 Il `begin_delete_certificate` metodo è asincrono e restituisce un oggetto poller. La chiamata al metodo `result` dell'oggetto poller attende il relativo completamento.
 
-È possibile verificare che il certificato sia stato eliminato con il comando [az keyvault certificate show](/cli/azure/keyvault/certificate?#az-keyvault-certificate-show) dell'interfaccia della riga di comando di Azure.
+È possibile verificare che il certificato sia stato eliminato con il comando [az keyvault certificate show](/cli/azure/keyvault/certificate?#az_keyvault_certificate_show) dell'interfaccia della riga di comando di Azure.
 
 Una volta eliminato, un certificato rimane in uno stato eliminato ma recuperabile per un periodo di tempo. Se si esegue di nuovo il codice, usare un nome di certificato diverso.
 

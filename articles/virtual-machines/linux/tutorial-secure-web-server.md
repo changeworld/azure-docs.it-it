@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 04/30/2018
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 3f762597ad81dfaba907115cbcf6074d81ec2fa4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 97eee5d852450df2341d57932052839825523933
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102549584"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107769752"
 ---
 # <a name="tutorial-secure-a-web-server-on-a-linux-virtual-machine-in-azure-with-tlsssl-certificates-stored-in-key-vault"></a>Esercitazione: Proteggere un server Web su una macchina virtuale Linux in Azure con certificati TLS/SSL archiviati in Key Vault
 Per proteggere i server Web, è possibile usare un certificato Transport Layer Security (TLS), precedentemente noto come Secure Sockets Layer (SSL), per crittografare il traffico Web. Questi certificati TLS/SSL possono essere archiviati in Azure Key Vault e consentono distribuzioni sicure dei certificati nelle macchine virtuali Linux in Azure. In questa esercitazione si apprenderà come:
@@ -70,7 +70,7 @@ az keyvault certificate create \
 ```
 
 ### <a name="prepare-a-certificate-for-use-with-a-vm"></a>Preparare un certificato per l'uso con una macchina virtuale
-Per usare il certificato durante il processo di creazione della macchina virtuale, ottenere l'ID del certificato con il comando [az keyvault secret list-versions](/cli/azure/keyvault/secret). Convertire il certificato con il comando [az vm secret format](/cli/azure/vm/secret#az-vm-secret-format). L'esempio seguente assegna l'output di questi comandi a delle variabili per semplificarne l'uso nei passaggi successivi:
+Per usare il certificato durante il processo di creazione della macchina virtuale, ottenere l'ID del certificato con il comando [az keyvault secret list-versions](/cli/azure/keyvault/secret). Convertire il certificato con il comando [az vm secret format](/cli/azure/vm/secret#az_vm_secret_format). L'esempio seguente assegna l'output di questi comandi a delle variabili per semplificarne l'uso nei passaggi successivi:
 
 ```azurecli-interactive 
 secret=$(az keyvault secret list-versions \

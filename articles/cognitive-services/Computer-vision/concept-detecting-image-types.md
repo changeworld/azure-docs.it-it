@@ -1,5 +1,5 @@
 ---
-title: Rilevamento del tipo di immagine-Visione artificiale
+title: Rilevamento del tipo di immagine - Visione artificiale
 titleSuffix: Azure Cognitive Services
 description: Concetti relativi alla funzione di rilevamento del tipo di immagine dell'API Visione artificiale.
 services: cognitive-services
@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 6d2ed00f3fc6f5b52a9a13a96f1e1659e30f02d5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dc24788ddd21ca2b7df1f9f92238c776dee33016
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "96532602"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107778878"
 ---
 # <a name="detecting-image-types-with-computer-vision"></a>Rilevamento dei tipi di immagine con Visione artificiale
 
-Con l'API [analizza immagine](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) , visione artificiale possibile analizzare il tipo di contenuto delle immagini, indicando se un'immagine è ClipArt o un disegno a linee.
+Con [](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-ga/operations/56f91f2e778daf14a499f21b) l Analizza immagine API, Visione artificiale possibile analizzare il tipo di contenuto delle immagini, indicando se un'immagine è ClipArt o un disegno a linee.
 
 ## <a name="detecting-clip-art"></a>Rilevamento di ClipArt
 
@@ -115,6 +115,6 @@ Le risposte JSON seguenti illustrano le informazioni restituite da Visione artif
 
 ## <a name="use-the-api"></a>Usare l'API
 
-La funzionalità di rilevamento del tipo di immagine fa parte dell'API [analizza immagine](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) . È possibile chiamare questa API tramite un SDK nativo o con chiamate REST. Includere `ImageType` nel parametro di query **visualFeatures** . Quindi, quando si ottiene la risposta JSON completa, è sufficiente analizzare la stringa per il contenuto della `"imageType"` sezione.
+La funzionalità di rilevamento del tipo di immagine fa parte dell'API [Analizza immagine](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-ga/operations/56f91f2e778daf14a499f21b) immagini. È possibile chiamare questa API tramite un SDK nativo o con chiamate REST. Includere `ImageType` nel parametro di query **visualFeatures.** Quindi, quando si ottiene la risposta JSON completa, è sufficiente analizzare la stringa per il contenuto della `"imageType"` sezione .
 
 * [Avvio rapido: API REST o librerie client di Visione artificiale](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)

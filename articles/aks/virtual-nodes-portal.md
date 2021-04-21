@@ -5,23 +5,23 @@ services: container-service
 ms.topic: conceptual
 ms.date: 03/15/2021
 ms.custom: references_regions
-ms.openlocfilehash: bfb9e4a9a7c788255ea7fcba0fb42404829f82f3
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: fad021dc92753013234a3b0831e76e87fa25db10
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107379350"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107769302"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Creare e configurare un cluster del servizio Azure Kubernetes per l'uso di nodi virtuali nel portale di Azure
 
-Questo articolo illustra come usare l'portale di Azure per creare e configurare le risorse di rete virtuale e un cluster del servizio Web del servizio Web con i nodi virtuali abilitati.
+Questo articolo illustra come usare il portale di Azure per creare e configurare le risorse di rete virtuale e un cluster del servizio Web Diaks con i nodi virtuali abilitati.
 
 > [!NOTE]
 > [Questo articolo](virtual-nodes.md) offre una panoramica della disponibilità dell'area e delle limitazioni che usano i nodi virtuali.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-I nodi virtuali abilitano la comunicazione di rete tra i pod eseguiti in Istanze di Azure Container e nel cluster del servizio Azure Kubernetes. Per consentire la comunicazione viene creata una subnet di rete virtuale e vengono assegnate autorizzazioni delegate. I nodi virtuali funzionano solo con i cluster del servizio AKS creati usando *la* rete avanzata (Azure CNI). Per impostazione predefinita, i cluster del servizio Ku-Kubak vengono creati con *la rete* di base (kubenet). Questo articolo illustra come creare una rete virtuale e le subnet e quindi distribuire un cluster del servizio Azure Kubernetes che usa reti avanzate.
+I nodi virtuali abilitano la comunicazione di rete tra i pod eseguiti in Istanze di Azure Container e nel cluster del servizio Azure Kubernetes. Per consentire la comunicazione viene creata una subnet di rete virtuale e vengono assegnate autorizzazioni delegate. I nodi virtuali funzionano solo con i cluster del servizio Web Diaks creati *usando funzionalità di* rete Azure CNI. Per impostazione predefinita, i cluster del servizio Ku kubenet vengono creati con *la rete* di base (kubenet). Questo articolo illustra come creare una rete virtuale e le subnet e quindi distribuire un cluster del servizio Azure Kubernetes che usa reti avanzate.
 
 Se ACI non è stato usato in precedenza, registrare il provider di servizi con la sottoscrizione. È possibile controllare lo stato della registrazione del provider di Istanze di Azure Container usando il comando [az provider list][az-provider-list], come spiegato nell'esempio seguente:
 
@@ -58,9 +58,9 @@ Nella pagina **Informazioni di base** configurare le opzioni seguenti:
 - *POOL DI NODI PRIMARIO*: Selezionare le dimensioni di macchina virtuale per i nodi del servizio Azure Kubernetes. Le dimensioni della macchina virtuale **non possono** essere modificate dopo che un cluster del servizio Azure Container è stato distribuito.
      - Selezionare il numero di nodi da distribuire nel cluster. Per questo articolo, impostare **Conteggio dei nodi** su *1*. Il numero di nodi **può** essere modificato dopo che il cluster è stato distribuito.
 
-Fare **clic su Avanti: Pool di nodi**.
+Fare clic **su Avanti: Pool di nodi**.
 
-Nella pagina **Pool di** nodi selezionare Abilita *nodi virtuali*.
+Nella pagina **Pool di** nodi selezionare Abilita *nodi virtuali.*
 
 :::image type="content" source="media/virtual-nodes-portal/enable-virtual-nodes.png" alt-text="In un browser viene illustrata la creazione di un cluster con nodi virtuali abilitati nel portale di Azure. L'opzione &quot;Abilita nodi virtuali&quot; è evidenziata.":::
 
@@ -210,9 +210,9 @@ I nodi virtuali sono un componente di una soluzione di scalabilità nel servizio
 
 <!-- LINKS - internal -->
 [aks-network]: ./configure-azure-cni.md
-[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
+[az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
 [aks-hpa]: tutorial-kubernetes-scale.md
 [aks-cluster-autoscaler]: cluster-autoscaler.md
 [aks-basic-ingress]: ingress-basic.md
-[az-provider-list]: /cli/azure/provider#az-provider-list
-[az-provider-register]: /cli/azure/provider#az-provider-register
+[az-provider-list]: /cli/azure/provider#az_provider_list
+[az-provider-register]: /cli/azure/provider#az_provider_register

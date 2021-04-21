@@ -1,5 +1,5 @@
 ---
-title: Esempio di script dell'interfaccia della riga di comando di Azure
+title: Esempio di script dell'interfaccia della riga di comando di Azure - Configurare il front-end IPv6
 titlesuffix: Azure Virtual Network
 description: Usare un esempio di script dell'interfaccia della riga di comando di Azure per configurare gli endpoint IPv6 e distribuire un'applicazione dual stack (IPv4 + IPv6) in Azure.
 services: virtual-network
@@ -13,30 +13,30 @@ ms.workload: infrastructure-services
 ms.date: 04/23/2019
 ms.author: kumud
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9058fb4b9b92719f7abcc534632f983cafe2aae8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1cbfcf5f9e916c982e3a4cda9577becf343158fa
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99550811"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107776476"
 ---
-# <a name="configure-ipv6-endpoints-in-virtual-network-script-sample"></a>Configurare gli endpoint IPv6 nell'esempio di script della rete virtuale
+# <a name="configure-ipv6-endpoints-in-virtual-network-script-sample"></a>Configurare gli endpoint IPv6 nell'esempio di script di rete virtuale
 
-Questo articolo illustra come distribuire un'applicazione dual stack (IPv4 + IPv6) in Azure che include una rete virtuale a doppio stack con una subnet dello stack doppio, un servizio di bilanciamento del carico con due configurazioni front-end Dual (IPv4 + IPv6), macchine virtuali con NIC con una doppia configurazione IP, regole del gruppo di sicurezza di rete doppie e IP duali pubblici.
+Questo articolo illustra come distribuire un'applicazione dual stack (IPv4 + IPv6) in Azure che include una rete virtuale a doppio stack con una subnet dual stack, un servizio di bilanciamento del carico con configurazioni front-end dual (IPv4 + IPv6), macchine virtuali con schede di interfaccia di rete con una doppia configurazione IP, regole del gruppo di sicurezza di rete duale e indirizzi IP pubblici doppi.
 
 È possibile eseguire lo script da Azure [Cloud Shell](https://shell.azure.com/bash) o da un'installazione locale dell'interfaccia della riga di comando di Azure. Se si usa l'interfaccia della riga di comando in locale, per questo script è necessaria la versione 2.0.28 o successiva. Per trovare la versione installata, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). Se si esegue l'interfaccia della riga di comando in locale, è anche necessario eseguire `az login` per creare una connessione con Azure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti
-Per usare la funzionalità IPv6 per la rete virtuale di Azure, è necessario configurare la sottoscrizione solo una volta come indicato di seguito:
+Per usare la funzionalità IPv6 per la rete virtuale di Azure, è necessario configurare la sottoscrizione una sola volta nel modo seguente:
 
 ```azurecli
 az feature register --name AllowIPv6VirtualNetwork --namespace Microsoft.Network
 az feature register --name AllowIPv6CAOnStandardLB --namespace Microsoft.Network
 ```
 
-Sono necessari fino a 30 minuti per completare la registrazione della funzionalità. È possibile controllare lo stato di registrazione eseguendo il comando dell'interfaccia della riga di comando di Azure seguente:
+Sono necessari fino a 30 minuti per completare la registrazione della funzionalità. È possibile controllare lo stato della registrazione eseguendo il comando seguente dell'interfaccia della riga di comando di Azure:
 
 ```azurecli
 az feature show --name AllowIPv6VirtualNetwork --namespace Microsoft.Network
@@ -279,19 +279,19 @@ Questo script usa i comandi seguenti per creare un gruppo di risorse, la macchin
 
 | Comando | Note |
 |---|---|
-| [az group create](/cli/azure/group#az-group-create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
-| [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) | Consente di creare una rete virtuale e una subnet di Azure. |
-| [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) | Consente di creare un indirizzo IP pubblico con un indirizzo IP statico e un nome DNS associato. |
-| [az network lb create](/cli/azure/network/lb#az-network-lb-create) | Crea un servizio di bilanciamento del carico di Azure. |
-| [az network lb probe create](/cli/azure/network/lb/probe#az-network-lb-probe-create) | Crea un probe di bilanciamento del carico. Il probe di bilanciamento del carico viene usato per monitorare tutte le macchine virtuali nel set di bilanciamento del carico. Se una macchina virtuale diventa inaccessibile, il traffico non viene indirizzato sulla macchina virtuale. |
-| [az network lb rule create](/cli/azure/network/lb/rule#az-network-lb-rule-create) | Crea una regola di bilanciamento del carico. In questo esempio viene creata una regola per la porta 80. Poiché il traffico HTTP arriva al bilanciamento del carico, viene indirizzato sulla porta 80 di una delle macchine virtuali presenti nel set di bilanciamento del carico. |
-| [az network lb inbound-nat-rule create](/cli/azure/network/lb/inbound-nat-rule#az-network-lb-inbound-nat-rule-create) | Crea una regola Network Address Translation (NAT) di bilanciamento del carico.  Le regole NAT mappano una porta del bilanciamento del carico su una porta in una macchina virtuale. In questo esempio viene creata una regola NAT per il traffico SSH in ogni macchina virtuale disponibile nel set di bilanciamento del carico.  |
-| [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create) | Consente di creare un gruppo di sicurezza di rete, ovvero un confine di sicurezza tra Internet e la macchina virtuale. |
-| [az network nsg rule create](/cli/azure/network/nsg/rule#az-network-nsg-rule-create) | Consente di creare una regola NSG per consentire il traffico in ingresso. In questo esempio, la porta 22 è aperta al traffico SSH. |
-| [az network nic create](/cli/azure/network/nic#az-network-nic-create) | Consente di creare una scheda di rete virtuale e la collega alla rete virtuale, alla subnet e al gruppo di sicurezza di rete. |
-| [az vm availability-set create](/cli/azure/network/lb/rule#az-network-lb-rule-create) | Consente di creare un set di disponibilità. I set di disponibilità garantiscono il tempo di attività dell'applicazione suddividendo le macchine virtuali in risorse fisiche in modo tale che, in caso di errore, non venga interessato l'intero set. |
-| [az vm create](/cli/azure/vm#az-vm-create) | Consente di creare la macchina virtuale e la connette alla scheda di rete, alla rete virtuale, alla subnet e al gruppo di sicurezza di rete. Questo comando specifica anche l'immagine della macchina virtuale da usare e le credenziali di amministrazione.  |
-| [az group delete](/cli/azure/vm/extension#az-vm-extension-set) | Consente di eliminare un gruppo di risorse incluse tutte le risorse annidate. |
+| [az group create](/cli/azure/group#az_group_create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
+| [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) | Consente di creare una rete virtuale e una subnet di Azure. |
+| [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) | Consente di creare un indirizzo IP pubblico con un indirizzo IP statico e un nome DNS associato. |
+| [az network lb create](/cli/azure/network/lb#az_network_lb_create) | Crea un servizio di bilanciamento del carico di Azure. |
+| [az network lb probe create](/cli/azure/network/lb/probe#az_network_lb_probe_create) | Crea un probe di bilanciamento del carico. Il probe di bilanciamento del carico viene usato per monitorare tutte le macchine virtuali nel set di bilanciamento del carico. Se una macchina virtuale diventa inaccessibile, il traffico non viene indirizzato sulla macchina virtuale. |
+| [az network lb rule create](/cli/azure/network/lb/rule#az_network_lb_rule_create) | Crea una regola di bilanciamento del carico. In questo esempio viene creata una regola per la porta 80. Poiché il traffico HTTP arriva al bilanciamento del carico, viene indirizzato sulla porta 80 di una delle macchine virtuali presenti nel set di bilanciamento del carico. |
+| [az network lb inbound-nat-rule create](/cli/azure/network/lb/inbound-nat-rule#az_network_lb_inbound_nat_rule_create) | Crea una regola Network Address Translation (NAT) di bilanciamento del carico.  Le regole NAT mappano una porta del bilanciamento del carico su una porta in una macchina virtuale. In questo esempio viene creata una regola NAT per il traffico SSH in ogni macchina virtuale disponibile nel set di bilanciamento del carico.  |
+| [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create) | Consente di creare un gruppo di sicurezza di rete, ovvero un confine di sicurezza tra Internet e la macchina virtuale. |
+| [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) | Consente di creare una regola NSG per consentire il traffico in ingresso. In questo esempio, la porta 22 è aperta al traffico SSH. |
+| [az network nic create](/cli/azure/network/nic#az_network_nic_create) | Consente di creare una scheda di rete virtuale e la collega alla rete virtuale, alla subnet e al gruppo di sicurezza di rete. |
+| [az vm availability-set create](/cli/azure/network/lb/rule#az_network_lb_rule_create) | Consente di creare un set di disponibilità. I set di disponibilità garantiscono il tempo di attività dell'applicazione suddividendo le macchine virtuali in risorse fisiche in modo tale che, in caso di errore, non venga interessato l'intero set. |
+| [az vm create](/cli/azure/vm#az_vm_create) | Consente di creare la macchina virtuale e la connette alla scheda di rete, alla rete virtuale, alla subnet e al gruppo di sicurezza di rete. Questo comando specifica anche l'immagine della macchina virtuale da usare e le credenziali di amministrazione.  |
+| [az group delete](/cli/azure/vm/extension#az_vm_extension_set) | Consente di eliminare un gruppo di risorse incluse tutte le risorse annidate. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

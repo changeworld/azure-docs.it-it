@@ -10,29 +10,29 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: kumud
-ms.openlocfilehash: 42ce7a1760ecdb1dcbd5275927f351bef5da07a8
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 0d171dee87a391c5e1d66db10363e6823ef387c1
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107531164"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107774162"
 ---
 # <a name="resource-logging-for-a-network-security-group"></a>Registrazione delle risorse per un gruppo di sicurezza di rete
 
 Un gruppo di sicurezza di rete (NSG) include regole che consentono o negano il traffico verso una subnet della rete virtuale, un'interfaccia di rete o entrambe. 
 
-Quando si abilita la registrazione per un gruppo di protezione di rete, è possibile raccogliere i tipi seguenti di informazioni sui log delle risorse:
+Quando si abilita la registrazione per un gruppo di protezione di rete, è possibile raccogliere i tipi seguenti di informazioni sul log delle risorse:
 
 * **Evento:** vengono registrate voci relative alle regole dei gruppi di sicurezza di rete applicate alle macchine virtuali in base all'indirizzo MAC.
 * **Contenitore di regole:** contiene voci per sapere quante volte ogni regola dei gruppi di sicurezza di rete è stata applicata per rifiutare o consentire il traffico. Lo stato di queste regole viene raccolto ogni 300 secondi.
 
 I log delle risorse sono disponibili solo per i gruppi di protezione di rete distribuiti tramite il Azure Resource Manager di distribuzione. Non è possibile abilitare la registrazione delle risorse per i gruppi di protezione di rete distribuiti tramite il modello di distribuzione classica. Per altre informazioni sui due modelli, vedere le [informazioni sui modelli di distribuzione di Azure](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-La registrazione delle risorse è abilitata *separatamente per ogni* gruppo di protezione di rete per cui si vogliono raccogliere dati di diagnostica. Se invece si è interessati ai log attività (operativi), vedere Registrazione [attività di](../azure-monitor/essentials/platform-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)Azure . Se si è interessati al traffico IP che scorre attraverso i NSG, vedere Log del flusso del gruppo di sicurezza di rete Network Watcher [Azure](../network-watcher/network-watcher-nsg-flow-logging-overview.md) 
+La registrazione delle risorse è abilitata *separatamente per ogni* gruppo di protezione di rete per cui si vogliono raccogliere dati di diagnostica. Se invece si è interessati ai log attività (operativi), vedere Registrazione [attività di](../azure-monitor/essentials/platform-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)Azure . Se si è interessati al flusso del traffico IP attraverso i NSG, vedere Log del flusso del gruppo di sicurezza di rete Network Watcher [Azure](../network-watcher/network-watcher-nsg-flow-logging-overview.md) 
 
 ## <a name="enable-logging"></a>Abilitazione della registrazione
 
-È possibile usare il portale [di Azure,](#azure-portal) [PowerShell](#powershell)o l'interfaccia della riga [di comando](#azure-cli) di Azure per abilitare la registrazione delle risorse.
+È possibile usare il portale [di Azure,](#azure-portal) [PowerShell](#powershell)o l'interfaccia della riga [di comando di Azure](#azure-cli) per abilitare la registrazione delle risorse.
 
 ### <a name="azure-portal"></a>Portale di Azure
 
@@ -95,9 +95,9 @@ Visualizzare e analizzare i log. Per altre informazioni, vedere [Visualizzare e 
 
 È possibile eseguire i comandi seguenti in [Azure Cloud Shell](https://shell.azure.com/bash) oppure l'interfaccia della riga di comando di Azure sul computer. Azure Cloud Shell è una shell interattiva gratuita. Include strumenti comuni di Azure preinstallati e configurati per l'uso con l'account. Se si esegue l'interfaccia della riga di comando sul computer, è necessaria la versione 2.0.38 o successiva. Per trovare la versione installata, eseguire `az --version` nel computer. Se è necessario eseguire l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). Se si esegue l'interfaccia della riga di comando in locale, è necessario eseguire anche `az login` per accedere ad Azure con un account con le [autorizzazioni necessarie](virtual-network-network-interface.md#permissions).
 
-Per abilitare la registrazione delle risorse, è necessario l'ID di un gruppo di protezione di rete esistente. Se non è disponibile un gruppo di sicurezza di rete esistente, è possibile crearne uno con [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create).
+Per abilitare la registrazione delle risorse, è necessario l'ID di un gruppo di protezione di rete esistente. Se non è disponibile un gruppo di sicurezza di rete esistente, è possibile crearne uno con [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create).
 
-Recuperare il gruppo di sicurezza di rete per cui si vuole abilitare la registrazione delle risorse [con az network nsg show](/cli/azure/network/nsg#az-network-nsg-show). Ad esempio, per recuperare un gruppo di sicurezza di rete denominato *myNsg* esistente in un gruppo di risorse denominato *myResourceGroup*, immettere il comando seguente:
+Recuperare il gruppo di sicurezza di rete per cui si vuole abilitare la registrazione delle risorse [con az network nsg show](/cli/azure/network/nsg#az_network_nsg_show). Ad esempio, per recuperare un gruppo di sicurezza di rete denominato *myNsg* esistente in un gruppo di risorse denominato *myResourceGroup*, immettere il comando seguente:
 
 ```azurecli-interactive
 nsgId=$(az network nsg show \
@@ -109,7 +109,7 @@ nsgId=$(az network nsg show \
 
 È possibile scrivere log delle risorse in tre tipi di destinazione. Per altre informazioni, vedere [Destinazioni dei log](#log-destinations). In questo articolo, i log vengono inviati alla destinazione *Log Analytics*, a titolo di esempio. Per altre informazioni, vedere [Categorie di log](#log-categories).
 
-Abilitare la registrazione delle risorse per il gruppo di sicurezza di rete [con az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create). L'esempio seguente registra i dati delle categorie evento e contatore in un'area di lavoro esistente denominata *myWorkspace*, che si trova in un gruppo di risorse denominato *myWorkspaces*, e l'ID del gruppo di sicurezza di rete recuperato in precedenza:
+Abilitare la registrazione delle risorse per il gruppo di sicurezza di rete [con az monitor diagnostic-settings create.](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_create) L'esempio seguente registra i dati delle categorie evento e contatore in un'area di lavoro esistente denominata *myWorkspace*, che si trova in un gruppo di risorse denominato *myWorkspaces*, e l'ID del gruppo di sicurezza di rete recuperato in precedenza:
 
 ```azurecli-interactive
 az monitor diagnostic-settings create \
@@ -131,7 +131,7 @@ Visualizzare e analizzare i log. Per altre informazioni, vedere [Visualizzare e 
 I dati di diagnostica possono essere:
 - [Scritti in un account di archiviazione di Azure](../azure-monitor/essentials/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-azure-storage) per il controllo o l'ispezione manuale. È possibile specificare il tempo di conservazione (in giorni) tramite le impostazioni di diagnostica delle risorse.
 - [Trasmessi in streaming a un hub eventi](../azure-monitor/essentials/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-azure-event-hubs) per l'inserimento da parte di un servizio di terze parti o di una soluzione di analisi personalizzata come Power BI.
-- [Scritto in Monitoraggio di Azure log .](../azure-monitor/essentials/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-azure-storage)
+- [Scritto nei log Monitoraggio di Azure .](../azure-monitor/essentials/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-azure-storage)
 
 ## <a name="log-categories"></a>Categorie di log
 
@@ -197,8 +197,8 @@ Il log contatore regole contiene informazioni su ogni regola applicata alle riso
 
 ## <a name="view-and-analyze-logs"></a>Visualizzare e analizzare i log
 
-Per informazioni su come visualizzare i dati dei log delle risorse, vedere Panoramica [dei log della piattaforma Azure.](../azure-monitor/essentials/platform-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) Se si inviano i dati di diagnostica a:
-- **Monitoraggio di Azure log:** è possibile usare la soluzione di analisi del gruppo di [sicurezza di](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-security-group-analytics-solution-in-azure-monitor
+Per informazioni su come visualizzare i dati dei log delle risorse, vedere Panoramica dei log [della piattaforma Azure.](../azure-monitor/essentials/platform-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) Se si inviano i dati di diagnostica a:
+- **Monitoraggio di Azure: è** possibile usare la soluzione di analisi dei gruppi di [sicurezza di](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-security-group-analytics-solution-in-azure-monitor
 ) rete per ottenere informazioni dettagliate avanzate. La soluzione offre visualizzazioni per le regole dei gruppi di sicurezza di rete che consentono o negano il traffico, in base all'indirizzo MAC, dell'interfaccia di rete in una macchina virtuale.
 - **Account di archiviazione Azure**: i dati vengono scritti in un file PT1H.json. È possibile trovare il:
   - Registro eventi nel percorso seguente: `insights-logs-networksecuritygroupevent/resourceId=/SUBSCRIPTIONS/[ID]/RESOURCEGROUPS/[RESOURCE-GROUP-NAME-FOR-NSG]/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/[NSG NAME]/y=[YEAR]/m=[MONTH/d=[DAY]/h=[HOUR]/m=[MINUTE]`
@@ -206,7 +206,7 @@ Per informazioni su come visualizzare i dati dei log delle risorse, vedere Panor
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Altre informazioni sulla [registrazione delle attività](../azure-monitor/essentials/platform-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). La registrazione delle attività è abilitata per impostazione predefinita per i gruppi di sicurezza di rete creati tramite qualsiasi modello di distribuzione di Azure. Per determinare quali operazioni sono state completate nei NGS nel log attività, cercare le voci che contengono i tipi di risorsa seguenti:
+- Altre informazioni sulla [registrazione delle attività.](../azure-monitor/essentials/platform-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) La registrazione delle attività è abilitata per impostazione predefinita per i gruppi di sicurezza di rete creati tramite qualsiasi modello di distribuzione di Azure. Per determinare quali operazioni sono state completate nei NGS nel log attività, cercare le voci che contengono i tipi di risorsa seguenti:
   - Microsoft.ClassicNetwork/networkSecurityGroups
   - Microsoft.ClassicNetwork/networkSecurityGroups/securityRules
   - Microsoft.Network/networkSecurityGroups

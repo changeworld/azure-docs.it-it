@@ -1,7 +1,7 @@
 ---
 title: 'Avvio rapido: Creare un profilo e un endpoint - Modello di Resource Manager'
 titleSuffix: Azure Content Delivery Network
-description: In questa Guida introduttiva viene illustrato come creare un profilo di rete per la distribuzione di contenuti di Azure ed endpoint un modello di Gestione risorse
+description: Questa guida introduttiva illustra come creare un profilo di rete per la distribuzione di contenuti di Azure ed eseguire l'endpoint di un modello Resource Manager
 services: cdn
 author: asudbring
 manager: KumudD
@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurecli
 ms.date: 06/25/2020
 ms.author: allensu
-ms.openlocfilehash: a36484bea3a2bc9caadc5cf4482aae3bea84eafa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 31f0510ed50c9d48a46524a353d7c872b368f75c
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102560464"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107779040"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint---arm-template"></a>Avvio rapido: Creare un profilo e un endpoint della rete CDN di Azure - Modello di Resource Manager
 
@@ -98,7 +98,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
-Quando il gruppo di risorse e tutte le risorse al suo interno non sono più necessari, usare il comando [az group delete](/cli/azure/group#az-group-delete) per rimuoverli.
+Quando il gruppo di risorse e tutte le risorse al suo interno non sono più necessari, usare il comando [az group delete](/cli/azure/group#az_group_delete) per rimuoverli.
 
 ```azurecli-interactive 
   az group delete \
@@ -127,4 +127,4 @@ In questo argomento di avvio rapido sono stati creati questi componenti:
 Per altre informazioni su Rete CDN di Azure e Azure Resource Manager, continuare con gli articoli seguenti.
 
 > [!div class="nextstepaction"]
-> [Esercitazione: usare la rete CDN per gestire il contenuto statico da un'app Web](cdn-add-to-web-app.md)
+> [Esercitazione: Usare la rete CDN per gestire contenuto statico da un'app Web](cdn-add-to-web-app.md)

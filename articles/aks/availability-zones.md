@@ -5,12 +5,12 @@ services: container-service
 ms.custom: fasttrack-edit, references_regions, devx-track-azurecli
 ms.topic: article
 ms.date: 03/16/2021
-ms.openlocfilehash: 4c5b0ceb3f8e0b96f18a67ed0c7dbf1b56ac30da
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 796cb0e2b76dc2a04834df61c053c5ad2ceb25fd
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104583548"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107769626"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>Creare un cluster del servizio Azure Kubernetes che usi le zone di disponibilità
 
@@ -54,9 +54,9 @@ Quando si crea un cluster del servizio Azure Kubernetes usando le zone di dispon
 
 ### <a name="azure-disks-limitations"></a>Limitazioni per i dischi di Azure
 
-I volumi che usano i dischi gestiti di Azure non sono al momento risorse con ridondanza della zona. I volumi non possono essere collegati tra le zone e devono avere un percorso condiviso nella stessa zona di un determinato nodo che ospita il pod di destinazione.
+I volumi che usano i dischi gestiti di Azure non sono al momento risorse con ridondanza della zona. I volumi non possono essere collegati tra zone e devono trovarsi nella stessa zona di un determinato nodo che ospita il pod di destinazione.
 
-Kubernetes è in grado di riconoscere le zone di disponibilità di Azure a partire dalla versione 1,12. È possibile distribuire un oggetto PersistentVolumeClaim che fa riferimento a un disco gestito di Azure in un cluster AKS a più zone e [Kubernetes si occuperà di pianificare](https://kubernetes.io/docs/setup/best-practices/multiple-zones/#storage-access-for-zones) tutti i pod che attestano il PVC nella zona di disponibilità corretta.
+Kubernetes è a conoscenza delle zone di disponibilità di Azure a partire dalla versione 1.12. È possibile distribuire un oggetto PersistentVolumeClaim che fa riferimento a un disco gestito di Azure in un cluster del servizio Azure Kubernetes multi-zona e [Kubernetes](https://kubernetes.io/docs/setup/best-practices/multiple-zones/#storage-access-for-zones) si occuperà di pianificare qualsiasi pod che rivendica questo PVC nella zona di disponibilità corretta.
 
 ## <a name="overview-of-availability-zones-for-aks-clusters"></a>Panoramica delle zone di disponibilità per cluster del servizio Azure Kubernetes
 
@@ -72,7 +72,7 @@ Se una singola zona diventa non disponibile, le applicazioni continuano a essere
 
 ## <a name="create-an-aks-cluster-across-availability-zones"></a>Creare un cluster del servizio Azure Kubernetes tra le zone di disponibilità
 
-Quando si crea un cluster usando il comando [az aks create][az-aks-create], il parametro `--zones` definisce in quali zone vengono distribuiti i nodi agenti. I componenti del piano di controllo, ad esempio ETCD o l'API, vengono distribuiti tra le zone disponibili nell'area se si definisce il `--zones` parametro in fase di creazione del cluster. Le zone specifiche in cui sono distribuiti i componenti del piano di controllo sono indipendenti dalle zone esplicite selezionate per il pool di nodi iniziale.
+Quando si crea un cluster usando il comando [az aks create][az-aks-create], il parametro `--zones` definisce in quali zone vengono distribuiti i nodi agenti. I componenti del piano di controllo, ad esempio etcd o l'API, vengono distribuiti tra le zone disponibili nell'area se si definisce il parametro al momento della creazione `--zones` del cluster. Le zone specifiche in cui sono distribuiti i componenti del piano di controllo sono indipendenti dalle zone esplicite selezionate per il pool di nodi iniziale.
 
 Se non si definiscono zone per il pool di agenti predefinito quando si crea un cluster del servizio Azure Kubernetes, non è garantito che i componenti del piano di controllo vengano distribuiti tra le zone di disponibilità. È possibile aggiungere altri pool di nodi usando il comando [az aks nodepool add][az-aks-nodepool-add] e specificare `--zones` per i nuovi nodi, ma ciò non modificherà il modo in cui il piano di controllo è stato distribuito tra le zone. Le impostazioni della zona di disponibilità possono essere definite solo in fase di creazione del cluster o del pool di nodi.
 
@@ -105,7 +105,7 @@ Innanzitutto, ottenere le credenziali per il cluster del servizio Azure Kubernet
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-Usare quindi il comando [kubectl Descrivi][kubectl-describe] per elencare i nodi nel cluster e filtrare il valore *failure-domain.beta.kubernetes.io/zone* . L'esempio seguente è relativo a una shell bash.
+Usare quindi il [comando kubectl describe][kubectl-describe] per elencare i nodi nel cluster e filtrare in base *failure-domain.beta.kubernetes.io/zone* valore. L'esempio seguente è per una shell Bash.
 
 ```console
 kubectl describe nodes | grep -e "Name:&quot; -e &quot;failure-domain.beta.kubernetes.io/zone"
@@ -124,13 +124,13 @@ Name:       aks-nodepool1-28993262-vmss000002
 
 Quando si aggiungono altri nodi a un pool di agenti, la piattaforma Azure distribuisce automaticamente le macchine virtuali sottostanti nelle zone di disponibilità specificate.
 
-Si noti che nelle versioni più recenti di Kubernetes (1.17.0 e versioni successive), il servizio Azure Kubernetes usa l'etichetta più recente `topology.kubernetes.io/zone` oltre alla `failure-domain.beta.kubernetes.io/zone` deprecata. È possibile ottenere lo stesso risultato precedente con eseguendo lo script seguente:
+Si noti che nelle versioni più recenti di Kubernetes (1.17.0 e versioni successive), il servizio Azure Kubernetes usa l'etichetta più recente `topology.kubernetes.io/zone` oltre alla `failure-domain.beta.kubernetes.io/zone` deprecata. È possibile ottenere lo stesso risultato riportato in precedenza con eseguendo lo script seguente:
 
 ```console
 kubectl get nodes -o custom-columns=NAME:'{.metadata.name}',REGION:'{.metadata.labels.topology\.kubernetes\.io/region}',ZONE:'{metadata.labels.topology\.kubernetes\.io/zone}'
 ```
 
-Che fornirà un output più conciso:
+In questo modo si ostinerà un output più sintetico:
 
 ```console
 NAME                                REGION   ZONE
@@ -150,7 +150,7 @@ az aks scale \
     --node-count 5
 ```
 
-Al termine dell'operazione di ridimensionamento dopo alcuni minuti, il comando `kubectl describe nodes | grep -e "Name:" -e "failure-domain.beta.kubernetes.io/zone"` in una shell bash dovrebbe fornire un output simile a questo esempio:
+Quando l'operazione di ridimensionamento viene completata dopo alcuni minuti, il comando in una shell Bash dovrebbe fornire un `kubectl describe nodes | grep -e "Name:" -e "failure-domain.beta.kubernetes.io/zone"` output simile a questo esempio:
 
 ```console
 Name:       aks-nodepool1-28993262-vmss000000
@@ -172,7 +172,7 @@ kubectl create deployment nginx --image=mcr.microsoft.com/oss/nginx/nginx:1.15.5
 kubectl scale deployment nginx --replicas=3
 ```
 
-Quando si visualizzano i nodi in cui sono in esecuzione i pod, i pod sono in esecuzione nei nodi corrispondenti a tre diverse zone di disponibilità. Ad esempio, con il comando `kubectl describe pod | grep -e "^Name:" -e "^Node:"` in una shell bash si otterrà un output simile al seguente:
+Quando si visualizzano i nodi in cui sono in esecuzione i pod, i pod sono in esecuzione nei nodi corrispondenti a tre diverse zone di disponibilità. Ad esempio, con il comando `kubectl describe pod | grep -e "^Name:" -e "^Node:"` in una shell Bash si otterrà un output simile al seguente:
 
 ```console
 Name:         nginx-6db489d4b7-ktdwg
@@ -191,19 +191,19 @@ Questo articolo illustra in modo dettagliato come creare un cluster del servizio
 
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli
-[az-feature-register]: /cli/azure/feature#az-feature-register
-[az-feature-list]: /cli/azure/feature#az-feature-list
-[az-provider-register]: /cli/azure/provider#az-provider-register
-[az-aks-create]: /cli/azure/aks#az-aks-create
+[az-feature-register]: /cli/azure/feature#az_feature_register
+[az-feature-list]: /cli/azure/feature#az_feature_list
+[az-provider-register]: /cli/azure/provider#az_provider_register
+[az-aks-create]: /cli/azure/aks#az_aks_create
 [az-overview]: ../availability-zones/az-overview.md
 [best-practices-bc-dr]: operator-best-practices-multi-region.md
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
 [standard-lb-limitations]: load-balancer-standard.md#limitations
-[az-extension-add]: /cli/azure/extension#az-extension-add
-[az-extension-update]: /cli/azure/extension#az-extension-update
+[az-extension-add]: /cli/azure/extension#az_extension_add
+[az-extension-update]: /cli/azure/extension#az_extension_update
 [az-aks-nodepool-add]: /cli/azure/ext/aks-preview/aks/nodepool#ext-aks-preview-az-aks-nodepool-add
-[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
+[az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
 [vmss-zone-balancing]: ../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md#zone-balancing
 
 <!-- LINKS - external -->

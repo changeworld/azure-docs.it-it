@@ -1,6 +1,6 @@
 ---
 title: Usare GitHub Actions per distribuire un sito statico in Archiviazione di Azure
-description: Hosting di siti web statici di archiviazione di Azure con azioni GitHub
+description: Archiviazione di Azure hosting di siti Web statici con GitHub Actions
 author: juliakm
 ms.service: storage
 ms.topic: how-to
@@ -9,20 +9,20 @@ ms.reviewer: dineshm
 ms.date: 01/11/2021
 ms.subservice: blobs
 ms.custom: devx-track-javascript, github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: 2192cdb3072edba2e5597a697feef99ba4d2070d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 3ae0904eda2608026ad09ba8b8993008380725f4
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102210258"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107788530"
 ---
 # <a name="set-up-a-github-actions-workflow-to-deploy-your-static-website-in-azure-storage"></a>Configurare un flusso di lavoro di GitHub Actions per distribuire il sito Web statico in Archiviazione di Azure
 
-Iniziare a usare le [azioni di GitHub](https://docs.github.com/en/actions) usando un flusso di lavoro per distribuire un sito statico in un account di archiviazione di Azure. Dopo aver configurato un flusso di lavoro di azioni di GitHub, sarà possibile distribuire automaticamente il sito in Azure da GitHub quando si apportano modifiche al codice del sito.
+Introduzione all'uso [GitHub Actions](https://docs.github.com/en/actions) flusso di lavoro per distribuire un sito statico in un account di archiviazione di Azure. Dopo aver configurato un flusso di lavoro GitHub Actions, sarà possibile distribuire automaticamente il sito in Azure da GitHub quando si apportano modifiche al codice del sito.
 
 > [!NOTE]
-> Se si usano [app Web statiche di Azure](../../static-web-apps/index.yml), non è necessario configurare manualmente un flusso di lavoro di azioni di GitHub.
-> App Web statiche di Azure crea automaticamente un flusso di lavoro di azioni GitHub. 
+> Se si usa [App Web statiche di Azure](../../static-web-apps/index.yml), non è necessario configurare manualmente un flusso di lavoro GitHub Actions lavoro.
+> App Web statiche di Azure automaticamente un flusso GitHub Actions di lavoro. 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -30,22 +30,22 @@ Una sottoscrizione di Azure e un account GitHub.
 
 - Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Un repository GitHub con il codice del sito Web statico. Se non si ha un account GitHub, è possibile [iscriversi gratuitamente](https://github.com/join).  
-- Un sito Web statico funzionante ospitato in archiviazione di Azure. Informazioni su come [ospitare un sito Web statico in archiviazione di Azure](storage-blob-static-website-how-to.md). Per seguire questo esempio, è necessario distribuire anche la rete [CDN di Azure](static-website-content-delivery-network.md).
+- Un sito Web statico funzionante ospitato in Archiviazione di Azure. Informazioni su come [ospitare un sito Web statico in Archiviazione di Azure](storage-blob-static-website-how-to.md). Per seguire questo esempio, è necessario distribuire anche [Rete CDN di Azure](static-website-content-delivery-network.md).
 
 > [!NOTE]
-> È comune usare una rete per la distribuzione di contenuti (CDN) per ridurre la latenza agli utenti in tutto il mondo e per ridurre il numero di transazioni per l'account di archiviazione. La distribuzione di contenuto statico in un servizio di archiviazione basato su cloud può ridurre la necessità di un'istanza di calcolo potenzialmente costosa. Per altre informazioni, vedere [modello di hosting del contenuto statico](/azure/architecture/patterns/static-content-hosting).
+> È comune usare una rete per la distribuzione di contenuti (rete CDN) per ridurre la latenza agli utenti in tutto il mondo e ridurre il numero di transazioni nell'account di archiviazione. La distribuzione di contenuto statico in un servizio di archiviazione basato sul cloud può ridurre la necessità di istanze di calcolo potenzialmente dispendiose. Per altre informazioni, vedere [Modello di hosting del contenuto statico.](/azure/architecture/patterns/static-content-hosting)
 
 ## <a name="generate-deployment-credentials"></a>Generare le credenziali per la distribuzione
 
-È possibile creare un'[entità servizio](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) con il comando [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) dell'[interfaccia della riga di comando di Azure](/cli/azure/). Eseguire questo comando con [Azure Cloud Shell](https://shell.azure.com/) nel portale di Azure oppure selezionando il pulsante **Prova**.
+È possibile creare un'[entità servizio](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) con il comando [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) dell'[interfaccia della riga di comando di Azure](/cli/azure/). Eseguire questo comando con [Azure Cloud Shell](https://shell.azure.com/) nel portale di Azure oppure selezionando il pulsante **Prova**.
 
-Sostituire il segnaposto `myStaticSite` con il nome del sito ospitato in archiviazione di Azure. 
+Sostituire il `myStaticSite` segnaposto con il nome del sito ospitato in Archiviazione di Azure. 
 
 ```azurecli-interactive
    az ad sp create-for-rbac --name {myStaticSite} --role contributor --scopes /subscriptions/{subscription-id}/resourceGroups/{resource-group} --sdk-auth
 ```
 
-Nell'esempio precedente sostituire i segnaposto con l'ID sottoscrizione e il nome del gruppo di risorse. L'output è un oggetto JSON con le credenziali di assegnazione di ruolo che forniscono l'accesso all'account di archiviazione simile a quello riportato di seguito. Copiare l'oggetto JSON per un uso successivo.
+Nell'esempio precedente sostituire i segnaposto con l'ID sottoscrizione e il nome del gruppo di risorse. L'output è un oggetto JSON con le credenziali di assegnazione di ruolo che forniscono l'accesso all'account di archiviazione, come illustrato di seguito. Copiare l'oggetto JSON per un uso successivo.
 
 ```output 
   {
@@ -66,7 +66,7 @@ Nell'esempio precedente sostituire i segnaposto con l'ID sottoscrizione e il nom
 
 1. Selezionare **Settings > Secrets > New secret** (Impostazioni > Segreti > Nuovo segreto).
 
-1. Incollare l'intero output JSON del comando dell'interfaccia della riga di comando di Azure nel campo del valore del segreto. Assegnare al segreto un nome come `AZURE_CREDENTIALS` .
+1. Incollare l'intero output JSON del comando dell'interfaccia della riga di comando di Azure nel campo del valore del segreto. Assegnare un nome al segreto, ad esempio `AZURE_CREDENTIALS` .
 
     Quando in seguito si configura il file del flusso di lavoro, si usa il segreto come `creds` di input dell'azione di accesso di Azure. Ad esempio:
 
@@ -80,7 +80,7 @@ Nell'esempio precedente sostituire i segnaposto con l'ID sottoscrizione e il nom
 
 1. Passare ad **Actions** per il repository GitHub. 
 
-    :::image type="content" source="media/storage-blob-static-website/storage-blob-github-actions-header.png" alt-text="Voce di menu azioni di GitHub":::
+    :::image type="content" source="media/storage-blob-static-website/storage-blob-github-actions-header.png" alt-text="Voce di menu Azioni di GitHub":::
 
 1. Selezionare **Set up your workflow yourself** (Configurare manualmente il flusso di lavoro). 
 
@@ -117,7 +117,7 @@ Nell'esempio precedente sostituire i segnaposto con l'ID sottoscrizione e il nom
               creds: ${{ secrets.AZURE_CREDENTIALS }}
     ```
 
-1. Usare l'azione dell'interfaccia della riga di comando di Azure per caricare il codice nell'archivio BLOB ed eliminare l'endpoint della rete CDN. Per `az storage blob upload-batch` , sostituire il segnaposto con il nome dell'account di archiviazione. Lo script viene caricato nel `$web` contenitore. Per `az cdn endpoint purge` , sostituire i segnaposto con il nome del profilo della rete CDN, il nome dell'endpoint della rete CDN e il gruppo di risorse.
+1. Usare l'azione dell'interfaccia della riga di comando di Azure per caricare il codice nell'archivio BLOB ed eliminare l'endpoint della rete CDN. Per `az storage blob upload-batch` , sostituire il segnaposto con il nome dell'account di archiviazione. Lo script verrà caricato nel `$web` contenitore. Per `az cdn endpoint purge` , sostituire i segnaposto con il nome del profilo della rete CDN, il nome dell'endpoint della rete CDN e il gruppo di risorse.
 
     ```yaml
         - name: Upload to blob storage
@@ -188,4 +188,4 @@ Quando il sito Web statico e il repository GitHub non sono più necessari, pulir
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Informazioni sulle app Web statiche di Azure](../../static-web-apps/index.yml)
+> [Informazioni sulle App Web statiche di Azure](../../static-web-apps/index.yml)

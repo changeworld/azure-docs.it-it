@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 04/19/2021
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 7a2e8613aab61beec3720cadaa20eb008386b43b
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: 1d20e484b46dedfc5ecae0d24b4b30205cbe32cd
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107728190"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107799846"
 ---
 Usare l'API REST di analisi delle immagini per:
 
@@ -48,7 +48,7 @@ Per analizzare un'immagine e rilevare un'ampia varietà di caratteristiche visiv
 1. Incollare il comando dall'editor di testo nella finestra del prompt dei comandi e quindi eseguire il comando.
 
 ```bash
-curl -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "https://westcentralus.api.cognitive.microsoft.com/vision/v3.1/analyze?visualFeatures=Categories,Description&details=Landmarks" -d "{\"url\":\"http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg\"}"
+curl -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "https://westcentralus.api.cognitive.microsoft.com/vision/v3.2/analyze?visualFeatures=Categories,Description&details=Landmarks" -d "{\"url\":\"http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg\"}"
 ```
 
 ### <a name="examine-the-response"></a>Esaminare i risultati
@@ -130,7 +130,7 @@ Per creare ed eseguire l'esempio, seguire questa procedura:
 1. Premere INVIO per eseguire il programma.
 
     ```bash
-    curl -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -o <thumbnailFile> -H "Content-Type: application/json" "https://westus.api.cognitive.microsoft.com/vision/v3.1/generateThumbnail?width=100&height=100&smartCropping=true" -d "{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Shorkie_Poo_Puppy.jpg/1280px-Shorkie_Poo_Puppy.jpg\"}"
+    curl -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -o <thumbnailFile> -H "Content-Type: application/json" "https://westus.api.cognitive.microsoft.com/vision/v3.2/generateThumbnail?width=100&height=100&smartCropping=true" -d "{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Shorkie_Poo_Puppy.jpg/1280px-Shorkie_Poo_Puppy.jpg\"}"
     ```
 
 ### <a name="examine-the-response"></a>Esaminare i risultati

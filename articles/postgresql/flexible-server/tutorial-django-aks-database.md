@@ -7,12 +7,12 @@ ms.author: sumuth
 ms.topic: tutorial
 ms.date: 12/10/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: b79b470a25a63c0a46ddef94ee65f47f37c560cb
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 9315e6fd7dd9880d20108e3f0ed28cd32904f1a3
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107477809"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107791536"
 ---
 # <a name="tutorial-deploy-django-app-on-aks-with-azure-database-for-postgresql---flexible-server"></a>Esercitazione: Distribuire un'app Django nel servizio Azure Kubernetes con il server flessibile di Database di Azure per PostgreSQL
 
@@ -31,7 +31,7 @@ Il **[servizio Azure Kubernetes](../../aks/intro-kubernetes.md)** è un servizio
 
    [![Incorpora avvio](https://shell.azure.com/images/launchcloudshell.png "Avviare Azure Cloud Shell")](https://shell.azure.com)  
 - Se si preferisce, [installare](/cli/azure/install-azure-cli) l'interfaccia della riga di comando di Azure per eseguire i relativi comandi di riferimento.
-  - Se si usa un'installazione locale, accedere all'interfaccia della riga di comando usando il comando [az login](/cli/azure/reference-index#az-login).  Per completare il processo di autenticazione, seguire la procedura visualizzata nel terminale.  Per altre opzioni di accesso, vedere [Accedere tramite l'interfaccia della riga di comando di Azure](/cli/azure/authenticate-azure-cli).
+  - Se si usa un'installazione locale, accedere all'interfaccia della riga di comando usando il comando [az login](/cli/azure/reference-index#az_login).  Per completare il processo di autenticazione, seguire la procedura visualizzata nel terminale.  Per altre opzioni di accesso, vedere [Accedere tramite l'interfaccia della riga di comando di Azure](/cli/azure/authenticate-azure-cli).
   - Quando richiesto, installare le estensioni dell'interfaccia della riga di comando di Azure al primo utilizzo.  Per altre informazioni sulle estensioni, vedere [Usare le estensioni con l'interfaccia della riga di comando di Azure](/cli/azure/azure-cli-extensions-overview).
   - Eseguire [az version](/cli/azure/reference-index?#az_version) per trovare la versione e le librerie dipendenti installate. Per eseguire l'aggiornamento alla versione più recente, eseguire [az upgrade](/cli/azure/reference-index?#az_upgrade). Questo articolo richiede l'ultima versione dell'interfaccia della riga di comando di Azure. Se si usa Azure Cloud Shell, la versione più recente è già installata.
 
@@ -67,7 +67,7 @@ L'output di esempio seguente mostra il gruppo di risorse creato correttamente:
 
 ## <a name="create-aks-cluster"></a>Creare un cluster del servizio Azure Container
 
-Usare il comando [az aks create](/cli/azure/aks#az-aks-create) per creare un cluster del servizio Azure Kubernetes. L'esempio seguente crea un cluster denominato *myAKSCluster* con un nodo. Questa operazione richiede alcuni minuti.
+Usare il comando [az aks create](/cli/azure/aks#az_aks_create) per creare un cluster del servizio Azure Kubernetes. L'esempio seguente crea un cluster denominato *myAKSCluster* con un nodo. Questa operazione richiede alcuni minuti.
 
 ```azurecli-interactive
 az aks create --resource-group django-project --name djangoappcluster --node-count 1 --generate-ssh-keys
@@ -80,13 +80,13 @@ Il comando viene completato dopo pochi minuti e vengono restituite informazioni 
 
 ## <a name="connect-to-the-cluster"></a>Stabilire la connessione al cluster
 
-Per gestire un cluster Kubernetes, usare [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/), il client da riga di comando di Kubernetes. Se si usa Azure Cloud Shell, `kubectl` è già installato. Per installare `kubectl` in locale, usare il comando [az aks install-cli](/cli/azure/aks#az-aks-install-cli):
+Per gestire un cluster Kubernetes, usare [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/), il client da riga di comando di Kubernetes. Se si usa Azure Cloud Shell, `kubectl` è già installato. Per installare `kubectl` in locale, usare il comando [az aks install-cli](/cli/azure/aks#az_aks_install_cli):
 
 ```azurecli-interactive
 az aks install-cli
 ```
 
-Per configurare `kubectl` per la connessione al cluster Kubernetes, usare il comando [az aks get-credentials](/cli/azure/aks#az-aks-get-credentials). Questo comando scarica le credenziali e configura l'interfaccia della riga di comando di Kubernetes per usarli.
+Per configurare `kubectl` per la connessione al cluster Kubernetes, usare il comando [az aks get-credentials](/cli/azure/aks#az_aks_get_credentials). Questo comando scarica le credenziali e configura l'interfaccia della riga di comando di Kubernetes per usarli.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group django-project --name djangoappcluster
@@ -128,22 +128,22 @@ Il server creato ha gli attributi seguenti:
 Creare una nuova [applicazione Django](https://docs.djangoproject.com/en/3.1/intro/) o usare il progetto Django esistente. Verificare che il codice si trovi in questa struttura di cartelle.
 
 ```
-â””â”€â”€â”€my-djangoapp
-    â””â”€â”€â”€views.py
-    â””â”€â”€â”€models.py
-    â””â”€â”€â”€forms.py
-    â”œâ”€â”€â”€templates
+└───my-djangoapp
+    └───views.py
+    └───models.py
+    └───forms.py
+    ├───templates
           . . . . . . .
-    â”œâ”€â”€â”€static
+    ├───static
          . . . . . . .
-â””â”€â”€â”€my-django-project
-    â””â”€â”€â”€settings.py
-    â””â”€â”€â”€urls.py
-    â””â”€â”€â”€wsgi.py
+└───my-django-project
+    └───settings.py
+    └───urls.py
+    └───wsgi.py
         . . . . . . .
-    â””â”€â”€â”€ Dockerfile
-    â””â”€â”€â”€ requirements.txt
-    â””â”€â”€â”€ manage.py
+    └─── Dockerfile
+    └─── requirements.txt
+    └─── manage.py
     
 ```
 Aggiornare ```ALLOWED_HOSTS``` in ```settings.py``` per assicurarsi che l'applicazione Django usi l'indirizzo IP esterno che viene assegnato all'app kubernetes.

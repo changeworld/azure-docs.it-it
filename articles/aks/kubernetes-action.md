@@ -1,53 +1,53 @@
 ---
-title: Consente di compilare, testare e distribuire i contenitori nel servizio Azure Kubernetes usando le azioni di GitHub
-description: Informazioni su come usare le azioni di GitHub per distribuire il contenitore in Kubernetes
+title: Compilare, testare e distribuire contenitori in servizio Azure Kubernetes usando GitHub Actions
+description: Informazioni su come usare GitHub Actions distribuire il contenitore in Kubernetes
 services: container-service
 author: azooinmyluggage
 ms.topic: article
 ms.date: 11/06/2020
 ms.author: atulmal
 ms.custom: github-actions-azure
-ms.openlocfilehash: 94134360de49a066f825cbb0c85712995d90b37f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3a8e91f74fe3c862a814d7660e64748df9553f1d
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98761467"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107779760"
 ---
-# <a name="github-actions-for-deploying-to-kubernetes-service"></a>Azioni di GitHub per la distribuzione nel servizio Kubernetes
+# <a name="github-actions-for-deploying-to-kubernetes-service"></a>GitHub Actions per la distribuzione nel servizio Kubernetes
 
-[GitHub Actions](https://docs.github.com/en/actions) offre la flessibilità necessaria per creare un flusso di lavoro automatizzato del ciclo di vita di sviluppo software. È possibile usare più azioni Kubernetes per la distribuzione in contenitori da Azure Container Registry al servizio Kubernetes di Azure con azioni di GitHub. 
+[GitHub Actions](https://docs.github.com/en/actions) offre la flessibilità necessaria per creare un flusso di lavoro automatizzato del ciclo di vita di sviluppo software. È possibile usare più azioni Kubernetes per eseguire la distribuzione nei contenitori da Registro Azure Container a servizio Azure Kubernetes con GitHub Actions. 
 
 ## <a name="prerequisites"></a>Prerequisiti 
 
 - Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Un account GitHub. Se non è disponibile, iscriversi per riceverne uno [gratuito](https://github.com/join).  
 - Un cluster Kubernetes funzionante
-    - [Esercitazione: preparare un'applicazione per il servizio Azure Kubernetes](tutorial-kubernetes-prepare-app.md)
+    - [Esercitazione: Preparare un'applicazione per servizio Azure Kubernetes](tutorial-kubernetes-prepare-app.md)
 
 ## <a name="workflow-file-overview"></a>Panoramica dei file del flusso di lavoro
 
 Un flusso di lavoro viene definito da un file YAML (con estensione yml) nel percorso `/.github/workflows/` del repository. Questa definizione contiene i vari passaggi e i parametri che costituiscono il flusso di lavoro.
 
-Per un flusso di lavoro che ha come destinazione AKS, il file è costituito da tre sezioni:
+Per un flusso di lavoro che ha come destinazione il servizio AKS, il file include tre sezioni:
 
 |Sezione  |Attività  |
 |---------|---------|
-|**autenticazione** | Accedere a un registro contenitori privato (ACR) |
+|**autenticazione** | Accedere a un registro contenitori privato |
 |**Compila** | Compilare & eseguire il push dell'immagine del contenitore  |
-|**Distribuzione** | 1. impostare il cluster AKS di destinazione |
-| |2. creare un segreto del registro di sistema generico/Docker nel cluster Kubernetes  |
-||3. eseguire la distribuzione nel cluster Kubernetes|
+|**Distribuzione** | 1. Impostare il cluster del servizio Servizio Web Di destinazione |
+| |2. Creare un segreto generico/docker-registry nel cluster Kubernetes  |
+||3. Eseguire la distribuzione nel cluster Kubernetes|
 
 ## <a name="create-a-service-principal"></a>Creare un'entità servizio
 
-È possibile creare un'[entità servizio](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) usando il comando [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) nell'[interfaccia della riga di comando di Azure](/cli/azure/). È possibile eseguire questo comando usando [Azure Cloud Shell](https://shell.azure.com/) nel portale di Azure oppure selezionando il pulsante **Prova**.
+È possibile creare un'[entità servizio](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) usando il comando [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) nell'[interfaccia della riga di comando di Azure](/cli/azure/). È possibile eseguire questo comando usando [Azure Cloud Shell](https://shell.azure.com/) nel portale di Azure oppure selezionando il pulsante **Prova**.
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP> --sdk-auth
 ```
 
-Nel comando precedente sostituire i segnaposto con l'ID sottoscrizione e il gruppo di risorse. L'output è costituito dalle credenziali di assegnazione di ruolo che forniscono l'accesso alla risorsa. Il comando deve restituire un oggetto JSON simile al seguente.
+Nel comando precedente sostituire i segnaposto con l'ID sottoscrizione e il gruppo di risorse. L'output è l'assegnazione di ruolo credenziali che forniscono l'accesso alla risorsa. Il comando dovrebbe eseguire l'output di un oggetto JSON simile al seguente.
 
 ```json
   {
@@ -62,26 +62,26 @@ Copiare questo oggetto JSON, che potrà essere usato per eseguire l'autenticazio
 
 ## <a name="configure-the-github-secrets"></a>Configurare i segreti GitHub
 
-Seguire i passaggi per configurare i segreti:
+Seguire la procedura per configurare i segreti:
 
-1. In [GitHub](https://github.com/)passare al repository, selezionare **Impostazioni > Secrets > aggiungere un nuovo segreto**.
+1. In [GitHub](https://github.com/)passare al repository, selezionare **Settings (Impostazioni) > Secrets (Segreti) > Add a new secret (Aggiungi un nuovo segreto).**
 
-    ![Screenshot mostra il collegamento Aggiungi un nuovo segreto per un repository.](media/kubernetes-action/secrets.png)
+    ![Screenshot che mostra il collegamento Aggiungi un nuovo segreto per un repository.](media/kubernetes-action/secrets.png)
 
-2. Incollare il contenuto del comando precedente `az cli` come valore della variabile segreta. Ad esempio: `AZURE_CREDENTIALS`.
+2. Incollare il contenuto del comando `az cli` precedente come valore della variabile secret. Ad esempio: `AZURE_CREDENTIALS`.
 
-3. Analogamente, definire i seguenti segreti aggiuntivi per le credenziali del registro contenitori e impostarli in azione Docker login. 
+3. Analogamente, definire i segreti aggiuntivi seguenti per le credenziali del registro contenitori e impostarli nell'azione di accesso di Docker. 
 
     - REGISTRY_USERNAME
     - REGISTRY_PASSWORD
 
-4. I segreti vengono visualizzati come mostrato di seguito, una volta definiti.
+4. I segreti verranno visualizzati come illustrato di seguito dopo la definizione.
 
-    ![Screenshot mostra i segreti esistenti per un repository.](media/kubernetes-action/kubernetes-secrets.png)
+    ![Screenshot che mostra i segreti esistenti per un repository.](media/kubernetes-action/kubernetes-secrets.png)
 
-##  <a name="build-a-container-image-and-deploy-to-azure-kubernetes-service-cluster"></a>Compilare un'immagine del contenitore e distribuirla nel cluster del servizio Kubernetes di Azure
+##  <a name="build-a-container-image-and-deploy-to-azure-kubernetes-service-cluster"></a>Creare un'immagine del contenitore e distribui servizio Azure Kubernetes cluster
 
-La compilazione e il push delle immagini del contenitore vengono eseguiti usando l' `Azure/docker-login@v1` azione. 
+La compilazione e il push delle immagini del contenitore vengono eseguite usando `Azure/docker-login@v1` l'azione . 
 
 
 ```yml
@@ -112,20 +112,20 @@ jobs:
 
 ```
 
-### <a name="deploy-to-azure-kubernetes-service-cluster"></a>Eseguire la distribuzione nel cluster del servizio Kubernetes di Azure
+### <a name="deploy-to-azure-kubernetes-service-cluster"></a>Eseguire la distribuzione servizio Azure Kubernetes cluster
 
-Per distribuire un'immagine del contenitore in AKS, sarà necessario usare l' `Azure/k8s-deploy@v1` azione. Questa azione ha cinque parametri:
+Per distribuire un'immagine del contenitore nel servizio Container, è necessario usare `Azure/k8s-deploy@v1` l'azione . Questa azione ha cinque parametri:
 
 | **Parametro**  | **Spiegazione**  |
 |---------|---------|
-| **namespace** | Opzionale Scegliere lo spazio dei nomi Kubernetes di destinazione. Se lo spazio dei nomi non viene specificato, i comandi vengono eseguiti nello spazio dei nomi predefinito | 
-| **manifesti** |  Necessaria Percorso dei file manifesto che verrà usato per la distribuzione |
-| **images** | Opzionale URL completo della risorsa delle immagini da usare per le sostituzioni nei file manifesto |
-| **imagepullsecrets** | Opzionale Nome di un segreto del registro Docker già configurato all'interno del cluster. Ognuno di questi nomi di segreto viene aggiunto nel campo imagePullSecrets per i carichi di lavoro trovati nei file manifesto di input |
-| **kubectl-versione** | Opzionale Installa una versione specifica di kubectl Binary |
+| **Namespace** | (Facoltativo) Scegliere lo spazio dei nomi Kubernetes di destinazione. Se lo spazio dei nomi non viene specificato, i comandi verranno eseguiti nello spazio dei nomi predefinito | 
+| **Manifesti** |  (Obbligatorio) Percorso dei file manifesto, che verranno usati per la distribuzione |
+| **images** | (Facoltativo) URL di risorsa completo delle immagini da usare per le sostituzioni nei file manifesto |
+| **imagepullsecrets** | (Facoltativo) Nome di un segreto docker-registry già configurato all'interno del cluster. Ognuno di questi nomi di segreto viene aggiunto nel campo imagePullSecrets per i carichi di lavoro trovati nei file manifesto di input |
+| **kubectl-version** | (Facoltativo) Installa una versione specifica del file binario kubectl |
 
 
-Prima di poter eseguire la distribuzione in AKS, è necessario impostare lo spazio dei nomi Kubernetes di destinazione e creare un segreto di pull immagine. Vedere eseguire [il pull delle immagini da un registro contenitori di Azure a un cluster Kubernetes](../container-registry/container-registry-auth-kubernetes.md)per altre informazioni sul funzionamento del pull delle immagini. 
+Prima di poter eseguire la distribuzione nel servizio Kubernetes, è necessario impostare lo spazio dei nomi Kubernetes di destinazione e creare un segreto di pull dell'immagine. Per altre informazioni sul funzionamento del pull delle immagini, vedere Eseguire il pull di immagini da un Registro Azure Container a un [cluster Kubernetes.](../container-registry/container-registry-auth-kubernetes.md) 
 
 ```yaml
   # Create namespace if doesn't exist
@@ -144,7 +144,7 @@ Prima di poter eseguire la distribuzione in AKS, è necessario impostare lo spaz
 ```
 
 
-Completare la distribuzione con l' `k8s-deploy` azione. Sostituire le variabili di ambiente con i valori per l'applicazione. 
+Completare la distribuzione con `k8s-deploy` l'azione . Sostituire le variabili di ambiente con i valori per l'applicazione. 
 
 ```yaml
 
@@ -218,15 +218,15 @@ Quando il cluster Kubernetes, il registro contenitori e il repository non sono p
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Informazioni sul servizio Azure Kubernetes](/azure/architecture/reference-architectures/containers/aks-start-here)
+> [Informazioni sulle servizio Azure Kubernetes](/azure/architecture/reference-architectures/containers/aks-start-here)
 
-### <a name="more-kubernetes-github-actions"></a>Altre azioni di GitHub Kubernetes
+### <a name="more-kubernetes-github-actions"></a>Altri GitHub Actions Kubernetes
 
-* [Programma di installazione dello strumento Kubectl](https://github.com/Azure/setup-kubectl) ( `azure/setup-kubectl` ): installa una versione specifica di Kubectl nel Runner.
-* [Kubernetes set context](https://github.com/Azure/k8s-set-context) ( `azure/k8s-set-context` ): impostare il contesto del cluster Kubernetes di destinazione che verrà usato da altre azioni o eseguire qualsiasi comando kubectl.
-* [Contesto del set AKS](https://github.com/Azure/aks-set-context) ( `azure/aks-set-context` ): impostare il contesto del cluster del servizio Kubernetes di Azure di destinazione.
-* [Kubernetes create Secret](https://github.com/Azure/k8s-create-secret) ( `azure/k8s-create-secret` ): crea un segreto generico o un segreto del registro Docker nel cluster Kubernetes.
-* [Kubernetes deploy](https://github.com/Azure/k8s-deploy) ( `azure/k8s-deploy` ): consente di preparare e distribuire manifesti nei cluster Kubernetes.
-* [Installazione Helm](https://github.com/Azure/setup-helm) ( `azure/setup-helm` ): installare una versione specifica di Helm Binary nel Runner.
-* [Kubernetes Bake](https://github.com/Azure/k8s-bake) ( `azure/k8s-bake` ): consente di preparare il file manifesto da usare per le distribuzioni usando helm2, kustomize o kompose.
-* [Kubernetes pelucchi](https://github.com/azure/k8s-lint) ( `azure/k8s-lint` ): convalida/inpelucchi i file manifesto.
+* [Programma di installazione dello strumento Kubectl](https://github.com/Azure/setup-kubectl) ( `azure/setup-kubectl` ): installa una versione specifica di kubectl nel runner.
+* [Contesto del set kubernetes](https://github.com/Azure/k8s-set-context) ( ): impostare il contesto del cluster Kubernetes di destinazione che verrà usato da altre azioni o eseguire qualsiasi `azure/k8s-set-context` comando kubectl.
+* [Contesto del set del servizio](https://github.com/Azure/aks-set-context) Servizio Servizio Azure Kubernetes del servizio Servizio Azure Kubernetes `azure/aks-set-context` cluster.
+* [Kubernetes create secret](https://github.com/Azure/k8s-create-secret) ( ): crea un segreto generico o un segreto `azure/k8s-create-secret` docker-registry nel cluster Kubernetes.
+* [Distribuzione di Kubernetes](https://github.com/Azure/k8s-deploy) ( `azure/k8s-deploy` ): bake e distribuzione dei manifesti nei cluster Kubernetes.
+* [Installazione di Helm](https://github.com/Azure/setup-helm) ( `azure/setup-helm` ): installare una versione specifica del file binario Helm nel runner.
+* [Bake kubernetes](https://github.com/Azure/k8s-bake) ( ): file manifesto bake da usare per le distribuzioni che usano `azure/k8s-bake` helm2, kustomize o kompose.
+* [Kubernetes lint](https://github.com/azure/k8s-lint) ( `azure/k8s-lint` ): convalida/lint dei file manifesto.

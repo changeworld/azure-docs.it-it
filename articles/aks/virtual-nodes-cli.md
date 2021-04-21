@@ -6,24 +6,24 @@ services: container-service
 ms.topic: conceptual
 ms.date: 03/16/2021
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 1c673cae41fcbd3d54aa9b4062dd030ace9f0767
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 86f1d8923eea961471883c44168c4fa848ac12d1
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104577802"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107769284"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Creare e configurare un cluster del servizio Azure Kubernetes per l'uso di nodi virtuali tramite l'interfaccia della riga di comando di Azure
 
-Questo articolo illustra come usare l'interfaccia della riga di comando di Azure per creare e configurare le risorse di rete virtuale e il cluster AKS, quindi abilitare i nodi virtuali.
+Questo articolo illustra come usare l'interfaccia della riga di comando di Azure per creare e configurare le risorse di rete virtuale e il cluster del servizio AzureKs e quindi abilitare i nodi virtuali.
 
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-I nodi virtuali abilitano la comunicazione di rete tra i pod eseguiti in Istanze di Azure Container e nel cluster del servizio Azure Kubernetes. Per consentire la comunicazione viene creata una subnet di rete virtuale e vengono assegnate autorizzazioni delegate. I nodi virtuali funzionano solo con i cluster AKS creati usando *Advanced* Networking (Azure CNI). Per impostazione predefinita, i cluster AKS vengono creati con la rete di *base* (kubenet). Questo articolo illustra come creare una rete virtuale e le subnet e quindi distribuire un cluster del servizio Azure Kubernetes che usa reti avanzate.
+I nodi virtuali abilitano la comunicazione di rete tra i pod eseguiti in Istanze di Azure Container e nel cluster del servizio Azure Kubernetes. Per consentire la comunicazione viene creata una subnet di rete virtuale e vengono assegnate autorizzazioni delegate. I nodi virtuali funzionano solo con i cluster del servizio AKS creati usando *la* rete avanzata (Azure CNI). Per impostazione predefinita, i cluster del servizio Ku-kubenet vengono creati con *la rete* di base (kubenet). Questo articolo illustra come creare una rete virtuale e le subnet e quindi distribuire un cluster del servizio Azure Kubernetes che usa reti avanzate.
 
 > [!IMPORTANT]
-> Prima di usare i nodi virtuali con AKS, esaminare le [limitazioni dei nodi virtuali AKS][virtual-nodes-aks] e le [limitazioni di rete virtuale di ACI][virtual-nodes-networking-aci]. Queste limitazioni influiscono sul percorso, sulla configurazione di rete e su altri dettagli di configurazione sia del cluster AKS che dei nodi virtuali.
+> Prima di usare i nodi virtuali con il servizio AKS, esaminare sia le limitazioni dei nodi virtuali del servizio [AKS][virtual-nodes-aks] che le limitazioni di rete [virtuale di ACI.][virtual-nodes-networking-aci] Queste limitazioni influiscono sulla posizione, sulla configurazione di rete e su altri dettagli di configurazione del cluster del servizio Web Disack e dei nodi virtuali.
 
 Se ACI non è stato usato in precedenza, registrare il provider di servizi con la sottoscrizione. È possibile controllare lo stato della registrazione del provider di Istanze di Azure Container usando il comando [az provider list][az-provider-list], come spiegato nell'esempio seguente:
 
@@ -55,13 +55,13 @@ Se si preferisce installare e usare l'interfaccia della riga di comando in local
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-Un gruppo di risorse di Azure è un gruppo logico in cui le risorse di Azure vengono distribuite e gestite. Creare un gruppo di risorse con il comando [az group create][az-group-create]. Nell'esempio seguente viene creato un gruppo di risorse denominato *myResourceGroup* nella località *westus* .
+Un gruppo di risorse di Azure è un gruppo logico in cui le risorse di Azure vengono distribuite e gestite. Creare un gruppo di risorse con il comando [az group create][az-group-create]. Nell'esempio seguente viene creato un gruppo di risorse *denominato myResourceGroup* nella *località westus.*
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location westus
 ```
 
-## <a name="create-a-virtual-network"></a>Crea rete virtuale
+## <a name="create-a-virtual-network"></a>Creare una rete virtuale
 
 Creare una rete virtuale con il comando [az network vnet create][az-network-vnet-create]. L'esempio seguente crea il nome di rete virtuale *myVnet* con il prefisso di indirizzo *10.0.0.0/8* e una subnet denominata *myAKSSubnet*. Per impostazione predefinita, il prefisso di indirizzo di questa subnet è *10.240.0.0/16*:
 
@@ -86,7 +86,7 @@ az network vnet subnet create \
 
 ## <a name="create-a-service-principal-or-use-a-managed-identity"></a>Creare un'entità servizio o usare un'identità gestita
 
-Per consentire a un cluster AKS di interagire con altre risorse di Azure, viene usata un'identità del cluster. Questa identità del cluster può essere creata automaticamente dall'interfaccia della riga di comando di Azure o dal portale oppure è possibile crearne una prima e assegnare autorizzazioni aggiuntive. Per impostazione predefinita, questa identità del cluster è un'identità gestita. Per altre informazioni, vedere [Usare le identità gestite](use-managed-identity.md). È anche possibile usare un'entità servizio come identità del cluster. I passaggi seguenti illustrano come creare e assegnare manualmente l'entità servizio al cluster.
+Per consentire a un cluster del servizio AzureKs di interagire con altre risorse di Azure, viene usata un'identità del cluster. Questa identità del cluster può essere creata automaticamente dall'interfaccia della riga di comando di Azure o dal portale oppure è possibile crearne una e assegnare autorizzazioni aggiuntive. Per impostazione predefinita, questa identità del cluster è un'identità gestita. Per altre informazioni, vedere [Usare le identità gestite](use-managed-identity.md). È anche possibile usare un'entità servizio come identità del cluster. La procedura seguente illustra come creare e assegnare manualmente l'entità servizio al cluster.
 
 Creare un'entità servizio usando il comando [az ad sp create-for-rbac][az-ad-sp-create-for-rbac]. Il parametro `--skip-assignment` limita l'assegnazione di autorizzazioni aggiuntive.
 
@@ -132,7 +132,7 @@ Distribuire un cluster del servizio Azure Kubernetes nella subnet del servizio c
 az network vnet subnet show --resource-group myResourceGroup --vnet-name myVnet --name myAKSSubnet --query id -o tsv
 ```
 
-Usare il comando [az aks create][az-aks-create] per creare un cluster del servizio Azure Kubernetes. L'esempio seguente crea un cluster denominato *myAKSCluster* con un nodo. Sostituire `<subnetId>` con l'ID ottenuto nel passaggio precedente e quindi `<appId>` `<password>` con i valori raccolti nella sezione precedente.
+Usare il comando [az aks create][az-aks-create] per creare un cluster del servizio Azure Kubernetes. L'esempio seguente crea un cluster denominato *myAKSCluster* con un nodo. Sostituire con l'ID ottenuto nel passaggio precedente e quindi con i valori `<subnetId>` `<appId>` raccolti nella sezione `<password>` precedente.
 
 ```azurecli-interactive
 az aks create \
@@ -150,7 +150,7 @@ az aks create \
 
 Dopo alcuni minuti, il comando viene completato e restituisce le informazioni in formato JSON sul cluster.
 
-## <a name="enable-virtual-nodes-addon"></a>Attiva addon nodi virtuali
+## <a name="enable-virtual-nodes-addon"></a>Abilitare il componente aggiuntivo nodi virtuali
 
 Per abilitare i nodi virtuali, usare il comando [az aks enable-addons][az-aks-enable-addons]. L'esempio seguente usa la subnet denominata *myVirtualNodeSubnet* creata nel passaggio precedente:
 
@@ -277,15 +277,15 @@ Chiudere la sessione del terminale nel pod del test con `exit`. Quando viene ter
 
 Se si vuole interrompere l'uso di nodi virtuali, è possibile disabilitarli usando il comando [az aks disable-addons][az aks disable-addons]. 
 
-Se necessario, passare a [https://shell.azure.com](https://shell.azure.com) per aprire Azure cloud Shell nel browser.
+Se necessario, passare a [https://shell.azure.com](https://shell.azure.com) per aprire Azure Cloud Shell nel browser.
 
-Prima di tutto, eliminare il `aci-helloworld` pod in esecuzione nel nodo virtuale:
+Eliminare prima di tutto `aci-helloworld` il pod in esecuzione nel nodo virtuale:
 
 ```console
 kubectl delete -f virtual-node.yaml
 ```
 
-Il comando di esempio seguente Disabilita i nodi virtuali Linux:
+Il comando di esempio seguente disabilita i nodi virtuali Linux:
 
 ```azurecli-interactive
 az aks disable-addons --resource-group myResourceGroup --name myAKSCluster --addons virtual-node
@@ -336,22 +336,22 @@ I nodi virtuali sono spesso un componente di una soluzione di scalabilità nel s
 
 <!-- LINKS - internal -->
 [azure-cli-install]: /cli/azure/install-azure-cli
-[az-group-create]: /cli/azure/group#az-group-create
-[az-network-vnet-create]: /cli/azure/network/vnet#az-network-vnet-create
-[az-network-vnet-subnet-create]: /cli/azure/network/vnet/subnet#az-network-vnet-subnet-create
-[az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
-[az-network-vnet-show]: /cli/azure/network/vnet#az-network-vnet-show
-[az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
-[az-network-vnet-subnet-show]: /cli/azure/network/vnet/subnet#az-network-vnet-subnet-show
-[az-aks-create]: /cli/azure/aks#az-aks-create
-[az-aks-enable-addons]: /cli/azure/aks#az-aks-enable-addons
-[az-extension-add]: /cli/azure/extension#az-extension-add
-[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
-[az aks disable-addons]: /cli/azure/aks#az-aks-disable-addons
+[az-group-create]: /cli/azure/group#az_group_create
+[az-network-vnet-create]: /cli/azure/network/vnet#az_network_vnet_create
+[az-network-vnet-subnet-create]: /cli/azure/network/vnet/subnet#az_network_vnet_subnet_create
+[az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az_ad_sp_create_for_rbac
+[az-network-vnet-show]: /cli/azure/network/vnet#az_network_vnet_show
+[az-role-assignment-create]: /cli/azure/role/assignment#az_role_assignment_create
+[az-network-vnet-subnet-show]: /cli/azure/network/vnet/subnet#az_network_vnet_subnet_show
+[az-aks-create]: /cli/azure/aks#az_aks_create
+[az-aks-enable-addons]: /cli/azure/aks#az_aks_enable_addons
+[az-extension-add]: /cli/azure/extension#az_extension_add
+[az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
+[az aks disable-addons]: /cli/azure/aks#az_aks_disable_addons
 [aks-hpa]: tutorial-kubernetes-scale.md
 [aks-cluster-autoscaler]: ./cluster-autoscaler.md
 [aks-basic-ingress]: ingress-basic.md
-[az-provider-list]: /cli/azure/provider#az-provider-list
-[az-provider-register]: /cli/azure/provider#az-provider-register
+[az-provider-list]: /cli/azure/provider#az_provider_list
+[az-provider-register]: /cli/azure/provider#az_provider_register
 [virtual-nodes-aks]: virtual-nodes.md
 [virtual-nodes-networking-aci]: ../container-instances/container-instances-virtual-network-concepts.md
