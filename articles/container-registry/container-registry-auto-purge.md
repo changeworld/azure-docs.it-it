@@ -3,12 +3,12 @@ title: Eliminare tag e manifesti
 description: Usare un comando purge per eliminare più tag e manifesti da un Registro Azure Container in base all'età e a un filtro tag e, facoltativamente, pianificare le operazioni di rimozione.
 ms.topic: article
 ms.date: 02/19/2021
-ms.openlocfilehash: 2dedfdd6eba73b7573743eba60294ac2231ffc56
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 562d1940459cb1594b7cd9aca2af280b05a4e419
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101722229"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107784192"
 ---
 # <a name="automatically-purge-images-from-an-azure-container-registry"></a>Eliminare automaticamente le immagini da un Registro Azure Container
 
@@ -44,8 +44,8 @@ Specificare come minimo quanto segue quando si esegue `acr purge`:
 
 * `--untagged`: specifica che i manifesti che non dispongono di tag associati (*manifesti senza tag*) vengono eliminati.
 * `--dry-run`: specifica che non vengono eliminati dati, ma l'output è come sarebbe se il comando fosse eseguito senza questo flag. Questo parametro è utile per il test di un comando purge per assicurarsi di non eliminare per sbaglio i dati che si desidera mantenere.
-* `--keep` -Specifica che viene mantenuto il numero x più recente di tag da eliminare.
-* `--concurrency` : Specifica un numero di attività di ripulitura da elaborare simultaneamente. Se questo parametro non viene specificato, viene utilizzato un valore predefinito.
+* `--keep` - Specifica che viene mantenuto il numero x più recente di tag da eliminare.
+* `--concurrency` : specifica una serie di attività di eliminazione da elaborare contemporaneamente. Se questo parametro non viene specificato, viene utilizzato un valore predefinito.
 
 Eseguire `acr purge --help` per i parametri aggiuntivi. 
 
@@ -179,7 +179,6 @@ Per altre informazioni sull'archiviazione delle immagini, vedere [Archiviazione 
 
 <!-- LINKS - Internal -->
 [azure-cli-install]: /cli/azure/install-azure-cli
-[az-acr-run]: /cli/azure/acr#az-acr-run
-[az-acr-task-create]: /cli/azure/acr/task#az-acr-task-create
-[az-acr-task-show]: /cli/azure/acr/task#az-acr-task-show
-
+[az-acr-run]: /cli/azure/acr#az_acr_run
+[az-acr-task-create]: /cli/azure/acr/task#az_acr_task_create
+[az-acr-task-show]: /cli/azure/acr/task#az_acr_task_show

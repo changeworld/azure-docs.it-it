@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: sample
 ms.date: 07/29/2020
-ms.openlocfilehash: 8422fc901faaf39be3fc3abbfd9a74935647dba6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8b551517dfd0066091086944d02a464fd484b8af
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94562951"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107770688"
 ---
 # <a name="create-an-azure-cosmos-gremlin-api-account-database-and-graph-using-azure-cli"></a>Creare un account, un database e un grafo dell'API Gremlin di Azure Cosmos tramite l'interfaccia della riga di comando di Azure
 [!INCLUDE[appliesto-gremlin-api](../../../includes/appliesto-gremlin-api.md)]
@@ -39,11 +39,11 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 
 | Comando | Note |
 |---|---|
-| [az group create](/cli/azure/group#az-group-create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
-| [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) | Crea un account Azure Cosmos DB. |
-| [az cosmosdb gremlin database create](/cli/azure/cosmosdb/gremlin/database#az-cosmosdb-gremlin-database-create) | Crea un database Gremlin di Azure Cosmos. |
-| [az cosmosdb gremlin graph create](/cli/azure/cosmosdb/gremlin/graph#az-cosmosdb-gremlin-graph-create) | Crea un grafo Gremlin di Azure Cosmos. |
-| [az group delete](/cli/azure/resource#az-resource-delete) | Consente di eliminare un gruppo di risorse incluse tutte le risorse annidate. |
+| [az group create](/cli/azure/group#az_group_create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
+| [az cosmosdb create](/cli/azure/cosmosdb#az_cosmosdb_create) | Crea un account Azure Cosmos DB. |
+| [az cosmosdb gremlin database create](/cli/azure/cosmosdb/gremlin/database#az_cosmosdb_gremlin_database_create) | Crea un database Gremlin di Azure Cosmos. |
+| [az cosmosdb gremlin graph create](/cli/azure/cosmosdb/gremlin/graph#az_cosmosdb_gremlin_graph_create) | Crea un grafo Gremlin di Azure Cosmos. |
+| [az group delete](/cli/azure/resource#az_resource_delete) | Consente di eliminare un gruppo di risorse incluse tutte le risorse annidate. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

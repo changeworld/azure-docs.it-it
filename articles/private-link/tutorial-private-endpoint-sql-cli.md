@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: connettersi a un server SQL di Azure usando un endpoint privato di Azure-interfaccia della riga di comando di Azure'
+title: 'Esercitazione: Connettersi a un server di Azure SQL usando un endpoint privato di Azure - Interfaccia della riga di comando di Azure'
 description: Questa esercitazione illustra come creare un server di Azure SQL con un endpoint privato usando l'interfaccia della riga di comando di Azure
 services: private-link
 author: asudbring
@@ -7,15 +7,15 @@ ms.service: private-link
 ms.topic: tutorial
 ms.date: 11/03/2020
 ms.author: allensu
-ms.custom: fasttrack-edit
-ms.openlocfilehash: a5562c5f40a321f5737fea73f6d7964b402953cb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: fasttrack-edit, devx-track-azurecli
+ms.openlocfilehash: a8fafeaaf974893c9a1a71115912f2a7b019ddd9
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104889213"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107771822"
 ---
-# <a name="tutorial-connect-to-an-azure-sql-server-using-an-azure-private-endpoint---azure-cli"></a>Esercitazione: connettersi a un server SQL di Azure usando un endpoint privato di Azure-interfaccia della riga di comando di Azure
+# <a name="tutorial-connect-to-an-azure-sql-server-using-an-azure-private-endpoint---azure-cli"></a>Esercitazione: Connettersi a un server di Azure SQL usando un endpoint privato di Azure - Interfaccia della riga di comando di Azure
 
 Un endpoint privato di Azure è il blocco costitutivo fondamentale del collegamento privato in Azure. Consente alle risorse di Azure, come le macchine virtuali (VM), di comunicare privatamente con le risorse collegamento privato.
 
@@ -74,7 +74,7 @@ az network vnet create \
     --subnet-prefixes 10.0.0.0/24
 ```
 
-Aggiornare la subnet per disabilitare i criteri di rete per l'endpoint privato con [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update):
+Aggiornare la subnet per disabilitare i criteri di rete per l'endpoint privato con [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update):
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -84,7 +84,7 @@ az network vnet subnet update \
     --disable-private-endpoint-network-policies true
 ```
 
-Usare [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) per creare un indirizzo IP pubblico per l'host bastion:
+Usare [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) per creare un indirizzo IP pubblico per l'host bastion:
 
 * Creare un indirizzo IP pubblico ridondante di zona standard denominato **myBastionIP**.
 * In **CreateSQLEndpointTutorial-rg**.
@@ -96,7 +96,7 @@ az network public-ip create \
     --sku Standard
 ```
 
-Usare [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) per creare una subnet Bastion:
+Usare [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) per creare una subnet Bastion:
 
 * Denominata **AzureBastionSubnet**.
 * Prefisso indirizzo **10.0.1.0/24**.
@@ -111,7 +111,7 @@ az network vnet subnet create \
     --address-prefixes 10.0.1.0/24
 ```
 
-Usare [az network bastion create](/cli/azure/network/bastion#az-network-bastion-create) per creare un host bastion:
+Usare [az network bastion create](/cli/azure/network/bastion#az_network_bastion_create) per creare un host bastion:
 
 * **myBastionHost** denominato.
 * In **CreateSQLEndpointTutorial-rg**.
@@ -152,6 +152,8 @@ az vm create \
     --subnet myBackendSubnet \
     --admin-username azureuser
 ```
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 ## <a name="create-an-azure-sql-server"></a>Creare un server SQL di Azure
 
@@ -328,6 +330,6 @@ In questa esercitazione sono stati creati i componenti seguenti:
 
 La macchina virtuale è stata usata per testare la connettività in modo sicuro al server SQL tramite l'endpoint privato.
 
-Come passaggio successivo, potrebbe essere interessante anche l' **app Web con connettività privata allo** scenario di architettura del database SQL di Azure, che connette un'applicazione Web all'esterno della rete virtuale all'endpoint privato di un database.
+Come passaggio successivo, si potrebbe essere interessati anche all'app Web con connettività privata allo scenario di architettura del **database Azure SQL, che** connette un'applicazione Web all'esterno della rete virtuale all'endpoint privato di un database.
 > [!div class="nextstepaction"]
-> [App Web con connettività privata al database SQL di Azure](/azure/architecture/example-scenario/private-web-app/private-web-app)
+> [App Web con connettività privata al database Azure SQL](/azure/architecture/example-scenario/private-web-app/private-web-app)

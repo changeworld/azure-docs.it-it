@@ -8,16 +8,16 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 03/08/2021
 ms.author: alkohli
-ms.openlocfilehash: aa3614aa3c4fbaec3611806406e5129379999bc3
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: eae8cca0302993c16ea29adddf6e4ee9b5b24be8
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106067142"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107770899"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Esercitazione: Ordinare Azure Data Box
 
-Azure Data Box è una soluzione ibrida che consente di importare i dati locali in Azure in modo rapido, semplice e affidabile. I dati vengono trasferiti a un dispositivo di archiviazione 80 TB (capacità utilizzabile) fornito da Microsoft, quindi viene rispedito il dispositivo. Questi dati vengono poi caricati in Azure.
+Azure Data Box è una soluzione ibrida che consente di importare i dati locali in Azure in modo rapido, semplice e affidabile. Si trasferiscono i dati in un dispositivo di archiviazione da 80 TB (capacità utilizzabile) fornito da Microsoft e quindi si invia il dispositivo. Questi dati vengono poi caricati in Azure.
 
 Questa esercitazione illustra come ordinare un dispositivo Azure Data Box. Questa esercitazione descrive quanto segue:  
 
@@ -59,7 +59,7 @@ Prima di iniziare, verificare che:
 
 **Accedere ad Azure**
 
-Aprire una finestra di comando di Windows PowerShell e accedere ad Azure con il comando [az login](/cli/azure/reference-index#az-login):
+Aprire una finestra di comando di Windows PowerShell e accedere ad Azure con il comando [az login](/cli/azure/reference-index#az_login):
 
 ```azurecli
 PS C:\Windows> az login
@@ -231,7 +231,7 @@ Seguire questa procedura nel portale di Azure per ordinare un dispositivo.
     |Paese/area geografica di origine    |    Selezionare il paese/area in cui si trovano attualmente i dati.         |
     |Area di Azure di destinazione     |     Selezionare l'area di Azure in cui si vogliono trasferire i dati. <br> Per altre informazioni, vedere [Disponibilità a livello di area](data-box-overview.md#region-availability).            |
 
-    [![Avvio di un ordine ](media/data-box-deploy-ordered/select-data-box-import-04-b.png) di importazione Azure Data Box](media/data-box-deploy-ordered/select-data-box-import-04-b.png#lightbox)
+    [![Avvio di un ordine Azure Data Box importazione ](media/data-box-deploy-ordered/select-data-box-import-04-b.png)](media/data-box-deploy-ordered/select-data-box-import-04-b.png#lightbox)
 
 5. Selezionare **Data Box**. La capacità massima che è possibile usare per un singolo ordine è di 80 TB. È possibile creare più ordini per volumi di dati maggiori.
 
@@ -253,11 +253,11 @@ Seguire questa procedura nel portale di Azure per ordinare un dispositivo.
 
     ![Importazione guidata ordine di Data Box, schermata Destinazione dati con gli account di archiviazione selezionati](media/data-box-deploy-ordered/select-data-box-import-07.png)
 
-    In base all'area di Azure specificata, selezionare uno o più account di archiviazione dall'elenco filtrato di account di archiviazione esistenti. Il Data Box può essere collegato a un massimo di 10 account di archiviazione. È anche possibile creare un nuovo account **Utilizzo generico v1**, **Utilizzo generico v2** o un **account di archiviazione BLOB**.
+    In base all'area di Azure specificata, selezionare uno o più account di archiviazione dall'elenco filtrato degli account di archiviazione esistenti. Il Data Box può essere collegato a un massimo di 10 account di archiviazione. È anche possibile creare un nuovo account **Utilizzo generico v1**, **Utilizzo generico v2** o un **account di archiviazione BLOB**.
 
    > [!NOTE]
-   > - Se si seleziona account di archiviazione Premium di Azure, la quota di cui è stato effettuato il provisioning nella condivisione dell'account di archiviazione aumenterà le dimensioni dei dati copiati nelle condivisioni file. Una volta aumentata la quota, questa non viene nuovamente modificata, ad esempio se per qualche motivo l'Data Box non è in grado di copiare i dati.
-   > - Questa quota viene utilizzata per la fatturazione. Dopo il caricamento dei dati nel Data Center, è necessario modificare la quota per soddisfare le esigenze. Per ulteriori informazioni, vedere informazioni sulla [fatturazione](../../articles/storage/files/understanding-billing.md).
+   > - Se si selezionaNo account FileStorage Premium di Azure, la quota di cui è stato effettuato il provisioning nella condivisione dell'account di archiviazione aumenterà fino alle dimensioni dei dati copiati nelle condivisioni file. Dopo l'aumento, la quota non viene modificata di nuovo, ad esempio se per qualche motivo il Data Box non può copiare i dati.
+   > - Questa quota viene usata per la fatturazione. Dopo aver caricato i dati nel data center, è necessario modificare la quota in base alle esigenze. Per altre informazioni, vedere [Informazioni sulla fatturazione.](../../articles/storage/files/understanding-billing.md)
 
     Sono supportati gli account di archiviazione con reti virtuali. Per consentire al servizio Data Box di lavorare con gli account di archiviazione protetti, abilitare i servizi attendibili all'interno delle impostazioni del firewall di rete dell'account di archiviazione. Per altre informazioni, vedere come [Aggiungere Azure Data Box come servizio attendibile](../storage/common/storage-network-security.md#exceptions).
 
@@ -356,10 +356,10 @@ Seguire questa procedura nel portale di Azure per ordinare un dispositivo.
 
    - Per usare la propria password per il nuovo dispositivo, per **Set preference for the device password** (Imposta preferenza per la password del dispositivo) selezionare **Use your own password** (Usa password personale) e digitare una password che soddisfi i requisiti di sicurezza.
      
-     La password deve essere di tipo alfanumerico e contenere da 12 a 15 caratteri, con almeno una lettera maiuscola, una lettera minuscola, un carattere speciale e un numero. 
+     La password deve essere alfanumerica e contenere da 12 a 15 caratteri, con almeno una lettera maiuscola, una lettera minuscola, un carattere speciale e un numero. 
 
-     - Sono consentiti i caratteri speciali: @ #-$% ^! + = ; : _ ( )
-     - Caratteri non consentiti: I, L o 0
+     - Caratteri speciali consentiti: @ # - $ % ^ ! + = ; : _ ( )
+     - Caratteri non consentiti: I l o 0
    
      ![Opzioni per l'uso di una password del dispositivo personalizzata nella schermata Sicurezza per un ordine di importazione di Data Box](media/data-box-deploy-ordered/select-data-box-import-security-03.png)
 
@@ -371,10 +371,10 @@ Seguire questa procedura nel portale di Azure per ordinare un dispositivo.
 
     1. Digitare una password per ogni account di archiviazione incluso nell'ordine. La password verrà usata in tutte le condivisioni per l'account di archiviazione.
     
-       La password deve essere di tipo alfanumerico e contenere da 12 a 64 caratteri, con almeno una lettera maiuscola, una lettera minuscola, un carattere speciale e un numero.
+       La password deve essere alfanumerica e contenere da 12 a 64 caratteri, con almeno una lettera maiuscola, una lettera minuscola, un carattere speciale e un numero.
 
-       - Sono consentiti i caratteri speciali: @ #-$% ^! + = ; : _ ( )
-       - Caratteri non consentiti: I, L o 0
+       - Caratteri speciali consentiti: @ # - $ % ^ ! + = ; : _ ( )
+       - Caratteri non consentiti: I l o 0
      
     1. Per usare la stessa password per tutti gli account di archiviazione, selezionare **Copia in tutte**. 
 
@@ -777,7 +777,7 @@ Per eliminare un ordine annullato, passare a **Panoramica** e fare clic su **Eli
 
 ### <a name="cancel-an-order"></a>Annullare un ordine
 
-Per annullare un ordine di Azure Data Box, eseguire [`az databox job cancel`](/cli/azure/ext/databox/databox/job#ext-databox-az-databox-job-cancel) . È necessario specificare il motivo per l'annullamento dell'ordine.
+Per annullare un ordine Azure Data Box, eseguire [`az databox job cancel`](/cli/azure/ext/databox/databox/job#ext-databox-az-databox-job-cancel) . È necessario specificare il motivo per l'annullamento dell'ordine.
 
    ```azurecli
    az databox job cancel --resource-group <resource-group> --name <order-name> --reason <cancel-description>
@@ -814,7 +814,7 @@ Per annullare un ordine di Azure Data Box, eseguire [`az databox job cancel`](/c
 
 ### <a name="delete-an-order"></a>Eliminare un ordine
 
-Se è stato annullato un ordine di Azure Data Box, è possibile eseguire [`az databox job delete`](/cli/azure/ext/databox/databox/job#ext-databox-az-databox-job-delete) per eliminare l'ordine.
+Se è stato annullato un ordine Azure Data Box, è possibile eseguire [`az databox job delete`](/cli/azure/ext/databox/databox/job#ext-databox-az-databox-job-delete) per eliminare l'ordine.
 
    ```azurecli
    az databox job delete --name [-n] <order-name> --resource-group <resource-group> [--yes] [--verbose]
@@ -887,7 +887,7 @@ PS C:\WINDOWS\system32>
 
 ### <a name="delete-an-order"></a>Eliminare un ordine
 
-Se è stato annullato un ordine di Azure Data Box, è possibile eseguire [`Remove-AzDataBoxJob`](/powershell/module/az.databox/remove-azdataboxjob) per eliminare l'ordine.
+Se è stato annullato un ordine Azure Data Box, è possibile eseguire [`Remove-AzDataBoxJob`](/powershell/module/az.databox/remove-azdataboxjob) per eliminare l'ordine.
 
 ```azurepowershell
 Remove-AzDataBoxJob -Name <String> -ResourceGroup <String>

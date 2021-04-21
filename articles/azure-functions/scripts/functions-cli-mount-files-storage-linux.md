@@ -4,12 +4,12 @@ description: Creare un'app per le funzioni Python serverless e montare una condi
 ms.topic: sample
 ms.date: 03/01/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 00bf0ecc9db3cf369fd75b427dcfba686aed0ed5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d0037cea24b1989c4f7a4d2ddd6bf3f8f7e812b3
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98035122"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107762282"
 ---
 # <a name="mount-a-file-share-to-a-python-function-app-using-azure-cli"></a>Montare una condivisione file in un'app per le funzioni Python con l'interfaccia della riga di comando di Azure
 
@@ -38,13 +38,13 @@ Ogni comando della tabella include collegamenti alla documentazione specifica de
 
 | Comando | Note |
 |---|---|
-| [az group create](/cli/azure/group#az-group-create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
-| [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Crea un account di Archiviazione di Azure. |
-| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Creare un'app per le funzioni. |
-| [az storage share create](/cli/azure/storage/share#az-storage-share-create) | Crea una condivisione di File di Azure nell'account di archiviazione. | 
-| [az storage directory create](/cli/azure/storage/directory#az-storage-directory-create) | Crea una directory nella condivisione. |
-| [az webapp config storage-account add](/cli/azure/webapp/config/storage-account#az-webapp-config-storage-account-add) | Monta la condivisione nell'app per le funzioni. |
-| [az webapp config storage-account list](/cli/azure/webapp/config/storage-account#az-webapp-config-storage-account-list) | Mostra le condivisioni file montate nell'app per le funzioni. | 
+| [az group create](/cli/azure/group#az_group_create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
+| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Crea un account di Archiviazione di Azure. |
+| [az functionapp create](/cli/azure/functionapp#az_functionapp_create) | Creare un'app per le funzioni. |
+| [az storage share create](/cli/azure/storage/share#az_storage_share_create) | Crea una condivisione di File di Azure nell'account di archiviazione. | 
+| [az storage directory create](/cli/azure/storage/directory#az_storage_directory_create) | Crea una directory nella condivisione. |
+| [az webapp config storage-account add](/cli/azure/webapp/config/storage-account#az_webapp_config_storage_account_add) | Monta la condivisione nell'app per le funzioni. |
+| [az webapp config storage-account list](/cli/azure/webapp/config/storage-account#az_webapp_config_storage_account_list) | Mostra le condivisioni file montate nell'app per le funzioni. | 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

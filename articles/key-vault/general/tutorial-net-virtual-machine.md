@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/17/2021
 ms.author: mbaldwin
 ms.custom: mvc, devx-track-csharp, devx-track-azurepowershell
-ms.openlocfilehash: ce982b38faa72978e1b043d374a333b68aca80b6
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: c08d0c210e992cba5bca2695fda0bcf08c4689dc
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107374744"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107772092"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-virtual-machine-in-net"></a>Esercitazione: Usare Azure Key Vault con una macchina virtuale in .NET
 
@@ -104,7 +104,7 @@ $vm = Get-AzVM -Name <NameOfYourVirtualMachine>
 Update-AzVM -ResourceGroupName <YourResourceGroupName> -VM $vm -IdentityType SystemAssigned
 ```
 
-Si noti il PrincipalId visualizzato nel codice seguente. L'output del comando precedente sarà: 
+Si noti principalId visualizzato nel codice seguente. L'output del comando precedente sarà: 
 
 
 ```output
@@ -115,7 +115,7 @@ xxxxxxxx-xx-xxxxxx   xxxxxxxx-xxxx-xxxx   SystemAssigned
 ---
 
 ## <a name="assign-permissions-to-the-vm-identity"></a>Assegnare autorizzazioni per l'identità della macchina virtuale
-Assegnare le autorizzazioni dell'identità creata in precedenza all'insieme di credenziali delle chiavi con il comando [az keyvault set-policy](/cli/azure/keyvault#az-keyvault-set-policy):
+Assegnare le autorizzazioni dell'identità creata in precedenza all'insieme di credenziali delle chiavi con il comando [az keyvault set-policy](/cli/azure/keyvault#az_keyvault_set_policy):
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 ```azurecli

@@ -1,6 +1,6 @@
 ---
 title: Configurazione degli endpoint di rete di File di Azure | Microsoft Docs
-description: Informazioni su come configurare gli endpoint di rete di file di Azure.
+description: Informazioni su come configurare gli endpoint di rete di File di Azure.
 author: roygara
 ms.service: storage
 ms.topic: how-to
@@ -8,12 +8,12 @@ ms.date: 12/04/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 079d7aa9b654a318c7269a41605c3e146b08f127
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 42e83facec7817b6588bf69977fea5ab74b6b10d
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96621332"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107759880"
 ---
 # <a name="configuring-azure-files-network-endpoints"></a>Configurazione degli endpoint di rete di File di Azure
 
@@ -23,14 +23,14 @@ File di Azure prevede due tipi principali di endpoint per l'accesso alle condivi
 
 Gli endpoint pubblici e privati sono disponibili nell'account di archiviazione di Azure. Un account di archiviazione è un costrutto di gestione che rappresenta un pool di archiviazione condiviso in cui è possibile distribuire più condivisioni file oltre ad altre risorse di archiviazione, ad esempio contenitori BLOB o code.
 
-Questo articolo è incentrato su come configurare gli endpoint di un account di archiviazione per l'accesso diretto alle condivisioni file di Azure. La maggior parte dei dettagli forniti in questo documento si applica anche al modo in cui Sincronizzazione file di Azure interagisce con gli endpoint pubblici e privati per l'account di archiviazione. Tuttavia, per altre informazioni sulle considerazioni di rete per una distribuzione di Sincronizzazione file di Azure, vedere [Configurazione del proxy di Sincronizzazione file di Azure e impostazioni del firewall](storage-sync-files-firewall-and-proxy.md).
+Questo articolo è incentrato su come configurare gli endpoint di un account di archiviazione per l'accesso diretto alle condivisioni file di Azure. La maggior parte dei dettagli forniti in questo documento si applica anche al modo in cui Sincronizzazione file di Azure interagisce con gli endpoint pubblici e privati per l'account di archiviazione. Tuttavia, per altre informazioni sulle considerazioni di rete per una distribuzione di Sincronizzazione file di Azure, vedere [Configurazione del proxy di Sincronizzazione file di Azure e impostazioni del firewall](../file-sync/file-sync-firewall-and-proxy.md).
 
 Prima di seguire questa guida pratica, è consigliabile leggere [Considerazioni sulla rete per File di Azure](storage-files-networking-overview.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 - In questo articolo si presuppone che sia già stata creata una sottoscrizione di Azure. Se non si ha già una sottoscrizione, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
-- Questo articolo presuppone che sia già stata creata una condivisione file di Azure in un account di archiviazione a cui si vuole connettersi dall'ambiente locale. Per informazioni su come creare una condivisione file di Azure, vedere [Creare una condivisione file di Azure](storage-how-to-create-file-share.md).
+- Questo articolo presuppone che sia già stata creata una condivisione file di Azure in un account di archiviazione a cui ci si vuole connettere dall'ambiente locale. Per informazioni su come creare una condivisione file di Azure, vedere [Creare una condivisione file di Azure](storage-how-to-create-file-share.md).
 - Se si intende usare Azure PowerShell, [installare l'ultima versione](/powershell/azure/install-az-ps).
 - Se si intende usare l'interfaccia della riga di comando di Azure, [installare l'ultima versione](/cli/azure/install-azure-cli).
 
@@ -39,7 +39,7 @@ Prima di seguire questa guida pratica, è consigliabile leggere [Considerazioni 
 È possibile configurare gli endpoint per limitare l'accesso di rete all'account di archiviazione. Per limitare l'accesso a un account di archiviazione consentendolo solo a una rete virtuale, sono disponibili due approcci:
 
 - [Creare uno o più endpoint privati per l'account di archiviazione](#create-a-private-endpoint) e limitare tutto l'accesso all'endpoint pubblico. In questo modo si garantisce che solo il traffico originato dalle reti virtuali desiderate possa accedere alle condivisioni file di Azure nell'account di archiviazione.
-- [Limitare l'endpoint pubblico a una o più reti virtuali](#restrict-public-endpoint-access). Questa operazione può essere eseguita usando una funzionalità della rete virtuale denominata *endpoint di servizio*. Quando si limita il traffico a un account di archiviazione tramite un endpoint del servizio, si sta ancora accedendo all'account di archiviazione tramite l'indirizzo IP pubblico, ma è possibile accedere solo dalle posizioni specificate nella configurazione.
+- [Limitare l'endpoint pubblico a una o più reti virtuali.](#restrict-public-endpoint-access) Questa operazione può essere eseguita usando una funzionalità della rete virtuale denominata *endpoint di servizio*. Quando si limita il traffico a un account di archiviazione tramite un endpoint di servizio, si accede comunque all'account di archiviazione tramite l'indirizzo IP pubblico, ma l'accesso è possibile solo dalle posizioni specificate nella configurazione.
 
 ### <a name="create-a-private-endpoint"></a>Creare un endpoint privato
 
@@ -125,7 +125,7 @@ hostName=$(echo $httpEndpoint | cut -c7-$(expr length $httpEndpoint) | tr -d "/"
 nslookup $hostName
 ```
 
-Se tutte le impostazioni sono corrette, verrà visualizzato l'output seguente, dove `192.168.0.5` è l'indirizzo IP privato dell'endpoint privato nella rete virtuale. È comunque necessario usare storageaccount.file.core.windows.net per montare la condivisione file anziché il `privatelink` percorso.
+Se tutte le impostazioni sono corrette, verrà visualizzato l'output seguente, dove `192.168.0.5` è l'indirizzo IP privato dell'endpoint privato nella rete virtuale. È comunque consigliabile usare storageaccount.file.core.windows.net per montare la condivisione file anziché il `privatelink` percorso.
 
 ```Output
 Server:         127.0.0.53
@@ -138,13 +138,13 @@ Address: 192.168.0.5
 ```
 ---
 
-## <a name="restrict-public-endpoint-access"></a>Limitare l'accesso all'endpoint pubblico
+## <a name="restrict-public-endpoint-access"></a>Limitare l'accesso agli endpoint pubblici
 
-Per limitare l'accesso all'endpoint pubblico è prima necessario disabilitare l'accesso generale all'endpoint pubblico. La disabilitazione dell'accesso all'endpoint pubblico non influisca sugli endpoint privati. Dopo che l'endpoint pubblico è stato disabilitato, è possibile selezionare reti o indirizzi IP specifici che possono continuare ad accedervi. In generale, la maggior parte dei criteri firewall per un account di archiviazione limita l'accesso di rete a una o più reti virtuali.
+La limitazione dell'accesso agli endpoint pubblici richiede prima di tutto la disabilitazione dell'accesso generale all'endpoint pubblico. La disabilitazione dell'accesso all'endpoint pubblico non influisce sugli endpoint privati. Dopo aver disabilitato l'endpoint pubblico, è possibile selezionare reti o indirizzi IP specifici che possono continuare ad accedervi. In generale, la maggior parte dei criteri del firewall per un account di archiviazione limita l'accesso di rete a una o più reti virtuali.
 
 #### <a name="disable-access-to-the-public-endpoint"></a>Disabilitare l'accesso all'endpoint pubblico
 
-Se si disabilita l'accesso all'endpoint pubblico, l'account di archiviazione rimane comunque accessibile tramite i relativi endpoint privati. Altrimenti le richieste valide all'endpoint pubblico dell'account di archiviazione verranno rifiutate, a meno che non provengano da [un'origine consentita in modo specifico](#restrict-access-to-the-public-endpoint-to-specific-virtual-networks). 
+Se si disabilita l'accesso all'endpoint pubblico, l'account di archiviazione rimane comunque accessibile tramite i relativi endpoint privati. In caso contrario, le richieste valide all'endpoint pubblico dell'account di archiviazione verranno rifiutate, a meno che non vengano provenienti da [un'origine specificatamente consentita.](#restrict-access-to-the-public-endpoint-to-specific-virtual-networks) 
 
 # <a name="portal"></a>[Portale](#tab/azure-portal)
 [!INCLUDE [storage-files-networking-endpoints-public-disable-portal](../../../includes/storage-files-networking-endpoints-public-disable-portal.md)]

@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.author: jukullam
 ms.date: 10/12/2020
 ms.custom: github-actions-azure
-ms.openlocfilehash: c4e21267c5eee9d86c05c51bc57bebfee699ef2c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 807fdbb1844eb6f89f71e639537a65baf8c76ad5
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103200599"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107761764"
 ---
 # <a name="quickstart-use-github-actions-to-connect-to-azure-mysql"></a>Avvio rapido: Usare GitHub Actions per connettersi ad Azure MySQL
 
@@ -42,7 +42,7 @@ Il file è costituito da due sezioni:
 
 ## <a name="generate-deployment-credentials"></a>Generare le credenziali per la distribuzione
 
-È possibile creare un'[entità servizio](../active-directory/develop/app-objects-and-service-principals.md) con il comando [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac&preserve-view=true) dell'[interfaccia della riga di comando di Azure](/cli/azure/). Eseguire questo comando con [Azure Cloud Shell](https://shell.azure.com/) nel portale di Azure oppure selezionando il pulsante **Prova**.
+È possibile creare un'[entità servizio](../active-directory/develop/app-objects-and-service-principals.md) con il comando [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac&preserve-view=true) dell'[interfaccia della riga di comando di Azure](/cli/azure/). Eseguire questo comando con [Azure Cloud Shell](https://shell.azure.com/) nel portale di Azure oppure selezionando il pulsante **Prova**.
 
 Sostituire i segnaposto `server-name` con il nome del server MySQL ospitato in Azure. Sostituire `subscription-id` e `resource-group` con l'ID sottoscrizione e il gruppo di risorse connesso al server MySQL.  
 

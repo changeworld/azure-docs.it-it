@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 5c131f64c540c14830e13619e0e832bbe67b675e
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: f014c07a319cbb07497cba01699b93d092255b93
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106443902"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107771508"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Scenari di Crittografia dischi di Azure in macchine virtuali Linux
 
@@ -33,12 +33,12 @@ In tutti i casi, è consigliabile [creare uno snapshot](snapshot-copy-managed-di
 >[!WARNING]
 > - Se in precedenza è stata usata la funzionalità Crittografia dischi di Azure con Azure AD per crittografare una macchina virtuale, sarà necessario continuare a usare questa opzione per crittografarla. Per altre informazioni, vedere [Crittografia dischi di Azure con Azure AD (versione precedente)](disk-encryption-overview-aad.md). 
 >
-> - Durante la crittografia dei volumi del sistema operativo Linux, la macchina virtuale deve essere considerata non disponibile. È consigliabile evitare accessi SSH mentre è in corso la crittografia per evitare che eventuali file aperti a cui è necessario accedere durante il processo di crittografia risultino bloccati. Per controllare lo stato di avanzamento, usare il cmdlet di PowerShell [Get-AzVMDiskEncryptionStatus](/powershell/module/az.compute/get-azvmdiskencryptionstatus) o il comando dell'interfaccia della riga di comando [vm encryption show](/cli/azure/vm/encryption#az-vm-encryption-show). Questo processo può richiedere alcune ore per un volume di sistema operativo da 30 GB, più un tempo aggiuntivo per la crittografia dei volumi di dati. Il tempo per la crittografia del volume di dati è proporzionale alla dimensione e quantità dei volumi di dati a meno che non venga usata l'opzione "encrypt format all". 
+> - Durante la crittografia dei volumi del sistema operativo Linux, la macchina virtuale deve essere considerata non disponibile. È consigliabile evitare accessi SSH mentre è in corso la crittografia per evitare che eventuali file aperti a cui è necessario accedere durante il processo di crittografia risultino bloccati. Per controllare lo stato di avanzamento, usare il cmdlet di PowerShell [Get-AzVMDiskEncryptionStatus](/powershell/module/az.compute/get-azvmdiskencryptionstatus) o il comando dell'interfaccia della riga di comando [vm encryption show](/cli/azure/vm/encryption#az_vm_encryption_show). Questo processo può richiedere alcune ore per un volume di sistema operativo da 30 GB, più un tempo aggiuntivo per la crittografia dei volumi di dati. Il tempo per la crittografia del volume di dati è proporzionale alla dimensione e quantità dei volumi di dati a meno che non venga usata l'opzione "encrypt format all". 
 > - La disabilitazione della crittografia nelle macchine virtuali Linux è supportata solo per i volumi di dati. Non è supportata nei dati o nei volumi del sistema operativo, se il volume del sistema operativo è stato crittografato.  
 
 ## <a name="install-tools-and-connect-to-azure"></a>Installare gli strumenti e connettersi ad Azure
 
-La funzionalità Crittografia dischi di Azure può essere abilitata e gestita tramite l'[interfaccia della riga di comando di Azure](/cli/azure) e [Azure PowerShell](/powershell/azure/new-azureps-module-az). A tale scopo, è necessario installare gli strumenti localmente e connettersi alla sottoscrizione di Azure.
+La funzionalità Crittografia dischi di Azure può essere abilitata e gestita tramite l'[interfaccia della riga di comando di Azure](/cli/azure) e [Azure PowerShell](/powershell/azure/new-azureps-module-az). A tale scopo, è necessario installare gli strumenti in locale e connettersi alla sottoscrizione di Azure.
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
@@ -58,7 +58,7 @@ Per selezionare un tenant per l'accesso, usare:
 az login --tenant <tenant>
 ```
 
-In caso di più sottoscrizioni, per specificarne una in particolare è necessario ottenere l'elenco di sottoscrizioni tramite [az account list](/cli/azure/account#az-account-list) (elenco account di accesso di AZ) e specificarla da [az account set](/cli/azure/account#az-account-set) (imposta account di accesso di AZ).
+In caso di più sottoscrizioni, per specificarne una in particolare è necessario ottenere l'elenco di sottoscrizioni tramite [az account list](/cli/azure/account#az_account_list) (elenco account di accesso di AZ) e specificarla da [az account set](/cli/azure/account#az_account_set) (imposta account di accesso di AZ).
      
 ```azurecli
 az account list
@@ -124,13 +124,13 @@ Usare il comando [az vm encryption enable](/cli/azure/vm/encryption#az_vm_encryp
     > La sintassi per il valore del parametro disk-encryption-keyvault è la stringa identificatore completa: /subscriptions/[subscription-id-guid]/resourceGroups/[resource-group-name]/providers/Microsoft.KeyVault/vaults/[keyvault-name]</br>
 La sintassi per il valore del parametro key-encryption-key è l'URI della chiave di crittografia della chiave, come in: https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id] 
 
-- **Verificare che i dischi siano crittografati:** per controllare lo stato di crittografia di una macchina virtuale, usare il comando [az vm encryption show](/cli/azure/vm/encryption#az-vm-encryption-show). 
+- **Verificare che i dischi siano crittografati:** per controllare lo stato di crittografia di una macchina virtuale, usare il comando [az vm encryption show](/cli/azure/vm/encryption#az_vm_encryption_show). 
 
      ```azurecli-interactive
      az vm encryption show --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup"
      ```
 
-- **Disabilitare la crittografia:** per disabilitare la crittografia, usare il comando [az vm encryption disable](/cli/azure/vm/encryption#az-vm-encryption-disable). È possibile disabilitare la crittografia solo nei volumi di dati per le macchine virtuali Linux.
+- **Disabilitare la crittografia:** per disabilitare la crittografia, usare il comando [az vm encryption disable](/cli/azure/vm/encryption#az_vm_encryption_disable). È possibile disabilitare la crittografia solo nei volumi di dati per le macchine virtuali Linux.
 
      ```azurecli-interactive
      az vm encryption disable --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup" --volume-type "data"
@@ -229,7 +229,7 @@ Il parametro esamina tutte le partizioni e le crittografa, a patto che soddisfin
 Crittografare i dischi che compongono il volume RAID o LVM anziché il volume stesso.
 
 ### <a name="use-the-encryptformatall-parameter-with-azure-cli"></a>Usare il parametro EncryptFormatAll con l'interfaccia della riga di comando di Azure
-Usare il comando [az vm encryption enable](/cli/azure/vm/encryption#az-vm-encryption-enable) per abilitare la crittografia in una macchina virtuale in esecuzione in Azure.
+Usare il comando [az vm encryption enable](/cli/azure/vm/encryption#az_vm_encryption_enable) per abilitare la crittografia in una macchina virtuale in esecuzione in Azure.
 
 -  **Crittografare una macchina virtuale in esecuzione usando EncryptFormatAll:**
 
@@ -404,19 +404,19 @@ Crittografia dischi di Azure non funziona per gli scenari, le funzionalità e la
 - Volumi dinamici.
 - Dischi del sistema operativo temporanei.
 - Crittografia di file system condivisi/distribuiti quali ad esempio: DFS, GFS, DRDB e CephFS.
-- Trasferimento di una macchina virtuale crittografata in un'altra sottoscrizione o in un'altra area.
-- Creare un'immagine o uno snapshot di una macchina virtuale crittografata e usarla per distribuire altre macchine virtuali.
+- Spostamento di una macchina virtuale crittografata in un'altra sottoscrizione o area.
+- Creazione di un'immagine o di uno snapshot di una macchina virtuale crittografata e uso per distribuire altre macchine virtuali.
 - Dump di arresto anomalo del kernel (kdump).
 - Oracle ACFS (file system cluster ASM).
-- I dischi NVMe delle VM serie Lsv2 (vedere: [serie Lsv2](../lsv2-series.md)).
+- I dischi NVMe delle macchine virtuali della serie Lsv2 (vedere: [Serie Lsv2](../lsv2-series.md)).
 - Una macchina virtuale con "punti di montaggio nidificati", ovvero con più punti di montaggio in un singolo percorso, ad esempio "/1stmountpoint/data/2stmountpoint".
-- Una macchina virtuale con un'unità dati montata su una cartella del sistema operativo.
-- Una macchina virtuale in cui un volume logico radice (disco del sistema operativo) è stato esteso usando un disco dati.
-- VM serie M con dischi acceleratore di scrittura.
-- Applicazione di ADE a una macchina virtuale con dischi crittografati con la [crittografia lato server con chiavi gestite dal cliente](../disk-encryption.md) (SSE + CMK). Applicare anche SSE + CMK a un disco dati in una macchina virtuale crittografata con ADE è uno scenario non supportato.
-- Migrazione di una macchina virtuale crittografata con ADE oppure crittografata con ADE, per la [crittografia lato server con chiavi gestite dal cliente](../disk-encryption.md). 
+- Una macchina virtuale con un'unità dati montata in una cartella del sistema operativo.
+- Macchina virtuale in cui un volume logico radice (disco del sistema operativo) è stato esteso usando un disco dati.
+- Macchine virtuali serie M con acceleratore di scrittura dischi.
+- Applicazione di ADE a una macchina virtuale con dischi crittografati con crittografia lato [server](../disk-encryption.md) con chiavi gestite dal cliente (SSE + CMK). Anche l'applicazione di SSE + CMK a un disco dati in una macchina virtuale crittografata con ADE è uno scenario non supportato.
+- Migrazione di una macchina virtuale crittografata  con ADE o mai crittografata con ADE alla crittografia lato server con chiavi [gestite dal cliente.](../disk-encryption.md)
 - Crittografia delle macchine virtuali nei cluster di failover.
-- Crittografia dei [dischi ultra di Azure](../disks-enable-ultra-ssd.md).
+- Crittografia dei [dischi Ultra di Azure](../disks-enable-ultra-ssd.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -4,18 +4,18 @@ description: Usare Azure Resource Manager per spostare risorse a un nuovo gruppo
 ms.topic: conceptual
 ms.date: 04/16/2021
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 08f2c123d37ac992e926e983d59edc650a8ab7ef
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: 7a50ecc6081f8fa7c7600ddf1f98a95eceafa73b
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107728303"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107784624"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>Spostare le risorse in un nuovo gruppo di risorse o una nuova sottoscrizione
 
 Questo articolo illustra come spostare le risorse di Azure in un'altra sottoscrizione o in un altro gruppo di risorse all'interno della stessa sottoscrizione. Per spostare le risorse, è possibile usare il portale di Azure, Azure PowerShell, l'interfaccia della riga di comando di Azure o l'API REST.
 
-Durante l'operazione di spostamento il gruppo di origine e quello di destinazione sono bloccati. Le operazioni di scrittura ed eliminazione sono bloccate nei gruppi di risorse fino al completamento dello spostamento. Questo blocco significa che non è possibile aggiungere, aggiornare o eliminare risorse nei gruppi di risorse. Non significa che le risorse siano bloccate. Ad esempio, se si sposta un server Azure SQL logico e i relativi database in un nuovo gruppo di risorse o sottoscrizione, le applicazioni che usano i database non hanno tempi di inattività. Possono comunque leggere e scrivere nei database. Il blocco può durare per un massimo di quattro ore, ma la maggior parte degli spostamenti viene completata in meno tempo.
+Durante l'operazione di spostamento il gruppo di origine e quello di destinazione sono bloccati. Le operazioni di scrittura ed eliminazione sono bloccate nei gruppi di risorse fino al completamento dello spostamento. Questo blocco significa che non è possibile aggiungere, aggiornare o eliminare risorse nei gruppi di risorse. Non significa che le risorse siano bloccate. Ad esempio, se si sposta un server logico Azure SQL e i relativi database in un nuovo gruppo di risorse o sottoscrizione, le applicazioni che usano i database non hanno tempi di inattività. Possono comunque leggere e scrivere nei database. Il blocco può durare per un massimo di quattro ore, ma la maggior parte degli spostamenti viene completata in meno tempo.
 
 Lo spostamento di una risorsa comporta solo il suo spostamento in un nuovo gruppo di risorse o una nuova sottoscrizione. Non modifica il percorso della risorsa.
 
@@ -36,15 +36,15 @@ Prima di spostare una risorsa, è necessario eseguire alcuni passi importanti. L
    * Se si usa hub di Azure Stack, non è possibile spostare le risorse tra gruppi.
    * [Linee guida per lo spostamento di Servizi app](./move-limitations/app-service-move-limitations.md)
    * [Azure DevOps Services di spostamento](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json)
-   * [Linee guida per lo spostamento del modello di](./move-limitations/classic-model-move-limitations.md) distribuzione classica : calcolo classico, archiviazione classica, reti virtuali classiche e servizi cloud
+   * [Linee guida per lo spostamento del modello di distribuzione classica](./move-limitations/classic-model-move-limitations.md) : calcolo classico, archiviazione classica, reti virtuali classiche e servizi cloud
    * [Linee guida per lo spostamento della rete](./move-limitations/networking-move-limitations.md)
-   * [Linee guida per lo spostamento di Servizi di ripristino](../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)
-   * [Linee guida per lo spostamento di macchine virtuali](./move-limitations/virtual-machines-move-limitations.md)
-   * Per spostare una sottoscrizione di Azure in un nuovo gruppo di gestione, vedere [Spostare le sottoscrizioni.](../../governance/management-groups/manage.md#move-subscriptions)
+   * [Indicazioni per lo spostamento di Servizi di ripristino](../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)
+   * [Linee guida per lo spostamento delle macchine virtuali](./move-limitations/virtual-machines-move-limitations.md)
+   * Per spostare una sottoscrizione di Azure in un nuovo gruppo di gestione, vedere [Spostare sottoscrizioni](../../governance/management-groups/manage.md#move-subscriptions).
 
-1. Se si sposta una risorsa a cui è assegnato un ruolo di Azure direttamente alla risorsa (o a una risorsa figlio), l'assegnazione di ruolo non viene spostata e diventa orfana. Dopo lo spostamento, è necessario creare nuovamente l'assegnazione di ruolo. Alla fine, l'assegnazione di ruolo orfana viene rimossa automaticamente, ma è consigliabile rimuovere l'assegnazione di ruolo prima dello spostamento.
+1. Se si sposta una risorsa con un ruolo di Azure assegnato direttamente alla risorsa (o a una risorsa figlio), l'assegnazione di ruolo non viene spostata e diventa orfana. Dopo lo spostamento, è necessario creare nuovamente l'assegnazione di ruolo. Alla fine, l'assegnazione di ruolo orfana viene rimossa automaticamente, ma è consigliabile rimuoverla prima dello spostamento.
 
-    Per informazioni su come gestire le assegnazioni di ruolo, vedere [Elencare le assegnazioni di ruolo di Azure](../../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-at-a-scope) e [Assegnare ruoli di Azure.](../../role-based-access-control/role-assignments-portal.md)
+    Per informazioni su come gestire le assegnazioni di ruolo, vedere Elencare le [assegnazioni di ruolo di Azure](../../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-at-a-scope) e [Assegnare ruoli di Azure.](../../role-based-access-control/role-assignments-portal.md)
 
 1. Le sottoscrizioni di origine e di destinazione devono essere attive. In caso di problemi durante l'abilitazione di un account precedentemente disabilitato, [creare una richiesta di supporto tecnico di Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). Selezionare **Gestione delle sottoscrizioni** per il tipo di problema.
 
@@ -104,7 +104,7 @@ Prima di spostare una risorsa, è necessario eseguire alcuni passi importanti. L
 
 1. Prima di spostare le risorse, controllare le quote della sottoscrizione in cui si desidera spostare le risorse. Se lo spostamento di risorse causa il superamento dei limiti della sottoscrizione, è necessario verificare se è possibile richiedere un aumento della quota. Per un elenco dei limiti e su come richiedere un aumento, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../../azure-resource-manager/management/azure-subscription-service-limits.md).
 
-1. **Per uno spostamento tra sottoscrizioni, la risorsa e le relative risorse dipendenti devono trovarsi nello stesso gruppo di risorse e devono essere spostate insieme.** Ad esempio, una macchina virtuale con dischi gestiti richiederebbe che la macchina virtuale e i dischi gestiti siano spostati insieme ad altre risorse dipendenti.
+1. **Per uno spostamento tra sottoscrizioni, la risorsa e le relative risorse dipendenti devono trovarsi nello stesso gruppo di risorse e devono essere spostate insieme.** Ad esempio, una macchina virtuale con dischi gestiti richiederebbe lo spostamento della macchina virtuale e dei dischi gestiti insieme ad altre risorse dipendenti.
 
    Se si sposta una risorsa in una nuova sottoscrizione, verificare se la risorsa ha risorse dipendenti e se si trova nello stesso gruppo di risorse. Se le risorse non sono nello stesso gruppo di risorse, verificare se le risorse possono essere combinate nello stesso gruppo di risorse. In tal caso, portare tutte queste risorse nello stesso gruppo di risorse usando un'operazione di spostamento tra gruppi di risorse.
 
@@ -118,13 +118,13 @@ Lo spostamento delle risorse da una sottoscrizione a un'altra è un processo in 
 
 A scopo illustrativo, è disponibile una sola risorsa dipendente.
 
-* Passaggio 1: se le risorse dipendenti vengono distribuite tra gruppi di risorse diversi, prima di tutto spostarle in un gruppo di risorse.
+* Passaggio 1: se le risorse dipendenti vengono distribuite tra gruppi di risorse diversi, prima di tutto spostarle in un unico gruppo di risorse.
 * Passaggio 2: Spostare la risorsa e le risorse dipendenti insieme dalla sottoscrizione di origine alla sottoscrizione di destinazione.
 * Passaggio 3: Facoltativamente, ridistribuire le risorse dipendenti in gruppi di risorse diversi all'interno della sottoscrizione di destinazione.
 
 ## <a name="validate-move"></a>Convalidare lo spostamento
 
-[L'operazione di convalida dello](/rest/api/resources/resources/moveresources) spostamento consente di testare lo scenario di spostamento senza spostare effettivamente le risorse. Usare questa operazione per verificare se lo spostamento avrà esito positivo. La convalida viene chiamata automaticamente quando si invia una richiesta di spostamento. Usare questa operazione solo quando è necessario predeterminare i risultati. Per eseguire questa operazione, è necessario:
+[L'operazione di convalida dello](/rest/api/resources/resources/moveresources) spostamento consente di testare lo scenario di spostamento senza effettivamente spostare le risorse. Usare questa operazione per verificare se lo spostamento avrà esito positivo. La convalida viene chiamata automaticamente quando si invia una richiesta di spostamento. Usare questa operazione solo quando è necessario predeterminare i risultati. Per eseguire questa operazione, è necessario:
 
 * il nome del gruppo di risorse di origine
 * l'ID risorsa della risorsa del gruppo di risorse di destinazione
@@ -223,7 +223,7 @@ Per eseguire lo spostamento in una nuova sottoscrizione, includere un valore per
 
 ## <a name="use-azure-cli"></a>Utilizzare l'interfaccia della riga di comando di Azure
 
-Per spostare risorse esistenti in un altro gruppo di risorse o un'altra sottoscrizione, usare il comando [az resource move](/cli/azure/resource#az-resource-move). Fornire gli ID risorsa delle risorse da spostare. L'esempio seguente illustra come spostare diverse risorse in un nuovo gruppo di risorse. Nel parametro `--ids` inserire un elenco delimitato da spazi di ID di risorse da spostare.
+Per spostare risorse esistenti in un altro gruppo di risorse o un'altra sottoscrizione, usare il comando [az resource move](/cli/azure/resource#az_resource_move). Fornire gli ID risorsa delle risorse da spostare. L'esempio seguente illustra come spostare diverse risorse in un nuovo gruppo di risorse. Nel parametro `--ids` inserire un elenco delimitato da spazi di ID di risorse da spostare.
 
 ```azurecli
 webapp=$(az resource show -g OldRG -n ExampleSite --resource-type "Microsoft.Web/sites" --query id --output tsv)
@@ -235,7 +235,7 @@ Per spostare in una nuova sottoscrizione, inserire il parametro `--destination-s
 
 ## <a name="use-rest-api"></a>Usare l'API REST
 
-Per spostare le risorse esistenti in un altro gruppo di risorse o sottoscrizione, usare [l'operazione Sposta](/rest/api/resources/resources/moveresources) risorse.
+Per spostare le risorse esistenti in un altro gruppo di risorse o sottoscrizione, usare [l'operazione Sposta risorse.](/rest/api/resources/resources/moveresources)
 
 ```HTTP
 POST https://management.azure.com/subscriptions/{source-subscription-id}/resourcegroups/{source-resource-group-name}/moveResources?api-version={api-version}
@@ -254,13 +254,13 @@ Nel corpo della richiesta specificare il gruppo di risorse di destinazione e le 
 
 **Domanda: L'operazione di spostamento delle risorse, che in genere richiede alcuni minuti, è in esecuzione da quasi un'ora. Si è verificato un problema?**
 
-Lo spostamento di una risorsa è un'operazione complessa con fasi diverse. Può interessare più del solo provider di risorse della risorsa che si sta tentando di spostare. A causa delle dipendenze tra i provider di risorse, Azure Resource Manager di 4 ore per il completamento dell'operazione. Questo periodo di tempo offre ai provider di risorse la possibilità di eseguire il ripristino da problemi temporanei. Se la richiesta di spostamento rientra nel periodo di quattro ore, l'operazione continua a tentare di essere completata e potrebbe comunque avere esito positivo. I gruppi di risorse di origine e di destinazione vengono bloccati durante questo periodo di tempo per evitare problemi di coerenza.
+Lo spostamento di una risorsa è un'operazione complessa con fasi diverse. Può coinvolgere più del solo provider di risorse della risorsa che si sta tentando di spostare. A causa delle dipendenze tra i provider di risorse, Azure Resource Manager 4 ore per il completamento dell'operazione. Questo periodo di tempo offre ai provider di risorse la possibilità di eseguire il ripristino da problemi temporanei. Se la richiesta di spostamento rientra nel periodo di quattro ore, l'operazione continua a tentare di completare e potrebbe comunque riuscire. I gruppi di risorse di origine e di destinazione vengono bloccati durante questo periodo di tempo per evitare problemi di coerenza.
 
 **Domanda: Perché il gruppo di risorse è bloccato per quattro ore durante lo spostamento delle risorse?**
 
-Per il completamento di una richiesta di spostamento è consentito un massimo di quattro ore. Per impedire lo spostamento di modifiche alle risorse, i gruppi di risorse di origine e di destinazione vengono bloccati durante lo spostamento delle risorse.
+Per il completamento di una richiesta di spostamento è consentito un massimo di quattro ore. Per evitare modifiche alle risorse spostate, i gruppi di risorse di origine e di destinazione vengono bloccati durante lo spostamento delle risorse.
 
-In una richiesta di spostamento sono presenti due fasi. Nella prima fase la risorsa viene spostata. Nella seconda fase, le notifiche vengono inviate ad altri provider di risorse che dipendono dalla risorsa da spostare. Un gruppo di risorse può essere bloccato per le quattro ore intere quando un provider di risorse ha esito negativo in entrambe le fasi. Durante il tempo consentito, Resource Manager ritenta il passaggio non riuscito.
+In una richiesta di spostamento sono presenti due fasi. Nella prima fase la risorsa viene spostata. Nella seconda fase, le notifiche vengono inviate ad altri provider di risorse dipendenti dalla risorsa da spostare. Un gruppo di risorse può essere bloccato per le quattro ore intere quando un provider di risorse ha esito negativo in entrambe le fasi. Durante il tempo consentito, Resource Manager ritenta il passaggio non riuscito.
 
 Se una risorsa non può essere spostata entro quattro ore, Resource Manager sblocco di entrambi i gruppi di risorse. Le risorse spostate sono nel gruppo di risorse di destinazione. Le risorse che non sono riuscite a spostare vengono lasciato il gruppo di risorse di origine.
 

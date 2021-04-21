@@ -1,26 +1,26 @@
 ---
-title: Sostituisci EntryPoint nell'istanza del contenitore
-description: Impostare una riga di comando per eseguire l'override del EntryPoint in un'immagine del contenitore quando si distribuisce un'istanza di contenitore di Azure
+title: Eseguire l'override del punto di ingresso nell'istanza del contenitore
+description: Impostare una riga di comando per eseguire l'override del punto di ingresso in un'immagine del contenitore quando si distribuisce un'istanza di Azure Container
 ms.topic: article
 ms.date: 04/15/2019
-ms.openlocfilehash: 23221de3dc91c37c2e6fb96489539d3954efcd87
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5898decbf4108d48bb9e84019d659075b18fd043
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86169630"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107771084"
 ---
-# <a name="set-the-command-line-in-a-container-instance-to-override-the-default-command-line-operation"></a>Impostare la riga di comando in un'istanza di contenitore per sostituire l'operazione della riga di comando predefinita
+# <a name="set-the-command-line-in-a-container-instance-to-override-the-default-command-line-operation"></a>Impostare la riga di comando in un'istanza del contenitore per eseguire l'override dell'operazione della riga di comando predefinita
 
-Quando si crea un'istanza del contenitore, è possibile specificare facoltativamente un comando per eseguire l'override dell'istruzione della riga di comando predefinita preparata nell'immagine del contenitore. Questo comportamento è simile all' `--entrypoint` argomento della riga di comando di `docker run` .
+Quando si crea un'istanza del contenitore, specificare facoltativamente un comando per eseguire l'override dell'istruzione della riga di comando predefinita nell'immagine del contenitore. Questo comportamento è simile `--entrypoint` all'argomento della riga di comando di `docker run` .
 
-Come l'impostazione delle [variabili di ambiente](container-instances-environment-variables.md) per le istanze di contenitore, specificare una riga di comando iniziale è utile per i processi batch in cui è necessario preparare ogni contenitore in modo dinamico con la configurazione specifica dell'attività.
+Analogamente [all'impostazione delle](container-instances-environment-variables.md) variabili di ambiente per le istanze del contenitore, la specifica di una riga di comando iniziale è utile per i processi batch in cui è necessario preparare ogni contenitore in modo dinamico con una configurazione specifica dell'attività.
 
 ## <a name="command-line-guidelines"></a>Linee guida della riga di comando
 
-* Per impostazione predefinita, la riga di comando specifica un *singolo processo che inizia senza una shell* nel contenitore. Ad esempio, la riga di comando può eseguire uno script Python o un file eseguibile. Il processo può specificare parametri o argomenti aggiuntivi.
+* Per impostazione predefinita, la riga di comando specifica un *singolo processo che viene avviato senza una shell* nel contenitore. Ad esempio, la riga di comando potrebbe eseguire uno script Python o un file eseguibile. Il processo può specificare parametri o argomenti aggiuntivi.
 
-* Per eseguire più comandi, iniziare la riga di comando impostando un ambiente shell supportato nel sistema operativo del contenitore. Esempi:
+* Per eseguire più comandi, iniziare la riga di comando impostando un ambiente della shell supportato nel sistema operativo del contenitore. Esempi:
 
   |Sistema operativo  |Shell predefinita  |
   |---------|---------|
@@ -28,40 +28,40 @@ Come l'impostazione delle [variabili di ambiente](container-instances-environmen
   |Alpine     |   `/bin/sh`      |
   |Windows     |    `cmd`     |
 
-  Seguire le convenzioni della Shell per combinare più comandi da eseguire in sequenza.
+  Seguire le convenzioni della shell per combinare più comandi da eseguire in sequenza.
 
-* A seconda della configurazione del contenitore, potrebbe essere necessario impostare un percorso completo per l'eseguibile della riga di comando o per gli argomenti.
+* A seconda della configurazione del contenitore, potrebbe essere necessario impostare un percorso completo per l'eseguibile o gli argomenti della riga di comando.
 
-* Impostare un [criterio di riavvio](container-instances-restart-policy.md) appropriato per l'istanza del contenitore, a seconda che la riga di comando specifichi un'attività a esecuzione prolungata o un'attività Run-Once. Ad esempio, `Never` `OnFailure` per un'attività Run-Once è consigliabile un criterio di riavvio di o. 
+* Impostare criteri di [riavvio appropriati](container-instances-restart-policy.md) per l'istanza del contenitore, a seconda che la riga di comando specifichi un'attività con esecuzione lunga o un'attività run-once. Ad esempio, è consigliabile un criterio di riavvio di `Never` o `OnFailure` per un'attività run-once. 
 
-* Se sono necessarie informazioni sul set di EntryPoint predefinito in un'immagine del contenitore, usare il comando di [controllo dell'immagine Docker](https://docs.docker.com/engine/reference/commandline/image_inspect/) .
+* Se sono necessarie informazioni sul punto di ingresso predefinito impostato in un'immagine del contenitore, usare il [comando docker image inspect.](https://docs.docker.com/engine/reference/commandline/image_inspect/)
 
 ## <a name="command-line-syntax"></a>Sintassi della riga di comando
 
-La sintassi della riga di comando varia a seconda dell'API o dello strumento di Azure usato per creare le istanze. Se si specifica un ambiente della shell, osservare anche le convenzioni della sintassi del comando della shell.
+La sintassi della riga di comando varia a seconda dell'API o dello strumento di Azure usato per creare le istanze. Se si specifica un ambiente della shell, osservare anche le convenzioni di sintassi dei comandi della shell.
 
-* comando [AZ container create][az-container-create] : passa una stringa con il `--command-line` parametro. Esempio: `--command-line "python myscript.py arg1 arg2"` ).
+* [comando az container create:][az-container-create] passare una stringa con il `--command-line` parametro . Esempio: `--command-line "python myscript.py arg1 arg2"` ).
 
-* [New-AzureRmContainerGroup][new-azurermcontainergroup] Cmdlet Azure PowerShell: passare una stringa con il `-Command` parametro. Esempio: `-Command "echo hello"`.
+* [New-AzureRmContainerGroup][new-azurermcontainergroup] Azure PowerShell cmdlet: passare una stringa con il `-Command` parametro . Esempio: `-Command "echo hello"`.
 
-* Portale di Azure: nella proprietà di **override del comando** della configurazione del contenitore specificare un elenco di stringhe delimitato da virgole, senza virgolette. Esempio: `python, myscript.py, arg1, arg2` ). 
+* portale di Azure: nella proprietà **override Command** della configurazione del contenitore specificare un elenco di stringhe delimitato da virgole, senza virgolette. Esempio: `python, myscript.py, arg1, arg2` ). 
 
-* Gestione risorse modello o file YAML o uno degli SDK di Azure: specificare la proprietà della riga di comando come una matrice di stringhe. Esempio: matrice JSON `["python", "myscript.py", "arg1", "arg2"]` in un modello di gestione risorse. 
+* Resource Manager modello o file YAML o uno degli Azure SDK: specificare la proprietà della riga di comando come matrice di stringhe. Esempio: matrice JSON `["python", "myscript.py", "arg1", "arg2"]` in un modello Resource Manager dati. 
 
-  Se si ha familiarità con la sintassi di [Dockerfile](https://docs.docker.com/engine/reference/builder/) , questo formato è simile al formato *Exec* dell'istruzione cmd.
+  Se si ha familiarità con la [sintassi di Dockerfile,](https://docs.docker.com/engine/reference/builder/) questo formato è simile al formato *exec* dell'istruzione CMD.
 
 ### <a name="examples"></a>Esempio
 
 |    |  Interfaccia della riga di comando di Azure   | Portale | Modello | 
 | ---- | ---- | --- | --- |
-| **Singolo comando** | `--command-line "python myscript.py arg1 arg2"` | **Override del comando**: `python, myscript.py, arg1, arg2` | `"command": ["python", "myscript.py", "arg1", "arg2"]` |
+| **Comando singolo** | `--command-line "python myscript.py arg1 arg2"` | **Override del comando**: `python, myscript.py, arg1, arg2` | `"command": ["python", "myscript.py", "arg1", "arg2"]` |
 | **Più comandi** | `--command-line "/bin/bash -c 'mkdir test; touch test/myfile; tail -f /dev/null'"` |**Override del comando**: `/bin/bash, -c, mkdir test; touch test/myfile; tail -f /dev/null` | `"command": ["/bin/bash", "-c", "mkdir test; touch test/myfile; tail -f /dev/null"]` |
 
 ## <a name="azure-cli-example"></a>Esempio di interfaccia della riga di comando di Azure
 
-Ad esempio, modificare il comportamento dell'immagine del contenitore [Microsoft/ACI-WordCount][aci-wordcount] , che analizza il testo nel *villaggio* di Shakespeare per trovare le parole che si verificano più di frequente. Anziché analizzare *Hamlet*, è possibile impostare una riga di comando che punta a un'origine di testo diversa.
+Ad esempio, modificare il comportamento dell'immagine del contenitore [microsoft/aci-wordcount,][aci-wordcount] che analizza il testo nell'Amleto di Hamlet di *Hamlet* per trovare le parole più frequenti. Invece di analizzare *Hamlet,* è possibile impostare una riga di comando che punti a un'origine di testo diversa.
 
-Per visualizzare l'output del contenitore [Microsoft/ACI-WordCount][aci-wordcount] quando analizza il testo predefinito, eseguirlo con il comando [AZ container create][az-container-create] seguente. Non viene specificata alcuna riga di comando di avvio, pertanto viene eseguito il comando contenitore predefinito. A scopo illustrativo, questo esempio imposta le [variabili di ambiente](container-instances-environment-variables.md) per trovare le prime 3 parole che hanno una lunghezza di almeno cinque lettere:
+Per visualizzare l'output del contenitore [microsoft/aci-wordcount][aci-wordcount] quando analizza il testo predefinito, eseguirlo con il [comando az container create][az-container-create] seguente. Non viene specificata alcuna riga di comando di avvio, quindi viene eseguito il comando del contenitore predefinito. A scopo illustrativo, questo esempio imposta le [variabili di](container-instances-environment-variables.md) ambiente per trovare le prime 3 parole lunghe almeno cinque lettere:
 
 ```azurecli-interactive
 az container create \
@@ -72,7 +72,7 @@ az container create \
     --restart-policy OnFailure
 ```
 
-Quando lo stato del contenitore viene visualizzato come *terminato* (usare [AZ container Show][az-container-show] per verificare lo stato), visualizzare il log con [AZ container logs][az-container-logs] per visualizzare l'output.
+Quando lo stato del contenitore viene visualizzato come *Terminato* (usare [az container show][az-container-show] per controllare lo stato), visualizzare il log con [az container logs][az-container-logs] per visualizzare l'output.
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name mycontainer1
@@ -84,9 +84,9 @@ Output:
 [('HAMLET', 386), ('HORATIO', 127), ('CLAUDIUS', 120)]
 ```
 
-Configurare ora un secondo contenitore di esempio per analizzare il testo diverso specificando una riga di comando diversa. Lo script Python eseguito dal contenitore, *WordCount.py*, accetta un URL come argomento e elabora il contenuto della pagina anziché il valore predefinito.
+Configurare ora un secondo contenitore di esempio per analizzare testo diverso specificando una riga di comando diversa. Lo script Python eseguito dal contenitore, *wordcount.py*, accetta un URL come argomento ed elabora il contenuto della pagina anziché il valore predefinito.
 
-Ad esempio, per determinare le prime 3 parole che hanno una lunghezza di almeno cinque lettere in *Romeo e Giulietta*:
+Ad esempio, per determinare le prime 3 parole lunghe almeno cinque lettere in *Romeo e Rometo:*
 
 ```azurecli-interactive
 az container create \
@@ -112,14 +112,14 @@ Output:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Gli scenari basati su attività, ad esempio l'elaborazione batch di un set di dati di grandi dimensioni con diversi contenitori, possono trarre vantaggio dalle righe di comando personalizzate in fase di esecuzione. Per altre informazioni sull'esecuzione di contenitori basati su attività, vedere [eseguire attività in contenitori con i criteri di riavvio](container-instances-restart-policy.md).
+Gli scenari basati su attività, ad esempio l'elaborazione batch di un set di dati di grandi dimensioni con diversi contenitori, possono trarre vantaggio dalle righe di comando personalizzate in fase di esecuzione. Per altre informazioni sull'esecuzione di contenitori basati su attività, vedere [Eseguire attività in contenitori con criteri di riavvio](container-instances-restart-policy.md).
 
 <!-- LINKS - External -->
 [aci-wordcount]: https://hub.docker.com/_/microsoft-azuredocs-aci-wordcount
 
 <!-- LINKS Internal -->
-[az-container-create]: /cli/azure/container#az-container-create
-[az-container-logs]: /cli/azure/container#az-container-logs
-[az-container-show]: /cli/azure/container#az-container-show
+[az-container-create]: /cli/azure/container#az_container_create
+[az-container-logs]: /cli/azure/container#az_container_logs
+[az-container-show]: /cli/azure/container#az_container_show
 [new-azurermcontainergroup]: /powershell/module/azurerm.containerinstance/new-azurermcontainergroup
 [portal]: https://portal.azure.com

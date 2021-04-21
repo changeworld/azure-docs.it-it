@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 05/18/2018
 ms.reviewer: avverma
 ms.custom: avverma, devx-track-azurecli
-ms.openlocfilehash: 68f311a949d6c7663c5602c444d1b7b9af09dcad
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b7fdf6d4893a6f6a970223671b28fdae6db3ef3d
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96016727"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107762986"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli"></a>Esercitazione: Scalare automaticamente un set di scalabilità di una macchina virtuale con l'interfaccia della riga di comando di Azure
 
@@ -55,7 +55,7 @@ az vmss create \
 
 ## <a name="define-an-autoscale-profile"></a>Definire un profilo di scalabilità automatica
 
-Per abilitare la scalabilità automatica su un set di scalabilità, è innanzitutto necessario definire un profilo di scalabilità automatica. Questo profilo definisce la capacità predefinita, minima e massima del set di scalabilità. Questi limiti consentono di controllare i costi perché le istanze di macchine virtuali non vengono create di continuo. Permettono anche di trovare un equilibrio appropriato tra prestazioni e numero minimo di istanze che rimangono in un evento di riduzione. Creare un profilo di scalabilità automatica con [az monitor autoscale create](/cli/azure/monitor/autoscale#az-monitor-autoscale-create). L'esempio seguente imposta la capacità predefinita e minima di *2* istanze di macchine virtuali e la capacità massima di *10*:
+Per abilitare la scalabilità automatica su un set di scalabilità, è innanzitutto necessario definire un profilo di scalabilità automatica. Questo profilo definisce la capacità predefinita, minima e massima del set di scalabilità. Questi limiti consentono di controllare i costi perché le istanze di macchine virtuali non vengono create di continuo. Permettono anche di trovare un equilibrio appropriato tra prestazioni e numero minimo di istanze che rimangono in un evento di riduzione. Creare un profilo di scalabilità automatica con [az monitor autoscale create](/cli/azure/monitor/autoscale#az_monitor_autoscale_create). L'esempio seguente imposta la capacità predefinita e minima di *2* istanze di macchine virtuali e la capacità massima di *10*:
 
 ```azurecli-interactive
 az monitor autoscale create \
@@ -72,7 +72,7 @@ az monitor autoscale create \
 
 Se aumenta la richiesta da parte dell'applicazione, aumenta il carico sulle istanze di macchine virtuali nel set di scalabilità. Se il carico aumenta in modo coerente e non momentaneamente, è possibile configurare regole di scalabilità automatica per aumentare il numero di istanze di macchine virtuali nel set di scalabilità. Quando sono state create le istanze di macchine virtuali e sono state distribuite le applicazioni, il set di scalabilità inizia a distribuire loro il traffico tramite il bilanciamento del carico. È possibile controllare le metriche da monitorare, ad esempio per la CPU o il disco, il tempo per cui il carico dell'applicazione deve soddisfare una determinata soglia e il numero di istanze di macchine virtuali da aggiungere al set di scalabilità.
 
-È possibile creare una regola con [az monitor autoscale rule create](/cli/azure/monitor/autoscale/rule#az-monitor-autoscale-rule-create) che aumenti il numero di istanze di macchine virtuali in un set di scalabilità quando il carico medio della CPU è superiore al 70% per un periodo di 5 minuti. Quando la regola viene attivata, il numero di istanze di VM viene incrementato di tre.
+È possibile creare una regola con [az monitor autoscale rule create](/cli/azure/monitor/autoscale/rule#az_monitor_autoscale_rule_create) che aumenti il numero di istanze di macchine virtuali in un set di scalabilità quando il carico medio della CPU è superiore al 70% per un periodo di 5 minuti. Quando la regola viene attivata, il numero di istanze di VM viene incrementato di tre.
 
 ```azurecli-interactive
 az monitor autoscale rule create \
@@ -86,7 +86,7 @@ az monitor autoscale rule create \
 
 Nelle ore serali o nel fine settimana è possibile che la richiesta delle applicazioni si riduca. Se il carico diminuisce in modo coerente nel tempo, è possibile configurare regole di scalabilità automatica per diminuire il numero di istanze di macchine virtuali nel set di scalabilità. Questa azione riduce i costi di esecuzione del set di scalabilità poiché si esegue solo il numero di istanze necessarie per soddisfare la richiesta corrente.
 
-Creare quindi un'altra regola con [az monitor autoscale rule create](/cli/azure/monitor/autoscale/rule#az-monitor-autoscale-rule-create) che riduca il numero di istanze di macchine virtuali in un set di scalabilità quando il carico medio della CPU è inferiore al 30% per un periodo di 5 minuti. L'esempio seguente definisce la regola per ridurre il numero di istanze di VM di uno:
+Creare quindi un'altra regola con [az monitor autoscale rule create](/cli/azure/monitor/autoscale/rule#az_monitor_autoscale_rule_create) che riduca il numero di istanze di macchine virtuali in un set di scalabilità quando il carico medio della CPU è inferiore al 30% per un periodo di 5 minuti. L'esempio seguente definisce la regola per ridurre il numero di istanze di VM di uno:
 
 ```azurecli-interactive
 az monitor autoscale rule create \

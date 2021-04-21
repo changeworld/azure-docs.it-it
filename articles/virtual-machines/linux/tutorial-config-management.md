@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/27/2019
 ms.author: magoedte
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 979cac8fd3d2c09443d52c9142a5e7c44127713a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 16e8cfd9c6b20e3a8d17ba335079b1b6fe8b499f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102552530"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107785020"
 ---
 # <a name="tutorial-monitor-changes-and-update-a-linux-virtual-machine-in-azure"></a>Esercitazione: Monitorare le modifiche e aggiornare una macchina virtuale Linux in Azure
 
@@ -39,13 +39,13 @@ In questa esercitazione verranno illustrate le procedure per:
 
 ## <a name="create-vm"></a>Creare una macchina virtuale
 
-Per visualizzare la diagnostica e le metriche in azione, è necessaria una macchina virtuale. Creare prima un gruppo di risorse con [az group create](/cli/azure/group#az-group-create). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroupMonitor* nella località *eastus*.
+Per visualizzare la diagnostica e le metriche in azione, è necessaria una macchina virtuale. Creare prima un gruppo di risorse con [az group create](/cli/azure/group#az_group_create). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroupMonitor* nella località *eastus*.
 
 ```azurecli-interactive
 az group create --name myResourceGroupMonitor --location eastus
 ```
 
-Creare quindi una macchina virtuale con il comando [az vm create](/cli/azure/vm#az-vm-create). L'esempio seguente crea una macchina virtuale denominata *myVM* e genera chiavi SSH *~/.ssh/* , se non esistono ancora:
+Creare quindi una macchina virtuale con il comando [az vm create](/cli/azure/vm#az_vm_create). L'esempio seguente crea una macchina virtuale denominata *myVM* e genera chiavi SSH *~/.ssh/* , se non esistono ancora:
 
 ```azurecli-interactive
 az vm create \

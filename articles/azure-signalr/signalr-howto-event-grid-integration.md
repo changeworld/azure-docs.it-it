@@ -1,22 +1,22 @@
 ---
-title: Come inviare eventi del servizio Azure SignalR a griglia di eventi
-description: Guida che illustra come abilitare gli eventi di griglia di eventi per il servizio SignalR, quindi inviare eventi connessi/disconnessi della connessione client a un'applicazione di esempio.
+title: Come inviare Servizio Azure SignalR eventi a Griglia di eventi
+description: Guida che illustra come abilitare gli eventi di Griglia di eventi per il servizio SignalR e quindi inviare eventi connessi/disconnessi di connessione client a un'applicazione di esempio.
 services: signalr
 author: chenyl
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: chenyl
-ms.openlocfilehash: 84b83c1dd541418c446a89a6f51be668cb41e54e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 65fb54dbfc5158ef8cc2b488f267c92f601502f6
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94562645"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107784588"
 ---
 # <a name="how-to-send-events-from-azure-signalr-service-to-event-grid"></a>Come inviare eventi dal Servizio Azure SignalR a Griglia di eventi
 
-Griglia di eventi di Azure è un servizio di routing di eventi completamente gestito che fornisce un consumo di eventi uniformi usando un modello di pubblicazione secondaria. In questa guida si userà l'interfaccia della riga di comando di Azure per creare un servizio Azure SignalR, sottoscrivere gli eventi di connessione e quindi distribuire un'applicazione Web di esempio per ricevere gli eventi. Infine, è possibile connettere e disconnettere e visualizzare il payload dell'evento nell'applicazione di esempio.
+Griglia di eventi di Azure è un servizio di routing degli eventi completamente gestito che fornisce un utilizzo uniforme degli eventi usando un modello pub-sub. In questa guida si usa l'interfaccia della riga di comando di Azure per creare un Servizio Azure SignalR, sottoscrivere eventi di connessione e quindi distribuire un'applicazione Web di esempio per ricevere gli eventi. Infine, è possibile connettersi e disconnettersi e visualizzare il payload dell'evento nell'applicazione di esempio.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -36,14 +36,14 @@ az group create --name $RESOURCE_GROUP_NAME --location eastus
 
 ## <a name="create-a-signalr-service"></a>Servizio Azure SignalR
 
-Quindi, distribuire un servizio SignalR di Azure nel gruppo di risorse con i comandi seguenti.
+Distribuire quindi un servizio Azure Signalr nel gruppo di risorse con i comandi seguenti.
 ```azurecli-interactive
 SIGNALR_NAME=SignalRTestSvc
 
 az signalr create --resource-group $RESOURCE_GROUP_NAME --name $SIGNALR_NAME --sku Free_F1
 ```
 
-Una volta creato il servizio SignalR, l'interfaccia della riga di comando di Azure restituisce un output simile al seguente:
+Dopo aver creato il servizio SignalR, l'interfaccia della riga di comando di Azure restituisce un output simile al seguente:
 
 ```json
 {
@@ -86,7 +86,7 @@ az deployment group create \
     --parameters siteName=$SITE_NAME hostingPlanName=$SITE_NAME-plan
 ```
 
-Una volta completata la distribuzione (l'operazione potrebbe richiedere alcuni minuti), aprire un browser e passare all'app Web per assicurarsi che sia in esecuzione:
+Al termine della distribuzione (potrebbe essere necessario qualche minuto), aprire un browser e passare all'app Web per assicurarsi che sia in esecuzione:
 
 `http://<your-site-name>.azurewebsites.net`
 
@@ -94,7 +94,7 @@ Una volta completata la distribuzione (l'operazione potrebbe richiedere alcuni m
 
 ## <a name="subscribe-to-registry-events"></a>Sottoscrivere gli eventi del registro
 
-In Griglia di eventi si sottoscrive un *argomento* per indicare gli eventi di cui si vuole tenere traccia e la destinazione a cui inviarli. Il seguente comando [AZ eventgrid Event-Subscription create][az-eventgrid-event-subscription-create] sottoscrive il servizio Azure SignalR creato e specifica l'URL dell'app Web come endpoint a cui inviare gli eventi. In questo caso vengono riutilizzate le variabili di ambiente popolate nelle sezioni precedenti. Non è quindi necessaria alcuna modifica.
+In Griglia di eventi si sottoscrive un *argomento* per indicare gli eventi di cui si vuole tenere traccia e la destinazione a cui inviarli. Il comando [az event-subscription create az event-subscription seguente][az-eventgrid-event-subscription-create] sottoscrive il Servizio Azure SignalR creato e specifica l'URL dell'app Web come endpoint a cui inviare gli eventi. In questo caso vengono riutilizzate le variabili di ambiente popolate nelle sezioni precedenti. Non è quindi necessaria alcuna modifica.
 
 ```azurecli-interactive
 SIGNALR_SERVICE_ID=$(az signalr show --resource-group $RESOURCE_GROUP_NAME --name $SIGNALR_NAME --query id --output tsv)
@@ -141,7 +141,7 @@ Al termine della sottoscrizione, l'output dovrebbe essere simile al seguente:
 
 ## <a name="trigger-registry-events"></a>Attivare gli eventi del registro
 
-Passare alla modalità servizio `Serverless Mode` e configurare una connessione client al servizio SignalR. Come riferimento, è possibile adottare un [campione senza server](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/Serverless) .
+Passare alla modalità del servizio `Serverless Mode` e configurare una connessione client al servizio SignalR. È possibile usare [Serverless Sample](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/Serverless) come riferimento.
 
 ```bash
 git clone git@github.com:aspnet/AzureSignalR-samples.git
@@ -162,12 +162,12 @@ dotnet run
 
 ## <a name="view-registry-events"></a>Visualizzare gli eventi del registro
 
-Si è ora connesso un client al servizio SignalR. Passare all'app Web del Visualizzatore di griglia di eventi. verrà visualizzato un `ClientConnectionConnected` evento. Se si termina il client, viene visualizzato anche un `ClientConnectionDisconnected` evento.
+A questo punto è stato connesso un client al servizio SignalR. Passare all'app Web Visualizzatore Griglia di eventi e verrà visualizzato un `ClientConnectionConnected` evento. Se si termina il client, verrà visualizzato anche un `ClientConnectionDisconnected` evento .
 
 <!-- LINKS - External -->
 [azure-account]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F
 [sample-app]: https://github.com/dbarkol/azure-event-grid-viewer
 
 <!-- LINKS - Internal -->
-[az-eventgrid-event-subscription-create]: /cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-create
-[az-group-create]: /cli/azure/group#az-group-create
+[az-eventgrid-event-subscription-create]: /cli/azure/eventgrid/event-subscription#az_eventgrid_event_subscription_create
+[az-group-create]: /cli/azure/group#az_group_create

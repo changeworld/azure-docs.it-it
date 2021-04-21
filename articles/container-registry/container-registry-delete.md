@@ -1,34 +1,34 @@
 ---
-title: Elimina risorse immagine
-description: Informazioni dettagliate su come gestire in modo efficace le dimensioni del registro di sistema eliminando i dati delle immagini del contenitore usando i comandi dell'interfaccia
+title: Eliminare le risorse immagine
+description: Informazioni dettagliate su come gestire in modo efficace le dimensioni del registro eliminando i dati delle immagini del contenitore usando i comandi dell'interfaccia della riga di comando di Azure.
 ms.topic: article
 ms.date: 07/31/2019
-ms.openlocfilehash: 449a1c09bf88e3e0e0aeca4d3b687371d2a6b91a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: af277d0c02960c989b4e9119f2ecbfd8f6d7ce07
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "78403344"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107783990"
 ---
-# <a name="delete-container-images-in-azure-container-registry-using-the-azure-cli"></a>Eliminare immagini del contenitore in Azure Container Registry usando l'interfaccia della riga di comando di Azure
+# <a name="delete-container-images-in-azure-container-registry-using-the-azure-cli"></a>Eliminare immagini del contenitore in un Registro Azure Container'interfaccia della riga di comando di Azure
 
 Per mantenere le dimensioni del Registro Azure Container, è consigliabile eliminare periodicamente i dati di immagini non aggiornati. Alcune immagini di contenitori distribuite in produzione potrebbero richiedere un'archiviazione a lungo termine, mentre altre possono solitamente essere eliminate prima. Ad esempio, in uno scenario di compilazione e test automatici, il registro può riempirsi velocemente di immagini che non verranno mai distribuite, pertanto potrà essere svuotato subito dopo aver compilato la build ed effettuato correttamente i test.
 
-Poiché è possibile eliminare i dati di immagini in modi diversi, è importante comprendere l'impatto di ciascun tipo di eliminazione sull'utilizzo dello spazio di archiviazione. Questo articolo illustra diversi metodi per l'eliminazione dei dati immagine:
+Poiché è possibile eliminare i dati di immagini in modi diversi, è importante comprendere l'impatto di ciascun tipo di eliminazione sull'utilizzo dello spazio di archiviazione. Questo articolo illustra diversi metodi per eliminare i dati delle immagini:
 
 * Eliminare un [repository](#delete-repository): elimina tutte le immagini e tutti i livelli univoci all'interno del repository.
 * Eliminare in base ai [tag](#delete-by-tag): elimina un'immagine, il tag, tutti i livelli univoci a cui l'immagine fa riferimento e tutti gli altri tag a essa associati.
 * Eliminare in base all'[hash di manifesto](#delete-by-manifest-digest): elimina un'immagine, tutti i livelli univoci a cui fa riferimento l'immagine e tutti i tag a essa associati.
 
-Sono disponibili script di esempio che consentono di automatizzare le operazioni di eliminazione.
+Vengono forniti script di esempio per automatizzare le operazioni di eliminazione.
 
-Per un'introduzione a questi concetti, vedere [informazioni su registri, repository e immagini](container-registry-concepts.md).
+Per un'introduzione a questi concetti, vedere Informazioni su [registri, repository e immagini.](container-registry-concepts.md)
 
 ## <a name="delete-repository"></a>Eliminare un repository
 
-L'eliminazione di un repository elimina anche tutte le immagini al suo interno, inclusi tag, livelli univoci e manifesti. Quando si elimina un repository, si recupera lo spazio di archiviazione usato dalle immagini che fanno riferimento a livelli univoci nel repository.
+L'eliminazione di un repository elimina anche tutte le immagini al suo interno, inclusi tag, livelli univoci e manifesti. Quando si elimina un repository, si recupera lo spazio di archiviazione usato dalle immagini che fanno riferimento a livelli univoci in tale repository.
 
-Il comando seguente dell'interfaccia della riga di comando di Azure elimina il repository "acr-helloworld" e tutti i tag e i manifesti al suo interno. Se a livelli a cui fanno riferimento i manifesti eliminati non viene fatto riferimento da nessun'altra immagine nel registro di sistema, vengono eliminati anche i dati del livello e il recupero dello spazio di archiviazione.
+Il comando seguente dell'interfaccia della riga di comando di Azure elimina il repository "acr-helloworld" e tutti i tag e i manifesti al suo interno. Se ai livelli a cui fanno riferimento i manifesti eliminati non viene fatto riferimento da altre immagini nel registro, vengono eliminati anche i relativi dati del livello, recuperando lo spazio di archiviazione.
 
 ```azurecli
  az acr repository delete --name myregistry --repository acr-helloworld
@@ -52,7 +52,7 @@ Are you sure you want to continue? (y/n):
 ```
 
 > [!TIP]
-> L'eliminazione *in base ai tag* non deve essere confuso con l'eliminazione (rimozione) di un tag. È possibile eliminare un tag con il comando dell'interfaccia della riga di comando di Azure [az acr repository untag][az-acr-repository-untag]. Quando si contrassegno un'immagine, non viene liberato alcuno spazio perché il [manifesto](container-registry-concepts.md#manifest) e i dati del livello rimangono nel registro di sistema. Viene eliminato solo il riferimento al tag.
+> L'eliminazione *in base ai tag* non deve essere confuso con l'eliminazione (rimozione) di un tag. È possibile eliminare un tag con il comando dell'interfaccia della riga di comando di Azure [az acr repository untag][az-acr-repository-untag]. Non viene liberato spazio quando si annulla il tag di un'immagine perché i relativi [dati del manifesto](container-registry-concepts.md#manifest) e del livello rimangono nel Registro di sistema. Viene eliminato solo il riferimento al tag.
 
 ## <a name="delete-by-manifest-digest"></a>Eliminare in base all'hash di manifesto
 
@@ -101,23 +101,23 @@ This operation will delete the manifest 'sha256:3168a21b98836dda7eb7a846b3d73528
 Are you sure you want to continue? (y/n): 
 ```
 
-L' `acr-helloworld:v2` immagine viene eliminata dal registro di sistema, così come tutti i dati di livello univoci di tale immagine. Se un manifesto è associato a più tag, vengono eliminati anche tutti i tag associati.
+`acr-helloworld:v2`L'immagine viene eliminata dal registro, così come tutti i dati di livello univoci per tale immagine. Se un manifesto è associato a più tag, vengono eliminati anche tutti i tag associati.
 
-## <a name="delete-digests-by-timestamp"></a>Elimina digest in base al timestamp
+## <a name="delete-digests-by-timestamp"></a>Eliminare digest in base al timestamp
 
-Per mantenere le dimensioni di un repository o di un registro di sistema, potrebbe essere necessario eliminare periodicamente i digest del manifesto più vecchi di una determinata data.
+Per mantenere le dimensioni di un repository o di un registro, potrebbe essere necessario eliminare periodicamente i digest del manifesto precedenti a una determinata data.
 
-Il comando dell'interfaccia della riga di comando di Azure seguente elenca tutto il digest del manifesto in un repository precedente a un timestamp specificato, in ordine crescente. Sostituire `<acrName>` e `<repositoryName>` con i valori appropriati all'ambiente. Il timestamp potrebbe essere un'espressione di data e ora completa o una data, come in questo esempio.
+Il comando dell'interfaccia della riga di comando di Azure seguente elenca tutti i digest del manifesto in un repository precedente a un timestamp specificato, in ordine crescente. Sostituire `<acrName>` e `<repositoryName>` con i valori appropriati all'ambiente. Il timestamp può essere un'espressione di data e ora completa o una data, come in questo esempio.
 
 ```azurecli
 az acr repository show-manifests --name <acrName> --repository <repositoryName> \
 --orderby time_asc -o tsv --query "[?timestamp < '2019-04-05'].[digest, timestamp]"
 ```
 
-Dopo aver identificato i digest del manifesto obsoleti, è possibile eseguire lo script bash seguente per eliminare i digest del manifesto anteriori a un timestamp specificato. e richiede l'interfaccia della riga di comando di Azure e **xargs**. Per impostazione predefinita, lo script non esegue alcuna operazione di eliminazione. Modificare il valore `ENABLE_DELETE` in `true` per abilitare l'eliminazione delle immagini.
+Dopo aver identificato i digest del manifesto non obsoleti, è possibile eseguire lo script Bash seguente per eliminare i digest del manifesto precedenti a un timestamp specificato. e richiede l'interfaccia della riga di comando di Azure e **xargs**. Per impostazione predefinita, lo script non esegue alcuna operazione di eliminazione. Modificare il valore `ENABLE_DELETE` in `true` per abilitare l'eliminazione delle immagini.
 
 > [!WARNING]
-> Usare lo script di esempio seguente con cautela. i dati dell'immagine eliminati sono irreversibili. Se si dispone di sistemi che effettuano il pull di immagini dal digest del manifesto (in contrapposizione al nome dell'immagine), è consigliabile non eseguire questi script. L'eliminazione dei digest del manifesto impedisce a tali sistemi di estrarre le immagini dal registro di sistema. Invece di eseguire il pull con il manifesto, adottare uno schema di *assegnazione di tag univoci*, una [procedura consigliata](container-registry-image-tag-version.md). 
+> Usare lo script di esempio seguente con cautela. I dati delle immagini eliminati non sono IRRECUPERABILI. Se si dispone di sistemi che eseguono il pull delle immagini in base al digest del manifesto (anziché al nome dell'immagine), non è consigliabile eseguire questi script. L'eliminazione dei digest del manifesto impedirà a tali sistemi di eseguire il pull delle immagini dal registro. Invece di eseguire il pull con il manifesto, adottare uno schema di *assegnazione di tag univoci*, una [procedura consigliata](container-registry-image-tag-version.md). 
 
 ```bash
 #!/bin/bash
@@ -199,7 +199,7 @@ Come accennato nella sezione [Hash di manifesto](container-registry-concepts.md#
    ]
    ```
 
-Come si può notare nell'output dell'ultimo passaggio della sequenza, esiste ora un manifesto orfano la cui `"tags"` proprietà è un elenco vuoto. Questo manifesto è ancora presente nel registro, insieme a tutti i dati dei livelli univoci a cui fa riferimento. **Per eliminare le immagini orfane e i relativi dati di livelli, è necessario eliminarle tramite l'hash di manifesto**.
+Come si può vedere nell'output dell'ultimo passaggio della sequenza, è ora presente un manifesto orfano la cui `"tags"` proprietà è un elenco vuoto. Questo manifesto è ancora presente nel registro, insieme a tutti i dati dei livelli univoci a cui fa riferimento. **Per eliminare le immagini orfane e i relativi dati di livelli, è necessario eliminarle tramite l'hash di manifesto**.
 
 ## <a name="delete-all-untagged-images"></a>Eliminare tutte le immagini senza tag
 
@@ -209,10 +209,10 @@ Come si può notare nell'output dell'ultimo passaggio della sequenza, esiste ora
 az acr repository show-manifests --name <acrName> --repository <repositoryName> --query "[?tags[0]==null].digest"
 ```
 
-Utilizzando questo comando in uno script, è possibile eliminare tutte le immagini senza tag in un repository.
+Usando questo comando in uno script, è possibile eliminare tutte le immagini senza tag in un repository.
 
 > [!WARNING]
-> Usare lo script di esempio seguente con cautela: i dati di un'immagine eliminata NON POSSONO ESSERE RIPRISTINATI. Se si dispone di sistemi che effettuano il pull di immagini dal digest del manifesto (in contrapposizione al nome dell'immagine), è consigliabile non eseguire questi script. L'eliminazione delle immagini senza tag impedirà a tali sistemi di eseguire il pull delle immagini dal registro. Invece di eseguire il pull con il manifesto, adottare uno schema di *assegnazione di tag univoci*, una [procedura consigliata](container-registry-image-tag-version.md).
+> Usare lo script di esempio seguente con cautela: i dati di un'immagine eliminata NON POSSONO ESSERE RIPRISTINATI. Se si dispone di sistemi che eseguono il pull delle immagini in base al digest del manifesto (anziché al nome dell'immagine), non è consigliabile eseguire questi script. L'eliminazione delle immagini senza tag impedirà a tali sistemi di eseguire il pull delle immagini dal registro. Invece di eseguire il pull con il manifesto, adottare uno schema di *assegnazione di tag univoci*, una [procedura consigliata](container-registry-image-tag-version.md).
 
 **Interfaccia della riga di comando di Azure in Bash**
 
@@ -273,9 +273,9 @@ if ($enableDelete) {
 
 ## <a name="automatically-purge-tags-and-manifests-preview"></a>Ripulire automaticamente tag e manifesti (anteprima)
 
-In alternativa alla creazione di script per i comandi dell'interfaccia della riga di comando di Azure, eseguire un'attività ACR su richiesta o pianificata per eliminare tutti i tag precedenti a una determinata durata o corrispondere a un filtro di nome specificato. Per altre informazioni, vedere [eliminare automaticamente le immagini da un registro contenitori di Azure](container-registry-auto-purge.md).
+In alternativa agli script dei comandi dell'interfaccia della riga di comando di Azure, eseguire un'attività ACR su richiesta o pianificata per eliminare tutti i tag precedenti a una determinata durata o che corrispondono a un filtro dei nomi specificato. Per altre informazioni, vedere [Ripulire automaticamente le immagini da un Registro Azure Container.](container-registry-auto-purge.md)
 
-Impostare facoltativamente un [criterio di conservazione](container-registry-retention-policy.md) per ogni registro di sistema, per gestire manifesti senza tag. Quando si Abilita un criterio di conservazione, i manifesti di immagine nel registro di sistema che non dispongono di tag associati e i dati del livello sottostante vengono eliminati automaticamente dopo un periodo di tempo stabilito.
+Facoltativamente, impostare [criteri di conservazione](container-registry-retention-policy.md) per ogni registro per gestire manifesti senza tag. Quando si abilita un criterio di conservazione, i manifesti immagine nel Registro di sistema a cui non sono associati tag e i dati del livello sottostante vengono eliminati automaticamente dopo un periodo impostato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -289,6 +289,6 @@ Per altre informazioni sull'archiviazione delle immagini in Registro Azure Conta
 [portal]: https://portal.azure.com
 
 <!-- LINKS - Internal -->
-[az-acr-repository-delete]: /cli/azure/acr/repository#az-acr-repository-delete
-[az-acr-repository-show-manifests]: /cli/azure/acr/repository#az-acr-repository-show-manifests
-[az-acr-repository-untag]: /cli/azure/acr/repository#az-acr-repository-untag
+[az-acr-repository-delete]: /cli/azure/acr/repository#az_acr_repository_delete
+[az-acr-repository-show-manifests]: /cli/azure/acr/repository#az_acr_repository_show_manifests
+[az-acr-repository-untag]: /cli/azure/acr/repository#az_acr_repository_untag

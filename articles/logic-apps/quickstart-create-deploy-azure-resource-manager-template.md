@@ -6,13 +6,13 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: quickstart
 ms.custom: mvc, subject-armqs, devx-track-azurecli
-ms.date: 06/30/2020
-ms.openlocfilehash: 8cee79efd9be53ddb9d450f643c04f21ae5e7fca
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 04/01/2021
+ms.openlocfilehash: bdeb80dc487d8418e21a40a29e5d2baab49d7b05
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102213998"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107771894"
 ---
 # <a name="quickstart-create-and-deploy-a-logic-app-workflow-by-using-an-arm-template"></a>Avvio rapido: Creare e distribuire un flusso di lavoro di app per la logica usando un modello di Resource Manager
 
@@ -32,7 +32,7 @@ Se non si ha una sottoscrizione di Azure, [creare un account Azure gratuito](htt
 
 Questa guida di avvio rapido usa il modello [**Creare un'app per la logica**](https://azure.microsoft.com/resources/templates/101-logic-app-create/), disponibile nella [raccolta di modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates). Questo modello è troppo lungo per essere mostrato qui. È invece possibile esaminare il ["file azuredeploy.json"](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json) del modello di avvio rapido nella raccolta di modelli.
 
-Il modello di avvio rapido crea un flusso di lavoro di app per la logica che usa il trigger di ricorrenza, impostato per essere eseguito ogni ora, e un'[azione *predefinita* HTTP](../connectors/apis-list.md#connector-types), che chiama un URL che restituisce lo stato di Azure. Un'azione predefinita è nativa della piattaforma di App per la logica di Azure.
+Il modello di avvio rapido crea un flusso di lavoro di app per la logica che usa il trigger di ricorrenza, impostato per essere eseguito ogni ora, e un'[azione *predefinita* HTTP](../connectors/built-in.md), che chiama un URL che restituisce lo stato di Azure. Un'azione predefinita è nativa della piattaforma di App per la logica di Azure.
 
 Questo modello crea la risorsa di Azure seguente:
 
@@ -303,7 +303,7 @@ az group delete --name $resourceGroupName &&
 echo "Press [ENTER] to continue ..."
 ```
 
-Per altre informazioni, vedere [Interfaccia della riga di comando di Azure: az group delete](/cli/azure/group#az-group-delete).
+Per altre informazioni, vedere [Interfaccia della riga di comando di Azure: az group delete](/cli/azure/group#az_group_delete).
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

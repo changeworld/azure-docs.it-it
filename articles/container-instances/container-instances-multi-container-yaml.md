@@ -3,12 +3,12 @@ title: Esercitazione - Distribuire un gruppo multi-contenitore- YAML
 description: In questa esercitazione si apprenderà come distribuire un gruppo di contenitori con più contenitori in istanze di Azure Container usando un file YAML con l'interfaccia della riga di comando di Azure.
 ms.topic: article
 ms.date: 07/01/2020
-ms.openlocfilehash: 6f9dda7735587dfee1dde86c85375efcf057daa7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 74269440357ee2d7ae36661618a31293346fa712
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97605162"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107771264"
 ---
 # <a name="tutorial-deploy-a-multi-container-group-using-a-yaml-file"></a>Esercitazione: Distribuire un gruppo multi-contenitore usando un file YAML
 
@@ -133,9 +133,9 @@ Output:
 
 ```console
 listening on port 80
-::1 - - [02/Jul/2020:23:17:48 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
-::1 - - [02/Jul/2020:23:17:51 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
-::1 - - [02/Jul/2020:23:17:54 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
+::1 - - [02/Jul/2020:23:17:48 +0000] "HEAD / HTTP/1.1&quot; 200 1663 &quot;-&quot; &quot;curl/7.54.0"
+::1 - - [02/Jul/2020:23:17:51 +0000] "HEAD / HTTP/1.1&quot; 200 1663 &quot;-&quot; &quot;curl/7.54.0"
+::1 - - [02/Jul/2020:23:17:54 +0000] "HEAD / HTTP/1.1&quot; 200 1663 &quot;-&quot; &quot;curl/7.54.0"
 ```
 
 Per visualizzare i log per il contenitore collaterale, eseguire un comando simile specificando il contenitore `aci-tutorial-sidecar`.
@@ -181,9 +181,9 @@ In questa esercitazione è stato usato un file YAML per distribuire un gruppo mu
 
 <!-- LINKS - Internal -->
 [aci-tutorial]: ./container-instances-tutorial-prepare-app.md
-[az-container-create]: /cli/azure/container#az-container-create
-[az-container-logs]: /cli/azure/container#az-container-logs
-[az-container-show]: /cli/azure/container#az-container-show
-[az-group-create]: /cli/azure/group#az-group-create
-[az-deployment-group-create]: /cli/azure/deployment/group#az-deployment-group-create
+[az-container-create]: /cli/azure/container#az_container_create
+[az-container-logs]: /cli/azure/container#az_container_logs
+[az-container-show]: /cli/azure/container#az_container_show
+[az-group-create]: /cli/azure/group#az_group_create
+[az-deployment-group-create]: /cli/azure/deployment/group#az_deployment_group_create
 [template-reference]: /azure/templates/microsoft.containerinstance/containergroups

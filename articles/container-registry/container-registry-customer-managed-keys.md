@@ -4,18 +4,18 @@ description: Informazioni sulla crittografia dei dati in pausa del Registro Azur
 ms.topic: article
 ms.date: 03/03/2021
 ms.custom: ''
-ms.openlocfilehash: c4e23acde9e3640da83b993c8c0c8c0818ccaa4f
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 09eea79eb6fb9ad9e4526b1a0390664e5dd9d61e
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/20/2021
-ms.locfileid: "107750159"
+ms.locfileid: "107784044"
 ---
 # <a name="encrypt-registry-using-a-customer-managed-key"></a>Crittografare il registro usando una chiave gestita dal cliente
 
 Quando si archiviano immagini e altri artefatti in un registro contenitori di Azure, Azure crittografa automaticamente il contenuto inattivo del registro con le [chiavi gestite dal servizio](../security/fundamentals/encryption-models.md). È possibile integrare la crittografia predefinita con un livello di crittografia aggiuntivo usando una chiave creata e gestita in Azure Key Vault (una chiave gestita dal cliente). Questo articolo illustra la procedura per usare l'interfaccia della riga di comando di Azure, portale di Azure o un modello Resource Manager.
 
-La crittografia lato server con chiavi gestite dal cliente è supportata tramite l'integrazione [con Azure Key Vault](../key-vault/general/overview.md): 
+La crittografia lato server con chiavi gestite dal cliente è supportata tramite l'integrazione con [Azure Key Vault](../key-vault/general/overview.md): 
 
 * È possibile creare chiavi di crittografia personalizzate e archiviarle in un insieme di credenziali delle chiavi oppure usare le API di Azure Key Vault per generare le chiavi. 
 * Con Azure Key Vault è anche possibile controllare l'utilizzo delle chiavi.
@@ -38,7 +38,7 @@ Questa funzionalità è disponibile nel livello di servizio **Premium** del regi
 
 ## <a name="automatic-or-manual-update-of-key-versions"></a>Aggiornamento automatico o manuale delle versioni chiave
 
-Una considerazione importante per la sicurezza di un registro crittografato con una chiave gestita dal cliente è la frequenza con cui si aggiorna (ruota) la chiave di crittografia. L'organizzazione potrebbe avere criteri di [](../key-vault/general/about-keys-secrets-certificates.md#objects-identifiers-and-versioning) conformità che richiedono l'aggiornamento regolare delle versioni delle chiavi archiviate in Azure Key Vault se usate come chiavi gestite dal cliente. 
+Una considerazione importante per la sicurezza di un registro crittografato con una chiave gestita dal cliente è la frequenza con cui si aggiorna (ruota) la chiave di crittografia. L'organizzazione potrebbe avere criteri di [](../key-vault/general/about-keys-secrets-certificates.md#objects-identifiers-and-versioning) conformità che richiedono l'aggiornamento regolare delle versioni delle chiavi archiviate in Azure Key Vault quando vengono usate come chiavi gestite dal cliente. 
 
 Quando si configura la crittografia del Registro di sistema con una chiave gestita dal cliente, sono disponibili due opzioni per l'aggiornamento della versione della chiave usata per la crittografia:
 
@@ -46,7 +46,7 @@ Quando si configura la crittografia del Registro di sistema con una chiave gesti
 
 * **Aggiornare manualmente la versione della chiave:** per usare una versione specifica di una chiave per la crittografia del Registro di sistema, specificare tale versione quando si abilita la crittografia del Registro di sistema con una chiave gestita dal cliente. Quando un registro viene crittografato con una versione della chiave specifica, Registro Azure Container tale versione viene utilizzata per la crittografia fino a quando non si ruota manualmente la chiave gestita dal cliente.
 
-Per informazioni dettagliate, vedere [Scegliere l'ID chiave con o senza](#choose-key-id-with-or-without-key-version) la versione della chiave e Aggiornare la versione della [chiave](#update-key-version)più avanti in questo articolo.
+Per informazioni dettagliate, vedere [Scegliere l'ID](#choose-key-id-with-or-without-key-version) chiave con o senza la versione della chiave e Aggiornare la [versione della chiave](#update-key-version)più avanti in questo articolo.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -127,7 +127,7 @@ az keyvault set-policy \
   --key-permissions get unwrapKey wrapKey
 ```
 
-In alternativa, usare il controllo [degli accessi in Key Vault](../key-vault/general/rbac-guide.md) azure per assegnare le autorizzazioni all'identità per accedere all'insieme di credenziali delle chiavi. Ad esempio, assegnare il Key Vault crittografia del servizio Crypto all'identità usando il [comando az role assignment create:](/cli/azure/role/assignment#az-role-assignment-create)
+In alternativa, usare il controllo [degli accessi in](../key-vault/general/rbac-guide.md) base al ruolo di Azure Key Vault per assegnare le autorizzazioni all'identità per accedere all'insieme di credenziali delle chiavi. Ad esempio, assegnare il Key Vault crittografia del servizio Crypto all'identità usando il [comando az role assignment create:](/cli/azure/role/assignment#az_role_assignment_create)
 
 ```azurecli 
 az role assignment create --assignee $identityPrincipalID \
@@ -173,11 +173,11 @@ Nell'output del comando prendere nota dell'ID della chiave, `kid`. Questo ID ver
 
 Per praticità, archiviare il formato scelto per l'ID chiave nella $keyID di ambiente. È possibile usare un ID chiave con una versione o una chiave senza una versione.
 
-#### <a name="manual-key-rotation---key-id-with-version"></a>Rotazione manuale della chiave - ID chiave con versione
+#### <a name="manual-key-rotation---key-id-with-version"></a>Rotazione manuale della chiave- ID chiave con versione
 
 Se usata per crittografare un registro con una chiave gestita dal cliente, questa chiave consente solo la rotazione manuale delle chiavi Registro Azure Container.
 
-In questo esempio viene archiviata la proprietà della `kid` chiave:
+In questo esempio viene archiviata la proprietà `kid` della chiave:
 
 ```azurecli
 keyID=$(az keyvault key show \
@@ -186,9 +186,9 @@ keyID=$(az keyvault key show \
   --query 'key.kid' --output tsv)
 ```
 
-#### <a name="automatic-key-rotation---key-id-omitting-version"></a>Rotazione automatica delle chiavi : ID chiave che omette la versione 
+#### <a name="automatic-key-rotation---key-id-omitting-version"></a>Rotazione automatica della chiave: ID chiave che omette la versione 
 
-Quando viene usata per crittografare un registro con una chiave gestita dal cliente, questa chiave abilita la rotazione automatica delle chiavi quando viene rilevata una nuova versione della chiave Azure Key Vault.
+Se usata per crittografare un registro con una chiave gestita dal cliente, questa chiave abilita la rotazione automatica delle chiavi quando viene rilevata una nuova versione della chiave Azure Key Vault.
 
 Questo esempio rimuove la versione dalla proprietà della `kid` chiave:
 
@@ -249,9 +249,9 @@ Il nome dell'identità verrà usato nei passaggi successivi.
 
 ### <a name="create-a-key-vault"></a>Creare un insieme di credenziali delle chiavi
 
-Per la procedura di creazione di un insieme di credenziali delle chiavi, vedere [Avvio rapido: Creare un insieme](../key-vault/general/quick-create-portal.md)di credenziali delle chiavi usando il portale di Azure .
+Per la procedura di creazione di un insieme di credenziali delle chiavi, vedere [Avvio rapido: Creare un insieme](../key-vault/general/quick-create-portal.md)di credenziali delle chiavi usando l'portale di Azure .
 
-Quando si crea un insieme di credenziali delle chiavi per una chiave gestita dal cliente, nella scheda **Informazioni** di base abilitare l'impostazione **Protezione dall'eliminazione.** Questa impostazione consente di evitare la perdita di dati causata da eliminazioni accidentali di chiavi o insiemi di credenziali delle chiavi.
+Quando si crea un insieme di credenziali delle chiavi per una chiave gestita dal cliente, nella scheda **Informazioni** di base abilitare l'impostazione **Protezione ripulitura.** Questa impostazione consente di evitare la perdita di dati causata da eliminazioni accidentali della chiave o dell'insieme di credenziali delle chiavi.
 
 :::image type="content" source="media/container-registry-customer-managed-keys/create-key-vault.png" alt-text="Creare un insieme di credenziali delle chiavi nel portale di Azure":::
 
@@ -267,14 +267,14 @@ Configurare un criterio per l'insieme di credenziali delle chiavi in modo che l'
 
 :::image type="content" source="media/container-registry-customer-managed-keys/add-key-vault-access-policy.png" alt-text="Creare un criterio di accesso dell'insieme di credenziali delle chiavi":::
 
-In alternativa, usare il controllo [degli accessi in](../key-vault/general/rbac-guide.md) base al ruolo di Azure Key Vault per assegnare le autorizzazioni all'identità per accedere all'insieme di credenziali delle chiavi. Ad esempio, assegnare il Key Vault crittografia del servizio di crittografia all'identità.
+In alternativa, usare il controllo [degli accessi in Key Vault](../key-vault/general/rbac-guide.md) azure per assegnare le autorizzazioni all'identità per accedere all'insieme di credenziali delle chiavi. Ad esempio, assegnare il Key Vault crittografia del servizio Crypto all'identità.
 
 1. Passare all'insieme di credenziali delle chiavi.
-1. Selezionare **Controllo di accesso (IAM)**  >  **+Aggiungi Aggiungi** assegnazione di  >  **ruolo**.
+1. Selezionare **Controllo di accesso (IAM)**  >  **+Aggiungi aggiungi** assegnazione di  >  **ruolo**.
 1. Nella finestra **Aggiungi assegnazione di** ruolo:
-    1. Selezionare **Key Vault Ruolo utente Crittografia del servizio di** crittografia. 
+    1. Selezionare **Key Vault ruolo utente Crittografia servizio** crypto. 
     1. Assegnare l'accesso **all'identità gestita assegnata dall'utente**.
-    1. Selezionare il nome della risorsa dell'identità gestita assegnata dall'utente e selezionare **Salva.**
+    1. Selezionare il nome della risorsa dell'identità gestita assegnata dall'utente e selezionare **Salva**.
 
 ### <a name="create-key-optional"></a>Crea chiave (facoltativo)
 
@@ -448,7 +448,7 @@ Aggiornare la versione della chiave in Azure Key Vault o creare una nuova chiave
 Quando si ruota una chiave, in genere si specifica la stessa identità usata durante la creazione del registro. Facoltativamente, configurare una nuova identità assegnata dall'utente per l'accesso alla chiave o abilitare e specificare l'identità assegnata dal sistema del registro.
 
 > [!NOTE]
-> Assicurarsi che l'accesso [all'insieme di credenziali](#enable-key-vault-access) delle chiavi necessario sia impostato per l'identità configurata per l'accesso alla chiave.
+> Assicurarsi che l'accesso [all'insieme di credenziali delle](#enable-key-vault-access) chiavi necessario sia impostato per l'identità configurata per l'accesso alla chiave.
 
 ### <a name="update-key-version"></a>Aggiornare la versione della chiave
 
@@ -531,7 +531,7 @@ Dopo la creazione del registro, continuare con la procedura seguente. I dettagli
 1. Abilitare l'identità assegnata dal sistema del Registro di sistema.
 1. Concedere all'identità assegnata dal sistema le autorizzazioni per accedere alle chiavi nell'insieme di credenziali delle chiavi limitato al firewall Key Vault sistema.
 1. Assicurarsi che il Key Vault firewall consenta il bypass da parte di servizi attendibili. Attualmente, un registro Azure Container può ignorare il firewall solo quando si usa l'identità gestita dal sistema. 
-1. Ruotare la chiave gestita dal cliente selezionando una chiave nell'insieme di credenziali delle chiavi con restrizioni Key Vault firewall.
+1. Ruotare la chiave gestita dal cliente selezionando una chiave nell'insieme di credenziali delle chiavi limitato Key Vault firewall.
 1. Quando non è più necessario, è possibile eliminare l'insieme di credenziali delle chiavi creato all'esterno del firewall.
 
 
@@ -585,7 +585,7 @@ Non sarà inoltre possibile modificare (ruotare) la chiave di crittografia. I pa
 
 **Identità assegnata dall'utente**
 
-Se questo problema si verifica con un'identità assegnata dall'utente, riassegnare prima l'identità usando il GUID visualizzato nel messaggio di errore. Ad esempio:
+Se questo problema si verifica con un'identità assegnata dall'utente, riassegnare prima di tutto l'identità usando il GUID visualizzato nel messaggio di errore. Ad esempio:
 
 ```azurecli
 az acr identity assign -n myRegistry --identities xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx
@@ -608,19 +608,19 @@ Se questo problema si verifica con un'identità assegnata dal sistema, creare un
 
 <!-- LINKS - internal -->
 
-[az-feature-register]: /cli/azure/feature#az-feature-register
-[az-feature-show]: /cli/azure/feature#az-feature-show
-[az-group-create]: /cli/azure/group#az-group-create
-[az-identity-create]: /cli/azure/identity#az-identity-create
-[az-feature-register]: /cli/azure/feature#az-feature-register
-[az-deployment-group-create]: /cli/azure/deployment/group#az-deployment-group-create
-[az-keyvault-create]: /cli/azure/keyvault#az-keyvault-create
-[az-keyvault-key-create]: /cli/azure/keyvault/key#az-keyvault-key-create
+[az-feature-register]: /cli/azure/feature#az_feature_register
+[az-feature-show]: /cli/azure/feature#az_feature_show
+[az-group-create]: /cli/azure/group#az_group_create
+[az-identity-create]: /cli/azure/identity#az_identity_create
+[az-feature-register]: /cli/azure/feature#az_feature_register
+[az-deployment-group-create]: /cli/azure/deployment/group#az_deployment_group_create
+[az-keyvault-create]: /cli/azure/keyvault#az_keyvault_create
+[az-keyvault-key-create]: /cli/azure/keyvault/key#az_keyvault_key_create
 [az-keyvault-key]: /cli/azure/keyvault/key
-[az-keyvault-set-policy]: /cli/azure/keyvault#az-keyvault-set-policy
-[az-keyvault-delete-policy]: /cli/azure/keyvault#az-keyvault-delete-policy
-[az-resource-show]: /cli/azure/resource#az-resource-show
-[az-acr-create]: /cli/azure/acr#az-acr-create
-[az-acr-show]: /cli/azure/acr#az-acr-show
-[az-acr-encryption-rotate-key]: /cli/azure/acr/encryption#az-acr-encryption-rotate-key
-[az-acr-encryption-show]: /cli/azure/acr/encryption#az-acr-encryption-show
+[az-keyvault-set-policy]: /cli/azure/keyvault#az_keyvault_set_policy
+[az-keyvault-delete-policy]: /cli/azure/keyvault#az_keyvault_delete_policy
+[az-resource-show]: /cli/azure/resource#az_resource_show
+[az-acr-create]: /cli/azure/acr#az_acr_create
+[az-acr-show]: /cli/azure/acr#az_acr_show
+[az-acr-encryption-rotate-key]: /cli/azure/acr/encryption#az_acr_encryption_rotate_key
+[az-acr-encryption-show]: /cli/azure/acr/encryption#az_acr_encryption_show

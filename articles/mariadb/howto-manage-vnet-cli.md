@@ -1,5 +1,5 @@
 ---
-title: Gestire gli endpoint VNet-interfaccia della riga di comando di Azure-database di Azure per MariaDB
+title: Gestire gli endpoint di rete virtuale - Interfaccia della riga di comando di Azure - Database di Azure per MariaDB
 description: Questo articolo descrive come creare e gestire gli endpoint e le regole di servizio di rete virtuale per Database di Azure per MariaDB tramite l'interfaccia della riga di comando di Azure.
 author: savjani
 ms.author: pariks
@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 43d1b7700395bd06960737eae4f318d61aa03717
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8eaf87865fb2fc70251e1e417361333cfd750d6e
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98665090"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107783666"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-vnet-service-endpoints-using-azure-cli"></a>Creare e gestire gli endpoint di servizio di rete virtuale per Database di Azure per MariaDB tramite l'interfaccia della riga di comando di Azure
 
@@ -23,7 +23,7 @@ Gli endpoint e le regole dei servizi di rete virtuale estendono lo spazio di ind
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-- Sono necessari un [database di Azure per il server e il database di MariaDB](quickstart-create-mariadb-server-database-using-azure-cli.md).
+- Sono necessari un server [e un database di Database di Azure per MariaDB.](quickstart-create-mariadb-server-database-using-azure-cli.md)
 
 - Questo articolo richiede la versione 2.0 dell'interfaccia della riga di comando di Azure. Se si usa Azure Cloud Shell, la versione più recente è già installata.
 
@@ -34,7 +34,7 @@ Gli endpoint e le regole dei servizi di rete virtuale estendono lo spazio di ind
 
 Per configurare le reti virtuali vengono usati i comandi [az network vnet](/cli/azure/network/vnet).
 
-Se si possiedono più sottoscrizioni, scegliere quella appropriata in cui verrà fatturata la risorsa. Selezionare l'ID sottoscrizione specifico sotto l'account tramite il comando [az account set](/cli/azure/account#az-account-set). Sostituire la proprietà **id** dell'output **az login** per la sottoscrizione nel segnaposto dell'ID sottoscrizione.
+Se si possiedono più sottoscrizioni, scegliere quella appropriata in cui verrà fatturata la risorsa. Selezionare l'ID sottoscrizione specifico sotto l'account tramite il comando [az account set](/cli/azure/account#az_account_set). Sostituire la proprietà **id** dell'output **az login** per la sottoscrizione nel segnaposto dell'ID sottoscrizione.
 
 - L'account deve avere le autorizzazioni necessarie per la creazione di una rete virtuale e di un endpoint di servizio.
 
