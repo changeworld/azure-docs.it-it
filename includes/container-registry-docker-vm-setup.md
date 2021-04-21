@@ -4,24 +4,24 @@ ms.service: container-registry
 ms.topic: include
 ms.date: 05/07/2020
 ms.author: danlep
-ms.openlocfilehash: d699e8985a3a23b3aab87601d5298d9c8f7e34e1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 429377cd50e83195cb1c3a422416fdb35644a28e
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102244536"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107773470"
 ---
 ## <a name="create-a-docker-enabled-virtual-machine"></a>Creare una macchina virtuale abilitata per Docker
 
-A scopo di test, usare una VM Ubuntu abilitata per Docker per accedere a un registro contenitori di Azure. Per usare l'autenticazione Azure Active Directory per il registro di sistema, installare anche l'interfaccia della riga di comando di [Azure][azure-cli] nella macchina virtuale. Se si dispone già di una macchina virtuale di Azure, ignorare questo passaggio di creazione.
+A scopo di test, usare una macchina virtuale Ubuntu abilitata per Docker per accedere a un Registro Azure Container. Per usare Azure Active Directory'autenticazione nel Registro di sistema, installare anche l'interfaccia della riga [di comando][azure-cli] di Azure nella macchina virtuale. Se si ha già una macchina virtuale di Azure, ignorare questo passaggio di creazione.
 
-È possibile usare lo stesso gruppo di risorse per la macchina virtuale e il registro contenitori. Questa configurazione semplifica la pulizia alla fine, ma non è obbligatoria. Se si sceglie di creare un gruppo di risorse separato per la macchina virtuale e la rete virtuale, eseguire il comando [AZ Group create][az-group-create]. Nell'esempio seguente si presuppone che siano state impostate variabili di ambiente per il nome del gruppo di risorse e il percorso del registro di sistema:
+È possibile usare lo stesso gruppo di risorse per la macchina virtuale e il registro contenitori. Questa configurazione semplifica la pulizia alla fine, ma non è necessaria. Se si sceglie di creare un gruppo di risorse separato per la macchina virtuale e la rete virtuale, eseguire [az group create][az-group-create]. L'esempio seguente presuppone che siano stati impostati variabili di ambiente per il nome del gruppo di risorse e il percorso del Registro di sistema:
 
 ```azurecli
 az group create --name $RESOURCE_GROUP --location $REGISTRY_LOCATION
 ```
 
-Distribuire ora una macchina virtuale di Azure Ubuntu predefinita con [AZ VM create][az-vm-create]. L'esempio seguente crea una macchina virtuale denominata *myDockerVM*.
+Distribuire ora una macchina virtuale di Azure Ubuntu predefinita con [az vm create][az-vm-create]. Nell'esempio seguente viene creata una macchina virtuale *denominata myDockerVM*.
 
 ```azurecli
 VM_NAME=myDockerVM
@@ -44,7 +44,7 @@ Una volta che la macchina virtuale è in esecuzione, stabilire una connessione S
 ssh azureuser@publicIpAddress
 ```
 
-Eseguire i comandi seguenti per installare Docker nella VM Ubuntu:
+Eseguire i comandi seguenti per installare Docker nella macchina virtuale Ubuntu:
 
 ```bash
 sudo apt-get update
@@ -73,8 +73,8 @@ Seguire i passaggi descritti in [Installare l'interfaccia della riga di comando 
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 ```
 
-Uscire dalla connessione SSH.
+Chiudere la connessione SSH.
 
 [azure-cli]: /cli/azure/install-azure-cli
-[az-vm-create]: /cli/azure/vm#az-vm-create
+[az-vm-create]: /cli/azure/vm#az_vm_create
 [az-group-create]: /cli/azure/group

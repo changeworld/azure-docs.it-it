@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2018
 ms.author: kumud
-ms.openlocfilehash: 73562d8d32f265fa43ca80d2f8d4f84b1b631ec6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d6835d06015923a70301c95370c76efbd0c2163e
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98223670"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107776736"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>Diagnosticare problemi di filtro del traffico di rete di una macchina virtuale
 
@@ -40,7 +40,7 @@ I passaggi che seguono presuppongono la disponibilità di una VM per visualizzar
 2. Nella parte superiore del portale di Azure immettere nella casella di ricerca il nome della VM. Quando il nome della VM viene visualizzato nei risultati della ricerca, selezionarlo.
 3. In **IMPOSTAZIONI** selezionare **Rete**, come illustrato nell'immagine seguente:
 
-   ![Screenshot mostra i portale di Azure con le impostazioni di rete per la scheda di interfaccia di rete V M V M.](./media/diagnose-network-traffic-filter-problem/view-security-rules.png)
+   ![Screenshot che mostra il portale di Azure con le impostazioni di rete per la scheda di interfaccia di rete V M V M.](./media/diagnose-network-traffic-filter-problem/view-security-rules.png)
 
    Le regole visualizzate nell'immagine precedente sono per un'interfaccia di rete denominata **myVMVMNic**. Sono presenti **Regole porta in ingresso** per l'interfaccia di rete derivanti da due gruppi di sicurezza di rete diversi:
    
@@ -53,13 +53,13 @@ I passaggi che seguono presuppongono la disponibilità di una VM per visualizzar
 
 4. Verificare che la VM sia in esecuzione e selezionare **Regole di sicurezza effettive**, come illustrato nell'immagine precedente, per visualizzare le regole di sicurezza valide, illustrate nell'immagine seguente:
 
-   ![Screenshot mostra il riquadro regole di sicurezza effettive con il download selezionato e la regola in ingresso AllowAzureLoadBalancerInbound selezionata.](./media/diagnose-network-traffic-filter-problem/view-effective-security-rules.png)
+   ![Screenshot che mostra il riquadro Regole di sicurezza effettive con l'opzione Scarica selezionata e la regola AllowAzureLoadBalancerInbound Inbound selezionata.](./media/diagnose-network-traffic-filter-problem/view-effective-security-rules.png)
 
    Le regole elencate sono le stesse illustrate nel passaggio 3, anche se sono presenti diverse schede per il gruppo di sicurezza di rete associato all'interfaccia di rete e alla subnet. Come si può vedere nell'immagine, vengono visualizzate solo le prime 50 regole. Per scaricare un file con estensione csv che contiene tutte le regole, selezionare **Download**.
 
    Per verificare i prefissi rappresentati da ogni tag di servizio, selezionare una regola, ad esempio la regola denominata **AllowAzureLoadBalancerInbound**. La figura seguente illustra i prefissi per il tag di servizio **AzureLoadBalancer**:
 
-   ![Screenshot mostra i prefissi degli indirizzi per AllowAzureLoadBalancerInbound immessi.](./media/diagnose-network-traffic-filter-problem/address-prefixes.png)
+   ![Screenshot che mostra i prefissi di indirizzo per AllowAzureLoadBalancerInbound immessi.](./media/diagnose-network-traffic-filter-problem/address-prefixes.png)
 
    Anche se il tag di servizio **AzureLoadBalancer** rappresenta solo un prefisso, altri tag di servizio ne rappresentano diversi.
 
@@ -67,7 +67,7 @@ I passaggi che seguono presuppongono la disponibilità di una VM per visualizzar
 
    Per visualizzare le regole per l'interfaccia di rete **myVMVMNic2**, selezionarla. Come illustrato nell'immagine che segue, l'interfaccia di rete ha le stesse regole associate alla subnet dell'interfaccia di rete **myVMVMNic** perché entrambe si trovano nella stessa subnet. Quando si associa un gruppo di sicurezza di rete a una subnet, le regole del gruppo vengono applicate a tutte le interfacce di rete presenti nella subnet.
 
-   ![Screenshot mostra i portale di Azure con le impostazioni di rete per My V M NIC 2.](./media/diagnose-network-traffic-filter-problem/view-security-rules2.png)
+   ![Screenshot che mostra la portale di Azure con le impostazioni di rete per la scheda di interfaccia di rete V M V M 2.](./media/diagnose-network-traffic-filter-problem/view-security-rules2.png)
 
    A differenza dell'interfaccia di rete **myVMVMNic**, l'interfaccia di rete **myVMVMNic2** non ha un gruppo di sicurezza di rete associato. Ogni interfaccia di rete e subnet può avere un NSG associato oppure nessuno. Il gruppo di sicurezza di rete associato a ogni interfaccia di rete o subnet può essere lo stesso o un altro. Lo stesso gruppo di sicurezza di rete può essere associato a un numero qualsiasi di interfacce di rete e subnet.
 
@@ -79,9 +79,9 @@ Anche se le regole di sicurezza valide sono state visualizzate tramite la macchi
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-È possibile eseguire i comandi seguenti in [Azure Cloud Shell](https://shell.azure.com/powershell) oppure in PowerShell dal computer. Azure Cloud Shell è una shell interattiva gratuita. Include strumenti comuni di Azure preinstallati e configurati per l'uso con l'account. Se si esegue PowerShell dal computer, è necessario il modulo Azure PowerShell, versione 1.0.0 o successiva. Per trovare la versione installata, eseguire `Get-Module -ListAvailable Az` nel computer. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-az-ps). Se si esegue PowerShell in locale, è necessario eseguire anche `Connect-AzAccount` per accedere ad Azure con un account con le [autorizzazioni necessarie](virtual-network-network-interface.md#permissions).
+È possibile eseguire i comandi seguenti in [Azure Cloud Shell](https://shell.azure.com/powershell) oppure in PowerShell dal computer. Azure Cloud Shell è una shell interattiva gratuita. Include strumenti comuni di Azure preinstallati e configurati per l'uso con l'account. Se si esegue PowerShell dal computer, è necessario il modulo Azure PowerShell versione 1.0.0 o successiva. Per trovare la versione installata, eseguire `Get-Module -ListAvailable Az` nel computer. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-az-ps). Se si esegue PowerShell in locale, è necessario eseguire anche `Connect-AzAccount` per accedere ad Azure con un account con le [autorizzazioni necessarie](virtual-network-network-interface.md#permissions).
 
-Ottenere le regole di sicurezza effettive per un'interfaccia di rete con [Get-AzEffectiveNetworkSecurityGroup](/powershell/module/az.network/get-azeffectivenetworksecuritygroup). L'esempio seguente ottiene le regole di sicurezza valide per un'interfaccia di rete denominata *myVMVMNic* che si trova in un gruppo di risorse denominato *myResourceGroup*:
+Ottenere le regole di sicurezza effettive per un'interfaccia di rete [con Get-AzEffectiveNetworkSecurityGroup](/powershell/module/az.network/get-azeffectivenetworksecuritygroup). L'esempio seguente ottiene le regole di sicurezza valide per un'interfaccia di rete denominata *myVMVMNic* che si trova in un gruppo di risorse denominato *myResourceGroup*:
 
 ```azurepowershell-interactive
 Get-AzEffectiveNetworkSecurityGroup `
@@ -115,7 +115,7 @@ Nell'output precedente il nome dell'interfaccia di rete è *myVMVMNic*.
 
 Se si usano i comandi dell'interfaccia della riga di comando di Azure per completare le attività in questo articolo, eseguire i comandi in [Azure Cloud Shell](https://shell.azure.com/bash) o tramite l'interfaccia della riga di comando dal computer in uso. Questo articolo richiede l'interfaccia della riga di comando di Azure 2.0.32 o versioni successive. Eseguire `az --version` per trovare la versione installata. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). Se si esegue l'interfaccia della riga di comando di Azure in locale, è necessario eseguire anche `az login` e accedere ad Azure con un account dotato delle [autorizzazioni necessarie](virtual-network-network-interface.md#permissions).
 
-Ottenere le regole di sicurezza valide per un'interfaccia di rete con [az network nic list-effective-nsg](/cli/azure/network/nic#az-network-nic-list-effective-nsg). Nell'esempio seguente vengono recuperate le regole di sicurezza effettive per un'interfaccia di rete denominata *myVMVMNic* che si trova in un gruppo di risorse denominato *myResourceGroup*:
+Ottenere le regole di sicurezza valide per un'interfaccia di rete con [az network nic list-effective-nsg](/cli/azure/network/nic#az_network_nic_list_effective_nsg). L'esempio seguente ottiene le regole di sicurezza effettive per un'interfaccia di rete denominata *myVMVMNic* in un gruppo di risorse denominato *myResourceGroup:*
 
 ```azurecli-interactive
 az network nic list-effective-nsg \
@@ -183,7 +183,7 @@ Dopo aver creato la regola, la porta 80 può ricevere comunicazioni in ingresso 
 
 Quando Azure elabora il traffico in ingresso, elabora le regole nel gruppo di sicurezza di rete associato alla subnet, se presente, e quindi elabora le regole nel gruppo di sicurezza di rete associato all'interfaccia di rete. Se esiste un NSG associato all'interfaccia di rete e alla subnet, perché il traffico possa raggiungere la VM, la porta deve essere aperta in entrambi gli NSG. Per semplificare la soluzione dei problemi di gestione e comunicazione, è consigliabile associare un NSG a una subnet, anziché a interfacce di rete singole. Se le macchine virtuali all'interno di una subnet necessitano di regole di sicurezza diverse, è possibile rendere le interfacce di rete membri di un gruppo di sicurezza dell'applicazione e specificare un gruppo di sicurezza dell'applicazione come origine e destinazione di una regola di sicurezza. Per altre informazioni, vedere [Gruppi di sicurezza delle applicazioni](./network-security-groups-overview.md#application-security-groups).
 
-Se si verificano ancora problemi di comunicazione, vedere [considerazioni](#considerations) e diagnosi aggiuntive.
+Se si verificano ancora problemi di comunicazione, vedere [Considerazioni](#considerations) e diagnosi aggiuntiva.
 
 ## <a name="considerations"></a>Considerazioni
 

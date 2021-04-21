@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 4/19/2021
 ms.author: duau
-ms.openlocfilehash: f697606e195f102d2bfb5535c92e5c78eb44cdbe
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: 99204a2d4c3a2455f0916878fb09a348dc79ac7a
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107727214"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107778776"
 ---
 # <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application-using-azure-cli"></a>Avvio rapido: Creare un'istanza di Frontdoor per un'applicazione Web globale a disponibilità elevata con l'interfaccia della riga di comando di Azure
 
@@ -25,7 +25,7 @@ Iniziare a usare Frontdoor di Azure con l'interfaccia della riga di comando di A
 
 Frontdoor indirizza il traffico Web a risorse specifiche in un pool back-end. Definire il dominio front-end, aggiungere le risorse a un pool back-end e creare una regola di gestione. Questo articolo usa una semplice configurazione di un unico pool back-end con due risorse dell'app Web e un'unica regola di gestione che usa il percorso predefinito corrispondente a "/*".
 
-:::image type="content" source="media/quickstart-create-front-door/environment-diagram.png" alt-text="Diagramma dell'ambiente di distribuzione di Front door con l'interfaccia della riga di comando di Azure." border="false":::
+:::image type="content" source="media/quickstart-create-front-door/environment-diagram.png" alt-text="Diagramma dell'ambiente di distribuzione front-door con l'interfaccia della riga di comando di Azure." border="false":::
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -47,7 +47,7 @@ In Azure, si allocano le risorse correlate a un gruppo di risorse. È possibile 
 
 Per questo argomento di avvio rapido sono necessari due gruppi di risorse. Uno negli *Stati Uniti centrali* e il secondo negli *Stati Uniti centro-meridionali*.
 
-Come prima cosa creare con [az group create](/cli/azure/group#az-group-create) un gruppo di risorse:
+Come prima cosa creare con [az group create](/cli/azure/group#az_group_create) un gruppo di risorse:
 
 ```azurecli-interactive
 az group create \

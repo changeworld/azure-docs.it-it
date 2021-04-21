@@ -1,23 +1,23 @@
 ---
-title: Scenari di utilizzo di una rete virtuale
+title: Scenari per l'uso di una rete virtuale
 description: Scenari, risorse e limitazioni per la distribuzione di gruppi di contenitori in una rete virtuale di Azure.
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: 20c2b4fe2f19402d6647f398a9696b7e16550d8e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6de99c68c3f05e4734dd46a579d28a6f1a3b824e
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104606889"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107763776"
 ---
-# <a name="virtual-network-scenarios-and-resources"></a>Scenari e risorse della rete virtuale
+# <a name="virtual-network-scenarios-and-resources"></a>Risorse e scenari di rete virtuale
 
 In [Rete virtuale di Azure](../virtual-network/virtual-networks-overview.md) sono disponibili funzionalità per implementare una rete sicura e privata per le risorse locali e di Azure. Grazie alla distribuzione di gruppi di contenitori in una rete virtuale di Azure, i contenitori possono comunicare in modo sicuro con altre risorse nella rete virtuale. 
 
-Questo articolo fornisce informazioni di base su scenari, limitazioni e risorse della rete virtuale. Per esempi di distribuzione che usano l'interfaccia della riga di comando di Azure, vedere [distribuire istanze di contenitore in una rete virtuale di Azure](container-instances-vnet.md).
+Questo articolo fornisce informazioni di base su scenari, limitazioni e risorse della rete virtuale. Per esempi di distribuzione con l'interfaccia della riga di comando di Azure, vedere [Distribuire istanze di contenitore in una rete virtuale di Azure.](container-instances-vnet.md)
 
 > [!IMPORTANT]
-> La distribuzione del gruppo di contenitori in una rete virtuale è disponibile a livello generale per i contenitori Linux, nella maggior parte delle aree in cui sono disponibili istanze di contenitore di Azure. Per informazioni dettagliate, vedere [aree e disponibilità delle risorse](container-instances-region-availability.md). 
+> La distribuzione di gruppi di contenitori in una rete virtuale è disponibile a livello generale per i contenitori Linux, nella maggior parte delle aree in cui Istanze di Azure Container è disponibile. Per informazioni dettagliate, vedere [Aree e disponibilità delle risorse.](container-instances-region-availability.md) 
 
 ## <a name="scenarios"></a>Scenari
 
@@ -26,26 +26,26 @@ Gruppi di contenitori distribuiti in una rete virtuale di Azure abilitano scenar
 * Comunicazione diretta tra i gruppi di contenitori nella stessa subnet
 * Invio dell'output di carichi di lavoro [basati su attività](container-instances-restart-policy.md) dalle istanze di contenitore a un database nella rete virtuale
 * Recuperare contenuto per le istanze di contenitore da un [endpoint di servizio](../virtual-network/virtual-network-service-endpoints-overview.md) nella rete virtuale
-* Abilitare la comunicazione del contenitore con le risorse locali tramite un [gateway VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) o [ExpressRoute](../expressroute/expressroute-introduction.md)
-* Eseguire l'integrazione con il [firewall di Azure](../firewall/overview.md) per identificare il traffico in uscita proveniente dal contenitore 
-* Risolvere i nomi tramite il DNS interno di Azure per la comunicazione con le risorse di Azure nella rete virtuale, ad esempio le macchine virtuali
-* Usare le regole NSG per controllare l'accesso ai contenitori a subnet o altre risorse di rete
+* Abilitare la comunicazione dei contenitori con le risorse locali tramite [un gateway VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) o [ExpressRoute](../expressroute/expressroute-introduction.md)
+* Integrazione [con](../firewall/overview.md) Firewall di Azure per identificare il traffico in uscita proveniente dal contenitore 
+* Risolvere i nomi tramite il DNS di Azure per la comunicazione con le risorse di Azure nella rete virtuale, ad esempio le macchine virtuali
+* Usare le regole del gruppo di sicurezza di rete per controllare l'accesso dei contenitori alle subnet o ad altre risorse di rete
 
 ## <a name="unsupported-networking-scenarios"></a>Scenari di rete non supportati 
 
-* **Azure Load Balancer** l'inserimento di un Azure Load Balancer davanti alle istanze di contenitore in un gruppo di contenitori in rete non è supportato
-* **Peering di rete virtuale globale** : il peering globale (connessione di reti virtuali tra aree di Azure) non è supportato
-* **IP pubblico o etichetta DNS** : i gruppi di contenitori distribuiti in una rete virtuale non supportano attualmente l'esposizione di contenitori direttamente a Internet con un indirizzo IP pubblico o un nome di dominio completo
-* **NAT della rete virtuale** : i gruppi di contenitori distribuiti in una rete virtuale non supportano attualmente l'uso di una risorsa gateway NAT per la connettività Internet in uscita.
+* **Azure Load Balancer-** L'inserimento di Azure Load Balancer davanti alle istanze di contenitore in un gruppo di contenitori in rete non è supportato
+* **Peering di rete virtuale globale:** il peering globale (connessione di reti virtuali tra aree di Azure) non è supportato
+* **Etichetta DNS** o IP pubblico: i gruppi di contenitori distribuiti in una rete virtuale non supportano attualmente l'esposizione diretta dei contenitori a Internet con un indirizzo IP pubblico o un nome di dominio completo
+* **NAT di rete virtuale:** i gruppi di contenitori distribuiti in una rete virtuale non supportano attualmente l'uso di una risorsa gateway NAT per la connettività Internet in uscita.
 
 ## <a name="other-limitations"></a>Altre limitazioni
 
 * Attualmente, solo i contenitori Linux sono supportati in un gruppo di contenitori distribuito in una rete virtuale.
 * Per distribuire gruppi di contenitori in una subnet, la subnet non può contenere altri tipi di risorse. Rimuovere tutte le risorse presenti in una subnet esistente prima di distribuire gruppi di contenitori nella subnet oppure creare una nuova subnet.
-* Non è possibile usare un' [identità gestita](container-instances-managed-identity.md) in un gruppo di contenitori distribuito in una rete virtuale.
-* Non è possibile abilitare un probe di [Livezza](container-instances-liveness-probe.md) o un probe di [conformità](container-instances-readiness-probe.md) in un gruppo di contenitori distribuito in una rete virtuale.
-* A causa delle risorse di rete aggiuntive, le distribuzioni in una rete virtuale sono in genere più lente rispetto alla distribuzione di un'istanza di contenitore standard.
-* Se si connette il gruppo di contenitori a un account di archiviazione di Azure, è necessario aggiungere un [endpoint di servizio](../virtual-network/virtual-network-service-endpoints-overview.md) a tale risorsa.
+* Non è possibile usare [un'identità gestita](container-instances-managed-identity.md) in un gruppo di contenitori distribuito in una rete virtuale.
+* Non è possibile abilitare un [probe di liveness](container-instances-liveness-probe.md) o [un probe di](container-instances-readiness-probe.md) idoneità in un gruppo di contenitori distribuito in una rete virtuale.
+* A causa delle risorse di rete aggiuntive coinvolte, le distribuzioni in una rete virtuale sono in genere più lente rispetto alla distribuzione di un'istanza del contenitore standard.
+* Se si connette il gruppo di contenitori a un account Archiviazione di Azure, è necessario aggiungere un [endpoint di](../virtual-network/virtual-network-service-endpoints-overview.md) servizio a tale risorsa.
 
 [!INCLUDE [container-instances-restart-ip](../../includes/container-instances-restart-ip.md)]
 
@@ -75,15 +75,15 @@ Nel diagramma seguente diversi gruppi di contenitori sono stati distribuiti in u
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per esempi di distribuzione con l'interfaccia della riga di comando di Azure, vedere [distribuire istanze di contenitore in una rete virtuale di Azure](container-instances-vnet.md).
+* Per esempi di distribuzione con l'interfaccia della riga di comando di Azure, vedere [Distribuire istanze del contenitore in una rete virtuale di Azure.](container-instances-vnet.md)
 * Per distribuire una nuova rete virtuale, subnet, profilo di rete e gruppo di contenitori usando un modello di Resource Manager, vedere [Create an Azure container group with VNet](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-vnet
 ) (Creare un gruppo di contenitori di Azure con VNet).
-* Quando si usa il [portale di Azure](container-instances-quickstart-portal.md) per creare un'istanza di contenitore, è anche possibile specificare le impostazioni per una rete virtuale nuova o exsting nella scheda **rete** .
+* Quando si usa [portale di Azure](container-instances-quickstart-portal.md) per creare un'istanza del contenitore, è anche possibile specificare le impostazioni per una nuova rete virtuale o per l'espulso nella **scheda** Rete.
 
 
 <!-- IMAGES -->
 [aci-vnet-01]: ./media/container-instances-virtual-network-concepts/aci-vnet-01.png
 
 <!-- LINKS - Internal -->
-[az-container-create]: /cli/azure/container#az-container-create
-[az-network-profile-list]: /cli/azure/network/profile#az-network-profile-list
+[az-container-create]: /cli/azure/container#az_container_create
+[az-network-profile-list]: /cli/azure/network/profile#az_network_profile_list

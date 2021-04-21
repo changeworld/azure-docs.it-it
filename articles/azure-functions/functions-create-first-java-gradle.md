@@ -6,19 +6,19 @@ ms.custom: devx-track-java
 ms.author: karler
 ms.topic: how-to
 ms.date: 04/08/2020
-ms.openlocfilehash: c9ecb670cea022988efda8ec690c0724310cdb4b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d7f8aa990f5a5e64d2d5c59b52457149187acddd
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97934850"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107773982"
 ---
 # <a name="use-java-and-gradle-to-create-and-publish-a-function-to-azure"></a>Usare Java e Gradle per creare e pubblicare una funzione in Azure
 
-Questo articolo illustra come creare e pubblicare un progetto di funzione Java in funzioni di Azure con lo strumento da riga di comando Gradle. Al termine, il codice della funzione viene eseguito in Azure in un [piano di hosting serverless](consumption-plan.md) e viene attivato da una richiesta HTTP. 
+Questo articolo illustra come compilare e pubblicare un progetto di funzione Java Funzioni di Azure con lo strumento da riga di comando Gradle. Al termine, il codice della funzione viene eseguito in Azure in un [piano di hosting serverless](consumption-plan.md) e viene attivato da una richiesta HTTP. 
 
 > [!NOTE]
-> Se Gradle non è lo strumento di sviluppo preferito, vedere le esercitazioni simili per gli sviluppatori Java che usano [Maven](./create-first-function-cli-java.md), [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/quickstart-functions) e [vs code](./create-first-function-vs-code-java.md).
+> Se Gradle non è lo strumento di sviluppo preferito, vedere le esercitazioni simili per gli sviluppatori Java che usano [Maven](./create-first-function-cli-java.md), [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/quickstart-functions) [e VS Code](./create-first-function-vs-code-java.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -27,14 +27,14 @@ Per sviluppare funzioni con Java, è necessario che siano installati gli element
 - [Java Developer Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support), versione 8
 - [Interfaccia della riga di comando di Azure]
 - [Azure Functions Core Tools](./functions-run-local.md#v2) versione 2.6.666 o successive
-- [Gradle](https://gradle.org/), versione 4,10 e successive
+- [Gradle](https://gradle.org/), versione 4.10 e successive
 
 È anche necessaria una sottoscrizione di Azure attiva. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 > [!IMPORTANT]
 > Per completare questa guida di avvio rapido, è necessario impostare la variabile di ambiente JAVA_HOME sul percorso di installazione di JDK.
 
-## <a name="prepare-a-functions-project"></a>Preparare un progetto di funzioni
+## <a name="prepare-a-functions-project"></a>Preparare un progetto di Funzioni
 
 Usare il comando seguente per clonare il progetto di esempio:
 
@@ -43,7 +43,7 @@ git clone https://github.com/Azure-Samples/azure-functions-samples-java.git
 cd azure-functions-samples-java/
 ```
 
-Aprire `build.gradle` e modificare la `appName` sezione seguente in un nome univoco per evitare conflitti di nomi di dominio durante la distribuzione in Azure. 
+Aprire e modificare nella sezione seguente con un nome univoco per evitare conflitti tra nomi di `build.gradle` dominio durante la distribuzione in `appName` Azure. 
 
 ```gradle
 azurefunctions {
@@ -65,7 +65,7 @@ Aprire il nuovo file Function.java dal percorso *src/main/java* in un editor di 
 
 ## <a name="run-the-function-locally"></a>Eseguire la funzione in locale
 
-Eseguire il comando seguente per compilare ed eseguire il progetto di funzione:
+Eseguire il comando seguente per compilare e quindi eseguire il progetto di funzione:
 
 ```bash
 gradle jar --info
@@ -98,7 +98,7 @@ Hello, AzureFunctions
 </pre>
 
 > [!NOTE]
-> Se si imposta authLevel su `FUNCTION` o `ADMIN` , la [chiave della funzione](functions-bindings-http-webhook-trigger.md#authorization-keys) non è obbligatoria durante l'esecuzione in locale.  
+> Se si imposta authLevel su o , la chiave della funzione non è necessaria quando viene `FUNCTION` `ADMIN` eseguita in locale. [](functions-bindings-http-webhook-trigger.md#authorization-keys)  
 
 Usare `Ctrl+C` nel terminal per interrompere il codice funzione.
 
@@ -114,7 +114,7 @@ az login
 ```
 
 > [!TIP]
-> Se l'account può accedere a più sottoscrizioni, usare [az account set](/cli/azure/account#az-account-set) per impostare quella predefinita per questa sessione. 
+> Se l'account può accedere a più sottoscrizioni, usare [az account set](/cli/azure/account#az_account_set) per impostare quella predefinita per questa sessione. 
 
 Usare il comando seguente per distribuire il progetto in una nuova app per le funzioni. 
 
@@ -122,16 +122,16 @@ Usare il comando seguente per distribuire il progetto in una nuova app per le fu
 gradle azureFunctionsDeploy
 ```
 
-In questo esempio vengono create le risorse seguenti in Azure, in base ai valori nel file Build. gradle:
+In questo modo vengono create le risorse seguenti in Azure, in base ai valori nel file build.gradle:
 
 + Gruppo di risorse. Con il nome _resourceGroup_ specificato.
 + Account di archiviazione. Richiesto da Funzioni. Il nome viene generato in modo casuale in base ai requisiti di denominazione degli account di archiviazione.
-+ Piano di servizio app. Piano a consumo senza server che ospita l'app per le funzioni nel _appRegion_ specificato. Il nome viene generato in modo casuale.
++ Piano di servizio app. Hosting del piano a consumo serverless per l'app per le funzioni _nell'area appRegion specificata._ Il nome viene generato in modo casuale.
 + App per le funzioni. Un'app per le funzioni è l'unità di distribuzione ed esecuzione per le funzioni. Il nome è _appName_, con l'aggiunta finale di un numero generato in modo casuale. 
 
 La distribuzione inserisce inoltre i file di progetto in un pacchetto e li distribuisce nella nuova app per le funzioni tramite [ZipDeploy](functions-deployment-technologies.md#zip-deploy), con la modalità run-from-package abilitata.
 
-Il trigger authLevel per HTTP nel progetto di esempio è `ANONYMOUS` , che ignorerà l'autenticazione. Tuttavia, se si usano altri authLevel, ad esempio `FUNCTION` o `ADMIN` , è necessario ottenere il tasto funzione per chiamare l'endpoint della funzione su http. Il modo più semplice per farlo è tramite il [portale di Azure].
+authLevel per il trigger HTTP nel progetto di esempio è `ANONYMOUS` , che ignora l'autenticazione. Tuttavia, se si usa un altro authLevel come o , è necessario ottenere la chiave della funzione per `FUNCTION` chiamare l'endpoint della funzione su `ADMIN` HTTP. Il modo più semplice per farlo è tramite il [portale di Azure].
 
 > [!div class="nextstepaction"]
 > [Si è verificato un problema](https://www.research.net/r/javae2e?tutorial=functions-create-first-java-gradle&step=deploy)
@@ -142,7 +142,7 @@ Il trigger authLevel per HTTP nel progetto di esempio è `ANONYMOUS` , che ignor
 
 1. Passare al [portale di Azure], accedere, digitare il nome _appName_ dell'app per le funzioni nella casella **Cerca** nella parte superiore della pagina, quindi premere INVIO.
  
-1. Nell'app per le funzioni selezionare **funzioni**, scegliere la funzione, quindi fare clic su **</> ottenere l'URL della funzione** in alto a destra. 
+1. Nell'app per le funzioni selezionare **Funzioni,** scegliere la funzione, quindi fare clic su **</> Get Function Url** (Ottieni URL funzione) in alto a destra. 
 
     :::image type="content" source="./media/functions-create-first-java-gradle/get-function-url-portal.png" alt-text="Creare l'URL della funzione dal portale di Azure":::
 

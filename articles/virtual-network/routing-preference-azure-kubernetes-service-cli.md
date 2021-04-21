@@ -1,7 +1,7 @@
 ---
-title: Configurare la preferenza di routing per un servizio Kubernetes di Azure usando l'interfaccia della riga di comando
+title: Configurare la preferenza di routing per un servizio Azure Kubernetes usando l'interfaccia della riga di comando di Azure
 titlesuffix: Azure Virtual Network
-description: Informazioni su come configurare un cluster AKS con preferenza di routing usando l'interfaccia della riga di comando di Azure.
+description: Informazioni su come configurare un cluster del servizio AzureKs con preferenza di routing usando l'interfaccia della riga di comando di Azure.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2021
 ms.author: mnayak
-ms.openlocfilehash: ac70f48a3c484f8865c54e09c59662a14a259e74
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9eaad12e254150109498be0fac2f285f33a5965c
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101679818"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107776574"
 ---
-# <a name="configure-routing-preference-for-a-kubernetes-cluster-using-azure-cli"></a>Configurare la preferenza di routing per un cluster Kubernetes usando l'interfaccia della riga di comando
+# <a name="configure-routing-preference-for-a-kubernetes-cluster-using-azure-cli"></a>Configurare la preferenza di routing per un cluster Kubernetes usando l'interfaccia della riga di comando di Azure
 
-Questo articolo illustra come configurare le preferenze di routing tramite la rete ISP (opzione **Internet** ) per un cluster Kubernetes usando l'interfaccia della riga di comando di Azure. Per impostare le preferenze di routing, è necessario creare un indirizzo IP pubblico di tipo preferenza di routing * * Internet * * * * e quindi usarlo durante la creazione del cluster AKS.
+Questo articolo illustra come configurare la preferenza di routing tramite la rete ISP (opzione **Internet)** per un cluster Kubernetes usando l'interfaccia della riga di comando di Azure. La preferenza di routing viene impostata creando un indirizzo IP pubblico di tipo preferenza di routing **Internet**** e quindi usandolo durante la creazione del cluster del servizio Web AKS.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -31,14 +31,14 @@ Questo articolo illustra come configurare le preferenze di routing tramite la re
 - Questo articolo richiede la versione 2.0.49 o successiva dell'interfaccia della riga di comando di Azure. Se si usa Azure Cloud Shell, la versione più recente è già installata.
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
-Creare un gruppo di risorse con il comando [az group create](/cli/azure/group#az-group-create). L'esempio seguente crea un gruppo di risorse nell'area di Azure **Stati Uniti orientali**:
+Creare un gruppo di risorse con il comando [az group create](/cli/azure/group#az_group_create). L'esempio seguente crea un gruppo di risorse nell'area di Azure **Stati Uniti orientali**:
 
 ```azurecli
   az group create --name myResourceGroup --location eastus
 ```
 ## <a name="create-a-public-ip-address"></a>Creare un indirizzo IP pubblico
 
-Creare un indirizzo IP pubblico con preferenza di routing di tipo **Internet** usando il comando [AZ Network Public-IP create](/cli/azure/network/public-ip#az-network-public-ip-create).
+Creare un indirizzo IP pubblico con preferenza di routing **di tipo Internet** usando il comando [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create).
 
 Il comando seguente crea un nuovo indirizzo IP pubblico con preferenza di routing **Internet** nell'area di Azure **Stati Uniti orientali**.
 
@@ -66,7 +66,7 @@ az network public-ip show \
 ```
 ## <a name="create-kubernetes-cluster-with-the-public-ip"></a>Creare un cluster Kubernetes con l'indirizzo IP pubblico
 
-Il comando seguente crea il cluster AKS con l'indirizzo IP pubblico creato nella sezione precedente:
+Il comando seguente crea il cluster del servizio Servizio Web Di seguito con l'indirizzo IP pubblico creato nella sezione precedente:
 
 ```azurecli
 az aks create \
@@ -76,15 +76,14 @@ az aks create \
 ```
 
 >[!NOTE]
->Per la distribuzione del cluster AKS sono necessari alcuni minuti.
+>La distribuzione del cluster del servizio Servizio Web Diaks richiede alcuni minuti.
 
-Per convalidare, cercare l'IP pubblico creato nel passaggio precedente in portale di Azure, si noterà che l'indirizzo IP è associato al servizio di bilanciamento del carico associato al cluster Kubernetes, come illustrato di seguito:
+Per la convalida, cercare l'indirizzo IP pubblico creato nel passaggio precedente in portale di Azure. Si noti che l'indirizzo IP è associato al servizio di bilanciamento del carico associato al cluster Kubernetes, come illustrato di seguito:
 
- ![Indirizzo IP pubblico preferenza di routing per Kubernetes](./media/routing-preference-azure-kubernetes-service-cli/routing-preference-azure-kubernetes-service.png)
+ ![Indirizzo IP pubblico delle preferenze di routing per Kubernetes](./media/routing-preference-azure-kubernetes-service-cli/routing-preference-azure-kubernetes-service.png)
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Altre informazioni sulla [preferenza di routing per gli indirizzi IP pubblici](routing-preference-overview.md). 
 - [Configurare la preferenza di routing per una macchina virtuale con l'interfaccia della riga di comando di Azure](configure-routing-preference-virtual-machine-cli.md).
-

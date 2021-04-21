@@ -9,12 +9,12 @@ ms.date: 07/06/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
-ms.openlocfilehash: acebc75b579b13ebb2cfad0e18057245781165ad
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 3c8d0927c3fb74c52e54ceb5ff8ba5c0361c4f46
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102175278"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107787837"
 ---
 # <a name="create-an-app-service-app-and-deploy-private-endpoint-using-azure-cli"></a>Creare un'app del servizio app e distribuire un endpoint privato con l'interfaccia della riga di comando di Azure
 
@@ -37,7 +37,7 @@ az group create --name myResourceGroup --location francecentral
 ## <a name="create-an-app-service-plan"></a>Creare un piano di servizio app
 
 È necessario creare un piano di servizio app per ospitare l'app Web.
-Per creare un piano di servizio app, usare il comando [az appservice plan create](/cli/azure/appservice/plan#az-appservice-plan-create).
+Per creare un piano di servizio app, usare il comando [az appservice plan create](/cli/azure/appservice/plan#az_appservice_plan_create).
 Con questo esempio viene creato un piano di servizio app denominato *myAppServicePlan* nella località *francecentral* con SKU *P1V2* e un solo ruolo di lavoro: 
 
 ```azurecli-interactive
@@ -52,7 +52,7 @@ az appservice plan create \
 ## <a name="create-a-web-app"></a>Creare un'app Web
 
 Dopo aver creato un piano di servizio app, è possibile distribuire un'app Web.
-Creare un'app Web con [AZ Appservice Plan create] (/CLI/Azure/webapp # AZ-webapp-create.
+Creare un'app Web con [az appservice plan create](/cli/azure/webapp#az_webapp_create.
 Con questo esempio viene creata un'app Web denominata *mySiteName* nel piano denominato *myAppServicePlan*
 
 ```azurecli-interactive
@@ -78,7 +78,7 @@ az network vnet create \
 
 ## <a name="configure-the-subnet"></a>Configurare la subnet 
 
-È necessario aggiornare la subnet per disabilitare i criteri di rete degli endpoint privati. Aggiornare una configurazione di subnet denominata *mySubnet* con [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update):
+È necessario aggiornare la subnet per disabilitare i criteri di rete degli endpoint privati. Aggiornare una configurazione di subnet denominata *mySubnet* con [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update):
 
 ```azurecli-interactive
 az network vnet subnet update \

@@ -1,41 +1,41 @@
 ---
-title: Ruotare i certificati in Azure Kubernetes Service (AKS)
-description: Informazioni su come ruotare i certificati in un cluster Azure Kubernetes Service (AKS).
+title: Ruotare i certificati in servizio Azure Kubernetes (servizio Web AKS)
+description: Informazioni su come ruotare i certificati in un cluster servizio Azure Kubernetes (AKS).
 services: container-service
 ms.topic: article
 ms.date: 11/15/2019
-ms.openlocfilehash: fa26762c54ad54835b174b8d814a2e77cb38b885
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6baad681a9d629c397c53ab90057cc5746fc3b85
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102619036"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107776016"
 ---
-# <a name="rotate-certificates-in-azure-kubernetes-service-aks"></a>Ruotare i certificati in Azure Kubernetes Service (AKS)
+# <a name="rotate-certificates-in-azure-kubernetes-service-aks"></a>Ruotare i certificati in servizio Azure Kubernetes (servizio Web AKS)
 
-Il servizio Azure Kubernetes (AKS) USA i certificati per l'autenticazione con molti dei suoi componenti. Periodicamente, potrebbe essere necessario ruotare tali certificati per motivi di sicurezza o di criteri. Ad esempio, è possibile avere un criterio per ruotare tutti i certificati ogni 90 giorni.
+servizio Azure Kubernetes usa i certificati per l'autenticazione con molti dei relativi componenti. Periodicamente, potrebbe essere necessario ruotare i certificati per motivi di sicurezza o criteri. Ad esempio, potrebbe essere necessario un criterio per ruotare tutti i certificati ogni 90 giorni.
 
-Questo articolo illustra come ruotare i certificati nel cluster AKS.
+Questo articolo illustra come ruotare i certificati nel cluster del servizio Web Diaks.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Questo articolo richiede la versione 2.0.77 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli-install].
+Questo articolo richiede l'esecuzione dell'interfaccia della riga di comando di Azure versione 2.0.77 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli-install].
 
-## <a name="aks-certificates-certificate-authorities-and-service-accounts"></a>Certificati AKS, autorità di certificazione e account del servizio
+## <a name="aks-certificates-certificate-authorities-and-service-accounts"></a>Certificati del servizio AKS, autorità di certificazione e account di servizio
 
-AKS genera e usa i certificati, le autorità di certificazione e gli account di servizio seguenti:
+Il servizio AKS genera e usa i certificati, le autorità di certificazione e gli account di servizio seguenti:
 
-* Il server dell'API AKS crea un'autorità di certificazione (CA) denominata CA del cluster.
-* Il server API dispone di una CA del cluster, che firma i certificati per la comunicazione unidirezionale dal server API a kubelets.
-* Ogni kubelet crea anche una richiesta di firma del certificato (CSR), firmata dalla CA del cluster, per la comunicazione dalla kubelet al server API.
-* L'aggregatore di API usa la CA del cluster per emettere certificati per la comunicazione con altre API. L'aggregatore di API può anche avere una propria autorità di certificazione per emettere tali certificati, ma attualmente usa la CA del cluster.
-* Ogni nodo utilizza un token dell'account di servizio (SA), firmato dalla CA del cluster.
-* Il `kubectl` client dispone di un certificato per comunicare con il cluster AKS.
+* Il server API del servizio Gateway Gateway crea un'autorità di certificazione (CA) denominata CA cluster.
+* Il server API ha una CA cluster, che firma i certificati per la comunicazione unidirezionale dal server API ai kubelets.
+* Ogni kubelet crea anche una richiesta di firma del certificato (CSR), firmata dalla CA cluster, per la comunicazione dal kubelet al server API.
+* L'aggregatore di API usa la CA cluster per rilasciare certificati per la comunicazione con altre API. L'aggregatore di API può anche avere una propria CA per il rilascio di tali certificati, ma attualmente usa la CA cluster.
+* Ogni nodo usa un token di account di servizio (SA), firmato dalla CA cluster.
+* Il client dispone di un certificato per la comunicazione con il cluster del servizio `kubectl` Web Disatteso.
 
 > [!NOTE]
-> I cluster AKS creati prima del 2019 marzo hanno certificati che scadono dopo due anni. Tutti i cluster creati dopo il 2019 marzo o qualsiasi cluster con i relativi certificati ruotati hanno certificati della CA del cluster che scadono dopo 30 anni. Tutti gli altri certificati scadono dopo due anni. Per verificare quando è stato creato il cluster, usare `kubectl get nodes` per visualizzare l' *età* dei pool di nodi.
+> I cluster del servizio AKS creati prima di marzo 2019 hanno certificati che scadono dopo due anni. Qualsiasi cluster creato dopo marzo 2019 o qualsiasi cluster con i certificati ruotati ha certificati ca cluster che scadono dopo 30 anni. Tutti gli altri certificati scadono dopo due anni. Per verificare quando è stato creato il cluster, usare `kubectl get nodes` per visualizzare *l'età* dei pool di nodi.
 > 
-> Inoltre, è possibile controllare la data di scadenza del certificato del cluster. Ad esempio, il seguente comando bash Visualizza i dettagli del certificato per il cluster *myAKSCluster* .
+> È anche possibile controllare la data di scadenza del certificato del cluster. Ad esempio, il comando Bash seguente visualizza i dettagli del certificato per il cluster *myAKSCluster.*
 > ```console
 > kubectl config view --raw -o jsonpath="{.clusters[?(@.name == 'myAKSCluster')].cluster.certificate-authority-data}" | base64 -d | openssl x509 -text | grep -A2 Validity
 > ```
@@ -43,54 +43,54 @@ AKS genera e usa i certificati, le autorità di certificazione e gli account di 
 ## <a name="rotate-your-cluster-certificates"></a>Ruotare i certificati del cluster
 
 > [!WARNING]
-> La rotazione dei certificati con `az aks rotate-certs` può causare fino a 30 minuti di inattività per il cluster AKS.
+> La rotazione dei certificati tramite può causare fino a 30 minuti di inattività per il cluster del servizio `az aks rotate-certs` Web Diaks.
 
-Usare [AZ AKS Get-credentials][az-aks-get-credentials] per accedere al cluster AKS. Questo comando consente inoltre di scaricare e configurare il `kubectl` certificato client nel computer locale.
+Usare [il comando az aks get-credentials][az-aks-get-credentials] per accedere al cluster del servizio Web Diaz. Questo comando scarica e configura anche il `kubectl` certificato client nel computer locale.
 
 ```azurecli
 az aks get-credentials -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME
 ```
 
-Usare `az aks rotate-certs` per ruotare tutti i certificati, CA e SAS nel cluster.
+Usare `az aks rotate-certs` per ruotare tutti i certificati, le CA e le CA nel cluster.
 
 ```azurecli
 az aks rotate-certs -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME
 ```
 
 > [!IMPORTANT]
-> Il completamento dell'operazione potrebbe richiedere fino a 30 minuti `az aks rotate-certs` . Se il comando ha esito negativo prima del completamento, usare `az aks show` per verificare che lo stato del cluster sia la *rotazione del certificato*. Se il cluster si trova in uno stato di errore, eseguire `az aks rotate-certs` di nuovo per ruotare nuovamente i certificati.
+> Il completamento può richiedere fino a 30 `az aks rotate-certs` minuti. Se il comando non riesce prima del completamento, usare per verificare che `az aks show` lo stato del cluster sia Rotazione dei *certificati*. Se il cluster si trova in uno stato di errore, rieseguire `az aks rotate-certs` per ruotare di nuovo i certificati.
 
-Verificare che i certificati precedenti non siano più validi eseguendo un `kubectl` comando. Poiché non sono stati aggiornati i certificati utilizzati da `kubectl` , verrà visualizzato un errore.  Ad esempio:
+Verificare che i certificati non siano più validi eseguendo un `kubectl` comando . Poiché i certificati usati da non sono stati `kubectl` aggiornati, verrà visualizzato un errore.  Ad esempio:
 
 ```console
 $ kubectl get no
 Unable to connect to the server: x509: certificate signed by unknown authority (possibly because of "crypto/rsa: verification error" while trying to verify candidate authority certificate "ca")
 ```
 
-Aggiornare il certificato utilizzato da eseguendo `kubectl` `az aks get-credentials` .
+Aggiornare il certificato usato `kubectl` eseguendo `az aks get-credentials` .
 
 ```azurecli
 az aks get-credentials -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME --overwrite-existing
 ```
 
-Verificare che i certificati siano stati aggiornati eseguendo un `kubectl` comando che ora avrà esito positivo. Ad esempio:
+Verificare che i certificati siano stati aggiornati eseguendo un `kubectl` comando che avrà ora esito positivo. Ad esempio:
 
 ```console
 kubectl get no
 ```
 
 > [!NOTE]
-> Se si dispone di servizi eseguiti su AKS, ad esempio [Azure Dev Spaces][dev-spaces], potrebbe essere necessario [aggiornare anche i certificati correlati a tali servizi][dev-spaces-rotate] .
+> Se si dispone di servizi eseguiti in AKS, ad esempio [Azure Dev Spaces][dev-spaces], potrebbe essere necessario aggiornare anche i certificati correlati [a][dev-spaces-rotate] tali servizi.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questo articolo ha illustrato come ruotare automaticamente i certificati, le autorità di certificazione e le associazioni di sicurezza del cluster. Per altre informazioni sulle procedure consigliate per la sicurezza di AKS, vedere procedure consigliate [per la sicurezza e gli aggiornamenti del cluster in Azure Kubernetes Service (AKS)][aks-best-practices-security-upgrades] .
+Questo articolo ha illustrato come ruotare automaticamente i certificati, le CA e le CA del cluster. Per altre informazioni [sulle procedure consigliate per la][aks-best-practices-security-upgrades] sicurezza del servizio Servizio Azure Kubernetes, vedere Procedure consigliate per la sicurezza e gli aggiornamenti del cluster nel servizio Servizio Azure Kubernetes.
 
 
 [azure-cli-install]: /cli/azure/install-azure-cli
-[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
-[az-extension-add]: /cli/azure/extension#az-extension-add
-[az-extension-update]: /cli/azure/extension#az-extension-update
+[az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
+[az-extension-add]: /cli/azure/extension#az_extension_add
+[az-extension-update]: /cli/azure/extension#az_extension_update
 [aks-best-practices-security-upgrades]: operator-best-practices-cluster-security.md
 [dev-spaces]: ../dev-spaces/index.yml
 [dev-spaces-rotate]: ../dev-spaces/troubleshooting.md#error-using-dev-spaces-after-rotating-aks-certificates

@@ -1,23 +1,23 @@
 ---
-title: "Azure HDInsight: esempi dell'interfaccia della riga di comando di Azure"
+title: "Azure HDInsight: Esempi dell'interfaccia della riga di comando di Azure"
 description: Esempi dell'interfaccia della riga di comando di Azure per attività comuni in Azure HDInsight.
 ms.service: hdinsight
 ms.topic: sample
 ms.date: 09/23/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9367c1b4d82e984b2b4200768a3f83f9245c7f0f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4502cb26b4aeedff4223aaf5a592581aee36a0e6
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98946882"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107775102"
 ---
-# <a name="azure-hdinsight-azure-cli-samples"></a>Azure HDInsight: esempi dell'interfaccia della riga di comando di Azure
+# <a name="azure-hdinsight-azure-cli-samples"></a>Azure HDInsight: Esempi dell'interfaccia della riga di comando di Azure
 
 > [!div class="op_single_selector"]
-> [Esempi .NET](hdinsight-sdk-dotnet-samples.md) 
->  [Esempi](hdinsight-sdk-python-samples.md) 
->  di Python [Esempi di Java](hdinsight-sdk-java-samples.md)
+> [Esempi di .NET](hdinsight-sdk-dotnet-samples.md) 
+>  [Esempi di Python](hdinsight-sdk-python-samples.md) 
+>  [Esempi Java](hdinsight-sdk-java-samples.md)
 
 Questo articolo include script di esempio per le attività comuni. Per ogni esempio aggiornare le variabili con i valori appropriati e quindi eseguire il comando.
 
@@ -25,11 +25,11 @@ Questo articolo include script di esempio per le attività comuni. Per ogni esem
 
 * Interfaccia della riga di comando di Azure. Per la procedura, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
-* Facoltativo: bash. Negli esempi di questo articolo si usa la shell Bash in Windows 10. Per la procedura di installazione, vedere [Guida all'installazione del sottosistema Windows per Linux per Windows 10](/windows/wsl/install-win10).  Con alcune piccole modifiche gli esempi funzioneranno anche da un prompt dei comandi di Windows.
+* Facoltativo: Bash. Negli esempi di questo articolo si usa la shell Bash in Windows 10. Per la procedura di installazione, vedere [Guida all'installazione del sottosistema Windows per Linux per Windows 10](/windows/wsl/install-win10).  Con alcune piccole modifiche gli esempi funzioneranno anche da un prompt dei comandi di Windows.
 
 ## <a name="az-login"></a>az login
 
-[Accedere ad Azure](/cli/azure/reference-index#az-login).
+[Accedere ad Azure](/cli/azure/reference-index#az_login).
 
 ```azurecli
 az login
@@ -40,7 +40,7 @@ az login
 
 ## <a name="az-hdinsight-create"></a>az hdinsight create
 
-[Crea un nuovo cluster](/cli/azure/hdinsight#az-hdinsight-create).
+[Crea un nuovo cluster](/cli/azure/hdinsight#az_hdinsight_create).
 
 ### <a name="create-a-cluster-with-an-existing-storage-account"></a>Creare un cluster con un account di archiviazione esistente
 
@@ -173,7 +173,7 @@ az hdinsight create \
 
 ## <a name="az-hdinsight-application-create"></a>az hdinsight application create
 
-[Crea un'applicazione per un cluster HDInsight](/cli/azure/hdinsight/application#az-hdinsight-application-create).
+[Crea un'applicazione per un cluster HDInsight](/cli/azure/hdinsight/application#az_hdinsight_application_create).
 
 ### <a name="create-an-application-with-a-script-uri"></a>Creare un'applicazione con un URI di script
 
@@ -240,7 +240,7 @@ az hdinsight application create \
 
 ## <a name="az-hdinsight-script-action-execute"></a>az hdinsight script-action execute
 
-[Eseguire azioni script sul cluster HDInsight specificato](/cli/azure/hdinsight/script-action#az-hdinsight-script-action-execute).
+[Eseguire azioni script sul cluster HDInsight specificato](/cli/azure/hdinsight/script-action#az_hdinsight_script_action_execute).
 
 ### <a name="execute-a-script-action-and-persist-on-success"></a>Eseguire un'azione script e renderla permanente in caso di operazione riuscita
 

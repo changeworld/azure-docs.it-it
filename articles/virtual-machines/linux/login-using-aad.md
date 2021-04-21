@@ -1,26 +1,26 @@
 ---
-title: Accedere a una VM Linux con Azure Active Directory credenziali
-description: Informazioni su come creare e configurare una macchina virtuale Linux per accedere usando l'autenticazione Azure Active Directory.
+title: Accedere a una macchina virtuale Linux con Azure Active Directory credenziali
+description: Informazioni su come creare e configurare una macchina virtuale Linux per l'accesso usando Azure Active Directory autenticazione.
 author: SanDeo-MSFT
 ms.service: virtual-machines
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 11/17/2020
 ms.author: sandeo
-ms.openlocfilehash: e14e214a220d9dade4fac028620d23c563d86a8f
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 654d47102685c04d6440d7c155e4d6eb931abcae
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106554077"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107788116"
 ---
-# <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Anteprima: accedere a una macchina virtuale Linux in Azure usando l'autenticazione Azure Active Directory
+# <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Anteprima: Accedere a una macchina virtuale Linux in Azure usando Azure Active Directory autenticazione
 
 Per migliorare la sicurezza delle macchine virtuali Linux in Azure, è possibile eseguire l'integrazione con l'autenticazione di Azure Active Directory. Quando si usa l'autenticazione di Azure AD per le macchine virtuali Linux, i criteri che consentono o negano l'accesso alle macchine virtuali sono controllati e applicati dall'utente a livello centrale. Questo articolo illustra come creare e configurare una macchina virtuale Linux per usare l'autenticazione di Azure AD.
 
 
 > [!IMPORTANT]
-> L'autenticazione Azure Active Directory è attualmente disponibile in anteprima pubblica.
+> Azure Active Directory'autenticazione è attualmente in anteprima pubblica.
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 > Usare questa funzionalità in una macchina virtuale di test che si prevede di rimuovere al termine del test.
 >
@@ -35,7 +35,7 @@ L'uso dell'autenticazione di Azure AD per accedere alle macchine virtuali Linux 
   - Per aumentare la sicurezza dell'accesso alle macchine virtuali Azure, è possibile configurare l'autenticazione a più fattori.
   - Possono accedere alle macchine virtuali Linux con Azure Active Directory anche gli utenti che usano [Federation Services](../../active-directory/hybrid/how-to-connect-fed-whatis.md).
 
-- **Perfetta collaborazione:** Con il controllo degli accessi in base al ruolo di Azure (RBAC di Azure), è possibile specificare chi può accedere a una determinata macchina virtuale come utente normale o con privilegi di amministratore. Quando gli utenti si uniscono o lasciano il team, è possibile aggiornare i criteri RBAC di Azure per la macchina virtuale per concedere l'accesso in base alle esigenze. Questa esperienza è molto più semplice rispetto alla necessità di eseguire lo scrubbing delle macchine virtuali per rimuovere le chiavi pubbliche SSH non necessarie. Quando i dipendenti lasciano l'organizzazione e l'account utente viene disabilitato o rimosso da Azure AD, non hanno più accesso alle risorse.
+- **Collaborazione facile:** Con il controllo degli accessi in base al ruolo di Azure è possibile specificare chi può accedere a una determinata macchina virtuale come utente normale o con privilegi di amministratore. Quando gli utenti si uniscono o lasciano il team, è possibile aggiornare i criteri di controllo degli accessi in base al ruolo di Azure per la macchina virtuale per concedere l'accesso in base alle esigenze. Questa esperienza è molto più semplice rispetto alla necessità di eseguire lo scrubbing delle macchine virtuali per rimuovere le chiavi pubbliche SSH non necessarie. Quando i dipendenti lasciano l'organizzazione e l'account utente viene disabilitato o rimosso da Azure AD, non hanno più accesso alle risorse.
 
 ## <a name="supported-azure-regions-and-linux-distributions"></a>Aree di Azure e distribuzioni di Linux supportate
 
@@ -58,28 +58,28 @@ Durante l'anteprima di questa funzionalità sono attualmente supportate le aree 
 >[!IMPORTANT]
 > Per usare questa funzionalità in anteprima, basta distribuire una distribuzione Linux supportata in un'area di Azure supportata. La funzionalità non è supportata in Azure per enti pubblici o nei cloud sovrani.
 >
-> Non è supportata l'uso di questa estensione nei cluster Azure Kubernetes Service (AKS). Per altre informazioni, vedere [criteri di supporto per AKS](../../aks/support-policies.md).
+> Non è supportato usare questa estensione nei cluster servizio Azure Kubernetes (AKS). Per altre informazioni, vedere [Support policies for AKS](../../aks/support-policies.md).
 
 
 Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.31 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="network-requirements"></a>Requisiti di rete
 
-Per abilitare l'autenticazione Azure AD per le VM Linux in Azure, è necessario assicurarsi che la configurazione di rete delle macchine virtuali consenta l'accesso in uscita agli endpoint seguenti sulla porta TCP 443:
+Per abilitare Azure AD per le macchine virtuali Linux in Azure, è necessario assicurarsi che la configurazione di rete delle macchine virtuali consenta l'accesso in uscita agli endpoint seguenti sulla porta TCP 443:
 
 * https:\//login.microsoftonline.com
 * https:\//login.windows.net
-* https: \/ /Device.login.microsoftonline.com
-* https: \/ /pas.Windows.NET
+* https: \/ /device.login.microsoftonline.com
+* https: \/ /pas.windows.net
 * https:\//management.azure.com
-* https: \/ /packages.Microsoft.com
+* https: \/ /packages.microsoft.com
 
 > [!NOTE]
-> Attualmente non è possibile configurare i gruppi di sicurezza di rete di Azure per le macchine virtuali abilitate con l'autenticazione Azure AD.
+> Attualmente, i gruppi di sicurezza di rete di Azure non possono essere configurati per le macchine virtuali abilitate con Azure AD autenticazione.
 
 ## <a name="create-a-linux-virtual-machine"></a>Creare una macchina virtuale Linux
 
-Creare un gruppo di risorse con il comando [az group create](/cli/azure/group#az-group-create), quindi creare una macchina virtuale con [az vm create](/cli/azure/vm#az-vm-create) usando una distribuzione Linux supportata in un'area supportata. L'esempio seguente consente di distribuire una macchina virtuale denominata *myVM* che usa *Ubuntu 16.04 LTS* in un gruppo di risorse denominato *myResourceGroup* nell'area *southcentralus*. Negli esempi seguenti è possibile specificare i nomi del proprio gruppo di risorse e della macchina virtuale in base alle esigenze.
+Creare un gruppo di risorse con il comando [az group create](/cli/azure/group#az_group_create), quindi creare una macchina virtuale con [az vm create](/cli/azure/vm#az_vm_create) usando una distribuzione Linux supportata in un'area supportata. L'esempio seguente consente di distribuire una macchina virtuale denominata *myVM* che usa *Ubuntu 16.04 LTS* in un gruppo di risorse denominato *myResourceGroup* nell'area *southcentralus*. Negli esempi seguenti è possibile specificare i nomi del proprio gruppo di risorse e della macchina virtuale in base alle esigenze.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location southcentralus
@@ -97,9 +97,9 @@ La creazione della macchina virtuale e delle risorse di supporto richiede alcuni
 ## <a name="install-the-azure-ad-login-vm-extension"></a>Installare l'estensione della macchina virtuale per l'accesso ad Azure AD
 
 > [!NOTE]
-> Se si distribuisce questa estensione a una macchina virtuale creata in precedenza, verificare che il computer disponga di almeno 1 GB di memoria allocata altrimenti l'estensione non verrà installata
+> Se si distribuisce questa estensione in una macchina virtuale creata in precedenza, assicurarsi che nel computer siano allocati almeno 1 GB di memoria, altrimenti l'estensione non verrà installata
 
-Per accedere a una macchina virtuale Linux con Azure AD credenziali, installare l'estensione della macchina virtuale Azure Active Directory Login. Le estensioni della macchina virtuale sono piccole applicazioni che eseguono attività di configurazione e automazione post-distribuzione nelle macchine virtuali di Azure. Usare [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set) per installare l'estensione *AADLoginForLinux* nella macchina virtuale denominata *myVM* nel gruppo di risorse *myResourceGroup*:
+Per accedere a una macchina virtuale Linux con Azure AD credenziali, installare l'estensione Azure Active Directory macchina virtuale di accesso. Le estensioni della macchina virtuale sono piccole applicazioni che eseguono attività di configurazione e automazione post-distribuzione nelle macchine virtuali di Azure. Usare [az vm extension set](/cli/azure/vm/extension#az_vm_extension_set) per installare l'estensione *AADLoginForLinux* nella macchina virtuale denominata *myVM* nel gruppo di risorse *myResourceGroup*:
 
 ```azurecli-interactive
 az vm extension set \
@@ -109,19 +109,19 @@ az vm extension set \
     --vm-name myVM
 ```
 
-Il *provisioningState* di *succeeded* viene visualizzato dopo che l'estensione è stata installata correttamente nella macchina virtuale. Per installare l'estensione, la macchina virtuale deve disporre di un agente di macchine virtuali in esecuzione. Per altre informazioni, vedere [Panoramica dell'agente di macchine virtuali](../extensions/agent-windows.md).
+Il *valore di provisioningState* *di Succeeded* viene visualizzato dopo che l'estensione è stata installata correttamente nella macchina virtuale. Per installare l'estensione, la macchina virtuale richiede un agente di macchine virtuali in esecuzione. Per altre informazioni, vedere Panoramica [dell'agente di macchine virtuali](../extensions/agent-windows.md).
 
 ## <a name="configure-role-assignments-for-the-vm"></a>Configurare le assegnazioni di ruolo per la macchina virtuale
 
-I criteri di controllo degli accessi in base al ruolo di Azure (RBAC di Azure) determinano chi può accedere alla macchina virtuale. Per autorizzare l'accesso alla macchina virtuale vengono usati due ruoli di Azure:
+I criteri di controllo degli accessi in base al ruolo di Azure determinano chi può accedere alla macchina virtuale. Per autorizzare l'accesso alla macchina virtuale vengono usati due ruoli di Azure:
 
 - **Accesso amministratore alle macchine virtuali**: gli utenti a cui è stato assegnato questo ruolo possono accedere a una macchina virtuale di Azure con i privilegi di utente ROOT di Windows o Linux.
 - **Accesso utente alle macchine virtuali**: gli utenti a cui è stato assegnato questo ruolo possono accedere a una macchina virtuale di Azure con i privilegi di utente normale.
 
 > [!NOTE]
-> Per consentire all'utente di accedere alla macchina virtuale su SSH, è necessario assegnare il ruolo *Accesso amministratore alle macchine virtuali* oppure *Accesso utente alle macchine virtuali*. L'account di accesso dell'amministratore della macchina virtuale e i ruoli di accesso utente della macchina virtuale utilizzano le azioni dati e pertanto non possono essere assegnati all'ambito del gruppo di gestione. Attualmente questi ruoli possono essere assegnati solo a livello di sottoscrizione, gruppo di risorse o ambito di risorse. Un utente di Azure a cui è stato assegnato il ruolo *Proprietario* oppure *Collaboratore* per una macchina virtuale non dispone automaticamente dei privilegi per accedere alla macchina virtuale su SSH. 
+> Per consentire all'utente di accedere alla macchina virtuale su SSH, è necessario assegnare il ruolo *Accesso amministratore alle macchine virtuali* oppure *Accesso utente alle macchine virtuali*. I ruoli Accesso amministratore macchina virtuale e Accesso utente macchina virtuale usano dataActions e pertanto non possono essere assegnati nell'ambito del gruppo di gestione. Attualmente questi ruoli possono essere assegnati solo nell'ambito della sottoscrizione, del gruppo di risorse o della risorsa. Un utente di Azure a cui è stato assegnato il ruolo *Proprietario* oppure *Collaboratore* per una macchina virtuale non dispone automaticamente dei privilegi per accedere alla macchina virtuale su SSH. 
 
-L'esempio seguente usa [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) per assegnare il ruolo *Accesso amministratore alle macchine virtuali* alla macchina virtuale per l'utente di Azure corrente. Il nome utente dell'account di Azure attivo si ottiene con [az account show](/cli/azure/account#az-account-show) e viene impostato l'*ambito* per la macchina virtuale creata in un passaggio precedente con [az vm show](/cli/azure/vm#az-vm-show). L'ambito può essere assegnato anche a livello di gruppo di risorse o di sottoscrizione e si applicano le normali autorizzazioni di ereditarietà RBAC di Azure. Per altre informazioni, vedere [RBAC di Azure](../../role-based-access-control/overview.md)
+L'esempio seguente usa [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) per assegnare il ruolo *Accesso amministratore alle macchine virtuali* alla macchina virtuale per l'utente di Azure corrente. Il nome utente dell'account di Azure attivo si ottiene con [az account show](/cli/azure/account#az_account_show) e viene impostato l'*ambito* per la macchina virtuale creata in un passaggio precedente con [az vm show](/cli/azure/vm#az_vm_show). L'ambito può anche essere assegnato a livello di gruppo di risorse o di sottoscrizione e si applicano le normali autorizzazioni di ereditarietà del controllo degli accessi in base al ruolo di Azure. Per altre informazioni, vedere Controllo degli accessi in [base al ruolo di Azure](../../role-based-access-control/overview.md)
 
 ```azurecli-interactive
 username=$(az account show --query user.name --output tsv)
@@ -134,40 +134,40 @@ az role assignment create \
 ```
 
 > [!NOTE]
-> Se il dominio di Azure Active Directory e il dominio del nome utente di accesso non corrispondono, è necessario specificare l'ID oggetto dell'account utente con *--id-oggetto-assegnatario* e non solo il nome utente per *--assegnatario*. È possibile ottenere l'ID oggetto per l'account utente con [az ad user list](/cli/azure/ad/user#az-ad-user-list).
+> Se il dominio di Azure Active Directory e il dominio del nome utente di accesso non corrispondono, è necessario specificare l'ID oggetto dell'account utente con *--id-oggetto-assegnatario* e non solo il nome utente per *--assegnatario*. È possibile ottenere l'ID oggetto per l'account utente con [az ad user list](/cli/azure/ad/user#az_ad_user_list).
 
-Per altre informazioni su come usare il controllo degli accessi in base al ruolo per gestire l'accesso alle risorse della sottoscrizione di Azure, vedere uso dell'interfaccia della riga di comando di [Azure](../../role-based-access-control/role-assignments-cli.md), [portale di Azure](../../role-based-access-control/role-assignments-portal.md)o [Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
+Per altre informazioni su come usare il controllo degli accessi in base al ruolo di Azure per gestire l'accesso alle risorse della sottoscrizione di [Azure,](../../role-based-access-control/role-assignments-cli.md)vedere Usare l'interfaccia della riga di comando di Azure, portale di Azure [o](../../role-based-access-control/role-assignments-portal.md) [Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
 ## <a name="using-conditional-access"></a>Uso dell'accesso condizionale
 
-È possibile applicare criteri di accesso condizionale, ad esempio l'autenticazione a più fattori o il controllo dei rischi di accesso degli utenti prima di autorizzare l'accesso alle macchine virtuali Linux in Azure abilitate con Azure AD accedi. Per applicare i criteri di accesso condizionale, è necessario selezionare l'opzione "Microsoft Azure l'accesso alla macchina virtuale Linux" dall'opzione di assegnazione app Cloud o azioni e quindi usare il rischio di accesso come condizione e/o richiedere l'autenticazione a più fattori come controllo di concessione dell'accesso. 
+È possibile applicare criteri di accesso condizionale, ad esempio l'autenticazione a più fattori o il controllo dei rischi di accesso utente prima di autorizzare l'accesso alle macchine virtuali Linux in Azure abilitate con Azure AD accesso. Per applicare i criteri di accesso condizionale, è necessario selezionare l'app "Microsoft Azure Linux Virtual Machine Sign-In" dall'opzione di assegnazione delle app cloud o delle azioni e quindi usare Rischio di accesso come condizione e/o richiedere l'autenticazione a più fattori come controllo di accesso di concessione. 
 
 > [!WARNING]
-> La Azure AD Multi-Factor Authentication abilitata/applicata per utente non è supportata per l'accesso alla macchina virtuale.
+> L'autenticazione a più fattori abilitata/Azure AD per utente non è supportata per l'accesso alle macchine virtuali.
 
 ## <a name="log-in-to-the-linux-virtual-machine"></a>Accedere alla macchina virtuale Linux
 
-Visualizzare innanzitutto l'indirizzo IP pubblico della macchina virtuale con [az vm show](/cli/azure/vm#az-vm-show):
+Visualizzare innanzitutto l'indirizzo IP pubblico della macchina virtuale con [az vm show](/cli/azure/vm#az_vm_show):
 
 ```azurecli-interactive
 az vm show --resource-group myResourceGroup --name myVM -d --query publicIps -o tsv
 ```
 
-Accedere alla macchina virtuale Linux di Azure usando le credenziali di Azure AD. Il parametro `-l` consente di specificare il proprio indirizzo dell'account di Azure AD. Sostituire l'account di esempio con il proprio. Gli indirizzi dell'account devono essere immessi in tutte lettere minuscole. Sostituire l'indirizzo IP di esempio con l'indirizzo IP pubblico della macchina virtuale con il comando precedente.
+Accedere alla macchina virtuale Linux di Azure usando le credenziali di Azure AD. Il parametro `-l` consente di specificare il proprio indirizzo dell'account di Azure AD. Sostituire l'account di esempio con il proprio. Gli indirizzi dell'account devono essere immessi in tutte lettere minuscole. Sostituire l'indirizzo IP di esempio con l'indirizzo IP pubblico della macchina virtuale del comando precedente.
 
 ```console
 ssh -l azureuser@contoso.onmicrosoft.com 10.11.123.456
 ```
 
-Viene richiesto di accedere a Azure AD con un codice di utilizzo monouso all'indirizzo [https://microsoft.com/devicelogin](https://microsoft.com/devicelogin) . Copiare e incollare il codice use monouso nella pagina di accesso del dispositivo.
+Viene richiesto di accedere a Azure AD con un codice di utilizzo unico all'indirizzo [https://microsoft.com/devicelogin](https://microsoft.com/devicelogin) . Copiare e incollare il codice da usare una sola volta nella pagina di accesso del dispositivo.
 
 Quando richiesto, immettere le credenziali di accesso di Azure AD nella pagina di accesso. 
 
-Il messaggio seguente viene visualizzato nel Web browser dopo che è stata eseguita l'autenticazione: `You have signed in to the Microsoft Azure Linux Virtual Machine Sign-In application on your device.`
+Al termine dell'autenticazione, nel Web browser viene visualizzato il messaggio seguente: `You have signed in to the Microsoft Azure Linux Virtual Machine Sign-In application on your device.`
 
 Chiudere la finestra del browser, tornare al prompt di SSH e premere il tasto **Invio**. 
 
-È stato effettuato l'accesso alla macchina virtuale Linux di Azure con le autorizzazioni del ruolo assegnato, ad esempio come *utente della macchina virtuale* oppure *amministratore della macchina virtuale*. Se all'account utente viene assegnato il ruolo di *accesso amministratore macchina virtuale* , è possibile utilizzare `sudo` per eseguire comandi che richiedono privilegi radice.
+È stato effettuato l'accesso alla macchina virtuale Linux di Azure con le autorizzazioni del ruolo assegnato, ad esempio come *utente della macchina virtuale* oppure *amministratore della macchina virtuale*. Se all'account utente è assegnato il *ruolo Di accesso amministratore macchina* virtuale, è possibile usare per eseguire comandi che richiedono privilegi `sudo` radice.
 
 ## <a name="sudo-and-aad-login"></a>Accesso AAD e sudo
 
@@ -186,11 +186,11 @@ Con la riga seguente:
 
 ## <a name="troubleshoot-sign-in-issues"></a>Risolvere i problemi di accesso
 
-Alcuni errori comuni quando si tenta di eseguire SSH con Azure AD credenziali non includono i ruoli di Azure assegnati e vengono ripetute richieste di accesso. Usare le sezioni seguenti per risolvere questi problemi.
+Alcuni errori comuni che si verificano quando si prova a eseguire SSH Azure AD credenziali includono l'assenza di ruoli di Azure assegnati e richieste ripetute di accesso. Usare le sezioni seguenti per risolvere questi problemi.
 
 ### <a name="access-denied-azure-role-not-assigned"></a>Accesso negato: ruolo di Azure non assegnato
 
-Se viene visualizzato l'errore seguente nel prompt SSH, verificare di aver configurato i criteri di controllo degli accessi in base al ruolo di Azure per la macchina virtuale che concede all'utente l' *account di accesso dell'amministratore della macchina virtuale* o l' *accesso utente della macchina virtuale* :
+Se viene visualizzato l'errore seguente nel prompt SSH, verificare di aver configurato i criteri  di Controllo degli accessi in base al ruolo di Azure per la macchina virtuale che concede all'utente il ruolo Accesso amministratore macchina virtuale o Accesso utente macchina *virtuale:*
 
 ```output
 login as: azureuser@contoso.onmicrosoft.com
@@ -201,19 +201,19 @@ Access denied:  to sign-in you be assigned a role with action 'Microsoft.Compute
 Access denied
 ```
 > [!NOTE]
-> Se si verificano problemi con le assegnazioni di ruolo di Azure, vedere risolvere i problemi [relativi a RBAC di Azure](../../role-based-access-control/troubleshooting.md#azure-role-assignments-limit).
+> Se si verificano problemi con le assegnazioni di ruolo di Azure, vedere Risolvere i problemi relativi al controllo degli [accessi in base al ruolo di Azure.](../../role-based-access-control/troubleshooting.md#azure-role-assignments-limit)
 
 ### <a name="continued-ssh-sign-in-prompts"></a>Prompt di accesso SSH continui
 
 Dopo aver completato correttamente il passaggio di autenticazione in un Web browser, è possibile che venga subito richiesto di eseguire di nuovo l'accesso con un codice aggiornato. Questo errore è in genere causato da una mancata corrispondenza tra il nome di accesso specificato nel prompt SSH e l'account con cui è stato effettuato l'accesso ad Azure AD. Per correggere questo problema:
 
-- Verificare che il nome di accesso specificato nel prompt SSH sia corretto. Un errore di battitura nel nome di accesso potrebbe causare una mancata corrispondenza tra il nome di accesso specificato nel prompt di SSH e l'account con cui è stato effettuato l'accesso ad Azure AD. Ad esempio, è stato digitato *azuresuer \@ contoso.onmicrosoft.com* anziché *azureuser \@ contoso.onmicrosoft.com*.
+- Verificare che il nome di accesso specificato nel prompt SSH sia corretto. Un errore di battitura nel nome di accesso potrebbe causare una mancata corrispondenza tra il nome di accesso specificato nel prompt di SSH e l'account con cui è stato effettuato l'accesso ad Azure AD. Ad esempio, è stato digitato *azuresuer \@ contoso.onmicrosoft.com* invece di *azureuser \@ contoso.onmicrosoft.com*.
 - Se si dispone di più account utente, assicurarsi che non si indichi un account utente diverso nella finestra del browser quando si accede ad Azure AD.
 - Linux è un sistema operativo che distingue tra maiuscole e minuscole. Quindi "Azureuser@contoso.onmicrosoft.com" e "azureuser@contoso.onmicrosoft.com" sono diversi e questo può causare una mancata corrispondenza. Assicurarsi di specificare l'UPN usando correttamente le maiuscole e le minuscole nel prompt SSH.
 
 ### <a name="other-limitations"></a>Altre limitazioni
 
-Gli utenti che ereditano i diritti di accesso tramite gruppi annidati o assegnazioni di ruolo non sono attualmente supportati. All'utente o al gruppo devono essere assegnate direttamente le [assegnazioni di ruolo obbligatorie](#configure-role-assignments-for-the-vm). Ad esempio, l'utilizzo di gruppi di gestione o assegnazioni di ruolo a gruppi annidati non concederà le autorizzazioni corrette per consentire all'utente di eseguire l'accesso.
+Gli utenti che ereditano i diritti di accesso tramite gruppi annidati o assegnazioni di ruolo non sono attualmente supportati. All'utente o al gruppo devono essere assegnate direttamente [le assegnazioni di ruolo necessarie.](#configure-role-assignments-for-the-vm) Ad esempio, l'uso di gruppi di gestione o assegnazioni di ruolo di gruppi annidati non concederà le autorizzazioni corrette per consentire all'utente di accedere.
 
 ## <a name="preview-feedback"></a>Feedback sull'anteprima
 

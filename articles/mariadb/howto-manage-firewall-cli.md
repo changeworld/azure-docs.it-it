@@ -1,5 +1,5 @@
 ---
-title: Gestire regole del firewall-interfaccia della riga di comando di Azure-database di Azure per MariaDB
+title: Gestire le regole del firewall - Interfaccia della riga di comando di Azure - Database di Azure per MariaDB
 description: Questo articolo descrive come creare e gestire regole del firewall di Database di Azure per MariaDB tramite l'interfaccia della riga di comando di Azure.
 author: savjani
 ms.author: pariks
@@ -8,21 +8,21 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: ef04e2b4c820c14ea7df6c35ecb0189ef31ef7dc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 87ff75a07bd1b91121d614e0f41c0ecf216e1b41
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98665039"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107791716"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-firewall-rules-by-using-the-azure-cli"></a>Creare e gestire le regole del firewall di Database di Azure per MariaDB con l'interfaccia della riga di comando di Azure
-Le regole del firewall a livello di server possono essere usate per gestire l'accesso a un database di Azure per il server MariaDB da un indirizzo IP specifico o da un intervallo di indirizzi IP. Usando pratici comandi dell'interfaccia della riga di comando di Azure è possibile creare, aggiornare, eliminare, elencare e visualizzare le regole del firewall per gestire il server. Per una panoramica dei firewall di database di Azure per MariaDB, vedere [regole del firewall per il database di Azure per il server MariaDB](./concepts-firewall-rules.md).
+Le regole del firewall a livello di server possono essere usate per gestire l'accesso a un server di Database di Azure per MariaDB da un indirizzo IP specifico o da un intervallo di indirizzi IP. Usando pratici comandi dell'interfaccia della riga di comando di Azure è possibile creare, aggiornare, eliminare, elencare e visualizzare le regole del firewall per gestire il server. Per una panoramica dei firewall di Database di Azure per MariaDB, vedere Regole del firewall del server di Database di Azure per [MariaDB](./concepts-firewall-rules.md).
 
-Le regole della rete virtuale (VNet) possono essere usate anche per proteggere l'accesso al server. Altre informazioni sulla [creazione e la gestione di endpoint e regole del servizio rete virtuale con l'interfaccia della](howto-manage-vnet-cli.md)riga di comando di Azure.
+Le regole di rete virtuale possono essere usate anche per proteggere l'accesso al server. Altre informazioni sulla creazione e sulla gestione di endpoint e regole del servizio di rete [virtuale tramite l'interfaccia](howto-manage-vnet-cli.md)della riga di comando di Azure.
 
 ## <a name="prerequisites"></a>Prerequisiti
-* [Installare l'interfaccia](/cli/azure/install-azure-cli)della riga di comando di Azure
-* Un [database di Azure per il server e il database di MariaDB](quickstart-create-mariadb-server-database-using-azure-cli.md).
+* [Installare l'interfaccia della riga di comando di Azure.](/cli/azure/install-azure-cli)
+* Un server e un database di Database di [Azure per MariaDB](quickstart-create-mariadb-server-database-using-azure-cli.md).
 
 ## <a name="firewall-rule-commands"></a>Comandi per le regole del firewall:
 Il comando **az mariadb server firewall-rule** viene usato dall'interfaccia della riga di comando di Azure per creare, eliminare, elencare, visualizzare e aggiornare le regole del firewall.
@@ -34,7 +34,7 @@ Comandi:
 - **show**: visualizzare i dettagli di una regola del firewall del server MariaDB di Azure.
 - **update**: aggiornare una regola del firewall del server MariaDB di Azure.
 
-## <a name="sign-in-to-azure-and-list-your-azure-database-for-mariadb-servers"></a>Accedere ad Azure ed elencare il database di Azure per i server MariaDB
+## <a name="sign-in-to-azure-and-list-your-azure-database-for-mariadb-servers"></a>Accedere ad Azure ed elencare i server di Database di Azure per MariaDB
 Connettere in modo sicuro l'interfaccia della riga di comando di Azure all'account Azure usando il comando **az login**.
 
 1. Eseguire il comando seguente dalla riga di comando:
@@ -45,27 +45,27 @@ Connettere in modo sicuro l'interfaccia della riga di comando di Azure all'accou
 
 2. Usare un Web browser per aprire la pagina [https://aka.ms/devicelogin](https://aka.ms/devicelogin) e quindi immettere il codice.
 
-3. Al prompt, accedere con le credenziali di Azure.
+3. Al prompt, accedere usando le credenziali di Azure.
 
-4. Dopo che l'accesso è stato autorizzato, nella console viene visualizzato un elenco di sottoscrizioni. Copiare l'ID della sottoscrizione desiderata per impostare la sottoscrizione corrente da usare. Usare il comando [az account set](/cli/azure/account#az-account-set).
+4. Dopo che l'accesso è stato autorizzato, nella console viene visualizzato un elenco di sottoscrizioni. Copiare l'ID della sottoscrizione desiderata per impostare la sottoscrizione corrente da usare. Usare il comando [az account set](/cli/azure/account#az_account_set).
    ```azurecli-interactive
    az account set --subscription <your subscription id>
    ```
 
-5. Elencare le istanze dei server di Database di Azure per MariaDB per la sottoscrizione e il gruppo di risorse, se non si è certi dei nomi. Usare il comando [az mariadb server list](/cli/azure/mariadb/server#az-mariadb-server-list).
+5. Elencare le istanze dei server di Database di Azure per MariaDB per la sottoscrizione e il gruppo di risorse, se non si è certi dei nomi. Usare il comando [az mariadb server list](/cli/azure/mariadb/server#az_mariadb_server_list).
 
    ```azurecli-interactive
    az mariadb server list --resource-group myresourcegroup
    ```
 
-   Prendere nota dell'attributo del nome nell'elenco, necessario per specificare il server MariaDB da usare. Se necessario, verificare i dettagli per il server usando l'attributo del nome per assicurarsi che sia corretto. Usare il comando [az mariadb server show](/cli/azure/mariadb/server#az-mariadb-server-show).
+   Prendere nota dell'attributo del nome nell'elenco, necessario per specificare il server MariaDB da usare. Se necessario, verificare i dettagli per il server usando l'attributo del nome per assicurarsi che sia corretto. Usare il comando [az mariadb server show](/cli/azure/mariadb/server#az_mariadb_server_show).
 
    ```azurecli-interactive
    az mariadb server show --resource-group myresourcegroup --name mydemoserver
    ```
 
 ## <a name="list-firewall-rules-on-azure-database-for-mariadb-server"></a>Elencare le regole del firewall per un'istanza del server di Database di Azure per MariaDB 
-Usando il nome del server e il nome del gruppo di risorse, elencare le regole del firewall esistenti nel server. Usare il comando [az mariadb server firewall list](/cli/azure/mariadb/server/firewall-rule#az-mariadb-server-firewall-rule-list).  Tenere presente che l'attributo del nome del server è specificato nell'opzione **--server** e non nell'opzione **--name**. 
+Usando il nome del server e il nome del gruppo di risorse, elencare le regole del firewall esistenti nel server. Usare il comando [az mariadb server firewall list](/cli/azure/mariadb/server/firewall-rule#az_mariadb_server_firewall_rule_list).  Tenere presente che l'attributo del nome del server è specificato nell'opzione **--server** e non nell'opzione **--name**. 
 ```azurecli-interactive
 az mariadb server firewall-rule list --resource-group myresourcegroup --server-name mydemoserver
 ```
@@ -74,7 +74,7 @@ L'output elenca le eventuali regole presenti in formato JSON (per impostazione p
 az mariadb server firewall-rule list --resource-group myresourcegroup --server-name mydemoserver --output table
 ```
 ## <a name="create-a-firewall-rule-on-azure-database-for-mariadb-server"></a>Creare una regola del firewall per un'istanza del server di Database di Azure per MariaDB
-Usando il nome del server MariaDB di Azure e il nome del gruppo di risorse, creare una nuova regola del firewall nel server. Usare il comando [az mariadb server firewall create](/cli/azure/mariadb/server/firewall-rule#az-mariadb-server-firewall-rule-create). Specificare un nome per la regola, oltre all'indirizzo IP iniziale e all'indirizzo IP finale (per coprire l'accesso a un intervallo di indirizzi IP) relativi alla regola.
+Usando il nome del server MariaDB di Azure e il nome del gruppo di risorse, creare una nuova regola del firewall nel server. Usare il comando [az mariadb server firewall create](/cli/azure/mariadb/server/firewall-rule#az_mariadb_server_firewall_rule_create). Specificare un nome per la regola, oltre all'indirizzo IP iniziale e all'indirizzo IP finale (per coprire l'accesso a un intervallo di indirizzi IP) relativi alla regola.
 ```azurecli-interactive
 az mariadb server firewall-rule create --resource-group myresourcegroup --server-name mydemoserver --name FirewallRule1 --start-ip-address 13.83.152.0 --end-ip-address 13.83.152.15
 ```
@@ -96,7 +96,7 @@ az mariadb server firewall-rule create --resource-group myresourcegroup --server
 Al termine dell'operazione, l'output di ogni comando create elenca i dettagli della regola del firewall creata, in formato JSON (per impostazione predefinita). Se si verifica un errore, l'output visualizza invece il testo di un messaggio di errore.
 
 ## <a name="update-a-firewall-rule-on-azure-database-for-mariadb-server"></a>Aggiornare una regola del firewall per il server di Database di Azure per MariaDB 
-Usando il nome del server MariaDB di Azure e il nome del gruppo di risorse, aggiornare una regola del firewall esistente nel server. Usare il comando [az mariadb server firewall update](/cli/azure/mariadb/server/firewall-rule#az-mariadb-server-firewall-rule-update). Specificare il nome della regola del firewall esistente come input, oltre agli attributi dell'indirizzo IP iniziale e finale da aggiornare.
+Usando il nome del server MariaDB di Azure e il nome del gruppo di risorse, aggiornare una regola del firewall esistente nel server. Usare il comando [az mariadb server firewall update](/cli/azure/mariadb/server/firewall-rule#az_mariadb_server_firewall_rule_update). Specificare il nome della regola del firewall esistente come input, oltre agli attributi dell'indirizzo IP iniziale e finale da aggiornare.
 ```azurecli-interactive
 az mariadb server firewall-rule update --resource-group myresourcegroup --server-name mydemoserver --name FirewallRule1 --start-ip-address 13.83.152.0 --end-ip-address 13.83.152.1
 ```
@@ -106,14 +106,14 @@ Al termine dell'operazione, l'output del comando elenca i dettagli della regola 
 > Se la regola del firewall non esiste, viene creata dal comando di aggiornamento.
 
 ## <a name="show-firewall-rule-details-on-azure-database-for-mariadb-server"></a>Visualizzare i dettagli di una regola del firewall nel server di Database di Azure per MariaDB
-Usando il nome del server MariaDB di Azure e il nome del gruppo di risorse, visualizzare i dettagli di una regola del firewall esistente nel server. Usare il comando [az mariadb server firewall show](/cli/azure/mariadb/server/firewall-rule#az-mariadb-server-firewall-rule-show). Specificare il nome della regola del firewall esistente come input.
+Usando il nome del server MariaDB di Azure e il nome del gruppo di risorse, visualizzare i dettagli di una regola del firewall esistente nel server. Usare il comando [az mariadb server firewall show](/cli/azure/mariadb/server/firewall-rule#az_mariadb_server_firewall_rule_show). Specificare il nome della regola del firewall esistente come input.
 ```azurecli-interactive
 az mariadb server firewall-rule show --resource-group myresourcegroup --server-name mydemoserver --name FirewallRule1
 ```
 Al termine dell'operazione, l'output del comando elenca i dettagli della regola del firewall specificata, in formato JSON (per impostazione predefinita). Se si verifica un errore, l'output visualizza invece il testo di un messaggio di errore.
 
 ## <a name="delete-a-firewall-rule-on-azure-database-for-mariadb-server"></a>Eliminare una regola del firewall per il server di Database di Azure per MariaDB
-Usando il nome del server MariaDB di Azure e il nome del gruppo di risorse, rimuovere una regola del firewall esistente dal server. Usare il comando [az mariadb server firewall delete](/cli/azure/mariadb/server/firewall-rule#az-mariadb-server-firewall-rule-delete). Specificare il nome della regola del firewall esistente.
+Usando il nome del server MariaDB di Azure e il nome del gruppo di risorse, rimuovere una regola del firewall esistente dal server. Usare il comando [az mariadb server firewall delete](/cli/azure/mariadb/server/firewall-rule#az_mariadb_server_firewall_rule_delete). Specificare il nome della regola del firewall esistente.
 ```azurecli-interactive
 az mariadb server firewall-rule delete --resource-group myresourcegroup --server-name mydemoserver --name FirewallRule1
 ```
@@ -121,5 +121,5 @@ Al completamento dell'operazione non verrà visualizzato alcun output. In caso d
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Altre informazioni sulle [regole del firewall del server di Database di Azure per MariaDB](./concepts-firewall-rules.md).
-- [Creare e gestire le regole del firewall di database di Azure per MariaDB usando il portale di Azure](./howto-manage-firewall-portal.md).
-- Proteggere ulteriormente l'accesso al server [creando e gestendo gli endpoint e le regole del servizio rete virtuale usando l'interfaccia della](howto-manage-vnet-cli.md)riga di comando di Azure.
+- [Creare e gestire le regole del firewall di Database di Azure per MariaDB usando portale di Azure](./howto-manage-firewall-portal.md).
+- Proteggere ulteriormente l'accesso al server creando e gestendo le regole e gli endpoint di servizio della rete [virtuale usando l'interfaccia della](howto-manage-vnet-cli.md)riga di comando di Azure.

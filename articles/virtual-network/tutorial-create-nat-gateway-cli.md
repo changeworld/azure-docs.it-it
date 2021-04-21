@@ -9,12 +9,12 @@ ms.subservice: nat
 ms.topic: tutorial
 ms.date: 03/10/2021
 ms.custom: template-tutorial, devx-track-azurecli
-ms.openlocfilehash: d312702f441cfe2ad94e347cadcdfc88d4cc2a72
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 60436b8d4a0f338f4ece59ad4cd11c14c9e4c352
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107479322"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107762642"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-the-azure-cli"></a>Esercitazione: Creare un gateway NAT usando l'interfaccia della riga di comando di Azure
 
@@ -92,7 +92,7 @@ Creare una rete virtuale denominata **myVnet** con una subnet denominata **mySub
 
 Creare un host Azure Bastion denominato **myBastionHost per** accedere alla macchina virtuale. 
 
-Usare [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) per creare una subnet Azure Bastion rete virtuale.
+Usare [az network vnet subnet create per](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) creare una subnet Azure Bastion rete virtuale.
 
 ```azurecli-interactive
 az network vnet subnet create \
@@ -111,7 +111,7 @@ az network public-ip create \
     --sku Standard
 ```
 
-Usare [az network bastion create](/cli/azure/network/bastion#az-network-bastion-create) per creare l'host bastion. 
+Usare [az network bastion create](/cli/azure/network/bastion#az_network_bastion_create) per creare il bastion host. 
 
 ```azurecli-interactive
 az network bastion create \
@@ -141,7 +141,7 @@ A questo punto, tutto il traffico in uscita verso le destinazioni Internet usa i
 
 In questa sezione si creerà una macchina virtuale per testare il gateway NAT per verificare l'indirizzo IP pubblico della connessione in uscita.
 
-Creare la macchina virtuale con il comando [az vm create](/cli/azure/vm#az-vm-create).
+Creare la macchina virtuale con il comando [az vm create](/cli/azure/vm#az_vm_create).
 
 ```azurecli-interactive
 az vm create \

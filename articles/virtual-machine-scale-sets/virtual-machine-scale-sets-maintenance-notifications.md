@@ -9,12 +9,12 @@ ms.subservice: maintenance-control
 ms.date: 11/12/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 355e29cf062b731ed26670497a8de75fef266b99
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: ec8d211bd25eb04f9e000af950cea9a28a0d1874
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107375713"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107762840"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>Notifiche di manutenzione pianificata per set di scalabilità di macchine virtuali
 
@@ -143,7 +143,7 @@ Set-AzVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -Pe
 
 ## <a name="check-maintenance-status-by-using-the-cli"></a>Controllare lo stato della manutenzione con l'interfaccia della riga di comando
 
-È possibile visualizzare le informazioni per la manutenzione pianificata con [az vmss list-instances](/cli/azure/vmss#az-vmss-list-instances).
+È possibile visualizzare le informazioni per la manutenzione pianificata con [az vmss list-instances](/cli/azure/vmss#az_vmss_list_instances).
  
 Le informazioni vengono restituite solo se la manutenzione è pianificata. Se non è presente alcuna manutenzione pianificata per l'istanza della macchina virtuale, il comando non restituisce informazioni. 
 

@@ -1,6 +1,6 @@
 ---
-title: Clonare un'immagine gestita in una versione di immagine con l'interfaccia della riga di comando di Azure
-description: Informazioni su come clonare un'immagine gestita in una versione di immagine in una raccolta di immagini condivise usando l'interfaccia della riga di comando di Azure.
+title: Clonare un'immagine gestita in una versione dell'immagine con l'interfaccia della riga di comando di Azure
+description: Informazioni su come clonare un'immagine gestita in una versione dell'immagine in una raccolta di immagini condivise usando l'interfaccia della riga di comando di Azure.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: shared-image-gallery
@@ -10,26 +10,26 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: cae82072785838d410453b2eb83685905b0ba04e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1d0644b9ec9009fe5d1db7701834cb9788f86ab0
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102553783"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107790168"
 ---
 # <a name="clone-a-managed-image-to-an-image-version-using-the-azure-cli"></a>Clonare un'immagine gestita in una versione dell'immagine usando l'interfaccia della riga di comando di Azure
-Se si vuole clonare un'immagine gestita esistente in una raccolta di immagini condivise, è possibile creare un'immagine della raccolta di immagini condivise direttamente dall'immagine gestita. Dopo aver testato la nuova immagine, è possibile eliminare l'immagine gestita di origine. È anche possibile eseguire la migrazione da un'immagine gestita a una raccolta di immagini condivise usando [PowerShell](image-version-managed-image-powershell.md).
+Se si dispone di un'immagine gestita esistente che si vuole clonare in una raccolta di immagini condivise, è possibile creare un'immagine della Raccolta immagini condivise direttamente dall'immagine gestita. Dopo aver testato la nuova immagine, è possibile eliminare l'immagine gestita di origine. È anche possibile eseguire la migrazione da un'immagine gestita a una Raccolta immagini condivise usando [PowerShell.](image-version-managed-image-powershell.md)
 
-Le immagini in una raccolta immagini hanno due componenti, che verrà creato in questo esempio:
-- Una **definizione di immagine** contiene informazioni sull'immagine e sui requisiti per l'utilizzo. Questo include la possibilità di specificare se l'immagine è Windows o Linux, le note sulla versione e i requisiti di memoria minimi e massimi. Si tratta della definizione di un tipo di immagine. 
-- Una **versione dell'immagine** viene usata per creare una macchina virtuale quando si usa una raccolta di immagini condivise. È possibile avere più versioni di un'immagine in base alle necessità del proprio ambiente. Quando si crea una VM, la versione dell'immagine viene usata per creare nuovi dischi per la macchina virtuale. Le versioni delle immagini possono essere usate più volte.
+Le immagini in una raccolta di immagini hanno due componenti, che verranno creati in questo esempio:
+- Una **definizione di immagine** contiene informazioni sull'immagine e i requisiti per usarla. Ciò include se l'immagine è Windows o Linux, specializzata o generalizzata, note sulla versione e requisiti minimi e massimi di memoria. Si tratta della definizione di un tipo di immagine. 
+- Una **versione dell'immagine** viene usata per creare una macchina virtuale quando si usa una raccolta di immagini condivise. È possibile avere più versioni di un'immagine in base alle necessità del proprio ambiente. Quando si crea una macchina virtuale, la versione dell'immagine viene usata per creare nuovi dischi per la macchina virtuale. Le versioni delle immagini possono essere usate più volte.
 
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Per completare questo articolo, è necessario disporre di una [raccolta di immagini condivise](shared-images-cli.md)esistente. 
+Per completare questo articolo, è necessario disporre di una raccolta [di immagini condivise esistente.](shared-images-cli.md) 
 
-Per completare l'esempio in questo articolo, è necessario disporre di un'immagine gestita esistente di una macchina virtuale generalizzata. Per altre informazioni, vedere [acquisire un'immagine gestita](./linux/capture-image.md). Se l'immagine gestita contiene un disco dati, le dimensioni del disco dati non possono superare 1 TB.
+Per completare l'esempio in questo articolo, è necessario disporre di un'immagine gestita esistente di una macchina virtuale generalizzata. Per altre informazioni, vedere [Acquisire un'immagine gestita.](./linux/capture-image.md) Se l'immagine gestita contiene un disco dati, le dimensioni del disco dati non possono essere superiori a 1 TB.
 
 Quando si esegue l'esercitazione, sostituire i nomi del gruppo di risorse e delle macchine virtuali dove necessario.
 
@@ -37,15 +37,15 @@ Quando si esegue l'esercitazione, sostituire i nomi del gruppo di risorse e dell
 
 ## <a name="create-an-image-definition"></a>Creare una definizione dell'immagine
 
-Poiché le immagini gestite sono sempre immagini generalizzate, sarà necessario creare una definizione di immagine usando `--os-state generalized` per un'immagine generalizzata.
+Poiché le immagini gestite sono sempre immagini generalizzate, si creerà una definizione di immagine usando `--os-state generalized` per un'immagine generalizzata.
 
 I nomi delle definizioni di immagini possono essere costituiti da lettere maiuscole o minuscole, numeri, trattini e punti. 
 
 Per altre informazioni sui valori che è possibile specificare per la definizione di immagine, vedere [Definizioni di immagini](./shared-image-galleries.md#image-definitions).
 
-Creare una definizione di immagine nella raccolta usando [az sig image-definition create](/cli/azure/sig/image-definition#az-sig-image-definition-create).
+Creare una definizione di immagine nella raccolta usando [az sig image-definition create](/cli/azure/sig/image-definition#az_sig_image_definition_create).
 
-In questo esempio, la definizione dell'immagine è denominata *myImageDefinition* ed è per un'immagine del sistema operativo Linux [generalizzata](./shared-image-galleries.md#generalized-and-specialized-images) . Per creare una definizione per le immagini usando un sistema operativo Windows, usare `--os-type Windows`. 
+In questo esempio la definizione dell'immagine è *denominata myImageDefinition* ed è per un'immagine del sistema operativo Linux [generalizzata.](./shared-image-galleries.md#generalized-and-specialized-images) Per creare una definizione per le immagini usando un sistema operativo Windows, usare `--os-type Windows`. 
 
 ```azurecli-interactive 
 resourceGroup=myGalleryRG
@@ -65,7 +65,7 @@ az sig image-definition create \
 
 ## <a name="create-the-image-version"></a>Creare una versione di immagine
 
-Creare versioni usando [AZ Image Gallery create-Image-Version](/cli/azure/sig/image-version#az-sig-image-version-create). È necessario passare l'ID dell'immagine gestita da usare come baseline per creare la versione dell'immagine. È possibile usare [AZ Image List](/cli/azure/image?view#az-image-list) per ottenere gli ID per le immagini. 
+Creare versioni usando [az image gallery create-image-version.](/cli/azure/sig/image-version#az_sig_image_version_create) È necessario passare l'ID dell'immagine gestita da usare come baseline per creare la versione dell'immagine. È possibile usare [az image list](/cli/azure/image?view#az_image_list) per ottenere gli ID per le immagini. 
 
 ```azurecli-interactive
 az image list --query "[].[name, id]" -o tsv
@@ -73,9 +73,9 @@ az image list --query "[].[name, id]" -o tsv
 
 I caratteri consentiti per le versioni delle immagini sono numeri e punti. I numeri devono essere compresi nell'intervallo di un valore Integer a 32 bit. Formato: *MajorVersion*.*MinorVersion*.*Patch*.
 
-In questo esempio, la versione dell'immagine è *1.0.0* e verrà creata una replica nell'area *Stati Uniti centro-meridionali* e una replica nell'area *Stati Uniti orientali 2* usando l'archiviazione con ridondanza della zona. Quando si scelgono le aree di destinazione per la replica, tenere presente che è necessario includere anche l'area di *origine* come destinazione per la replica.
+In questo esempio la versione dell'immagine è *1.0.0* e si  creerà 1 replica nell'area Stati Uniti centro-meridionali e 1 replica nell'area Stati Uniti orientali *2* usando l'archiviazione con ridondanza della zona. Quando si scelgono le aree di destinazione per  la replica, tenere presente che è necessario includere anche l'area di origine come destinazione per la replica.
 
-Passare l'ID dell'immagine gestita nel `--managed-image` parametro.
+Passare l'ID dell'immagine gestita nel `--managed-image` parametro .
 
 
 ```azurecli-interactive 
@@ -93,11 +93,11 @@ az sig image-version create \
 > [!NOTE]
 > È necessario attendere che la creazione della versione dell'immagine venga interamente completata e replicata prima di poter usare la stessa immagine gestita o creare un'altra versione di immagine.
 >
-> È anche possibile archiviare tutte le repliche di versione dell'immagine nell' [archiviazione con ridondanza della zona](../storage/common/storage-redundancy.md) aggiungendo `--storage-account-type standard_zrs` quando si crea la versione dell'immagine.
+> È anche possibile archiviare tutte le repliche della versione dell'immagine in [Archiviazione con ridondanza](../storage/common/storage-redundancy.md) della zona aggiungendo `--storage-account-type standard_zrs` quando si crea la versione dell'immagine.
 >
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Creare una macchina virtuale da una [versione di immagine generalizzata](vm-generalized-image-version-cli.md).
+Creare una macchina virtuale da una [versione generalizzata dell'immagine](vm-generalized-image-version-cli.md).
 
-Per informazioni su come fornire informazioni sul piano di acquisto, vedere [fornire informazioni sul piano di acquisto di Azure Marketplace durante la creazione di immagini](marketplace-images.md).
+Per informazioni su come fornire informazioni sul piano di acquisto, vedere Fornire Azure Marketplace informazioni sul piano di acquisto [durante la creazione di immagini.](marketplace-images.md)

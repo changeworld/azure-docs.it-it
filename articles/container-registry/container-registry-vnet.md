@@ -1,14 +1,14 @@
 ---
 title: Limitare l'accesso con un endpoint di servizio
-description: Limitare l'accesso a un registro contenitori di Azure usando un endpoint di servizio in una rete virtuale di Azure. L'accesso agli endpoint di servizio è una funzionalità del livello di servizio Premium.
+description: Limitare l'accesso a un Registro Azure Container usando un endpoint di servizio in una rete virtuale di Azure. L'accesso all'endpoint di servizio è una funzionalità del livello di servizio Premium.
 ms.topic: article
 ms.date: 05/04/2020
-ms.openlocfilehash: c49595ee4ee79aef264a87dd48bccd03f3d4f5a5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8a67a011c75a192df9ad3460458fd766b5ec1ec1
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104773896"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107773469"
 ---
 # <a name="restrict-access-to-a-container-registry-using-a-service-endpoint-in-an-azure-virtual-network"></a>Limitare l'accesso a un registro contenitori usando un endpoint di servizio in una rete virtuale di Azure
 
@@ -26,7 +26,7 @@ La configurazione di un endpoint di servizio del registro è disponibile nel liv
 * Lo sviluppo futuro di endpoint di servizio per Registro Azure Container non è attualmente pianificato. Si consiglia invece di usare [endpoint privati](container-registry-private-link.md).
 * Non è possibile usare il portale di Azure per configurare endpoint di servizio in un registro.
 * Per accedere a un registro contenitori tramite un endpoint di servizio, è possibile usare solo un cluster del [servizio Azure Kubernetes](../aks/intro-kubernetes.md) o una [macchina virtuale](../virtual-machines/linux/overview.md) di Azure. *Altri servizi di Azure, incluse le istanze di Container di Azure, non sono supportati.*
-* Gli endpoint di servizio per Azure Container Registry non sono supportati nel Cloud Azure per enti pubblici degli Stati Uniti o nel cloud di Azure China.
+* Gli endpoint di servizio Registro Azure Container non sono supportati nel cloud di Azure US Government o nel cloud Azure Cina cloud.
 
 [!INCLUDE [container-registry-scanning-limitation](../../includes/container-registry-scanning-limitation.md)]
 
@@ -48,11 +48,11 @@ La configurazione di un endpoint di servizio del registro è disponibile nel liv
 
 ## <a name="configure-network-access-for-registry"></a>Configurare l'accesso alla rete per il registro
 
-In questa sezione, si vedrà come configurare il registro contenitori per consentire l'accesso da una subnet in una rete virtuale di Azure. I passaggi vengono forniti usando l'interfaccia della riga di comando di Azure.
+In questa sezione, si vedrà come configurare il registro contenitori per consentire l'accesso da una subnet in una rete virtuale di Azure. I passaggi vengono forniti tramite l'interfaccia della riga di comando di Azure.
 
 ### <a name="add-a-service-endpoint-to-a-subnet"></a>Aggiungere un endpoint di servizio a una subnet
 
-Quando si crea una macchina virtuale, per impostazione predefinita Azure crea una rete virtuale nello stesso gruppo di risorse. Il nome della rete virtuale si basa sul nome della macchina virtuale. Se, ad esempio, si rinomina la macchina virtuale in *myDockerVM*, il nome della rete virtuale predefinito sarà *myDockerVMVNET*, con una subnet denominata *myDockerVMSubnet*. Per verificare questa operazione, usare il comando [AZ Network VNET list][az-network-vnet-list] :
+Quando si crea una macchina virtuale, per impostazione predefinita Azure crea una rete virtuale nello stesso gruppo di risorse. Il nome della rete virtuale si basa sul nome della macchina virtuale. Se, ad esempio, si rinomina la macchina virtuale in *myDockerVM*, il nome della rete virtuale predefinito sarà *myDockerVMVNET*, con una subnet denominata *myDockerVMSubnet*. Verificarlo usando il [comando az network vnet list:][az-network-vnet-list]
 
 ```azurecli
 az network vnet list \
@@ -66,7 +66,7 @@ Output:
 [
   {
     "Name": "myDockerVMVNET",
-    "Subnet&quot;: &quot;myDockerVMSubnet"
+    "Subnet": "myDockerVMSubnet"
   }
 ]
 ```
@@ -199,24 +199,24 @@ az group delete --name myResourceGroup
 
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli
-[az-acr-create]: /cli/azure/acr#az-acr-create
-[az-acr-show]: /cli/azure/acr#az-acr-show
-[az-acr-repository-show]: /cli/azure/acr/repository#az-acr-repository-show
-[az-acr-repository-list]: /cli/azure/acr/repository#az-acr-repository-list
-[az-acr-login]: /cli/azure/acr#az-acr-login
-[az-acr-network-rule-add]: /cli/azure/acr/network-rule/#az-acr-network-rule-add
-[az-acr-network-rule-remove]: /cli/azure/acr/network-rule/#az-acr-network-rule-remove
-[az-acr-network-rule-list]: /cli/azure/acr/network-rule/#az-acr-network-rule-list
-[az-acr-run]: /cli/azure/acr#az-acr-run
-[az-acr-update]: /cli/azure/acr#az-acr-update
-[az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
+[az-acr-create]: /cli/azure/acr#az_acr_create
+[az-acr-show]: /cli/azure/acr#az_acr_show
+[az-acr-repository-show]: /cli/azure/acr/repository#az_acr_repository_show
+[az-acr-repository-list]: /cli/azure/acr/repository#az_acr_repository_list
+[az-acr-login]: /cli/azure/acr#az_acr_login
+[az-acr-network-rule-add]: /cli/azure/acr/network-rule/#az_acr_network_rule_add
+[az-acr-network-rule-remove]: /cli/azure/acr/network-rule/#az_acr_network_rule_remove
+[az-acr-network-rule-list]: /cli/azure/acr/network-rule/#az_acr_network_rule_list
+[az-acr-run]: /cli/azure/acr#az_acr_run
+[az-acr-update]: /cli/azure/acr#az_acr_update
+[az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az_ad_sp_create_for_rbac
 [az-group-create]: /cli/azure/group
-[az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
-[az-vm-create]: /cli/azure/vm#az-vm-create
-[az-network-vnet-subnet-show]: /cli/azure/network/vnet/subnet/#az-network-vnet-subnet-show
-[az-network-vnet-subnet-update]: /cli/azure/network/vnet/subnet/#az-network-vnet-subnet-update
-[az-network-vnet-subnet-show]: /cli/azure/network/vnet/subnet/#az-network-vnet-subnet-show
-[az-network-vnet-list]: /cli/azure/network/vnet/#az-network-vnet-list
+[az-role-assignment-create]: /cli/azure/role/assignment#az_role_assignment_create
+[az-vm-create]: /cli/azure/vm#az_vm_create
+[az-network-vnet-subnet-show]: /cli/azure/network/vnet/subnet/#az_network_vnet_subnet_show
+[az-network-vnet-subnet-update]: /cli/azure/network/vnet/subnet/#az_network_vnet_subnet_update
+[az-network-vnet-subnet-show]: /cli/azure/network/vnet/subnet/#az_network_vnet_subnet_show
+[az-network-vnet-list]: /cli/azure/network/vnet/#az_network_vnet_list
 [quickstart-portal]: container-registry-get-started-portal.md
 [quickstart-cli]: container-registry-get-started-azure-cli.md
 [azure-portal]: https://portal.azure.com

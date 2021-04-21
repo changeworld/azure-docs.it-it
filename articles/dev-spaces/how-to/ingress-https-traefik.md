@@ -6,12 +6,12 @@ ms.topic: conceptual
 description: Informazioni su come configurare Azure Dev Spaces usare un controller di ingresso traefik personalizzato e configurare HTTPS usando tale controller di ingresso
 keywords: Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s
 ms.custom: devx-track-js
-ms.openlocfilehash: a04b46297d4eef6403f580206795bb492dd82516
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 76a89545b8edc700928c1c2fe0e91dfc5d3127b9
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107374030"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107777492"
 ---
 # <a name="use-a-custom-traefik-ingress-controller-and-configure-https"></a>Usare un controller di ingresso traefik personalizzato e configurare HTTPS
 
@@ -92,7 +92,7 @@ az network dns record-set a add-record \
     --ipv4-address MY_EXTERNAL_IP
 ```
 
-Nell'esempio precedente viene aggiunto un record *A* *alla MY_CUSTOM_DOMAIN* DNS.
+L'esempio precedente aggiunge un record *A* *alla MY_CUSTOM_DOMAIN* DNS.
 
 In questo articolo verrà usata l'[applicazione di esempio Bike Sharing di Azure Dev Spaces](https://github.com/Azure/dev-spaces/tree/master/samples/BikeSharingApp) per illustrare l'uso di Azure Dev Spaces. Clonare l'applicazione da GitHub e passare alla relativa directory:
 
@@ -220,10 +220,10 @@ Usare `kubectl` per applicare `letsencrypt-clusterissuer.yaml` .
 kubectl apply -f letsencrypt-clusterissuer.yaml --namespace traefik
 ```
 
-Rimuovere i *clusterRole e* *ClusterRoleBinding* precedenti, quindi aggiornare traefik per usare HTTPS usando  `helm` .
+Rimuovere i precedenti *traefik* *ClusterRole* e *ClusterRoleBinding,* quindi aggiornare traefik per usare HTTPS usando `helm` .
 
 > [!NOTE]
-> Se per il cluster del servizio Kubernetes non è abilitato il controllo degli accessi in base al ruolo di Kubernetes, rimuovere il *parametro --set rbac.enabled=true.*
+> Se nel cluster del servizio Kubernetes non è abilitato il controllo degli accessi in base al ruolo di Kubernetes, rimuovere il *parametro --set rbac.enabled=true.*
 
 ```console
 kubectl delete ClusterRole traefik
@@ -237,7 +237,7 @@ Ottenere l'indirizzo IP aggiornato del servizio controller di ingresso traefik u
 kubectl get svc -n traefik --watch
 ```
 
-L'output di esempio mostra gli indirizzi IP per tutti i servizi nello spazio dei nomi *traefik.*
+L'output di esempio mostra gli indirizzi IP per tutti i servizi nello spazio dei *nomi traefik.*
 
 ```console
 NAME      TYPE           CLUSTER-IP    EXTERNAL-IP          PORT(S)                      AGE
@@ -262,9 +262,9 @@ az network dns record-set a remove-record \
     --ipv4-address PREVIOUS_EXTERNAL_IP
 ```
 
-L'esempio precedente aggiorna il record *A* nella zona DNS *MY_CUSTOM_DOMAIN* per usare *PREVIOUS_EXTERNAL_IP*.
+L'esempio precedente aggiorna il record *A* nella *zona* DNS MY_CUSTOM_DOMAIN per usare *PREVIOUS_EXTERNAL_IP*.
 
-Aggiornare [values.yaml per][values-yaml] includere i dettagli per l'uso di *cert-manager* e HTTPS. Di seguito è riportato un esempio di `values.yaml` file aggiornato:
+Aggiornare [values.yaml][values-yaml] per includere i dettagli per l'uso di *cert-manager* e HTTPS. Di seguito è riportato un esempio di `values.yaml` file aggiornato:
 
 ```yaml
 # This is a YAML-formatted file.
@@ -301,10 +301,10 @@ Aggiornare l'applicazione di esempio usando `helm` :
 helm upgrade bikesharingsampleapp . --namespace dev --atomic
 ```
 
-Passare all'applicazione di esempio nello spazio *figlio dev/azureuser1* e notare che si è reindirizzati all'uso di HTTPS.
+Passare all'applicazione di esempio nello spazio *figlio dev/azureuser1* e notare che si viene reindirizzati all'uso di HTTPS.
 
 > [!IMPORTANT]
-> Il completamento delle modifiche DNS e l'accesso all'applicazione di esempio possono richiedere più di 30 minuti.
+> Il completamento delle modifiche DNS e l'accesso all'applicazione di esempio potrebbero richiedere 30 minuti o più.
 
 Si noti anche che la pagina viene caricata, ma nel browser vengono visualizzati alcuni errori. L'apertura della console del browser mostra che l'errore è correlato a una pagina HTTPS che tenta di caricare le risorse HTTP. Ad esempio:
 
@@ -312,7 +312,7 @@ Si noti anche che la pagina viene caricata, ma nel browser vengono visualizzati 
 Mixed Content: The page at 'https://azureuser1.s.dev.bikesharingweb.traefik.MY_CUSTOM_DOMAIN/devsignin' was loaded over HTTPS, but requested an insecure resource 'http://azureuser1.s.dev.gateway.traefik.MY_CUSTOM_DOMAIN/api/user/allUsers'. This request has been blocked; the content must be served over HTTPS.
 ```
 
-Per correggere l'errore, aggiornare [BikeSharingWeb/azds.yaml][azds-yaml] in modo che usi *traefik* per *kubernetes.io/ingress.class* e il dominio personalizzato per *$(hostSuffix).* Ad esempio:
+Per correggere questo errore, aggiornare [BikeSharingWeb/azds.yaml][azds-yaml] in modo che usi *traefik* per *kubernetes.io/ingress.class* e il dominio personalizzato per *$(hostSuffix)*. Ad esempio:
 
 ```yaml
 ...
@@ -325,7 +325,7 @@ Per correggere l'errore, aggiornare [BikeSharingWeb/azds.yaml][azds-yaml] in mod
 ...
 ```
 
-Aggiornare [BikeSharingWeb/package.jssu][package-json] con una dipendenza per il *pacchetto URL.*
+Aggiornare [BikeSharingWeb/package.jscon][package-json] una dipendenza per il *pacchetto URL.*
 
 ```json
 {
@@ -337,7 +337,7 @@ Aggiornare [BikeSharingWeb/package.jssu][package-json] con una dipendenza per il
 ...
 ```
 
-Aggiornare il *metodo getApiHostAsync* in [BikeSharingWeb/lib/helpers.js][helpers-js] per usare HTTPS:
+Aggiornare il *metodo getApiHostAsync* in [BikeSharingWeb/lib/helpers.js][helpers-js] usare HTTPS:
 
 ```javascript
 ...
@@ -361,7 +361,7 @@ cd ../BikeSharingWeb/
 azds up
 ```
 
-Passare all'applicazione di esempio nello spazio figlio *dev/azureuser1* e notare che si viene reindirizzati all'uso di HTTPS senza errori.
+Passare all'applicazione di esempio nello spazio figlio *dev/azureuser1* e notare che si è reindirizzati all'uso di HTTPS senza errori.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -372,9 +372,9 @@ Altre informazioni sul funzionamento di Azure Dev Spaces.
 
 
 [az-cli]: /cli/azure/install-azure-cli
-[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
-[az-network-dns-record-set-a-add-record]: /cli/azure/network/dns/record-set/a#az-network-dns-record-set-a-add-record
-[az-network-dns-record-set-a-remove-record]: /cli/azure/network/dns/record-set/a#az-network-dns-record-set-a-remove-record
+[az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
+[az-network-dns-record-set-a-add-record]: /cli/azure/network/dns/record-set/a#az_network_dns_record_set_a_add_record
+[az-network-dns-record-set-a-remove-record]: /cli/azure/network/dns/record-set/a#az_network_dns_record_set_a_remove_record
 [custom-domain]: ../../app-service/manage-custom-dns-buy-domain.md#buy-an-app-service-domain
 [dns-zone]: ../../dns/dns-getstarted-cli.md
 [azds-yaml]: https://github.com/Azure/dev-spaces/blob/master/samples/BikeSharingApp/BikeSharingWeb/azds.yaml
