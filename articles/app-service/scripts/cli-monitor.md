@@ -9,12 +9,12 @@ ms.topic: sample
 ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: mvc, seodec18, devx-track-azurecli
-ms.openlocfilehash: 9881a5f37c32849fc4f10acda8346510977e6b7b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3d8442179ecec72d47e770d823bbfd5795f5c4dc
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97005786"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107787684"
 ---
 # <a name="monitor-an-app-service-app-with-web-server-logs-using-azure-cli"></a>Monitorare un'app del servizio app con i log del server Web usando l'interfaccia della riga di comando di Azure
 
@@ -38,11 +38,11 @@ Questo script usa i comandi seguenti per creare un gruppo di risorse, l'app del 
 
 | Comando | Note |
 |---|---|
-| [`az group create`](/cli/azure/group#az-group-create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
-| [`az appservice plan create`](/cli/azure/appservice/plan#az-appservice-plan-create) | Consente di creare un piano di servizio app. |
-| [`az webapp create`](/cli/azure/webapp#az-webapp-create) | Consente di creare un'app del servizio app. |
-| [`az webapp log config`](/cli/azure/webapp/log#az-webapp-log-config) | Configura i log che devono essere mantenuti da un'app del servizio app. |
-| [`az webapp log download`](/cli/azure/webapp/log#az-webapp-log-download) | Scarica i log di un'app del servizio app nel computer locale. |
+| [`az group create`](/cli/azure/group#az_group_create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
+| [`az appservice plan create`](/cli/azure/appservice/plan#az_appservice_plan_create) | Consente di creare un piano di servizio app. |
+| [`az webapp create`](/cli/azure/webapp#az_webapp_create) | Consente di creare un'app del servizio app. |
+| [`az webapp log config`](/cli/azure/webapp/log#az_webapp_log_config) | Configura i log che devono essere mantenuti da un'app del servizio app. |
+| [`az webapp log download`](/cli/azure/webapp/log#az_webapp_log_download) | Scarica i log di un'app del servizio app nel computer locale. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

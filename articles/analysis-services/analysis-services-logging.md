@@ -7,12 +7,13 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2bee856adef1208aabbe65ecd5fd11235579bb82
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 8ede7572079b6a54672234cbf9fe1445dafbad7b
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100582703"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107769212"
 ---
 # <a name="setup-diagnostic-logging"></a>Configurare la registrazione diagnostica
 
@@ -90,7 +91,7 @@ La categoria Metriche registra le stesse [metriche del server](analysis-services
 
 3. Fare clic su **Salva**.
 
-    Se viene visualizzato un errore che indica che non è stato possibile aggiornare la diagnostica per \<workspace name> . La sottoscrizione \<subscription id> non è registrata per l'uso di Microsoft. Insights. " seguire le istruzioni in [Risolvere i problemi relativi a Diagnostica di Azure](../azure-monitor/essentials/resource-logs.md) per registrare l'account, quindi ripetere questa procedura.
+    Se viene visualizzato un errore che indica che non è stato possibile aggiornare la diagnostica per \<workspace name> . La sottoscrizione \<subscription id> non è registrata per l'uso di microsoft.insights." seguire le istruzioni in [Risolvere i problemi relativi a Diagnostica di Azure](../azure-monitor/essentials/resource-logs.md) per registrare l'account, quindi ripetere questa procedura.
 
     Se in seguito si vuole modificare la modalità di salvataggio dei log delle risorse, è possibile tornare in questa pagina e modificare le impostazioni.
 

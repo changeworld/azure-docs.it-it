@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 08/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: d7e312f049acc0b74aa0a253864bfce6100044bd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5e36465c307443c8e6f135c5937bddbbb079b60e
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96929141"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107783162"
 ---
 # <a name="use-gpus-for-compute-intensive-workloads-on-azure-kubernetes-service-aks"></a>Usare le GPU per carichi di lavoro a elevato utilizzo di calcolo nel servizio Azure Kubernetes
 
@@ -26,19 +26,19 @@ Attualmente, l'uso di pool di nodi abilitati per GPU è disponibile solo per i p
 
 Questo articolo presuppone che si disponga di un cluster del servizio Azure Kubernetes esistente con nodi che supportano GPU. Il cluster servizio Azure Kubernetes deve eseguire Kubernetes 1.10 o versioni successive. Se occorre un cluster servizio Azure Kubernetes che soddisfi questi requisiti, vedere la prima sezione di questo articolo per [creare un cluster servizio Azure Kubernetes](#create-an-aks-cluster).
 
-È necessaria anche l'interfaccia della riga di comando di Azure versione 2.0.64 o successiva installata e configurata. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][install-azure-cli].
+È anche necessario che sia installata e configurata l'interfaccia della riga di comando di Azure versione 2.0.64 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][install-azure-cli].
 
 ## <a name="create-an-aks-cluster"></a>Creare un cluster AKS
 
-Se occorre un cluster del servizio Azure Kubernetes che soddisfi i requisiti minimi (nodo abilitato per la GPU e Kubernetes versione 1.10 o versioni successive), completare i passaggi seguenti. Se si dispone già di un cluster AKS che soddisfa questi requisiti, [passare alla sezione successiva](#confirm-that-gpus-are-schedulable).
+Se occorre un cluster del servizio Azure Kubernetes che soddisfi i requisiti minimi (nodo abilitato per la GPU e Kubernetes versione 1.10 o versioni successive), completare i passaggi seguenti. Se si dispone già di un cluster del servizio Web Diaks che soddisfa questi requisiti, [passare alla sezione successiva](#confirm-that-gpus-are-schedulable).
 
-Per prima cosa, creare un gruppo di risorse per il cluster usando il comando [AZ Group create][az-group-create] . L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nell'area *EastUS*:
+Creare prima di tutto un gruppo di risorse per il cluster usando [il comando az group create.][az-group-create] L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nell'area *EastUS*:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Creare ora un cluster AKS usando il comando [AZ AKS create][az-aks-create] . Nell'esempio seguente viene creato un cluster con un singolo nodo di dimensioni `Standard_NC6` :
+A questo punto creare un cluster del servizio Servizio Web Diaz usando [il comando az servizio WebKs create.][az-aks-create] L'esempio seguente crea un cluster con un singolo nodo di dimensioni `Standard_NC6` :
 
 ```azurecli-interactive
 az aks create \
@@ -48,7 +48,7 @@ az aks create \
     --node-count 1
 ```
 
-Ottenere le credenziali per il cluster AKS usando il comando [AZ AKS Get-credentials][az-aks-get-credentials] :
+Ottenere le credenziali per il cluster del servizio Diaks usando il [comando az servizio WebKs get-credentials:][az-aks-get-credentials]
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
@@ -64,7 +64,7 @@ Creare prima di tutto uno spazio dei nomi usando il comando [kubectl create name
 kubectl create namespace gpu-resources
 ```
 
-Creare un file denominato *nvidia-device-plugin-ds.yaml* e incollare il manifesto YAML seguente. Questo manifesto viene fornito come parte del plug-in del [dispositivo Nvidia per il progetto Kubernetes][nvidia-github].
+Creare un file denominato *nvidia-device-plugin-ds.yaml* e incollare il manifesto YAML seguente. Questo manifesto viene fornito come parte del plug-in del dispositivo [NVIDIA per il progetto Kubernetes][nvidia-github].
 
 ```yaml
 apiVersion: apps/v1
@@ -112,7 +112,7 @@ spec:
             path: /var/lib/kubelet/device-plugins
 ```
 
-A questo punto usare il comando [kubectl Apply][kubectl-apply] per creare il DaemonSet e verificare che il plug-in NVIDIA Device venga creato correttamente, come illustrato nell'output di esempio seguente:
+Usare ora il [comando kubectl apply][kubectl-apply] per creare il DaemonSet e verificare che il plug-in del dispositivo NVIDIA sia stato creato correttamente, come illustrato nell'output di esempio seguente:
 
 ```console
 $ kubectl apply -f nvidia-device-plugin-ds.yaml
@@ -120,12 +120,12 @@ $ kubectl apply -f nvidia-device-plugin-ds.yaml
 daemonset "nvidia-device-plugin" created
 ```
 
-## <a name="use-the-aks-specialized-gpu-image-preview"></a>Usare l'immagine GPU specializzata AKS (anteprima)
+## <a name="use-the-aks-specialized-gpu-image-preview"></a>Usare l'immagine GPU specializzata del servizio AKS (anteprima)
 
-Come alternativa a questi passaggi, AKS fornisce un'immagine AKS completamente configurata che contiene già il plug-in del [dispositivo Nvidia per Kubernetes][nvidia-github].
+In alternativa a questi passaggi, il servizio Kubernetes fornisce un'immagine del servizio Kubernetes completamente configurata che contiene già il plug-in del dispositivo [NVIDIA per Kubernetes.][nvidia-github]
 
 > [!WARNING]
-> Non installare manualmente il daemon di plug-in del dispositivo NVIDIA per i cluster usando la nuova immagine GPU specializzata AKS.
+> Non è consigliabile installare manualmente il set di daemon di plug-in del dispositivo NVIDIA per i cluster usando la nuova immagine GPU specializzata del servizio AKS.
 
 
 Registrare la funzionalità `GPUDedicatedVHDPreview`:
@@ -134,19 +134,19 @@ Registrare la funzionalità `GPUDedicatedVHDPreview`:
 az feature register --name GPUDedicatedVHDPreview --namespace Microsoft.ContainerService
 ```
 
-Potrebbero essere necessari alcuni minuti prima che lo stato venga visualizzato come **Registrato**. È possibile controllare lo stato di registrazione con il comando [az feature list](/cli/azure/feature#az-feature-list):
+Potrebbero essere necessari alcuni minuti prima che lo stato venga visualizzato come **Registrato**. È possibile controllare lo stato di registrazione con il comando [az feature list](/cli/azure/feature#az_feature_list):
 
 ```azurecli
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/GPUDedicatedVHDPreview')].{Name:name,State:properties.state}"
 ```
 
-Quando lo stato diventa Registrato, aggiornare la registrazione del provider di risorse `Microsoft.ContainerService` usando il comando [ az provider register](/cli/azure/provider#az-provider-register):
+Quando lo stato diventa Registrato, aggiornare la registrazione del provider di risorse `Microsoft.ContainerService` usando il comando [ az provider register](/cli/azure/provider#az_provider_register):
 
 ```azurecli
 az provider register --namespace Microsoft.ContainerService
 ```
 
-Per installare l'estensione dell'interfaccia della riga di comando AKS-Preview, usare i seguenti comandi dell'interfaccia della riga di comando
+Per installare l'estensione dell'interfaccia della riga di comando aks-preview, usare i comandi dell'interfaccia della riga di comando di Azure seguenti:
 
 ```azurecli
 az extension add --name aks-preview
@@ -158,29 +158,29 @@ Per aggiornare l'estensione aks-preview dell'interfaccia della riga di comando, 
 az extension update --name aks-preview
 ```
 
-### <a name="use-the-aks-specialized-gpu-image-on-new-clusters-preview"></a>Usare l'immagine GPU specializzata di AKS nei nuovi cluster (anteprima)    
+### <a name="use-the-aks-specialized-gpu-image-on-new-clusters-preview"></a>Usare l'immagine GPU specializzata del servizio Web Diaks nei nuovi cluster (anteprima)    
 
-Configurare il cluster per l'uso dell'immagine GPU specializzata AKS quando viene creato il cluster. Usare il `--aks-custom-headers` flag per i nodi dell'agente GPU nel nuovo cluster per usare l'immagine GPU specializzata AKS.
+Configurare il cluster per l'uso dell'immagine GPU specializzata del servizio Diaks quando viene creato il cluster. Usare il `--aks-custom-headers` flag per i nodi dell'agente GPU nel nuovo cluster per usare l'immagine GPU specializzata del servizio AKS.
 
 ```azurecli
 az aks create --name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_NC6 --node-count 1 --aks-custom-headers UseGPUDedicatedVHD=true
 ```
 
-Se si vuole creare un cluster usando le immagini AKS normali, è possibile omettere il `--aks-custom-headers` tag personalizzato. È anche possibile scegliere di aggiungere pool di nodi GPU più specializzati come indicato di seguito.
+Se si vuole creare un cluster usando le normali immagini del servizio Web Disassociato di Microsoft, è possibile omettere il `--aks-custom-headers` tag personalizzato. È anche possibile scegliere di aggiungere pool di nodi GPU più specializzati come indicato di seguito.
 
 
-### <a name="use-the-aks-specialized-gpu-image-on-existing-clusters-preview"></a>Usare l'immagine GPU specializzata AKS nei cluster esistenti (anteprima)
+### <a name="use-the-aks-specialized-gpu-image-on-existing-clusters-preview"></a>Usare l'immagine GPU specializzata del servizio AKS nei cluster esistenti (anteprima)
 
-Configurare un nuovo pool di nodi per l'uso dell'immagine GPU specializzata AKS. Usare il `--aks-custom-headers` flag flag per i nodi dell'agente GPU nel nuovo pool di nodi per usare l'immagine GPU specializzata AKS.
+Configurare un nuovo pool di nodi per l'uso dell'immagine GPU specializzata del servizio AKS. Usare il `--aks-custom-headers` flag per i nodi dell'agente GPU nel nuovo pool di nodi per usare l'immagine GPU specializzata del servizio AKS.
 
 ```azurecli
 az aks nodepool add --name gpu --cluster-name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_NC6 --node-count 1 --aks-custom-headers UseGPUDedicatedVHD=true
 ```
 
-Se si vuole creare un pool di nodi usando le immagini AKS normali, è possibile omettere il `--aks-custom-headers` tag personalizzato. 
+Se si vuole creare un pool di nodi usando le normali immagini del servizio AKS, è possibile farlo omettendo il `--aks-custom-headers` tag personalizzato. 
 
 > [!NOTE]
-> Se lo SKU GPU richiede le macchine virtuali di seconda generazione, è possibile creare:
+> Se lo sku GPU richiede macchine virtuali di seconda generazione, è possibile creare in questo modo:
 > ```azurecli
 > az aks nodepool add --name gpu --cluster-name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_NC6s_v2 --node-count 1 --aks-custom-headers UseGPUDedicatedVHD=true,usegen2vm=true
 > ```
@@ -255,7 +255,7 @@ Per vedere la GPU in esecuzione, pianificare un carico di lavoro abilitato per l
 Creare un file denominato *samples-tf-mnist-demo.yaml* e incollare il manifesto YAML seguente. Il manifesto del processo seguente include un limite di risorse di `nvidia.com/gpu: 1`:
 
 > [!NOTE]
-> Se si riceve un errore di mancata corrispondenza della versione durante la chiamata ai driver, ad esempio la versione del driver CUDA non è sufficiente per la versione del runtime CUDA, vedere il grafico di compatibilità della matrice driver NVIDIA- [https://docs.nvidia.com/deploy/cuda-compatibility/index.html](https://docs.nvidia.com/deploy/cuda-compatibility/index.html)
+> Se viene visualizzato un errore di mancata corrispondenza della versione durante la chiamata ai driver, ad esempio la versione del driver CUDA non è sufficiente per la versione di runtime CUDA, esaminare il grafico di compatibilità della matrice dei driver NVIDIA : [https://docs.nvidia.com/deploy/cuda-compatibility/index.html](https://docs.nvidia.com/deploy/cuda-compatibility/index.html)
 
 ```yaml
 apiVersion: batch/v1
@@ -289,7 +289,7 @@ kubectl apply -f samples-tf-mnist-demo.yaml
 
 ## <a name="view-the-status-and-output-of-the-gpu-enabled-workload"></a>Visualizzare lo stato e l'output del carico di lavoro abilitato per la GPU
 
-Monitorare lo stato del processo usando il comando [kubectl get jobs][kubectl-get] con l'argomento `--watch`. L'esecuzione del pull dell'immagine come prima cosa e l'elaborazione del set di dati possono richiedere alcuni minuti. Quando la colonna *completes* Visualizza *1/1*, il processo è stato completato correttamente. Uscire dal `kubetctl --watch` comando con *CTRL + C*:
+Monitorare lo stato del processo usando il comando [kubectl get jobs][kubectl-get] con l'argomento `--watch`. L'esecuzione del pull dell'immagine come prima cosa e l'elaborazione del set di dati possono richiedere alcuni minuti. Quando la *colonna COMPLETIONS* mostra *1/1,* il processo è stato completato correttamente. Uscire dal `kubetctl --watch` comando con *CTRL+C*:
 
 ```console
 $ kubectl get jobs samples-tf-mnist-demo --watch
@@ -300,7 +300,7 @@ samples-tf-mnist-demo   0/1           3m29s      3m29s
 samples-tf-mnist-demo   1/1   3m10s   3m36s
 ```
 
-Per esaminare l'output del carico di lavoro abilitato per la GPU, ottenere innanzitutto il nome del Pod con il comando [kubectl Get Pod][kubectl-get] :
+Per esaminare l'output del carico di lavoro abilitato per GPU, ottenere prima il nome del pod con il [comando kubectl get pods:][kubectl-get]
 
 ```console
 $ kubectl get pods --selector app=samples-tf-mnist-demo
@@ -413,9 +413,9 @@ Per altre informazioni sull'esecuzione di carichi di lavoro di Machine Learning 
 [nvidia-github]: https://github.com/NVIDIA/k8s-device-plugin
 
 <!-- LINKS - internal -->
-[az-group-create]: /cli/azure/group#az-group-create
-[az-aks-create]: /cli/azure/aks#az-aks-create
-[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
+[az-group-create]: /cli/azure/group#az_group_create
+[az-aks-create]: /cli/azure/aks#az_aks_create
+[az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
 [aks-spark]: spark-job.md
 [gpu-skus]: ../virtual-machines/sizes-gpu.md
 [install-azure-cli]: /cli/azure/install-azure-cli

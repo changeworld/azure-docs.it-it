@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 05/02/2018
 ms.topic: how-to
 manager: carmonm
-ms.openlocfilehash: 24ff0d8089055f83c76156cf5fb163313faf9492
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7bf62eb2ab8d2ce82ce73e3e8ae26cf303b8ba67
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105043479"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107765882"
 ---
 # <a name="run-scripts-in-your-windows-vm"></a>Eseguire gli script nella macchina virtuale Windows
 
@@ -35,7 +35,7 @@ L'[Estensione dello Script personalizzata](../extensions/custom-script-windows.m
 La funzione [Eseguire comando](run-command.md) abilita la macchina virtuale e la gestione delle applicazioni e della risoluzione dei problemi tramite gli script ed è disponibile anche quando il computer non è raggiungibile, ad esempio se il firewall guest non ha la porta RDP o SSH aperta.
 
 * Eseguire script nelle macchine virtuali di Azure.
-* È possibile eseguirlo tramite [portale di Azure](run-command.md), [API REST](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), [interfaccia della riga di comando di Azure](/cli/azure/vm/run-command#az-vm-run-command-invoke), o [PowerShell](/powershell/module/az.compute/invoke-azvmruncommand)
+* È possibile eseguirlo tramite [portale di Azure](run-command.md), [API REST](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), [interfaccia della riga di comando di Azure](/cli/azure/vm/run-command#az_vm_run_command_invoke), o [PowerShell](/powershell/module/az.compute/invoke-azvmruncommand)
 * Eseguire velocemente uno script e visualizzare l'output e ripetere come richiesto nel portale di Azure.
 * Lo script può essere digitato direttamente oppure è possibile eseguire script incorporati.
 * Eseguire uno script di PowerShell nei computer Windows e gli Script Bash nei computer Linux.
@@ -70,6 +70,6 @@ Il [console seriale](/troubleshoot/azure/virtual-machines/serial-console-windows
 Altre informazioni sulle diverse funzioni che sono disponibili per eseguire script e comandi all'interno delle macchine virtuali.
 
 * [Estensione di script personalizzati](../extensions/custom-script-windows.md)
-* [Esegui comando](run-command.md)
+* [esegui comando](run-command.md)
 * [Ruolo di lavoro ibrido per runbook](../../automation/automation-hybrid-runbook-worker.md)
 * [console seriale](/troubleshoot/azure/virtual-machines/serial-console-windows)

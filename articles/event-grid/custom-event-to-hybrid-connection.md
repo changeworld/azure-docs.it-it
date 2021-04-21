@@ -4,12 +4,12 @@ description: "Esercitazione: Usare Griglia di eventi di Azure e l'interfaccia de
 ms.date: 07/07/2020
 ms.topic: tutorial
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: c709d77827551860cc917c3c84c5a849d9fdc512
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7fcbc76f3ab58aac6beca3e142eba3a9b62c28a3
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94566827"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107770406"
 ---
 # <a name="tutorial-route-custom-events-to-azure-relay-hybrid-connections-with-azure-cli-and-event-grid"></a>Esercitazione: Instradare eventi personalizzati a Connessioni ibride di Inoltro di Azure con l'interfaccia della riga di comando di Azure e Griglia di eventi
 
@@ -27,7 +27,7 @@ La griglia di eventi di Azure è un servizio di gestione degli eventi per il clo
 
 Gli argomenti della griglia di eventi sono risorse di Azure e devono essere inseriti in un gruppo di risorse di Azure. Un gruppo di risorse è una raccolta logica in cui le risorse di Azure vengono distribuite e gestite.
 
-Creare un gruppo di risorse con il comando [az group create](/cli/azure/group#az-group-create). 
+Creare un gruppo di risorse con il comando [az group create](/cli/azure/group#az_group_create). 
 
 L'esempio seguente crea un gruppo di risorse denominato *gridResourceGroup* nella località *westus2*.
 

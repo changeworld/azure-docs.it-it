@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 11/13/2018
 ms.author: zhshang
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 673a3583b1ec80fb3ad61ec35a1786a59939f6e8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e6e2484dc7fffdcecb64ef3b3afa3a7a4343d29c
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94563325"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107787306"
 ---
 # <a name="create-a-signalr-service-with-an-app-service"></a>Creare un servizio SignalR con un servizio app
 
@@ -80,12 +80,12 @@ Ogni comando della tabella include collegamenti alla documentazione specifica de
 
 | Comando | Note |
 |---|---|
-| [az group create](/cli/azure/group#az-group-create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
-| [az signalr create](/cli/azure/signalr#az-signalr-create) | Crea una risorsa servizio Azure SignalR. |
-| [az signalr key list](/cli/azure/signalr/key#az-signalr-key-list) | Elencare le chiavi che saranno usate dall'applicazione per il push in tempo reale degli aggiornamenti del contenuto con SignalR. |
-| [az appservice plan create](/cli/azure/appservice/plan#az-appservice-plan-create) | Crea un piano del servizio app di Azure per l'hosting di app Web. |
-| [az webapp create](/cli/azure/webapp#az-webapp-create) | Crea un'app Web di Azure usando il piano di servizio app host. |
-| [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) | Aggiunge una nuova impostazione app per l'app Web. Questa impostazione app viene usata per archiviare la stringa di connessione SignalR. |
+| [az group create](/cli/azure/group#az_group_create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
+| [az signalr create](/cli/azure/signalr#az_signalr_create) | Crea una risorsa servizio Azure SignalR. |
+| [az signalr key list](/cli/azure/signalr/key#az_signalr_key_list) | Elencare le chiavi che saranno usate dall'applicazione per il push in tempo reale degli aggiornamenti del contenuto con SignalR. |
+| [az appservice plan create](/cli/azure/appservice/plan#az_appservice_plan_create) | Crea un piano del servizio app di Azure per l'hosting di app Web. |
+| [az webapp create](/cli/azure/webapp#az_webapp_create) | Crea un'app Web di Azure usando il piano di servizio app host. |
+| [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) | Aggiunge una nuova impostazione app per l'app Web. Questa impostazione app viene usata per archiviare la stringa di connessione SignalR. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

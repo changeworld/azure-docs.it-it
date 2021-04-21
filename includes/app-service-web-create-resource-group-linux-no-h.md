@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 02/02/2018
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: d1f78034c2142bfb0fc787683b7efed22ae2698c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cc44780bd9b42e00ecfb3d140486fec87c767a76
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102244484"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107767251"
 ---
 [!INCLUDE [resource group intro text](resource-group.md)]
 
-In Cloud Shell creare un gruppo di risorse con il comando [`az group create`](/cli/azure/group#az-group-create). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella località *Europa occidentale*. Per visualizzare tutte le località supportate per il servizio app in Linux nel livello **Basic**, eseguire il comando [`az appservice list-locations --sku B1 --linux-workers-enabled`](/cli/azure/appservice#az-appservice-list-locations).
+In Cloud Shell creare un gruppo di risorse con il comando [`az group create`](/cli/azure/group#az_group_create). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella località *Europa occidentale*. Per visualizzare tutte le località supportate per il servizio app in Linux nel livello **Basic**, eseguire il comando [`az appservice list-locations --sku B1 --linux-workers-enabled`](/cli/azure/appservice#az_appservice_list_locations).
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "West Europe"

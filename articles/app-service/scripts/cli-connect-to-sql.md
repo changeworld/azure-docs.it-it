@@ -9,12 +9,12 @@ ms.topic: sample
 ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: mvc, seodec18, devx-track-azurecli
-ms.openlocfilehash: abd96e513aadf44d0f313670e1437ebd16aa410c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 92fa93d64798f67f28ca0020731c63b7922866fe
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97006379"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107782370"
 ---
 # <a name="connect-an-app-service-app-to-sql-database-using-cli"></a>Connettere un'app del servizio app al database SQL con l'interfaccia della riga di comando
 
@@ -38,13 +38,13 @@ Questo script usa i comandi seguenti per creare un gruppo di risorse, l'app del 
 
 | Comando | Note |
 |---|---|
-| [`az group create`](/cli/azure/group#az-group-create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
-| [`az appservice plan create`](/cli/azure/appservice/plan#az-appservice-plan-create) | Consente di creare un piano di servizio app. |
-| [`az webapp create`](/cli/azure/webapp#az-webapp-create) | Consente di creare un'app del servizio app. |
-| [`az sql server create`](/cli/azure/sql/server#az-sql-server-create) | Consente di creare un server.  |
-| [`az sql db create`](/cli/azure/sql/db#az-sql-db-create) | Crea un nuovo database. |
-| [`az sql db show-connection-string`](/cli/azure/sql/db#az-sql-db-show-connection-string) | Genera una stringa di connessione al database. |
-| [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) | Crea o aggiorna un'impostazione app per un'app del servizio app. Le impostazioni delle app vengono esposte come variabili di ambiente dell'applicazione. |
+| [`az group create`](/cli/azure/group#az_group_create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
+| [`az appservice plan create`](/cli/azure/appservice/plan#az_appservice_plan_create) | Consente di creare un piano di servizio app. |
+| [`az webapp create`](/cli/azure/webapp#az_webapp_create) | Consente di creare un'app del servizio app. |
+| [`az sql server create`](/cli/azure/sql/server#az_sql_server_create) | Consente di creare un server.  |
+| [`az sql db create`](/cli/azure/sql/db#az_sql_db_create) | Crea un nuovo database. |
+| [`az sql db show-connection-string`](/cli/azure/sql/db#az_sql_db_show-connection_string) | Genera una stringa di connessione al database. |
+| [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) | Crea o aggiorna un'impostazione app per un'app del servizio app. Le impostazioni delle app vengono esposte come variabili di ambiente dell'applicazione. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,5 +1,5 @@
 ---
-title: Reimpostare le credenziali dell'account-interfaccia della riga di comando
+title: Reimpostare le credenziali dell'account - Interfaccia della riga di comando
 description: Usare lo script dell'interfaccia della riga di comando di Azure per reimpostare le credenziali dell'account e ottenere le impostazioni di app.config.
 services: media-services
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: cc605a08147da1d076b302e515a4ebe8d411a782
-ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.openlocfilehash: d5604f177484d33255d2923d72b00fae124c0f9a
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105964118"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107783594"
 ---
 # <a name="azure-cli-example-reset-the-account-credentials"></a>Esempio di interfaccia della riga di comando di Azure: Reimpostare le credenziali dell'account
 
@@ -47,4 +47,4 @@ az ams account sp reset-credentials \
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [az ams](/cli/azure/ams)
-* [Reimpostare le credenziali](/cli/azure/ams/account/sp#az-ams-account-sp-reset-credentials)
+* [Reimpostare le credenziali](/cli/azure/ams/account/sp#az_ams_account_sp_reset_credentials)

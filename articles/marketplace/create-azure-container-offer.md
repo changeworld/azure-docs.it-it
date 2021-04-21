@@ -7,12 +7,12 @@ ms.topic: how-to
 author: keferna
 ms.author: keferna
 ms.date: 06/17/2020
-ms.openlocfilehash: 01370a8d7710292858fe28d263fe5456b012c40f
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: dc7a81f1646fc9f51a4e0bcaf37ef61ca669414e
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107107381"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107780516"
 ---
 # <a name="create-an-azure-container-offer-in-azure-marketplace"></a>Creare un'offerta del contenitore di Azure in Azure Marketplace
 
@@ -29,7 +29,7 @@ Questo articolo descrive come creare e pubblicare un'offerta di contenitori per 
    ![Menu di spostamento a sinistra.](./partner-center-portal/media/new-offer-azure-container.png)
 
 > [!TIP]
-> Dopo la pubblicazione di un'offerta, le modifiche apportate al centro per i partner vengono visualizzate solo negli archivi online dopo la ripubblicazione dell'offerta. Assicurarsi di ripubblicare sempre l'offerta dopo avere apportato modifiche.
+> Dopo la pubblicazione di un'offerta, le modifiche apportate Partner Center vengono visualizzate negli store online solo dopo la ripubblicazione dell'offerta. Assicurarsi di ripubblicare sempre l'offerta dopo avere apportato modifiche.
 
 ### <a name="offer-id-and-alias"></a>ID e alias dell'offerta
 
@@ -82,7 +82,7 @@ Di seguito sono elencate alcune risorse aggiuntive per la gestione dei clienti p
 
 - [Lead di clienti tramite l'offerta del marketplace commerciale](./partner-center-portal/commercial-marketplace-get-customer-leads.md)
 - [Domande frequenti sulla gestione dei lead](lead-management-faq.md#common-questions-about-lead-management)
-- [Risoluzione degli errori di configurazione del lead](lead-management-faq.md#publishing-config-errors)
+- [Risoluzione degli errori di configurazione dei lead](lead-management-faq.md#publishing-config-errors)
 - PDF [Panoramica della gestione dei clienti potenziali](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) (assicurarsi che il blocco dei popup sia disattivato)
 
 Prima di continuare, selezionare **Salva bozza**.
@@ -93,12 +93,12 @@ Questa pagina consente di definire le categorie usate per raggruppare l'offerta 
 
 #### <a name="category"></a>Category
 
-Selezionare le categorie e le sottocategorie per inserire l'offerta nelle aree di ricerca del Marketplace appropriate. Assicurarsi di descrivere il modo in cui l'offerta supporta queste categorie nella descrizione dell'offerta. Selezionare:
+Selezionare categorie e sottocategorie per inserire l'offerta nelle aree di ricerca del marketplace appropriate. Assicurarsi di descrivere il modo in cui l'offerta supporta queste categorie nella descrizione dell'offerta. Selezionare:
 
-- Almeno una delle due categorie, incluse una categoria primaria e una secondaria (facoltativo).
-- Fino a due sottocategorie per ogni categoria primaria e/o secondaria. Se per l'offerta non è applicabile alcuna sottocategoria, selezionare **non applicabile**.
+- Almeno una e fino a due categorie, tra cui una categoria primaria e una secondaria (facoltativo).
+- Fino a due sottocategorie per ogni categoria primaria e/o secondaria. Se all'offerta non è applicabile alcuna sottocategoria, selezionare **Non applicabile.**
 
-Vedere l'elenco completo di categorie e sottocategorie nell'elenco delle [procedure](gtm-offer-listing-best-practices.md)consigliate. I contenitori vengono sempre visualizzati in **contenitori** e quindi nella categoria **Immagini contenitore** .
+Vedere l'elenco completo delle categorie e delle sottocategorie in Procedure consigliate per [l'inserzione dell'offerta.](gtm-offer-listing-best-practices.md) I contenitori vengono sempre visualizzati **in Contenitori** e quindi nella **categoria Immagini contenitore.**
 
 #### <a name="legal"></a>Note legali
 
@@ -113,7 +113,7 @@ Microsoft offre un modello di contratto standard per semplificare le transazioni
 
 Per altre informazioni sul contratto standard, vedere [Contratto standard per il marketplace commerciale Microsoft](standard-contract.md). È anche possibile scaricare il PDF sul [contratto standard](https://go.microsoft.com/fwlink/?linkid=2041178) (assicurarsi che il blocco popup sia disattivato).
 
-Per usare il contratto standard, selezionare * * Usa il contratto standard per il Marketplace commerciale di Microsoft] (.. /standard-contract.md)
+Per usare il contratto standard, selezionare la casella di controllo **Usa contratto standard per il marketplace commerciale Microsoft](.. /standard-contract.md)
 
 > [!NOTE]
 > Dopo la pubblicazione di un'offerta con il contratto standard per il marketplace commerciale Microsoft, non è possibile usare i termini e le condizioni personalizzati. È possibile offrire la propria soluzione con il contratto standard oppure con i propri termini e condizioni.
@@ -197,13 +197,13 @@ Fornire i logo e le immagini da usare con l'offerta. Tutte le immagini devono es
 
 #### <a name="store-logos"></a>Logo dello store
 
-Fornire un file PNG per il logo di **grandi** dimensioni. Il centro per i partner lo utilizzerà per creare un logo **piccolo** e **medio** . Facoltativamente, è possibile sostituirli con immagini diverse in un secondo momento.
+Specificare un file PNG per il logo **Di** grandi dimensioni. Partner Center verrà utilizzato per creare un logo **Piccolo** e **Medio.** Facoltativamente, è possibile sostituirli con immagini diverse in un secondo momento.
 
-- **Grande** (da 216 x 216 a 350 x 350 px, obbligatorio)
+- **Large** (da 216 x 216 a 350 x 350 px, obbligatorio)
 - **Media** (90 x 90 px, facoltativo)
-- **Piccolo** (48 x 48 px, facoltativo)
+- **Small** (48 x 48 px, facoltativo)
 
-Questi logo vengono usati in posizioni diverse nell'elenco:
+Questi logo vengono usati in posizioni diverse nell'inserzione:
 
 [!INCLUDE [logos-azure-marketplace-only](./includes/logos-azure-marketplace-only.md)]
 
@@ -255,15 +255,15 @@ Prima di continuare, selezionare **Salva bozza**.
 
 ## <a name="plan-overview"></a>Panoramica del piano
 
-Questa scheda consente di specificare diverse opzioni per il piano all'interno della stessa offerta. I piani (in precedenza denominati SKU) possono variare in termini di cloud disponibili, ad esempio cloud globali, cloud governativi e immagine a cui fa riferimento il piano. Per presentare l'offerta nel marketplace commerciale, è necessario configurare almeno un piano.
+Questa scheda consente di specificare diverse opzioni per il piano all'interno della stessa offerta. I piani (chiamati in precedenza SKU) possono differire in termini di cloud disponibili, ad esempio cloud globali, cloud per enti pubblici e l'immagine a cui fa riferimento il piano. Per presentare l'offerta nel marketplace commerciale, è necessario configurare almeno un piano.
 
-È possibile creare fino a 100 piani per ogni offerta: fino a 45 di questi possono essere privati. Scopri di più sui piani privati in [offerte private in Microsoft Commercial Marketplace](private-offers.md).
+È possibile creare fino a 100 piani per ogni offerta: fino a 45 di questi possono essere privati. Per altre informazioni sui piani [privati, vedere Offerte private nel marketplace commerciale Microsoft.](private-offers.md)
 
 Dopo aver creato i piani, la scheda **Panoramica del piano** mostra:
 
 - Nomi dei piani
 - Modello di prezzi
-- Aree di Azure (globale o per enti pubblici)
+- Aree di Azure (globali o per enti pubblici)
 - Stato attuale di pubblicazione
 - Eventuali azioni disponibili
 
@@ -289,16 +289,16 @@ Questa scheda consente di scegliere i cloud in cui è disponibile il piano. Le r
 
 #### <a name="azure-regions"></a>Aree di Azure
 
-Tutti i piani per le offerte di contenitori di Azure vengono resi disponibili automaticamente in **Azure Global**.  Il piano può essere usato dai clienti in tutte le aree di Azure globali che usano il Marketplace commerciale. Per informazioni dettagliate, vedere [Disponibilità geografica e supporto delle valute](marketplace-geo-availability-currencies.md).
+Tutti i piani per le offerte di Azure Container vengono resi automaticamente disponibili in **Azure Globale.**  Il piano può essere usato dai clienti in tutte le aree di Azure globali che usano il marketplace commerciale. Per informazioni dettagliate, vedere [Disponibilità geografica e supporto delle valute](marketplace-geo-availability-currencies.md).
 
-Selezionare l'opzione [Azure Government](../azure-government/documentation-government-welcome.md) per fare in modo che la soluzione venga visualizzata qui. Si tratta di un Government Community Cloud con accesso controllato per i clienti delle agenzie governative federali, statali e locali degli Stati Uniti e partner idonei a servire questi enti. In qualità di editore, l'utente è responsabile di eventuali controlli di conformità, misure di sicurezza e procedure consigliate per questa community cloud. Azure per enti pubblici usa data center e reti fisicamente isolate, situate solo negli Stati Uniti. Prima della [pubblicazione](../azure-government/documentation-government-manage-marketplace-partners.md) in Azure per enti pubblici, testare e confermare la soluzione in tale area, perché i risultati potrebbero essere diversi. Per creare e testare la soluzione, richiedere un account di prova dalla [valutazione di prova di Microsoft Azure per enti pubblici](https://azure.microsoft.com/global-infrastructure/government/request/).
+Selezionare [l Azure per enti pubblici'opzione](../azure-government/documentation-government-welcome.md) per visualizzare la soluzione qui. Si tratta di un Government Community Cloud con accesso controllato per i clienti delle agenzie governative federali, statali e locali degli Stati Uniti e partner idonei a servire questi enti. In qualità di editore, l'utente è responsabile di eventuali controlli di conformità, misure di sicurezza e procedure consigliate per questa community cloud. Azure per enti pubblici usa data center e reti fisicamente isolate, situate solo negli Stati Uniti. Prima della [pubblicazione](../azure-government/documentation-government-manage-marketplace-partners.md) in Azure per enti pubblici, testare e confermare la soluzione in tale area, perché i risultati potrebbero essere diversi. Per creare e testare la soluzione, richiedere un account di prova dalla [valutazione di prova di Microsoft Azure per enti pubblici](https://azure.microsoft.com/global-infrastructure/government/request/).
 
 > [!NOTE]
 > Dopo che il piano è stato pubblicato e disponibile in un'area specifica, non è possibile rimuovere tale area.
 
 #### <a name="azure-government-certifications"></a>Certificazioni di Azure per enti pubblici
 
-Questa opzione può essere visualizzata solo se **Azure per enti pubblici** è selezionato in **aree di Azure**.
+Questa opzione può essere vista solo **se** è Azure per enti pubblici selezionata in Aree **di Azure.**
 
 I servizi di Azure per enti pubblici gestiscono dati soggetti a determinati requisiti e regolamenti governativi. Ad esempio, FedRAMP, NIST 800.171 (DIB), ITAR, IRS 1075, DoD L4 e CJIS.
 
@@ -340,7 +340,7 @@ Se si vuole nascondere l'offerta pubblicata in modo che i clienti non possano ce
 
 Questo campo viene usato quando:
 
-- L'offerta deve essere utilizzata indirettamente quando si fa riferimento a un'altra applicazione.
+- L'offerta deve essere usata indirettamente quando viene fatto riferimento tramite un'altra applicazione.
 - L'offerta non deve essere acquistata singolarmente.
 - Il piano è stato usato per il test iniziale e non è più pertinente.
 - Il piano è stato usato per le offerte temporanee o stagionali e non deve essere più disponibile.
@@ -361,11 +361,11 @@ Specificare le informazioni seguenti nella scheda **Image repository details** (
 
 **Nome del Registro Azure Container**: specificare il nome del [Registro Azure Container](../container-registry/container-registry-intro.md) con l'immagine del contenitore. Il registro contenitori deve trovarsi nel gruppo di risorse di Azure specificato in precedenza. Includere solo il nome del registro, non il nome completo del server di accesso. Assicurarsi di non inserire **azurecr.io** nel nome. È possibile trovare il nome del registro nella pagina [Registri contenitori](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.ContainerRegistry%2Fregistries) del portale di Azure.
 
-**Nome utente amministratore per il container Registry di Azure** : specificare il [nome utente amministratore](../container-registry/container-registry-authentication.md#admin-account)) collegato al container Registry di Azure con l'immagine del contenitore. Il nome utente e la password sono necessari per assicurarsi che l'azienda abbia accesso al registro. Per ottenere il nome utente e la password dell'amministratore, impostare la proprietà **admin-enabled** su **True** usando l'interfaccia della riga di comando di Azure. Facoltativamente è possibile impostare **Utente amministratore** su **Abilita** nel portale di Azure.
+**Nome utente amministratore per l'Registro Azure Container:** specificare il nome utente amministratore [)](../container-registry/container-registry-authentication.md#admin-account)collegato al Registro Azure Container con l'immagine del contenitore. Il nome utente e la password sono necessari per assicurarsi che l'azienda abbia accesso al registro. Per ottenere il nome utente e la password dell'amministratore, impostare la proprietà **admin-enabled** su **True** usando l'interfaccia della riga di comando di Azure. Facoltativamente è possibile impostare **Utente amministratore** su **Abilita** nel portale di Azure.
 
  :::image type="content" source="./partner-center-portal/media/azure-create-container-offer-images/azure-create-12-update-container-registry-edit.png" alt-text="Finestra di dialogo Aggiorna registro contenitori.":::
 
-**Password per il Registro Azure Container**: specificare la password per il nome utente dell'amministratore associata al Registro Azure Container con l'immagine del contenitore. Il nome utente e la password sono necessari per assicurarsi che l'azienda abbia accesso al registro. Per ottenere la password nel portale di Azure, passare a **Registro contenitori** > **Chiavi di accesso** o con l'interfaccia della riga di comando di Azure usare il [comando show](/cli/azure/acr/credential#az-acr-credential-show).
+**Password per il Registro Azure Container**: specificare la password per il nome utente dell'amministratore associata al Registro Azure Container con l'immagine del contenitore. Il nome utente e la password sono necessari per assicurarsi che l'azienda abbia accesso al registro. Per ottenere la password nel portale di Azure, passare a **Registro contenitori** > **Chiavi di accesso** o con l'interfaccia della riga di comando di Azure usare il [comando show](/cli/azure/acr/credential#az_acr_credential_show).
 
 :::image type="content" source="./partner-center-portal/media/azure-create-container-offer-images/azure-create-13-access-keys.png" alt-text="Menu Chiave di accesso.":::
 
@@ -405,7 +405,7 @@ Per inviare l'offerta per la pubblicazione, selezionare **Pubblica**.
 
 Si riceverà un messaggio di posta elettronica per far sapere all'utente che una versione di anteprima dell'offerta è disponibile per la revisione e l'approvazione.
 
-Per pubblicare l'offerta al pubblico, passare a centro per i partner e selezionare **Go-Live**.
+Per pubblicare l'offerta al pubblico, passare a Partner Center e selezionare **Go-live**.
 
 ## <a name="next-step"></a>Passaggio successivo
 

@@ -1,7 +1,7 @@
 ---
 title: GitHub Actions per CI/CD
 titleSuffix: Azure Machine Learning
-description: Informazioni su come creare un flusso di lavoro di azioni GitHub per eseguire il training di un modello in Azure Machine Learning
+description: Informazioni su come creare un flusso di lavoro GitHub Actions per eseguire il training di un modello in Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,19 +10,19 @@ ms.author: jukullam
 ms.date: 10/19/2020
 ms.topic: conceptual
 ms.custom: github-actions-azure
-ms.openlocfilehash: b21f53f8ec76257fc19e0e30cd025ecc46ad2188
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6505523aa367eaf202ece81a4253429e864e169a
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102218282"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107780372"
 ---
 # <a name="use-github-actions-with-azure-machine-learning"></a>Usare GitHub Actions con Azure Machine Learning
 
-Inizia a usare le [azioni di GitHub](https://docs.github.com/en/actions) per eseguire il training di un modello in Azure Machine Learning. 
+Introduzione [all'GitHub Actions](https://docs.github.com/en/actions) per eseguire il training di un modello Azure Machine Learning. 
 
 > [!NOTE]
-> Le azioni di GitHub per Azure Machine Learning vengono fornite così come sono e non sono completamente supportate da Microsoft. Se si verificano problemi con un'azione specifica, aprire un problema nel repository per l'azione. Se, ad esempio, si verifica un problema con l'azione AML-deploy, segnalare il problema nel [https://github.com/Azure/aml-deploy]( https://github.com/Azure/aml-deploy) repository.
+> GitHub Actions per Azure Machine Learning vengono fornite così come sono e non sono completamente supportate da Microsoft. Se si verificano problemi con un'azione specifica, aprire un problema nel repository per l'azione. Ad esempio, se si verifica un problema con l'azione aml-deploy, segnalare il problema nel [https://github.com/Azure/aml-deploy]( https://github.com/Azure/aml-deploy) repo.
 
 ## <a name="prerequisites"></a>Prerequisiti 
 
@@ -33,29 +33,29 @@ Inizia a usare le [azioni di GitHub](https://docs.github.com/en/actions) per ese
 
 Un flusso di lavoro viene definito da un file YAML (con estensione yml) nel percorso `/.github/workflows/` del repository. Questa definizione contiene i vari passaggi e i parametri che costituiscono il flusso di lavoro.
 
-Il file è costituito da quattro sezioni:
+Il file include quattro sezioni:
 
 |Sezione  |Attività  |
 |---------|---------|
 |**autenticazione** | 1. Definire un'entità servizio. <br /> 2. Creare un segreto GitHub. |
-|**Connettere** | 1. connettersi all'area di lavoro di machine learning. <br /> 2. connettersi a una destinazione di calcolo. |
-|**Esegui** | 1. inviare un'esecuzione di training. |
-|**Distribuzione** | 1. registrare il modello nel registro di sistema Azure Machine Learning. 1. Distribuire il modello. |
+|**Connettere** | 1. Connettersi all'area di lavoro di Machine Learning. <br /> 2. Connettersi a una destinazione di calcolo. |
+|**Esegui** | 1. Inviare un'esecuzione di training. |
+|**Distribuzione** | 1. Registrare il modello nel Azure Machine Learning registro. 1. Distribuire il modello. |
 
-## <a name="create-repository"></a>Crea repository
+## <a name="create-repository"></a>Creare un repository
 
-Creare un nuovo repository da Machine Learning [con azioni GitHub e Azure Machine Learning modello](https://github.com/machine-learning-apps/ml-template-azure). 
+Creare un nuovo repository da [ML Ops con GitHub Actions e Azure Machine Learning modello](https://github.com/machine-learning-apps/ml-template-azure). 
 
 1. Aprire il [modello](https://github.com/machine-learning-apps/ml-template-azure) in GitHub. 
 2. Selezionare **Usa questo modello**. 
 
     :::image type="content" source="media/how-to-github-actions-machine-learning/gh-actions-use-template.png" alt-text="Selezionare Usa questo modello":::
-3. Creare un nuovo repository dal modello. Impostare il nome del repository su `ml-learning` o il nome desiderato. 
+3. Creare un nuovo repository dal modello. Impostare il nome del repository `ml-learning` su o un nome a scelta. 
 
 
 ## <a name="generate-deployment-credentials"></a>Generare le credenziali per la distribuzione
 
-È possibile creare un'[entità servizio](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) con il comando [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) dell'[interfaccia della riga di comando di Azure](/cli/azure/). Eseguire questo comando con [Azure Cloud Shell](https://shell.azure.com/) nel portale di Azure oppure selezionando il pulsante **Prova**.
+È possibile creare un'[entità servizio](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) con il comando [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) dell'[interfaccia della riga di comando di Azure](/cli/azure/). Eseguire questo comando con [Azure Cloud Shell](https://shell.azure.com/) nel portale di Azure oppure selezionando il pulsante **Prova**.
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name "myML" --role contributor \
@@ -77,13 +77,13 @@ Nell'esempio precedente sostituire i segnaposto con l'ID sottoscrizione, il nome
 
 ## <a name="configure-the-github-secret"></a>Configurare il segreto di GitHub
 
-1. In [GitHub](https://github.com/)esplorare il repository, selezionare **Impostazioni > Secrets > aggiungere un nuovo segreto**.
+1. In [GitHub](https://github.com/)esplorare il repository, selezionare **Impostazioni > segreti > Aggiungi un nuovo segreto.**
 
 2. Incollare l'intero output JSON del comando dell'interfaccia della riga di comando di Azure nel campo del valore del segreto. Assegnare al segreto il nome `AZURE_CREDENTIALS`.
 
 ## <a name="connect-to-the-workspace"></a>Connettersi all'area di lavoro
 
-Usare l' [azione area di lavoro di Azure Machine Learning](https://github.com/marketplace/actions/azure-machine-learning-workspace) per connettersi all'area di lavoro di Azure Machine Learning. 
+Usare [l'area di lavoro di Azure Machine Learning per](https://github.com/marketplace/actions/azure-machine-learning-workspace) connettersi all'area Azure Machine Learning lavoro. 
 
 ```yaml
     - name: Connect/Create Azure Machine Learning Workspace
@@ -104,11 +104,11 @@ Per impostazione predefinita, l'azione prevede un `workspace.json` file. Se il f
           azure_credentials: ${{ secrets.AZURE_CREDENTIALS }}
           parameters_file: "alternate_workspace.json"
 ```
-L'azione scrive le proprietà dell'area di lavoro Azure Resource Manager (ARM) in un file di configurazione, che verrà selezionato da tutte le azioni future Azure Machine Learning GitHub. Il file viene salvato in `GITHUB_WORKSPACE/aml_arm_config.json` . 
+L'azione scrive le proprietà Azure Resource Manager (ARM) dell'area di lavoro in un file di configurazione, che verrà selezionato da tutti i Azure Machine Learning GitHub Actions. Il file viene salvato in `GITHUB_WORKSPACE/aml_arm_config.json` . 
 
 ## <a name="connect-to-a-compute-target-in-azure-machine-learning"></a>Connettersi a una destinazione di calcolo in Azure Machine Learning
 
-Usare l' [azione di calcolo Azure Machine Learning](https://github.com/Azure/aml-compute) per connettersi a una destinazione di calcolo in Azure Machine Learning.  Se la destinazione di calcolo esiste, l'azione si connetterà a tale destinazione. In caso contrario, l'azione creerà una nuova destinazione di calcolo. L' [azione di calcolo AML](https://github.com/Azure/aml-compute) supporta solo il cluster di calcolo di Azure ml e il servizio Azure KUBERNETES (AKS). 
+Usare [l'Azure Machine Learning calcolo per](https://github.com/Azure/aml-compute) connettersi a una destinazione di calcolo in Azure Machine Learning.  Se la destinazione di calcolo esiste, l'azione si connetterà a essa. In caso contrario, l'azione creerà una nuova destinazione di calcolo. [L'azione Calcolo AML](https://github.com/Azure/aml-compute) supporta solo il cluster di calcolo di Azure ML e servizio Azure Kubernetes (AKS). 
 
 ```yaml
     - name: Connect/Create Azure Machine Learning Compute Target
@@ -119,7 +119,7 @@ Usare l' [azione di calcolo Azure Machine Learning](https://github.com/Azure/aml
 ```
 ## <a name="submit-training-run"></a>Inviare l'esecuzione di training
 
-Usare l' [azione di Training Azure Machine Learning](https://github.com/Azure/aml-run) per inviare un scriptrun, uno strumento di stima o una Pipeline per Azure Machine Learning. 
+Usare [l'Azure Machine Learning Training per](https://github.com/Azure/aml-run) inviare scriptRun, estimator o pipeline per Azure Machine Learning. 
 
 ```yaml
     - name: Submit training run
@@ -129,9 +129,9 @@ Usare l' [azione di Training Azure Machine Learning](https://github.com/Azure/am
           azure_credentials: ${{ secrets.AZURE_CREDENTIALS }}
 ```
 
-## <a name="register-model-in-registry"></a>Registrare il modello nel registro di sistema
+## <a name="register-model-in-registry"></a>Registrare il modello nel Registro di sistema
 
-Usare l' [azione Azure Machine Learning registra modello](https://github.com/Azure/aml-registermodel) per registrare un modello per la Azure Machine Learning.
+Usare [l'Azure Machine Learning Registra modello per](https://github.com/Azure/aml-registermodel) registrare un modello Azure Machine Learning.
 
 ```yaml
     - name: Register model
@@ -143,9 +143,9 @@ Usare l' [azione Azure Machine Learning registra modello](https://github.com/Azu
           experiment_name: ${{ steps.aml_run.outputs.experiment_name }}
 ```
 
-## <a name="deploy-model-to-azure-machine-learning-to-aci"></a>Distribuire il modello in Azure Machine Learning ad ACI
+## <a name="deploy-model-to-azure-machine-learning-to-aci"></a>Distribuire il modello in Azure Machine Learning in ACI
 
-Utilizzare l' [azione Azure Machine Learning Distribuisci](https://github.com/Azure/aml-deploy) per distribuire un modello e creare un endpoint per il modello. È anche possibile usare la distribuzione di Azure Machine Learning per eseguire la distribuzione nel servizio Azure Kubernetes. Vedere [questo flusso di lavoro di esempio](https://github.com/Azure-Samples/mlops-enterprise-template) per un modello distribuito nel servizio Azure Kubernetes.
+Usare [l Azure Machine Learning'azione](https://github.com/Azure/aml-deploy) Distribuisci per distribuire un modello e creare un endpoint per il modello. È anche possibile usare l'Azure Machine Learning deploy per distribuire in servizio Azure Kubernetes. Vedere [questo flusso di lavoro di](https://github.com/Azure-Samples/mlops-enterprise-template) esempio per un modello che viene distribuito in servizio Azure Kubernetes.
 
 ```yaml
     - name: Deploy model
@@ -160,7 +160,7 @@ Utilizzare l' [azione Azure Machine Learning Distribuisci](https://github.com/Az
 
 ## <a name="complete-example"></a>Esempio completo
 
-Eseguire il training del modello e distribuirlo in Azure Machine Learning. 
+Eseguire il training del modello e distribui Azure Machine Learning. 
 
 ```yaml
 # Actions train a model on Azure Machine Learning

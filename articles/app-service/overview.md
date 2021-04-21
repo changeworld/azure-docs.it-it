@@ -5,12 +5,12 @@ ms.assetid: 94af2caf-a2ec-4415-a097-f60694b860b3
 ms.topic: overview
 ms.date: 07/06/2020
 ms.custom: devx-track-dotnet, mvc, seodec18
-ms.openlocfilehash: 668988ae34c2f97f3baca3f360c13e3ec3e30731
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 771c79f56a31c83f2152886ad6cf68367776f83f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100586359"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107767229"
 ---
 # <a name="app-service-overview"></a>Panoramica del Servizio app di Azure
 
@@ -44,7 +44,7 @@ Il servizio app può anche ospitare le app Web in modo nativo in Linux per gli s
 
 ### <a name="built-in-languages-and-frameworks"></a>Linguaggi e framework predefiniti
 
-Il servizio app in Linux supporta numerose immagini predefinite specifiche del linguaggio. È sufficiente distribuire il codice. Le lingue supportate includono: Node.js, Java (JRE 8 & JRE 11), PHP, Python, .NET Core e Ruby. Eseguire [`az webapp list-runtimes --linux`](/cli/azure/webapp#az-webapp-list-runtimes) per visualizzare i linguaggi più recenti e le versioni supportate. Se il runtime richiesto dall'applicazione non è supportato nelle immagini predefinite, è possibile distribuirlo con un contenitore personalizzato.
+Il servizio app in Linux supporta numerose immagini predefinite specifiche del linguaggio. È sufficiente distribuire il codice. I linguaggi supportati includono: Node.js, Java (JRE 8 & JRE 11), PHP, Python, .NET Core e Ruby. Eseguire [`az webapp list-runtimes --linux`](/cli/azure/webapp#az_webapp_list_runtimes) per visualizzare i linguaggi più recenti e le versioni supportate. Se il runtime richiesto dall'applicazione non è supportato nelle immagini predefinite, è possibile distribuirlo con un contenitore personalizzato.
 
 I runtime obsoleti vengono rimossi periodicamente dai pannelli Crea e Configurazione di App Web nel portale. Questi runtime vengono nascosti nel portale quando sono deprecati dall'organizzazione che li gestisce oppure è stato riscontrato che presentano vulnerabilità significative. Queste opzioni vengono nascoste per indirizzare i clienti verso i runtime più recenti che garantiranno migliori risultati. 
 
@@ -56,7 +56,7 @@ Se è necessario creare un'altra app Web con una versione obsoleta del runtime c
 
 - Il Servizio app in Linux non è supportato nel piano tariffario [Condiviso](https://azure.microsoft.com/pricing/details/app-service/plans/). 
 - Non è possibile combinare app Windows e Linux nello stesso piano di servizio app.  
-- In passato, non è possibile combinare app Windows e Linux nello stesso gruppo di risorse. Tuttavia, tutti i gruppi di risorse creati il 21 gennaio 2021 supportano questo scenario. Per i gruppi di risorse creati prima del 21 gennaio 2021, la possibilità di aggiungere distribuzioni di piattaforme miste verrà implementata a breve tra le aree di Azure, incluse le aree del cloud nazionale.
+- In una cronologia non è possibile combinare app Windows e Linux nello stesso gruppo di risorse. Tuttavia, tutti i gruppi di risorse creati il 21 gennaio 2021 o dopo il 21 gennaio 2021 supportano questo scenario. Per i gruppi di risorse creati prima del 21 gennaio 2021, la possibilità di aggiungere distribuzioni di piattaforme miste verrà presto implementazione tra le aree di Azure (incluse le aree cloud nazionali).
 - Il portale di Azure mostra solo le funzionalità attualmente funzionanti per le app Linux. Man mano che le funzionalità vengono abilitate, vengono attivate nel portale.
 - Quando viene distribuito nelle immagini predefinite, al codice e al contenuto viene allocato un volume di archiviazione per il contenuto Web, supportato da Archiviazione di Azure. La latenza del disco di questo volume è maggiore e più variabile rispetto alla latenza del file system del contenitore. Le app che richiedono un accesso elevato in sola lettura a file di contenuto possono trarre vantaggio dall'opzione relativa al contenitore personalizzato, che colloca i file nel file system del contenitore anziché nel volume del contenuto.
 

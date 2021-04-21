@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/25/2020
 ms.author: glenga
-ms.openlocfilehash: 894a89126d1ee3ed909134f3e0dd914166568654
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 921127ffdd35007cc3fa2eaaa95cdb3fac8bbe15
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90606598"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107782277"
 ---
 È possibile visualizzare la coda nel [portale di Azure](../articles/storage/queues/storage-quickstart-queues-portal.md) o in [Microsoft Azure Storage Explorer](https://storageexplorer.com/). È anche possibile visualizzare la coda nell'interfaccia della riga di comando di Azure, come descritto nei passaggi seguenti:
 
@@ -35,13 +35,13 @@ ms.locfileid: "90606598"
     
     ---
     
-1. (Facoltativo) Usare il comando [`az storage queue list`](/cli/azure/storage/queue#az-storage-queue-list) per visualizzare le code di archiviazione dell'account. L'output di questo comando dovrebbe includere una coda denominata `outqueue`, che è stata creata quando la funzione ha scritto il primo messaggio in tale coda.
+1. (Facoltativo) Usare il comando [`az storage queue list`](/cli/azure/storage/queue#az_storage_queue_list) per visualizzare le code di archiviazione dell'account. L'output di questo comando dovrebbe includere una coda denominata `outqueue`, che è stata creata quando la funzione ha scritto il primo messaggio in tale coda.
     
     ```azurecli
     az storage queue list --output tsv
     ```
 
-1. Usare il comando [`az storage message get`](/cli/azure/storage/message#az-storage-message-get) per leggere il messaggio di questa coda, che dovrebbe essere il primo nome usato per il test della funzione eseguito in precedenza. Il comando legge e rimuove il primo messaggio dalla coda. 
+1. Usare il comando [`az storage message get`](/cli/azure/storage/message#az_storage_message_get) per leggere il messaggio di questa coda, che dovrebbe essere il primo nome usato per il test della funzione eseguito in precedenza. Il comando legge e rimuove il primo messaggio dalla coda. 
 
     # <a name="bash"></a>[Bash](#tab/bash)
     

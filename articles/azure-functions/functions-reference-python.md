@@ -4,25 +4,25 @@ description: Informazioni sullo sviluppo di funzioni con Python
 ms.topic: article
 ms.date: 11/4/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 3eb3b3b015f401e872a879c46ec6f8c69df5f87f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0c87be334847974627299f8e21109fe201675f0c
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102455417"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107762174"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guida per sviluppatori Python per Funzioni di Azure
 
 Questo articolo è un'introduzione allo sviluppo di Funzioni di Azure con Python. Il contenuto presuppone che l'utente abbia già letto il [Manuale dello sviluppatore di Funzioni di Azure](functions-reference.md).
 
-Gli sviluppatori di Python possono anche essere interessati a uno degli articoli seguenti:
+Gli sviluppatori Python possono anche essere interessati a uno degli articoli seguenti:
 
-| Introduzione | Concetti| Scenari/esempi |
+| Guida introduttiva | Concetti| Scenari/esempi |
 | -- | -- | -- | 
-| <ul><li>[Funzione Python con Visual Studio Code](./create-first-function-vs-code-csharp.md?pivots=programming-language-python)</li><li>[Funzione Python con terminale/prompt dei comandi](./create-first-function-cli-csharp.md?pivots=programming-language-python)</li></ul> | <ul><li>[Guida per sviluppatori](functions-reference.md)</li><li>[Opzioni di hosting](functions-scale.md)</li><li>[Considerazioni sulle prestazioni &nbsp;](functions-best-practices.md)</li></ul> | <ul><li>[Classificazione di immagini con PyTorch](machine-learning-pytorch.md)</li><li>[Esempio di automazione di Azure](/samples/azure-samples/azure-functions-python-list-resource-groups/azure-functions-python-sample-list-resource-groups/)</li><li>[Machine Learning con TensorFlow](functions-machine-learning-tensorflow.md)</li><li>[Esplora esempi di Python](/samples/browse/?products=azure-functions&languages=python)</li></ul> |
+| <ul><li>[Funzione Python con Visual Studio Code](./create-first-function-vs-code-csharp.md?pivots=programming-language-python)</li><li>[Funzione Python con terminale/prompt dei comandi](./create-first-function-cli-csharp.md?pivots=programming-language-python)</li></ul> | <ul><li>[Guida per sviluppatori](functions-reference.md)</li><li>[Opzioni di hosting](functions-scale.md)</li><li>[Considerazioni sulle &nbsp; prestazioni](functions-best-practices.md)</li></ul> | <ul><li>[Classificazione di immagini con PyTorch](machine-learning-pytorch.md)</li><li>[Esempio di automazione di Azure](/samples/azure-samples/azure-functions-python-list-resource-groups/azure-functions-python-sample-list-resource-groups/)</li><li>[Machine Learning con TensorFlow](functions-machine-learning-tensorflow.md)</li><li>[Esplorare gli esempi di Python](/samples/browse/?products=azure-functions&languages=python)</li></ul> |
 
 > [!NOTE]
-> Sebbene sia possibile [sviluppare funzioni di Azure basate su Python in locale in Windows](create-first-function-vs-code-python.md#run-the-function-locally), Python è supportato solo in un piano di hosting basato su Linux durante l'esecuzione in Azure. Vedere l'elenco delle combinazioni di [Runtime/sistema operativo](functions-scale.md#operating-systemruntime) supportate.
+> Anche se è possibile sviluppare applicazioni basate su Python Funzioni di Azure in locale in [Windows,](create-first-function-vs-code-python.md#run-the-function-locally)Python è supportato solo in un piano di hosting basato su Linux durante l'esecuzione in Azure. Vedere l'elenco delle [combinazioni di sistema operativo/runtime](functions-scale.md#operating-systemruntime) supportate.
 
 ## <a name="programming-model"></a>Modello di programmazione
 
@@ -99,19 +99,19 @@ La cartella principale del progetto (<project_root>) può contenere i file segue
 * *local.settings.json*: viene usato per archiviare le impostazioni dell'app e le stringhe di connessione durante l'esecuzione in locale. Questo file non viene pubblicato in Azure. Per altre informazioni, vedere [local.settings.file](functions-run-local.md#local-settings-file).
 * *requirements.txt*: contiene l'elenco dei pacchetti Python installati dal sistema durante la pubblicazione in Azure.
 * *host.json*: contiene le opzioni di configurazione globali che interessano tutte le funzioni in un'app per le funzioni. Questo file viene pubblicato in Azure. Non tutte le opzioni sono supportate durante l'esecuzione in locale. Per altre informazioni, vedere [host.json](functions-host-json.md).
-* *. VSCODE/*: (facoltativo) contiene la configurazione VSCODE dell'archivio. Per altre informazioni, vedere [impostazione di VSCode](https://code.visualstudio.com/docs/getstarted/settings).
-* *. venv/*: (facoltativo) contiene un ambiente virtuale Python utilizzato dallo sviluppo locale.
-* *Dockerfile*: (facoltativo) usato per la pubblicazione del progetto in un [contenitore personalizzato](functions-create-function-linux-custom-image.md).
-* *test/*: (facoltativo) contiene i test case dell'app per le funzioni.
-* *. funcignore*: (facoltativo) dichiara i file che non devono essere pubblicati in Azure. In genere, questo file contiene `.vscode/` per ignorare l'impostazione dell'editor, `.venv/` per ignorare l'ambiente virtuale Python locale, `tests/` per ignorare i test case e `local.settings.json` per impedire la pubblicazione delle impostazioni dell'app locale.
+* *.vscode/*: (facoltativo) Contiene la configurazione di VSCode dell'archivio. Per altre informazioni, vedere [l'impostazione di VSCode.](https://code.visualstudio.com/docs/getstarted/settings)
+* *.venv/*: (facoltativo) Contiene un ambiente virtuale Python usato dallo sviluppo locale.
+* *Dockerfile:*(facoltativo) usato quando si pubblica il progetto in un [contenitore personalizzato.](functions-create-function-linux-custom-image.md)
+* *tests/*: (facoltativo) Contiene i test case dell'app per le funzioni.
+* *.funcignore:*(facoltativo) Dichiara i file che non devono essere pubblicati in Azure. In genere, questo file contiene per ignorare l'impostazione dell'editor, per ignorare l'ambiente virtuale Python locale, per ignorare i test case e per impedire la pubblicazione `.vscode/` `.venv/` delle impostazioni `tests/` `local.settings.json` dell'app locale.
 
 Ogni funzione ha il proprio file di codice e il file di configurazione delle associazioni (function.json).
 
-Quando si distribuisce il progetto in un'app per le funzioni in Azure, l'intero contenuto della cartella principale del progetto (*<project_root>*) deve essere incluso nel pacchetto, ma non nella cartella stessa, che significa che `host.json` deve trovarsi nella radice del pacchetto. In questo esempio si consiglia di mantenere i test in una cartella insieme ad altre funzioni `tests/` . Per altre informazioni, vedere [Testing unità](#unit-testing).
+Quando si distribuisce il progetto in un'app per le funzioni in Azure, l'intero *contenuto della* cartella del progetto principale (<project_root>) deve essere incluso nel pacchetto, ma non nella cartella stessa, ovvero nella radice del `host.json` pacchetto. È consigliabile mantenere i test in una cartella insieme ad altre funzioni, in questo esempio `tests/` . Per altre informazioni, vedere [Testing unità](#unit-testing).
 
 ## <a name="import-behavior"></a>Importare il comportamento
 
-È possibile importare moduli nel codice della funzione utilizzando riferimenti assoluti e relativi. In base alla struttura di cartelle illustrata in precedenza, le importazioni seguenti funzionano dal file di funzione *<project_root> \My \_ prima \_ funzione \\ _ \_ init \_ \_ . py*:
+È possibile importare moduli nel codice della funzione usando riferimenti assoluti e relativi. In base alla struttura di cartelle illustrata in precedenza, le importazioni seguenti funzionano dall'interno del file di *funzione<project_root>\my \_ first function _ \_ \\ \_ init \_ \_ .py*:
 
 ```python
 from shared_code import my_first_helper_function #(absolute)
@@ -126,9 +126,9 @@ from . import example #(relative)
 ```
 
 > [!NOTE]
->  Il *shared_code/* cartella deve contenere un \_ \_ file init \_ \_ . py per contrassegnarlo come pacchetto python quando si usa la sintassi di importazione assoluta.
+>  La *shared_code/* deve contenere un file init con estensione py per contrassegnarlo come pacchetto Python quando si \_ \_ usa la \_ \_ sintassi di importazione assoluta.
 
-La seguente \_ \_ \_ \_ importazione di app e oltre l'importazione relativa di primo livello sono deprecate, perché non è supportata dal controllo dei tipi statici e non è supportata dai framework di test Python:
+L'importazione di app seguente e oltre l'importazione relativa di primo livello sono deprecate, poiché non è supportata dal controllo dei tipi statici e non è supportata \_ \_ dai framework di \_ \_ test Python:
 
 ```python
 from __app__.shared_code import my_first_helper_function #(deprecated __app__ import)
@@ -267,7 +267,7 @@ Per altre informazioni sulla registrazione, vedere [Monitorare Funzioni di Azure
 
 ## <a name="http-trigger-and-bindings"></a>Trigger e binding HTTP
 
-Il trigger HTTP è definito nel function.jssu file. Il valore `name` del binding deve corrispondere al parametro denominato nella funzione.
+Il trigger HTTP è definito nel function.jsfile. Il valore `name` del binding deve corrispondere al parametro denominato nella funzione.
 Negli esempi precedenti viene usato il nome di binding `req`. Questo parametro è un oggetto [HttpRequest] e viene restituito un oggetto [HttpResponse].
 
 Dall'oggetto [HttpRequest] è possibile ottenere intestazioni di richieste, parametri di query, parametri di route e il corpo del messaggio.
@@ -300,9 +300,9 @@ In questa funzione il valore del parametro di query `name` si ottiene dal parame
 
 Allo stesso modo, è possibile impostare `status_code` e `headers` per il messaggio di risposta nell'oggetto [HttpResponse] restituito.
 
-## <a name="scaling-and-performance"></a>Scalabilità e prestazioni
+## <a name="scaling-and-performance"></a>Ridimensionamento e prestazioni
 
-Per le procedure consigliate di scalabilità e prestazioni per le app per le funzioni Python, vedere l'articolo relativo a [scalabilità e prestazioni di Python](python-scale-performance-reference.md).
+Per le procedure consigliate per il ridimensionamento e le prestazioni per le app per le funzioni Python, vedere [l'articolo Scalabilità e prestazioni di Python.](python-scale-performance-reference.md)
 
 ## <a name="context"></a>Context
 
@@ -369,12 +369,12 @@ Funzioni di Azure supporta le versioni di Python seguenti:
 
 | Versione di Funzioni | Versioni di Python<sup>*</sup> |
 | ----- | ----- |
-| 3.x | 3,9 (anteprima) <br/> 3.8<br/>3,7<br/>3.6 |
+| 3.x | 3.9 (anteprima) <br/> 3.8<br/>3,7<br/>3.6 |
 | 2.x | 3,7<br/>3.6 |
 
 <sup>*</sup>Distribuzioni CPython ufficiali
 
-Per richiedere una versione specifica di Python quando si crea l'app per le funzioni in Azure, usare l'opzione `--runtime-version` del comando [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create). La versione del runtime di Funzioni è impostata dall'opzione `--functions-version`. La versione di Python viene impostata quando l'app per le funzioni viene creata e non si può cambiare.
+Per richiedere una versione specifica di Python quando si crea l'app per le funzioni in Azure, usare l'opzione `--runtime-version` del comando [`az functionapp create`](/cli/azure/functionapp#az_functionapp_create). La versione del runtime di Funzioni è impostata dall'opzione `--functions-version`. La versione di Python viene impostata quando l'app per le funzioni viene creata e non si può cambiare.
 
 Per l'esecuzione in locale, il runtime usa la versione di Python disponibile.
 
@@ -398,15 +398,15 @@ Quando si è pronti per la pubblicazione, assicurarsi che tutte le dipendenze di
 
 I file e le cartelle di progetto esclusi dalla pubblicazione, inclusa la cartella dell'ambiente virtuale, sono elencati nel file con estensione funcignore.
 
-Sono supportate tre azioni di compilazione per la pubblicazione del progetto Python in Azure: compilazione remota, compilazione locale e compilazioni usando dipendenze personalizzate.
+Per la pubblicazione del progetto Python in Azure sono supportate tre azioni di compilazione: compilazione remota, compilazione locale e compilazioni usando dipendenze personalizzate.
 
-È anche possibile usare Azure Pipelines per compilare le dipendenze e pubblicare usando il recapito continuo (CD). Per altre informazioni, vedere [recapito continuo con Azure DevOps](functions-how-to-azure-devops.md).
+È anche possibile usare Azure Pipelines per compilare le dipendenze e pubblicare usando il recapito continuo (CD). Per altre informazioni, vedere [Recapito continuo tramite Azure DevOps](functions-how-to-azure-devops.md).
 
 ### <a name="remote-build"></a>Compilazione remota
 
-Quando si usa la compilazione remota, le dipendenze ripristinate nel server e le dipendenze native corrispondono all'ambiente di produzione. In questo modo si ottiene un pacchetto di distribuzione più piccolo da caricare. Usare la compilazione remota quando si sviluppano app Python in Windows. Se il progetto ha dipendenze personalizzate, è possibile [usare la compilazione remota con l'URL dell'indice aggiuntivo](#remote-build-with-extra-index-url).
+Quando si usa la compilazione remota, le dipendenze ripristinate nel server e le dipendenze native corrispondono all'ambiente di produzione. Ciò comporta il caricamento di un pacchetto di distribuzione più piccolo. Usare la compilazione remota durante lo sviluppo di app Python in Windows. Se il progetto ha dipendenze personalizzate, è possibile usare la compilazione [remota con l'URL dell'indice aggiuntivo](#remote-build-with-extra-index-url).
 
-Le dipendenze vengono ottenute in modalità remota in base al contenuto del file di requirements.txt. La [compilazione remota](functions-deployment-technologies.md#remote-build) è il metodo di compilazione consigliato. Per impostazione predefinita, Azure Functions Core Tools richiede una compilazione remota quando si usa il comando [func azure functionapp publish](functions-run-local.md#publish) per pubblicare il progetto Python in Azure.
+Le dipendenze vengono ottenute in modalità remota in base al contenuto requirements.txt file. La [compilazione remota](functions-deployment-technologies.md#remote-build) è il metodo di compilazione consigliato. Per impostazione predefinita, Azure Functions Core Tools richiede una compilazione remota quando si usa il comando [func azure functionapp publish](functions-run-local.md#publish) per pubblicare il progetto Python in Azure.
 
 ```bash
 func azure functionapp publish <APP_NAME>
@@ -418,7 +418,7 @@ Anche l'[estensione Funzioni di Azure per Visual Studio Code](./create-first-fun
 
 ### <a name="local-build"></a>Compilazione locale
 
-Le dipendenze vengono ottenute localmente in base al contenuto del file di requirements.txt. È possibile evitare l'esecuzione di una compilazione remota usando il comando [func azure functionapp publish](functions-run-local.md#publish) per pubblicare con una compilazione locale.
+Le dipendenze vengono ottenute in locale in base al contenuto del file requirements.txt file. È possibile evitare l'esecuzione di una compilazione remota usando il comando [func azure functionapp publish](functions-run-local.md#publish) per pubblicare con una compilazione locale.
 
 ```command
 func azure functionapp publish <APP_NAME> --build local
@@ -428,19 +428,19 @@ Ricordare di sostituire `<APP_NAME>` con il nome dell'app per le funzioni in Azu
 
 Usando l'opzione `--build local`, le dipendenze del progetto vengono lette dal file requirements.txt e i pacchetti dipendenti vengono scaricati e installati localmente. I file e le dipendenze del progetto vengono distribuiti dal computer locale in Azure. Questo comporta il caricamento di un pacchetto di distribuzione di dimensioni maggiori in Azure. Se per qualche motivo le dipendenze nel file requirements.txt non possono essere acquisite da Core Tools, è necessario usare l'opzione delle dipendenze personalizzate per la pubblicazione.
 
-Non è consigliabile usare le compilazioni locali per lo sviluppo in locale in Windows.
+Non è consigliabile usare compilazioni locali quando si sviluppa in locale in Windows.
 
 ### <a name="custom-dependencies"></a>Dipendenze personalizzate
 
-Quando il progetto ha dipendenze non trovate nell' [indice del pacchetto python](https://pypi.org/), esistono due modi per compilare il progetto. Il metodo di compilazione dipende dalla modalità di compilazione del progetto.
+Quando il progetto ha dipendenze non trovate nell'indice dei pacchetti [Python,](https://pypi.org/)esistono due modi per compilare il progetto. Il metodo di compilazione dipende dalla modalità di compilazione del progetto.
 
-#### <a name="remote-build-with-extra-index-url"></a>Compilazione remota con URL dell'indice aggiuntivo
+#### <a name="remote-build-with-extra-index-url"></a>Compilazione remota con URL di indice aggiuntivo
 
-Quando i pacchetti sono disponibili da un indice di pacchetto personalizzato accessibile, utilizzare una compilazione remota. Prima della pubblicazione, assicurarsi di [creare un'impostazione dell'app](functions-how-to-use-azure-function-app-settings.md#settings) denominata `PIP_EXTRA_INDEX_URL` . Il valore di questa impostazione è l'URL dell'indice del pacchetto personalizzato. L'utilizzo di questa impostazione indica che la compilazione remota viene eseguita `pip install` utilizzando l' `--extra-index-url` opzione. Per altre informazioni, vedere la [documentazione sull'installazione PIP di Python](https://pip.pypa.io/en/stable/reference/pip_install/#requirements-file-format).
+Quando i pacchetti sono disponibili da un indice di pacchetti personalizzati accessibile, usare una compilazione remota. Prima della pubblicazione, assicurarsi di creare [un'impostazione dell'app](functions-how-to-use-azure-function-app-settings.md#settings) denominata `PIP_EXTRA_INDEX_URL` . Il valore di questa impostazione è l'URL dell'indice del pacchetto personalizzato. L'uso di questa impostazione indica alla compilazione remota di eseguire `pip install` usando `--extra-index-url` l'opzione . Per altre informazioni, vedere la documentazione [sull'installazione pip di Python.](https://pip.pypa.io/en/stable/reference/pip_install/#requirements-file-format)
 
-È anche possibile usare le credenziali di autenticazione di base con gli URL degli indici dei pacchetti aggiuntivi. Per altre informazioni, vedere [credenziali di autenticazione di base](https://pip.pypa.io/en/stable/user_guide/#basic-authentication-credentials) nella documentazione di Python.
+È anche possibile usare le credenziali di autenticazione di base con gli URL di indice dei pacchetti aggiuntivi. Per altre informazioni, vedere [Credenziali di autenticazione di base](https://pip.pypa.io/en/stable/user_guide/#basic-authentication-credentials) nella documentazione di Python.
 
-#### <a name="install-local-packages"></a>Installare i pacchetti locali
+#### <a name="install-local-packages"></a>Installare pacchetti locali
 
 Se il progetto usa pacchetti non disponibili pubblicamente per gli strumenti di Azure, è possibile renderli disponibili nell'app inserendoli nella directory \_\_app\_\_/.python_packages. Prima della pubblicazione, eseguire il comando seguente per installare le dipendenze in locale:
 
@@ -448,7 +448,7 @@ Se il progetto usa pacchetti non disponibili pubblicamente per gli strumenti di 
 pip install  --target="<PROJECT_DIR>/.python_packages/lib/site-packages"  -r requirements.txt
 ```
 
-Quando si utilizzano dipendenze personalizzate, è necessario utilizzare l' `--no-build` opzione di pubblicazione, dal momento che le dipendenze sono già state installate nella cartella del progetto.
+Quando si usano dipendenze personalizzate, è consigliabile usare l'opzione di pubblicazione , perché le dipendenze sono già state `--no-build` installate nella cartella del progetto.
 
 ```command
 func azure functionapp publish <APP_NAME> --no-build
@@ -460,9 +460,9 @@ Ricordare di sostituire `<APP_NAME>` con il nome dell'app per le funzioni in Azu
 
 Le funzioni scritte in Python possono essere testate come qualsiasi altro codice Python usando framework di test standard. Per la maggior parte dei binding, è possibile creare un oggetto di input fittizio creando un'istanza di una classe appropriata dal pacchetto `azure.functions`. Poiché il pacchetto [`azure.functions`](https://pypi.org/project/azure-functions/) non è immediatamente disponibile, assicurarsi di installarlo tramite il file `requirements.txt`, come descritto nella sezione [Gestione dei pacchetti](#package-management) precedente.
 
-Prendere *my_second_function* come esempio, di seguito è riportato un test fittizio di una funzione attivata tramite http:
+Si *consideri my_second_function* esempio, di seguito è riportato un test fittizio di una funzione attivata tramite HTTP:
 
-Per prima cosa è necessario creare *<project_root>/my_second_function/function.jssul* file e definire questa funzione come trigger http.
+Prima di tutto è necessario *<project_root>/my_second_function/function.js* nel file e definire questa funzione come trigger HTTP.
 
 ```json
 {
@@ -488,7 +488,7 @@ Per prima cosa è necessario creare *<project_root>/my_second_function/function.
 }
 ```
 
-A questo punto, è possibile implementare *my_second_function* e *shared_code. My _second_helper_function*.
+A questo punto, è possibile *implementare my_second_function* e *shared_code.my_second_helper_function*.
 
 ```python
 # <project_root>/my_second_function/__init__.py
@@ -524,7 +524,7 @@ def double(value: int) -> int:
   return value * 2
 ```
 
-È possibile iniziare a scrivere test case per il trigger http.
+È possibile iniziare a scrivere test case per il trigger HTTP.
 
 ```python
 # <project_root>/tests/test_my_second_function.py
@@ -552,7 +552,7 @@ class TestFunction(unittest.TestCase):
         )
 ```
 
-Nell' `.venv` ambiente virtuale python installare il Framework di test Python preferito, ad esempio. `pip install pytest` È sufficiente eseguire `pytest tests` per verificare il risultato del test.
+`.venv`All'interno dell'ambiente virtuale Python installare il framework di test Python preferito, ad esempio `pip install pytest` . È sufficiente `pytest tests` eseguire per controllare il risultato del test.
 
 ## <a name="temporary-files"></a>File temporanei
 
@@ -580,31 +580,31 @@ from os import listdir
 
 ## <a name="preinstalled-libraries"></a>Librerie preinstallate
 
-Sono disponibili alcune librerie con il runtime di funzioni di Python.
+Sono disponibili alcune librerie con il runtime di Funzioni Python.
 
 ### <a name="python-standard-library"></a>Libreria standard Python
 
-La libreria standard Python contiene un elenco di moduli Python predefiniti che vengono forniti con ogni distribuzione di Python. La maggior parte di queste librerie consente di accedere alle funzionalità del sistema, ad esempio l'I/O di file. Nei sistemi Windows, queste librerie vengono installate con Python. Nei sistemi basati su UNIX vengono forniti dalle raccolte di pacchetti.
+La libreria standard Python contiene un elenco di moduli Python predefiniti forniti con ogni distribuzione python. La maggior parte di queste librerie consente di accedere alle funzionalità di sistema, ad esempio l'I/O dei file. Nei sistemi Windows queste librerie vengono installate con Python. Nei sistemi basati su Unix, vengono forniti dalle raccolte di pacchetti.
 
 Per visualizzare i dettagli completi dell'elenco di queste librerie, visitare i collegamenti seguenti:
 
-* [Libreria standard Python 3,6](https://docs.python.org/3.6/library/)
-* [Libreria standard Python 3,7](https://docs.python.org/3.7/library/)
-* [Libreria standard Python 3,8](https://docs.python.org/3.8/library/)
-* [Libreria standard Python 3,9](https://docs.python.org/3.9/library/)
+* [Libreria standard python 3.6](https://docs.python.org/3.6/library/)
+* [Libreria standard Python 3.7](https://docs.python.org/3.7/library/)
+* [Libreria standard python 3.8](https://docs.python.org/3.8/library/)
+* [Libreria standard python 3.9](https://docs.python.org/3.9/library/)
 
-### <a name="azure-functions-python-worker-dependencies"></a>Dipendenze di lavoro Python in funzioni di Azure
+### <a name="azure-functions-python-worker-dependencies"></a>Funzioni di Azure di lavoro Python
 
-Il ruolo di lavoro Python di funzioni richiede un set specifico di librerie. È anche possibile usare queste librerie nelle funzioni, ma non fanno parte dello standard Python. Se le funzioni si basano su una di queste librerie, potrebbero non essere disponibili per il codice durante l'esecuzione all'esterno di funzioni di Azure. È possibile trovare un elenco dettagliato delle dipendenze nella sezione **installazione \_ richiesta** del file [Setup.py](https://github.com/Azure/azure-functions-python-worker/blob/dev/setup.py#L282) .
+Il ruolo di lavoro Python per Funzioni richiede un set specifico di librerie. È anche possibile usare queste librerie nelle funzioni, ma non fanno parte dello standard Python. Se le funzioni si basano su una di queste librerie, potrebbero non essere disponibili per il codice durante l'esecuzione all'esterno Funzioni di Azure. È possibile trovare un elenco dettagliato delle dipendenze nella sezione **install \_ requires** nel file [setup.py.](https://github.com/Azure/azure-functions-python-worker/blob/dev/setup.py#L282)
 
 > [!NOTE]
-> Se il requirements.txt dell'app per le funzioni contiene una `azure-functions-worker` voce, rimuoverla. Il ruolo di lavoro funzioni è gestito automaticamente dalla piattaforma funzioni di Azure e viene aggiornato periodicamente con nuove funzionalità e correzioni di bug. L'installazione manuale di una versione precedente del ruolo di lavoro in requirements.txt può causare problemi imprevisti.
+> Se l'app per le funzioni requirements.txt contiene una `azure-functions-worker` voce, rimuoverla. Il ruolo di lavoro funzioni viene gestito automaticamente Funzioni di Azure piattaforma e viene regolarmente aggiornato con nuove funzionalità e correzioni di bug. L'installazione manuale di una versione precedente del ruolo di lavoro in requirements.txt può causare problemi imprevisti.
 
-### <a name="azure-functions-python-library"></a>Libreria Python di funzioni di Azure
+### <a name="azure-functions-python-library"></a>Funzioni di Azure libreria Python
 
-Ogni aggiornamento del ruolo di lavoro Python include una nuova versione della [libreria Python di funzioni di Azure (Azure. Functions)](https://github.com/Azure/azure-functions-python-library). Questo approccio rende più semplice aggiornare continuamente le app per le funzioni Python, perché ogni aggiornamento è compatibile con le versioni precedenti. È possibile trovare un elenco di versioni di questa libreria in [funzioni di Azure pypi](https://pypi.org/project/azure-functions/#history).
+Ogni aggiornamento del ruolo di lavoro Python include una [nuova versione Funzioni di Azure libreria Python (azure.functions).](https://github.com/Azure/azure-functions-python-library) Questo approccio semplifica l'aggiornamento continuo delle app per le funzioni Python, perché ogni aggiornamento è compatibile con le versioni precedenti. Un elenco delle versioni di questa libreria è disponibile in [azure-functions PyPi.](https://pypi.org/project/azure-functions/#history)
 
-La versione della libreria di runtime è fissa da Azure e non può essere sottoposta a override da requirements.txt. La `azure-functions` voce requirements.txt è solo per la divulgazione e la consapevolezza dei clienti.
+La versione della libreria di runtime è stata corretta da Azure e non può essere sostituita da requirements.txt. La `azure-functions` voce in requirements.txt è solo per la linting e la consapevolezza dei clienti.
 
 Usare il codice seguente per tenere traccia della versione effettiva della libreria di funzioni Python nel runtime:
 
@@ -614,12 +614,12 @@ getattr(azure.functions, '__version__', '< 1.2.1')
 
 ### <a name="runtime-system-libraries"></a>Librerie di sistema di runtime
 
-Per un elenco delle librerie di sistema preinstallate nelle immagini Docker per il ruolo di lavoro Python, seguire i collegamenti seguenti:
+Per un elenco delle librerie di sistema preinstallate nelle immagini Docker del ruolo di lavoro Python, seguire i collegamenti seguenti:
 
-|  Runtime di Funzioni  | Versione di Debian | Versioni di Python |
+|  Runtime di Funzioni  | Versione debian | Versioni di Python |
 |------------|------------|------------|
 | Versione 2.x | Estendi  | [Python 3.6](https://github.com/Azure/azure-functions-docker/blob/master/host/2.0/stretch/amd64/python/python36/python36.Dockerfile)<br/>[Python 3.7](https://github.com/Azure/azure-functions-docker/blob/master/host/2.0/stretch/amd64/python/python37/python37.Dockerfile) |
-| Versione 3.x | Buster | [Python 3.6](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python36/python36.Dockerfile)<br/>[Python 3.7](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python37/python37.Dockerfile)<br />[Python 3.8](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python38/python38.Dockerfile)<br/> [Python 3,9](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python39/python39.Dockerfile)|
+| Versione 3.x | Buster | [Python 3.6](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python36/python36.Dockerfile)<br/>[Python 3.7](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python37/python37.Dockerfile)<br />[Python 3.8](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python38/python38.Dockerfile)<br/> [Python 3.9](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python39/python39.Dockerfile)|
 
 ## <a name="cross-origin-resource-sharing"></a>Condivisione di risorse tra le origini
 
@@ -629,10 +629,10 @@ CORS è completamente supportato per le app per le funzioni Python.
 
 ## <a name="known-issues-and-faq"></a>Problemi noti e domande frequenti
 
-Di seguito è riportato un elenco di guide per la risoluzione dei problemi comuni:
+Di seguito è riportato un elenco di guide alla risoluzione dei problemi comuni:
 
 * [ModuleNotFoundError e ImportError](recover-python-functions.md#troubleshoot-modulenotfounderror)
-* [Impossibile importare ' cygrpc '](recover-python-functions.md#troubleshoot-cannot-import-cygrpc)
+* [Impossibile importare 'cygrpc'](recover-python-functions.md#troubleshoot-cannot-import-cygrpc)
 
 Tutti i problemi noti e le richieste di funzionalità vengono registrati tramite l'elenco di [problemi di GitHub](https://github.com/Azure/azure-functions-python-worker/issues). Se si verifica un problema e questo non è presente in GitHub, aprire un nuovo problema e includere una descrizione dettagliata.
 

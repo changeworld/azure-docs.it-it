@@ -11,29 +11,29 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: ef0f32ecc59bea6ee7a0f7ff12083fd2358c223c
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 08bc36500bbd95633d1cb1d02bf10a7397401aa4
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107478914"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107780120"
 ---
-# <a name="determine-which-azure-storage-encryption-key-model-is-in-use-for-the-storage-account"></a>Determinare quale Archiviazione di Azure di chiave di crittografia è in uso per l'account di archiviazione
+# <a name="determine-which-azure-storage-encryption-key-model-is-in-use-for-the-storage-account"></a>Determinare quale Archiviazione di Azure chiave di crittografia è in uso per l'account di archiviazione
 
 I dati nell'account di archiviazione vengono crittografati automaticamente Archiviazione di Azure. Archiviazione di Azure crittografia offre due opzioni per la gestione delle chiavi di crittografia a livello dell'account di archiviazione:
 
 - **Chiavi gestite da Microsoft.** Per impostazione predefinita, Microsoft gestisce le chiavi usate per crittografare l'account di archiviazione.
 - **Chiavi gestite dal cliente.** Facoltativamente, è possibile scegliere di gestire le chiavi di crittografia per l'account di archiviazione. Le chiavi gestite dal cliente devono essere archiviate in Azure Key Vault.
 
-È anche possibile fornire una chiave di crittografia a livello di singola richiesta per alcune operazioni di archiviazione BLOB. Quando viene specificata una chiave di crittografia nella richiesta, tale chiave esegue l'override della chiave di crittografia attiva nell'account di archiviazione. Per altre informazioni, vedere Specificare una chiave fornita dal cliente [in una richiesta all'archiviazione BLOB.](../blobs/storage-blob-customer-provided-key.md)
+È anche possibile fornire una chiave di crittografia a livello di singola richiesta per alcune operazioni di archiviazione BLOB. Quando nella richiesta viene specificata una chiave di crittografia, tale chiave esegue l'override della chiave di crittografia attiva nell'account di archiviazione. Per altre informazioni, vedere Specificare una chiave fornita dal cliente [in una richiesta all'archiviazione BLOB.](../blobs/storage-blob-customer-provided-key.md)
 
-Per altre informazioni sulle chiavi di crittografia, vedere Crittografia [Archiviazione di Azure per i dati in stato di inalter.](storage-service-encryption.md)
+Per altre informazioni sulle chiavi di crittografia, vedere Crittografia [Archiviazione di Azure per i dati in stato di inquieto.](storage-service-encryption.md)
 
 ## <a name="check-the-encryption-key-model-for-the-storage-account"></a>Controllare il modello di chiave di crittografia per l'account di archiviazione
 
 Per determinare se un account di archiviazione usa chiavi gestite da Microsoft o chiavi gestite dal cliente per la crittografia, usare uno degli approcci seguenti.
 
-# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+# <a name="azure-portal"></a>[Portale di Azure](#tab/portal)
 
 Per controllare il modello di crittografia per l'account di archiviazione usando il portale di Azure, seguire questa procedura:
 
@@ -46,11 +46,11 @@ L'immagine seguente mostra un account di archiviazione crittografato con chiavi 
 
 L'immagine seguente mostra un account di archiviazione crittografato con chiavi gestite dal cliente:
 
-![Screenshot che mostra l'impostazione della chiave di crittografia in portale di Azure](media/storage-encryption-key-model-get/customer-managed-encryption-key-setting-portal.png)
+![Screenshot che mostra l'impostazione della chiave di crittografia portale di Azure](media/storage-encryption-key-model-get/customer-managed-encryption-key-setting-portal.png)
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-Per controllare il modello di crittografia per l'account di archiviazione tramite PowerShell, chiamare il [comando Get-AzStorageAccount,](/powershell/module/az.storage/get-azstorageaccount) quindi controllare la **proprietà KeySource** per l'account.
+Per controllare il modello di crittografia per l'account di archiviazione usando PowerShell, chiamare il [comando Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) e quindi controllare la **proprietà KeySource** per l'account.
 
 ```powershell
 $account = Get-AzStorageAccount -ResourceGroupName <resource-group> `
@@ -62,7 +62,7 @@ Se il valore della **proprietà KeySource** è `Microsoft.Storage` , l'account v
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/cli)
 
-Per controllare il modello di crittografia per l'account di archiviazione usando l'interfaccia della riga di comando di Azure, chiamare il [comando az storage account show,](/cli/azure/storage/account#az-storage-account-show) quindi controllare la **proprietà keySource** per l'account.
+Per controllare il modello di crittografia per l'account di archiviazione usando l'interfaccia della riga di comando di Azure, chiamare il [comando az storage account show,](/cli/azure/storage/account#az_storage_account_show) quindi controllare la **proprietà keySource** per l'account.
 
 ```azurecli-interactive
 key_source=$(az storage account show \
@@ -79,4 +79,4 @@ Se il valore della **proprietà keySource** è `Microsoft.Storage` , l'account v
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Crittografia del servizio di archiviazione di Azure per dati inattivi](storage-service-encryption.md)
-- [Chiavi gestite dal cliente per Archiviazione di Azure crittografia](customer-managed-keys-overview.md)
+- [Chiavi gestite dal cliente per la Archiviazione di Azure crittografia](customer-managed-keys-overview.md)

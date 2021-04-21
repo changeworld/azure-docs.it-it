@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli
 ms.date: 07/01/2020
-ms.openlocfilehash: a3cc4c3d6936a51ca2010209ce23e4d82c9333eb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 58dccf56cd493782a422b0ddf0386e31d4d87daf
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98016341"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107765990"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-using-the-azure-cli"></a>Avvio rapido: Creare un processo di Analisi di flusso di Azure con l'interfaccia della riga di comando di Azure
 
@@ -29,7 +29,7 @@ Questo argomento di avvio rapido illustra come usare l'interfaccia della riga di
 
 - Creare un gruppo di risorse. Tutte le risorse di Azure devono essere distribuite in un gruppo di risorse. I gruppi di risorse consentono di organizzare e gestire le risorse di Azure correlate.
 
-   Per questo argomento di avvio rapido, creare un gruppo di risorse denominato *streamanalyticsrg* nell'area *eastus* con il comando [az group create](/cli/azure/group#az-group-create) seguente:
+   Per questo argomento di avvio rapido, creare un gruppo di risorse denominato *streamanalyticsrg* nell'area *eastus* con il comando [az group create](/cli/azure/group#az_group_create) seguente:
 
    ```azurecli
    az group create --name streamanalyticsrg --location eastus

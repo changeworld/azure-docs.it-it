@@ -7,41 +7,41 @@ ms.date: 11/23/2020
 ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, seodec18, contperf-fy21q1
 zone_pivot_groups: app-service-platform-windows-linux
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 2a789b4ca1261c79e8e6eb93a4ed44e7e8e9272e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ff86bedf47395b50dc25e552b8b3ed4176e23b65
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102214236"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107769104"
 ---
 # <a name="quickstart-create-an-aspnet-core-web-app-in-azure"></a>Guida introduttiva: Creare un'app Web ASP.NET Core in Azure
 
 ::: zone pivot="platform-windows"  
 
-In questa Guida introduttiva si apprenderà come creare e distribuire la prima app Web ASP.NET Core <abbr title="Un servizio basato su HTTP per l'hosting di applicazioni Web, API REST e applicazioni back-end per dispositivi mobili.">Servizio app di Azure</abbr>. Il servizio app supporta app .NET 5.0.
+In questa guida introduttiva si apprenderà come creare e distribuire la prima app Web ASP.NET Core in <abbr title="Servizio basato su HTTP per l'hosting di applicazioni Web, API REST e applicazioni back-end per dispositivi mobili.">Servizio app di Azure</abbr>. Il servizio app supporta app .NET 5.0.
 
-Al termine, sarà presente un'Azure <abbr title="Un contenitore logico per le risorse di Azure correlate che è possibile gestire come unità.">gruppo di risorse</abbr>, costituito da un <abbr title="Il piano che specifica la posizione, le dimensioni e le funzionalità del server farm Web che ospita l'app.">Piano di servizio app</abbr> e un <abbr title="La rappresentazione dell'app Web, che contiene il codice dell'app, i nomi host DNS, i certificati e le risorse correlate.">app del servizio app</abbr> con un'applicazione ASP.NET Core di esempio distribuita.
+Al termine, si dirà di avere un'istanza di Azure <abbr title="Contenitore logico per le risorse di Azure correlate che è possibile gestire come unità.">gruppo di risorse</abbr>, costituito da un oggetto <abbr title="Piano che specifica la posizione, le dimensioni e le funzionalità del server farm che ospita l'app.">Piano di servizio app</abbr> e un <abbr title="Rappresentazione dell'app Web, che contiene il codice dell'app, i nomi host DNS, i certificati e le risorse correlate.">app del servizio app</abbr> con un esempio distribuito ASP.NET Core.
 
 <hr/> 
 
 ## <a name="1-prepare-your-environment"></a>1. Preparare l'ambiente
 
-- **Ottenere un account Azure** con un account attivo <abbr title="Struttura organizzativa di base in cui si gestiscono le risorse in Azure, in genere associate a un singolo utente o a un reparto all'interno di un'organizzazione.">sottoscrizione</abbr>. [Creare un account gratuitamente](https://azure.microsoft.com/free/dotnet/).
-- **Installare <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a>** con il carico di lavoro **sviluppo di ASP.NET e Web** .
+- **Ottenere un account Azure** con un account attivo <abbr title="Struttura organizzativa di base in cui si gestiscono le risorse in Azure, in genere associate a un singolo o reparto all'interno di un'organizzazione.">sottoscrizione</abbr>. [Creare un account gratuitamente](https://azure.microsoft.com/free/dotnet/).
+- **Installare <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019 con</a>** il carico di lavoro ASP.NET sviluppo Web **e** web.
 
 <details>
-<summary>Si dispone già di Visual Studio 2019?</summary>
+<summary>Hai già Visual Studio 2019?</summary>
 Se Visual Studio 2019 è già installato:
 
 <ul>
-<li><strong>Installare gli aggiornamenti più recenti</strong> in Visual Studio selezionando la <strong>Guida</strong> &gt; <strong>Verifica disponibilità aggiornamenti</strong>. Gli aggiornamenti più recenti contengono .NET 5.0 SDK.</li>
-<li><strong>Aggiungere il carico di lavoro</strong> scegliendo <strong>strumenti</strong> &gt; <strong>Ottieni strumenti e funzionalità</strong>.</li>
+<li><strong>Installare gli aggiornamenti più recenti</strong> in Visual Studio selezionando <strong>Verifica</strong> della guida per &gt; <strong>gli aggiornamenti</strong>. Gli aggiornamenti più recenti contengono .NET 5.0 SDK.</li>
+<li><strong>Aggiungere il carico di</strong> lavoro selezionando <strong>Strumenti</strong> Ottieni strumenti &gt; <strong>e funzionalità</strong>.</li>
 </ul>
 </details>
 
 <hr/> 
 
-## <a name="2-create-an-aspnet-core-web-app"></a>2. creare un'app Web ASP.NET Core
+## <a name="2-create-an-aspnet-core-web-app"></a>2. Creare un'app Web ASP.NET Core
 
 1. Aprire Visual Studio e selezionare **Crea un nuovo progetto**.
 
@@ -63,7 +63,7 @@ Se Visual Studio 2019 è già installato:
 
 <hr/> 
 
-## <a name="3-publish-your-web-app"></a>3. pubblicare l'app Web
+## <a name="3-publish-your-web-app"></a>3. Pubblicare l'app Web
 
 1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto **myFirstAzureWebApp** e scegliere **Pubblica**. 
 
@@ -93,11 +93,11 @@ Se Visual Studio 2019 è già installato:
    
    ![Creare un nuovo piano di hosting](./media/quickstart-dotnetcore/create-new-hosting-plan-vs2019.png)
 
-1. In **nome** immettere un nome univoco per l'app.
+1. In **Nome** immettere un nome univoco per l'app.
 
     <details>
-        <summary>Quali caratteri è possibile utilizzare?</summary>
-        I caratteri validi sono a-z, A-Z, 0-9 e-. È possibile accettare il nome univoco generato automaticamente. L'URL dell'app Web è http:// <code>&lt;app-name&gt;.azurewebsites.net</code> , dove <code>&lt;app-name&gt;</code> è il nome dell'app.
+        <summary>Quali caratteri è possibile usare?</summary>
+        I caratteri validi sono a-z, A-Z, 0-9 e -. È possibile accettare il nome univoco generato automaticamente. L'URL dell'app Web http:// <code>&lt;app-name&gt;.azurewebsites.net</code> , dove è il nome <code>&lt;app-name&gt;</code> dell'app.
     </details>
 
 1. Selezionare **Crea** per creare le risorse di Azure. 
@@ -106,10 +106,10 @@ Se Visual Studio 2019 è già installato:
 
 1. Attendere il completamento della creazione delle risorse di Azure da parte della procedura guidata. Selezionare **Fine** per chiudere la procedura guidata.
 
-1. Nella pagina **pubblica** fare clic su **pubblica** per distribuire il progetto. 
+1. Nella pagina **Pubblica** fare clic su **Pubblica** per distribuire il progetto. 
 
     <details>
-        <summary>Funzionalità di Visual Studio</summary>
+        <summary>Che cosa Visual Studio fare?</summary>
         Visual Studio compila, crea il pacchetto e pubblica l'app in Azure, quindi la avvia nel browser predefinito.
     </details>
 
@@ -117,7 +117,7 @@ Se Visual Studio 2019 è già installato:
 
 <hr/> 
 
-## <a name="4-update-the-app-and-redeploy"></a>4. aggiornare l'app e ridistribuirla
+## <a name="4-update-the-app-and-redeploy"></a>4. Aggiornare l'app e ridistribuire
 
 1. Nel progetto in **Esplora soluzioni** aprire **Pagine** > **Index.cshtml**.
 
@@ -142,9 +142,9 @@ Se Visual Studio 2019 è già installato:
 
 <hr/> 
 
-## <a name="5-manage-the-azure-app"></a>5. gestire l'app Azure
+## <a name="5-manage-the-azure-app"></a>5. Gestire l'app Azure
 
-1. Passare alla [portale di Azure](https://portal.azure.com)e cercare e selezionare **Servizi app**.
+1. Passare al [portale di Azure](https://portal.azure.com)e cercare e selezionare **Servizi app.**
 
     ![Selezionare Servizi app](./media/quickstart-dotnetcore/app-services.png)
     
@@ -178,21 +178,21 @@ Procedere con l'articolo successivo per informazioni su come creare un'app .NET 
 ::: zone-end  
 
 ::: zone pivot="platform-linux"
-Questa Guida introduttiva illustra come creare un'app [.NET Core](/aspnet/core/) in <abbr title="Il Servizio app in Linux offre un servizio di hosting Web con scalabilità elevata e funzioni di auto-correzione basato sul sistema operativo Linux.">Servizio app in Linux</abbr>. È necessario creare l'app usando l'[interfaccia della riga di comando di Azure](/cli/azure/get-started-with-azure-cli) e GIT per distribuire il codice Node.js nell'app.
+Questa guida introduttiva illustra come creare un'app [.NET Core](/aspnet/core/) in <abbr title="Il Servizio app in Linux offre un servizio di hosting Web con scalabilità elevata e funzioni di auto-correzione basato sul sistema operativo Linux.">Servizio app in Linux</abbr>. È necessario creare l'app usando l'[interfaccia della riga di comando di Azure](/cli/azure/get-started-with-azure-cli) e GIT per distribuire il codice Node.js nell'app.
 
 <hr/> 
 
 ## <a name="1-prepare-your-environment"></a>1. Preparare l'ambiente
 
 - **Ottenere un account Azure** con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/dotnet/).
-- **Installare** la versione più recente di <a href="https://dotnet.microsoft.com/download/dotnet-core/3.1" target="_blank">.NET Core 3,1 sdk</a> o <a href="https://dotnet.microsoft.com/download/dotnet/5.0" target="_blank">.NET 5,0 SDK</a>.
-- **<a href="/cli/azure/install-azure-cli" target="_blank">Installare l'interfaccia della riga di comando di Azure più recente</a>**.
+- **Installare** la versione <a href="https://dotnet.microsoft.com/download/dotnet-core/3.1" target="_blank">più recente di .NET Core 3.1 SDK</a> o <a href="https://dotnet.microsoft.com/download/dotnet/5.0" target="_blank">.NET 5.0 SDK.</a>
+- **<a href="/cli/azure/install-azure-cli" target="_blank">Installare la versione più recente dell'interfaccia della riga di comando di Azure.</a>**
 
 [Problemi? Segnalarli](https://aka.ms/DotNetAppServiceLinuxQuickStart).
 
 <hr/> 
 
-## <a name="2-create-the-app-locally"></a>2. creare l'app localmente
+## <a name="2-create-the-app-locally"></a>2. Creare l'app in locale
 
 1. Eseguire `mkdir hellodotnetcore` per creare la directory.
 
@@ -214,9 +214,9 @@ Questa Guida introduttiva illustra come creare un'app [.NET Core](/aspnet/core/)
 
 <hr/> 
 
-## <a name="3-run-the-app-locally"></a>3. eseguire l'app localmente
+## <a name="3-run-the-app-locally"></a>3. Eseguire l'app in locale
 
-1. Eseguire `dotnet run` per verificarne l'aspetto quando lo si distribuisce in Azure.
+1. Eseguire `dotnet run` per verificarlo quando viene distribuito in Azure.
 
     ```bash
     dotnet run
@@ -230,7 +230,7 @@ Questa Guida introduttiva illustra come creare un'app [.NET Core](/aspnet/core/)
 
 <hr/> 
 
-## <a name="4-sign-into-azure"></a>4. accedere ad Azure
+## <a name="4-sign-into-azure"></a>4. Accedere ad Azure
 
 Eseguire `az login` per accedere ad Azure.
 
@@ -242,9 +242,9 @@ az login
 
 <hr/> 
 
-## <a name="5-deploy-the-app"></a>5. distribuire l'app
+## <a name="5-deploy-the-app"></a>5. Distribuire l'app
 
-1. **Esegui** `az webapp up` nella cartella locale. **Sostituire** <nome app> con un nome univoco globale.
+1. **Eseguire** `az webapp up` nella cartella locale. **Sostituire** <app-name> con un nome univoco globale.
 
     ```azurecli
     az webapp up --sku F1 --name <app-name> --os-type linux
@@ -253,24 +253,24 @@ az login
     <details>
     <summary>Risoluzione dei problemi</summary>
     <ul>
-    <li>Se il <code>az</code> comando non è riconosciuto, assicurarsi di avere installato l'interfaccia della riga di comando di Azure come descritto in <a href="#1-prepare-your-environment">preparare l'ambiente</a>.</li>
-    <li>Sostituire <code>&lt;app-name&gt;</code> con un nome univoco in tutte le aree di Azure <em> . i caratteri validi sono <code>a-z</code> , <code>0-9</code> e <code>-</code> </em> . Un criterio valido consiste nell'usare una combinazione del nome della società e di un identificatore dell'app.</li>
+    <li>Se il comando non viene riconosciuto, assicurarsi di avere installato l'interfaccia della riga di comando di <code>az</code> Azure come descritto in Preparare <a href="#1-prepare-your-environment">l'ambiente</a>.</li>
+    <li>Sostituire con un nome univoco in tutto <code>&lt;app-name&gt;</code> Azure ( i caratteri validi sono , e <em> <code>a-z</code> <code>0-9</code> <code>-</code> </em> ). Un criterio valido consiste nell'usare una combinazione del nome della società e di un identificatore dell'app.</li>
     <li>Con l'argomento <code>--sku F1</code> l'app Web viene creata nel piano tariffario Gratuito. Omettere questo argomento per usare un livello Premium più rapido, che però comporta un costo orario.</li>
-    <li>Facoltativamente, è possibile includere l'argomento <code>--location &lt;location-name&gt;</code>, dove <code>&lt;location-name&gt;</code> è un'area di Azure disponibile. È possibile recuperare un elenco di aree consentite per l'account Azure eseguendo il <a href="/cli/azure/appservice#az-appservice-list-locations"> <code>az account list-locations</code> </a> comando.</li>
+    <li>Facoltativamente, è possibile includere l'argomento <code>--location &lt;location-name&gt;</code>, dove <code>&lt;location-name&gt;</code> è un'area di Azure disponibile. È possibile recuperare un elenco di aree consentite per l'account Azure eseguendo il <a href="/cli/azure/appservice#az_appservice_list_locations"> <code>az account list-locations</code> </a> comando .</li>
     </ul>
     </details>
     
-1. Attendere il completamento del comando, Potrebbero essere necessari alcuni minuti e termina con "è possibile avviare l'app in http:// &lt; app-name &gt; . azurewebsites.NET".
+1. Attendere il completamento del comando, L'operazione potrebbe richiedere alcuni minuti e termina con "È possibile avviare l'app all'indirizzo http:// &lt; app-name &gt; .azurewebsites.net".
 
     <details>
-    <summary>Cosa sta <code>az webapp up</code> facendo?</summary>
+    <summary>Che cosa <code>az webapp up</code> sta facendo?</summary>
     <p>Il comando <code>az webapp up</code> esegue le azioni seguenti:</p>
     <ul>
     <li>Crea un gruppo di risorse predefinito.</li>
     <li>Creare un piano di servizio app predefinito.</li>
-    <li><a href="/cli/azure/webapp#az-webapp-create">Creare un'app del servizio app</a> con il nome specificato.</li>
+    <li><a href="/cli/azure/webapp#az_webapp_create">Creare un'app del servizio app</a> con il nome specificato.</li>
     <li><a href="/azure/app-service/deploy-zip">Distribuire file ZIP</a> i dalla directory di lavoro corrente all'app.</li>
-    <li>Durante l'esecuzione, fornisce messaggi sulla creazione di risorse, la registrazione e la distribuzione ZIP.</li>
+    <li>Durante l'esecuzione, fornisce messaggi relativi alla creazione, alla registrazione e alla distribuzione ZIP delle risorse.</li>
     </ul>
     </details>
     
@@ -288,7 +288,7 @@ az login
 
 <hr/> 
 
-## <a name="6-browse-to-the-app"></a>6. passare all'app
+## <a name="6-browse-to-the-app"></a>6. Passare all'app
 
 **Passare all'applicazione distribuita** usando il Web browser.
 
@@ -302,30 +302,30 @@ http://<app_name>.azurewebsites.net
 
 <hr/> 
 
-## <a name="7-update-and-redeploy-the-code"></a>7. aggiornare e ridistribuire il codice
+## <a name="7-update-and-redeploy-the-code&quot;></a>7. Aggiornare e ridistribuire il codice
 
-1. **Aprire il file _Startup. cs_** nella directory locale. 
+1. **Aprire il file _Startup.cs_** nella directory locale. 
 
 1. **Apportare una piccola modifica** al testo nella chiamata al metodo `context.Response.WriteAsync` .
 
     ```csharp
-    await context.Response.WriteAsync("Hello Azure!");
+    await context.Response.WriteAsync(&quot;Hello Azure!");
     ```
     
 1. **Salvare le modifiche**.
 
-1. **Esegui** `az webapp up` per ridistribuire:
+1. **Eseguire** `az webapp up` per ridistribuire:
 
     ```azurecli
     az webapp up --os-type linux
     ```
     
     <details>
-    <summary>Cosa sta <code>az webapp up</code> facendo questa volta?</summary>
-    La prima volta che è stato eseguito il comando, sono stati salvati il nome dell'app, il gruppo di risorse e il piano di servizio app nel file <i>. Azure/config</i> dalla radice del progetto. Quando si esegue nuovamente dalla radice del progetto, vengono usati i valori salvati in <i>. Azure/config</i>, viene rilevato che le risorse del servizio app esistono già ed esegue nuovamente la distribuzione zip.
+    <summary>Che cosa sta <code>az webapp up</code> facendo questa volta?</summary>
+    La prima volta che è stato eseguito il comando, il nome dell'app, il gruppo di risorse e il piano di servizio app sono stati salvati nel file con estensione <i>azure/config</i> dalla radice del progetto. Quando viene eseguito di nuovo dalla radice del progetto, usa i valori salvati in <i>.azure/config,</i>rileva che le risorse del servizio app esistono già ed esegue nuovamente la distribuzione ZIP.
     </details>
     
-1. Al termine della distribuzione, fare **clic su Aggiorna** nella finestra del browser aperta in precedenza.
+1. Al termine della distribuzione, **fare clic su Aggiorna** nella finestra del browser aperta in precedenza.
 
     ![App di esempio aggiornata in esecuzione in Azure](media/quickstart-dotnetcore/dotnet-browse-azure-updated.png)
     
@@ -333,7 +333,7 @@ http://<app_name>.azurewebsites.net
 
 <hr/> 
 
-## <a name="8-manage-your-new-azure-app"></a>8. gestire la nuova app Azure
+## <a name="8-manage-your-new-azure-app"></a>8. Gestire la nuova app di Azure
 
 1. Accedere al <a href="https://portal.azure.com" target="_blank">portale di Azure</a>.
 
@@ -341,7 +341,7 @@ http://<app_name>.azurewebsites.net
 
     :::image type="content" source="./media/quickstart-dotnetcore/portal-app-service-list-up.png" alt-text="Screenshot della pagina Servizi app con un'app Azure di esempio selezionata.":::
 
-1. Nella pagina panoramica è possibile eseguire attività di gestione di base, ad esempio browse, stop, Start, restart ed Delete. Il menu a sinistra fornisce varie pagine per la configurazione dell'app. 
+1. Nella pagina Panoramica è possibile eseguire attività di gestione di base, ad esempio sfogliare, arrestare, avviare, riavviare ed eliminare. Il menu a sinistra fornisce varie pagine per la configurazione dell'app. 
 
     ![Pagina del servizio app nel portale di Azure](media/quickstart-dotnetcore/portal-app-overview-up.png)
     
@@ -349,7 +349,7 @@ http://<app_name>.azurewebsites.net
 
 ## <a name="9-clean-up-resources"></a>9. Pulire le risorse
 
-**Esegui** `az group delete --name myResourceGroup` per eliminare il gruppo di risorse.
+**Eseguire** `az group delete --name myResourceGroup` per eliminare il gruppo di risorse.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup

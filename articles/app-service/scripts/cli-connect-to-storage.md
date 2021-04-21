@@ -9,12 +9,12 @@ ms.topic: sample
 ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: mvc, seodec18, devx-track-azurecli
-ms.openlocfilehash: bc0dc403e6987743c97982924348cbe345d15c48
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 8f1eba39f8487df6dd62364574426315aed4c20d
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107482316"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107782299"
 ---
 # <a name="connect-an-app-service-app-to-a-storage-account-using-cli"></a>Connettere un'app del servizio app a un account di archiviazione usando l'interfaccia della riga di comando
 
@@ -39,12 +39,12 @@ Lo script usa i comandi seguenti per creare un gruppo di risorse, l'app del serv
 
 | Comando | Note |
 |---|---|
-| [`az group create`](/cli/azure/group#az-group-create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
-| [`az appservice plan create`](/cli/azure/appservice/plan#az-appservice-plan-create) | Consente di creare un piano di servizio app. |
-| [`az webapp create`](/cli/azure/webapp#az-webapp-create) | Consente di creare un'app del servizio app. |
-| [`az storage account create`](/cli/azure/storage/account#az-storage-account-create) | Crea un account di archiviazione. |
-| [`az storage account show-connection-string`](/cli/azure/storage/account#az-storage-account-show-connection-string) | Ottenere la stringa di connessione per un account di archiviazione. |
-| [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) | Crea o aggiorna un'impostazione app per un'app del servizio app. Le impostazioni delle app vengono esposte come variabili di ambiente dell'applicazione. |
+| [`az group create`](/cli/azure/group#az_group_create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
+| [`az appservice plan create`](/cli/azure/appservice/plan#az_appservice_plan_create) | Consente di creare un piano di servizio app. |
+| [`az webapp create`](/cli/azure/webapp#az_webapp_create) | Consente di creare un'app del servizio app. |
+| [`az storage account create`](/cli/azure/storage/account#az_storage_account_create) | Crea un account di archiviazione. |
+| [`az storage account show-connection-string`](/cli/azure/storage/account#az_storage_account_show_connection_string) | Ottenere la stringa di connessione per un account di archiviazione. |
+| [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) | Crea o aggiorna un'impostazione app per un'app del servizio app. Le impostazioni delle app vengono esposte come variabili di ambiente dell'applicazione. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

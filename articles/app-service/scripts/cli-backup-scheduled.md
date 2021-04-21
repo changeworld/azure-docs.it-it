@@ -1,5 +1,5 @@
 ---
-title: 'INTERFACCIA della riga di comando: creare un backup pianificato'
+title: 'Interfaccia della riga di comando: Creare un backup pianificato'
 description: Informazioni su come usare l'interfaccia della riga di comando di Azure per automatizzare la distribuzione e la gestione dell'app Servizio app. Questo esempio illustra come creare un backup pianificato per un'app.
 author: msangapu-msft
 tags: azure-service-management
@@ -9,12 +9,12 @@ ms.date: 12/11/2017
 ms.author: msangapu
 ms.reviewer: cephalin
 ms.custom: mvc, seodec18, devx-track-azurecli
-ms.openlocfilehash: 500ac99cd35cfdf601be75a19a1d43f84795cbe8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: db1d0558f93b203af1605663533847d32afbcffb
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97006426"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107782550"
 ---
 # <a name="create-a-scheduled-backup-for-an-app-service-app-using-cli"></a>Creare un backup pianificato per un'app del servizio app usando l'interfaccia della riga di comando
 
@@ -38,15 +38,15 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 
 | Comando | Note |
 |---|---|
-| [`az group create`](/cli/azure/group#az-group-create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
-| [`az storage account create`](/cli/azure/storage/account#az-storage-account-create) | Crea un account di archiviazione. |
-| [`az storage container create`](/cli/azure/storage/container#az-storage-container-create) | Crea un contenitore di Archiviazione di Azure. |
-| [`az storage container generate-sas`](/cli/azure/storage/container#az-storage-container-generate-sas) | Genera un token di firma di accesso condiviso per un contenitore di archiviazione di Azure.  |
-| [`az appservice plan create`](/cli/azure/appservice/plan#az-appservice-plan-create) | Consente di creare un piano di servizio app. |
-| [`az webapp create`](/cli/azure/webapp#az-webapp-create) | Consente di creare un'app del servizio app. |
-| [`az webapp config backup update`](/cli/azure/webapp/config/backup#az-webapp-config-backup-update) | Configura una nuova pianificazione del backup per un'app del servizio app. |
-| [`az webapp config backup show`](/cli/azure/webapp/config/backup#az-webapp-config-backup-show) | Visualizza la pianificazione del backup per un'app del servizio app. |
-| [`az webapp config backup list`](/cli/azure/webapp/config/backup#az-webapp-config-backup-list) | Consente di ottenere un elenco di backup per un'app del servizio app. |
+| [`az group create`](/cli/azure/group#az_group_create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
+| [`az storage account create`](/cli/azure/storage/account#az_storage_account_create) | Crea un account di archiviazione. |
+| [`az storage container create`](/cli/azure/storage/container#az_storage_container_create) | Crea un contenitore di Archiviazione di Azure. |
+| [`az storage container generate-sas`](/cli/azure/storage/container#az_storage_container_generate_sas) | Genera un token di firma di accesso condiviso per un contenitore di archiviazione di Azure.  |
+| [`az appservice plan create`](/cli/azure/appservice/plan#az_appservice_plan_create) | Consente di creare un piano di servizio app. |
+| [`az webapp create`](/cli/azure/webapp#az_webapp_create) | Consente di creare un'app del servizio app. |
+| [`az webapp config backup update`](/cli/azure/webapp/config/backup#az_webapp_config_backup_update) | Configura una nuova pianificazione del backup per un'app del servizio app. |
+| [`az webapp config backup show`](/cli/azure/webapp/config/backup#az_webapp_config_backup_show) | Visualizza la pianificazione del backup per un'app del servizio app. |
+| [`az webapp config backup list`](/cli/azure/webapp/config/backup#az_webapp_config_backup_list) | Consente di ottenere un elenco di backup per un'app del servizio app. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

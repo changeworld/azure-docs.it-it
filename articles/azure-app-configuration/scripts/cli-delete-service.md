@@ -10,12 +10,12 @@ ms.topic: sample
 ms.date: 02/19/2020
 ms.author: alkemper
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 49d6a85faa55de5dbf50377998dbe2fc829d9f6f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 07c4ac3234dc67978f16f6c0c7e0702924bf2bb5
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96929787"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107768897"
 ---
 # <a name="delete-an-azure-app-configuration-store"></a>Eliminare un archivio di Configurazione app di Azure
 
@@ -44,7 +44,7 @@ Questo script usa i comandi seguenti per eliminare un archivio di Configurazione
 
 | Comando | Note |
 |---|---|
-| [az appconfig delete](/cli/azure/appconfig#az-appconfig-delete) | Elimina una risorsa archivio di Configurazione app. |
+| [az appconfig delete](/cli/azure/appconfig#az_appconfig_delete) | Elimina una risorsa archivio di Configurazione app. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
