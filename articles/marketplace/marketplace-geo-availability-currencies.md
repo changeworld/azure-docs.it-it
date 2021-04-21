@@ -1,5 +1,5 @@
 ---
-title: Disponibilità geografica e supporto della valuta per Microsoft Commercial Marketplace
+title: Disponibilità geografica e supporto della valuta per il marketplace commerciale Microsoft
 description: Disponibilità geografica e valute supportate per le transazioni nel marketplace commerciale
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -7,25 +7,25 @@ ms.topic: reference
 author: keferna
 ms.author: keferna
 ms.date: 03/08/2021
-ms.openlocfilehash: e583d39e2eed1b08dfeb17cafc1e12c583176d7b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4833a5779b9c9d5edcbbe70045f2ba2ca2d72ebe
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103493034"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107812535"
 ---
-# <a name="geographic-availability-and-currency-support-for-the-commercial-marketplace"></a>Disponibilità geografica e supporto della valuta per il Marketplace commerciale
+# <a name="geographic-availability-and-currency-support-for-the-commercial-marketplace"></a>Disponibilità geografica e supporto della valuta per il marketplace commerciale
 
-## <a name="supported-geographic-locations"></a>Posizioni geografiche supportate
+## <a name="supported-geographic-locations"></a>Località geografiche supportate
 
-Le offerte nel marketplace commerciale possono essere acquistate in 141 aree geografiche, in base all'indirizzo di fatturazione del cliente, e possono essere completate in 17 valute. Nella tabella seguente sono elencate tutte le posizioni geografiche supportate, il [codice alfa ISO 3166 2-digit](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes)e la valuta assegnata.
+Le offerte nel marketplace commerciale possono essere acquistate in 141 aree geografiche, in base all'indirizzo di fatturazione del cliente, e possono essere completate in 17 valute. La tabella seguente elenca ogni posizione geografica supportata, il relativo codice alfa a due cifre [ISO 3166](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes)e la valuta assegnata.
 
-Un CSP può acquistare un'offerta nel centro per i partner nella valuta del cliente finale per poterla fatturare nella stessa valuta. Per ulteriori informazioni, vedere [le domande frequenti](https://partner.microsoft.com/resources/detail/eu-efta-change-of-partner-billing-currency-faq-pdf).
+Un CSP può acquistare un'offerta Partner Center nella valuta del cliente finale in modo che possa fatturarla nella stessa valuta. Per altre informazioni, vedere [queste domande frequenti.](https://partner.microsoft.com/resources/detail/eu-efta-change-of-partner-billing-currency-faq-pdf)
 
-|   Nome paese/area               |   ISO-2   |   Valuta</br>(Tutti i tipi di offerta)  |    Valuta</br>(Solo offerte del servizio di consulenza)    |
+|   Nome paese/area               |   ISO-2   |   Valuta</br>(Tutti i tipi di offerta)  |    Valuta</br>(solo offerte di servizi di consulenza)    |
 |-------------------------------------|-----------|--------------|---------------------------------------------|
 | Afghanistan                         | AF        | USD          | AFN, EUR, USD |
-| Albania                             | AL        | USD          | TUTTI, EUR, USD |
+| Albania                             | AL        | USD          | ALL, EUR, USD |
 | Algeria                             | DZ        | USD          | DZD, EUR, USD |
 | Andorra                             | AD        | EUR          | EUR, USD |
 | Angola                              | AO        | USD          | AOA, EUR, USD |
@@ -34,7 +34,7 @@ Un CSP può acquistare un'offerta nel centro per i partner nella valuta del clie
 | Australia                           | AU        | AUD          | AUD, EUR, USD |
 | Austria                             | AT        | EUR          | EUR, USD  |
 | Azerbaigian                          | AZ        | USD          | AZN, EUR, USD |
-| Bahrain                             | BH        | USD          | BHD, EUR, USD |
+| Bahrain                             | BH        | USD          | PREZZO, EUR, USD |
 | Bangladesh                          | BD        | USD          | BDT, EUR, USD |
 | Barbados                            | BB        | USD          | BBD, EUR, USD |
 | Bielorussia                             | BY        | USD          | BYN, EUR, USD |
@@ -76,7 +76,7 @@ Un CSP può acquistare un'offerta nel centro per i partner nella valuta del clie
 | Ghana                               | GH        | USD          | EUR, GHS, USD |
 | Grecia                              | GR        | EUR          | EUR, USD |
 | Guatemala                           | GT        | USD          | EUR, GTQ, USD |
-| Honduras                            | HN        | USD          | EUR, LEAGUE, USD |
+| Honduras                            | HN        | USD          | EUR, HNL, USD |
 | RAS di Hong Kong                       | HK        | USD          | EUR, HKD, USD |
 | Ungheria                             | HU        | EUR          | EUR, HUF, USD |
 | Islanda                             | IS        | EUR          | EUR, ISK, USD |
@@ -110,7 +110,7 @@ Un CSP può acquistare un'offerta nel centro per i partner nella valuta del clie
 | Mongolia                            | MN        | USD          | EUR, MNT, USD |
 | Montenegro                          | ME        | USD          | EUR, USD |
 | Marocco                             | MA        | USD          | EUR, MAD, USD |
-| Namibia                             | ND        | USD          | EUR, NAD, USD, ZAR |
+| Namibia                             | ND        | USD          | EUR, NAD, USD, FR |
 | Nepal                               | NP        | USD          | EUR, NPR, USD |
 | Paesi Bassi                         | NL        | EUR          | EUR, USD |
 | Nuova Zelanda                         | NZ        | NZD          | EUR, NZD, USD |
@@ -118,7 +118,7 @@ Un CSP può acquistare un'offerta nel centro per i partner nella valuta del clie
 | Nigeria                             | NG        | USD          | EUR, NGN, USD |
 | Macedonia del Nord                     | MK        | USD          | EUR, MKD, USD |
 | Norvegia                              | NO        | NOK          | EUR, NOK, USD |
-| Oman                                | OM        | USD          | EUR, DI UN DOLLARO, USD |
+| Oman                                | OM        | USD          | EUR, OMR, USD |
 | Pakistan                            | PK        | USD          | EUR, PKR, USD |
 | Autorità Palestinese               | PS        | USD          | EUR, ILS, JOD, USD |
 | Panama                              | PA        | USD          | EUR, PAB, USD |
@@ -139,7 +139,7 @@ Un CSP può acquistare un'offerta nel centro per i partner nella valuta del clie
 | Singapore                           | SG        | USD          | BND, EUR, SGD, USD |
 | Slovacchia                            | SK        | EUR          | EUR, USD |
 | Slovenia                            | SI        | EUR          | EUR, USD |
-| Sud Africa                        | ZA        | USD          | EUR, USD, ZAR |
+| Sud Africa                        | ZA        | USD          | EUR, USD, FR |
 | Spagna                               | ES        | EUR          | EUR, USD |
 | Sri Lanka                           | LK        | USD          | EUR, LKR, USD |
 | Svezia                              | SE        | SEK          | EUR, SEK, USD  |
@@ -150,7 +150,7 @@ Un CSP può acquistare un'offerta nel centro per i partner nella valuta del clie
 | Thailandia                            | TH        | USD          | EUR, THB, USD |
 | Trinidad e Tobago                 | TT        | USD          | EUR, TTD, USD |
 | Tunisia                             | TN        | USD          | EUR, TND, USD |
-| Turchia                              | TR        | USD          | EUR, PROVA, USD |
+| Turchia                              | TR        | USD          | EUR, TRY, USD |
 | Turkmenistan                        | TM        | USD          | EUR, TMT, USD |
 | Uganda                              | UG        | USD          | EUR, UGX, USD |
 | Ucraina                             | UA        | USD          | EUR, RUB, UAH, USD |
@@ -168,39 +168,39 @@ Un CSP può acquistare un'offerta nel centro per i partner nella valuta del clie
 | Zimbabwe                            | ZW        | USD          | EUR, USD|
 |   |   |   |
 
-\* Per i clienti in Brasile, il Marketplace commerciale tramite Cloud Solution Provider (CSP) USA USD.
+\* Per i clienti in Brasile, il marketplace commerciale tramite Cloud Solution Provider (CSP) usa USD.
 
 \** Solo immagini di macchine virtuali BYOL e gratuite.
 
-## <a name="how-we-convert-currency"></a>Conversione della valuta
+## <a name="how-we-convert-currency"></a>Come si converte la valuta
 
-Per tutti i tipi di offerta a pagamento, è possibile immettere i prezzi in USD o caricare i prezzi nella valuta locale. I prezzi immessi in USD vengono convertiti automaticamente in valuta locale quando la pagina viene salvata. Le tariffe utilizzate dal centro per i partner vengono aggiornate ogni giorno. È possibile esportare i prezzi ed esaminare gli equivalenti convertiti.
+Per tutti i tipi di offerta a pagamento, è possibile immettere i prezzi in USD o caricare i prezzi in valuta locale. I prezzi immessi in USD vengono convertiti automaticamente nella valuta locale quando viene salvata la pagina. Le tariffe Partner Center vengono aggiornate ogni giorno. È possibile esportare i prezzi ed esaminare gli equivalenti convertiti.
 
-Per modificare il prezzo prima della pubblicazione, è sufficiente esportare il foglio di calcolo dei prezzi, modificarlo e caricarlo con le modifiche.
-
-> [!NOTE]
-> Una volta pubblicato il prezzo per un mercato del piano, non è possibile modificarlo. Per assicurarsi che i prezzi siano corretti prima di procedere con la pubblicazione, esportare il foglio di calcolo dei prezzi ed esaminare i prezzi per ogni mercato.
-
-Il prezzo di un'offerta viene sempre visualizzato ai clienti nella propria valuta locale. Il prezzo selezionato in Partner Center viene convertito nella valuta locale dei clienti in base al tasso di cambio nel momento in cui è stato salvato il prezzo nel centro per i partner. Il prezzo indicato ai clienti nei negozi online non cambia, a meno che l'offerta non venga ripubblicata.
-
-Microsoft riceve i pagamenti dai clienti con la valuta locale e paga la valuta selezionata nel centro per i partner. Microsoft converte la valuta locale del cliente utilizzando il tasso di cambio del giorno di acquisto.
+Per modificare qualsiasi prezzo prima della pubblicazione, è sufficiente esportare il foglio di calcolo dei prezzi, modificarlo e caricarlo con le modifiche.
 
 > [!NOTE]
-> Microsoft converte i prezzi delle offerte usando i tassi di cambio del tesoro Microsoft.
+> Dopo la pubblicazione, un prezzo per un mercato nel piano non può essere modificato. Per assicurarsi che i prezzi siano corretti prima di procedere con la pubblicazione, esportare il foglio di calcolo dei prezzi ed esaminare i prezzi per ogni mercato.
 
-[![Flusso di conversione di valuta.](media/marketplace-geo-availability-currencies/currency-exchange-flow.png)](media/marketplace-geo-availability-currencies/currency-exchange-flow.png#lightbox)
+Il prezzo di un'offerta viene sempre visualizzato ai clienti nella valuta locale. Il prezzo selezionato in Partner Center viene convertito nella valuta locale dei clienti in base al tasso di cambio al momento in cui è stato salvato il prezzo Partner Center. Il prezzo visualizzato ai clienti nei negozi online non cambia, a meno che non si ripubblica l'offerta.
 
-## <a name="retrieving-currency-information-by-api"></a>Recupero delle informazioni sulla valuta per API
+Microsoft riceve i pagamenti dai clienti nella valuta locale e l'utente viene pagato nella valuta selezionata in Partner Center. Microsoft converte la valuta locale del cliente usando il tasso di cambio del giorno di acquisto.
 
-I prezzi individuali (che, a seconda del modo in cui sono stati impostati, potrebbero essere stati influenzati dai tassi di cambio del giorno in cui sono stati salvati), possono essere recuperati usando un'API. non è possibile ottenere informazioni sulla valuta.
+> [!NOTE]
+> Microsoft converte i prezzi delle offerte usando i tassi di cambio del Microsoft Buono.
 
-Per informazioni dettagliate su come immettere i prezzi per i tipi di offerta specifici, vedere questi articoli:
+[![Flusso di conversione valuta.](media/marketplace-geo-availability-currencies/currency-exchange-flow.png)](media/marketplace-geo-availability-currencies/currency-exchange-flow.png#lightbox)
+
+## <a name="retrieving-currency-information-by-api"></a>Recupero di informazioni sulla valuta da parte dell'API
+
+I singoli prezzi (che, a seconda di come sono stati impostati, potrebbero essere stati influenzati dai tassi di cambio il giorno in cui sono stati salvati) possono essere recuperati tramite un'API; le informazioni sulla valuta non sono disponibili.
+
+Per informazioni dettagliate su come immettere i prezzi per tipi di offerta specifici, vedere questi articoli:
 
 - [Creare un'offerta di applicazione Azure](create-new-azure-apps-offer.md)
 - [Creare un'offerta di contenitore di Azure](./create-azure-container-offer.md)
 - [Creare un'offerta per macchine virtuali di Azure](azure-vm-create.md)
 - [Creare un'offerta di un servizio di consulenza](./create-consulting-service-offer.md)
-- [Creare un'offerta Dynamics 365 for Customer Engagement & PowerApps](partner-center-portal/create-new-customer-engagement-offer.md)
+- [Creare un'offerta di dynamics 365 for Customer Engagement & Power Apps clienti](dynamics-365-customer-engage-offer-setup.md)
 - [Creare un'offerta Dynamics 365 for Operations](partner-center-portal/create-new-operations-offer.md)
 - [Creare un'offerta Dynamics 365 Business Central](partner-center-portal/create-new-business-central-offer.md)
 - [Creare un'offerta di moduli IoT Edge](partner-center-portal/azure-iot-edge-module-creation.md)
