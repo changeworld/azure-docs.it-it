@@ -3,14 +3,14 @@ author: aahill
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 02/09/2021
+ms.date: 04/19/2021
 ms.author: aahi
-ms.openlocfilehash: 791591f3d98f9e6902e89a880c464e6a609e3a1f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: cee201c11d0415e1f63e7e6a9157b96a059503ba
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104599037"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107765069"
 ---
 <a name="HOLTop"></a>
 
@@ -799,7 +799,7 @@ key_phrase_extraction_example(client)
 
 ---
 
-## <a name="use-the-api-asynchronously-with-the-batch-analyze-operation"></a>Usare l'API in modo asincrono con l'operazione di analisi del batch
+## <a name="use-the-api-asynchronously-with-the-batch-analyze-operation"></a>Usare l'API in modo asincrono con l'operazione di analisi batch
 
 # <a name="version-31-preview"></a>[Versione 3.1-preview](#tab/version-3-1)
 
@@ -808,15 +808,19 @@ key_phrase_extraction_example(client)
 Creare una nuova funzione denominata `analyze_batch_actions_example()` che accetta il client come argomento e quindi chiama la funzione `begin_analyze_batch_actions()`. Il risultato sarà un'operazione a esecuzione prolungata sui cui verrà eseguito il polling per ottenere i risultati.
 
 ```python
-    def analyze_batch_actions_example(client):
+from azure.ai.textanalytics import (
+    RecognizeEntitiesAction
+)
+
+def analyze_batch_example(client):
         documents = [
             "Microsoft was founded by Bill Gates and Paul Allen."
         ]
 
-        poller = text_analytics_client.begin_analyze_batch_actions(
+        poller = client.begin_analyze_batch_actions(
             documents,
             display_name="Sample Text Analysis",
-            entities_recognition_tasks=[EntitiesRecognitionTask()]
+            actions=[RecognizeEntitiesAction()]
         )
 
         result = poller.result()
@@ -824,7 +828,7 @@ Creare una nuova funzione denominata `analyze_batch_actions_example()` che accet
 
         entities_recognition_task_result = action_results[0]
         print("Results of Entities Recognition action:")
-        docs = [doc for doc in first_action_result.document_results if not doc.is_error]
+        docs = [doc for doc in entities_recognition_task_result.document_results if not doc.is_error]
 
         for idx, doc in enumerate(docs):
             print("\nDocument text: {}".format(documents[idx]))
@@ -835,7 +839,7 @@ Creare una nuova funzione denominata `analyze_batch_actions_example()` che accet
                 print("...Offset: {}".format(entity.offset))
             print("------------------------------------------")
 
-analyze_example(client)
+analyze_batch_example(client)
 ```
 
 ### <a name="output"></a>Output
@@ -858,7 +862,7 @@ Entity: Paul Allen
 ------------------------------------------
 ```
 
-È anche possibile usare l'operazione batch Analyze per rilevare informazioni personali ed eseguire l'estrazione di frasi chiave. Vedere l' [esempio batch Analyze](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/samples/sample_analyze_batch_actions.py) su GitHub.
+È anche possibile usare l'operazione di analisi batch per rilevare le informazioni personali ed eseguire l'estrazione di frasi chiave. Vedere [l'esempio di analisi batch](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/samples/sample_analyze_batch_actions.py) su GitHub.
 
 # <a name="version-30"></a>[Versione 3.0](#tab/version-3)
 

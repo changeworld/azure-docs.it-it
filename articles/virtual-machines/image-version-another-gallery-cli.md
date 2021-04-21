@@ -9,40 +9,40 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 0bea4fbac062b498dabe04e6e58d530d09b16d6d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e2cd885d886a0f13783e61a04c7243efdf12967e
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102553103"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107784984"
 ---
 # <a name="copy-an-image-from-another-gallery-using-the-azure-cli"></a>Copiare un'immagine da un'altra raccolta usando l'interfaccia della riga di comando di Azure
 
-Se nell'organizzazione sono presenti più raccolte, è anche possibile creare versioni di immagini da versioni di immagini esistenti archiviate in altre raccolte. È ad esempio possibile disporre di una raccolta di sviluppo e test per la creazione e il test di nuove immagini. Quando sono pronti per l'uso nell'ambiente di produzione, è possibile copiarli in una raccolta di produzione usando questo esempio. È anche possibile creare un'immagine da un'immagine in un'altra raccolta usando [Azure PowerShell](image-version-another-gallery-powershell.md).
+Se nell'organizzazione sono presenti più raccolte, è anche possibile creare versioni delle immagini da versioni di immagini esistenti archiviate in altre raccolte. Ad esempio, si potrebbe avere una raccolta di sviluppo e test per la creazione e il test di nuove immagini. Quando sono pronti per l'uso nell'ambiente di produzione, è possibile copiarli in una raccolta di produzione usando questo esempio. È anche possibile creare un'immagine da un'immagine in un'altra raccolta [usando Azure PowerShell](image-version-another-gallery-powershell.md).
 
 
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Per completare questo articolo, è necessario disporre di una raccolta di origine, di una definizione di immagine e di una versione dell'immagine. È inoltre necessario disporre di una raccolta di destinazione. 
+Per completare questo articolo, è necessario avere una raccolta di origine, una definizione di immagine e una versione dell'immagine esistenti. È anche necessario disporre di una raccolta di destinazione. 
 
 La versione dell'immagine di origine deve essere replicata nell'area in cui si trova la raccolta di destinazione. 
 
-Quando si lavora in questo articolo, sostituire i nomi delle risorse laddove necessario.
+Quando si lavora con questo articolo, sostituire i nomi delle risorse dove necessario.
 
 
 
 ## <a name="get-information-from-the-source-gallery"></a>Ottenere informazioni dalla raccolta di origine
 
-Sono necessarie informazioni della definizione dell'immagine di origine, in modo che sia possibile crearne una copia nella nuova raccolta.
+Saranno necessarie informazioni dalla definizione dell'immagine di origine per poterne creare una copia nella nuova raccolta.
 
-Elenca le informazioni sulle raccolte immagini disponibili usando [AZ sig list](/cli/azure/sig#az-sig-list) per trovare informazioni sulla raccolta di origine.
+Elencare le informazioni sulle raccolte di immagini disponibili usando [az sig list](/cli/azure/sig#az_sig_list) per trovare informazioni sulla raccolta di origine.
 
 ```azurecli-interactive 
 az sig list -o table
 ```
 
-Elencare le definizioni di immagine in una raccolta usando [AZ sig Image-Definition list](/cli/azure/sig/image-definition#az-sig-image-definition-list). In questo esempio viene eseguita la ricerca di definizioni di *immagine nella raccolta denominata Gallery* nel gruppo di risorse *myGalleryRG* .
+Elencare le definizioni delle immagini in una raccolta usando [az sig image-definition list](/cli/azure/sig/image-definition#az_sig_image_definition_list). In questo esempio si cercano le definizioni delle immagini nella raccolta *denominata myGallery* nel gruppo di risorse *myGalleryRG.*
 
 ```azurecli-interactive 
 az sig image-definition list \
@@ -51,7 +51,7 @@ az sig image-definition list \
    -o table
 ```
 
-Elencare le versioni di un'immagine in una raccolta, usando [AZ sig Image-Version list](/cli/azure/sig/image-version#az-sig-image-version-list) per trovare la versione dell'immagine che si vuole copiare nella nuova raccolta. In questo esempio vengono cercate tutte le versioni dell'immagine che fanno parte della definizione dell'immagine *myImageDefinition* .
+Elencare le versioni di un'immagine in una raccolta usando [az sig image-version list](/cli/azure/sig/image-version#az_sig_image_version_list) per trovare la versione dell'immagine che si vuole copiare nella nuova raccolta. In questo esempio si cercano tutte le versioni dell'immagine che fanno parte della definizione dell'immagine *myImageDefinition.*
 
 ```azurecli-interactive
 az sig image-version list \
@@ -61,7 +61,7 @@ az sig image-version list \
    -o table
 ```
 
-Una volta fornite tutte le informazioni necessarie, è possibile ottenere l'ID della versione dell'immagine di origine usando [AZ sig Image-Version Show](/cli/azure/sig/image-version#az-sig-image-version-show).
+Dopo aver creato tutte le informazioni necessarie, è possibile ottenere l'ID della versione dell'immagine di origine [usando az sig image-version show.](/cli/azure/sig/image-version#az_sig_image_version_show)
 
 ```azurecli-interactive
 az sig image-version show \
@@ -75,7 +75,7 @@ az sig image-version show \
 
 ## <a name="create-the-image-definition"></a>Creare la definizione dell'immagine 
 
-È necessario creare una definizione di immagine che corrisponda alla definizione dell'immagine della versione dell'immagine di origine. È possibile visualizzare tutte le informazioni necessarie per ricreare la definizione di immagine nella nuova raccolta usando [AZ sig Image-Definition Show](/cli/azure/sig/image-definition#az-sig-image-definition-show).
+È necessario creare una definizione di immagine che corrisponda alla definizione dell'immagine della versione dell'immagine di origine. È possibile visualizzare tutte le informazioni necessarie per ricreare la definizione dell'immagine nella nuova raccolta usando [az sig image-definition show](/cli/azure/sig/image-definition#az_sig_image_definition_show).
 
 ```azurecli-interactive
 az sig image-definition show \
@@ -114,7 +114,7 @@ Verrà visualizzato un risultato simile al seguente:
 }
 ```
 
-Creare una nuova definizione di immagine, nella nuova raccolta, usando le informazioni dell'output precedente.
+Creare una nuova definizione di immagine nella nuova raccolta usando le informazioni dell'output precedente.
 
 
 ```azurecli-interactive 
@@ -133,11 +133,11 @@ az sig image-definition create \
 
 ## <a name="create-the-image-version"></a>Creare una versione di immagine
 
-Creare versioni usando [AZ Image Gallery create-Image-Version](/cli/azure/sig/image-version#az-sig-image-version-create). È necessario passare l'ID dell'immagine gestita da usare come baseline per creare la versione dell'immagine. È possibile usare [elenco di immagini di az](/cli/azure/image?view#az-image-list) per ottenere informazioni sulle immagini in un gruppo di risorse. 
+Creare versioni usando [az image gallery create-image-version](/cli/azure/sig/image-version#az_sig_image_version_create). È necessario passare l'ID dell'immagine gestita da usare come baseline per creare la versione dell'immagine. È possibile usare [elenco di immagini di az](/cli/azure/image?view#az_image_list) per ottenere informazioni sulle immagini in un gruppo di risorse. 
 
 I caratteri consentiti per le versioni delle immagini sono numeri e punti. I numeri devono essere compresi nell'intervallo di un valore Integer a 32 bit. Formato: *MajorVersion*.*MinorVersion*.*Patch*.
 
-In questo esempio, la versione dell'immagine è *1.0.0* e verrà creata 1 replica nell'area *Stati Uniti centro-meridionali* e 1 replica nell'area *Stati Uniti orientali* con archiviazione con ridondanza della zona.
+In questo esempio la versione dell'immagine è *1.0.0* e si  creerà 1 replica nell'area Stati Uniti centro-meridionali e 1 replica nell'area Stati Uniti orientali usando l'archiviazione con ridondanza della zona. 
 
 
 ```azurecli-interactive 
@@ -154,13 +154,13 @@ az sig image-version create \
 > [!NOTE]
 > È necessario attendere che la creazione della versione dell'immagine venga interamente completata e replicata prima di poter usare la stessa immagine gestita o creare un'altra versione di immagine.
 >
-> Per archiviare l'immagine nell'archiviazione Premium, è anche possibile aggiungere `--storage-account-type  premium_lrs` o l' [archiviazione con ridondanza della zona](../storage/common/storage-redundancy.md) aggiungendo `--storage-account-type  standard_zrs` quando si crea la versione dell'immagine.
+> È anche possibile archiviare l'immagine nell'archiviazione Premium aggiungendo o Archiviazione con ridondanza della zona aggiungendo `--storage-account-type  premium_lrs` quando si crea la versione [](../storage/common/storage-redundancy.md) `--storage-account-type  standard_zrs` dell'immagine.
 >
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Creare una macchina virtuale da una versione di immagine [generalizzata](vm-generalized-image-version-cli.md) o [specializzata](vm-specialized-image-version-cli.md) .
+Creare una macchina virtuale da [una versione generalizzata](vm-generalized-image-version-cli.md) o [specializzata](vm-specialized-image-version-cli.md) dell'immagine.
 
-Provare anche il [Generatore di immagini di Azure (anteprima)](./image-builder-overview.md) per automatizzare la creazione della versione di immagine. è anche possibile usarlo per aggiornare e [creare una nuova versione dell'immagine da una versione di immagine esistente](./linux/image-builder-gallery-update-image-version.md). 
+Provare anche [Azure Image Builder (anteprima)](./image-builder-overview.md) per automatizzare la creazione della versione dell'immagine. È anche possibile usarla per aggiornare e creare una nuova versione dell'immagine da una versione [dell'immagine esistente.](./linux/image-builder-gallery-update-image-version.md) 
 
-Per informazioni su come fornire informazioni sul piano di acquisto, vedere [fornire informazioni sul piano di acquisto di Azure Marketplace durante la creazione di immagini](marketplace-images.md).
+Per informazioni su come fornire informazioni sul piano di acquisto, vedere Fornire Azure Marketplace informazioni sul piano di acquisto [durante la creazione di immagini.](marketplace-images.md)

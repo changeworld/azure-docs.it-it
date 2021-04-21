@@ -9,12 +9,12 @@ ms.subservice: certificates
 ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: sebansal
-ms.openlocfilehash: 39fe4e77d701f8e9311ea343c88eb3b905496680
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 97dfc2db837f728b8cb4ece9a064f99006c9996b
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/20/2021
-ms.locfileid: "107749241"
+ms.locfileid: "107767818"
 ---
 # <a name="importing-azure-key-vault-certificates-faq"></a>Domande frequenti sull Azure Key Vault importazione di certificati
 
@@ -30,7 +30,7 @@ Per un'operazione di importazione del certificato, Azure Key Vault due formati d
      
 Dopo l'importazione e la protezione di un certificato Key Vault, la password associata non viene salvata. La password è necessaria una sola volta durante l'operazione di importazione. Si tratta di un'operazione di progettazione, ma è sempre possibile ottenere il certificato come segreto e convertirlo da Base64 a PFX aggiungendo la password [tramite](https://social.technet.microsoft.com/wiki/contents/articles/37431.exporting-azure-app-service-certificates.aspx)Azure PowerShell .
 
-### <a name="how-can-i-resolve-a-bad-parameter-error-what-are-the-supported-certificate-formats-for-importing-to-key-vault"></a>Come è possibile risolvere un errore di "parametro non valido"? Quali sono i formati di certificato supportati per l'importazione Key Vault?
+### <a name="how-can-i-resolve-a-bad-parameter-error-what-are-the-supported-certificate-formats-for-importing-to-key-vault"></a>Come è possibile risolvere un errore "Parametro non valido"? Quali sono i formati di certificato supportati per l'importazione Key Vault?
 
 Quando si importa un certificato, è necessario assicurarsi che la chiave sia inclusa nel file. Se si dispone di una chiave privata archiviata separatamente in un formato diverso, è necessario combinare la chiave con il certificato. Alcune autorità di certificazione forniscono certificati in altri formati. Pertanto, prima di importare il certificato, assicurarsi che sia in formato di file PEM o PFX e che la chiave usi la crittografia Rivest-Shamir-Adleman (RSA) o ECC (elliptic-curve cryptography). 
 
@@ -42,18 +42,18 @@ No, non è possibile eseguire operazioni sui certificati usando un modello di Az
 
 ### <a name="when-i-import-a-certificate-via-the-azure-portal-i-get-a-something-went-wrong-error-how-can-i-investigate-further"></a>Quando si importa un certificato tramite il portale di Azure, viene visualizzato l'errore "Si è verificato un errore". Come è possibile analizzare ulteriormente il problema?
      
-Per visualizzare un errore più descrittivo, importare il file del certificato usando l'interfaccia della riga [di comando di Azure](/cli/azure/keyvault/certificate#az-keyvault-certificate-import) o [PowerShell.](/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate)
+Per visualizzare un errore più descrittivo, importare il file del certificato usando l'interfaccia della riga [di comando di Azure](/cli/azure/keyvault/certificate#az_keyvault_certificate_import) o [PowerShell.](/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate)
 
 ### <a name="how-can-i-resolve-error-type-access-denied-or-user-is-unauthorized-to-import-certificate"></a>Come è possibile risolvere il messaggio "Tipo di errore: Accesso negato o utente non autorizzato all'importazione del certificato"?
     
-Per l'operazione di importazione è necessario concedere all'utente le autorizzazioni per importare il certificato in base ai criteri di accesso. A tale scopo, passare all'insieme di credenziali delle chiavi, selezionare Criteri di accesso Aggiungi criteri di accesso Selezionare l'entità delle autorizzazioni certificato, cercare l'utente e quindi aggiungere l'indirizzo di posta  >    >    >  elettronica dell'utente. 
+Per l'operazione di importazione è necessario concedere all'utente le autorizzazioni per importare il certificato in base ai criteri di accesso. A tale scopo, passare all'insieme di credenziali delle chiavi, selezionare Criteri di accesso Aggiungi criteri di accesso Selezionare l'entità di autorizzazione del certificato, cercare l'utente e quindi aggiungere l'indirizzo di posta  >    >    >  elettronica dell'utente. 
 
 Per altre informazioni sui criteri di accesso correlati ai certificati, vedere [Informazioni sui Azure Key Vault certificati.](./about-certificates.md#certificate-access-control)
 
 
 ### <a name="how-can-i-resolve-error-type-conflict-when-creating-a-certificate"></a>Come è possibile risolvere "Tipo di errore: Conflitto durante la creazione di un certificato"?
     
-Ogni nome di certificato deve essere univoco. Un certificato con lo stesso nome potrebbe essere in uno stato di eliminazione soft. Inoltre, in base alla composizione di un [certificato,](./about-certificates.md#composition-of-a-certificate)quando viene creato un nuovo certificato, crea un segreto indirizzabile con lo stesso nome, quindi se nell'insieme di credenziali delle chiavi è presente un'altra chiave o un altro segreto con lo stesso nome di quello che si sta tentando di specificare per il certificato, la creazione del certificato avrà esito negativo e sarà necessario rimuovere la chiave o il segreto o usare un nome diverso per il certificato. 
+Ogni nome di certificato deve essere univoco. Un certificato con lo stesso nome potrebbe essere in uno stato di eliminazione soft. Inoltre, in base alla composizione di un [certificato,](./about-certificates.md#composition-of-a-certificate)quando viene creato un nuovo certificato, viene creato un segreto indirizzabile con lo stesso nome, quindi se nell'insieme di credenziali delle chiavi è presente un'altra chiave o un altro segreto con lo stesso nome di quello che si sta tentando di specificare per il certificato, la creazione del certificato avrà esito negativo e sarà necessario rimuovere la chiave o il segreto o usare un nome diverso per il certificato. 
 
 Per altre informazioni, vedere [Operazione Get Deleted Certificate](/rest/api/keyvault/getdeletedcertificate/getdeletedcertificate).
 

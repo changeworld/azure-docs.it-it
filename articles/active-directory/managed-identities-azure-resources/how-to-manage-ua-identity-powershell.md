@@ -1,6 +1,6 @@
 ---
-title: Creare, elencare & eliminare l'identità gestita assegnata dall'utente usando Azure PowerShell-Azure AD
-description: Istruzioni dettagliate su come creare, elencare ed eliminare un'identità gestita assegnata dall'utente con Azure PowerShell.
+title: Creare ed elencare &'identità gestita assegnata dall'utente usando Azure PowerShell - Azure AD
+description: Istruzioni dettagliate su come creare, elencare ed eliminare un'identità gestita assegnata dall'utente usando Azure PowerShell.
 services: active-directory
 documentationcenter: ''
 author: barclayn
@@ -15,16 +15,17 @@ ms.workload: identity
 ms.date: 12/02/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 636f40f0c425c25dfe7f41f1f404afc90ed5ba56
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: af76affd9f4034401225e82de4e25e8b0a51125a
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96548223"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107784840"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-azure-powershell"></a>Creare, elencare o eliminare un'identità gestita assegnata dall'utente usando Azure PowerShell
 
-Le identità gestite per le risorse di Azure offrono servizi di Azure con un'identità gestita in Azure Active Directory. È possibile usare questa identità per l'autenticazione ai servizi che supportano l'autenticazione di Azure AD senza dover inserire le credenziali nel codice. 
+Le identità gestite per le risorse di Azure forniscono ai servizi di Azure un'identità gestita in Azure Active Directory. È possibile usare questa identità per l'autenticazione ai servizi che supportano l'autenticazione di Azure AD senza dover inserire le credenziali nel codice. 
 
 Questo articolo illustra come creare, elencare ed eliminare un'identità gestita assegnata dall'utente usando Azure PowerShell.
 
