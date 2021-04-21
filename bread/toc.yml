@@ -763,7 +763,7 @@
     - name: Utilità di pianificazione
       tocHref: /azure/scheduler/
       topicHref: /azure/scheduler/
-    - name: Sicurezza
+    - name: Security
       tocHref: /azure/security/
       topicHref: /azure/security/
       items:
@@ -864,6 +864,9 @@
         - name: File
           tocHref: /azure/storage/files/
           topicHref: /azure/storage/files/storage-files-introduction
+        - name: Sincronizzazione file
+          tocHref: /azure/storage/file-sync/
+          topicHref: /azure/storage/file-sync/file-sync-introduction
         - name: Code
           tocHref: /azure/storage/queues/
           topicHref: /azure/storage/queues/storage-queues-introduction

@@ -1,6 +1,6 @@
 ---
 title: Modelli di crittografia dei dati in Microsoft Azure
-description: Questo articolo offre una panoramica dei modelli di crittografia dei dati in Microsoft Azure.
+description: Questo articolo offre una panoramica dei modelli di crittografia dei dati Microsoft Azure.
 services: security
 documentationcenter: na
 author: msmbaldwin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mbaldwin
-ms.openlocfilehash: f76b2811531b49c9312a02a581e876f9ef569a2a
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 95ab5917779a73b7221a5b431126164aef88b494
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107750969"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107812121"
 ---
 # <a name="data-encryption-models"></a>Modelli di crittografia dei dati
 
@@ -91,7 +91,7 @@ Quando si usa la crittografia sul lato server con chiavi gestite dal servizio, l
 
 Per gli scenari in cui il requisito prevede di crittografare i dati inattivi e controllare le chiavi di crittografia, i clienti possono usare la crittografia sul lato server con chiavi gestite dal cliente in Azure Key Vault. Alcuni servizi possono archiviare solo la chiave KEK radice in Azure Key Vault e archiviano la chiave DEK crittografata in un percorso interno più vicino ai dati. In questo scenario, i clienti possono usare le proprie chiavi nell'insieme di credenziali delle chiavi (BYOK, Bring Your Own Key) o generare nuove chiavi e usarle per crittografare le risorse desiderate. Mentre il provider di risorse esegue le operazioni di crittografia e decrittografia, usa la chiave di crittografia della chiave configurata come chiave radice per tutte le operazioni di crittografia.
 
-La perdita di chiavi di crittografia delle chiavi implica la perdita di dati. Per questo motivo, le chiavi non devono essere eliminate. Il backup delle chiavi deve essere eseguito ogni volta che vengono create o ruotate. [L'eliminazione temporanea deve essere](../../key-vault/general/soft-delete-overview.md) abilitata in qualsiasi insieme di credenziali che archivia le chiavi di crittografia delle chiavi. Invece di eliminare una chiave, impostare enabled su false o impostare la data di scadenza.
+La perdita delle chiavi di crittografia delle chiavi implica la perdita di dati. Per questo motivo, le chiavi non devono essere eliminate. Il backup delle chiavi deve essere eseguito ogni volta che vengono create o ruotate. [L'eliminazione temporanea deve essere](../../key-vault/general/soft-delete-overview.md) abilitata in qualsiasi insieme di credenziali che archivia le chiavi di crittografia delle chiavi. Invece di eliminare una chiave, impostare enabled su false o impostare la data di scadenza.
 
 ### <a name="key-access"></a>Accesso alle chiavi
 
@@ -102,7 +102,7 @@ Per le operazioni con chiavi di crittografia, può essere concesso l'accesso a u
 Per ottenere una chiave da usare per la crittografia o la decrittografia dei dati inattivi, l'identità del servizio con cui verrà eseguita l'istanza del servizio Resource Manager deve disporre di UnwrapKey (per ottenere la chiave per la decrittografia) e WrapKey (per inserire una chiave nell'insieme di credenziali delle chiavi al momento della creazione di una nuova chiave).
 
 >[!NOTE]
->Per altri dettagli sull'autorizzazione dell'insieme di credenziali delle chiavi, vedere la pagina Proteggere l'insieme di credenziali delle chiavi nella [documentazione di Azure Key Vault](../../key-vault/general/security-overview.md).
+>Per altri dettagli sull'autorizzazione dell'insieme di credenziali delle chiavi, vedere la pagina Proteggere l'insieme di credenziali delle chiavi nella [documentazione di Azure Key Vault](../../key-vault/general/security-features.md).
 
 **Vantaggi**
 

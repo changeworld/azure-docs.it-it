@@ -10,12 +10,13 @@ ms.service: api-management
 ms.topic: how-to
 ms.date: 04/12/2021
 ms.author: apimpm
-ms.openlocfilehash: 4298b291e5d183c31d30a548751599aeb3746c47
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 35d813b6dfedbd7f76a88713757ce83c2644ff95
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107534622"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107813147"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Uso del servizio Gestione API di Azure con una rete virtuale interna
 Grazie alle reti virtuali di Azure, Gestione API è in grado di gestire API non accessibili su Internet. Sono disponibili varie tecnologie VPN per stabilire la connessione. È possibile distribuire Gestione API in due modalità principali all'interno di una rete virtuale:
@@ -128,7 +129,7 @@ Se si usa un server DNS personalizzato in una rete virtuale, è anche possibile 
 
 ## <a name="routing"></a><a name="routing"> </a> Routing
 
-* Un indirizzo IP virtuale *privato con* bilanciamento del carico dall'intervallo di subnet verrà riservato e usato per accedere agli endpoint di servizio API Management dall'interno della rete virtuale. Questo *indirizzo* IP privato è disponibile nel pannello Panoramica del servizio nella portale di Azure. Questo indirizzo deve essere registrato con i server DNS usati dalla rete virtuale.
+* Un indirizzo IP virtuale *privato con* carico bilanciato dall'intervallo di subnet verrà riservato e usato per accedere API Management endpoint di servizio dall'interno della rete virtuale. Questo *indirizzo* IP privato è disponibile nel pannello Panoramica del servizio nella portale di Azure. Questo indirizzo deve essere registrato con i server DNS usati dalla rete virtuale.
 * Un indirizzo *IP* pubblico (VIP) con carico bilanciato verrà riservato anche per fornire l'accesso all'endpoint del servizio di gestione sulla porta 3443. Questo *indirizzo* IP pubblico è disponibile nel pannello Panoramica per il servizio nel portale di Azure. *L'indirizzo* IP pubblico viene usato solo per il traffico del piano di controllo verso l'endpoint sulla porta 3443 e può essere bloccato nel tag del servizio `management` [ApiManagement.][ServiceTags]
 * Gli indirizzi IP dell'intervallo IP della subnet verranno assegnati a ogni macchina virtuale nel servizio e verranno usati per accedere alle risorse all'interno della rete virtuale. Verrà usato un indirizzo IP pubblico (VIP) per accedere alle risorse esterne alla rete virtuale. Se gli elenchi di restrizioni IP vengono usati per proteggere le risorse all'interno della rete virtuale, è necessario specificare l'intero intervallo per la subnet in cui viene distribuito il servizio API Management per concedere o limitare l'accesso dal servizio.
 * Gli indirizzi IP pubblici e privati con bilanciamento del carico sono disponibili nel pannello Panoramica della portale di Azure.

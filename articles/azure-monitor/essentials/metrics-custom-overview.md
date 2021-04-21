@@ -6,12 +6,12 @@ ms.author: ancav
 services: azure-monitor
 ms.topic: conceptual
 ms.date: 04/13/2021
-ms.openlocfilehash: f4ba3763dd781053349417fe3fed3a2848a06fc7
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: bd7f19df5eed87f2fb02af4b5f2577340bcbfd60
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107515839"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107812103"
 ---
 # <a name="custom-metrics-in-azure-monitor-preview"></a>Metriche personalizzate in Monitoraggio di Azure (anteprima)
 
@@ -28,23 +28,23 @@ Monitoraggio di Azure metriche personalizzate sono correnti nell'anteprima pubbl
 - Installare l Monitoraggio di Azure Agent (anteprima) nella macchina virtuale Windows [](../agents/data-collection-rule-azure-monitor-agent.md) o Linux di [Azure](../agents/azure-monitor-agent-overview.md) e usare una regola di raccolta dati per inviare contatori delle prestazioni Monitoraggio di Azure metriche.
 - Installare l'estensione Diagnostica di Azure per Windows (WAD) nella [macchina virtuale di Azure](../essentials/collect-custom-metrics-guestos-resource-manager-vm.md), nel [set di scalabilità di macchine virtuali](../essentials/collect-custom-metrics-guestos-resource-manager-vmss.md), nella [macchina virtuale classica](../essentials/collect-custom-metrics-guestos-vm-classic.md) o nel [servizio cloud classico](../essentials/collect-custom-metrics-guestos-vm-cloud-service-classic.md) e inviare i contatori delle prestazioni a Monitoraggio di Azure. 
 - Installare l'[agente InfluxDB Telegraf](../essentials/collect-custom-metrics-linux-telegraf.md) nella macchina virtuale Linux di Azure e inviare le metriche tramite il plug-in di output di Monitoraggio di Azure.
-- Inviare metriche [personalizzate direttamente all'API REST Monitoraggio di Azure ,](./metrics-store-custom-rest-api.md) `https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics` .
+- Inviare metriche [personalizzate direttamente all'API REST Monitoraggio di Azure](./metrics-store-custom-rest-api.md), `https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics` .
 
 ## <a name="pricing-model-and-retention"></a>Modello di determinazione dei prezzi e conservazione
 
-Vedere la [Monitoraggio di Azure dei prezzi per](https://azure.microsoft.com/pricing/details/monitor/) informazioni dettagliate su quando la fatturazione verrà abilitata per le metriche personalizzate e le query sulle metriche. In questa pagina sono disponibili dettagli specifici sui prezzi per tutte le metriche, incluse le metriche personalizzate e le query sulle metriche. In sintesi, non sono previsti costi per l'inserimento di metriche standard (metriche della piattaforma) nell'archivio delle metriche Monitoraggio di Azure, ma le metriche personalizzate incorreranno nei costi quando immetteranno la disponibilità generale. Le query dell'API metrica comportano costi.
+Controllare la [Monitoraggio di Azure dei prezzi per](https://azure.microsoft.com/pricing/details/monitor/) informazioni dettagliate su quando verrà abilitata la fatturazione per le metriche personalizzate e le query sulle metriche. In questa pagina sono disponibili dettagli specifici sui prezzi per tutte le metriche, incluse le metriche personalizzate e le query sulle metriche. In sintesi, non sono previsti costi per l'inserimento di metriche standard (metriche della piattaforma) nell'archivio delle metriche Monitoraggio di Azure, ma le metriche personalizzate incorreranno nei costi quando immetteranno la disponibilità generale. Le query dell'API metrica comportano costi.
 
 Le metriche personalizzate vengono mantenute per lo [stesso periodo di tempo delle metriche della piattaforma.](../essentials/data-platform-metrics.md#retention-of-metrics) 
 
 > [!NOTE]  
-> Le metriche inviate Monitoraggio di Azure tramite Application Insights SDK vengono fatturate come dati di log inseriti. Comportano costi aggiuntivi solo se è stata selezionata la Application Insights abilita avvisi per le dimensioni [della](../app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation) metrica personalizzata. Questa casella di controllo invia i dati al database Monitoraggio di Azure metriche personalizzate usando l'API metriche personalizzate per consentire l'invio di avvisi più complessi.  Altre informazioni sul modello Application Insights [prezzi e](../app/pricing.md#pricing-model) sui prezzi nella [propria area.](https://azure.microsoft.com/pricing/details/monitor/)
+> Le metriche inviate Monitoraggio di Azure tramite Application Insights SDK vengono fatturate come dati di log inseriti. Comportano addebiti aggiuntivi solo se è stata selezionata la Application Insights abilita avvisi per le dimensioni [della](../app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation) metrica personalizzata. Questa casella di controllo invia i dati al database Monitoraggio di Azure metriche personalizzate usando l'API metriche personalizzate per consentire l'invio di avvisi più complessi.  Altre informazioni sul modello Application Insights [prezzi e](../app/pricing.md#pricing-model) sui prezzi nella [propria area.](https://azure.microsoft.com/pricing/details/monitor/)
 
 
 ## <a name="how-to-send-custom-metrics"></a>Come inviare metriche personalizzate
 
 Quando si inviano le metriche personalizzate a Monitoraggio di Azure, ogni punto dati (o valore) segnalato deve includere le informazioni seguenti.
 
-### <a name="authentication"></a>Autenticazione
+### <a name="authentication"></a>Authentication
 Per inviare le metriche personalizzate a Monitoraggio di Azure, l'entità a cui inviare la metrica deve disporre di un token di Azure Active Directory (Azure AD) valido nell'intestazione **Bearer** della richiesta. Sono supportati alcuni modi per acquisire un token di connessione valido:
 1. [Identità gestite per le risorse di Azure.](../../active-directory/managed-identities-azure-resources/overview.md) Assegna un'identità a una risorsa di Azure, ad esempio una macchina virtuale. Identità del servizio gestita (MSI) è progettata per fornire alle risorse le autorizzazioni per eseguire determinate operazioni. Ad esempio può consentire a una risorsa di generare metriche su se stessa. Una risorsa o la relativa identità del servizio gestita possono ricevere autorizzazioni di **Autore delle metriche di monitoraggio** su di un'altra risorsa. Con questa autorizzazione, l'identità del servizio gestita può generare metriche anche per le altre risorse.
 2. [Azure AD'entità servizio](../../active-directory/develop/app-objects-and-service-principals.md). In questo scenario, a un'applicazione o servizio Azure AD possono essere concesse autorizzazioni per generare metriche su una risorsa di Azure.
@@ -184,10 +184,10 @@ Dopo l'invio delle metriche personalizzate a Monitoraggio di Azure, è possibile
 6.    Selezionare la metrica personalizzata.
 
 > [!NOTE]
-> Vedere [Introduzione ad Azure Esplora metriche](./metrics-getting-started.md) per altre informazioni sulla visualizzazione delle metriche nel portale di Azure.
+> Per [altre informazioni sulla visualizzazione delle metriche nel Esplora metriche,](./metrics-getting-started.md) vedere Introduzione ad Azure portale di Azure.
 
 ## <a name="supported-regions"></a>Aree supportate
-Nella versione di anteprima pubblica la possibilità di pubblicare metriche personalizzate è disponibile solo in un subset di aree di Azure. Tale restrizione significa che le metriche possono essere pubblicate solo per le risorse in una delle aree supportate. Per [altre informazioni sulle aree di Azure,](https://azure.microsoft.com/global-infrastructure/geographies/) vedere Aree geografiche di Azure. Il codice dell'area di Azure usato negli endpoint seguenti è solo il nome dell'area con spazi vuoti rimossi La tabella seguente elenca il set di aree di Azure supportate per le metriche personalizzate. Elenca inoltre gli endpoint corrispondenti nei quali le metriche per le risorse in tali aree devono essere pubblicate:
+Nella versione di anteprima pubblica la possibilità di pubblicare metriche personalizzate è disponibile solo in un subset di aree di Azure. Tale restrizione significa che le metriche possono essere pubblicate solo per le risorse in una delle aree supportate. Per [altre informazioni sulle aree di Azure,](https://azure.microsoft.com/global-infrastructure/geographies/) vedere Aree geografiche di Azure. Il codice dell'area di Azure usato negli endpoint seguenti è solo il nome dell'area in cui sono stati rimossi gli spazi vuoti. La tabella seguente elenca il set di aree di Azure supportate per le metriche personalizzate. Elenca inoltre gli endpoint corrispondenti nei quali le metriche per le risorse in tali aree devono essere pubblicate:
 
 |Area di Azure |Prefisso di endpoint a livello di area|
 |---|---|
@@ -199,7 +199,7 @@ Nella versione di anteprima pubblica la possibilità di pubblicare metriche pers
 
 ## <a name="latency-and-storage-retention"></a>Latenza e conservazione dello spazio di archiviazione
 
-L'aggiunta di una nuova metrica o di una nuova dimensione a una metrica può richiedere fino a 2-3 minuti. Una volta nel sistema, i dati dovrebbero essere visualizzati in meno di 30 secondi il 99% del tempo. 
+L'aggiunta di una nuova metrica o di una nuova dimensione a una metrica può richiedere fino a 2-3 minuti. Una volta nel sistema, i dati dovrebbero essere visualizzati in meno di 30 secondi nel 99% del tempo. 
 
 Se si elimina una metrica o si rimuove una dimensione, la modifica può richiedere da una settimana a un mese per essere eliminata dal sistema.
 
@@ -214,29 +214,29 @@ Monitoraggio di Azure impone le seguenti limitazioni d'uso in relazione alle met
 
 Una serie temporale attiva è definita come una combinazione univoca di metrica, chiave di dimensione o valore di dimensione con valori della metrica pubblicati nelle 12 ore precedenti.
 
-Per comprendere il limite della serie temporale di 50.000, considerare la metrica seguente:
+Per comprendere il limite di 50.000 serie tempo reale, prendere in considerazione la metrica seguente:
 
-*Tempo di risposta del server* con dimensioni: *Region,* *Department,* *CustomerID*
+*Tempo di risposta del server* con Dimensioni: *Area,* *Reparto,* *CustomerID*
 
 Con questa metrica, se si dispone di 10 aree, 20 reparti e 100 clienti che offre 10 x 20 x 100 = serie temporiche 2000. 
 
-Se si dispone di 100 aree, 200 reparti e 2000 clienti 100 x 200 x 2000 = 40.000.000 di serie temporiche, che è molto oltre il limite solo per questa metrica. 
+Se si hanno 100 aree, 200 reparti e 2000 clienti 100 x 200 x 2000 = 40.000.000 di serie temporiche, che è molto oltre il limite solo per questa metrica. 
 
 Anche in questo caso, questo limite non è per una singola metrica. È per la somma di tutte queste metriche in una sottoscrizione e in un'area.  
 
-## <a name="design-limitations"></a>Limitazioni di progettazione
+## <a name="design-limitations-and-considerations"></a>Limitazioni e considerazioni relative alla progettazione
 
-**Non usare Application Insights per** il controllo: la pipeline Application Insights usa l'API delle metriche personalizzate in background. La pipeline è ottimizzata per un volume elevato di dati di telemetria con un impatto minimo sull'applicazione. Di conseguenza, applica una limitazione o un campione (accetta solo una percentuale dei dati di telemetria e ignora il resto) se il flusso di dati in ingresso diventa troppo grande. A causa di questo comportamento, non è possibile usarlo a scopo di controllo perché è probabile che alcuni record siano eliminati. 
+**Non usare Application Insights** per il controllo: la pipeline di telemetria di Application Insights è ottimizzata per ridurre al minimo l'impatto sulle prestazioni e limitare il traffico di rete dal monitoraggio dell'applicazione. Di conseguenza, viene limitato o campione (accetta solo una percentuale dei dati di telemetria e ignora il resto) se il set di dati iniziale diventa troppo grande. A causa di questo comportamento, non è possibile usarlo a scopo di controllo perché è probabile che alcuni record siano eliminati. 
 
-**Metriche con una variabile nel nome:** non usare una variabile come parte del nome della metrica, ad esempio un GUID o un timestamp. In questo modo si viene rapidamente a raggiunto il limite di 50.000 serie temporità. 
- 
-**Dimensioni della metrica con** cardinalità elevata: le metriche con troppi valori validi in una dimensione (una "cardinalità elevata") hanno maggiori probabilità di raggiunto il limite di 50.000. In generale, è consigliabile non usare mai un valore in continua modifica nel nome di una dimensione o di una metrica. Il timestamp, ad esempio, non deve mai essere una dimensione. È possibile usare server, customer o productid, ma solo se si dispone di un numero inferiore di ognuno di questi tipi. Come test, chiedersi se si farebbe ogni grafico di tali dati in un grafico.  Se si hanno 10 o forse anche 100 server, potrebbe essere utile vederli tutti in un grafico per il confronto. Ma se si ha 1000, il grafico risultante sarebbe probabilmente difficile se non impossibile da leggere. La procedura consigliata consiste nel mantenere un numero inferiore a 100 valori validi. Fino a 300 è un'area grigia.  Se è necessario eseguire questa operazione, usare Monitoraggio di Azure log personalizzati.   
+**Metriche con una variabile nel nome:** non usare una variabile come parte del nome della metrica, usare invece una costante. Ogni volta che la variabile cambia valore, Monitoraggio di Azure genera una nuova metrica, colpendo rapidamente i limiti per il numero di metriche. In genere, quando gli sviluppatori vogliono includere una variabile nel nome della metrica, vogliono tenere traccia di più timeseries all'interno di una metrica e devono usare le dimensioni anziché i nomi delle metriche variabili. 
 
-Se nel nome o in una dimensione di cardinalità elevata è presente una variabile, è possibile che si verifichi quanto segue. 
+**Dimensioni della metrica con** cardinalità elevata: le metriche con troppi valori validi in una dimensione (una "cardinalità elevata") hanno maggiori probabilità di raggiunto il limite di 50.000. In generale, è consigliabile non usare mai un valore in continua modifica nel nome di una dimensione o di una metrica. Il timestamp, ad esempio, non deve mai essere una dimensione. È possibile usare server, customer o productid, ma solo se si dispone di un numero inferiore di ognuno di questi tipi. Come test, chiedersi se si desidera creare un grafico di tali dati in un grafico.  Se sono disponibili 10 o anche 100 server, può essere utile visualizzarli tutti in un grafico per il confronto. Tuttavia, se si dispone di 1000, il grafico risultante sarà probabilmente difficile se non impossibile da leggere. La procedura consigliata consiste nel mantenerlo su un numero inferiore a 100 valori validi. Fino a 300 è un'area grigia.  Se è necessario eseguire questa operazione, usare Monitoraggio di Azure log personalizzati.   
+
+Se nel nome o in una dimensione a cardinalità elevata è presente una variabile, è possibile che si verifichi quanto segue:
 - Le metriche diventano inaffidabili a causa della limitazione
 - Esplora metriche non funziona
 - Avvisi e notifiche diventano imprevedibili
-- I costi possono aumentare in modo imprevisto: Microsoft non addebita mentre le metriche personalizzate con dimensioni sono in anteprima pubblica. Tuttavia, dopo l'avvio degli addebiti in futuro, si incorreranno in addebiti imprevisti. Il piano prevede l'addebito per l'utilizzo delle metriche in base al numero di serie tempormente monitorate e al numero di chiamate API effettuate.  
+- I costi possono aumentare in modo imprevisto: Microsoft non addebita costi mentre le metriche personalizzate con dimensioni sono in anteprima pubblica. Tuttavia, una volta che gli addebiti inizieranno in futuro, si incorreranno in addebiti imprevisti. Il piano prevede l'addebito per l'utilizzo delle metriche in base al numero di serie tempo reale monitorate e al numero di chiamate API effettuate.  
 
 ## <a name="next-steps"></a>Passaggi successivi
 Usare le metriche personalizzate da servizi diversi: 

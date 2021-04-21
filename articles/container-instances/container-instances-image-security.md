@@ -4,12 +4,12 @@ description: Raccomandazioni per proteggere immagini e segreti per Istanze di Az
 ms.topic: article
 ms.date: 01/10/2020
 ms.custom: ''
-ms.openlocfilehash: acccd79ecd1c216f92f19d1cf035682414cd17ca
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 40284c6e42cf1060906c6248495d08e133bda5bb
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107750141"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107812661"
 ---
 # <a name="security-considerations-for-azure-container-instances"></a>Considerazioni sulla sicurezza per Istanze di Azure Container
 
@@ -40,11 +40,11 @@ Le soluzioni di monitoraggio della sicurezza e di analisi delle immagini, ad ese
 
 ### <a name="protect-credentials"></a>Proteggere le credenziali
 
-I contenitori possono essere distribuiti tra diversi cluster e aree di Azure. È quindi necessario proteggere le credenziali necessarie per gli account di accesso o l'accesso alle API, ad esempio password o token. Assicurarsi che solo gli utenti con privilegi possano accedere a tali contenitori in transito e in pausa. Eseguire l'inventario di tutti i segreti delle credenziali e quindi richiedere agli sviluppatori di usare strumenti di gestione dei segreti emergenti progettati per le piattaforme contenitore.  Assicurarsi che la soluzione includa database crittografati, crittografia TLS per i dati segreti in transito e controllo degli accessi in base al ruolo di Azure con privilegi [minimi.](../role-based-access-control/overview.md) [Azure Key Vault](../key-vault/general/security-overview.md) è un servizio cloud che protegge chiavi di crittografia e segreti (ad esempio certificati, stringhe di connessione e password) per le applicazioni in contenitori. Poiché questi dati sono sensibili e business critical, proteggere l'accesso agli insiemi di credenziali delle chiavi in modo che solo le applicazioni autorizzate e gli utenti possano accedervi.
+I contenitori possono essere distribuiti tra diversi cluster e aree di Azure. È quindi necessario proteggere le credenziali necessarie per gli account di accesso o l'accesso alle API, ad esempio password o token. Assicurarsi che solo gli utenti con privilegi possano accedere a tali contenitori in transito e in pausa. Eseguire l'inventario di tutti i segreti delle credenziali e quindi richiedere agli sviluppatori di usare strumenti di gestione dei segreti emergenti progettati per le piattaforme contenitore.  Assicurarsi che la soluzione includa database crittografati, crittografia TLS per i dati segreti in transito e controllo degli accessi in base al ruolo di Azure con privilegi [minimi.](../role-based-access-control/overview.md) [Azure Key Vault](../key-vault/general/security-features.md) è un servizio cloud che protegge le chiavi di crittografia e i segreti (ad esempio certificati, stringhe di connessione e password) per le applicazioni in contenitori. Poiché questi dati sono sensibili e business critical, proteggere l'accesso agli insiemi di credenziali delle chiavi in modo che solo le applicazioni autorizzate e gli utenti possano accedervi.
 
 ## <a name="considerations-for-the-container-ecosystem"></a>Considerazioni sull'ecosistema di contenitori
 
-Le misure di sicurezza seguenti, implementate correttamente e gestite in modo efficace, consentono di proteggere e proteggere l'ecosistema di contenitori. Queste misure si applicano per tutto il ciclo di vita del contenitore, dallo sviluppo alla distribuzione di produzione e a una gamma di orchestratori di contenitori, host e piattaforme. 
+Le misure di sicurezza seguenti, implementate correttamente e gestite in modo efficace, consentono di proteggere e proteggere l'ecosistema di contenitori. Queste misure si applicano per tutto il ciclo di vita dei contenitori, dallo sviluppo alla distribuzione di produzione e a una gamma di orchestratori di contenitori, host e piattaforme. 
 
 ### <a name="use-vulnerability-management-as-part-of-your-container-development-lifecycle"></a>Usare la gestione delle vulnerabilità come parte del ciclo di vita dello sviluppo di contenitori 
 
@@ -77,15 +77,15 @@ Un'estensione per garantire che l'ambiente usi solo immagini approvate è consen
 
 Parte della gestione della sicurezza per tutto il ciclo di vita del contenitore è garantire l'integrità delle immagini del contenitore nel Registro di sistema e quando vengono modificate o distribuite nell'ambiente di produzione. 
 
-* Le immagini con vulnerabilità, anche minori, non devono essere consentite in un ambiente di produzione. Idealmente, tutte le immagini distribuite nell'ambiente di produzione devono essere salvate in un registro privato accessibile a pochi utenti. Mantenere ridotto il numero di immagini di produzione per assicurarsi che possano essere gestite in modo efficace.
+* Le immagini con vulnerabilità, anche minori, non devono essere consentite in un ambiente di produzione. Idealmente, tutte le immagini distribuite nell'ambiente di produzione devono essere salvate in un registro privato accessibile a pochi utenti. Mantenere il numero di immagini di produzione ridotte per assicurarsi che possano essere gestite in modo efficace.
 
 * Poiché è difficile individuare l'origine del software da un'immagine del contenitore disponibile pubblicamente, creare immagini dall'origine per garantire la conoscenza dell'origine del livello. Quando una vulnerabilità emerge in un'immagine del contenitore generata automaticamente, i clienti possono trovare un percorso più rapido per la risoluzione. Con un'immagine pubblica, i clienti devono trovare la radice di un'immagine pubblica per correggerla o ottenere un'altra immagine sicura dall'editore. 
 
 * Non è garantito che un'immagine accuratamente analizzata distribuita nell'ambiente di produzione sia aggiornata per la durata dell'applicazione. È possibile che vengano segnalate vulnerabilità della sicurezza per i livelli dell'immagine precedentemente ignoti o che sono stati introdotti dopo la distribuzione di produzione. 
 
-  Controllare periodicamente le immagini distribuite nell'ambiente di produzione per identificare le immagini che non sono aggiornate o non sono state aggiornate in un intervallo di tempo. È possibile usare metodologie di distribuzione blu-verde e meccanismi di aggiornamento in sequenza per aggiornare le immagini dei contenitori senza tempi di inattività. È possibile analizzare le immagini usando gli strumenti descritti nella sezione precedente. 
+  Controllare periodicamente le immagini distribuite nell'ambiente di produzione per identificare le immagini non aggiornate o non aggiornate in un intervallo di tempo. È possibile usare metodologie di distribuzione blu-verde e meccanismi di aggiornamento in sequenza per aggiornare le immagini dei contenitori senza tempi di inattività. È possibile analizzare le immagini usando gli strumenti descritti nella sezione precedente. 
 
-* Usare una pipeline di integrazione continua con l'analisi integrata della sicurezza per creare immagini sicure ed eseguire il push nel registro privato. L'analisi delle vulnerabilità incorporata nella soluzione CI garantisce che le immagini che passano tutti i test vengano inserite nel registro privato dalla produzione da cui vengono distribuiti i carichi di lavoro della produzione. 
+* Usare una pipeline di integrazione continua con analisi integrata della sicurezza per creare immagini sicure ed eseguire il push nel registro privato. L'analisi delle vulnerabilità incorporata nella soluzione CI garantisce che le immagini che passano tutti i test vengano inserite nel registro privato dalla produzione da cui vengono distribuiti i carichi di lavoro della produzione. 
 
   Un errore della pipeline CI garantisce che non sia possibile eseguire il push delle immagini vulnerabili nel registro privato usato per le distribuzioni del carico di lavoro di produzione. Automatizza anche l'analisi della sicurezza delle immagini se è presente un numero significativo di immagini. Altrimenti il controllo manuale delle immagini per le vulnerabilità di sicurezza può risultare lungo e dettagliato e tendente all'errore. 
 
@@ -138,13 +138,13 @@ Monitorare l'attività delle risorse, ad esempio file, rete e altre risorse a cu
 
 Mantenere un'audit trail di accesso amministrativo all'ecosistema di contenitori, inclusi il cluster Kubernetes, il registro contenitori e le immagini dei contenitori. Questi log potrebbero essere necessari a scopo di controllo e saranno utili come prova forense dopo qualsiasi evento imprevisto della sicurezza. Le soluzioni di Azure includono:
 
-* [Integrazione di servizio Azure Kubernetes con Centro sicurezza di Azure](../security-center/defender-for-kubernetes-introduction.md) monitorare la configurazione di sicurezza dell'ambiente cluster e generare raccomandazioni sulla sicurezza
+* [Integrazione di servizio Azure Kubernetes con Centro sicurezza di Azure](../security-center/defender-for-kubernetes-introduction.md) monitorare la configurazione della sicurezza dell'ambiente cluster e generare raccomandazioni sulla sicurezza
 * [Soluzione Monitoraggio di Azure Container](../azure-monitor/containers/containers.md)
 * Log delle risorse [per Istanze di Azure Container](container-instances-log-analytics.md) e [Registro Azure Container](../container-registry/container-registry-diagnostics-audit-logs.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Vedere la baseline [di sicurezza di Azure per Istanze](security-baseline.md) di Container per consigli completi che consentono di migliorare il livello di sicurezza della distribuzione.
+* Per raccomandazioni [complete che](security-baseline.md) consentono di migliorare il livello di sicurezza della distribuzione, vedere Baseline di sicurezza di Azure per Istanze di Container.
 
 * Altre informazioni sull'uso [Centro sicurezza di Azure](../security-center/container-security.md) rilevamento delle minacce in tempo reale negli ambienti in contenitori.
 

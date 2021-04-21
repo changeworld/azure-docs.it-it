@@ -1,34 +1,34 @@
 ---
-title: Creare un'offerta di macchina virtuale in Azure Marketplace.
-description: Scopri come creare un'offerta di macchina virtuale in Microsoft Commercial Marketplace.
+title: Creare un'offerta di macchina virtuale Azure Marketplace.
+description: Informazioni su come creare un'offerta di macchina virtuale nel marketplace commerciale Microsoft.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 03/10/2021
-ms.openlocfilehash: 1ea8583b33fbe711fcffbf9626236923ecd0df8b
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.date: 04/08/2021
+ms.openlocfilehash: f0c1d9d528ed4fbf61786042fb6fb34f05fec5d5
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107107228"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107812594"
 ---
 # <a name="how-to-create-a-virtual-machine-offer-on-azure-marketplace"></a>Come creare un'offerta di macchina virtuale in Azure Marketplace
 
-Questo articolo descrive come creare un'offerta di macchina virtuale di Azure per [Azure Marketplace](https://azuremarketplace.microsoft.com/). Fa riferimento alle macchine virtuali basate su Windows e a quelle basate su Linux con un sistema operativo, un disco rigido virtuale e fino a 16 dischi dati.
+Questo articolo descrive come creare un'offerta di macchina virtuale di Azure [per Azure Marketplace](https://azuremarketplace.microsoft.com/). Fa riferimento alle macchine virtuali basate su Windows e a quelle basate su Linux con un sistema operativo, un disco rigido virtuale e fino a 16 dischi dati.
 
-Prima di iniziare, [creare un account Marketplace commerciale nel centro per i partner](create-account.md). Assicurarsi che l'account sia registrato al programma del marketplace commerciale.
+Prima di iniziare, [creare un account del marketplace commerciale in Partner Center](create-account.md). Assicurarsi che l'account sia registrato al programma del marketplace commerciale.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Se non è ancora stato fatto, rivedere [pianificare un'offerta di macchina virtuale](marketplace-virtual-machines.md). Verranno illustrati i requisiti tecnici per la macchina virtuale e verranno elencate le informazioni e gli asset necessari per la creazione dell'offerta.
+Se non è ancora stato fatto, vedere Pianificare [un'offerta di macchina virtuale.](marketplace-virtual-machines.md) Verranno illustrati i requisiti tecnici per la macchina virtuale e verranno elencate le informazioni e gli asset necessari quando si crea l'offerta.
 
 ## <a name="create-a-new-offer"></a>Creare una nuova offerta
 
 1. Accedere al [Centro per i partner](https://partner.microsoft.com/dashboard/home).
 2. Nel riquadro a sinistra selezionare **Marketplace commerciale** > **Panoramica**.
-3. Nella pagina **Panoramica** selezionare **+ nuova offerta**  >  **macchina virtuale di Azure**.
+3. Nella pagina **Panoramica** selezionare **+ Nuova offerta Macchina** virtuale di  >  **Azure.**
 
     ![Screenshot delle opzioni di menu del riquadro sinistro e del pulsante "Nuova offerta".](./media/create-vm/new-offer-azure-virtual-machine.png)
 
@@ -45,24 +45,24 @@ Immettere un alias in **Alias offerta**. L'alias dell'offerta corrisponde al nom
 
 - Questo nome non viene usato in Azure Marketplace. ed è diverso dal nome dell'offerta e da altri valori visualizzati dai clienti.
 
-Selezionare **Crea** per generare l'offerta e continuare. Il centro per i partner apre la pagina **installazione offerta** .
+Selezionare **Crea** per generare l'offerta e continuare. Partner Center apre la **pagina Configurazione dell'offerta.**
 
-## <a name="enable-a-test-drive-optional"></a>Abilitare una test drive (facoltativo)
+## <a name="enable-a-test-drive-optional"></a>Abilitare un test drive (facoltativo)
 
-Un test drive è un ottimo modo per presentare l'offerta a potenziali clienti, offrendo loro l'accesso a un ambiente preconfigurato per un numero fisso di ore. L'offerta di un test drive comporta un aumento della velocità di conversione e genera lead altamente qualificati. Per ulteriori informazioni sulle unità di test, vedere [che cos'è un test drive?](./what-is-test-drive.md).
+Un test drive è un ottimo modo per presentare l'offerta ai potenziali clienti, offrendo loro l'accesso a un ambiente preconfigurato per un numero fisso di ore. L'offerta test drive comporta un aumento del tasso di conversione e genera lead altamente qualificati. Per altre informazioni sui test drive, vedere [Che cos'è un test drive?](./what-is-test-drive.md).
 
 > [!TIP]
-> Una test drive è diversa da una versione di valutazione gratuita. È possibile offrire una test drive, una versione di valutazione gratuita o entrambe. Entrambi forniscono ai clienti la soluzione per un periodo di tempo fisso. Tuttavia, un test drive include anche una presentazione pratica e autonoma delle funzionalità chiave del prodotto e dei vantaggi illustrati in uno scenario di implementazione reale.
+> Un test drive è diverso da una versione di valutazione gratuita. È possibile offrire una versione test drive, una versione di valutazione gratuita o entrambe. Entrambi offrono ai clienti la soluzione per un periodo di tempo fisso. Tuttavia, un test drive include anche una presentazione pratica e auto-guidata delle funzionalità e dei vantaggi principali del prodotto dimostrati in uno scenario di implementazione reale.
 
-Per abilitare una test drive, selezionare la casella di controllo **Abilita una test drive** . Il test drive sarà configurato in un secondo momento. Con test drive, è necessario configurare un CRM (vedere la sezione successiva).
+Per abilitare una test drive, selezionare la **casella di controllo Abilita test drive** controllo. L'applicazione verrà configurata test drive un secondo momento. Con test drive, è necessario configurare un CRM (vedere la sezione successiva).
 
-## <a name="configure-customer-leads-management"></a>Configurare la gestione dei lead dei clienti
+## <a name="configure-customer-leads-management"></a>Configurare la gestione dei clienti potenziali
 
 [!INCLUDE [Customer leads](includes/customer-leads.md)] 
 
-Selezionare **Salva bozza** prima di continuare con la scheda successiva nel menu di navigazione a sinistra, **Proprietà**.
+Selezionare **Salva bozza** prima di continuare con la scheda successiva nel menu di spostamento a sinistra, **Proprietà**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Come configurare le proprietà di un'offerta di macchina virtuale](azure-vm-create-properties.md)
+- [Come configurare le proprietà dell'offerta di macchine virtuali](azure-vm-create-properties.md)
 - [Procedure consigliate per le inserzioni di offerte](gtm-offer-listing-best-practices.md)

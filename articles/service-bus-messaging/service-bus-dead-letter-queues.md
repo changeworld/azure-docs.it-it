@@ -4,12 +4,12 @@ description: Descrive le code dei messaggi non recapitabili nel bus di servizio 
 ms.topic: article
 ms.date: 04/08/2021
 ms.custom: fasttrack-edit, devx-track-csharp
-ms.openlocfilehash: cb791982b50d7afff7b74d70adfd285bb5e0a11c
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 6293a3a9a760ece137644578d8ee7dccebc63d95
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107773226"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107812373"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Panoramica delle code dei messaggi non recapitabili del bus di servizio
 
@@ -75,8 +75,4 @@ I messaggi verranno inviati nella coda dei messaggi non recapitabili di trasferi
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-
-Per altre informazioni sulle code del bus di servizio, vedere gli articoli seguenti:
-
-* [Introduzione alle code del bus di servizio](service-bus-dotnet-get-started-with-queues.md)
-* [Analogie e differenze tra le code di Azure e le code del bus di servizio](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
+Vedere [Abilitare i messaggi non recapitbili per una coda](enable-dead-letter.md) o una sottoscrizione per informazioni sulle diverse modalità di configurazione dei messaggi non recapitbili alla scadenza **del** messaggio.

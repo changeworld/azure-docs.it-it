@@ -267,7 +267,7 @@
           href: configure-tokens.md
     - name: Definire attributi personalizzati
       href: user-flow-custom-attributes.md
-    - name: Autenticazione basata sui rischi
+    - name: Autenticazione basata sul rischio
       items:
         - name: Analizzare i rischi con Identity Protection
           href: identity-protection-investigate-risk.md
@@ -308,7 +308,7 @@
       items:
         - name: Raccolta di partner Azure AD B2C
           href: partner-gallery.md
-    - name: Verifica dell'identità e strumenti di correzione
+    - name: Verifica e verifica dell'identità
       items:
         - name: Partner di verifica e verifica dell'identità
           href: identity-verification-proofing.md
@@ -323,15 +323,18 @@
           href: partner-lexisnexis.md
         - name: Onfido
           href: partner-onfido.md
-    - name: Protezione antifrode
+    - name: Partner di protezione da frodi
       items:
-        - name: Microsoft Dynamics 365 Fraud Protection
-          href: partner-dynamics-365-fraud-protection.md
-          displayName: 'm365 dynamics, dynamics fraud protection, fraud, 365 protection'
         - name: Arkose Labs
           href: partner-arkose-labs.md
           displayName: 'fraud protection, fraud, Azure AD b2c, protection, B2Cprotection'
-    - name: Proteggere le app legacy e locali
+        - name: BioCatch
+          href: partner-biocatch.md
+          displayName: 'fraud protection, fraud, Azure AD b2c, protection, B2Cprotection, user behavior'
+        - name: Microsoft Dynamics 365 Fraud Protection
+          href: partner-dynamics-365-fraud-protection.md
+          displayName: 'm365 dynamics, dynamics fraud protection, fraud, 365 protection'
+    - name: Proteggere l'accesso alle app legacy e locali
       items:
         - name: Ping Identity
           href: partner-ping-identity.md
@@ -347,7 +350,7 @@
           href: b2clogin.md
         - name: Configurare un dominio personalizzato
           href: custom-domain.md
-        - name: Configurare domini API Web
+        - name: Configurare i domini api Web
           href: multiple-token-endpoints.md
           displayName: 'migrate, b2clogin, owin'
     - name: Automazione
@@ -371,7 +374,7 @@
           displayName: bulk import
         - name: Integrazione dei partner
           items:
-            - name: N8identità
+            - name: N8identity
               href: partner-n8identity.md
             - name: Saviynt
               href: partner-saviynt.md
@@ -386,7 +389,7 @@
         - name: Analisi dell'utilizzo
           href: analytics-with-application-insights.md
           displayName: 'application insights, app insights, reports, reporting'
-        - name: Autenticazione a più fattori basata sul telefono sicura
+        - name: Autenticazione a più fattori basata su telefono sicura
           href: phone-based-mfa.md
           displayName: 'multi-factor authentication, Azure Monitor, Log Analytics, reports, reporting, dashboard'
     - name: Conformità
@@ -399,7 +402,7 @@
           displayName: GDPR
 - name: Riferimento
   items:
-    - name: Schema dei criteri personalizzati
+    - name: Schema dei criteri personalizzato
       items:
         - name: TrustFrameworkPolicy
           href: trustframeworkpolicy.md

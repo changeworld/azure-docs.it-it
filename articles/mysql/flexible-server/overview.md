@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/21/2020
-ms.openlocfilehash: 46b056c22a6d1c70a729f5b9558f53c685a878f0
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e3259cddc3790f92f56d7f59783cd66a2502b704
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101732854"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107813327"
 ---
 # <a name="azure-database-for-mysql---flexible-server-preview"></a>Database di Azure per MySQL - Server flessibile (anteprima)
 
@@ -24,7 +24,7 @@ In questo articolo verrà fornita una panoramica e un'introduzione ai concetti d
 
 ## <a name="overview"></a>Panoramica
 
-Il server flessibile di Database di Azure per MySQL è un servizio di database completamente gestito progettato per offrire un controllo più granulare e una maggiore flessibilità rispetto alle funzioni di gestione e alle impostazioni di configurazione del database. In generale, il servizio offre maggiore flessibilità e personalizzazioni della configurazione del server in base ai requisiti dell'utente. L'architettura del server flessibile consente agli utenti di scegliere la disponibilità elevata all'interno di una singola zona di disponibilità e tra più zone di disponibilità. I server flessibili forniscono anche controlli di ottimizzazione dei costi migliori con l'opzione per arrestare/avviare il server e gli SKU con possibilità di burst, ideale per i carichi di lavoro che non necessitano di capacità di calcolo completa in modo continuo. Il servizio supporta attualmente la versione community di MySQL 5,7 e 8,0. Il servizio è attualmente disponibile in anteprima, in un'ampia gamma di [aree di Azure](https://azure.microsoft.com/global-infrastructure/services/).
+Il server flessibile di Database di Azure per MySQL è un servizio di database completamente gestito progettato per offrire un controllo più granulare e una maggiore flessibilità rispetto alle funzioni di gestione e alle impostazioni di configurazione del database. In generale, il servizio offre maggiore flessibilità e personalizzazioni della configurazione del server in base ai requisiti dell'utente. L'architettura del server flessibile consente agli utenti di scegliere la disponibilità elevata all'interno di una singola zona di disponibilità e tra più zone di disponibilità. I server flessibili forniscono anche controlli di ottimizzazione dei costi migliori con l'opzione per arrestare/avviare il server e gli SKU con possibilità di burst, ideale per i carichi di lavoro che non necessitano di capacità di calcolo completa in modo continuo. Il servizio attualmente supporta la versione community di MySQL 5.7 e 8.0. Il servizio è attualmente disponibile in anteprima, in un'ampia gamma di [aree di Azure](https://azure.microsoft.com/global-infrastructure/services/).
 
 I server flessibili sono ideali per 
 - Sviluppi di applicazioni che richiedono un controllo e personalizzazioni migliori.
@@ -132,22 +132,22 @@ Il servizio esegue la versione community di MySQL. Questo consente la compatibil
 
 Uno dei vantaggi offerti dall'esecuzione del carico di lavoro in Azure è la copertura globale. Il server flessibile per il database di Azure per MySQL è attualmente disponibile nelle aree di Azure seguenti:
 
-| Region | Disponibilità | Disponibilità elevata con ridondanza della zona | 
+| Region | Disponibilità | Ha ridondanza della zona | 
 | --- | --- | --- |
 | Europa occidentale | :heavy_check_mark: | :heavy_check_mark: |
 | Europa settentrionale | :heavy_check_mark: | :heavy_check_mark: |
-| Regno Unito meridionale | :heavy_check_mark: | :x: | 
+| Regno Unito meridionale | :heavy_check_mark: | :heavy_check_mark: | 
 | Stati Uniti orientali 2 | :heavy_check_mark: | :heavy_check_mark: |
-| Stati Uniti occidentali 2 | :heavy_check_mark: | :heavy_check_mark: |
+| West US 2 | :heavy_check_mark: | :heavy_check_mark: |
 | Stati Uniti centrali | :heavy_check_mark: | :x: | 
 | Stati Uniti orientali | :heavy_check_mark: | :heavy_check_mark: |
 | Canada centrale | :heavy_check_mark: | :x: | 
 | Asia sud-orientale | :heavy_check_mark: | :heavy_check_mark: |
 | Corea centrale | :heavy_check_mark: | :x: | 
-| Giappone orientale | :heavy_check_mark: | :x: | 
+| Giappone orientale | :heavy_check_mark: | :heavy_check_mark: | 
 | Australia orientale | :heavy_check_mark: | :heavy_check_mark: |
 
-Stiamo lavorando per aggiungere presto nuove aree.
+A breve si sta lavorando per aggiungere nuove aree.
 
 ## <a name="contacts"></a>Contatti
 Per eventuali domande o suggerimenti sul server flessibile del database di Azure per MySQL, inviare un messaggio di posta elettronica al team di Database di Azure per MySQL ([@Ask Azure DB per MySQL](mailto:AskAzureDBforMySQL@service.microsoft.com)). Questo indirizzo di posta elettronica non è un alias del supporto tecnico.

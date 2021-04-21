@@ -1,54 +1,54 @@
 ---
 title: Monitoraggio di Azure Application Insights Java
-description: Application Performance Monitoring per le applicazioni Java in esecuzione in qualsiasi ambiente senza richiedere la modifica del codice. Traccia distribuita e mappa delle applicazioni.
+description: Monitoraggio delle prestazioni delle applicazioni Java in esecuzione in qualsiasi ambiente senza richiedere la modifica del codice. Traccia distribuita e mappa delle applicazioni.
 ms.topic: conceptual
 ms.date: 03/29/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: dc6eaaec334e7373f1a673bd1513ef05b761fee6
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 3f22e165fe4a3f86ecce8b1e307b19fae0eeac81
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106450022"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107812049"
 ---
-# <a name="java-codeless-application-monitoring-azure-monitor-application-insights"></a>Monitoraggio di Azure per il monitoraggio di applicazioni Java non codificate Application Insights
+# <a name="java-codeless-application-monitoring-azure-monitor-application-insights"></a>Monitoraggio delle applicazioni senza codice Java Monitoraggio di Azure Application Insights
 
 Il monitoraggio di applicazioni codeless Java è tutta una questione di semplicità: senza cambiare il codice, l'agente Java può essere abilitato solo con un paio di modifiche di configurazione.
 
- L'agente Java funziona in qualsiasi ambiente e consente di monitorare tutte le applicazioni Java. In altre parole, sia che si eseguano app Java in macchine virtuali, in locale, in AKS, in Windows, Linux, l'agente Java 3,0 monitorerà l'app.
+ L'agente Java funziona in qualsiasi ambiente e consente di monitorare tutte le applicazioni Java. In altre parole, indipendentemente dal fatto che le app Java siano in esecuzione in macchine virtuali, in locale, nel servizio AppKs, in Windows o Linux, l'agente Java 3.0 monitorerà l'app.
 
-L'aggiunta di Application Insights Java SDK all'applicazione non è più necessaria, in quanto l'agente 3,0 raccoglie automaticamente le richieste, le dipendenze e i registri autonomamente.
+L'aggiunta Application Insights Java SDK all'applicazione non è più necessaria, perché l'agente 3.0 raccoglie automaticamente richieste, dipendenze e log di per sé.
 
-È comunque possibile inviare dati di telemetria personalizzati dall'applicazione. L'agente 3,0 li registrerà e li correla insieme a tutti i dati di telemetria raccolti automaticamente.
+È comunque possibile inviare dati di telemetria personalizzati dall'applicazione. L'agente 3.0 lo tiene traccia e lo correla insieme a tutti i dati di telemetria raccolti automaticamente.
 
-L'agente 3,0 supporta Java 8 e versioni successive.
+L'agente 3.0 supporta Java 8 e versione precedente.
 
-## <a name="quickstart"></a>Avvio rapido
+## <a name="quickstart"></a>Guida introduttiva
 
-**1. scaricare l'agente**
+**1. Scaricare l'agente**
 
 > [!WARNING]
-> **Se si esegue l'aggiornamento da 3,0 Preview**
+> **Se si esegue l'aggiornamento dalla versione di anteprima 3.0**
 >
-> Controllare attentamente tutte le [Opzioni di configurazione](./java-standalone-config.md) , in quanto la struttura JSON è stata modificata completamente, oltre al nome del file stesso, che è andato in minuscolo.
+> Esaminare attentamente tutte le opzioni [di](./java-standalone-config.md) configurazione, in quanto la struttura json è stata completamente modificata, oltre al nome file stesso che è diventato tutto minuscolo.
 
-Scaricare [applicationinsights-Agent-3.0.3. jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.3/applicationinsights-agent-3.0.3.jar)
+Scaricare [applicationinsights-agent-3.0.3.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.3/applicationinsights-agent-3.0.3.jar)
 
-**2. puntare la JVM all'agente**
+**2. Puntare la JVM all'agente**
 
 Aggiungere `-javaagent:path/to/applicationinsights-agent-3.0.3.jar` agli argomenti JVM dell'applicazione
 
-Gli argomenti JVM tipici includono `-Xmx512m` e `-XX:+UseG1GC` . Quindi, se si conosce la posizione in cui aggiungere questi, si sa già dove aggiungere questa.
+Gli argomenti JVM tipici includono `-Xmx512m` e `-XX:+UseG1GC` . Quindi, se si sa dove aggiungerli, si sa già dove aggiungerli.
 
-Per ulteriori informazioni sulla configurazione degli argomenti JVM dell'applicazione, vedere [Suggerimenti per l'aggiornamento degli argomenti JVM](./java-standalone-arguments.md).
+Per altre informazioni sulla configurazione degli argomenti JVM dell'applicazione, vedere Suggerimenti per l'aggiornamento [degli argomenti JVM.](./java-standalone-arguments.md)
 
-**3. puntare l'agente alla risorsa Application Insights**
+**3. Puntare l'agente alla risorsa Application Insights**
 
-Se non si ha già una risorsa Application Insights, è possibile crearne una nuova attenendosi alla procedura descritta nella [Guida alla creazione di risorse](./create-new-resource.md).
+Se non si dispone già di una risorsa Application Insights, è possibile crearne una nuova seguendo la procedura descritta nella guida alla [creazione della risorsa](./create-new-resource.md).
 
-Puntare l'agente alla risorsa Application Insights impostando una variabile di ambiente:
+Puntare l'agente alla risorsa Application Insights, impostando una variabile di ambiente:
 
 ```
 APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=...
@@ -62,51 +62,51 @@ Oppure creando un file di configurazione denominato `applicationinsights.json` e
 }
 ```
 
-È possibile trovare la stringa di connessione nella risorsa Application Insights:
+È possibile trovare la stringa di connessione nella Application Insights seguente:
 
-:::image type="content" source="media/java-ipa/connection-string.png" alt-text="Stringa di connessione Application Insights":::
+:::image type="content" source="media/java-ipa/connection-string.png" alt-text="Application Insights di connessione":::
 
-**4.**
+**4. È tutto.**
 
-A questo punto, avviare l'applicazione e passare alla risorsa Application Insights nel portale di Azure per visualizzare i dati di monitoraggio.
+Avviare ora l'applicazione e passare alla risorsa Application Insights nella portale di Azure per visualizzare i dati di monitoraggio.
 
 > [!NOTE]
-> Potrebbero essere necessari alcuni minuti per la visualizzazione dei dati di monitoraggio nel portale.
+> La visualizzazione dei dati di monitoraggio nel portale potrebbe richiedere alcuni minuti.
 
 
 ## <a name="configuration-options"></a>Opzioni di configurazione
 
-Nel `applicationinsights.json` file è inoltre possibile configurare:
+Nel `applicationinsights.json` file è anche possibile configurare:
 
-* Nome del ruolo Cloud
+* Nome del ruolo cloud
 * Istanza del ruolo del cloud
 * campionamento
 * Metriche JMX
 * Dimensioni personalizzate
 * Processori di telemetria (anteprima)
-* Registrazione automatica
-* Metriche del micrometro raccolte automaticamente (incluse le metriche dell'attuatore Spring boot)
+* Registrazione raccolta automaticamente
+* Metriche di Micrometer raccolte automaticamente (incluse le Spring Boot actuator)
 * Heartbeat
-* Proxy HTTP
-* Diagnostica automatica
+* HTTP Proxy
+* Auto-diagnostica
 
-Per i dettagli completi, vedere [Opzioni di configurazione](./java-standalone-config.md) .
+Per [informazioni dettagliate, vedere](./java-standalone-config.md) opzioni di configurazione.
 
 ## <a name="auto-collected-requests-dependencies-logs-and-metrics"></a>Richieste, dipendenze, log e metriche raccolte automaticamente
 
 ### <a name="requests"></a>Requests
 
-* Utenti JMS
-* Consumatori Kafka
-* Netty/webflux
+* Consumer JMS
+* Consumer Kafka
+* Netty/WebFlux
 * Servlet
-* Pianificazione della molla
+* Pianificazione di Spring
 
-### <a name="dependencies-with-distributed-trace-propagation"></a>Dipendenze con propagazione di traccia distribuita
+### <a name="dependencies-with-distributed-trace-propagation"></a>Dipendenze con propagazione della traccia distribuita
 
 * Apache HttpClient e HttpAsyncClient
 * gRPC
-* Java. NET. HttpURLConnection
+* Java.net.HttpURLConnection
 * JMS
 * Kafka
 * Client Netty
@@ -116,36 +116,72 @@ Per i dettagli completi, vedere [Opzioni di configurazione](./java-standalone-co
 
 * Cassandra
 * JDBC
-* MongoDB (asincrona e sincronizzazione)
-* Redis (lattuga e Jedi)
+* MongoDB (asincrono e sincronizzato)
+* Redis (Lattuga e Jedi)
 
 ### <a name="logs"></a>Log
 
-* Java. util. Logging
+* java.util.logging
 * Log4j (incluse le proprietà MDC)
 * SLF4J/Logback (incluse le proprietà MDC)
 
 ### <a name="metrics"></a>Metriche
 
-* Micrometro (incluse le metriche dell'attuatore Spring boot)
+* Micrometro (incluse le Spring Boot dell'attuatore)
 * Metriche JMX
 
-### <a name="azure-sdks"></a>Azure SDK
+### <a name="azure-sdks-preview"></a>Azure SDK (anteprima)
 
-* Questa funzionalità è in anteprima, vedere le [Opzioni di configurazione](./java-standalone-config.md#auto-collected-azure-sdk-telemetry) per abilitarla.
+Vedere le [opzioni di configurazione](./java-standalone-config.md#auto-collected-azure-sdk-telemetry-preview) per abilitare questa funzionalità di anteprima e acquisire i dati di telemetria generati da questi SDK di Azure:
+
+* [Configurazione app](https://docs.microsoft.com/java/api/overview/azure/data-appconfiguration-readme) 1.1.10+
+* [Ricerca cognitiva](https://docs.microsoft.com/java/api/overview/azure/search-documents-readme) 11.3.0+
+* [Chat di](https://docs.microsoft.com/java/api/overview/azure/communication-chat-readme) comunicazione 1.0.0+
+* [Comuni di](https://docs.microsoft.com/java/api/overview/azure/communication-common-readme) comunicazione 1.0.0+
+* [Identità di](https://docs.microsoft.com/java/api/overview/azure/communication-identity-readme) comunicazione 1.0.0+
+* [Sms di comunicazione](https://docs.microsoft.com/java/api/overview/azure/communication-sms-readme) 1.0.0+
+* [Cosmos DB](https://docs.microsoft.com/java/api/overview/azure/cosmos-readme) 4.13.0+
+* [Griglia di](https://docs.microsoft.com/java/api/overview/azure/messaging-eventgrid-readme) eventi 4.0.0+
+* [Hub eventi](https://docs.microsoft.com/java/api/overview/azure/messaging-eventhubs-readme) 5.6.0+
+* [Hub eventi - Archivio Archiviazione BLOB di Azure checkpoint](https://docs.microsoft.com/java/api/overview/azure/messaging-eventhubs-checkpointstore-blob-readme) 1.5.1+
+* [riconoscimento modulo](https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme) 3.0.6+
+* [Identità](https://docs.microsoft.com/java/api/overview/azure/identity-readme) 1.2.4+
+* [Key Vault - Certificati](https://docs.microsoft.com/java/api/overview/azure/security-keyvault-certificates-readme) 4.1.6+
+* [Key Vault - Chiavi](https://docs.microsoft.com/java/api/overview/azure/security-keyvault-keys-readme) 4.2.6+
+* [Key Vault - Segreti](https://docs.microsoft.com/java/api/overview/azure/security-keyvault-secrets-readme) 4.2.6+
+* [Bus di servizio](https://docs.microsoft.com/java/api/overview/azure/messaging-servicebus-readme) 7.1.0+
+* [Analisi del testo](https://docs.microsoft.com/java/api/overview/azure/ai-textanalytics-readme) 5.0.4+
+
+[//]: # "i nomi e i collegamenti precedenti di cui è stato rimosso il frammento https://azure.github.io/azure-sdk/releases/latest/java.html"
+[//]: # "e la sincronizzazione delle versioni si basano manualmente sulla versione meno recente in Maven Central basata su azure-core 1.14.0"
+[//]: # ""
+[//]: # "var table = document.querySelector('#tg-sb-content > div > table')"
+[//]: # "var str = ''"
+[//]: # "for (var i = 1, row; row = table.rows[i]; i++) {"
+[//]: # "  var name = row.cells[0].getElementsByTagName('div')[0].textContent.trim()"
+[//]: # "  var stableRow = row.cells[1]"
+[//]: # "  var versionBadge = stableRow.querySelector('.badge')"
+[//]: # "  if (!versionBadge) {"
+[//]: # "    Continuare"
+[//]: # "  }"
+[//]: # "  var version = versionBadge.textContent.trim()"
+[//]: # "  var link = stableRow.querySelectorAll('a')[2].href"
+[//]: # "  str += '* [' + name + '](' + link + ') ' + version"
+[//]: # "}"
+[//]: # "console.log(str)"
 
 ## <a name="send-custom-telemetry-from-your-application"></a>Inviare dati di telemetria personalizzati dall'applicazione
 
-L'obiettivo di 3.0 + è quello di consentire l'invio di dati di telemetria personalizzati usando le API standard.
+L'obiettivo della versione 3.0+ è quello di consentire l'invio dei dati di telemetria personalizzati usando le API standard.
 
-Sono supportati il micrometro, i Framework di registrazione più diffusi e il Application Insights Java 2. x SDK fino a questo momento.
-Application Insights Java 3,0 acquisisce automaticamente i dati di telemetria inviati tramite queste API e li correla con i dati di telemetria raccolti automaticamente.
+Finora sono supportati Micrometer, framework di registrazione più diffusi e Application Insights SDK Java 2.x.
+Application Insights Java 3.0 acquisisce automaticamente i dati di telemetria inviati tramite queste API e lo correla con i dati di telemetria raccolti automaticamente.
 
 ### <a name="supported-custom-telemetry"></a>Telemetria personalizzata supportata
 
-La tabella seguente rappresenta i tipi di telemetria personalizzati attualmente supportati che è possibile abilitare per integrare l'agente Java 3,0. Per riepilogare, le metriche personalizzate sono supportate tramite il micrometro, le eccezioni personalizzate e le tracce possono essere abilitate tramite i Framework di registrazione e tutti i tipi di dati di telemetria personalizzati sono supportati tramite il [Application Insights Java 2. x SDK](#send-custom-telemetry-using-the-2x-sdk).
+La tabella seguente rappresenta i tipi di telemetria personalizzati attualmente supportati che è possibile abilitare per integrare l'agente Java 3.0. Per riepilogare, le metriche personalizzate sono supportate tramite micrometro, le eccezioni e le tracce personalizzate possono essere abilitate tramite i framework di registrazione e qualsiasi tipo di telemetria personalizzata è supportato tramite [Application Insights Java 2.x SDK.](#send-custom-telemetry-using-the-2x-sdk)
 
-|                     | Micrometer | Log4j, logback, JUL | 2. x SDK |
+|                     | Micrometer | Log4j, logback, JUL | 2.x SDK |
 |---------------------|------------|---------------------|---------|
 | **Eventi personalizzati**   |            |                     |  Sì    |
 | **Metriche personalizzate**  |  Sì       |                     |  Sì    |
@@ -155,13 +191,13 @@ La tabella seguente rappresenta i tipi di telemetria personalizzati attualmente 
 | **Richieste**        |            |                     |  Sì    |
 | **Tracce**          |            |  Sì                |  Sì    |
 
-Al momento non si prevede di rilasciare un SDK con Application Insights 3,0.
+Non si prevede di rilasciare un SDK con Application Insights 3.0 al momento.
 
-Application Insights Java 3,0 è già in ascolto per la telemetria inviata al Application Insights Java 2. x SDK. Questa funzionalità è una parte importante della storia di aggiornamento per gli utenti esistenti di 2. x e colma un notevole gap nel supporto di telemetria personalizzato fino a quando l'API OpenTelemetry non è GA.
+Application Insights Java 3.0 è già in ascolto dei dati di telemetria inviati a Application Insights Java 2.x SDK. Questa funzionalità è una parte importante della storia dell'aggiornamento per gli utenti 2.x esistenti e colmerà un'importante lacune nel supporto dei dati di telemetria personalizzati fino a quando l'API OpenTelemetry non sarà disponibile a livello ga.
 
-### <a name="send-custom-metrics-using-micrometer"></a>Inviare metriche personalizzate con micrometro
+### <a name="send-custom-metrics-using-micrometer"></a>Inviare metriche personalizzate con Micrometer
 
-Aggiungere un micrometro all'applicazione:
+Aggiungere Micrometer all'applicazione:
 
 ```xml
 <dependency>
@@ -171,7 +207,7 @@ Aggiungere un micrometro all'applicazione:
 </dependency>
 ```
 
-Usare il [registro globale](https://micrometer.io/docs/concepts#_global_registry) del micrometro per creare un contatore:
+Usare il registro [globale](https://micrometer.io/docs/concepts#_global_registry) di Micrometer per creare un contatore:
 
 ```java
 static final Counter counter = Metrics.counter("test_counter");
@@ -183,18 +219,18 @@ e usarlo per registrare le metriche:
 counter.increment();
 ```
 
-### <a name="send-custom-traces-and-exceptions-using-your-favorite-logging-framework"></a>Inviare tracce ed eccezioni personalizzate usando il Framework di registrazione preferito
+### <a name="send-custom-traces-and-exceptions-using-your-favorite-logging-framework"></a>Inviare tracce ed eccezioni personalizzate usando il framework di registrazione preferito
 
-Log4j, Logback e Java. util. Logging sono instrumentati automaticamente e la registrazione eseguita tramite questi framework di registrazione viene raccolta automaticamente come dati di telemetria di traccia ed eccezioni.
+Log4j, Logback e java.util.logging vengono instrumentati automaticamente e la registrazione eseguita tramite questi framework di registrazione viene raccolta automaticamente come telemetria di traccia ed eccezione.
 
-Per impostazione predefinita, la registrazione viene raccolta solo quando tale registrazione viene eseguita a livello di informazioni o superiore.
-Vedere le [Opzioni di configurazione](./java-standalone-config.md#auto-collected-logging) per informazioni su come modificare questo livello.
+Per impostazione predefinita, la registrazione viene raccolta solo quando la registrazione viene eseguita a livello info o superiore.
+Vedere le [opzioni di configurazione](./java-standalone-config.md#auto-collected-logging) per informazioni su come modificare questo livello.
 
-Se si vuole allineare dimensioni personalizzate ai log, è possibile usare [Log4j 1,2 MDC](https://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/MDC.html), [log4j 2 MDC](https://logging.apache.org/log4j/2.x/manual/thread-context.html)o [Logback MDC](http://logback.qos.ch/manual/mdc.html)e Application Insights Java 3,0 acquisisce automaticamente le proprietà di MDC come dimensioni personalizzate nei dati di telemetria di traccia e delle eccezioni.
+Se si desidera collegare dimensioni personalizzate ai log, è possibile usare [Log4j 1.2 MDC,](https://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/MDC.html) [Log4j 2 MDC](https://logging.apache.org/log4j/2.x/manual/thread-context.html)o [Logback MDC](http://logback.qos.ch/manual/mdc.html)e Application Insights Java 3.0 acquisisce automaticamente tali proprietà MDC come dimensioni personalizzate nella traccia e nei dati di telemetria delle eccezioni.
 
-### <a name="send-custom-telemetry-using-the-2x-sdk"></a>Inviare dati di telemetria personalizzati con l'SDK 2. x
+### <a name="send-custom-telemetry-using-the-2x-sdk"></a>Inviare dati di telemetria personalizzati con l'SDK 2.x
 
-Aggiungere `applicationinsights-core-2.6.2.jar` all'applicazione (tutte le versioni 2. x sono supportate da Application Insights Java 3,0, ma è opportuno usare la versione più recente se è possibile scegliere):
+Aggiungere all'applicazione (tutte le versioni 2.x sono supportate da Application Insights Java 3.0, ma è opportuno usare la versione più recente se si `applicationinsights-core-2.6.2.jar` ha la possibilità di scegliere):
 
 ```xml
 <dependency>
@@ -204,7 +240,7 @@ Aggiungere `applicationinsights-core-2.6.2.jar` all'applicazione (tutte le versi
 </dependency>
 ```
 
-Creare un TelemetryClient:
+Creare un oggetto TelemetryClient:
 
   ```java
 static final TelemetryClient telemetryClient = new TelemetryClient();
@@ -257,12 +293,12 @@ try {
 }
 ```
 
-### <a name="add-request-custom-dimensions-using-the-2x-sdk"></a>Aggiungere dimensioni personalizzate della richiesta con l'SDK 2. x
+### <a name="add-request-custom-dimensions-using-the-2x-sdk"></a>Aggiungere dimensioni personalizzate della richiesta usando l'SDK 2.x
 
 > [!NOTE]
-> Questa funzionalità è solo in 3.0.2 e versioni successive
+> Questa funzionalità è disponibile solo nella versione 3.0.2 e successive
 
-Aggiungere `applicationinsights-web-2.6.2.jar` all'applicazione (tutte le versioni 2. x sono supportate da Application Insights Java 3,0, ma è opportuno usare la versione più recente se è possibile scegliere):
+Aggiungere all'applicazione (tutte le versioni 2.x sono supportate da Application Insights Java 3.0, ma è opportuno usare la versione più recente se si `applicationinsights-web-2.6.2.jar` ha la possibilità di scegliere):
 
 ```xml
 <dependency>
@@ -281,12 +317,12 @@ RequestTelemetry requestTelemetry = ThreadContext.getRequestTelemetryContext().g
 requestTelemetry.getProperties().put("mydimension", "myvalue");
 ```
 
-### <a name="set-the-request-telemetry-user_id-using-the-2x-sdk"></a>Impostare la user_Id di telemetria delle richieste con l'SDK 2. x
+### <a name="set-the-request-telemetry-user_id-using-the-2x-sdk"></a>Impostare i dati di telemetria user_Id richiesta usando l'SDK 2.x
 
 > [!NOTE]
-> Questa funzionalità è solo in 3.0.2 e versioni successive
+> Questa funzionalità è disponibile solo nella versione 3.0.2 e successive
 
-Aggiungere `applicationinsights-web-2.6.2.jar` all'applicazione (tutte le versioni 2. x sono supportate da Application Insights Java 3,0, ma è opportuno usare la versione più recente se è possibile scegliere):
+Aggiungere all'applicazione (tutte le versioni 2.x sono supportate da Application Insights Java 3.0, ma è opportuno usare la versione più recente se si `applicationinsights-web-2.6.2.jar` ha la possibilità di scegliere):
 
 ```xml
 <dependency>
@@ -305,12 +341,12 @@ RequestTelemetry requestTelemetry = ThreadContext.getRequestTelemetryContext().g
 requestTelemetry.getContext().getUser().setId("myuser");
 ```
 
-### <a name="override-the-request-telemetry-name-using-the-2x-sdk"></a>Eseguire l'override del nome di telemetria della richiesta usando 2. x SDK
+### <a name="override-the-request-telemetry-name-using-the-2x-sdk"></a>Eseguire l'override del nome di telemetria della richiesta usando l'SDK 2.x
 
 > [!NOTE]
-> Questa funzionalità è solo in 3.0.2 e versioni successive
+> Questa funzionalità è disponibile solo nella versione 3.0.2 e successive
 
-Aggiungere `applicationinsights-web-2.6.2.jar` all'applicazione (tutte le versioni 2. x sono supportate da Application Insights Java 3,0, ma è opportuno usare la versione più recente se è possibile scegliere):
+Aggiungere all'applicazione (tutte le versioni 2.x sono supportate da Application Insights Java 3.0, ma è opportuno usare la versione più recente se si `applicationinsights-web-2.6.2.jar` ha la possibilità di scegliere):
 
 ```xml
 <dependency>
@@ -329,12 +365,12 @@ RequestTelemetry requestTelemetry = ThreadContext.getRequestTelemetryContext().g
 requestTelemetry.setName("myname");
 ```
 
-### <a name="get-the-request-telemetry-id-and-the-operation-id-using-the-2x-sdk"></a>Ottenere l'ID di telemetria della richiesta e l'ID operazione usando l'SDK 2. x
+### <a name="get-the-request-telemetry-id-and-the-operation-id-using-the-2x-sdk"></a>Ottenere l'ID di telemetria della richiesta e l'ID operazione usando l'SDK 2.x
 
 > [!NOTE]
-> Questa funzionalità è solo in 3.0.3 e versioni successive
+> Questa funzionalità è disponibile solo nella versione 3.0.3 e successive
 
-Aggiungere `applicationinsights-web-2.6.2.jar` all'applicazione (tutte le versioni 2. x sono supportate da Application Insights Java 3,0, ma è opportuno usare la versione più recente se è possibile scegliere):
+Aggiungere all'applicazione (tutte le versioni 2.x sono supportate da Application Insights Java 3.0, ma è opportuno usare la versione più recente se si `applicationinsights-web-2.6.2.jar` ha la possibilità di scegliere):
 
 ```xml
 <dependency>

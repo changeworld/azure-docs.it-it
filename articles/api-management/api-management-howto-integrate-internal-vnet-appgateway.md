@@ -1,5 +1,5 @@
 ---
-title: Come usare gestione API nella rete virtuale con il gateway applicazione
+title: Come usare i API Management nella rete virtuale con il gateway applicazione
 titleSuffix: Azure API Management
 description: Informazioni su come installare e configurare Gestione API di Azure in una rete virtuale interna con un gateway applicazione (WAF) come front-end
 services: api-management
@@ -14,16 +14,17 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: sasolank
-ms.openlocfilehash: 3db1c8bfc3a11151342589af0873d88e3d90c6a1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 6500ecdb811306239951cb339abe2043d77b8cf2
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91825625"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107813067"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>Integrare Gestione API in una rete virtuale interna con un gateway applicazione
 
-## <a name="overview"></a><a name="overview"></a> Panoramica di
+## <a name="overview"></a><a name="overview"></a> Panoramica
 
 Il servizio Gestione API può essere configurato in una rete virtuale in modalità interna, per renderlo accessibile solo internamente alla rete virtuale. Il gateway applicazione di Azure è un servizio PAAS con bilanciamento del carico di livello 7. Funge da servizio proxy inverso e offre anche un Web application firewall (WAF).
 
@@ -49,22 +50,22 @@ Per eseguire i passaggi descritti in questo articolo, è necessario quanto segue
 
 ## <a name="scenario"></a><a name="scenario"></a> Scenario
 
-Questo articolo illustra come usare un singolo servizio gestione API per i consumer interni ed esterni e come fungere da singolo front-end per le API locali e cloud. Verrà anche descritto come esporre solo un sottoinsieme delle API (evidenziato in verde nell'esempio) per l'utilizzo esterno con la funzionalità di routing disponibile nel gateway applicazione.
+Questo articolo illustra come usare un singolo servizio API Management per i consumer interni ed esterni e come farlo fungere da singolo front-end per le API locali e cloud. Verrà anche descritto come esporre solo un sottoinsieme delle API (evidenziato in verde nell'esempio) per l'utilizzo esterno con la funzionalità di routing disponibile nel gateway applicazione.
 
-Nel primo esempio di configurazione, tutte le API sono gestite solo dall'interno della rete virtuale. Gli utenti interni (evidenziati in arancione) possono accedere a tutte le API interne ed esterne. Il traffico non viene mai trasmesso a Internet. La connettività a prestazioni elevate viene fornita tramite circuiti Express route.
+Nel primo esempio di configurazione, tutte le API sono gestite solo dall'interno della rete virtuale. Gli utenti interni (evidenziati in arancione) possono accedere a tutte le API interne ed esterne. Il traffico non passa mai a Internet. La connettività ad alte prestazioni viene recapitata tramite circuiti Express Route.
 
 ![route dell'URL](./media/api-management-howto-integrate-internal-vnet-appgateway/api-management-howto-integrate-internal-vnet-appgateway.png)
 
 ## <a name="before-you-begin"></a><a name="before-you-begin"></a> Prima di iniziare
 
-* Assicurarsi di usare la versione più recente di Azure PowerShell. Vedere le istruzioni di installazione in [Install Azure PowerShell](/powershell/azure/install-az-ps). 
+* Assicurarsi di usare la versione più recente di Azure PowerShell. Vedere le istruzioni di installazione in [Installare Azure PowerShell](/powershell/azure/install-az-ps). 
 
 ## <a name="what-is-required-to-create-an-integration-between-api-management-and-application-gateway"></a>Elementi necessari per creare un'integrazione tra Gestione API e il gateway applicazione
 
 * **Pool di server back-end:** costituisce l'indirizzo IP virtuale interno del servizio Gestione API.
 * **Impostazioni del pool di server back-end:** Ogni pool ha impostazioni come porta, protocollo e affinità basata su cookie. Queste impostazioni vengono applicate a tutti i server nel pool.
 * **Porta front-end:** porta pubblica aperta sul gateway applicazione. Il traffico che raggiunge questa porta viene reindirizzato a uno dei server back-end.
-* **Listener:** Il listener ha una porta front-end, un protocollo (http o HTTPS, questi valori fanno distinzione tra maiuscole e minuscole) e il nome del certificato TLS/SSL (se si configura l'offload TLS).
+* **Listener:** Il listener ha una porta front-end, un protocollo (Http o Https, questi valori sono con distinzione tra maiuscole e minuscole) e il nome del certificato TLS/SSL (se si configura l'offload TLS).
 * **Regola:** associa un listener a un pool di server back-end.
 * **Probe di integrità personalizzato:** per impostazione predefinita, il gateway applicazione usa probe basati su indirizzi IP per individuare i server attivi in BackendAddressPool. Poiché il servizio Gestione API risponde solo alle richieste dotate di intestazione host corretta, i probe predefiniti non riescono. È necessario definire un probe di integrità personalizzato per consentire al gateway applicazione di determinare che il servizio è attivo e deve inoltrare le richieste.
 * **Certificati di dominio personalizzati:** per accedere a Gestione API da Internet, è necessario creare un mapping CNAME del nome host del servizio al nome DNS del front-end del gateway applicazione. Ciò garantisce che l'intestazione del nome host e il certificato inviati al gateway applicazione e inoltrati a Gestione API siano riconoscibili come validi da Gestione API. In questo esempio vengono usati due certificati, uno per il back-end e uno per il portale per sviluppatori.  
@@ -87,12 +88,12 @@ In questa guida verrà esposto il **portale per sviluppatori** anche a destinata
 > Se si usa Azure AD o un'autenticazione di terze parti, attivare la funzionalità [affinità di sessione basata su cookie](../application-gateway/features.md#session-affinity) nel gateway applicazione.
 
 > [!WARNING]
-> Per evitare che WAF del gateway applicazione rompa il download della specifica OpenAPI nel portale per sviluppatori, è necessario disabilitare la regola del firewall `942200 - "Detects MySQL comment-/space-obfuscated injections and backtick termination"` .
+> Per impedire al WAF del gateway applicazione di interrompere il download della specifica OpenAPI nel portale per sviluppatori, è necessario disabilitare la regola del firewall `942200 - "Detects MySQL comment-/space-obfuscated injections and backtick termination"` .
 > 
 > Le regole WAF del gateway applicazione, che possono interrompere le funzionalità del portale includono:
 > 
-> - `920300`, `920330` , `931130` , `942100` , `942110` , `942180` , `942200` , `942260` , `942340` , `942370` per la modalità amministrativa
-> - `942200`, `942260` , `942370` , `942430` , `942440` per il portale pubblicato
+> - `920300`, `920330` , , , , , , , , per la `931130` modalità `942100` `942110` `942180` `942200` `942260` `942340` `942370` amministrativa
+> - `942200`, `942260` , , , per il portale `942370` `942430` `942440` pubblicato
 
 ## <a name="create-a-resource-group-for-resource-manager"></a>Creare un gruppo di risorse per Gestione risorse
 
@@ -129,7 +130,7 @@ Gestione risorse di Azure richiede che tutti i gruppi di risorse specifichino un
 
 ## <a name="create-a-virtual-network-and-a-subnet-for-the-application-gateway"></a>Creare una rete virtuale e una subnet per il gateway applicazione
 
-Nell'esempio seguente viene illustrato come creare una rete virtuale utilizzando Gestione risorse.
+L'esempio seguente illustra come creare una rete virtuale usando Resource Manager.
 
 ### <a name="step-1"></a>Passaggio 1
 
@@ -192,7 +193,7 @@ Dopo il completamento del comando precedente, per l'accesso vedere la [configura
 ## <a name="set-up-a-custom-domain-name-in-api-management"></a>Configurare un nome di dominio personalizzato in Gestione API
 
 > [!IMPORTANT]
-> Il [nuovo portale per sviluppatori](api-management-howto-developer-portal.md) richiede anche l'abilitazione della connettività all'endpoint di gestione di gestione API, oltre ai passaggi seguenti.
+> Il [nuovo portale per sviluppatori](api-management-howto-developer-portal.md) richiede anche l'abilitazione della connettività all'endpoint di gestione API Management dell'applicazione, oltre ai passaggi seguenti.
 
 ### <a name="step-1"></a>Passaggio 1
 
@@ -225,7 +226,7 @@ Set-AzApiManagement -InputObject $apimService
 ```
 
 > [!NOTE]
-> Per configurare la connettività legacy del portale per sviluppatori, è necessario sostituire `-HostnameType DeveloperPortal` con `-HostnameType Portal` .
+> Per configurare la connettività del portale per sviluppatori legacy è necessario sostituire `-HostnameType DeveloperPortal` con `-HostnameType Portal` .
 
 ## <a name="create-a-public-ip-address-for-the-front-end-configuration"></a>Creare un indirizzo IP pubblico per la configurazione front-end
 
@@ -243,7 +244,7 @@ Prima di creare il gateway applicazione, è necessario impostare tutti gli eleme
 
 ### <a name="step-1"></a>Passaggio 1
 
-Creare una configurazione IP del gateway applicazione denominata **gatewayIP01**. All'avvio, il gateway applicazione seleziona un indirizzo IP dalla subnet configurata e instrada il traffico di rete agli indirizzi IP nel pool di indirizzi IP back-end. Tenere presente che ogni istanza ha un indirizzo IP.
+Creare una configurazione IP del gateway applicazione denominata **gatewayIP01.** All'avvio, il gateway applicazione seleziona un indirizzo IP dalla subnet configurata e instrada il traffico di rete agli indirizzi IP nel pool di indirizzi IP back-end. Tenere presente che ogni istanza ha un indirizzo IP.
 
 ```powershell
 $gipconfig = New-AzApplicationGatewayIPConfiguration -Name "gatewayIP01" -Subnet $appgatewaysubnetdata
@@ -276,7 +277,7 @@ $certPortal = New-AzApplicationGatewaySslCertificate -Name "cert02" -Certificate
 
 ### <a name="step-5"></a>Passaggio 5
 
-Creare i listener HTTP per il gateway applicazione. Assegnare loro i certificati di configurazione IP front-end, porta e TLS/SSL.
+Creare i listener HTTP per il gateway applicazione. Assegnare loro la configurazione IP front-end, la porta e i certificati TLS/SSL.
 
 ```powershell
 $listener = New-AzApplicationGatewayHttpListener -Name "listener01" -Protocol "Https" -FrontendIPConfiguration $fipconfig01 -FrontendPort $fp01 -SslCertificate $cert -HostName $gatewayHostname -RequireServerNameIndication true
@@ -368,13 +369,13 @@ Il nome DNS del gateway applicazione dovrà essere usato per creare un record CN
 Get-AzPublicIpAddress -ResourceGroupName $resGroupName -Name "publicIP01"
 ```
 
-## <a name="summary"></a><a name="summary"></a> Riepilogo di
-Gestione API di Azure configurata in un VNET offre un'unica interfaccia del gateway per tutte le API configurate, indipendentemente dal fatto che siano ospitate in locale o nel cloud. L'integrazione del gateway applicazione con Gestione API offre la possibilità di rendere accessibili su Internet determinate API in modo selettivo, nonché di fornire un Web application firewall come front-end all'istanza di Gestione API.
+## <a name="summary"></a><a name="summary"></a> Riepilogo
+Azure API Management configurato in una rete virtuale offre un'interfaccia gateway singola per tutte le API configurate, indipendentemente dal fatto che siano ospitate in locale o nel cloud. L'integrazione del gateway applicazione con Gestione API offre la possibilità di rendere accessibili su Internet determinate API in modo selettivo, nonché di fornire un Web application firewall come front-end all'istanza di Gestione API.
 
 ## <a name="next-steps"></a><a name="next-steps"></a> Passaggi successivi
 * Altre informazioni sul gateway applicazione di Azure
   * [Panoramica del gateway applicazione](../application-gateway/overview.md)
-  * [Web application firewall del gateway applicazione](../web-application-firewall/ag/ag-overview.md)
+  * [Application Gateway Web Application Firewall](../web-application-firewall/ag/ag-overview.md)
   * [Creare un gateway applicazione con il routing basato sul percorso](../application-gateway/tutorial-url-route-powershell.md)
 * Altre informazioni su Gestione API e reti virtuali
   * [Uso del servizio Gestione API di Azure con una rete virtuale interna](api-management-using-with-internal-vnet.md)
