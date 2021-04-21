@@ -4,16 +4,16 @@ description: Questo articolo descrive come visualizzare le operazioni di distrib
 tags: top-support-issue
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 898af2365dfbb0f61b6b87e7532c9256269d799a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e7ed2096a696efdc9a2654a8fd0c294c82cbd4f7
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105732772"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107781866"
 ---
 # <a name="view-deployment-history-with-azure-resource-manager"></a>Visualizzare la cronologia delle distribuzioni con Azure Resource Manager
 
-Azure Resource Manager consente di visualizzare la cronologia di distribuzione. È possibile esaminare operazioni specifiche nelle distribuzioni precedenti e vedere quali risorse sono state distribuite. Questa cronologia contiene informazioni su eventuali errori.
+Azure Resource Manager consente di visualizzare la cronologia di distribuzione. È possibile esaminare operazioni specifiche nelle distribuzioni precedenti e vedere quali risorse sono state distribuite. Questa cronologia contiene informazioni sugli eventuali errori.
 
 La cronologia di distribuzione per un gruppo di risorse è limitata a 800 distribuzioni. Quando si avvicina il limite, le distribuzioni vengono eliminate automaticamente dalla cronologia. Per alter informazioni, vedere [Eliminazioni automatiche dalla cronologia delle distribuzioni](deployment-history-deletions.md).
 
@@ -21,7 +21,7 @@ Per informazioni sulla risoluzione di errori di distribuzione specifici, vedere 
 
 ## <a name="get-deployments-and-correlation-id"></a>Ottenere le distribuzioni e l'ID correlazione
 
-È possibile visualizzare i dettagli di una distribuzione tramite il portale di Azure, PowerShell, l'interfaccia della riga di comando di Azure o l'API REST. Ad ogni distribuzione è associato un ID correlazione, che viene usato per tenere traccia degli eventi correlati. Se si [Crea una richiesta di supporto di Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md), il supporto potrebbe richiedere l'ID di correlazione. Il supporto utilizza l'ID di correlazione per identificare le operazioni per la distribuzione non riuscita.
+È possibile visualizzare i dettagli di una distribuzione tramite il portale di Azure, PowerShell, l'interfaccia della riga di comando di Azure o l'API REST. Ad ogni distribuzione è associato un ID correlazione, che viene usato per tenere traccia degli eventi correlati. Se si [crea una richiesta supporto tecnico di Azure,](../../azure-portal/supportability/how-to-create-azure-support-request.md)il supporto tecnico potrebbe richiedere l'ID di correlazione. Il supporto usa l'ID di correlazione per identificare le operazioni per la distribuzione non riuscita.
 
 # <a name="portal"></a>[Portale](#tab/azure-portal)
 
@@ -61,13 +61,13 @@ Per ottenere l'ID di correlazione, usare:
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
-Per elencare la distribuzione per un gruppo di risorse, usare [az deployment group list](/cli/azure/group/deployment#az-deployment-group-list).
+Per elencare la distribuzione per un gruppo di risorse, usare [az deployment group list](/cli/azure/group/deployment#az_deployment_group_list).
 
 ```azurecli-interactive
 az deployment group list --resource-group ExampleGroup
 ```
 
-Per ottenere una distribuzione specifica, usare [az deployment group show](/cli/azure/group/deployment#az-deployment-group-show).
+Per ottenere una distribuzione specifica, usare [az deployment group show](/cli/azure/group/deployment#az_deployment_group_show).
 
 ```azurecli-interactive
 az deployment group show --resource-group ExampleGroup --name ExampleDeployment
@@ -81,13 +81,13 @@ az deployment group show --resource-group ExampleGroup --name ExampleDeployment 
 
 # <a name="http"></a>[HTTP](#tab/http)
 
-Per elencare le distribuzioni per un gruppo di risorse, usare l'operazione seguente. Per il numero di versione dell'API più recente da usare nella richiesta, vedere [Distribuzioni: elencare per gruppo di risorse](/rest/api/resources/resources/deployments/listbyresourcegroup).
+Per elencare le distribuzioni per un gruppo di risorse, usare l'operazione seguente. Per il numero di versione dell'API più recente da usare nella richiesta, vedere [Distribuzioni: elencare per gruppo di risorse](/rest/api/resources/deployments/listbyresourcegroup).
 
 ```
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deployments/?api-version={api-version}
 ```
 
-Per ottenere una distribuzione specifica, usare l'operazione seguente. Per il numero di versione dell'API più recente da usare nella richiesta, vedere [Distribuzioni: ottenere](/rest/api/resources/resources/deployments/get).
+Per ottenere una distribuzione specifica, usare l'operazione seguente. Per il numero di versione dell'API più recente da usare nella richiesta, vedere [Distribuzioni: ottenere](/rest/api/resources/deployments/get).
 
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}?api-version={api-version}
@@ -147,7 +147,7 @@ Per ottenere il messaggio di stato delle operazioni non riuscite, usare il coman
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
-Per visualizzare le operazioni di distribuzione per la distribuzione in un gruppo di risorse, usare il comando [az deployment operation group list](/cli/azure/deployment/operation/group#az-deployment-operation-group-list). È necessario disporre dell'interfaccia della riga di comando di Azure 2.6.0 o versione successiva.
+Per visualizzare le operazioni di distribuzione per la distribuzione in un gruppo di risorse, usare il comando [az deployment operation group list](/cli/azure/deployment/operation/group#az_deployment-operation-group-list). È necessario disporre dell'interfaccia della riga di comando di Azure 2.6.0 o versione successiva.
 
 ```azurecli-interactive
 az deployment operation group list --resource-group ExampleGroup --name ExampleDeployment
@@ -167,7 +167,7 @@ az deployment operation group list --resource-group ExampleGroup --name ExampleD
 
 # <a name="http"></a>[HTTP](#tab/http)
 
-Per visualizzare le operazioni di distribuzione, usare l'operazione seguente. Per il numero di versione dell'API più recente da usare nella richiesta, vedere [Distribuzioni: elencare](/rest/api/resources/resources/deploymentoperations/list).
+Per visualizzare le operazioni di distribuzione, usare l'operazione seguente. Per il numero di versione dell'API più recente da usare nella richiesta, vedere [Distribuzioni: elencare](/rest/api/resources/deploymentoperations/list).
 
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}/operations?$skiptoken={skiptoken}&api-version={api-version}
@@ -212,6 +212,5 @@ La risposta include un messaggio di errore.
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per informazioni sulla risoluzione di errori di distribuzione specifici, vedere [Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager](common-deployment-errors.md).
-* Per informazioni sul modo in cui vengono gestite le distribuzioni nella cronologia, vedere l'articolo relativo alle [eliminazioni automatiche dalla cronologia di distribuzione](deployment-history-deletions.md).
+* Per informazioni su come vengono gestite le distribuzioni nella cronologia, vedere [Eliminazioni automatiche dalla cronologia di distribuzione.](deployment-history-deletions.md)
 * Per convalidare la distribuzione prima di eseguirla, vedere [Distribuire le risorse con i modelli di Azure Resource Manager e Azure PowerShell](deploy-powershell.md).
-

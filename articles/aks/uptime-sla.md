@@ -5,12 +5,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 01/08/2021
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 69a4955f28bbd42cd7bf5651bd057412e15303de
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 846446b4c19c066afe789bf636d68ad37b20709e
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104952916"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107779562"
 ---
 # <a name="azure-kubernetes-service-aks-uptime-sla"></a>Servizio Azure Kubernetes: contratto di servizio relativo al tempo di attività
 
@@ -25,8 +25,8 @@ I clienti possono comunque creare cluster gratuiti senza limiti con un obiettivo
 
 ## <a name="region-availability"></a>Aree di disponibilità
 
-* Il contratto di servizio per il tempo di esecuzione è disponibile nelle aree pubbliche e nelle aree di Azure per enti pubblici in cui [è supportato](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service)
-* Il contratto di servizio per il tempo di esecuzione è disponibile per i [cluster AKS privati][private-clusters] in tutte le aree pubbliche in cui è supportato AKS.
+* Il contratto di servizio relativo al tempo di attività è disponibile nelle aree pubbliche e nelle Azure per enti pubblici in cui è [supportato il servizio Servizio Web di gestione degli aggiornamenti.](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service)
+* Il contratto di servizio relativo al tempo di attività è [disponibile per i cluster del servizio Web Diaks privati][private-clusters] in tutte le aree pubbliche in cui è supportato il servizio.
 
 ## <a name="sla-terms-and-conditions"></a>Termini e condizioni del contratto di servizio
 
@@ -34,9 +34,9 @@ Il contratto di servizio relativo al tempo di attività è una funzionalità a p
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-* Installare l' [interfaccia](/cli/azure/install-azure-cli) della riga di comando di Azure versione 2.8.0 o successiva
+* Installare [l'interfaccia della riga di](/cli/azure/install-azure-cli) comando di Azure versione 2.8.0 o successiva
 
-## <a name="creating-a-new-cluster-with-uptime-sla"></a>Creazione di un nuovo cluster con contratto di servizio con tempo di esecuzione
+## <a name="creating-a-new-cluster-with-uptime-sla"></a>Creazione di un nuovo cluster con contratto di servizio relativo al tempo di attività
 
 Per creare un nuovo cluster con il contratto di servizio relativo al tempo di attività, usare l'interfaccia della riga di comando di Azure.
 
@@ -46,13 +46,13 @@ L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella 
 # Create a resource group
 az group create --name myResourceGroup --location eastus
 ```
-Usare il [`az aks create`][az-aks-create] comando per creare un cluster AKS. L'esempio seguente crea un cluster denominato *myAKSCluster* con un nodo. Il completamento di questa operazione richiede alcuni minuti:
+Usare il comando [`az aks create`][az-aks-create] per creare un cluster del servizio Web Diaks. L'esempio seguente crea un cluster denominato *myAKSCluster* con un nodo. Il completamento di questa operazione richiede alcuni minuti:
 
 ```azurecli-interactive
 # Create an AKS cluster with uptime SLA
 az aks create --resource-group myResourceGroup --name myAKSCluster --uptime-sla --node-count 1
 ```
-Il comando viene completato dopo pochi minuti e vengono restituite informazioni in formato JSON sul cluster. Il frammento di codice JSON seguente mostra il livello a pagamento per lo SKU, che indica che il cluster è abilitato con contratto di servizio con tempo di esecuzione:
+Il comando viene completato dopo pochi minuti e vengono restituite informazioni in formato JSON sul cluster. Il frammento di codice JSON seguente mostra il livello a pagamento per lo SKU, che indica che il cluster è abilitato con il contratto di servizio relativo al tempo di attività:
 
 ```output
   },
@@ -62,11 +62,11 @@ Il comando viene completato dopo pochi minuti e vengono restituite informazioni 
   },
 ```
 
-## <a name="modify-an-existing-cluster-to-use-uptime-sla"></a>Modificare un cluster esistente per usare il contratto di servizio con tempo di esecuzione
+## <a name="modify-an-existing-cluster-to-use-uptime-sla"></a>Modificare un cluster esistente per usare il contratto di servizio relativo al tempo di attività
 
-Facoltativamente, è possibile aggiornare i cluster esistenti per utilizzare il contratto di servizio con tempo di esecuzione.
+Facoltativamente, è possibile aggiornare i cluster esistenti per usare il contratto di servizio relativo al tempo di attività.
 
-Se è stato creato un cluster AKS con i passaggi precedenti, eliminare il gruppo di risorse:
+Se è stato creato un cluster del servizio Servizio Web Di seguito sono stati creati i passaggi precedenti, eliminare il gruppo di risorse:
 
 ```azurecli-interactive
 # Delete the existing cluster by deleting the resource group 
@@ -80,7 +80,7 @@ Creare un nuovo gruppo di risorse:
 az group create --name myResourceGroup --location eastus
 ```
 
-Creare un nuovo cluster e non usare il contratto di servizio per il tempo di esecuzione:
+Creare un nuovo cluster e non usare il contratto di servizio relativo al tempo di attività:
 
 ```azurecli-interactive
 # Create a new cluster without uptime SLA
@@ -94,7 +94,7 @@ Usare il [`az aks update`][az-aks-update] comando per aggiornare il cluster esis
  az aks update --resource-group myResourceGroup --name myAKSCluster --uptime-sla
  ```
 
- Il frammento di codice JSON seguente mostra il livello a pagamento per lo SKU, che indica che il cluster è abilitato con contratto di servizio con tempo di esecuzione:
+ Il frammento di codice JSON seguente mostra il livello a pagamento per lo SKU, che indica che il cluster è abilitato con il contratto di servizio relativo al tempo di attività:
 
  ```output
   },
@@ -104,9 +104,9 @@ Usare il [`az aks update`][az-aks-update] comando per aggiornare il cluster esis
   },
   ```
 
-## <a name="opt-out-of-uptime-sla"></a>Rifiutare esplicitamente il contratto di esecuzione
+## <a name="opt-out-of-uptime-sla"></a>Rifiutare esplicitamente il contratto di servizio relativo al tempo di attività
 
-È possibile aggiornare il cluster per passare al livello gratuito e rifiutare esplicitamente il contratto di servizio con tempo di esecuzione.
+È possibile aggiornare il cluster per passare al livello gratuito e rifiutare esplicitamente il contratto di servizio relativo al tempo di attività.
 
 ```azurecli-interactive
 # Update an existing cluster to opt out of Uptime SLA
@@ -115,7 +115,7 @@ Usare il [`az aks update`][az-aks-update] comando per aggiornare il cluster esis
 
 ## <a name="clean-up"></a>Eseguire la pulizia
 
-Per evitare addebiti, pulire le risorse create. Per eliminare il cluster, usare il [`az group delete`][az-group-delete] comando per eliminare il gruppo di risorse AKS:
+Per evitare addebiti, pulire tutte le risorse create. Per eliminare il cluster, usare il comando per eliminare il gruppo di risorse del servizio [`az group delete`][az-group-delete] Web AKS:
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait
@@ -137,10 +137,10 @@ Configurare il cluster per [limitare il traffico in uscita](limit-egress-traffic
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [faq]: ./faq.md
 [availability-zones]: ./availability-zones.md
-[az-aks-create]: /cli/azure/aks?#az-aks-create
+[az-aks-create]: /cli/azure/aks?#az_aks_create
 [limit-egress-traffic]: ./limit-egress-traffic.md
-[az-extension-add]: /cli/azure/extension#az-extension-add
-[az-extension-update]: /cli/azure/extension#az-extension-update
+[az-extension-add]: /cli/azure/extension#az_extension_add
+[az-extension-update]: /cli/azure/extension#az_extension_update
 [az-aks-update]: /cli/azure/aks#az_aks_update
-[az-group-delete]: /cli/azure/group#az-group-delete
+[az-group-delete]: /cli/azure/group#az_group_delete
 [private-clusters]: private-clusters.md

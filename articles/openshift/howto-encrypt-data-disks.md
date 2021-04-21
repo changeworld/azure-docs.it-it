@@ -1,47 +1,47 @@
 ---
-title: Crittografare attestazioni di volume permanenti con una chiave gestita dal cliente (CMK) in Azure Red Hat OpenShift (ARO)
-description: Istruzioni per la distribuzione di BYOK (Bring your own key)/CMK (Customer-Managed Key) per Azure Red Hat OpenShift
+title: Crittografare le attestazioni di volume persistenti con una chiave gestita dal cliente (CMK) Azure Red Hat OpenShift (ARO)
+description: Istruzioni di distribuzione bring your own key (BYOK) /CMK (Customer-managed key) per Azure Red Hat OpenShift
 ms.topic: article
 ms.date: 02/24/2021
 author: stuartatmicrosoft
 ms.author: stkirk
 ms.service: azure-redhat-openshift
-keywords: Encryption, Byok, Aro, CMK, OpenShift, Red Hat
-ms.openlocfilehash: cf028456cc8971678373d36214885c3f79df8e82
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+keywords: crittografia, byok, aro, cmk, openshift, red hat
+ms.openlocfilehash: f6c80bab6f821dc7c85352bf57ebe255ae712d43
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105047066"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107783522"
 ---
-# <a name="encrypt-persistent-volume-claims-with-a-customer-managed-key-cmk-on-azure-red-hat-openshift-aro-preview"></a>Crittografare attestazioni di volume permanenti con una chiave gestita dal cliente (CMK) in Azure Red Hat OpenShift (ARO) (anteprima)
+# <a name="encrypt-persistent-volume-claims-with-a-customer-managed-key-cmk-on-azure-red-hat-openshift-aro-preview"></a>Crittografare le attestazioni di volume persistenti con una chiave gestita dal cliente (CMK) in Azure Red Hat OpenShift (anteprima)
 
-Archiviazione di Azure usa la crittografia lato server (SSE) per [crittografare](../storage/common/storage-service-encryption.md) automaticamente i dati quando vengono salvati in modo permanente nel cloud. Per impostazione predefinita, i dati vengono crittografati con le chiavi gestite dalla piattaforma Microsoft. Per un maggiore controllo sulle chiavi di crittografia, è possibile fornire le proprie chiavi gestite dal cliente per crittografare i dati nei cluster OpenShift di Azure Red Hat.
+Archiviazione di Azure usa la crittografia lato server (SSE) per crittografare automaticamente i dati quando vengono resi persistenti nel cloud. [](../storage/common/storage-service-encryption.md) Per impostazione predefinita, i dati vengono crittografati con chiavi gestite dalla piattaforma Microsoft. Per un ulteriore controllo sulle chiavi di crittografia, è possibile fornire chiavi gestite dal cliente per crittografare i dati nei cluster Azure Red Hat OpenShift personalizzati.
 
 > [!NOTE]
-> In questa fase, il supporto esiste solo per la crittografia dei volumi di ARO persistenti con chiavi gestite dal cliente. Questa funzionalità non è attualmente disponibile per i dischi del sistema operativo del nodo master o del ruolo di lavoro.
+> In questa fase, il supporto è disponibile solo per crittografare i volumi permanenti ARO con chiavi gestite dal cliente. Questa funzionalità non è attualmente disponibile per i dischi del sistema operativo del nodo master o del nodo di lavoro.
 
 > [!IMPORTANT]
-> Le funzionalità di anteprima di ARO sono disponibili in base all'opzione self-service. Le anteprime vengono fornite "così come sono" e "come disponibili" e sono escluse dai contratti di servizio e dalla garanzia limitata. Le anteprime di ARO sono parzialmente coperte dal supporto tecnico del cliente in base al massimo sforzo. Di conseguenza, queste funzionalità non sono destinate all'uso in produzione.
+> Le funzionalità di anteprima di ARO sono disponibili in modalità self-service e con consenso esplicito. Le anteprime vengono fornite "così come sono" e "come disponibili" e sono escluse dai contratti di servizio e dalla garanzia limitata. Le anteprime di ARO sono parzialmente coperte dal supporto clienti in base al massimo sforzo. Di conseguenza, queste funzionalità non sono destinate all'uso in produzione.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 Questo articolo presuppone quanto segue:
 
-* Si dispone di un cluster ARO preesistente in OpenShift versione 4,4 (o successiva).
+* È disponibile un cluster ARO preesistnte in OpenShift versione 4.4 (o successiva).
 
-* È installato lo strumento da riga di comando OpenShift di **OC** , Base64 (parte di coreutils) e l'interfaccia della riga di comando **AZ** Azure.
+* Sono installati lo strumento da riga di comando **oc** OpenShift, base64 (parte di coreutils) e l'interfaccia della riga di comando di Azure **az.**
 
-* Si è connessi al cluster ARO usando **OC** come utente amministratore globale del cluster (kubeadmin).
+* Si è connessi al cluster ARO usando **oc** come utente amministratore del cluster globale (kubeadmin).
 
-* Si è connessi all'interfaccia della riga di comando di Azure usando **AZ** con un account autorizzato a concedere l'accesso "collaboratore" nella stessa sottoscrizione del cluster Aro.
+* Si è connessi all'interfaccia della riga di comando di Azure usando **az** con un account autorizzato a concedere l'accesso "Collaboratore" nella stessa sottoscrizione del cluster ARO.
 
 ## <a name="limitations"></a>Limitazioni
 
-* La disponibilità per la crittografia della chiave gestita dal cliente è specifica dell'area. Per visualizzare lo stato di un'area di Azure specifica, controllare le [aree di Azure][supported-regions].
-* Se si vuole usare dischi Ultra, è necessario prima abilitarli nella sottoscrizione prima di iniziare.
+* La disponibilità per la crittografia della chiave gestita dal cliente è specifica dell'area. Per visualizzare lo stato di un'area di Azure specifica, vedere Aree [di Azure.][supported-regions]
+* Se si vuole usare Dischi Ultra, è necessario abilitarli nella sottoscrizione prima di iniziare.
 
-## <a name="declare-cluster--encryption-variables"></a>Dichiarare le variabili di crittografia del & cluster
-È consigliabile configurare le variabili seguenti in base a quanto potrebbe essere appropriato per il cluster ARO in cui si vuole abilitare le chiavi di crittografia gestite dal cliente:
+## <a name="declare-cluster--encryption-variables"></a>Dichiarare variabili di crittografia & cluster
+È necessario configurare le variabili seguenti in base a quanto potrebbe essere appropriato per il cluster ARO in cui si desidera abilitare le chiavi di crittografia gestite dal cliente:
 ```
 aroCluster="mycluster"             # The name of the ARO cluster that you wish to enable CMK on. This may be obtained from **az aro list -o table**
 buildRG="mycluster-rg"             # The name of the resource group used when you initially built the ARO cluster. This may be obtained from **az aro list -o table**
@@ -57,8 +57,8 @@ L'ID sottoscrizione di Azure viene usato più volte nella configurazione di CMK.
 subId="$(az account list -o tsv | grep True | awk '{print $3}')"
 ```
 
-## <a name="create-an-azure-key-vault-instance"></a>Creare un'istanza di Azure Key Vault
-Per archiviare le chiavi, è necessario usare un'istanza di Azure Key Vault. Creare una nuova Key Vault con la protezione ripulitura abilitata. Quindi, creare una nuova chiave nell'insieme di credenziali per archiviare la propria chiave personalizzata:
+## <a name="create-an-azure-key-vault-instance"></a>Creare un'Azure Key Vault predefinita
+Per archiviare le chiavi, è necessario usare Azure Key Vault'istanza di . Creare un nuovo Key Vault con la protezione di ripulitura abilitata. Creare quindi una nuova chiave all'interno dell'insieme di credenziali per archiviare la propria chiave personalizzata:
 
 ```azurecli-interactive
 # Create an Azure Key Vault resource in a supported Azure region
@@ -70,7 +70,7 @@ az keyvault key create --vault-name $vaultName --name $vaultKeyName --protection
 
 ## <a name="create-an-azure-disk-encryption-set"></a>Creare un set di crittografia dischi di Azure
 
-Il set di crittografia dischi di Azure viene usato come punto di riferimento per i dischi in ARO. È connessa al Azure Key Vault creato nel passaggio precedente e effettuerà il pull delle chiavi gestite dal cliente da tale percorso.
+Il Crittografia dischi di Azure set viene usato come punto di riferimento per i dischi in ARO. È connesso al Azure Key Vault creato nel passaggio precedente e estrarrà le chiavi gestite dal cliente da tale posizione.
 
 ```azurecli-interactive
 # Retrieve the Key Vault Id and store it in a variable
@@ -84,7 +84,7 @@ az disk-encryption-set create -n $desName -g $buildRG --source-vault $keyVaultId
 ```
 
 ## <a name="grant-the-disk-encryption-set-access-to-key-vault"></a>Concedere al set di crittografia del disco l'accesso Key Vault
-Usare il set di crittografia del disco creato nei passaggi precedenti e concedere al set di crittografia del disco l'accesso a Azure Key Vault:
+Usare il set di crittografia del disco creato nei passaggi precedenti e concedere al set di crittografia del disco l'accesso Azure Key Vault:
 
 ```azurecli-interactive
 # First, find the disk encryption set's Azure Application ID value.
@@ -97,8 +97,8 @@ az keyvault set-policy -n $vaultName -g $buildRG --object-id $desIdentity --key-
 az role assignment create --assignee $desIdentity --role Reader --scope $keyVaultId -o jsonc
 ```
 
-### <a name="obtain-other-ids-required-for-role-assignments"></a>Ottenere altri ID richiesti per le assegnazioni di ruolo
-È necessario consentire al cluster ARO di usare la crittografia del disco impostata per crittografare le attestazioni del volume permanente (PVC) nel cluster ARO. A tale scopo, verrà creato un nuovo identità del servizio gestita (MSI). Si imposteranno anche altre autorizzazioni per ARO MSI e per il set di crittografia del disco.
+### <a name="obtain-other-ids-required-for-role-assignments"></a>Ottenere altri ID necessari per le assegnazioni di ruolo
+È necessario consentire al cluster ARO di usare il set di crittografia del disco per crittografare le attestazioni di volume persistente (PVC) nel cluster ARO. A tale scopo, verrà creata una nuova identità del servizio gestito. Verranno impostate anche altre autorizzazioni per l'msi ARO e per il set di crittografia del disco.
 
 ```azurecli-interactive
 # First, get the Azure Application ID of the service principal used in the ARO cluster.
@@ -134,8 +134,8 @@ az role assignment create --assignee $aroMSIAppId --role Reader --scope $buildRG
 az role assignment create --assignee $aroSPObjId --role Contributor --scope $buildRGResourceId -o jsonc
 ```
 
-## <a name="create-a-k8s-storage-class-for-encrypted-premium--ultra-disks"></a>Creare una classe di archiviazione K8S per i dischi crittografati Premium & ultra
-Generare classi di archiviazione da usare per CMK per i dischi Premium_LRS e UltraSSD_LRS:
+## <a name="create-a-k8s-storage-class-for-encrypted-premium--ultra-disks"></a>Creare una classe di archiviazione k8s per dischi Premium & Ultra crittografati
+Generare classi di archiviazione da usare per la CMK Premium_LRS e UltraSSD_LRS dischi:
 
 ```azurecli-interactive
 # Premium Disks
@@ -185,7 +185,7 @@ oc apply -f managed-ultra-encrypted-cmk.yaml
 ```
 
 ## <a name="test-encryption-with-customer-managed-keys-optional"></a>Testare la crittografia con chiavi gestite dal cliente (facoltativo)
-Per verificare se il cluster usa una chiave gestita dal cliente per la crittografia del PVC, verrà creata un'attestazione di volume permanente usando la nuova classe di archiviazione. Il frammento di codice seguente crea un pod e monta un'attestazione di volume permanente usando dischi Premium.
+Per verificare se il cluster usa una chiave gestita dal cliente per la crittografia PVC, verrà creata un'attestazione di volume permanente usando la nuova classe di archiviazione. Il frammento di codice seguente crea un pod e monta un'attestazione di volume permanente usando dischi Premium.
 ```
 # Create a pod which uses a persistent volume claim referencing the new storage class
 cat > test-pvc.yaml<< EOF
@@ -226,7 +226,7 @@ spec:
 EOF
 ```
 ### <a name="apply-the-test-pod-configuration-file-optional"></a>Applicare il file di configurazione del pod di test (facoltativo)
-Eseguire i comandi seguenti per applicare la configurazione del pod di test e restituire l'UID della nuova attestazione del volume permanente. L'UID verrà usato per verificare che il disco sia crittografato con CMK.
+Eseguire i comandi seguenti per applicare la configurazione del pod di test e restituire l'UID della nuova attestazione di volume permanente. L'UID verrà usato per verificare che il disco sia crittografato tramite CMK.
 ```azurecli-interactive
 # Apply the test pod configuration file and set the PVC UID as a variable to query in Azure later.
 pvcUid="$(oc apply -f test-pvc.yaml -o jsonpath='{.items[0].metadata.uid}')"
@@ -235,10 +235,10 @@ pvcUid="$(oc apply -f test-pvc.yaml -o jsonpath='{.items[0].metadata.uid}')"
 pvName="$(oc get pv pvc-$pvcUid -o jsonpath='{.spec.azureDisk.diskName}')"
 ```
 > [!NOTE]
-> In alcuni casi potrebbe verificarsi un lieve ritardo durante l'applicazione delle assegnazioni di ruolo all'interno Azure Active Directory. A seconda della velocità con cui vengono eseguite queste istruzioni, il comando per "determinare il nome completo del disco di Azure" potrebbe non riuscire. In tal caso, esaminare l'output di **OC descrivere PVC MyPOD-con-CMK-Encryption-PVC** per assicurarsi che sia stato eseguito correttamente il provisioning del disco. Se la propagazione dell'assegnazione di ruolo non è stata completata, potrebbe essere necessario *eliminare* e *riapplicare* il Pod & il PVC YAML.
+> In alcuni casi può verificarsi un leggero ritardo durante l'applicazione delle assegnazioni di ruolo all'interno Azure Active Directory. A seconda della velocità di esecuzione di queste istruzioni, il comando "Determinare il nome completo del disco di Azure" potrebbe non riuscire. In questo caso, esaminare l'output di **oc describe pvc mypod-with-cmk-encryption-pvc** per assicurarsi che il provisioning del disco sia stato eseguito correttamente. Se la propagazione dell'assegnazione di  ruolo non è stata completata, potrebbe essere necessario eliminare e applicare nuovamente il pod & YAML PVC.
 
 ### <a name="verify-pvc-disk-is-configured-with-encryptionatrestwithcustomerkey-optional"></a>Verificare che il disco PVC sia configurato con "EncryptionAtRestWithCustomerKey" (facoltativo)
-Il Pod deve creare un'attestazione di volume permanente che fa riferimento alla classe di archiviazione CMK. Eseguendo il comando seguente, si convaliderà che il PVC è stato distribuito come previsto:
+Il pod deve creare un'attestazione di volume permanente che fa riferimento alla classe di archiviazione CMK. L'esecuzione del comando seguente consente di verificare che il PVC sia stato distribuito come previsto:
 ```azurecli-interactive
 # Describe the OpenShift cluster-wide persistent volume claims
 oc describe pvc
@@ -250,8 +250,8 @@ az disk show -n $pvName -g $buildRG -o json --query [encryption]
 <!-- LINKS - external -->
 
 <!-- LINKS - internal -->
-[az-extension-add]: /cli/azure/extension#az-extension-add
-[az-extension-update]: /cli/azure/extension#az-extension-update
+[az-extension-add]: /cli/azure/extension#az_extension_add
+[az-extension-update]: /cli/azure/extension#az_extension_update
 [best-practices-security]: ../aks/operator-best-practices-cluster-security.md
 [byok-azure-portal]: ../storage/common/customer-managed-keys-configure-key-vault.md
 [customer-managed-keys]: ../virtual-machines/disk-encryption.md#customer-managed-keys

@@ -1,6 +1,6 @@
 ---
-title: Esercitazione-visualizzare i risultati del routing dei messaggi dell'hub Azure Internet (.NET) | Microsoft Docs
-description: "Esercitazione: dopo aver configurato tutte le risorse usando la prima parte dell'esercitazione, aggiungere la possibilità di indirizzare i messaggi ad analisi di flusso di Azure e visualizzare i risultati in Power BI."
+title: 'Esercitazione: Visualizzare hub IoT di Azure di routing dei messaggi (.NET) | Microsoft Docs'
+description: "Esercitazione: dopo aver impostato tutte le risorse usando la parte 1 dell'esercitazione, aggiungere la possibilità di instradare i messaggi Analisi di flusso di Azure e visualizzare i risultati in Power BI."
 author: robinsh
 manager: philmea
 ms.service: iot-hub
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2018
 ms.author: robinsh
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: f441a1cf97c069c4755b436bbb8cb9268b469eb3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 7d6b5f02a752e7bbdc1d4da83b60b1a86aba5626
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102199748"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107775026"
 ---
 # <a name="tutorial-part-2---view-the-routed-messages"></a>Esercitazione: Parte 2 - Visualizzare i messaggi instradati
 
@@ -48,7 +48,7 @@ La coda del Bus di servizio viene usata per la ricezione di messaggi designati c
 
    **Località**: usare la propria località. Questa esercitazione usa **Stati Uniti occidentali**.
 
-   **Enable log Analytics**: questo interruttore deve essere disattivato.
+   **Abilita Log Analytics:** questo interruttore deve essere disattivato.
 
    ![Schermata Crea app per la logica](./media/tutorial-routing-view-message-routing-results/create-logic-app.png)
 
@@ -152,7 +152,7 @@ Per visualizzare i dati in una visualizzazione di Power BI, innanzitutto imposta
 
    **Nome tabella**: il nome della tabella da usare in Power BI. Questa esercitazione usa **contosotable**.
 
-  **Modalità di autenticazione**: selezionare la modalità da usare.
+  **Modalità di** autenticazione: selezionare la modalità da usare.
 
    Accettare le impostazioni predefinite nei campi rimanenti.
 
@@ -282,7 +282,7 @@ Accedere all'account [Power BI](https://powerbi.microsoft.com/). Passa all'area 
 
 ### <a name="use-the-azure-cli-to-clean-up-resources"></a>Usare l'interfaccia della riga di comando di Azure per pulire le risorse
 
-Per rimuovere il gruppo di risorse, usare il comando [eliminazione del gruppo az](/cli/azure/group#az-group-delete). `$resourceGroup` è stato impostato di nuovo su **ContosoResources** all'inizio di questa esercitazione.
+Per rimuovere il gruppo di risorse, usare il comando [eliminazione del gruppo az](/cli/azure/group#az_group_delete). `$resourceGroup` è stato impostato di nuovo su **ContosoResources** all'inizio di questa esercitazione.
 
 ```azurecli-interactive
 az group delete --name $resourceGroup

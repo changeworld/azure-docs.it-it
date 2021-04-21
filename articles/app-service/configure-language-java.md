@@ -11,18 +11,18 @@ ms.reviewer: cephalin
 ms.custom: seodec18, devx-track-java, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
 adobe-target: true
-ms.openlocfilehash: 1caa8b680b6bc3df20ad31e581d336195308a2dc
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: cbf530b31797c2c72496548b3ed8f2928378ce9f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107726323"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107779490"
 ---
 # <a name="configure-a-java-app-for-azure-app-service"></a>Configurare un'app Java per il servizio app di Azure
 
 Servizio app di Azure consente agli sviluppatori Java di compilare, distribuire e ridimensionare rapidamente le applicazioni Web Java SE, Tomcat e JBoss EAP in un servizio completamente gestito. Distribuire applicazioni con plug-in Maven, dalla riga di comando o in editor come IntelliJ, Eclipse o Visual Studio Code.
 
-Questa guida fornisce i concetti chiave e le istruzioni per gli sviluppatori Java che usano il servizio app. Se non si è mai usato Servizio app di Azure, è consigliabile leggere prima l'avvio [rapido per Java.](quickstart-java.md) Le domande generali sull'uso del servizio app che non sono specifiche dello sviluppo Java sono disponibili nelle domande [frequenti sul servizio app.](faq-configuration-and-management.md)
+Questa guida fornisce i concetti chiave e le istruzioni per gli sviluppatori Java che usano il servizio app. Se non si è mai usato Servizio app di Azure, è consigliabile leggere prima l'avvio [rapido per Java.](quickstart-java.md) Le domande generali sull'uso del servizio app non specifiche per lo sviluppo Java sono disponibili nelle domande [frequenti sul servizio app.](faq-configuration-and-management.md)
 
 ## <a name="deploying-your-app"></a>Distribuzione dell'app
 
@@ -45,9 +45,9 @@ Per distribuire file con estensione war in Tomcat, usare l'endpoint `/api/wardep
 
 ### <a name="jboss-eap"></a>JBoss EAP
 
-Per distribuire i file con estensione war in JBoss, usare `/api/wardeploy/` l'endpoint per pubblicare il file di archivio. Per altre informazioni su questa API, vedere [questa documentazione](./deploy-zip.md#deploy-war-file).
+Per distribuire file war in JBoss, usare `/api/wardeploy/` l'endpoint per pubblicare il file di archivio. Per altre informazioni su questa API, vedere [questa documentazione](./deploy-zip.md#deploy-war-file).
 
-Per distribuire file con estensione ear, [usare FTP.](deploy-ftp.md)
+Per distribuire i file con estensione ear, [usare FTP.](deploy-ftp.md)
 
 ::: zone-end
 
@@ -86,7 +86,7 @@ Le immagini Java integrate sono basate sul sistema operativo [Alpine Linux](http
 
 ### <a name="flight-recorder"></a>Flight Recorder
 
-Tutti i runtime Java nel servizio app che usano i JVM Azul sono associati a Zulu Flight Recorder. È possibile usarlo per registrare eventi JVM, di sistema e dell'applicazione e risolvere i problemi nelle applicazioni Java.
+Tutti i runtime Java nel servizio app che usano JVM Azul sono associati a Zulu Flight Recorder. È possibile usarlo per registrare eventi JVM, di sistema e dell'applicazione e risolvere i problemi nelle applicazioni Java.
 
 ::: zone pivot="platform-windows"
 
@@ -94,7 +94,7 @@ Tutti i runtime Java nel servizio app che usano i JVM Azul sono associati a Zulu
 
 Per eseguire una registrazione programmata, è necessario il PID (ID processo) dell'applicazione Java. Per trovare il PID, aprire un browser nel sito SCM dell'app Web all'indirizzo https://<nome-sito>.scm.azurewebsites.net/ProcessExplorer/. Questa pagina mostra i processi in esecuzione nell'app Web. Trovare il processo denominato "java" nella tabella e copiare il PID (ID processo) corrispondente.
 
-Aprire quindi il **Console di debug** sulla barra degli strumenti superiore del sito SCM ed eseguire il comando seguente. Sostituire `<pid>` con l'ID processo copiato in precedenza. Questo comando avvia una registrazione del profiler di 30 secondi dell'applicazione Java e genera un file denominato `timed_recording_example.jfr` nella `D:\home` directory .
+Aprire quindi il **Console di debug** sulla barra degli strumenti superiore del sito SCM ed eseguire il comando seguente. Sostituire `<pid>` con l'ID processo copiato in precedenza. Questo comando avvia una registrazione del profiler di 30 secondi dell'applicazione Java e genera un file `timed_recording_example.jfr` denominato nella `D:\home` directory .
 
 ```
 jcmd <pid> JFR.start name=TimedRecording settings=profile duration=30s filename="D:\home\timed_recording_example.JFR"
@@ -144,12 +144,12 @@ Usare [FTPS](deploy-ftp.md) per scaricare il file JFR nel computer locale. Per a
 
 ::: zone pivot="platform-windows"
 
-Abilitare la [registrazione dell'applicazione](troubleshoot-diagnostic-logs.md#enable-application-logging-windows) tramite il portale di Azure o l'[interfaccia della riga di comando di Azure](/cli/azure/webapp/log#az-webapp-log-config) per configurare il servizio app per scrivere l'output della console standard dell'applicazione e i flussi di errori della console standard nel file system locale o in Archiviazione BLOB di Azure. La registrazione nell'istanza del file system del servizio app locale viene disabilitata 12 ore dopo la configurazione. Se è necessario un periodo di conservazione più lungo, configurare l'applicazione per scrivere l'output in un contenitore di archiviazione BLOB. I log delle app Java e Tomcat sono reperibili nella directory */home/LogFiles/Application/* .
+Abilitare la [registrazione dell'applicazione](troubleshoot-diagnostic-logs.md#enable-application-logging-windows) tramite il portale di Azure o l'[interfaccia della riga di comando di Azure](/cli/azure/webapp/log#az_webapp_log_config) per configurare il servizio app per scrivere l'output della console standard dell'applicazione e i flussi di errori della console standard nel file system locale o in Archiviazione BLOB di Azure. La registrazione nell'istanza del file system del servizio app locale viene disabilitata 12 ore dopo la configurazione. Se è necessario un periodo di conservazione più lungo, configurare l'applicazione per scrivere l'output in un contenitore di archiviazione BLOB. I log delle app Java e Tomcat sono reperibili nella directory */home/LogFiles/Application/* .
 
 ::: zone-end
 ::: zone pivot="platform-linux"
 
-Abilitare la [registrazione dell'applicazione](troubleshoot-diagnostic-logs.md#enable-application-logging-linuxcontainer) tramite il portale di Azure o l'[interfaccia della riga di comando di Azure](/cli/azure/webapp/log#az-webapp-log-config) per configurare il servizio app per scrivere l'output della console standard dell'applicazione e i flussi di errori della console standard nel file system locale o in Archiviazione BLOB di Azure. Se è necessario un periodo di conservazione più lungo, configurare l'applicazione per scrivere l'output in un contenitore di archiviazione BLOB. I log delle app Java e Tomcat sono reperibili nella directory */home/LogFiles/Application/* .
+Abilitare la [registrazione dell'applicazione](troubleshoot-diagnostic-logs.md#enable-application-logging-linuxcontainer) tramite il portale di Azure o l'[interfaccia della riga di comando di Azure](/cli/azure/webapp/log#az_webapp_log_config) per configurare il servizio app per scrivere l'output della console standard dell'applicazione e i flussi di errori della console standard nel file system locale o in Archiviazione BLOB di Azure. Se è necessario un periodo di conservazione più lungo, configurare l'applicazione per scrivere l'output in un contenitore di archiviazione BLOB. I log delle app Java e Tomcat sono reperibili nella directory */home/LogFiles/Application/* .
 
 La registrazione dell'archiviazione BLOB di Azure per i Servizi app basati su Linux può essere configurata solo con [Monitoraggio di Azure (anteprima)](./troubleshoot-diagnostic-logs.md#send-logs-to-azure-monitor-preview) 
 
@@ -694,7 +694,7 @@ Per verificare che l'origine dati sia stata aggiunta al server JBoss, eseguire S
 
 Il servizio app consente agli utenti di scegliere la versione principale della JVM, ad esempio Java 8 o Java 11, nonché la versione secondaria, ad esempio 1.8.0_232 o 11.0.5. È anche possibile scegliere di aggiornare automaticamente la versione secondaria quando diventano disponibili nuove versioni secondarie. Nella maggior parte dei casi, i siti di produzione devono usare versioni JVM secondarie aggiunte. Ciò impedirà interruzioni impreviste durante un aggiornamento automatico della versione secondaria.
 
-Se si sceglie di aggiungere la versione secondaria, sarà necessario aggiornare periodicamente la versione secondaria JVM nel sito. Per assicurarsi che l'applicazione venga eseguita nella versione secondaria più recente, creare uno slot di staging e incrementare la versione secondaria nel sito di staging. Dopo aver confermato che l'applicazione viene eseguita correttamente nella nuova versione secondaria, è possibile scambiare gli slot di staging e di produzione.
+Se si sceglie di aggiungere la versione secondaria, sarà necessario aggiornare periodicamente la versione secondaria JVM nel sito. Per assicurarsi che l'applicazione venga eseguita nella versione secondaria più recente, creare uno slot di staging e incrementare la versione secondaria nel sito di staging. Dopo aver confermato che l'applicazione viene eseguita correttamente nella nuova versione secondaria, è possibile scambiare gli slot di gestione temporanea e di produzione.
 
 ## <a name="jboss-eap-hardware-options"></a>Opzioni hardware EAP JBoss
 

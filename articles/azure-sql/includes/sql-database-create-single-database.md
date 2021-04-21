@@ -6,12 +6,12 @@ ms.topic: include
 ms.date: 03/10/2020
 ms.author: sstein
 ms.reviewer: vanto
-ms.openlocfilehash: c7bd942b427bdbd2d8184f712f97dd2a0a57fa90
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0568860c387aa1239ec56005e404606272ae8275
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102178074"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107800319"
 ---
 In questo passaggio verranno creati un [server logico SQL](../database/logical-servers.md) e un [database singolo](../database/single-database-overview.md) che usa i dati di esempio AdventureWorksLT. È possibile creare il database usando i menu e le schermate del portale di Azure, con l'interfaccia della riga di comando di Azure o uno script di PowerShell in Azure Cloud Shell.
 
@@ -69,8 +69,8 @@ Per creare un gruppo di risorse, un server e un database singolo nel portale di 
    Per altre informazioni sulle impostazioni del firewall, vedere [Consentire ai servizi e alle risorse di Azure di accedere a questo server](../database/network-access-controls-overview.md) e [Aggiungere un endpoint privato](../database/private-endpoint-overview.md).
 
 1. Nella scheda **Impostazioni aggiuntive**, nella sezione **Origine dati** selezionare **Esempio** per **Usa dati esistenti**.
-1. Facoltativamente, abilitare [Azure Defender per SQL](../database/azure-defender-for-sql.md).
-1. Facoltativamente, impostare la [finestra di manutenzione](../database/maintenance-window.md) in modo che la manutenzione pianificata venga eseguita nel momento migliore per il database.
+1. Facoltativamente, abilitare Azure Defender [per SQL](../database/azure-defender-for-sql.md).
+1. Facoltativamente, impostare la [finestra di manutenzione in](../database/maintenance-window.md) modo che la manutenzione pianificata sia eseguita nel momento migliore per il database.
 1. Selezionare **Rivedi e crea** nella parte inferiore della pagina.
 
    ![Scheda Impostazioni aggiuntive](./media/sql-database-create-single-database/additional-settings.png)
@@ -151,11 +151,11 @@ Il codice precedente usa i comandi dell'interfaccia della riga di comando di Azu
 
 | Comando | Descrizione |
 |---|---|
-| [az account set](/cli/azure/account#az-account-set) | Imposta una sottoscrizione come sottoscrizione attiva corrente. |
-| [az group create](/cli/azure/group#az-group-create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
-| [az sql server create](/cli/azure/sql/server#az-sql-server-create) | Crea un server che ospita database e pool elastici. |
-| [az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule##az-sql-server-firewall-rule-create) | Consente di creare una regola del firewall a livello di server. |
-| [az sql db create](/cli/azure/sql/db#az-sql-db-create) | Crea un database. |
+| [az account set](/cli/azure/account#az_account_set) | Imposta una sottoscrizione come sottoscrizione attiva corrente. |
+| [az group create](/cli/azure/group#az_group_create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
+| [az sql server create](/cli/azure/sql/server#az_sql_server_create) | Crea un server che ospita database e pool elastici. |
+| [az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule##az_sql_server_firewall_rule_create) | Consente di creare una regola del firewall a livello di server. |
+| [az sql db create](/cli/azure/sql/db#az_sql_db_create) | Crea un database. |
 
 Per altri esempi dell'interfaccia della riga di comando di Azure per il database SQL di Azure, vedere [Esempi dell'interfaccia della riga di comando di Azure](../database/az-cli-script-samples-content-guide.md).
 
