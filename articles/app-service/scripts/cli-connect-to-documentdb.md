@@ -1,5 +1,5 @@
 ---
-title: "Interfaccia della riga di comando: connettere un'app a Cosmos DB"
+title: "Interfaccia della riga di comando: Connettere un'app a Cosmos DB"
 description: Informazioni su come usare l'interfaccia della riga di comando di Azure per automatizzare la distribuzione e la gestione dell'app Servizio app. Questo esempio illustra come connettere un'app a MongoDB (Cosmos DB).
 author: msangapu-msft
 tags: azure-service-management
@@ -9,12 +9,12 @@ ms.topic: sample
 ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: mvc, seodec18, devx-track-azurecli
-ms.openlocfilehash: b29609d2bc2c518312bc777d1464755091c11b26
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: f76f036e2101fb1dbb4483ba417f5cf10f3e37f4
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107482586"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107782393"
 ---
 # <a name="connect-an-app-service-app-to-cosmos-db-using-cli"></a>Connettere un'app del servizio app a Cosmos DB usando l'interfaccia della riga di comando
 
@@ -38,12 +38,12 @@ Questo script usa i comandi seguenti per creare un gruppo di risorse, l'app del 
 
 | Comando | Note |
 |---|---|
-| [`az group create`](/cli/azure/group#az-group-create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
-| [`az appservice plan create`](/cli/azure/appservice/plan#az-appservice-plan-create) | Consente di creare un piano di servizio app. |
-| [`az webapp create`](/cli/azure/webapp#az-webapp-create) | Consente di creare un'app del servizio app. |
-| [`az cosmosdb create`](/cli/azure/cosmosdb#az-cosmosdb-create) | Crea un account Cosmos DB. |
-| [`az cosmosdb list-connection-strings`](/cli/azure/cosmosdb#az-cosmosdb-list-connection-strings) | Elenca le stringhe di connessione per l'account Cosmos DB specificato. |
-| [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) | Crea o aggiorna un'impostazione app per un'app del servizio app. Le impostazioni delle app vengono esposte come variabili di ambiente dell'applicazione. |
+| [`az group create`](/cli/azure/group#az_group_create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
+| [`az appservice plan create`](/cli/azure/appservice/plan#az_appservice_plan_create) | Consente di creare un piano di servizio app. |
+| [`az webapp create`](/cli/azure/webapp#az_webapp_create) | Consente di creare un'app del servizio app. |
+| [`az cosmosdb create`](/cli/azure/cosmosdb#az_cosmosdb_create) | Crea un account Cosmos DB. |
+| [`az cosmosdb list-connection-strings`](/cli/azure/cosmosdb#az_cosmosdb_list_connection_strings) | Elenca le stringhe di connessione per l'account Cosmos DB specificato. |
+| [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) | Crea o aggiorna un'impostazione app per un'app del servizio app. Le impostazioni delle app vengono esposte come variabili di ambiente dell'applicazione. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

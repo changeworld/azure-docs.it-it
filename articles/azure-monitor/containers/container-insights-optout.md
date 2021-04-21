@@ -1,24 +1,24 @@
 ---
 title: Come arrestare il monitoraggio del cluster del servizio Azure Kubernetes | Microsoft Docs
-description: Questo articolo descrive come è possibile interrompere il monitoraggio del cluster Azure AKS con informazioni dettagliate sul contenitore.
+description: Questo articolo descrive come interrompere il monitoraggio del cluster del servizio Azure Container con Informazioni dettagliate sui contenitori.
 ms.topic: conceptual
 ms.date: 08/19/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: eab34f27d1e33b166971203082cce99fb2b0e106
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 619b6fc4cce860e5869fd0b31e303b4a474f8428
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101723538"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107774018"
 ---
-# <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-container-insights"></a>Come arrestare il monitoraggio di Azure Kubernetes Service (AKS) con contenitore Insights
+# <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-container-insights"></a>Come arrestare il monitoraggio dell'servizio Azure Kubernetes (AKS) con Informazioni dettagliate sui contenitori
 
 Dopo aver abilitato il monitoraggio di un cluster del servizio Azure Kubernetes, è possibile interrompere il monitoraggio del cluster se non lo si ritiene più necessario. Questo articolo illustra come eseguire questa operazione usando l'interfaccia della riga di comando di Azure o i modelli di Azure Resource Manager disponibili.  
 
 
 ## <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
-Usare il comando [AZ AKS Disable-addons](/cli/azure/aks#az-aks-disable-addons) per disabilitare informazioni dettagliate sul contenitore. Il comando rimuove l'agente dai nodi del cluster, non rimuove la soluzione o i dati già raccolti e archiviati nella risorsa di monitoraggio di Azure.  
+Usare il [comando az aks disable-addons](/cli/azure/aks#az_aks_disable_addons) per disabilitare Informazioni dettagliate sul contenitore. Il comando rimuove l'agente dai nodi del cluster, non rimuove la soluzione o i dati già raccolti e archiviati nella risorsa Monitoraggio di Azure locale.  
 
 ```azurecli
 az aks disable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG
@@ -35,7 +35,7 @@ Se non si ha familiarità con il concetto di distribuzione delle risorse tramite
 * [Distribuire le risorse con i modelli di Azure Resource Manager e l'interfaccia della riga di comando di Azure](../../azure-resource-manager/templates/deploy-cli.md)
 
 >[!NOTE]
->Il modello deve essere distribuito nello stesso gruppo di risorse del cluster. Se si omettono altre proprietà o altri componenti aggiuntivi quando si usa questo modello, è possibile che vengano rimossi dal cluster. Ad esempio, *enableRBAC* per i criteri RBAC Kubernetes implementati nel cluster oppure *aksResourceTagValues* se sono specificati tag per il cluster AKS.  
+>Il modello deve essere distribuito nello stesso gruppo di risorse del cluster. Se si omettono altre proprietà o altri componenti aggiuntivi quando si usa questo modello, è possibile che vengano rimossi dal cluster. Ad esempio, *abilitare il controllo* degli accessi in base al ruolo per i criteri del controllo degli accessi in base al ruolo di Kubernetes implementati nel cluster oppure *aksResourceTagValues* se vengono specificati tag per il cluster del servizio Kubernetes.  
 >
 
 Se si sceglie di usare l'interfaccia della riga di comando di Azure, è prima necessario installarla ed eseguirla in locale. È richiesta la versione 2.0.27 o successiva. Per identificare la versione in uso, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
@@ -122,7 +122,7 @@ Se si sceglie di usare l'interfaccia della riga di comando di Azure, è prima ne
 
     Nella pagina **Proprietà** copiare anche l'**ID risorsa dell'area di lavoro**. Questo valore è necessario se si decide di eliminare l'area di lavoro Log Analytics in un secondo momento. Questa operazione che non viene eseguita nell'ambito di questo processo.
 
-    Modificare i valori di **aksResourceTagValues** in modo che corrispondano ai valori di tag esistenti specificati per il cluster AKS.
+    Modificare i valori per **aksResourceTagValues** in modo che corrispondano ai valori di tag esistenti specificati per il cluster del servizio Web Disaks.
 
 5. Salvare il file con il nome **OptOutParam.json** in una cartella locale.
 
@@ -165,4 +165,4 @@ ProvisioningState       : Succeeded
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se l'area di lavoro è stata creata solo per supportare il monitoraggio del cluster e non è più richiesta, è necessario eliminarla manualmente. Se non si ha familiarità con le procedure per l'eliminazione di un'area di lavoro, vedere [Eliminare un'area di lavoro Azure Log Analytics con il portale di Azure](../logs/delete-workspace.md). Non dimenticare l' **ID della risorsa dell'area di lavoro** copiato in precedenza nel passaggio 4, che sarà necessario.
+Se l'area di lavoro è stata creata solo per supportare il monitoraggio del cluster e non è più richiesta, è necessario eliminarla manualmente. Se non si ha familiarità con le procedure per l'eliminazione di un'area di lavoro, vedere [Eliminare un'area di lavoro Azure Log Analytics con il portale di Azure](../logs/delete-workspace.md). Non dimenticare l'ID risorsa **dell'area di** lavoro copiato in precedenza nel passaggio 4. Sarà necessario.

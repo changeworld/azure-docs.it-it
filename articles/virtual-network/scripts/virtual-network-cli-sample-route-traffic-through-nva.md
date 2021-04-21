@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/20/2018
 ms.author: kumud
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 964fda8168867c115502c7262dc1d41e55075866
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7dca5e36144fe17b39f76bb61543f59a1c6d7772
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91317651"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107790187"
 ---
 # <a name="route-traffic-through-a-network-virtual-appliance---azure-cli-script-sample"></a>Instradare il traffico attraverso un'appliance virtuale di rete - Esempio di script dell'interfaccia della riga di comando di Azure
 
@@ -58,8 +58,8 @@ Questo script usa i comandi seguenti per creare un gruppo di risorse, una rete v
 | [az network nsg create](/cli/azure/network/nsg) | Consente di creare un gruppo di sicurezza di rete. |
 | [az network nsg rule create](/cli/azure/network/nsg/rule) | Consente di creare regole del gruppo di sicurezza di rete per le porte HTTP e HTTPS in ingresso alla VM. |
 | [az network vnet subnet update](/cli/azure/network/vnet/subnet)| Consente di associare il gruppo di sicurezza di rete e le tabelle di route alle subnet. |
-| [az network route-table create](/cli/azure/network/route-table#az-network-route-table-create)| Consente di creare una tabella di route per tutte le route. |
-| [az network route-table route create](/cli/azure/network/route-table/route#az-network-route-table-route-create)| Consente di creare le route per instradare il traffico tra subnet e Internet attraverso la macchina virtuale. |
+| [az network route-table create](/cli/azure/network/route-table#az_network_route_table_create)| Consente di creare una tabella di route per tutte le route. |
+| [az network route-table route create](/cli/azure/network/route-table/route#az_network_route_table_route_create)| Consente di creare le route per instradare il traffico tra subnet e Internet attraverso la macchina virtuale. |
 | [az vm create](/cli/azure/vm) | Consente di creare una macchina virtuale e vi connette la NIC. Questo comando specifica anche l'immagine della macchina virtuale da usare e le credenziali di amministrazione. |
 | [az group delete](/cli/azure/group) | Consente di eliminare un gruppo di risorse e tutte le risorse in esso contenute. |
 

@@ -1,5 +1,5 @@
 ---
-title: Creare una VM Linux in Azure con più schede di rete
+title: Creare una macchina virtuale Linux in Azure con più schede di interfaccia di rete
 description: Informazioni su come creare una VM Linux con più schede di interfaccia di rete collegate utilizzando l'interfaccia della riga di comando di Azure o i modelli di Resource Manager.
 author: cynthn
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 06/07/2018
 ms.author: cynthn
-ms.openlocfilehash: c0eea74890665297a0d450c8afd0a5d60dd1ae00
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b08e8ebbba3ba91c1c1aa0f135c4cba37ba038b1
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102551811"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107769914"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Come creare una macchina virtuale Linux in Azure con più schede di interfaccia di rete
 
@@ -52,7 +52,7 @@ az network vnet subnet create \
     --address-prefix 10.0.2.0/24
 ```
 
-Creare un gruppo di sicurezza di rete con il comando [az network nsg create](/cli/azure/network/nsg). Nell'esempio seguente viene creato un gruppo di sicurezza di rete denominato *myNetworkSecurityGroup*:
+Creare un gruppo di sicurezza di rete con il comando [az network nsg create](/cli/azure/network/nsg). L'esempio seguente crea un gruppo di sicurezza di rete *denominato myNetworkSecurityGroup*:
 
 ```azurecli
 az network nsg create \
@@ -169,7 +169,7 @@ I modelli di Azure Resource Manager utilizzano i file JSON dichiarativi per defi
 
 Ulteriori informazioni sulla [creazione di più istanze utilizzando *Copia*](../../azure-resource-manager/templates/copy-resources.md). 
 
-È anche possibile usare un oggetto `copyIndex()` per aggiungere un numero al nome di una risorsa, che consente di creare `myNic1` , `myNic2` e così via. Di seguito viene illustrato un esempio di aggiunta del valore di indice:
+È anche possibile usare per aggiungere un numero a un nome di risorsa, che consente `copyIndex()` di creare , e così `myNic1` `myNic2` via. Di seguito viene illustrato un esempio di aggiunta del valore di indice:
 
 ```json
 "name": "[concat('myNic', copyIndex())]", 
@@ -183,7 +183,7 @@ Aggiungere le tabelle di routing al sistema operativo guest. A tale scopo, compl
 
 I passaggi precedenti hanno consentito di creare una rete virtuale e una subnet, collegare le schede di rete e quindi creare una macchina virtuale. Non sono stati creati un indirizzo IP pubblico e le regole del gruppo di sicurezza di rete che consentono il traffico SSH. Per configurare il sistema operativo guest per più schede di rete, è necessario consentire le connessioni remote ed eseguire i comandi in locale nella macchina virtuale.
 
-Per consentire il traffico SSH, creare una regola del gruppo di sicurezza di rete con [az network nsg rule create](/cli/azure/network/nsg/rule#az-network-nsg-rule-create), come indicato di seguito:
+Per consentire il traffico SSH, creare una regola del gruppo di sicurezza di rete con [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create), come indicato di seguito:
 
 ```azurecli
 az network nsg rule create \
@@ -194,7 +194,7 @@ az network nsg rule create \
     --destination-port-ranges 22
 ```
 
-Creare un indirizzo IP pubblico con [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) e assegnarla alla prima scheda di rete con [az network nic ip-config update](/cli/azure/network/nic/ip-config#az-network-nic-ip-config-update):
+Creare un indirizzo IP pubblico con [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) e assegnarla alla prima scheda di rete con [az network nic ip-config update](/cli/azure/network/nic/ip-config#az_network_nic_ip_config_update):
 
 ```azurecli
 az network public-ip create --resource-group myResourceGroup --name myPublicIP
@@ -206,7 +206,7 @@ az network nic ip-config update \
     --public-ip myPublicIP
 ```
 
-Per visualizzare l'indirizzo IP pubblico della macchina virtuale, usare [az vm show](/cli/azure/vm#az-vm-show), come indicato di seguito:
+Per visualizzare l'indirizzo IP pubblico della macchina virtuale, usare [az vm show](/cli/azure/vm#az_vm_show), come indicato di seguito:
 
 ```azurecli
 az vm show --resource-group myResourceGroup --name myVM -d --query publicIps -o tsv

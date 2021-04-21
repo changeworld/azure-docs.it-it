@@ -4,16 +4,16 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 09/26/2019
 ms.author: glenga
-ms.openlocfilehash: 4fe159660421113e0f0ac0586ae7e4a22d5bcda7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 642989df8dca9d4ae121d80e30a9fb6d8dd06286
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "77474199"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107799881"
 ---
 ### <a name="query-the-storage-queue"></a>Eseguire una query sulla coda di archiviazione
 
-È possibile usare il [`az storage queue list`](/cli/azure/storage/queue#az-storage-queue-list) comando per visualizzare le code di archiviazione nell'account, come nell'esempio seguente:
+È possibile usare il [`az storage queue list`](/cli/azure/storage/queue#az_storage_queue_list) comando per visualizzare le code di archiviazione nell'account, come nell'esempio seguente:
 
 ```azurecli-interactive
 az storage queue list --output tsv
@@ -21,7 +21,7 @@ az storage queue list --output tsv
 
 L'output di questo comando include una coda denominata `outqueue`, che è la coda creata quando è stata eseguita la funzione.
 
-Usare quindi il [`az storage message peek`](/cli/azure/storage/message#az-storage-message-peek) comando per visualizzare i messaggi in questa coda, come nell'esempio seguente:
+Usare quindi il [`az storage message peek`](/cli/azure/storage/message#az_storage_message_peek) comando per visualizzare i messaggi in questa coda, come in questo esempio:
 
 ```azurecli-interactive
 echo `echo $(az storage message peek --queue-name outqueue -o tsv --query '[].{Message:content}') | base64 --decode`

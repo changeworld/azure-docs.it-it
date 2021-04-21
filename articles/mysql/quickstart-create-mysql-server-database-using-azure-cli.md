@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 07/15/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 4f774351fc0eaaf32069687a1943c72b74b6308a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3dd971ff36bde02072d14c465dbafec2823b256d
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96494325"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107780318"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-using-azure-cli"></a>Guida introduttiva: Creare un database di Azure per il server MySQL tramite l'interfaccia della riga di comando di Azure
 
@@ -28,7 +28,7 @@ Questa guida di avvio rapido descrive come usare i comandi dell'[interfaccia del
 
  - Questa guida di avvio rapido richiede l'interfaccia della riga di comando di Azure versione 2.0 o successiva. Se si usa Azure Cloud Shell, la versione più recente è già installata.
 
- - Selezionare la sottoscrizione specifica nell'account tramite il comando [az account set](/cli/azure/account). Annotare il valore **id** dall'output **az login** da usare come valore per l'argomento **subscription** nel comando. Se si possiedono più sottoscrizioni, scegliere quella appropriata in cui verrà fatturata la risorsa. Per ottenere tutte le sottoscrizioni, usare [az account list](/cli/azure/account#az-account-list).
+ - Selezionare la sottoscrizione specifica nell'account tramite il comando [az account set](/cli/azure/account). Annotare il valore **id** dall'output **az login** da usare come valore per l'argomento **subscription** nel comando. Se si possiedono più sottoscrizioni, scegliere quella appropriata in cui verrà fatturata la risorsa. Per ottenere tutte le sottoscrizioni, usare [az account list](/cli/azure/account#az_account_list).
 
    ```azurecli
    az account set --subscription <subscription id>
@@ -41,7 +41,7 @@ Creare un [gruppo di risorse di Azure](../azure-resource-manager/management/over
 az group create --name myresourcegroup --location westus
 ```
 
-Creare un database di Azure per il server MySQL con il comando [az mysql server create](/cli/azure/mysql/server#az-mysql-server-create). Un server può contenere più database.
+Creare un database di Azure per il server MySQL con il comando [az mysql server create](/cli/azure/mysql/server#az_mysql_server_create). Un server può contenere più database.
 
 ```azurecli
 az mysql server create --resource-group myresourcegroup --name mydemoserver --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen5_2 
@@ -60,7 +60,7 @@ sku-name|GP_Gen5_2|Immettere il nome del piano tariffario e della configurazione
 
 >[!IMPORTANT] 
 >- La versione predefinita di MySQL nel server è 5.7. Sono attualmente disponibili anche le versioni 5.6 e 8.0.
->- Per visualizzare tutti gli argomenti per il comando **az mysql server create**, vedere questo [documento di riferimento](/cli/azure/mysql/server#az-mysql-server-create).
+>- Per visualizzare tutti gli argomenti per il comando **az mysql server create**, vedere questo [documento di riferimento](/cli/azure/mysql/server#az_mysql_server_create).
 >- SSL viene abilitato per impostazione predefinita nel server. Per altre informazioni su SSL, vedere [Configurare la connettività SSL](howto-configure-ssl.md)
 
 ## <a name="configure-a-server-level-firewall-rule"></a>Configurare una regola del firewall a livello di server 
@@ -126,7 +126,7 @@ Se queste risorse non sono necessarie per un'altra guida introduttiva/esercitazi
 az group delete --name myresourcegroup
 ```
 
-Se si vuole eliminare solo il server appena creato, è possibile eseguire il comando [az mysql server delete](/cli/azure/mysql/server#az-mysql-server-delete).
+Se si vuole eliminare solo il server appena creato, è possibile eseguire il comando [az mysql server delete](/cli/azure/mysql/server#az_mysql_server_delete).
 
 ```azurecli-interactive
 az mysql server delete --resource-group myresourcegroup --name mydemoserver

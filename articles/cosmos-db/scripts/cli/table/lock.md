@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: sample
 ms.date: 07/29/2020
-ms.openlocfilehash: 6df5f3842ba08b04dd82910d3762472f4ff4febd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 04f8d541fc534a60550ba77d9775b340571a504f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94566810"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107788949"
 ---
 # <a name="create-resource-lock-for-a-azure-cosmos-db-table-api-table-using-azure-cli"></a>Creare un blocco delle risorse per una tabella dell'API Tabella di Azure Cosmos DB con l'interfaccia della riga di comando di Azure
 [!INCLUDE[appliesto-table-api](../../../includes/appliesto-table-api.md)]
@@ -34,10 +34,10 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 
 | Comando | Note |
 |---|---|
-| [az lock create](/cli/azure/lock#az-lock-create) | Crea un blocco. |
-| [az lock list](/cli/azure/lock#az-lock-list) | Elenca le informazioni del blocco. |
-| [az lock show](/cli/azure/lock#az-lock-show) | Mostra le proprietà di un blocco. |
-| [az lock delete](/cli/azure/lock#az-lock-delete) | Elimina un blocco. |
+| [az lock create](/cli/azure/lock#az_lock_create) | Crea un blocco. |
+| [az lock list](/cli/azure/lock#az_lock_list) | Elenca le informazioni del blocco. |
+| [az lock show](/cli/azure/lock#az_lock_show) | Mostra le proprietà di un blocco. |
+| [az lock delete](/cli/azure/lock#az_lock_delete) | Elimina un blocco. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -12,14 +12,15 @@ ms.date: 09/10/2018
 ms.author: ajburnle
 ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 31d82906625bc55cbdba21f2e356ee3f29f9d436
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: fc51c645c470f2b5b0a009eaf831db2f1957617e
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107567384"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107780139"
 ---
 # <a name="quickstart-create-a-new-tenant-in-azure-active-directory"></a>Guida introduttiva: Creare un nuovo tenant in Azure Active Directory
+
 Nel portale di Azure Active Directory (Azure AD) è possibile eseguire tutte le attività amministrative, inclusa la creazione di un nuovo tenant per l'organizzazione. 
 
 In questa guida introduttiva si apprenderà come accedere al portale di Azure e ad Azure Active Directory e come creare un tenant di base per l'organizzazione.
@@ -27,6 +28,7 @@ In questa guida introduttiva si apprenderà come accedere al portale di Azure e 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
 ## <a name="create-a-new-tenant-for-your-organization"></a>Creare un nuovo tenant per l'organizzazione
+
 Dopo aver eseguito l'accesso al portale di Azure, è possibile creare un nuovo tenant per l'organizzazione. Il nuovo tenant rappresenta l'organizzazione e consente di gestire un'istanza specifica dei servizi cloud Microsoft per gli utenti interni ed esterni.
 
 ### <a name="to-create-a-new-tenant"></a>Per creare un nuovo tenant
@@ -59,16 +61,20 @@ Dopo aver eseguito l'accesso al portale di Azure, è possibile creare un nuovo t
 
 Viene creato il nuovo tenant con il dominio contoso.onmicrosoft.com.
 
-## <a name="your-user-account-in-the-new-tenant"></a>Account utente nel nuovo tenant
+## <a name="your-user-account-in-the-new-tenant"></a>L'account utente nel nuovo tenant
 
-Quando si crea un nuovo tenant di AAD, si diventa il primo utente del tenant. Come primo utente, viene assegnato automaticamente il [ruolo Amministratore](https://docs.microsoft.com/azure/active-directory/roles/permissions-reference#global-administrator) globale. Controllare l'account utente passando alla [**pagina**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/MsGraphUsers) Utenti.
+Quando si crea un nuovo tenant Azure AD, si diventa il primo utente di tale tenant. Come primo utente, viene assegnato automaticamente il [ruolo di amministratore](https://docs.microsoft.com/azure/active-directory/roles/permissions-reference#global-administrator) globale. Controllare l'account utente passando alla [**pagina**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/MsGraphUsers) Utenti.
 
-Per impostazione predefinita, si è anche elencati come [contatto tecnico](https://docs.microsoft.com/microsoft-365/admin/manage/change-address-contact-and-more?view=o365-worldwide#what-do-these-fields-mean) per il tenant. Le informazioni di contatto tecniche sono qualcosa che è possibile modificare in [**Proprietà**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties).
+Per impostazione predefinita, si è anche elencati come [contatto tecnico](https://docs.microsoft.com/microsoft-365/admin/manage/change-address-contact-and-more?view=o365-worldwide#what-do-these-fields-mean) per il tenant. Le informazioni di contatto tecniche sono un elemento che è possibile modificare in [**Proprietà**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties).
+
+> [!WARNING]
+> Verificare che alla directory siano assegnati almeno due account con privilegi di amministratore globale. Ciò sarà utile nel caso in cui un amministratore globale sia bloccato. Per altri dettagli, vedere l'articolo [Gestire gli account di accesso](../roles/security-emergency-access.md)di emergenza in Azure AD .
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
+
 Se non si intende continuare a usare questa applicazione, è possibile eliminare il tenant seguendo questa procedura:
 
-- Assicurarsi di aver eseguito l'accesso alla directory che si vuole eliminare tramite il filtro **Directory e** sottoscrizione nel portale di Azure. Passare alla directory di destinazione, se necessario.
+- Assicurarsi di aver eseguito l'accesso alla directory che si vuole eliminare tramite il filtro **Directory** e sottoscrizione nel portale di Azure. Se necessario, passare alla directory di destinazione.
 - Selezionare **Azure Active Directory** e, nella pagina **Contoso - Panoramica**, selezionare **Elimina directory**.
 
     Viene eliminato il tenant, insieme alle informazioni associate.
@@ -76,6 +82,7 @@ Se non si intende continuare a usare questa applicazione, è possibile eliminare
     <kbd>![Pagina Panoramica, con il pulsante Elimina directory evidenziato](media/active-directory-access-create-new-tenant/azure-ad-delete-new-tenant.png)</kbd>
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 - Modificare o aggiungere altri nomi di dominio: vedere [Aggiungere un nome di dominio personalizzato ad Azure Active Directory](add-custom-domain.md)
 
 - Aggiungere utenti: vedere [Aggiungere o eliminare un nuovo utente](add-users-azure-active-directory.md)

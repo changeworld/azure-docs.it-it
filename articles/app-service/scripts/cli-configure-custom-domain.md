@@ -7,12 +7,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 12/11/2017
 ms.custom: mvc, seodec18, devx-track-azurecli
-ms.openlocfilehash: 90afd95eca557bcf8e3a5d604358853a947c3520
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 3bf9e3ec9dbb042b85e4aa5ff2c65bc38125ce23
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107483249"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107782532"
 ---
 # <a name="map-a-custom-domain-to-an-app-service-app-using-cli"></a>Eseguire il mapping di un dominio personalizzato a un'app del servizio app usando l'interfaccia della riga di comando
 
@@ -36,10 +36,10 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 
 | Comando | Note |
 |---|---|
-| [`az group create`](/cli/azure/group#az-group-create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
-| [`az appservice plan create`](/cli/azure/appservice/plan#az-appservice-plan-create) | Consente di creare un piano di servizio app. |
-| [`az webapp create`](/cli/azure/webapp#az-webapp-create) | Consente di creare un'app del servizio app. |
-| [`az webapp config hostname add`](/cli/azure/webapp/config/hostname#az-webapp-config-hostname-add) | Esegue il mapping di un dominio personalizzato a un'app del servizio app. |
+| [`az group create`](/cli/azure/group#az_group_create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
+| [`az appservice plan create`](/cli/azure/appservice/plan#az_appservice_plan_create) | Consente di creare un piano di servizio app. |
+| [`az webapp create`](/cli/azure/webapp#az_webapp_create) | Consente di creare un'app del servizio app. |
+| [`az webapp config hostname add`](/cli/azure/webapp/config/hostname#az_webapp_config_hostnam_eadd) | Esegue il mapping di un dominio personalizzato a un'app del servizio app. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

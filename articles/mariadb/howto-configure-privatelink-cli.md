@@ -1,31 +1,31 @@
 ---
-title: Collegamento privato-interfaccia della riga di comando di Azure-database di Azure per MariaDB
-description: Informazioni su come configurare il collegamento privato per il database di Azure per MariaDB dall'interfaccia della riga di comando di Azure
+title: Collegamento privato - Interfaccia della riga di comando di Azure - Database di Azure per MariaDB
+description: Informazioni su come configurare il collegamento privato per Database di Azure per MariaDB dall'interfaccia della riga di comando di Azure
 author: mksuni
 ms.author: sumuth
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 01/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 55f375c83affea8585ec7ebf881a80315ff7a38c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4d2a77a1e1079a7f9b013ad4cf0810989835ed73
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100361320"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107790528"
 ---
-# <a name="create-and-manage-private-link-for-azure-database-for-mariadb-using-cli"></a>Creare e gestire un collegamento privato per database di Azure per MariaDB tramite l'interfaccia della riga di comando
+# <a name="create-and-manage-private-link-for-azure-database-for-mariadb-using-cli"></a>Creare e gestire collegamento privato per Database di Azure per MariaDB tramite l'interfaccia della riga di comando
 
-Un endpoint privato è il blocco predefinito fondamentale per il collegamento privato in Azure. Consente alle risorse di Azure, come le macchine virtuali (VM), di comunicare privatamente con risorse Collegamento privato. In questo articolo si apprenderà come usare l'interfaccia della riga di comando di Azure per creare una VM in una rete virtuale di Azure e un database di Azure per il server MariaDB con un endpoint privato di Azure.
+Un endpoint privato è il blocco predefinito fondamentale per il collegamento privato in Azure. Consente alle risorse di Azure, come le macchine virtuali (VM), di comunicare privatamente con risorse Collegamento privato. Questo articolo illustra come usare l'interfaccia della riga di comando di Azure per creare una macchina virtuale in una rete virtuale di Azure e un server di Database di Azure per MariaDB con un endpoint privato di Azure.
 
 > [!NOTE]
-> La funzionalità di collegamento privato è disponibile solo per i server di database di Azure per MariaDB nei piani tariffari per utilizzo generico o con ottimizzazione per la memoria. Verificare che il server di database sia in uno di questi piani tariffari.
+> La funzionalità collegamento privato è disponibile solo per i server di Database di Azure per MariaDB nei piani tariffari per utilizzo generico o Ottimizzata per la memoria. Assicurarsi che il server di database sia in uno di questi piani tariffari.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- È necessario un [database di Azure per il server MariaDB](quickstart-create-mariadb-server-database-using-azure-cli.md). 
+- È necessario un server [di Database di Azure per MariaDB.](quickstart-create-mariadb-server-database-using-azure-cli.md) 
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
@@ -33,7 +33,7 @@ Un endpoint privato è il blocco predefinito fondamentale per il collegamento pr
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-Per poter creare le risorse, è prima necessario creare un gruppo di risorse in cui ospitare la rete virtuale. Come prima cosa creare un gruppo di risorse con [az group create](/cli/azure/group). Questo esempio crea un gruppo di risorse denominato *myResourceGroup* nella località *westeurope* :
+Per poter creare le risorse, è prima necessario creare un gruppo di risorse in cui ospitare la rete virtuale. Come prima cosa creare un gruppo di risorse con [az group create](/cli/azure/group). Questo esempio crea un gruppo di risorse *denominato myResourceGroup* nella *località westeurope:*
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location westeurope
@@ -50,7 +50,7 @@ az network vnet create \
 ```
 
 ## <a name="disable-subnet-private-endpoint-policies"></a>Disabilitare i criteri per gli endpoint privati della subnet 
-Azure distribuisce le risorse in una subnet all'interno di una rete virtuale, pertanto è necessario creare o aggiornare la subnet per disabilitare i [criteri di rete](../private-link/disable-private-endpoint-network-policy.md)degli endpoint privati. Aggiornare una configurazione di subnet denominata *mySubnet* con [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update):
+Azure distribuisce le risorse in una subnet all'interno di una rete virtuale, quindi è necessario creare o aggiornare la subnet per disabilitare i criteri di rete degli endpoint [privati.](../private-link/disable-private-endpoint-network-policy.md) Aggiornare una configurazione di subnet denominata *mySubnet* con [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update):
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -70,7 +70,7 @@ az vm create \
  Prendere nota dell'indirizzo IP pubblico della macchina virtuale. Questo indirizzo verrà usato per connettersi alla VM da Internet nel passaggio successivo.
 
 ## <a name="create-an-azure-database-for-mariadb-server"></a>Creare un database di Azure per un server MariaDB 
-Creare un database di Azure per MariaDB con il comando AZ mariadb server create. Tenere presente che il nome del server MariaDB deve essere univoco in Azure, quindi sostituire il valore del segnaposto tra parentesi quadre con il proprio valore univoco: 
+Creare un database di Azure per MariaDB con il comando az mariadb server create. Tenere presente che il nome del server MariaDB deve essere univoco in Azure, quindi sostituire il valore segnaposto tra parentesi quadre con il proprio valore univoco: 
 
 ```azurecli-interactive
 # Create a server in the resource group 
@@ -85,7 +85,7 @@ az mariadb server create \
 
 > [!NOTE]
 > In alcuni casi, Database di Azure per MariaDB e la subnet della rete virtuale sono in sottoscrizioni diverse. In questi casi è necessario garantire le configurazioni seguenti:
-> - Assicurarsi che per entrambe le sottoscrizioni sia registrato il provider di risorse **Microsoft. DBforMariaDB** . Per altre informazioni, fare riferimento a [resource-manager-registration][resource-manager-portal].
+> - Assicurarsi che per entrambe le sottoscrizioni sia registrato il provider di risorse **Microsoft.DBforMariaDB.** Per altre informazioni, fare riferimento a [resource-manager-registration][resource-manager-portal].
 
 ## <a name="create-the-private-endpoint"></a>Creare l'endpoint privato 
 Creare un endpoint privato per il server MariaDB nella rete virtuale: 
@@ -103,7 +103,7 @@ az network private-endpoint create \
 
 
 ## <a name="configure-the-private-dns-zone"></a>Configurare la zona DNS privato 
-Creare una zona DNS privato per il dominio del server MariDB e creare un collegamento di associazione con la rete virtuale. 
+Creare un DNS privato per il dominio del server MariDB e creare un collegamento di associazione con la rete virtuale. 
 ```azurecli-interactive
 az network private-dns zone create --resource-group myResourceGroup \ 
    --name  "privatelink.mariadb.database.azure.com" 
@@ -127,7 +127,7 @@ az network private-dns record-set a add-record --record-set-name mydemoserver --
 ```
 
 > [!NOTE] 
-> L'FQDN nell'impostazione DNS del cliente non si risolve nell'indirizzo IP privato configurato. Sarà necessario configurare una zona DNS per il nome di dominio completo configurato come illustrato di [seguito](../dns/dns-operations-recordsets-portal.md).
+> L'FQDN nell'impostazione DNS del cliente non si risolve nell'indirizzo IP privato configurato. Sarà necessario configurare una zona DNS per il nome di dominio completo configurato, come illustrato [di seguito.](../dns/dns-operations-recordsets-portal.md)
 
 ## <a name="connect-to-a-vm-from-the-internet"></a>Connettersi a una VM da Internet
 
@@ -169,21 +169,21 @@ Connettersi alla macchina virtuale *myVm* da Internet come indicato di seguito:
     Address:  10.1.3.4
     ```
 
-3. Testare la connessione del collegamento privato per il server MariaDB usando un client disponibile. Nell'esempio seguente ho usato [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/wb-installing-windows.html) per eseguire l'operazione.
+3. Testare la connessione di collegamento privato per il server MariaDB usando qualsiasi client disponibile. Nell'esempio seguente ho usato [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/wb-installing-windows.html) per eseguire l'operazione.
 
-4. In **nuova connessione** immettere o selezionare queste informazioni:
+4. In **Nuova connessione** immettere o selezionare queste informazioni:
 
     | Impostazione | Valore |
     | ------- | ----- |
-    | Connection Name (Nome connessione)| Selezionare il nome della connessione scelta.|
-    | Nome host | Seleziona *mydemoserver.privatelink.MariaDB.database.Azure.com* |
-    | Username | Immettere username (nome utente) come *username@servername* specificato durante la creazione del server MariaDB. |
+    | Connection Name (Nome connessione)| Selezionare il nome di connessione desiderato.|
+    | Nome host | Selezionare *mydemoserver.privatelink.mariadb.database.azure.com* |
+    | Username | Immettere il nome utente *username@servername* specificato durante la creazione del server MariaDB. |
     | Password | Immettere una password specificata durante la creazione del server MariaDB. |
     ||
 
-5. Selezionare **Test connessione** o **OK**.
+5. Selezionare **Test connessione o** **OK.**
 
-6. Facoltativamente Esplorare i database dal menu a sinistra e creare o eseguire query sulle informazioni dal database MariaDB
+6. (Facoltativamente) Esplorare i database dal menu a sinistra e creare o eseguire query sulle informazioni dal database MariaDB
 
 8. Chiudere la connessione Desktop remoto a myVm.
 
@@ -195,7 +195,7 @@ az group delete --name myResourceGroup --yes
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Altre informazioni sull' [endpoint privato di Azure](../private-link/private-endpoint-overview.md)
+Altre informazioni [sull'endpoint privato di Azure](../private-link/private-endpoint-overview.md)
 
 <!-- Link references, to text, Within this same GitHub repo. -->
 [resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

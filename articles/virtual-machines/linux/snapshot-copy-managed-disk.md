@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 07/11/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: d041f864c6c8cd3ae9c522d79447d71c86f9ac04
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ab19bb1c6cc43334a3d0d427b6aff6ced2d6cc69
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98875605"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107789664"
 ---
 # <a name="create-a-snapshot-using-the-portal-or-azure-cli"></a>Creare uno snapshot usando il portale o l'interfaccia della riga di comando di Azure
 
@@ -26,7 +26,7 @@ Nell'esempio seguente è necessario usare [Cloud Shell](https://shell.azure.com/
 
 La procedura seguente illustra come fare uno snapshot usando il comando **az snapshot create** con il parametro **--source-disk**. Nell'esempio seguente si presuppone che esista una macchina virtuale denominata *myVM* nel gruppo di risorse *myResourceGroup*.
 
-Ottenere l'ID disco usando [az vm show](/cli/azure/vm#az-vm-show).
+Ottenere l'ID disco usando [az vm show](/cli/azure/vm#az_vm_show).
 
 ```azurecli-interactive
 osDiskId=$(az vm show \
@@ -36,7 +36,7 @@ osDiskId=$(az vm show \
    -o tsv)
 ```
 
-Creare uno snapshot denominato *osDisk-backup* usando [az snapshot create](/cli/azure/snapshot#az-snapshot-create).
+Creare uno snapshot denominato *osDisk-backup* usando [az snapshot create](/cli/azure/snapshot#az_snapshot_create).
 
 ```azurecli-interactive
 az snapshot create \
@@ -48,7 +48,7 @@ az snapshot create \
 > [!NOTE]
 > Se si vuole archiviare lo snapshot in una risorsa di archiviazione resiliente nella zona, è necessario crearlo in un'area che supporta le [zone di disponibilità](../../availability-zones/az-overview.md) e includere il parametro **--sku Standard_ZRS**.
 
-È possibile visualizzare un elenco degli snapshot usando [az snapshot list](/cli/azure/snapshot#az-snapshot-list).
+È possibile visualizzare un elenco degli snapshot usando [az snapshot list](/cli/azure/snapshot#az_snapshot_list).
 
 ```azurecli-interactive
 az snapshot list \

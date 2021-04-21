@@ -1,6 +1,6 @@
 ---
 title: Query sul routing dei messaggi di hub IoT di Azure | Microsoft Docs
-description: Informazioni sul linguaggio di query per il routing dei messaggi dell'hub Internet che è possibile usare per applicare query complesse ai messaggi per ricevere i dati più importanti.
+description: Informazioni sul linguaggio di query di routing dei messaggi dell'hub IoT che è possibile usare per applicare query complesse ai messaggi per ricevere i dati importanti.
 author: ash2017
 ms.service: iot-hub
 services: iot-hub
@@ -10,12 +10,12 @@ ms.author: asrastog
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
-ms.openlocfilehash: 83c290adea02915db1dc52bd359b4d3165611522
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c4ba48377d868404ff130ec458e50e2b42fae977
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92547708"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107790518"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>Sintassi query per il routing dei messaggi di hub IoT
 
@@ -23,7 +23,7 @@ Il routing dei messaggi consente agli utenti di instradare diversi tipi di dati,
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-Il routing dei messaggi consente di eseguire query sulle proprietà dei messaggi e sul corpo del messaggio, nonché sui tag e sulle proprietà del dispositivo gemello. Se il corpo del messaggio non è JSON, il routing dei messaggi può comunque instradare il messaggio, ma le query non possono essere applicate al corpo del messaggio.  Le query vengono definite come espressioni booleane in cui un valore booleano true rende la query riuscita e che instrada tutti i dati in ingresso, mentre il valore booleano false rende una query errata e nessun dato viene instradato. Se l'espressione restituisce null o undefined, viene considerata come false e viene generato un errore nei log [delle risorse](monitor-iot-hub-reference.md#routes) degli hub Internet in caso di errore. La sintassi di query deve essere corretta per la route per essere salvata e valutata.  
+Il routing dei messaggi consente di eseguire query sulle proprietà dei messaggi e sul corpo del messaggio, nonché sui tag e sulle proprietà del dispositivo gemello. Se il corpo del messaggio non è JSON, il routing dei messaggi può comunque instradare il messaggio, ma le query non possono essere applicate al corpo del messaggio.  Le query vengono definite come espressioni booleane in cui un valore booleano true rende la query riuscita e che instrada tutti i dati in ingresso, mentre il valore booleano false rende una query errata e nessun dato viene instradato. Se l'espressione restituisce Null o non definita, viene considerata false e verrà [](monitor-iot-hub-reference.md#routes) generato un errore nei log delle risorse in caso di errore nell'hub IoT. La sintassi di query deve essere corretta per la route per essere salvata e valutata.  
 
 ## <a name="message-routing-query-based-on-message-properties"></a>Routing messaggi di query basato sulle proprietà del messaggio 
 
@@ -59,10 +59,10 @@ Le proprietà di sistema identificano contenuto e origine dei messaggi.
 | contentEncoding | string | L'utente specifica il tipo di codifica del messaggio. Valori consentiti sono UTF-8, UTF-16, UTF-32 Se il contentType è impostato su application/JSON. |
 | iothub-connection-device-id | string | Questo valore viene impostato dall'hub IoT e identifica l'ID del dispositivo. Per la query, usare `$connectionDeviceId`. |
 | iothub-enqueuedtime | string | Questo valore viene impostato dall'hub IoT e rappresenta l'ora effettiva di inserimento in coda del messaggio in UTC. Per la query, usare `enqueuedTime`. |
-| DT-DataSchema | string |  Questo valore viene impostato dall'hub tutto per i messaggi da dispositivo a cloud. Contiene l'ID del modello di dispositivo impostato nella connessione del dispositivo. Per la query, usare `$dt-dataschema`. |
-| DT-Subject | string | Nome del componente che invia i messaggi da dispositivo a cloud. Per la query, usare `$dt-subject`. |
+| dt-dataschema | string |  Questo valore viene impostato dall'hub IoT nei messaggi da dispositivo a cloud. Contiene l'ID del modello di dispositivo impostato nella connessione del dispositivo. Per la query, usare `$dt-dataschema`. |
+| dt-subject | string | Nome del componente che invia i messaggi da dispositivo a cloud. Per la query, usare `$dt-subject`. |
 
-Come descritto in [messaggi dell'hub IoT](iot-hub-devguide-messages-construct.md), sono disponibili le proprietà di sistema aggiuntive in un messaggio. Oltre alle proprietà sopra elencate nella tabella precedente, è anche possibile eseguire una query su **connectionDeviceId**, **connectionModuleId**.
+Come descritto in [messaggi dell'hub IoT](iot-hub-devguide-messages-construct.md), sono disponibili le proprietà di sistema aggiuntive in un messaggio. Oltre alle proprietà precedenti nella tabella precedente, è anche possibile eseguire query **su connectionDeviceId**, **connectionModuleId**.
 
 ### <a name="application-properties"></a>Proprietà dell'applicazione
 
@@ -90,7 +90,7 @@ Per combinare queste query, è possibile usare funzioni ed espressioni booleane:
 $contentEncoding = 'UTF-8' AND processingPath = 'hot'
 ```
 
-In [Expression and Conditions](iot-hub-devguide-query-language.md#expressions-and-conditions)viene visualizzato un elenco completo di funzioni e operatori supportati.
+Un elenco completo di operatori e funzioni supportati è visualizzato in [Espressione e condizioni](iot-hub-devguide-query-language.md#expressions-and-conditions).
 
 ## <a name="message-routing-query-based-on-message-body"></a>Query di routing dei messaggi in base al corpo del messaggio
 
@@ -146,7 +146,7 @@ deviceClient.sendEvent(message, (err, res) => {
 ```
 
 > [!NOTE] 
-> Viene illustrato come gestire la codifica del corpo in JavaScript. Se si vuole visualizzare un esempio in C#, scaricare gli [esempi c# di Azure](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Estrarre il file master.zip. Il file Program. CS della soluzione Visual Studio *SimulatedDevice* illustra come codificare e inviare messaggi a un hub Internet. Si tratta dello stesso esempio usato per testare il routing dei messaggi, come illustrato nell' [esercitazione sul routing dei messaggi](tutorial-routing.md). Nella parte inferiore del programma. cs, dispone anche di un metodo per leggere uno dei file codificati, decodificarlo e scriverlo di nuovo come ASCII per poterlo leggere. 
+> Viene illustrato come gestire la codifica del corpo in JavaScript. Per visualizzare un esempio in C#, scaricare gli [esempi Azure IoT C#.](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) Estrarre il file master.zip. La Visual Studio del file Program.cs di *SimulatedDevice* illustra come codificare e inviare messaggi a un hub IoT. Si tratta dello stesso esempio usato per testare il routing dei messaggi, come illustrato nell'esercitazione [sul routing dei messaggi](tutorial-routing.md). Nella parte inferiore di Program.cs è disponibile anche un metodo per leggere uno dei file codificati, decodificarlo e scriverlo come ASCII in modo da poterlo leggere. 
 
 
 ### <a name="query-expressions"></a>Espressioni di query
@@ -168,6 +168,13 @@ length($body.Weather.Location.State) = 2
 ```sql
 $body.Weather.Temperature = 50 AND processingPath = 'hot'
 ```
+
+> [!NOTE] 
+> È possibile eseguire query e funzioni solo sulle proprietà nel riferimento al corpo. Non è possibile eseguire query o funzioni sull'intero riferimento al corpo. Ad esempio, la query seguente *non è supportata* e restituirà `undefined` :
+> 
+> ```sql
+> $body[0] = 'Feb'
+> ```
 
 ## <a name="message-routing-query-based-on-device-twin"></a>Query di routing dei messaggi basata sul dispositivo gemello 
 
@@ -218,9 +225,9 @@ $body.Weather.Temperature = 50 AND $twin.properties.desired.telemetryConfig.send
 $twin.tags.deploymentLocation.floor = 1 
 ```
 
-La query di routing sul corpo o sul dispositivo gemello con un punto nel nome della proprietà o del payload non è supportata.
+La query di routing nel corpo o nel dispositivo gemello con un punto nel nome del payload o della proprietà non è supportata.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Informazioni sul [routing dei messaggi](iot-hub-devguide-messages-d2c.md).
-* Provare l' [esercitazione sul routing dei messaggi](tutorial-routing.md).
+* Informazioni sul [routing dei messaggi.](iot-hub-devguide-messages-d2c.md)
+* Provare [l'esercitazione sul routing dei messaggi](tutorial-routing.md).

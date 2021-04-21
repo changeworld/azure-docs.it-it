@@ -164,7 +164,7 @@
           href: network-security.md
     - name: Integrazione con altri servizi
       items:
-        - name: bus di servizio di Azure e Griglia di eventi di Azure'integrazione
+        - name: integrazione bus di servizio di Azure e Griglia di eventi di Azure
           href: service-bus-to-event-grid-integration-concept.md
 - name: Guide pratiche
   items:
@@ -176,7 +176,7 @@
           href: service-bus-filter-examples.md
         - name: Gestione dei messaggi
           items:
-            - name: Entità del servizio messaggi Java (JMS) 2.0
+            - name: Entità java message service (JMS) 2.0
               href: java-message-service-20-entities.md
             - name: Java Message Service (JMS) Developer guide.md
               href: jms-developer-guide.md
@@ -238,7 +238,7 @@
       items:
         - name: Abilitare le sessioni per una coda o una sottoscrizione
           href: enable-message-sessions.md
-        - name: Abilitare il rilevamento duplicati per una coda o un argomento
+        - name: Abilitare il rilevamento dei duplicati per una coda o un argomento
           href: enable-duplicate-detection.md
         - name: Abilitare le partizioni per una coda o un argomento
           href: enable-partitions.md
@@ -345,7 +345,7 @@
 - name: Risorse
   items:
     - name: Domande frequenti
-      href: service-bus-faq.md
+      href: service-bus-faq.yml
     - name: Sviluppare le proprie competenze con Microsoft Learn
       href: /learn/browse/?products=azure-service-bus
     - name: Roadmap per Azure

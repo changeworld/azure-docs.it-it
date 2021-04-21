@@ -1,6 +1,6 @@
 ---
-title: Strumenti di sviluppo di Azure Confidential computing
-description: Usare gli strumenti e le librerie per sviluppare applicazioni per l'elaborazione riservata
+title: Strumenti di sviluppo del confidential computing di Azure
+description: Usare strumenti e librerie per sviluppare applicazioni per il confidential computing
 services: virtual-machines
 author: JBCook
 ms.service: virtual-machines
@@ -8,21 +8,22 @@ ms.subservice: confidential-computing
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: JenCook
-ms.openlocfilehash: 0ba6ee92111da66a2118ba4c490b94e5bc9449e0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 571c1a4ce545976db09f46a07d963d5344c02c29
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102551386"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107791014"
 ---
-# <a name="application-development-on-intel-sgx"></a>Sviluppo di applicazioni su Intel SGX 
+# <a name="application-development-on-intel-sgx"></a>Sviluppo di applicazioni in Intel SGX 
 
 
-L'infrastruttura di elaborazione riservata richiede strumenti e software specifici. Questa pagina illustra in modo specifico i concetti relativi allo sviluppo di applicazioni per le macchine virtuali di Azure Confidential computing in esecuzione su Intel SGX. Prima di leggere questa pagina, [leggere l'introduzione di macchine virtuali e enclavi Intel SGX](confidential-computing-enclaves.md). 
+L'infrastruttura di confidential computing richiede strumenti e software specifici. Questa pagina illustra in modo specifico i concetti relativi allo sviluppo di applicazioni per macchine virtuali di confidential computing di Azure in esecuzione in Intel SGX. Prima di leggere questa pagina, [leggere l'introduzione di macchine virtuali Intel SGX ed enclave](confidential-computing-enclaves.md). 
 
 Per sfruttare le potenzialità delle enclavi e degli ambienti isolati, è necessario usare strumenti che supportano il confidential computing. Sono disponibili diversi strumenti che supportano lo sviluppo di applicazioni enclave. È ad esempio possibile usare questi framework open source: 
 
-- [Open enclave Software Development Kit (OE SDK)](#oe-sdk)
+- [The Open Enclave Software Development Kit (OE SDK)](#oe-sdk)
+- [The EGo Software Development Kit](#ego)
 - [CCF (Confidential Consortium Framework)](#ccf)
 
 ## <a name="overview"></a>Panoramica
@@ -49,15 +50,19 @@ Se si vuole scrivere codice da eseguire in un'enclave, usare una libreria o un f
 
 Open Enclave SDK è progettato come singolo livello di astrazione per qualsiasi componente hardware e per qualsiasi CSP. Open Enclave SDK può essere usato nelle macchine virtuali di confidential computing di Azure per creare ed eseguire applicazioni sulle enclavi.
 
-## <a name="confidential-consortium-framework-ccf"></a>Framework di Consorzio riservato (CCF) <a id="ccf"></a>
+## <a name="ego-software-development-kit"></a>EGo Software Development Kit <a id="ego"></a>
 
-[CCF](https://github.com/Microsoft/CCF) è una rete distribuita di nodi, ognuno dei quali esegue le proprie enclavi. La rete dei nodi attendibili consente di eseguire un Ledger distribuito. Il Ledger fornisce componenti sicuri e affidabili per il protocollo da usare. 
+[EGo](https://ego.dev/) è un SDK open source che consente di eseguire applicazioni scritte nel linguaggio di programmazione Go all'interno degli enclave. EGo si basa su OE SDK e include una libreria Go in-enclave per l'attestazione e il sealing. Molte applicazioni Go esistenti vengono eseguite in EGo senza modifiche.  
+
+## <a name="confidential-consortium-framework-ccf"></a>Confidential Consortium Framework (CCF) <a id="ccf"></a>
+
+[Ccf](https://github.com/Microsoft/CCF) è una rete distribuita di nodi, ognuno dei quali esegue i propri enclave. La rete di nodi attendibili consente di eseguire un libro mastro distribuito. Il libro mastro fornisce componenti sicuri e affidabili da usare per il protocollo. 
 
 ![Nodi CCF](media/application-development/ccf.png)
 
-Questo framework open source garantisce una riservatezza elevata, con granularità fine e una governance del Consorzio per blockchain. Con ogni nodo che usa TEEs è possibile garantire il consenso sicuro e l'elaborazione delle transazioni.
+Questo framework open source consente una riservatezza elevata, granularità fine e governance del consorzio per la blockchain. Con ogni nodo che usa teE, è possibile garantire il consenso sicuro e l'elaborazione delle transazioni.
 
 
 ## <a name="next-steps"></a>Passaggi successivi 
-- [Distribuire una macchina virtuale DCsv2-Series computing riservato](quick-create-portal.md)
-- [Scaricare e installare l'SDK di OE e iniziare a sviluppare applicazioni](https://github.com/openenclave/openenclave)
+- [Distribuire una macchina virtuale DCsv2-Series di elaborazione riservata](quick-create-portal.md)
+- [Scaricare e installare OE SDK e iniziare a sviluppare applicazioni](https://github.com/openenclave/openenclave)

@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, fasttrack-edit, devx-track-python
-ms.openlocfilehash: 886db905008af94b66a902cc551e4d55b36572a8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 17968f2c137eef51eecdb6c7098c7056944dc970
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98250129"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107782190"
 ---
 # <a name="azure-event-grid-trigger-for-azure-functions"></a>Trigger Griglia di eventi di Azure per Funzioni di Azure
 
@@ -226,7 +226,7 @@ module.exports = function (context, eventGridEvent) {
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-Nell'esempio seguente viene illustrato come configurare un'associazione di trigger di griglia di eventi nel *function.jssu* file.
+L'esempio seguente illustra come configurare un'associazione di trigger di Griglia di eventi nelfunction.js *nel* file .
 
 ```powershell
 {
@@ -240,7 +240,7 @@ Nell'esempio seguente viene illustrato come configurare un'associazione di trigg
 }
 ```
 
-L'evento di griglia di eventi viene reso disponibile per la funzione tramite un parametro denominato `eventGridEvent` , come illustrato nell'esempio di PowerShell seguente.
+L'evento di Griglia di eventi viene reso disponibile per la funzione tramite un parametro denominato `eventGridEvent` , come illustrato nell'esempio di PowerShell seguente.
 
 ```powershell
 param($eventGridEvent, $TriggerMetadata)
@@ -446,7 +446,7 @@ Per altre informazioni su come creare sottoscrizioni tramite il portale di Azure
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
-Per creare una sottoscrizione tramite l'[interfaccia della riga di comando di Azure](/cli/azure/get-started-with-azure-cli), usare il comando [az eventgrid event-subscription create](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-create).
+Per creare una sottoscrizione tramite l'[interfaccia della riga di comando di Azure](/cli/azure/get-started-with-azure-cli), usare il comando [az eventgrid event-subscription create](/cli/azure/eventgrid/event-subscription#az_eventgrid_event_subscription_create).
 
 Il comando richiede l'URL dell'endpoint che richiama la funzione. L'esempio seguente illustra il modello di URL specifico della versione:
 
@@ -571,7 +571,7 @@ Per testare un trigger Griglia di eventi in locale, è necessario ottenere le ri
 1. [Generare una richiesta](#generate-a-request) e copiare il corpo della richiesta dall'app visualizzatore.
 1. [Inviare manualmente la richiesta](#manually-post-the-request) all'URL localhost della funzione trigger Griglia di eventi.
 
-Al termine del test, è possibile usare la stessa sottoscrizione per scopi di produzione aggiornando l'endpoint. Usare il comando dell'interfaccia della riga di comando di Azure [az eventgrid event-subscription update](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-update).
+Al termine del test, è possibile usare la stessa sottoscrizione per scopi di produzione aggiornando l'endpoint. Usare il comando dell'interfaccia della riga di comando di Azure [az eventgrid event-subscription update](/cli/azure/eventgrid/event-subscription#az_eventgrid_event_subscription_update).
 
 ### <a name="create-a-viewer-web-app"></a>Creare un'app visualizzatore Web
 
@@ -603,7 +603,7 @@ Si riceverà prima la richiesta di convalida della sottoscrizione. Ignorare tutt
 
 ### <a name="manually-post-the-request"></a>Inviare manualmente la richiesta
 
-Eseguire la funzione di Griglia di eventi in locale. `Content-Type` `aeg-event-type` È necessario impostare manualmente le intestazioni e, mentre tutti gli altri valori possono essere lasciati come predefiniti.
+Eseguire la funzione di Griglia di eventi in locale. Le intestazioni e devono essere impostate manualmente, mentre tutti gli altri `Content-Type` valori possono essere lasciati come `aeg-event-type` predefiniti.
 
 Usare uno strumento, ad esempio [Postman](https://www.getpostman.com/) o [curl](https://curl.haxx.se/docs/httpscripting.html), per creare una richiesta HTTP POST:
 
