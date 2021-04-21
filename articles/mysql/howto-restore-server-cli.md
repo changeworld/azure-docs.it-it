@@ -1,5 +1,5 @@
 ---
-title: Backup e ripristino-interfaccia della riga di comando di Azure-database di Azure per MySQL
+title: Backup e ripristino - Interfaccia della riga di comando di Azure - Database di Azure per MySQL
 description: Informazioni su come eseguire la procedura di backup e ripristino di un server in Database di Azure per MySQL tramite l'interfaccia della riga di comando di Azure.
 author: savjani
 ms.author: pariks
@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 3/27/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: ee06eed1b8f54877d01a8b316c015938038879cf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8c8b0f37729ea20a62838d736dbed59f05c584c6
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94535402"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107780426"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-cli"></a>Come eseguire il backup e il ripristino di un server in Database di Azure per MySQL usando l'interfaccia della riga di comando di Azure
 
@@ -23,7 +23,7 @@ Il backup dei server Database di Azure per MySQL viene eseguito periodicamente p
 
 Per completare questa guida pratica:
 
-- Sono necessari un database [di Azure per il server MySQL e il database](quickstart-create-mysql-server-database-using-azure-cli.md).
+- Sono necessari un database e un server di Database di [Azure per MySQL.](quickstart-create-mysql-server-database-using-azure-cli.md)
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
@@ -56,7 +56,7 @@ Il periodo di conservazione dei backup determina quanto è possibile tornare ind
 ## <a name="server-point-in-time-restore"></a>Ripristino temporizzato del server
 È possibile ripristinare il server in base a una temporizzazione precedente. I dati ripristinati vengono copiati in un nuovo server e il server esistente viene lasciato invariato. Se, ad esempio, una tabella è stata involontariamente eliminata a mezzogiorno di oggi, è possibile eseguire il ripristino a un qualsiasi momento prima di mezzogiorno. È possibile quindi recuperare la tabella e i dati mancanti dalla copia ripristinata del server. 
 
-Per ripristinare il server, usare il comando [az mysql server restore](/cli/azure/mysql/server#az-mysql-server-restore) dell'interfaccia della riga di comando di Azure.
+Per ripristinare il server, usare il comando [az mysql server restore](/cli/azure/mysql/server#az_mysql_server_restore) dell'interfaccia della riga di comando di Azure.
 
 ### <a name="run-the-restore-command"></a>Eseguire il comando di ripristino
 
@@ -79,13 +79,13 @@ Quando si ripristina un server a un punto precedente nel tempo, viene creato un 
 
 I valori relativi al percorso e al piano tariffario per il server ripristinato sono gli stessi del server di origine. 
 
-Al termine del ripristino, individuare il nuovo server creato per verificare che il ripristino dei dati sia avvenuto come previsto. Il nuovo server ha lo stesso nome di accesso dell'amministratore del server e la stessa password validi per il server esistente nel momento in cui è stato avviato il ripristino. È possibile modificare la password dalla pagina **Panoramica** del nuovo server.
+Al termine del ripristino, individuare il nuovo server creato per verificare che il ripristino dei dati sia avvenuto come previsto. Il nuovo server ha lo stesso nome di accesso amministratore del server e la stessa password validi per il server esistente al momento dell'avvio del ripristino. È possibile modificare la password dalla pagina **Panoramica** del nuovo server.
 
 Inoltre, al termine dell'operazione di ripristino, sono disponibili due parametri del server che vengono reimpostati sui valori predefiniti (e non vengono copiati dal server primario) dopo l'operazione di ripristino
-*   time_zone: questo valore per impostare il valore predefinito del **sistema**
-*   event_scheduler: il event_scheduler è impostato su **off** nel server ripristinato
+*   time_zone: valore da impostare sul valore PREDEFINITO **SYSTEM**
+*   event_scheduler: la event_scheduler è impostata su **OFF** nel server ripristinato
 
-È necessario copiare il valore dal server primario e impostarlo sul server ripristinato riconfigurando il [parametro Server](howto-server-parameters.md)
+È necessario copiare il valore dal server primario e impostarlo nel server ripristinato riconfigurando il [parametro server](howto-server-parameters.md)
 
 Il nuovo server creato durante un ripristino non include gli endpoint servizio di rete virtuale presenti nel server originale. Per il nuovo server, queste regole devono essere impostate separatamente. Vengono ripristinate le regole del firewall del server originale.
 
@@ -124,11 +124,11 @@ Il comando `az mysql server georestore` richiede i parametri seguenti:
 
 Quando si crea un nuovo server tramite un ripristino geografico, il server eredita le stesse dimensioni di archiviazione e lo stesso piano tariffario del server di origine. Questi valori non possono essere modificati durante la creazione. Dopo aver creato il nuovo server, le dimensioni di archiviazione possono essere aumentate.
 
-Al termine del ripristino, individuare il nuovo server creato per verificare che il ripristino dei dati sia avvenuto come previsto. Il nuovo server ha lo stesso nome di accesso dell'amministratore del server e la stessa password validi per il server esistente nel momento in cui è stato avviato il ripristino. È possibile modificare la password dalla pagina **Panoramica** del nuovo server.
+Al termine del ripristino, individuare il nuovo server creato per verificare che il ripristino dei dati sia avvenuto come previsto. Il nuovo server ha lo stesso nome di accesso amministratore del server e la stessa password validi per il server esistente al momento dell'avvio del ripristino. È possibile modificare la password dalla pagina **Panoramica** del nuovo server.
 
 Il nuovo server creato durante un ripristino non include gli endpoint servizio di rete virtuale presenti nel server originale. Per il nuovo server, queste regole devono essere impostate separatamente. Vengono ripristinate le regole del firewall del server originale.
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Altre informazioni sui [backup](concepts-backup.md) del servizio
+- Altre informazioni sui [backup del servizio](concepts-backup.md)
 - Informazioni sulle [repliche](concepts-read-replicas.md)
-- Altre informazioni sulle opzioni di [continuità aziendale](concepts-business-continuity.md)
+- Altre informazioni sulle [opzioni di continuità](concepts-business-continuity.md) aziendale

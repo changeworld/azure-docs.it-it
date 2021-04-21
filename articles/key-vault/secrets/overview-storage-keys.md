@@ -9,12 +9,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 09/18/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 871c9f83d7bdc3f4c9e2f3b53c0b855483995152
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 573e4c9d8db3f07f223826ab648f2ef57e1d9c58
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/20/2021
-ms.locfileid: "107748611"
+ms.locfileid: "107766318"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-the-azure-cli"></a>Gestire le chiavi degli account di archiviazione con Key Vault e l'interfaccia della riga di comando di Azure
 > [!IMPORTANT]
@@ -67,14 +67,14 @@ Usare il comando [az role assignment create](/cli/azure/role/assignment) dell'in
 
 - `--role`: passare il ruolo "Ruolo del servizio dell'operatore della chiave dell'account di archiviazione" di Azure. Questo ruolo limita l'ambito dell'accesso all'account di archiviazione. Per un account di archiviazione classico passare invece il "Ruolo del servizio dell'operatore della chiave dell'account di archiviazione classico".
 - `--assignee`: passare il valore "https://vault.azure.net", ovvero l'URL per Key Vault nel cloud pubblico di Azure. Per il cloud di Azure per enti pubblici usare invece '--asingee-object-id'. Vedere [ID applicazione dell'entità servizio](#service-principal-application-id).
-- `--scope`: passare l'ID della risorsa dell'account di archiviazione, con formato `/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>`. Per trovare l'ID sottoscrizione, usare il comando [az account list](/cli/azure/account?#az-account-list) dell'interfaccia della riga di comando di Azure. Per trovare il nome e il gruppo di risorse dell'account di archiviazione, usare il comando [az storage account list](/cli/azure/storage/account?#az-storage-account-list) dell'interfaccia della riga di comando di Azure.
+- `--scope`: passare l'ID della risorsa dell'account di archiviazione, con formato `/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>`. Per trovare l'ID sottoscrizione, usare il comando [az account list](/cli/azure/account?#az_account_list) dell'interfaccia della riga di comando di Azure. Per trovare il nome e il gruppo di risorse dell'account di archiviazione, usare il comando [az storage account list](/cli/azure/storage/account?#az_storage_account_list) dell'interfaccia della riga di comando di Azure.
 
 ```azurecli-interactive
 az role assignment create --role "Storage Account Key Operator Service Role" --assignee 'https://vault.azure.net' --scope "/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>"
  ```
 ### <a name="give-your-user-account-permission-to-managed-storage-accounts"></a>Concedere all'account utente l'autorizzazione per gli account di archiviazione gestiti
 
-Usare il cmdlet [az keyvault-set-policy](/cli/azure/keyvault?#az-keyvault-set-policy) dell'interfaccia della riga di comando di Azure per aggiornare i criteri di accesso di Key Vault e concedere le autorizzazioni dell'account di archiviazione all'account utente.
+Usare il cmdlet [az keyvault-set-policy](/cli/azure/keyvault?#az_keyvault_set_policy) dell'interfaccia della riga di comando di Azure per aggiornare i criteri di accesso di Key Vault e concedere le autorizzazioni dell'account di archiviazione all'account utente.
 
 ```azurecli-interactive
 # Give your user principal access to all storage account permissions, on your Key Vault instance
@@ -85,11 +85,11 @@ az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --storage
 Tenere presente che le autorizzazioni per gli account di archiviazione non sono disponibili nella pagina "Criteri di accesso" dell'account di archiviazione nel portale di Azure.
 ### <a name="create-a-key-vault-managed-storage-account"></a>Creare un account di archiviazione gestito da Key Vault
 
- Creare un account di archiviazione gestito da Key Vault usando il comando [az keyvault storage](/cli/azure/keyvault/storage?#az-keyvault-storage-add) dell'interfaccia della riga di comando di Azure. Impostare un periodo di rigenerazione di 90 giorni. Quando è il momento di eseguire la rotazione, Key Vault rigenera la chiave che non è attiva e quindi imposta la chiave appena creata come attiva. Solo una delle chiavi viene usata per rilasciare token di firma di accesso condiviso in un momento specifico, ovvero la chiave attiva. Fornire al comando i valori dei parametri seguenti:
+ Creare un account di archiviazione gestito da Key Vault usando il comando [az keyvault storage](/cli/azure/keyvault/storage?#az_keyvault_storage_add) dell'interfaccia della riga di comando di Azure. Impostare un periodo di rigenerazione di 90 giorni. Quando è il momento di eseguire la rotazione, Key Vault rigenera la chiave che non è attiva e quindi imposta la chiave appena creata come attiva. Solo una delle chiavi viene usata per rilasciare token di firma di accesso condiviso in un momento specifico, ovvero la chiave attiva. Fornire al comando i valori dei parametri seguenti:
 
-- `--vault-name`: passare il nome dell'insieme di credenziali delle chiavi. Per trovare il nome dell'insieme di credenziali delle chiavi, usare il comando [az keyvault list](/cli/azure/keyvault?#az-keyvault-list) dell'interfaccia della riga di comando di Azure.
-- `-n`: passare il nome dell'account di archiviazione. Per trovare il nome dell'account di archiviazione, usare il comando [az storage account list](/cli/azure/storage/account?#az-storage-account-list) dell'interfaccia della riga di comando di Azure.
-- `--resource-id`: passare l'ID della risorsa dell'account di archiviazione, con formato `/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>`. Per trovare l'ID sottoscrizione, usare il comando [az account list](/cli/azure/account?#az-account-list) dell'interfaccia della riga di comando di Azure. Per trovare il nome e il gruppo di risorse dell'account di archiviazione, usare il comando [az storage account list](/cli/azure/storage/account?#az-storage-account-list) dell'interfaccia della riga di comando di Azure.
+- `--vault-name`: passare il nome dell'insieme di credenziali delle chiavi. Per trovare il nome dell'insieme di credenziali delle chiavi, usare il comando [az keyvault list](/cli/azure/keyvault?#az_keyvault_list) dell'interfaccia della riga di comando di Azure.
+- `-n`: passare il nome dell'account di archiviazione. Per trovare il nome dell'account di archiviazione, usare il comando [az storage account list](/cli/azure/storage/account?#az_storage_account_list) dell'interfaccia della riga di comando di Azure.
+- `--resource-id`: passare l'ID della risorsa dell'account di archiviazione, con formato `/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>`. Per trovare l'ID sottoscrizione, usare il comando [az account list](/cli/azure/account?#az_account_list) dell'interfaccia della riga di comando di Azure. Per trovare il nome e il gruppo di risorse dell'account di archiviazione, usare il comando [az storage account list](/cli/azure/storage/account?#az_storage_account_list) dell'interfaccia della riga di comando di Azure.
    
  ```azurecli-interactive
 az keyvault storage add --vault-name <YourKeyVaultName> -n <YourStorageAccountName> --active-key-name key1 --auto-regenerate-key --regeneration-period P90D --resource-id "/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>"
@@ -108,7 +108,7 @@ I comandi in questa sezione consentono di completare le azioni seguenti:
 
 ### <a name="create-a-shared-access-signature-token"></a>Creare un token di firma di accesso condiviso
 
-Creare una definizione di firma di accesso condiviso usando il comando [az storage account generate-sas](/cli/azure/storage/account?#az-storage-account-generate-sas) dell'interfaccia della riga di comando di Azure. Questa operazione richiede le autorizzazioni `storage` e `setsas`.
+Creare una definizione di firma di accesso condiviso usando il comando [az storage account generate-sas](/cli/azure/storage/account?#az_storage_account_generate_sas) dell'interfaccia della riga di comando di Azure. Questa operazione richiede le autorizzazioni `storage` e `setsas`.
 
 
 ```azurecli-interactive
@@ -124,7 +124,7 @@ L'output verrà passato al parametro `--template-uri` nel passaggio successivo.
 
 ### <a name="generate-a-shared-access-signature-definition"></a>Generare una definizione di firma di accesso condiviso
 
-Usare il comando [az keyvault storage sas-definition create](/cli/azure/keyvault/storage/sas-definition?#az-keyvault-storage-sas-definition-create) dell'interfaccia della riga di comando di Azure passando l'output dal passaggio precedente al parametro `--template-uri` per creare la definizione di firma di accesso condiviso.  È possibile specificare il nome che si preferisce per il parametro `-n`.
+Usare il comando [az keyvault storage sas-definition create](/cli/azure/keyvault/storage/sas-definition?#az_keyvault_storage_sas_definition_create) dell'interfaccia della riga di comando di Azure passando l'output dal passaggio precedente al parametro `--template-uri` per creare la definizione di firma di accesso condiviso.  È possibile specificare il nome che si preferisce per il parametro `-n`.
 
 ```azurecli-interactive
 az keyvault storage sas-definition create --vault-name <YourKeyVaultName> --account-name <YourStorageAccountName> -n <YourSASDefinitionName> --validity-period P2D --sas-type account --template-uri <OutputOfSasTokenCreationStep>

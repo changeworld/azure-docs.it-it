@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/29/2020
-ms.openlocfilehash: 2412d3d2851d1b4d251b50ff3068b7dcafcccee8
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: eddcab2c0a34ef437e4f2f1e2203fee9065133a4
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105642038"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107781884"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Avvio rapido: Importare un file BACPAC in un database in Database SQL di Azure o in Istanza gestita di SQL di Azure
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -89,7 +89,7 @@ sqlpackage.exe /a:Import /sf:testExport.bacpac /tdn:NewDacFX /tsn:apptestserver.
 > Un'[istanza gestita di SQL](../managed-instance/sql-managed-instance-paas-overview.md) non supporta attualmente la migrazione di un database in un database dell'istanza da un file BACPAC tramite Azure PowerShell. Per eseguire l'importazione in un'istanza gestita di SQL, usare SQL Server Management Studio o SQLPackage.
 
 > [!NOTE]
-> Nei computer che elaborano le richieste di importazione ed esportazione inviate tramite il portale o PowerShell deve essere archiviato il file BACPAC, oltre ai file temporanei generati da Data-Tier Application Framework (DacFX). Lo spazio su disco necessario varia notevolmente tra i database con le stesse dimensioni. Potrebbe essere necessario spazio su disco fino a 3 volte la dimensione del database. I computer che eseguono le richieste di importazione ed esportazione hanno solo 450 GB di spazio su disco locale. Di conseguenza, alcune richieste potrebbero non riuscire con l'errore "lo spazio su disco non è sufficiente". È possibile ovviare a questo problema eseguendo sqlpackage.exe in un computer con spazio su disco locale sufficiente. Se occorre importare o esportare database di dimensioni superiori a 150 GB, usare SqlPackage per evitare questo problema.
+> Nei computer che elaborano le richieste di importazione ed esportazione inviate tramite il portale o PowerShell deve essere archiviato il file BACPAC, oltre ai file temporanei generati da Data-Tier Application Framework (DacFX). Lo spazio su disco necessario varia notevolmente tra i database con le stesse dimensioni. Potrebbe essere necessario spazio su disco fino a 3 volte la dimensione del database. I computer che eseguono le richieste di importazione ed esportazione hanno solo 450 GB di spazio su disco locale. Di conseguenza, alcune richieste potrebbero non riuscire con l'errore "Non c'è spazio sufficiente sul disco". È possibile ovviare a questo problema eseguendo sqlpackage.exe in un computer con spazio su disco locale sufficiente. Se occorre importare o esportare database di dimensioni superiori a 150 GB, usare SqlPackage per evitare questo problema.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -128,7 +128,7 @@ $importStatus
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
-Usare il comando [az-sql-db-import](/cli/azure/sql/db#az-sql-db-import) per inviare una richiesta di importazione database ad Azure. A seconda delle dimensioni del database, l'importazione può richiedere del tempo. Il modello di provisioning basato su unità di elaborazione di database supporta valori per le dimensioni massime del database specifici per ogni livello. Quando si importa un database [usare uno di questi valori supportati](/sql/t-sql/statements/create-database-transact-sql). 
+Usare il comando [az-sql-db-import](/cli/azure/sql/db#az_sql_db_import) per inviare una richiesta di importazione database ad Azure. A seconda delle dimensioni del database, l'importazione può richiedere del tempo. Il modello di provisioning basato su unità di elaborazione di database supporta valori per le dimensioni massime del database specifici per ogni livello. Quando si importa un database [usare uno di questi valori supportati](/sql/t-sql/statements/create-database-transact-sql). 
 
 ```azurecli
 # get the storage account key
@@ -145,9 +145,9 @@ az sql db import --resource-group "<resourceGroup>" --server "<server>" --name "
 > [!TIP]
 > Per un altro esempio di script, vedere [Importare un database da un file BACPAC](scripts/import-from-bacpac-powershell.md).
 
-## <a name="cancel-the-import-request"></a>Annulla la richiesta di importazione
+## <a name="cancel-the-import-request"></a>Annullare la richiesta di importazione
 
-Usare l' [API operazioni database-Annulla](/rest/api/sql/databaseoperations/cancel) o il [comando PowerShell Stop-AzSqlDatabaseActivity](/powershell/module/az.sql/Stop-AzSqlDatabaseActivity). di seguito è riportato un esempio di comando di PowerShell.
+Usare [l'API Database Operations - Cancel](/rest/api/sql/databaseoperations/cancel) o il comando [Stop-AzSqlDatabaseActivity](/powershell/module/az.sql/Stop-AzSqlDatabaseActivity)di PowerShell, un esempio di comando di PowerShell.
 
 ```cmd
 Stop-AzSqlDatabaseActivity -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName -OperationId $Operation.OperationId

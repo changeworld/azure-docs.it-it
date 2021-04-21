@@ -1,14 +1,14 @@
 ---
-title: Attività in più passaggi per compilare, testare & immagine patch
-description: Introduzione alle attività in più passaggi, una funzionalità delle attività ACR in Azure Container Registry che fornisce flussi di lavoro basati su attività per la compilazione, il test e l'applicazione di patch alle immagini del contenitore nel cloud.
+title: Attività in più passaggi per compilare, testare & patch
+description: Introduzione alle attività in più passaggi, una funzionalità di ACR Tasks in Registro Azure Container che fornisce flussi di lavoro basati su attività per la compilazione, il test e l'applicazione di patch alle immagini dei contenitori nel cloud.
 ms.topic: article
 ms.date: 03/28/2019
-ms.openlocfilehash: fc671006beb1934b32fcd6ccf967a5bf9ff817fb
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: d57044fa8a0db7d661eb50284b34a6bbec9a1879
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106169199"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107781020"
 ---
 # <a name="run-multi-step-build-test-and-patch-tasks-in-acr-tasks"></a>Eseguire attività di creazione, test e applicazione di patch in più passaggi in Attività di Registro Azure Container
 
@@ -44,8 +44,8 @@ Le attività in più passaggi rendono possibili scenari come la logica seguente:
 Un'attività in più passaggi in Attività di Registro Azure Container viene definita come una serie di passaggi all'interno di un file YAML. Ogni passaggio può specificare le dipendenze dal completamento di uno o più passaggi precedenti. Sono disponibili i tipi di passaggi di attività seguenti:
 
 * [`build`](container-registry-tasks-reference-yaml.md#build): Compilare una o più immagini del contenitore usando una `docker build` sintassi familiare, in serie o in parallelo.
-* [`push`](container-registry-tasks-reference-yaml.md#push): Eseguire il push delle immagini compilate in un registro contenitori. Sono supportati i registri privati, ad esempio Registro Azure Container, nonché l'hub Docker pubblico.
-* [`cmd`](container-registry-tasks-reference-yaml.md#cmd): Esegue un contenitore, in modo che possa funzionare come una funzione all'interno del contesto dell'attività in esecuzione. È possibile passare parametri a `[ENTRYPOINT]` del contenitore e specificare proprietà come env, detach e altri parametri `docker run` comuni. Il tipo di passaggio `cmd` consente l'esecuzione di test funzionali e di unit test, con l'esecuzione simultanea del contenitore.
+* [`push`](container-registry-tasks-reference-yaml.md#push): eseguire il push delle immagini compilate in un registro contenitori. Sono supportati i registri privati, ad esempio Registro Azure Container, nonché l'hub Docker pubblico.
+* [`cmd`](container-registry-tasks-reference-yaml.md#cmd): eseguire un contenitore in modo che possa operare come funzione all'interno del contesto dell'attività in esecuzione. È possibile passare parametri a `[ENTRYPOINT]` del contenitore e specificare proprietà come env, detach e altri parametri `docker run` comuni. Il tipo di passaggio `cmd` consente l'esecuzione di test funzionali e di unit test, con l'esecuzione simultanea del contenitore.
 
 I frammenti di codice seguenti illustrano come combinare questi tipi di passaggi delle attività. Le attività in più passaggi possono essere semplici, come la creazione di un'unica immagine da un documento Dockerfile e il push nel registro, con un file YAML simile a:
 
@@ -79,7 +79,7 @@ steps:
   - cmd: $Registry/functions/helm upgrade helloworld ./helm/helloworld/ --reuse-values --set helloworld.image=$Registry/helloworld:$ID
 ```
 
-Vedere gli [esempi di attività](container-registry-tasks-samples.md) per i file YAML dell'attività in più passaggi e dockerfile per diversi scenari.
+Per [diversi scenari,](container-registry-tasks-samples.md) vedere esempi di attività per file YAML di attività in più passaggi e Dockerfile.
 
 ## <a name="run-a-sample-task"></a>Eseguire un'attività di esempio
 
@@ -153,7 +153,7 @@ Per altre informazioni sulle creazioni automatiche su commit GIT o in caso di ag
 È possibile trovare riferimenti ed esempi sulle attività in più passaggi qui:
 
 * [Task reference](container-registry-tasks-reference-yaml.md) (Riferimenti alle attività): tipi, proprietà e utilizzo dei passaggi di attività.
-* [Esempi di attività](container-registry-tasks-samples.md) : `task.yaml` file di esempio e Docker per diversi scenari, da semplici a complessi.
+* [Esempi di attività:](container-registry-tasks-samples.md) file `task.yaml` di esempio e Docker per diversi scenari, da semplice a complesso.
 * [Repository di comandi](https://github.com/AzureCR/cmd): raccolta di contenitori come comandi per Attività di Registro Azure Container.
 
 <!-- IMAGES -->
@@ -164,6 +164,6 @@ Per altre informazioni sulle creazioni automatiche su commit GIT o in caso di ag
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 
 <!-- LINKS - Internal -->
-[az-acr-task-create]: /cli/azure/acr/task#az-acr-task-create
-[az-acr-run]: /cli/azure/acr#az-acr-run
+[az-acr-task-create]: /cli/azure/acr/task#az_acr_task_create
+[az-acr-run]: /cli/azure/acr#az_acr_run
 [az-acr-task]: /cli/azure/acr/task

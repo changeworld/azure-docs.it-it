@@ -1,23 +1,23 @@
 ---
-title: Visualizzare le prenotazioni per le risorse di Azure
-description: Informazioni su come visualizzare le prenotazioni per Azure nel portale di Azure. Visualizzare le prenotazioni e l'utilizzo tramite le API, PowerShell, l'interfaccia della riga di comando e Power BI.
+title: Autorizzazioni per visualizzare e gestire le prenotazioni di Azure
+description: Informazioni su come visualizzare e gestire le prenotazioni di Azure nel portale di Azure.
 author: yashesvi
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 03/17/2021
+ms.date: 04/15/2021
 ms.author: banders
-ms.openlocfilehash: 1c666602f764e8274cb2a30df204e97479c85ba3
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: fe2f36b08f98ceb2a5f6085510b589a712ff194d
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104583055"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107780462"
 ---
-# <a name="view-azure-reservations"></a>Visualizzare le prenotazioni di Azure
+# <a name="permissions-to-view-and-manage-azure-reservations"></a>Autorizzazioni per visualizzare e gestire le prenotazioni di Azure
 
-Questo articolo illustra come visualizzare le prenotazioni di Azure nel portale di Azure. È possibile visualizzare e gestire una prenotazione acquistata nel portale di Azure.
+Questo articolo illustra il funzionamento delle autorizzazioni di prenotazione e come gli utenti possono visualizzare e gestire le prenotazioni di Azure portale di Azure.
 
 ## <a name="who-can-manage-a-reservation-by-default"></a>Chi può gestire una prenotazione per impostazione predefinita
 
@@ -25,72 +25,60 @@ Per impostazione predefinita, le prenotazioni possono essere visualizzate e gest
 
 - L'utente che acquista una prenotazione e l'amministratore account della sottoscrizione di fatturazione usata per acquistare la prenotazione vengono aggiunti all'ordine di prenotazione.
 - Amministratori fatturazione con Contratto Enterprise e Contratto del cliente Microsoft.
+- Utenti con accesso con privilegi elevati per gestire tutte le sottoscrizioni e i gruppi di gestione di Azure
 
-Per consentire ad altre persone di gestire le prenotazioni sono disponibili due opzioni:
+Il ciclo di vita della prenotazione è indipendente da una sottoscrizione di Azure, quindi la prenotazione non è una risorsa nella sottoscrizione di Azure. Si tratta invece di una risorsa a livello di tenant con la propria autorizzazione controllo degli accessi in base al ruolo di Azure separata dalle sottoscrizioni. Le prenotazioni non ereditano le autorizzazioni dalle sottoscrizioni dopo l'acquisto.
 
-- Delegare la gestione degli accessi per un singolo ordine di prenotazione:
-    1. Accedere al [portale di Azure](https://portal.azure.com).
-    1. Selezionare **Tutti i servizi** > **Prenotazione** per visualizzare l'elenco delle prenotazioni a cui è possibile accedere.
-    1. Selezionare la prenotazione per la quale si desidera delegare l'accesso ad altri utenti.
-    1. In Dettagli prenotazione selezionare l'ordine di prenotazione.
-    1. Selezionare **Controllo di accesso (IAM)** .
-    1. Selezionare **Aggiungi assegnazione di ruolo** > **Ruolo** > **Proprietario**. Se si vuole concedere un accesso limitato, selezionare un ruolo diverso.
-    1. Digitare l'indirizzo e-mail dell'utente che si vuole aggiungere come proprietario.
-    1. Selezionare l'utente e quindi selezionare **Salva**.
+## <a name="how-billing-administrators-can-view-or-manage-reservations"></a>Come gli amministratori della fatturazione possono visualizzare o gestire le prenotazioni
 
-- Aggiungere un utente come amministratore della fatturazione a un Contratto Enterprise o a un Contratto del cliente Microsoft:
-    - Per un Contratto Enterprise, aggiungere gli utenti con il ruolo di _Amministratore dell'organizzazione_ per visualizzare e gestire tutti gli ordini di prenotazione applicabili al Contratto Enterprise. Gli amministratori dell'organizzazione possono visualizzare e gestire prenotazioni in **Gestione costi e fatturazione**, non **prenotazioni**. Gli utenti con il ruolo _Amministratore dell'organizzazione (sola lettura)_ possono solo visualizzare la prenotazione. Gli amministratori del reparto e i proprietari dell'account non possono visualizzare le prenotazioni _a meno che_ non vengano aggiunti ad esse in modo esplicito tramite Controllo di accesso (IAM). Per altre informazioni, vedere [Gestione dei ruoli Enterprise di Azure](../manage/understand-ea-roles.md).
+Se si è un amministratore della fatturazione, seguire questa procedura per visualizzare e gestire tutte le prenotazioni e le transazioni di prenotazione.
 
-        _Gli amministratori dell'organizzazione possono assumere la proprietà di un ordine di prenotazione e aggiungere altri utenti a una prenotazione tramite Controllo di accesso (IAM)._
-    - Per un Contratto del cliente Microsoft, gli utenti con il ruolo di proprietario del profilo di fatturazione o di collaboratore per il profilo di fatturazione possono gestire tutti gli acquisti di prenotazioni effettuati usando il profilo di fatturazione. Gli utenti con il ruolo di lettore profilo di fatturazione e responsabile fatturazione possono visualizzare tutte le prenotazioni pagate con il profilo di fatturazione. Non possono però apportare modifiche alle prenotazioni.
+1. Accedere al [portale di Azure](https://portal.azure.com) e passare a **Gestione costi e fatturazione.**
+    - Se si è un amministratore EA, nel  menu a sinistra selezionare Ambiti di fatturazione e quindi nell'elenco degli ambiti di fatturazione selezionarne uno.
+    - Se si è un proprietario Contratto del cliente Microsoft profilo di fatturazione, nel menu a sinistra selezionare **Profili di fatturazione**. Nell'elenco dei profili di fatturazione selezionarne uno.
+1. Nel menu a sinistra selezionare **Prodotti e servizi**  >  **Prenotazioni**.
+1. Viene visualizzato l'elenco completo delle prenotazioni per la registrazione EA o il profilo di fatturazione.
+1. Gli amministratori della fatturazione possono assumere la proprietà di una prenotazione selezionandola e quindi selezionando **Concedi** accesso nella finestra visualizzata.
+
+### <a name="how-to-add-billing-administrators"></a>Come aggiungere amministratori della fatturazione
+
+Aggiungere un utente come amministratore della fatturazione a un Contratto Enterprise o a un Contratto del cliente Microsoft:
+
+- Per un Contratto Enterprise, aggiungere gli utenti con il ruolo di _Amministratore dell'organizzazione_ per visualizzare e gestire tutti gli ordini di prenotazione applicabili al Contratto Enterprise. Gli amministratori aziendali possono visualizzare e gestire le prenotazioni in **Gestione costi e fatturazione.**
+    - Gli utenti con _il ruolo Amministratore aziendale (sola lettura)_ possono visualizzare la prenotazione solo da Gestione costi e **fatturazione.** 
+    - Gli amministratori del reparto e i proprietari dell'account non possono visualizzare le prenotazioni _a meno che_ non vengano aggiunti ad esse in modo esplicito tramite Controllo di accesso (IAM). Per altre informazioni, vedere [Gestione dei ruoli Enterprise di Azure](../manage/understand-ea-roles.md).
+- Per un Contratto del cliente Microsoft, gli utenti con il ruolo di proprietario del profilo di fatturazione o di collaboratore per il profilo di fatturazione possono gestire tutti gli acquisti di prenotazioni effettuati usando il profilo di fatturazione. Gli utenti con il ruolo di lettore profilo di fatturazione e responsabile fatturazione possono visualizzare tutte le prenotazioni pagate con il profilo di fatturazione. Non possono però apportare modifiche alle prenotazioni.
     Per altre informazioni, vedere [Ruoli e attività del profilo di fatturazione](../manage/understand-mca-roles.md#billing-profile-roles-and-tasks).
 
-### <a name="how-billing-administrators-view-or-manage-reservations"></a>Visualizzazione o gestione delle prenotazioni da parte degli amministratori della fatturazione
+## <a name="view-reservations-with-azure-rbac-access"></a>Visualizzare le prenotazioni con l'accesso RBAC di Azure
 
-Se si ha accesso a prenotazioni o ordini di prenotazione con l'accesso con controllo degli accessi in base al ruolo di Azure, è possibile visualizzare solo un subset di transazioni di prenotazione o nessuno quando si passa alle prenotazioni. Utilizzare la procedura seguente per visualizzare e gestire tutte le prenotazioni e le transazioni di prenotazione.
-
-1. Accedere al [portale di Azure](https://portal.azure.com) e passare a **Gestione costi e fatturazione**.
-    - Se si è un amministratore EA, nel menu a sinistra selezionare **ambiti di fatturazione** e quindi nell'elenco degli ambiti di fatturazione selezionare uno.
-    - Se si è proprietari del profilo di fatturazione del contratto clienti Microsoft, nel menu a sinistra selezionare **profili di fatturazione**. Nell'elenco dei profili di fatturazione selezionarne uno.
-1. Nel menu a sinistra selezionare **transazioni di prenotazione**. Viene visualizzato l'elenco delle transazioni di prenotazione.
-1. Un banner nella parte superiore della pagina legge *ora gli amministratori della fatturazione possono gestire le prenotazioni. Fare clic qui per gestire le prenotazioni.* Selezionare il banner.
-1. Viene visualizzato l'elenco completo delle prenotazioni per la registrazione EA o il profilo di fatturazione.
-1. Se si desidera assumere la proprietà di una prenotazione, selezionarla. Quindi, nella pagina impostazione autorizzazioni selezionare **Concedi accesso**. Al proprietario viene assegnato l'accesso all'ordine di prenotazione e prenotazione.
-
-## <a name="view-reservation-and-utilization-in-the-azure-portal"></a>Visualizzare la prenotazione e l'utilizzo nel portale di Azure
-
-Per visualizzare una prenotazione come proprietario o lettore
+Se la prenotazione è stata acquistata o si viene aggiunti a una prenotazione, seguire questa procedura per visualizzare e gestire le prenotazioni.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Passare a [Prenotazioni](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
-3. L'elenco mostra tutte le prenotazioni per le quali si ha il ruolo di Proprietario o Lettore. Ogni prenotazione mostra l'ultima percentuale di utilizzo nota.
-4. Selezionare la percentuale di utilizzo per visualizzare la cronologia di utilizzo e i dettagli. Vedere i dettagli nel video seguente.
-   > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4sYwk] 
+1. Selezionare **Tutti i servizi** > **Prenotazione** per visualizzare l'elenco delle prenotazioni a cui è possibile accedere.
 
-## <a name="get-reservations-and-utilization-using-apis-powershell-and-cli"></a>Ottenere i dettagli delle prenotazioni e l'utilizzo con le API, PowerShell e l'interfaccia della riga di comando
+## <a name="users-with-elevated-access-can-manage-all-azure-subscriptions-and-management-groups"></a>Gli utenti con accesso con privilegi elevati possono gestire tutte le sottoscrizioni e i gruppi di gestione di Azure
 
-Ottenere l'elenco di tutte le prenotazioni usando le risorse seguenti:
+È possibile elevare l'accesso di un [utente per gestire tutte le sottoscrizioni e i gruppi di gestione di Azure.](../../role-based-access-control/elevate-access-global-admin.md?toc=/azure/cost-management-billing/reservations/toc.json)
 
-- [API: ordine di prenotazione/elenco](/rest/api/reserved-vm-instances/reservationorder/list)
-- [PowerShell: ordine di prenotazione/elenco](/powershell/module/azurerm.reservations/get-azurermreservationorder)
-- [Interfaccia della riga di comando: ordine di prenotazione/elenco](/cli/azure/reservations/reservation-order#az-reservations-reservation-order-list)
+Dopo aver eseguito l'accesso con privilegi elevati:
 
-È anche possibile ottenere l'[utilizzo della prenotazione](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) usando l'API Utilizzo istanze riservate. 
+1. Passare a **Prenotazione** tutti i servizi per visualizzare tutte le  >   prenotazioni presenti nel tenant.
+1. Per apportare modifiche alla prenotazione, aggiungere se stessi come proprietario dell'ordine di prenotazione usando controllo di accesso (IAM).
 
-## <a name="see-reservations-and-utilization-in-power-bi"></a>Visualizzare le prenotazioni e l'utilizzo in Power BI
+## <a name="give-users-azure-rbac-access-to-individual-reservations"></a>Concedere agli utenti il controllo degli accessi in base al ruolo di Azure per le singole prenotazioni
 
-Per gli utenti di Power BI sono disponibili due opzioni
-- Pacchetto di contenuto: la data di acquisto delle prenotazioni e i dati di utilizzo sono disponibili nel [pacchetto di contenuto Informazioni dettagliate sul consumo di Power BI](/power-bi/desktop-connect-azure-cost-management). Creare i report desiderati usando il pacchetto di contenuto. 
-- App Gestione costi: usare l'app [Gestione costi](https://appsource.microsoft.com/product/power-bi/costmanagement.azurecostmanagementapp) per ottenere i report predefiniti che è possibile personalizzare ulteriormente.
+Gli utenti che hanno accesso proprietario alle prenotazioni e agli amministratori di fatturazione possono delegare la gestione dell'accesso per un singolo ordine di prenotazione.
 
-## <a name="need-help-contact-us"></a>Richiesta di assistenza Contatti
-
-In caso di domande o per assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).
+1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Selezionare **Tutti i servizi** > **Prenotazione** per visualizzare l'elenco delle prenotazioni a cui è possibile accedere.
+1. Selezionare la prenotazione per la quale si desidera delegare l'accesso ad altri utenti.
+1. In Dettagli prenotazione selezionare l'ordine di prenotazione.
+1. Selezionare **Controllo di accesso (IAM)** .
+1. Selezionare **Aggiungi assegnazione di ruolo** > **Ruolo** > **Proprietario**. Se si vuole concedere un accesso limitato, selezionare un ruolo diverso.
+1. Digitare l'indirizzo e-mail dell'utente che si vuole aggiungere come proprietario.
+1. Selezionare l'utente e quindi selezionare **Salva**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Gestire le prenotazioni di Azure](manage-reserved-vm-instance.md).
-- [Informazioni sull'utilizzo della prenotazione per la sottoscrizione con pagamento in base al consumo](understand-reserved-instance-usage.md).
-- [Informazioni sull'utilizzo della prenotazione per l'iscrizione Enterprise](understand-reserved-instance-usage-ea.md).
-- [Informazioni sull'utilizzo della prenotazione per sottoscrizioni CSP](/partner-center/azure-reservations).
-

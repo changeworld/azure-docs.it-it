@@ -11,12 +11,12 @@ ms.custom:
 - cli-validate
 - devx-track-python
 - devx-track-azurecli
-ms.openlocfilehash: 8e9656aa1f850dc9e59ab71b5df605df8dd49269
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 882a9fb0f8d528ca21cdc8149c60b9d5bdaf1723
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105732806"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107767096"
 ---
 # <a name="tutorial-deploy-a-django-web-app-with-postgresql-in-azure-app-service"></a>Esercitazione: Distribuire un'app Web Django con PostgreSQL nel Servizio app di Azure
 
@@ -39,7 +39,7 @@ In questa esercitazione verrà usata l'interfaccia della riga di comando di Azur
 
 1. Avere a disposizione un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 1. Installare <a href="https://www.python.org/downloads/" target="_blank">Python 3.6 o versioni successive</a>.
-1. Installare l' <a href="/cli/azure/install-azure-cli" target="_blank">interfaccia</a> della riga di comando di Azure 2.18.0 o versione successiva, con cui si eseguono i comandi in qualsiasi shell per il provisioning e la configurazione delle risorse
+1. Installare <a href="/cli/azure/install-azure-cli" target="_blank">l'interfaccia della</a> riga di comando di Azure 2.18.0 o versione successiva, con cui si eseguono i comandi in qualsiasi shell per effettuare il provisioning e configurare le risorse di Azure.
 
 Aprire una finestra del terminale e verificare che la versione di Python sia 3.6 o successiva:
 
@@ -69,7 +69,7 @@ Verificare che la versione dell'interfaccia della riga di comando di Azure sia 2
 az --version
 ```
 
-Se è necessario eseguire l'aggiornamento, provare il `az upgrade` comando (richiede la versione 2.11 +) o vedere <a href="/cli/azure/install-azure-cli" target="_blank">installare l'interfaccia della riga di</a>comando di Azure.
+Se è necessario eseguire l'aggiornamento, provare il `az upgrade` comando (richiede la versione 2.11+) o vedere Installare l'interfaccia della riga <a href="/cli/azure/install-azure-cli" target="_blank">di comando di Azure.</a>
 
 Quindi accedere ad Azure tramite l'interfaccia della riga di comando:
 
@@ -160,7 +160,7 @@ Quando il comando viene completato, restituisce come output un oggetto JSON cont
 
 <!-- not all locations support az postgres up -->
 > [!TIP]
-> `-l <location-name>`, può essere impostato su una delle [aree di Azure](https://azure.microsoft.com/global-infrastructure/regions/). È possibile ottenere le aree disponibili per la sottoscrizione con il comando [`az account list-locations`](/cli/azure/account#az-account-list-locations). Per le app di produzione, inserire il database e l'app nella stessa posizione.
+> `-l <location-name>`, può essere impostato su una delle [aree di Azure](https://azure.microsoft.com/global-infrastructure/regions/). È possibile ottenere le aree disponibili per la sottoscrizione con il comando [`az account list-locations`](/cli/azure/account#az_account_list_locations). Per le app di produzione, inserire il database e l'app nella stessa posizione.
 
 Problemi? [Segnalarli](https://aka.ms/DjangoCLITutorialHelp).
 
@@ -172,7 +172,7 @@ In questa sezione si crea l'host delle app nell'app del Servizio app, si connett
 
 Nel terminale assicurarsi di trovarsi nella cartella del repository *djangoapp* che contiene il codice dell'app.
 
-Creare un'app del Servizio app (processo host) con il comando [`az webapp up`](/cli/azure/webapp#az-webapp-up):
+Creare un'app del Servizio app (processo host) con il comando [`az webapp up`](/cli/azure/webapp#az_webapp_up):
 
 ```azurecli
 az webapp up --resource-group DjangoPostgres-tutorial-rg --location westus2 --plan DjangoPostgres-tutorial-plan --sku B1 --name <app-name>
@@ -205,7 +205,7 @@ Con il codice ora distribuito nel Servizio app, il passaggio successivo consiste
 
 Il codice dell'app prevede di trovare informazioni sul database in quattro variabili di ambiente denominate `DBHOST`, `DBNAME`, `DBUSER` e `DBPASS`.
 
-Per impostare le variabili di ambiente nel Servizio app, creare "impostazioni dell'app" con il comando [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) seguente.
+Per impostare le variabili di ambiente nel Servizio app, creare "impostazioni dell'app" con il comando [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) seguente.
 
 ```azurecli
 az webapp config appsettings set --settings DBHOST="<postgres-server-name>" DBNAME="pollsdb" DBUSER="<username>" DBPASS="<password>"
@@ -231,7 +231,7 @@ Le migrazioni di database Django assicurano che lo schema nel database PostgreSQ
 
     Sostituire `<app-name>` con il nome usato in precedenza nel comando `az webapp up`.
 
-    In alternativa, è possibile connettersi a una sessione SSH con il [`az webapp ssh`](/cli/azure/webapp#az_webapp_ssh) comando. In Windows questo comando richiede l'interfaccia della riga di comando di Azure 2.18.0 o versione successiva.
+    È possibile connettersi in alternativa a una sessione SSH con il [`az webapp ssh`](/cli/azure/webapp#az_webapp_ssh) comando . In Windows questo comando richiede l'interfaccia della riga di comando di Azure 2.18.0 o versione successiva.
 
     Se non è possibile connettersi alla sessione SSH, significa che l'avvio dell'app stessa non è riuscito. [Controllare i log di diagnostica](#6-stream-diagnostic-logs) per i dettagli. Ad esempio, se nella sezione precedente non sono state create le impostazioni dell'app necessarie, i log indicheranno `KeyError: 'DBNAME'`.
 

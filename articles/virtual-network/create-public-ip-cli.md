@@ -1,6 +1,6 @@
 ---
-title: Creare un IP pubblico-interfaccia della riga di comando di Azure
-description: Informazioni su come creare un indirizzo IP pubblico usando l'interfaccia della riga di comando di Azure
+title: Creare un indirizzo IP pubblico - Interfaccia della riga di comando di Azure
+description: Informazioni su come creare un indirizzo IP pubblico con l'interfaccia della riga di comando di Azure
 services: virtual-network
 documentationcenter: na
 author: blehr
@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2020
 ms.author: blehr
-ms.openlocfilehash: 2c469324db11d2e65f8eb958e68f77fd77020865
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ff0dbf31f6f428b23e00f9366d55703416847b90
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99491048"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107767692"
 ---
-# <a name="quickstart-create-a-public-ip-address-using-azure-cli"></a>Guida introduttiva: creare un indirizzo IP pubblico usando l'interfaccia della riga di comando
+# <a name="quickstart-create-a-public-ip-address-using-azure-cli"></a>Guida introduttiva: Creare un indirizzo IP pubblico con l'interfaccia della riga di comando di Azure
 
-Questo articolo illustra come creare una risorsa indirizzo IP pubblico usando l'interfaccia della riga di comando di Azure. Per altre informazioni sulle risorse a cui questo può essere associato, sulla differenza tra lo SKU Basic e standard e altre informazioni correlate, vedere [indirizzi IP pubblici](./public-ip-addresses.md).  Per questo esempio, si concentrerà solo sugli indirizzi IPv4; per altre informazioni sugli indirizzi IPv6, vedere [IPv6 per Azure VNet](./ipv6-overview.md).
+Questo articolo illustra come creare una risorsa indirizzo IP pubblico usando l'interfaccia della riga di comando di Azure. Per altre informazioni sulle risorse a cui può essere associato, sulla differenza tra SKU Basic e Standard e altre informazioni correlate, vedere [Indirizzi IP pubblici](./public-ip-addresses.md).  Per questo esempio, ci si concentrerà solo sugli indirizzi IPv4. Per altre informazioni sugli indirizzi IPv6, vedere [IPv6 per la rete virtuale di Azure.](./ipv6-overview.md)
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
@@ -30,7 +30,7 @@ Questo articolo illustra come creare una risorsa indirizzo IP pubblico usando l'
 
 Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite.
 
-Creare un gruppo di risorse con il comando [AZ Group create](/cli/azure/group#az-group-create) denominato **myResourceGroup** nel percorso **eastus2** .
+Creare un gruppo di risorse [con az group create](/cli/azure/group#az_group_create) denominato **myResourceGroup** nella **località eastus2.**
 
 ```azurecli-interactive
   az group create \
@@ -38,15 +38,15 @@ Creare un gruppo di risorse con il comando [AZ Group create](/cli/azure/group#az
     --location eastus2
 ```
 
-## <a name="create-public-ip"></a>Crea IP pubblico
+## <a name="create-public-ip"></a>Creare un indirizzo IP pubblico
 
 ---
-# <a name="standard-sku---using-zones"></a>[**SKU standard-uso di zone**](#tab/option-create-public-ip-standard-zones)
+# <a name="standard-sku---using-zones"></a>[**SKU standard - Uso delle zone**](#tab/option-create-public-ip-standard-zones)
 
 >[!NOTE]
->Il comando seguente funziona per l'API versione 2020-08-01 o successiva.  Per altre informazioni sulla versione API attualmente in uso, vedere [provider e tipi di risorse](../azure-resource-manager/management/resource-providers-and-types.md).
+>Il comando seguente funziona per l'API versione 2020-08-01 o successiva.  Per altre informazioni sulla versione dell'API attualmente in uso, vedere Provider [di risorse e tipi](../azure-resource-manager/management/resource-providers-and-types.md).
 
-Usare il comando [AZ Network Public-IP create](/cli/azure/network/public-ip#az-network-public-ip-create) per creare un indirizzo IP pubblico con ridondanza della zona standard denominato **myStandardZRPublicIP** in **myResourceGroup**.
+Usare [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) per creare un indirizzo IP pubblico con ridondanza della zona standard denominato **myStandardZRPublicIP** in **myResourceGroup**.
 
 ```azurecli-interactive
   az network public-ip create \
@@ -56,10 +56,10 @@ Usare il comando [AZ Network Public-IP create](/cli/azure/network/public-ip#az-n
     --zone 1 2 3
 ```
 > [!IMPORTANT]
-> Per le versioni dell'API precedenti alla 2020-08-01, eseguire il comando precedente senza specificare un parametro di zona per creare un indirizzo IP con ridondanza della zona. 
+> Per le versioni dell'API precedenti alla versione 2020-08-01, eseguire il comando precedente senza specificare un parametro di zona per creare un indirizzo IP con ridondanza della zona. 
 >
 
-Per creare un indirizzo IP pubblico di zona standard in Zona 2 denominato **myStandardZonalPublicIP** in **myResourceGroup**, usare il comando seguente:
+Per creare un indirizzo IP pubblico di zona standard in Zona 2 **denominato myStandardZonalPublicIP** in **myResourceGroup,** usare il comando seguente:
 
 ```azurecli-interactive
   az network public-ip create \
@@ -69,14 +69,14 @@ Per creare un indirizzo IP pubblico di zona standard in Zona 2 denominato **mySt
     --zone 2
 ```
 
-Si noti che le opzioni precedenti per le zone sono selezioni valide solo nelle aree con [zone di disponibilità](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
+Si noti che le opzioni precedenti per le zone sono solo selezioni valide nelle aree con [zone di disponibilità](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
 
-# <a name="standard-sku---no-zones"></a>[**SKU standard-nessuna zona**](#tab/option-create-public-ip-standard)
+# <a name="standard-sku---no-zones"></a>[**SKU standard - Nessuna zona**](#tab/option-create-public-ip-standard)
 
 >[!NOTE]
->Il comando seguente funziona per l'API versione 2020-08-01 o successiva.  Per altre informazioni sulla versione API attualmente in uso, vedere [provider e tipi di risorse](../azure-resource-manager/management/resource-providers-and-types.md).
+>Il comando seguente funziona per l'API versione 2020-08-01 o successiva.  Per altre informazioni sulla versione dell'API attualmente in uso, vedere Provider [di risorse e tipi](../azure-resource-manager/management/resource-providers-and-types.md).
 
-Usare il comando [AZ Network Public-IP create](/cli/azure/network/public-ip#az-network-public-ip-create) per creare un indirizzo IP pubblico standard come risorsa non di zona denominata **myStandardPublicIP** in **myResourceGroup**.
+Usare [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) per creare un indirizzo IP pubblico standard come risorsa non di zona denominata **myStandardPublicIP** in **myResourceGroup**.
 
 ```azurecli-interactive
   az network public-ip create \
@@ -84,11 +84,11 @@ Usare il comando [AZ Network Public-IP create](/cli/azure/network/public-ip#az-n
     --name myStandardPublicIP \
     --sku Standard
 ```
-Questa selezione è valida in tutte le aree ed è la selezione predefinita per gli indirizzi IP pubblici standard in aree senza [zone di disponibilità](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
+Questa selezione è valida in tutte le aree ed è la selezione predefinita per gli indirizzi IP pubblici standard nelle aree [senza zone di disponibilità](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
 
 # <a name="basic-sku"></a>[**SKU Basic**](#tab/option-create-public-ip-basic)
 
-Usare il comando [AZ Network Public-IP create](/cli/azure/network/public-ip#az-network-public-ip-create) per creare un indirizzo IP pubblico statico di base denominato **myBasicPublicIP** in **myResourceGroup**.  Gli indirizzi IP pubblici di base non hanno il concetto di zone di disponibilità.
+Usare [az network public-ip create per](/cli/azure/network/public-ip#az_network_public_ip_create) creare un indirizzo IP pubblico statico di base denominato **myBasicPublicIP** in **myResourceGroup**.  Gli IP pubblici di base non hanno il concetto di zone di disponibilità.
 
 ```azurecli-interactive
   az network public-ip create \
@@ -97,15 +97,15 @@ Usare il comando [AZ Network Public-IP create](/cli/azure/network/public-ip#az-n
     --sku Basic \
     --allocation-method Static
 ```
-Se è accettabile che l'indirizzo IP cambi nel tempo, è possibile selezionare l'assegnazione IP **dinamica** cambiando il metodo di allocazione in ' Dynamic '.
+Se è accettabile che l'indirizzo IP cambi nel **tempo,** è possibile selezionare l'assegnazione ip dinamico modificando il metodo di allocazione in "Dinamico".
 
 ---
 
 ## <a name="additional-information"></a>Informazioni aggiuntive 
 
-Per altri dettagli sulle singole variabili elencate in precedenza, vedere [gestire gli indirizzi IP pubblici](./virtual-network-public-ip-address.md#create-a-public-ip-address).
+Per altri dettagli sulle singole variabili elencate in precedenza, vedere [Gestire gli indirizzi IP pubblici.](./virtual-network-public-ip-address.md#create-a-public-ip-address)
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Associare un [indirizzo IP pubblico a una macchina virtuale](./associate-public-ip-address-vm.md#azure-portal).
+- Associare [un indirizzo IP pubblico a una macchina virtuale.](./associate-public-ip-address-vm.md#azure-portal)
 - Altre informazioni sugli [indirizzi IP pubblici](./public-ip-addresses.md#public-ip-addresses) in Azure.
 - Altre informazioni su tutte le [impostazioni relative agli indirizzi IP pubblici](virtual-network-public-ip-address.md#create-a-public-ip-address).

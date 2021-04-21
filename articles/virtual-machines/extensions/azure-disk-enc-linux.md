@@ -8,12 +8,12 @@ author: ejarvi
 ms.author: ejarvi
 ms.date: 03/19/2020
 ms.collection: linux
-ms.openlocfilehash: 7c79391e3459804a4b5ce72c2230d17af3269641
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8c0f233c2eb154636d64f747bb43bd392295aa9b
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102566261"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107792382"
 ---
 # <a name="azure-disk-encryption-for-linux-microsoftazuresecurityazurediskencryptionforlinux"></a>Crittografia dischi di Azure per Linux (Microsoft.Azure.Security.AzureDiskEncryptionForLinux)
 
@@ -23,7 +23,7 @@ Crittografia dischi di Azure sfrutta il sottosistema di dm-crypt di Linux per fo
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per un elenco completo dei prerequisiti, vedere [crittografia dischi di Azure per macchine virtuali Linux](../linux/disk-encryption-overview.md), in particolare le sezioni seguenti:
+Per un elenco completo dei prerequisiti, vedere Crittografia dischi di Azure per le macchine virtuali [Linux,](../linux/disk-encryption-overview.md)in particolare le sezioni seguenti:
 
 - [Macchine virtuali e sistemi operativi supportati](../linux/disk-encryption-overview.md#supported-vms-and-operating-systems)
 - [Requisiti aggiuntivi delle macchine virtuali](../linux/disk-encryption-overview.md#additional-vm-requirements)
@@ -32,15 +32,15 @@ Per un elenco completo dei prerequisiti, vedere [crittografia dischi di Azure pe
 
 ## <a name="extension-schema"></a>Schema dell'estensione
 
-Esistono due versioni dello schema di estensione per crittografia dischi di Azure (ADE):
-- v 1.1: uno schema consigliato più recente che non usa le proprietà di Azure Active Directory (AAD).
-- v 0.1: schema meno recente che richiede proprietà di Azure Active Directory (AAD). 
+Esistono due versioni dello schema di estensione per Crittografia dischi di Azure (ADE):
+- v1.1: uno schema consigliato più recente che non usa Azure Active Directory proprietà (AAD).
+- v0.1: schema precedente che richiede Azure Active Directory proprietà (AAD). 
 
-Per selezionare uno schema di destinazione, `typeHandlerVersion` è necessario impostare la proprietà sulla stessa versione dello schema che si desidera utilizzare.
+Per selezionare uno schema di destinazione, la proprietà deve essere impostata sulla versione dello `typeHandlerVersion` schema che si vuole usare.
 
-### <a name="schema-v11-no-aad-recommended"></a>Schema v 1.1: nessun AAD (consigliato)
+### <a name="schema-v11-no-aad-recommended"></a>Schema v1.1: Nessun AAD (scelta consigliata)
 
-Lo schema v 1.1 è consigliato e non richiede proprietà di Azure Active Directory (AAD).
+Lo schema v1.1 è consigliato e non richiede proprietà Azure Active Directory (AAD).
 
 ```json
 {
@@ -69,9 +69,9 @@ Lo schema v 1.1 è consigliato e non richiede proprietà di Azure Active Directo
 ```
 
 
-### <a name="schema-v01-with-aad"></a>Schema v 0.1: con AAD 
+### <a name="schema-v01-with-aad"></a>Schema v0.1: con AAD 
 
-Lo schema 0,1 richiede `AADClientID` e `AADClientSecret` o `AADClientCertificate` .
+Lo schema 0.1 richiede `AADClientID` e `AADClientSecret` o `AADClientCertificate` .
 
 Utilizzo di `AADClientSecret`:
 
@@ -141,34 +141,34 @@ Utilizzo di `AADClientCertificate`:
 | apiVersion | 2019-07-01 | Data |
 | publisher | Microsoft.Azure.Security | string |
 | type | AzureDiskEncryptionForLinux | string |
-| typeHandlerVersion | 1,1, 0,1 | INT |
-| (schema 0,1) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | guid | 
-| (schema 0,1) AADClientSecret | password | string |
-| (schema 0,1) AADClientCertificate | thumbprint | string |
-| opzionale (schema 0,1) Passphrase | password | string |
+| typeHandlerVersion | 1.1, 0.1 | INT |
+| (schema 0.1) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | guid | 
+| (schema 0.1) AADClientSecret | password | string |
+| (schema 0.1) AADClientCertificate | thumbprint | string |
+| (facoltativo) (schema 0.1) Passphrase | password | string |
 | DiskFormatQuery | {"dev_path":"","name":"","file_system":""} | Dizionario JSON |
 | EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | string | 
-| (facoltativo-predefinito RSA-OAEP) KeyEncryptionAlgorithm | "RSA-OAEP", "RSA-OAEP-256", "RSA1_5" | string |
+| (facoltativo- predefinito RSA-OAEP ) KeyEncryptionAlgorithm | "RSA-OAEP", "RSA-OAEP-256", "RSA1_5" | string |
 | KeyVaultURL | url | string |
 | KeyVaultResourceId | url | string |
-| opzionale KeyEncryptionKeyURL | url | string |
-| opzionale KekVaultResourceId | url | string |
-| opzionale SequenceVersion | UNIQUEIDENTIFIER | string |
+| (facoltativo) KeyEncryptionKeyURL | url | string |
+| (facoltativo) KekVaultResourceId | url | string |
+| (facoltativo) SequenceVersion | UNIQUEIDENTIFIER | string |
 | VolumeType | Sistema operativo, dati, tutti | string |
 
 ## <a name="template-deployment"></a>Distribuzione del modello
 
-Per un esempio di distribuzione dei modelli basata sullo schema v 1.1, vedere il modello di avvio rapido di Azure [201-Encrypt-running-Linux-VM-without-AAD](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm-without-aad).
+Per un esempio di distribuzione di modelli basata sullo schema v1.1, vedere il modello di avvio rapido di Azure [201-encrypt-running-linux-vm-without-aad.](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm-without-aad)
 
-Per un esempio di distribuzione dei modelli basata sullo schema v 0.1, vedere il modello di avvio rapido di Azure [201-Encrypt-running-Linux-VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm).
+Per un esempio di distribuzione di modelli basata sullo schema v0.1, vedere il modello di avvio rapido di Azure [201-encrypt-running-linux-vm.](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm)
 
 >[!WARNING]
 > - Se in precedenza è stato usato il servizio Crittografia dischi di Azure con Azure AD per crittografare una macchina virtuale, sarà necessario continuare a usare questa opzione per crittografare la VM.
-> - Durante la crittografia dei volumi del sistema operativo Linux, la macchina virtuale deve essere considerata non disponibile. È consigliabile evitare accessi SSH mentre è in corso la crittografia per evitare che eventuali file aperti a cui è necessario accedere durante il processo di crittografia risultino bloccati. Per controllare lo stato di avanzamento, usare il cmdlet di PowerShell [Get-AzVMDiskEncryptionStatus](/powershell/module/az.compute/get-azvmdiskencryptionstatus) o il comando [VM Encryption Show](/cli/azure/vm/encryption#az-vm-encryption-show) cli. Questo processo può richiedere alcune ore per un volume di sistema operativo da 30 GB, più un tempo aggiuntivo per la crittografia dei volumi di dati. Il tempo per la crittografia del volume di dati è proporzionale alla dimensione e quantità dei volumi di dati a meno che non venga usata l'opzione "encrypt format all". 
+> - Durante la crittografia dei volumi del sistema operativo Linux, la macchina virtuale deve essere considerata non disponibile. È consigliabile evitare accessi SSH mentre è in corso la crittografia per evitare che eventuali file aperti a cui è necessario accedere durante il processo di crittografia risultino bloccati. Per controllare lo stato di avanzamento, usare il cmdlet [Get-AzVMDiskEncryptionStatus](/powershell/module/az.compute/get-azvmdiskencryptionstatus) di PowerShell o il comando dell'interfaccia della riga di comando [vm encryption show.](/cli/azure/vm/encryption#az_vm_encryption_show) Questo processo può richiedere alcune ore per un volume di sistema operativo da 30 GB, più un tempo aggiuntivo per la crittografia dei volumi di dati. Il tempo per la crittografia del volume di dati è proporzionale alla dimensione e quantità dei volumi di dati a meno che non venga usata l'opzione "encrypt format all". 
 > - La disabilitazione della crittografia nelle macchine virtuali Linux è supportata solo per i volumi di dati. Non è supportata nei dati o nei volumi del sistema operativo, se il volume del sistema operativo è stato crittografato. 
 
 >[!NOTE]
-> Inoltre, se il `VolumeType` parametro è impostato su All, i dischi dati verranno crittografati solo se montati correttamente.
+> Inoltre, se il parametro è impostato su Tutti, i dischi dati verranno `VolumeType` crittografati solo se sono montati correttamente.
 
 ## <a name="troubleshoot-and-support"></a>Risoluzione dei problemi e supporto
 
@@ -180,9 +180,9 @@ Per la risoluzione di problemi, consultare la [guida alla risoluzione dei proble
 
 Per ricevere assistenza in relazione a qualsiasi punto di questo articolo, contattare gli esperti di Azure nei [forum MSDN e Stack Overflow relativi ad Azure](https://azure.microsoft.com/support/community/). 
 
-In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Passare al [supporto tecnico di Azure](https://azure.microsoft.com/support/options/) e selezionare ottenere supporto. Per informazioni sull'uso del supporto di Azure, leggere le [domande frequenti sul supporto Microsoft Azure](https://azure.microsoft.com/support/faq/).
+In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Passare a [supporto tecnico di Azure](https://azure.microsoft.com/support/options/) e selezionare Ottieni supporto. Per informazioni sull'uso di supporto di Azure, leggere le domande [Microsoft Azure domande frequenti sul supporto tecnico.](https://azure.microsoft.com/support/faq/)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per altre informazioni sulle estensioni della macchina virtuale, vedere [Estensioni e funzionalità della macchina virtuale per Linux](features-linux.md).
-* Per altre informazioni su crittografia dischi di Azure per Linux, vedere [macchine virtuali Linux](../../security/fundamentals/azure-disk-encryption-vms-vmss.md#linux-virtual-machines).
+* Per altre informazioni sui Crittografia dischi di Azure linux, vedere [Macchine virtuali Linux.](../../security/fundamentals/azure-disk-encryption-vms-vmss.md#linux-virtual-machines)

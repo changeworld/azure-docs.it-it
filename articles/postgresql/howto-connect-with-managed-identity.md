@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: d59b449a2dbf2ed3b1177db6e543de4c34a8ecb1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: beb5930e98a5c5498349dc3aa773423ee5d281bd
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105604159"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107792472"
 ---
 # <a name="connect-with-managed-identity-to-azure-database-for-postgresql"></a>Connettersi con l'identità gestita a Database di Azure per PostgreSQL
 
@@ -27,20 +27,20 @@ Si apprenderà come:
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Se non si ha familiarità con la funzionalità delle identità gestite per le risorse di Azure, vedere questa [panoramica](../../articles/active-directory/managed-identities-azure-resources/overview.md). Se non si ha un account Azure, [registrarsi per ottenere un account gratuito](https://azure.microsoft.com/free/) prima di continuare.
-- Per eseguire le attività richieste di creazione delle risorse e gestione dei ruoli, l'account deve avere le autorizzazioni "Proprietario" nell'ambito appropriato (sottoscrizione o gruppo di risorse). Se è necessaria assistenza per l'assegnazione di ruolo, vedere [assegnare i ruoli di Azure per gestire l'accesso alle risorse della sottoscrizione di Azure](../../articles/role-based-access-control/role-assignments-portal.md).
+- Per eseguire le attività richieste di creazione delle risorse e gestione dei ruoli, l'account deve avere le autorizzazioni "Proprietario" nell'ambito appropriato (sottoscrizione o gruppo di risorse). Se è necessaria assistenza per l'assegnazione di ruolo, vedere [Assegnare ruoli di Azure per gestire l'accesso alle risorse della sottoscrizione di Azure.](../../articles/role-based-access-control/role-assignments-portal.md)
 - È necessaria una macchina virtuale di Azure, ad esempio che esegue Ubuntu Linux, da usare per l'accesso al database tramite l'identità gestita
 - È necessario un server di Database di Azure per PostgreSQL con l'[autenticazione di Azure AD](howto-configure-sign-in-aad-authentication.md) configurata
 - Per seguire l'esempio in C#, completare prima di tutto la procedura per [connettersi con C#](connect-csharp.md)
 
 ## <a name="creating-a-user-assigned-managed-identity-for-your-vm"></a>Creazione di un'identità gestita assegnata dall'utente per la VM
 
-Creare un'identità nella sottoscrizione usando il comando [az identity create](/cli/azure/identity#az-identity-create). È possibile usare lo stesso gruppo di risorse in cui viene eseguita la macchina virtuale o un altro.
+Creare un'identità nella sottoscrizione usando il comando [az identity create](/cli/azure/identity#az_identity_create). È possibile usare lo stesso gruppo di risorse in cui viene eseguita la macchina virtuale o un altro.
 
 ```azurecli-interactive
 az identity create --resource-group myResourceGroup --name myManagedIdentity
 ```
 
-Per configurare l'identità nei passaggi seguenti, usare il comando [az identity show](/cli/azure/identity#az-identity-show) per archiviare l'ID risorsa e l'ID client dell'entità in variabili.
+Per configurare l'identità nei passaggi seguenti, usare il comando [az identity show](/cli/azure/identity#az_identity_show) per archiviare l'ID risorsa e l'ID client dell'entità in variabili.
 
 ```azurecli
 # Get resource ID of the user-assigned identity
@@ -50,7 +50,7 @@ resourceID=$(az identity show --resource-group myResourceGroup --name myManagedI
 clientID=$(az identity show --resource-group myResourceGroup --name myManagedIdentity --query clientId --output tsv)
 ```
 
-È ora possibile assegnare l'identità assegnata dall'utente alla macchina virtuale con il comando [az vm identity assign](/cli/azure/vm/identity#az-vm-identity-assign):
+È ora possibile assegnare l'identità assegnata dall'utente alla macchina virtuale con il comando [az vm identity assign](/cli/azure/vm/identity#az_vm_identity_assign):
 
 ```azurecli
 az vm identity assign --resource-group myResourceGroup --name myVM --identities $resourceID

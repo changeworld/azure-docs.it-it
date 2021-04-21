@@ -1,17 +1,17 @@
 ---
-title: 'Esercitazione: identità gestita per richiamare funzioni di Azure'
+title: 'Esercitazione: Identità gestita per richiamare Funzioni di Azure'
 description: Usare l'identità gestita per richiamare Funzioni di Azure da un'app di Azure Spring Cloud
 author: MarkGardner
 ms.author: margard
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/10/2020
-ms.openlocfilehash: 99e3611711e9a25119a4428d7736a36073163894
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b737ea751d3b3d2132691e04a1a2cd853748db65
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104879182"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107792508"
 ---
 # <a name="tutorial-use-a-managed-identity-to-invoke-azure-functions-from-an-azure-spring-cloud-app"></a>Esercitazione: Usare un'identità gestita per richiamare Funzioni di Azure da un'app di Azure Spring Cloud
 
@@ -29,7 +29,7 @@ Funzioni di Azure e Servizi app includono il supporto predefinito per l'autentic
 
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
-Un gruppo di risorse è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. Creare un gruppo di risorse che contenga sia l'app per le funzioni che Spring Cloud usando il comando [az group create](/cli/azure/group#az-group-create):
+Un gruppo di risorse è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. Creare un gruppo di risorse che contenga sia l'app per le funzioni che Spring Cloud usando il comando [az group create](/cli/azure/group#az_group_create):
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -37,7 +37,7 @@ az group create --name myResourceGroup --location eastus
 
 
 ## <a name="create-a-function-app"></a>Creare un'app per le funzioni
-Per creare un'app per le funzioni, è necessario creare prima un account di archiviazione di backup usando il comando [az storage account create](/cli/azure/storage/account#az-storage-account-create):
+Per creare un'app per le funzioni, è necessario creare prima un account di archiviazione di backup usando il comando [az storage account create](/cli/azure/storage/account#az_storage_account_create):
 
 > [!Important]
 > È necessario che ogni app per le funzioni e ogni account di archiviazione abbiano un nome univoco. Negli esempi seguenti sostituire <your-functionapp-name> con il nome dell'app per le funzioni e <your-storageaccount-name> con il nome dell'account di archiviazione.

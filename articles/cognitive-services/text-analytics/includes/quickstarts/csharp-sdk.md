@@ -6,15 +6,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 03/11/2021
+ms.date: 04/19/2021
 ms.author: aahi
 ms.reviewer: assafi
-ms.openlocfilehash: d36efaf64edd51fd1c2b46b959af1a994f6ec956
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: 1fd102f0f94f1ce53bebfba94d4f4c1a1f9e3812
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105582877"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107765152"
 ---
 <a name="HOLTop"></a>
 
@@ -216,7 +216,7 @@ Document sentiment: Positive
 
 ### <a name="opinion-mining"></a>Opinion mining
 
-Creare una nuova funzione denominata `SentimentAnalysisWithOpinionMiningExample()` che accetta il client creato in precedenza e chiama la relativa `AnalyzeSentimentBatch()` funzione con l' `IncludeOpinionMining` opzione nel `AnalyzeSentimentOptions` contenitore. L'oggetto `AnalyzeSentimentResultCollection` restituito conterrà la raccolta di `AnalyzeSentimentResult` in cui rappresenta `Response<DocumentSentiment>`. La differenza tra `SentimentAnalysis()` e `SentimentAnalysisWithOpinionMiningExample()` è che quest'ultimo conterrà `SentenceOpinion` in ogni frase, che mostra una destinazione analizzata e le valutazioni correlate. Se si è verificato un errore, verrà generata un'eccezione `RequestFailedException`.
+Creare una nuova funzione denominata che accetta il client creato in precedenza e chiama la relativa funzione `SentimentAnalysisWithOpinionMiningExample()` `AnalyzeSentimentBatch()` con `IncludeOpinionMining` l'opzione nel `AnalyzeSentimentOptions` contenitore. L'oggetto `AnalyzeSentimentResultCollection` restituito conterrà la raccolta di `AnalyzeSentimentResult` in cui rappresenta `Response<DocumentSentiment>`. La differenza tra `SentimentAnalysis()` e è che quest'ultima conterrà in ogni frase, che mostra una destinazione analizzata e `SentimentAnalysisWithOpinionMiningExample()` le valutazioni `SentenceOpinion` correlate. Se si è verificato un errore, verrà generata un'eccezione `RequestFailedException`.
 
 ```csharp
 static void SentimentAnalysisWithOpinionMiningExample(TextAnalyticsClient client)
@@ -717,13 +717,13 @@ Key phrases:
 
 ---
 
-## <a name="use-the-api-asynchronously-with-the-analyze-operation"></a>Usare l'API in modo asincrono con l'operazione Analyze
+## <a name="use-the-api-asynchronously-with-the-analyze-operation"></a>Usare l'API in modo asincrono con l'operazione di analisi
 
 # <a name="version-31-preview"></a>[Versione 3.1-preview](#tab/version-3-1)
 
 [!INCLUDE [Analyze operation pricing](../analyze-operation-pricing-caution.md)]
 
-Creare una nuova funzione denominata `AnalyzeOperationExample()`, che accetta il client creato in precedenza e chiama la relativa funzione `StartAnalyzeBatchActionsAsync()`. L'oggetto restituito conterrà `AnalyzeBatchActionsOperation` l' `Operation` oggetto interfaccia. Poiché si tratta di un'operazione a esecuzione prolungata, usare `await` con `operation.WaitForCompletionAsync()` per aspettare l'aggiornamento del valore. Al termine di `WaitForCompletionAsync()`, la raccolta dovrebbe essere aggiornata in `operation.Value`. Se si è verificato un errore, verrà generata un'eccezione `RequestFailedException`.
+Creare una nuova funzione denominata `AnalyzeOperationExample()`, che accetta il client creato in precedenza e chiama la relativa funzione `StartAnalyzeBatchActionsAsync()`. `AnalyzeBatchActionsOperation`L'oggetto restituito conterrà `Operation` l'oggetto interfaccia . Poiché si tratta di un'operazione a esecuzione prolungata, usare `await` con `operation.WaitForCompletionAsync()` per aspettare l'aggiornamento del valore. Al termine di `WaitForCompletionAsync()`, la raccolta dovrebbe essere aggiornata in `operation.Value`. Se si è verificato un errore, verrà generata un'eccezione `RequestFailedException`.
 
 
 ```csharp
