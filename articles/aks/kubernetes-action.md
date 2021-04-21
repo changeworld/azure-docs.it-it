@@ -1,5 +1,5 @@
 ---
-title: Compilare, testare e distribuire contenitori in servizio Azure Kubernetes usando GitHub Actions
+title: Compilare, testare e distribuire contenitori servizio Azure Kubernetes usando GitHub Actions
 description: Informazioni su come usare GitHub Actions distribuire il contenitore in Kubernetes
 services: container-service
 author: azooinmyluggage
@@ -7,16 +7,16 @@ ms.topic: article
 ms.date: 11/06/2020
 ms.author: atulmal
 ms.custom: github-actions-azure
-ms.openlocfilehash: 3a8e91f74fe3c862a814d7660e64748df9553f1d
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 3d0b6030cc63d0d7f4eac2c72c3545cf315b1fd3
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107779760"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107832388"
 ---
 # <a name="github-actions-for-deploying-to-kubernetes-service"></a>GitHub Actions per la distribuzione nel servizio Kubernetes
 
-[GitHub Actions](https://docs.github.com/en/actions) offre la flessibilità necessaria per creare un flusso di lavoro automatizzato del ciclo di vita di sviluppo software. È possibile usare più azioni Kubernetes per eseguire la distribuzione nei contenitori da Registro Azure Container a servizio Azure Kubernetes con GitHub Actions. 
+[GitHub Actions](https://docs.github.com/en/actions) offre la flessibilità necessaria per creare un flusso di lavoro automatizzato del ciclo di vita di sviluppo software. È possibile usare più azioni Kubernetes per la distribuzione in contenitori da Registro Azure Container a servizio Azure Kubernetes con GitHub Actions. 
 
 ## <a name="prerequisites"></a>Prerequisiti 
 
@@ -33,9 +33,9 @@ Per un flusso di lavoro che ha come destinazione il servizio AKS, il file includ
 
 |Sezione  |Attività  |
 |---------|---------|
-|**autenticazione** | Accedere a un registro contenitori privato |
+|**autenticazione** | Accedere a un registro contenitori privato (ACR) |
 |**Compila** | Compilare & eseguire il push dell'immagine del contenitore  |
-|**Distribuzione** | 1. Impostare il cluster del servizio Servizio Web Di destinazione |
+|**Distribuzione** | 1. Impostare il cluster del servizio Web Di destinazione |
 | |2. Creare un segreto generico/docker-registry nel cluster Kubernetes  |
 ||3. Eseguire la distribuzione nel cluster Kubernetes|
 
@@ -47,7 +47,7 @@ Per un flusso di lavoro che ha come destinazione il servizio AKS, il file includ
 az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP> --sdk-auth
 ```
 
-Nel comando precedente sostituire i segnaposto con l'ID sottoscrizione e il gruppo di risorse. L'output è l'assegnazione di ruolo credenziali che forniscono l'accesso alla risorsa. Il comando dovrebbe eseguire l'output di un oggetto JSON simile al seguente.
+Nel comando precedente sostituire i segnaposto con l'ID sottoscrizione e il gruppo di risorse. L'output è le credenziali di assegnazione di ruolo che forniscono l'accesso alla risorsa. Il comando deve eseguire l'output di un oggetto JSON simile al seguente.
 
 ```json
   {
@@ -64,13 +64,13 @@ Copiare questo oggetto JSON, che potrà essere usato per eseguire l'autenticazio
 
 Seguire la procedura per configurare i segreti:
 
-1. In [GitHub](https://github.com/)passare al repository, selezionare **Settings (Impostazioni) > Secrets (Segreti) > Add a new secret (Aggiungi un nuovo segreto).**
+1. In [GitHub](https://github.com/)passare al repository, selezionare Impostazioni > **segreti > Aggiungi un nuovo segreto.**
 
     ![Screenshot che mostra il collegamento Aggiungi un nuovo segreto per un repository.](media/kubernetes-action/secrets.png)
 
-2. Incollare il contenuto del comando `az cli` precedente come valore della variabile secret. Ad esempio: `AZURE_CREDENTIALS`.
+2. Incollare il contenuto del `az cli` comando precedente come valore della variabile secret. Ad esempio: `AZURE_CREDENTIALS`.
 
-3. Analogamente, definire i segreti aggiuntivi seguenti per le credenziali del registro contenitori e impostarli nell'azione di accesso di Docker. 
+3. Analogamente, definire i segreti aggiuntivi seguenti per le credenziali del registro contenitori e impostarli nell'azione di accesso Docker. 
 
     - REGISTRY_USERNAME
     - REGISTRY_PASSWORD
@@ -125,7 +125,7 @@ Per distribuire un'immagine del contenitore nel servizio Container, è necessari
 | **kubectl-version** | (Facoltativo) Installa una versione specifica del file binario kubectl |
 
 
-Prima di poter eseguire la distribuzione nel servizio Kubernetes, è necessario impostare lo spazio dei nomi Kubernetes di destinazione e creare un segreto di pull dell'immagine. Per altre informazioni sul funzionamento del pull delle immagini, vedere Eseguire il pull di immagini da un Registro Azure Container a un [cluster Kubernetes.](../container-registry/container-registry-auth-kubernetes.md) 
+Prima di poter eseguire la distribuzione nel servizio Kubernetes, è necessario impostare lo spazio dei nomi Kubernetes di destinazione e creare un segreto di pull dell'immagine. Per altre informazioni sul funzionamento del pull delle immagini, vedere Eseguire il pull di immagini da un registro Azure Container a un [cluster Kubernetes.](../container-registry/container-registry-auth-kubernetes.md) 
 
 ```yaml
   # Create namespace if doesn't exist
@@ -140,7 +140,7 @@ Prima di poter eseguire la distribuzione nel servizio Kubernetes, è necessario 
       container-registry-password: ${{ secrets.REGISTRY_PASSWORD }}
       secret-name: ${{ env.SECRET }}
       namespace: ${{ env.NAMESPACE }}
-      force: true
+      arguments: --force true
 ```
 
 

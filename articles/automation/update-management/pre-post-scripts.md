@@ -5,12 +5,13 @@ services: automation
 ms.subservice: update-management
 ms.date: 03/08/2021
 ms.topic: conceptual
-ms.openlocfilehash: 676e5f03c8d0085a4d041662a80c63d385071919
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 51067095b7ebb33da61908b1424752b481668f5f
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106166718"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107830809"
 ---
 # <a name="manage-pre-scripts-and-post-scripts"></a>Gestire pre-script e post-script
 
@@ -20,7 +21,7 @@ I pre-script e i post-script sono runbook da eseguire nell'account di Automazion
 
 Per usare un runbook come pre-script o post-script, è necessario importarlo nell'account di Automazione e [pubblicare il runbook](../manage-runbooks.md#publish-a-runbook).
 
-Attualmente, solo i manuali operativi PowerShell e Python 2 sono supportati come script pre/post. Altri tipi di Runbook, come Python 3, grafico, flusso di lavoro PowerShell, flusso di lavoro PowerShell grafico non sono attualmente supportati come script pre/post.
+Attualmente, solo i runbook di PowerShell e Python 2 sono supportati come script pre/post. Altri tipi di runbook, ad esempio Python 3, grafico, flusso di lavoro PowerShell, flusso di lavoro grafico di PowerShell, non sono attualmente supportati come script di pre/post-elaborazione.
 
 ## <a name="pre-script-and-post-script-parameters"></a>Parametri di pre-script e post-script
 
@@ -119,7 +120,7 @@ Selezionando l'esecuzione della distribuzione di aggiornamento, vengono visualiz
 
 ## <a name="stop-a-deployment"></a>Arrestare una distribuzione
 
-Se si vuole arrestare una distribuzione in base a un pre-script, è necessario [generare](../automation-runbook-execution.md#throw) un'eccezione. In caso contrario, la distribuzione e il post-script saranno ancora in esecuzione. Il frammento di codice seguente mostra come generare un'eccezione usando PowerShell.
+Se si vuole arrestare una distribuzione in base a un pre-script, è necessario [generare](../automation-runbook-execution.md#throw) un'eccezione. In caso contrario, la distribuzione e il post-script saranno ancora in esecuzione. Il frammento di codice seguente illustra come generare un'eccezione usando PowerShell.
 
 ```powershell
 #In this case, we want to terminate the patch job if any run fails.
@@ -134,11 +135,11 @@ foreach($summary in $finalStatus)
 }
 ```
 
-In Python 2 la gestione delle eccezioni viene gestita in un blocco [try](https://www.python-course.eu/exception_handling.php) .
+In Python 2 la gestione delle eccezioni viene gestita in un [blocco try.](https://www.python-course.eu/exception_handling.php)
 
 ## <a name="interact-with-machines"></a>Interagire con i computer
 
-Gli script di pre e post-script vengono eseguiti come manuali operativi nell'account di automazione e non direttamente nei computer nella distribuzione. Anche pre-task e post-task vengono eseguiti nel contesto di Azure e non hanno accesso ai computer non Azure. Le sezioni seguenti illustrano come interagire direttamente con i computer, che si tratti di macchine virtuali di Azure o computer non Azure.
+I pre-script e i post-script vengono eseguiti come runbook nell'account di Automazione e non direttamente nei computer della distribuzione. Anche pre-task e post-task vengono eseguiti nel contesto di Azure e non hanno accesso ai computer non Azure. Le sezioni seguenti illustrano come interagire direttamente con i computer, che si tratti di macchine virtuali di Azure o computer non Azure.
 
 ### <a name="interact-with-azure-machines"></a>Interagire con i computer Azure
 
@@ -147,7 +148,7 @@ Pre-task e post-task vengono eseguiti come runbook e non in modo nativo nelle ma
 * Un account RunAs
 * Un runbook da eseguire
 
-Per interagire con i computer di Azure è necessario usare il cmdlet [Invoke-AzVMRunCommand](/powershell/module/az.compute/invoke-azvmruncommand) per interagire con le VM di Azure. Per un esempio di come eseguire questa operazione, vedere l'esempio Runbook [Gestione aggiornamenti-Esegui script con il comando Esegui](https://github.com/azureautomation/update-management-run-script-with-run-command).
+Per interagire con i computer di Azure è necessario usare il cmdlet [Invoke-AzVMRunCommand](/powershell/module/az.compute/invoke-azvmruncommand) per interagire con le VM di Azure. Per un esempio di come eseguire questa operazione, vedere l'esempio di runbook [Gestione aggiornamenti : eseguire lo script con il comando Run](https://github.com/azureautomation/update-management-run-script-with-run-command).
 
 ### <a name="interact-with-non-azure-machines"></a>Interagire con computer non Azure
 
@@ -158,7 +159,7 @@ Pre-task e post-task vengono eseguiti nel contesto di Azure e non hanno accesso 
 * Un runbook da eseguire in locale
 * Un runbook padre
 
-Per interagire con i computer non Azure viene eseguito un runbook padre nel contesto di Azure. Questo runbook chiama un runbook figlio con il cmdlet [Start-AzAutomationRunbook](/powershell/module/Az.Automation/Start-AzAutomationRunbook). È necessario specificare il `RunOn` parametro e specificare il nome del ruolo di lavoro ibrido per runbook in cui eseguire lo script. Vedere l'esempio Runbook [Gestione aggiornamenti-run script in locale](https://github.com/azureautomation/update-management-run-script-locally).
+Per interagire con i computer non Azure viene eseguito un runbook padre nel contesto di Azure. Questo runbook chiama un runbook figlio con il cmdlet [Start-AzAutomationRunbook](/powershell/module/Az.Automation/Start-AzAutomationRunbook). È necessario specificare il `RunOn` parametro e specificare il nome del ruolo di lavoro ibrido per runbook in cui eseguire lo script. Vedere l'esempio di runbook [Gestione aggiornamenti eseguire lo script in locale.](https://github.com/azureautomation/update-management-run-script-locally)
 
 ## <a name="abort-patch-deployment"></a>Interrompere la distribuzione di patch
 
@@ -172,7 +173,7 @@ if (<My custom error logic>)
 }
 ```
 
-In Python 2, se si desidera generare un errore quando si verifica una determinata condizione, utilizzare un'istruzione [Raise](https://docs.python.org/2.7/reference/simple_stmts.html#the-raise-statement) .
+In Python 2, se si vuole generare un errore quando si verifica una determinata condizione, usare [un'istruzione raise.](https://docs.python.org/2.7/reference/simple_stmts.html#the-raise-statement)
 
 ```python
 If (<My custom error logic>)
@@ -181,7 +182,7 @@ If (<My custom error logic>)
 
 ## <a name="samples"></a>Esempi
 
-Gli esempi di script di pre-script e post-script sono disponibili nell' [organizzazione GitHub di automazione di Azure](https://github.com/azureautomation) e nel [PowerShell Gallery](https://www.powershellgallery.com/packages?q=Tags%3A%22UpdateManagement%22+Tags%3A%22Automation%22)oppure è possibile importarli tramite il portale di Azure. Nell'account di Automazione selezionare **Raccolta di runbook** in **Automazione processi**. Usare **Update Management** come filtro.
+Gli esempi per pre-script e post-script sono disponibili nell'organizzazione [GitHub](https://github.com/azureautomation) di Automazione di Azure e [in PowerShell Gallery](https://www.powershellgallery.com/packages?q=Tags%3A%22UpdateManagement%22+Tags%3A%22Automation%22)oppure è possibile importarli tramite il portale di Azure. Nell'account di Automazione selezionare **Raccolta di runbook** in **Automazione processi**. Usare **Update Management** come filtro.
 
 ![Elenco della raccolta](./media/pre-post-scripts/runbook-gallery.png)
 
@@ -254,4 +255,4 @@ $variable = Get-AutomationVariable -Name $runId
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni dettagliate sulla gestione degli aggiornamenti, vedere [gestire gli aggiornamenti e le patch per le macchine virtuali](manage-updates-for-vm.md).
+Per informazioni dettagliate sulla gestione degli aggiornamenti, vedere [Gestire gli aggiornamenti e le patch per le macchine virtuali.](manage-updates-for-vm.md)

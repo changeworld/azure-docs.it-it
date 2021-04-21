@@ -10,13 +10,13 @@ ms.workload: identity
 ms.date: 01/28/2021
 ms.author: ryanwi
 ms.reviewer: stsoneff
-ms.custom: azureday1
-ms.openlocfilehash: 06837ab0f4685787f8d2615e81d0405fdb8ec711
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: azureday1, devx-track-azurepowershell
+ms.openlocfilehash: 5bb52799836b1975de9d936e04fb53987effb300
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99062561"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107832627"
 ---
 # <a name="tutorial-access-microsoft-graph-from-a-secured-app-as-the-app"></a>Esercitazione: Accedere a Microsoft Graph da un'app protetta come app
 
@@ -125,9 +125,9 @@ La classe [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecreden
 
 Per vedere questo codice come parte di un'applicazione di esempio, vedere l'[esempio in GitHub](https://github.com/Azure-Samples/ms-identity-easyauth-dotnet-storage-graphapi/tree/main/3-WebApp-graphapi-managed-identity).
 
-### <a name="install-the-microsoftidentitywebmicrosoftgraph-client-library-package"></a>Installare il pacchetto della libreria client Microsoft. Identity. Web. MicrosoftGraph
+### <a name="install-the-microsoftidentitywebmicrosoftgraph-client-library-package"></a>Installare il pacchetto della libreria client Microsoft.Identity.Web.MicrosoftGraph
 
-Installare il [pacchetto NuGet Microsoft. Identity. Web. MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Identity.Web.MicrosoftGraph) nel progetto usando l'interfaccia della riga di comando di .NET Core o la console di gestione pacchetti in Visual Studio.
+Installare il [pacchetto NuGet Microsoft.Identity.Web.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Identity.Web.MicrosoftGraph) nel progetto usando l'interfaccia della riga di comando di .NET Core o la console Gestione pacchetti in Visual Studio.
 
 # <a name="command-line"></a>[Riga di comando](#tab/command-line)
 
