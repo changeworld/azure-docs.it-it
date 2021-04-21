@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 06/09/2020
 ms.author: surmb
-ms.openlocfilehash: 1373e0eeead805dcd3a439878c9737c46d75bf3b
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 8664f9327af37345c7104c65b2521212669ae806
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106078503"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107786327"
 ---
 <a name="troubleshoot-backend-health-issues-in-application-gateway"></a>Risolvere i problemi di integrità del back-end nel gateway applicazione
 ==================================================
@@ -24,7 +24,7 @@ Per impostazione predefinita, il gateway applicazione di Azure verifica tramite 
 
 ### <a name="how-to-check-backend-health"></a>Come controllare l'integrità del back-end
 
-Per controllare l'integrità del pool back-end, è possibile usare la pagina **Integrità back-end** nel portale di Azure. In alternativa, è possibile usare [Azure PowerShell](/powershell/module/az.network/get-azapplicationgatewaybackendhealth) l'[interfaccia della riga di comando di Azure](/cli/azure/network/application-gateway#az-network-application-gateway-show-backend-health) o l'[API REST](/rest/api/application-gateway/applicationgateways/backendhealth).
+Per controllare l'integrità del pool back-end, è possibile usare la pagina **Integrità back-end** nel portale di Azure. In alternativa, è possibile usare [Azure PowerShell](/powershell/module/az.network/get-azapplicationgatewaybackendhealth) l'[interfaccia della riga di comando di Azure](/cli/azure/network/application-gateway#az_network_application_gateway_show_backend_health) o l'[API REST](/rest/api/application-gateway/applicationgateways/backendhealth).
 
 Lo stato recuperato da questi diversi metodi può essere uno dei seguenti:
 
@@ -81,7 +81,7 @@ Se si riceve lo stato Non integro per un server back-end per tutti i server in u
 Il messaggio visualizzato nella colonna **Dettagli** fornisce informazioni più dettagliate sul problema, in base alle quali è possibile iniziare a risolverlo.
 
 > [!NOTE]
-> La richiesta di probe predefinita viene inviata nel formato \<protocol\> ://127.0.0.1: \<port\> /. Ad esempio, http://127.0.0.1:80 per un probe HTTP sulla porta 80. Solo i codici di stato HTTP da 200 a 399 vengono considerati integri. Il protocollo e la porta di destinazione vengono ereditati dalle impostazioni HTTP. Se si vuole che il gateway applicazione verifichi tramite probe un altro protocollo, nome host o percorso e riconosca un codice di stato diverso come integro, configurare un probe personalizzato e associarlo alle impostazioni HTTP.
+> La richiesta probe predefinita viene inviata nel formato \<protocol\> ://127.0.0.1: \<port\> /. Ad esempio, http://127.0.0.1:80 per un probe HTTP sulla porta 80. Solo i codici di stato HTTP da 200 a 399 vengono considerati integri. Il protocollo e la porta di destinazione vengono ereditati dalle impostazioni HTTP. Se si vuole che il gateway applicazione verifichi tramite probe un altro protocollo, nome host o percorso e riconosca un codice di stato diverso come integro, configurare un probe personalizzato e associarlo alle impostazioni HTTP.
 
 <a name="error-messages"></a>Messaggi di errore
 ------------------------
@@ -170,7 +170,7 @@ Also check whether any NSG/UDR/Firewall is blocking access to the Ip and port of
 
 **Messaggio:** Status code of the backend\'s HTTP response did not match the probe setting. Expected:{HTTPStatusCode0} Received:{HTTPStatusCode1} (Il codice di stato della risposta HHTP del back-end non corrisponde all'impostazione del probe. Previsto: {HTTPStatusCode0} Ricevuto: {HTTPStatusCode1}).
 
-**Causa:** una volta stabilita la connessione TCP e al termine di un handshake TLS (se TLS è abilitato), il gateway applicazione invierà il probe come richiesta HTTP GET al server back-end. Come descritto in precedenza, il probe predefinito corrisponde a \<protocol\> ://127.0.0.1: \<port\> /e considera i codici di stato della risposta da Rage 200 a 399 come integri. Se il server restituisce qualsiasi altro codice di stato, verrà contrassegnato come non integro con questo messaggio.
+**Causa:** una volta stabilita la connessione TCP e al termine di un handshake TLS (se TLS è abilitato), il gateway applicazione invierà il probe come richiesta HTTP GET al server back-end. Come descritto in precedenza, il probe predefinito sarà \<protocol\> su ://127.0.0.1: /, e considera i codici di stato della risposta nell'intervallo \<port\> da 200 a 399 come integro. Se il server restituisce qualsiasi altro codice di stato, verrà contrassegnato come non integro con questo messaggio.
 
 **Soluzione:** a seconda del codice di risposta del server back-end, è possibile completare i passaggi seguenti. Di seguito sono elencati alcuni codici di stato comuni:
 

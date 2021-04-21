@@ -1,37 +1,37 @@
 ---
-title: Distribuire l'immagine del contenitore da Azure Container Registry
-description: Informazioni su come distribuire i contenitori in istanze di contenitore di Azure estraendo le immagini del contenitore da un registro contenitori di Azure.
+title: Distribuire l'immagine del contenitore da Registro Azure Container
+description: Informazioni su come distribuire contenitori in Istanze di Azure Container tramite il pull di immagini del contenitore da un Registro Azure Container.
 services: container-instances
 ms.topic: article
 ms.date: 07/02/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: cca1001f0f84f4e4fc87df233f872fc1efdb3267
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7aba107ac58538245c16f581afa2c493f546ca01
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92736739"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107786946"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Eseguire la distribuzione in Istanze di Azure Container da Registro Azure Container
 
-[Registro Azure Container](../container-registry/container-registry-intro.md) è un servizio gestito di registro contenitori usato per archiviare immagini di un contenitore Docker privato. Questo articolo descrive come eseguire il pull delle immagini del contenitore archiviate in un registro contenitori di Azure durante la distribuzione in istanze di contenitore di Azure. Per configurare l'accesso al registro di sistema, è consigliabile creare un Azure Active Directory entità servizio e la password e archiviare le credenziali di accesso in Azure Key Vault.
+[Registro Azure Container](../container-registry/container-registry-intro.md) è un servizio gestito di registro contenitori usato per archiviare immagini di un contenitore Docker privato. Questo articolo descrive come eseguire il pull delle immagini del contenitore archiviate in un Registro Azure Container durante la distribuzione in Istanze di Azure Container. Un modo consigliato per configurare l'accesso al Registro di sistema è creare un'entità servizio e una password Azure Active Directory e archiviare le credenziali di accesso in un insieme di credenziali delle chiavi di Azure.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-**Registro contenitori di Azure**: è necessario un registro contenitori di Azure e almeno un'immagine del contenitore nel registro di sistema, per completare i passaggi descritti in questo articolo. Se occorre un registro, vedere [Creare un registro contenitori usando l'interfaccia della riga di comando di Azure](../container-registry/container-registry-get-started-azure-cli.md).
+**Registro Azure Container:** sono necessari un Registro Azure Container e almeno un'immagine del contenitore nel registro per completare i passaggi descritti in questo articolo. Se occorre un registro, vedere [Creare un registro contenitori usando l'interfaccia della riga di comando di Azure](../container-registry/container-registry-get-started-azure-cli.md).
 
 **Interfaccia della riga di comando di Azure**: gli esempi della riga di comando in questo articolo usano l'[interfaccia della riga di comando di Azure](/cli/azure/) e sono formattati per la shell Bash. È possibile [installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) localmente o usare [Azure Cloud Shell][cloud-shell-bash].
 
 ## <a name="limitations"></a>Limitazioni
 
-* Non è possibile eseguire l'autenticazione in Azure Container Registry per eseguire il pull delle immagini durante la distribuzione del gruppo di contenitori usando un' [identità gestita](container-instances-managed-identity.md) configurata nello stesso gruppo di contenitori.
-* Al momento non è possibile effettuare il pull di immagini da [Azure container Registry](../container-registry/container-registry-vnet.md) distribuite in una rete virtuale di Azure.
+* Non è possibile eseguire l'autenticazione Registro Azure Container eseguire il pull delle immagini durante la distribuzione del gruppo di contenitori usando un'identità gestita [configurata](container-instances-managed-identity.md) nello stesso gruppo di contenitori.
+* Non è possibile eseguire il pull delle [immagini Registro Azure Container](../container-registry/container-registry-vnet.md) distribuite in una rete virtuale di Azure in questo momento.
 
 ## <a name="configure-registry-authentication"></a>Configurare l'autenticazione del registro
 
-In uno scenario di produzione in cui si fornisce l'accesso a servizi e applicazioni "Head", è consigliabile configurare l'accesso al registro di sistema tramite un' [entità servizio](../container-registry/container-registry-auth-service-principal.md). Un'entità servizio consente di fornire il [controllo degli accessi in base al ruolo di Azure (RBAC)](../container-registry/container-registry-roles.md) alle immagini del contenitore. Ad esempio, è possibile configurare un'entità servizio con accesso pull-only a un registro.
+In uno scenario di produzione in cui si fornisce l'accesso a servizi e applicazioni "headless", è consigliabile configurare l'accesso al Registro di sistema usando [un'entità servizio](../container-registry/container-registry-auth-service-principal.md). Un'entità servizio consente di fornire il controllo degli [accessi in base al](../container-registry/container-registry-roles.md) ruolo di Azure alle immagini del contenitore. Ad esempio, è possibile configurare un'entità servizio con accesso pull-only a un registro.
 
-Azure Container Registry offre [Opzioni di autenticazione](../container-registry/container-registry-authentication.md)aggiuntive.
+Registro Azure Container offre opzioni di [autenticazione aggiuntive.](../container-registry/container-registry-authentication.md)
 
 Nella sezione seguente vengono creati un insieme di credenziali delle chiavi e un'entità servizio di Azure e le credenziali dell'entità servizio vengono archiviate nell'insieme.
 
@@ -39,7 +39,7 @@ Nella sezione seguente vengono creati un insieme di credenziali delle chiavi e u
 
 Se non si ha già un insieme di credenziali delle chiavi in [Azure Key Vault](../key-vault/general/overview.md), crearne uno usando i comandi seguenti nell'interfaccia della riga di comando di Azure.
 
-Aggiornare la variabile `RES_GROUP` con il nome di un gruppo di risorse esistente in cui creare l'insieme di credenziali delle chiavi e `ACR_NAME` con il nome del registro contenitori. Per brevità, i comandi in questo articolo presuppongono che il registro di sistema, l'insieme di credenziali delle chiavi e le istanze di contenitore siano tutti creati nello stesso gruppo di risorse.
+Aggiornare la variabile `RES_GROUP` con il nome di un gruppo di risorse esistente in cui creare l'insieme di credenziali delle chiavi e `ACR_NAME` con il nome del registro contenitori. Per brevità, i comandi in questo articolo presuppongono che il registro, l'insieme di credenziali delle chiavi e le istanze di contenitore siano tutti creati nello stesso gruppo di risorse.
 
  Specificare un nome per il nuovo insieme di credenziali delle chiavi in `AKV_NAME`. Il nome dell'insieme di credenziali deve essere univoco in Azure e avere una lunghezza compresa tra 3 e 24 caratteri alfanumerici, iniziare con una lettera, finire con una lettera o una cifra e non contenere trattini consecutivi.
 
@@ -72,7 +72,7 @@ az keyvault secret set \
 
 L'argomento `--role` nel comando precedente configura l'entità servizio con il ruolo *acrpull*, che concede l'accesso al registro con autorizzazioni solo di pull. Per concedere l'accesso con autorizzazioni sia di push che di pull, impostare l'argomento `--role` su *acrpush*.
 
-Quindi, archiviare l' *AppID* dell'entità servizio nell'insieme di credenziali, ovvero il **nome utente** passato ad Azure container Registry per l'autenticazione.
+Archiviare quindi l'appId dell'entità servizio nell'insieme di credenziali, ovvero il nome utente passato all'Registro Azure Container per l'autenticazione.  
 
 ```azurecli
 # Store service principal ID in vault (the registry *username*)
@@ -123,7 +123,7 @@ Una volta avviato il contenitore, è possibile passare al suo FQDN nel browser p
 
 ## <a name="deploy-with-azure-resource-manager-template"></a>Distribuire con un modello di Azure Resource Manager
 
-È possibile specificare le proprietà del registro contenitori di Azure in un modello di Azure Resource Manager includendo la `imageRegistryCredentials` proprietà nella definizione del gruppo di contenitori. Ad esempio, è possibile specificare direttamente le credenziali del registro di sistema:
+È possibile specificare le proprietà del Registro Azure Container in un modello Azure Resource Manager includendo la `imageRegistryCredentials` proprietà nella definizione del gruppo di contenitori. Ad esempio, è possibile specificare direttamente le credenziali del Registro di sistema:
 
 ```JSON
 [...]
@@ -137,7 +137,7 @@ Una volta avviato il contenitore, è possibile passare al suo FQDN nel browser p
 [...]
 ```
 
-Per le impostazioni complete del gruppo di contenitori, vedere il [riferimento al modello di gestione risorse](/azure/templates/Microsoft.ContainerInstance/2019-12-01/containerGroups).    
+Per le impostazioni complete dei gruppi di contenitori, [Resource Manager riferimento al modello.](/azure/templates/Microsoft.ContainerInstance/2019-12-01/containerGroups)    
 
 Per informazioni dettagliate sul riferimento ai segreti di Azure Key Vault in un modello di Resource Manager, vedere [Usare Azure Key Vault per passare valori di parametro protetti durante la distribuzione](../azure-resource-manager/templates/key-vault-parameter.md).
 
@@ -175,7 +175,7 @@ Per altre informazioni sull'autenticazione con Registro Azure Container, vedere 
 [cloud-shell-try-it]: https://shell.azure.com/powershell
 
 <!-- LINKS - Internal -->
-[az-acr-show]: /cli/azure/acr#az-acr-show
-[az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
-[az-container-create]: /cli/azure/container#az-container-create
-[az-keyvault-secret-set]: /cli/azure/keyvault/secret#az-keyvault-secret-set
+[az-acr-show]: /cli/azure/acr#az_acr_show
+[az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az_ad_sp_create_for_rbac
+[az-container-create]: /cli/azure/container#az_container_create
+[az-keyvault-secret-set]: /cli/azure/keyvault/secret#az_keyvault_secret_set

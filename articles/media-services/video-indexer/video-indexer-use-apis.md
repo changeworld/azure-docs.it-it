@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/07/2021
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a445e9869b0cd9928d95364f39e60fc892214b9a
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: ac0b206a86edf3157141b56e0c2623a8429b0c7a
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107532449"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107785524"
 ---
 # <a name="tutorial-use-the-video-indexer-api"></a>Esercitazione: Usare l'API Video Indexer
 
@@ -38,18 +38,19 @@ Questo articolo illustra in che modo gli sviluppatori possono trarre vantaggio d
    > * È necessario usare lo stesso provider usato per l'iscrizione a Video Indexer.
    > * Gli account Google e Microsoft personali (Outlook/Live) possono essere usati solo per gli account di valutazione. Gli account connessi ad Azure richiedono Azure AD.
    > * Può essere presente un solo account attivo per ogni indirizzo di posta elettronica. Se un utente cerca di effettuare l'accesso con user@gmail.com per LinkedIn e successivamente con user@gmail.com per Google, verrà visualizzata una pagina di errore che indica che l'utente esiste già.
+
 2. Eseguire la sottoscrizione.
 
-    Selezionare la scheda [Prodotti](https://api-portal.videoindexer.ai/products). Selezionare quindi Autorizzazione ed eseguire la sottoscrizione.
+   Selezionare la scheda [Prodotti](https://api-portal.videoindexer.ai/products). Selezionare quindi Autorizzazione ed eseguire la sottoscrizione.
     
-    ![Scheda Prodotti nel portale per sviluppatori di Video Indexer](./media/video-indexer-use-apis/authorization.png)
+   ![Scheda Prodotti nel portale per sviluppatori di Video Indexer](./media/video-indexer-use-apis/authorization.png)
 
-    > [!NOTE]
-    > I nuovi utenti sono automaticamente sottoscritti per l'autorizzazione.
+   > [!NOTE]
+   > I nuovi utenti sono automaticamente sottoscritti per l'autorizzazione.
     
-    Dopo aver effettuato la sottoscrizione, è possibile trovare la sottoscrizione in **Products**  ->  **Authorization**. Nella pagina della sottoscrizione sono presenti le chiavi primaria e secondaria. Le chiavi devono essere protette. Le chiavi devono essere usate solo dal codice server. Non devono essere disponibili sul lato client (JS, HTML e così via).
+   Dopo aver effettuato la sottoscrizione, è possibile trovare la sottoscrizione in **Autorizzazione**  ->  **prodotti**. Nella pagina della sottoscrizione sono presenti le chiavi primaria e secondaria. Le chiavi devono essere protette. Le chiavi devono essere usate solo dal codice server. Non devono essere disponibili sul lato client (JS, HTML e così via).
 
-    ![Sottoscrizione e chiavi nel portale per sviluppatori di Video Indexer](./media/video-indexer-use-apis/subscriptions.png)
+   ![Sottoscrizione e chiavi nel portale per sviluppatori di Video Indexer](./media/video-indexer-use-apis/subscriptions.png)
 
 > [!TIP]
 > L'utente di Video Indexer può usare una chiave di sottoscrizione singola per connetterti a più account Video Indexer. È quindi possibile collegare questi account Video Indexer a diversi account Servizi multimediali.
@@ -64,7 +65,10 @@ Ogni chiamata all'API delle operazioni deve essere associata a un token di acces
 - Livello account: i token di accesso a livello di account consentono di eseguire operazioni a livello di **account** o a livello di **video**, ad esempio caricare video, elencare tutti i video, ottenere informazioni dettagliate sui video e così via.
 - Livello video: i token di accesso a livello di video consentono di eseguire operazioni su uno specifico **video**, ad esempio ottenere informazioni dettagliate sul video, scaricare i sottotitoli, ottenere i widget e così via.
 
-È possibile definire se i token devono essere di sola lettura o se devono consentire le modifiche specificando **allowEdit=true/false**.
+È possibile controllare il livello di autorizzazione dei token in due modi:
+
+* Per **i** token account, è possibile usare l'API Get **Account Access Token With Permission** (Ottieni token di accesso account con autorizzazione) e specificare il tipo di autorizzazione (**Reader** / **Contributor** / **MyAccessManager** / **Owner**).
+* Per tutti i tipi di token (inclusi i token **account),** è possibile specificare **allowEdit=true/false.** **false** è l'equivalente di un'autorizzazione **Lettore** (sola lettura) e **true** è l'equivalente di un'autorizzazione **Collaboratore** (lettura-scrittura).
 
 Per la maggior parte degli scenari da server a server, in genere si userà lo stesso token di **account**, perché consente di eseguire sia le operazioni a livello di **account** che le operazioni a livello di **video**. Se però si prevede di effettuare chiamate lato client a Video Indexer (ad esempio da JavaScript), può essere preferibile usare un token di accesso **video**, in modo da impedire ai client di ottenere l'accesso all'intero account. È sempre per questo motivo che, quando si incorpora codice client di Video Indexer nel client, ad esempio usando **Get Insights Widget** (Ottieni widget informazioni dettagliate) o **Get Player Widget** (Ottieni widget lettore), è necessario fornire un token di accesso **video**.
 
@@ -105,9 +109,9 @@ Il parametro Account ID è obbligatorio in tutte le chiamate alle API delle oper
 
 In questa sezione sono elencati alcuni suggerimenti per l'uso dell'API Video Indexer.
 
-- Se si prevede di caricare un video, è consigliabile inserire il file in un percorso di rete pubblico, ad esempio un account di Archiviazione BLOB di Azure. Ottenere il collegamento del video e specificare l'URL come il parametro per il caricamento del file.
+- Se si prevede di caricare un video, è consigliabile inserire il file in un percorso di rete pubblico, ad esempio un account Archiviazione BLOB di Azure locale. Ottenere il collegamento del video e specificare l'URL come il parametro per il caricamento del file.
 
-    L'URL fornito a Video Indexer deve puntare a un file multimediale (audio o video). Una verifica semplice per l'URL (o URL di firma di accesso condiviso) è incollarlo in un browser. Se il file inizia a riprodurre/scaricare, è probabile che si tratta di un URL valido. Se il browser esegue il rendering di una visualizzazione, probabilmente il collegamento non è relativo a un file ma a una pagina HTML.
+    L'URL fornito a Video Indexer deve puntare a un file multimediale (audio o video). Una semplice verifica dell'URL (o URL di firma di accesso condiviso) è incollarlo in un browser. Se il file inizia a riprodurre/scaricare, è probabile che sia un URL valido. Se il browser esegue il rendering di una visualizzazione, probabilmente il collegamento non è relativo a un file ma a una pagina HTML.
 
 - Quando si chiama l'API che consente di ottenere informazioni dettagliate sui video per il video specificato, viene visualizzato un output JSON dettagliato come contenuto della risposta. [Consultare informazioni dettagliate sul codice JSON restituito in questo argomento](video-indexer-output-json-v2.md).
 

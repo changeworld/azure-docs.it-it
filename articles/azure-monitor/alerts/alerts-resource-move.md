@@ -6,12 +6,12 @@ ms.author: harelbr
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 02/14/2021
-ms.openlocfilehash: 727196f274db3abae75a38d3ecdf31a78dec0fab
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: d21ee7a60d11a154737c5380ec20d3e9c4490962
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107725945"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107786064"
 ---
 # <a name="how-to-update-alert-rules-or-action-rules-when-their-target-resource-moves-to-a-different-azure-region"></a>Come aggiornare le regole di avviso o le regole di azione quando la risorsa di destinazione viene spostata in un'area di Azure diversa
 
@@ -19,7 +19,7 @@ Questo articolo descrive perché le [](./alerts-action-rules.md) [regole](./aler
 
 ## <a name="why-the-problem-exists"></a>Perché il problema esiste
 
-Le regole di avviso e le regole di azione fanno riferimento ad altre risorse di Azure. Gli esempi [includono macchine virtuali di Azure,](../../site-recovery/azure-to-azure-tutorial-migrate.md) [Azure SQL](../../azure-sql/database/move-resources-across-regions.md)e [Archiviazione di Azure](../../storage/common/storage-account-move.md). Quando si spostano le risorse a cui fanno riferimento queste regole, è probabile che le regole s smettano di funzionare correttamente perché non sono in grado di trovare le risorse a cui fanno riferimento.
+Le regole di avviso e le regole di azione fanno riferimento ad altre risorse di Azure. Ad [esempio, le macchine virtuali di Azure,](../../site-recovery/azure-to-azure-tutorial-migrate.md) [Azure SQL](../../azure-sql/database/move-resources-across-regions.md)e [Archiviazione di Azure](../../storage/common/storage-account-move.md). Quando si spostano le risorse a cui fanno riferimento queste regole, è probabile che le regole smettano di funzionare correttamente perché non sono in grado di trovare le risorse a cui fanno riferimento.
 
 Esistono due motivi principali per cui le regole potrebbero smettere di funzionare dopo lo spostamento delle risorse di destinazione:
 
@@ -104,8 +104,8 @@ Se **solo alcune** delle risorse nell'ambito sono state spostate, è necessario 
 
 ### <a name="change-the-scope-of-a-rule-using-azure-cli"></a>Modificare l'ambito di una regola usando l'interfaccia della riga di comando di Azure
 
-1.  Ottenere la regola esistente ([avvisi delle metriche,](/cli/azure/monitor/metrics/alert#az-monitor-metrics-alert-show) [avvisi del log attività](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-list)).
-2.  Aggiornare direttamente l'ambito della regola ([avvisi delle metriche,](/cli/azure/monitor/metrics/alert#az-monitor-metrics-alert-update) [avvisi del log attività](/cli/azure/monitor/activity-log/alert/scope))
+1.  Ottenere la regola esistente ([avvisi delle metriche,](/cli/azure/monitor/metrics/alert#az_monitor_metrics_alert_show) [avvisi del log attività](/cli/azure/monitor/activity-log/alert#az_monitor_activity_log-alert_list)).
+2.  Aggiornare direttamente l'ambito della regola ([avvisi delle metriche,](/cli/azure/monitor/metrics/alert#az_monitor_metrics_alert_update) [avvisi del log attività](/cli/azure/monitor/activity-log/alert/scope))
 3.  Se necessario, suddividere in due regole (rilevanti per alcuni casi di avvisi delle metriche, come indicato in precedenza).
 
 ## <a name="next-steps"></a>Passaggi successivi

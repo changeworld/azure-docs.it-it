@@ -1,20 +1,20 @@
 ---
-title: Avviare e arrestare un servizio Azure Kubernetes (AKS)
-description: Informazioni su come arrestare o avviare un cluster Azure Kubernetes Service (AKS).
+title: Avviare e arrestare un servizio Azure Kubernetes (servizio Web Disattesa)
+description: Informazioni su come arrestare o avviare un cluster servizio Azure Kubernetes (AKS).
 services: container-service
 ms.topic: article
 ms.date: 09/24/2020
 author: palma21
-ms.openlocfilehash: 87d51f9c1d084faf79c7ec1cf1255a6fb3c8245d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2d3c946bc2f98b0c06fe33dcaaa77a5399f6d56b
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103201013"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107782730"
 ---
-# <a name="stop-and-start-an-azure-kubernetes-service-aks-cluster"></a>Arrestare e avviare un cluster Azure Kubernetes Service (AKS)
+# <a name="stop-and-start-an-azure-kubernetes-service-aks-cluster"></a>Arrestare e avviare un cluster servizio Azure Kubernetes (AKS)
 
-È possibile che i carichi di lavoro AKS non debbano essere eseguiti in modo continuo, ad esempio un cluster di sviluppo usato solo durante l'orario di ufficio. Ciò comporta tempi in cui il cluster del servizio Kubernetes di Azure (AKS) potrebbe essere inattivo, in esecuzione non più dei componenti di sistema. È possibile ridurre il footprint del cluster [scalando tutti i `User` pool di nodi a 0](scale-cluster.md#scale-user-node-pools-to-0), ma il [ `System` pool](use-system-pools.md) è ancora necessario per eseguire i componenti di sistema mentre il cluster è in esecuzione. Per ottimizzare ulteriormente i costi durante questi periodi, è possibile disattivare completamente (arrestare) il cluster. Questa azione arresterà completamente il piano di controllo e i nodi dell'agente, consentendo di risparmiare su tutti i costi di calcolo, mantenendo al tempo stesso tutti gli oggetti e lo stato del cluster archiviati per il riavvio. È quindi possibile scegliere subito dopo un week-end o se il cluster è in esecuzione solo quando si eseguono i processi batch.
+I carichi di lavoro del servizio AKS potrebbero non dover essere eseguiti in modo continuo, ad esempio un cluster di sviluppo usato solo durante l'orario di ufficio. Ciò comporta tempi in cui il cluster servizio Azure Kubernetes (AKS) potrebbe essere inattivo, eseguendo non più dei componenti di sistema. È possibile ridurre il footprint del cluster ridimensionando tutti i pool di nodi su [ `User` 0,](scale-cluster.md#scale-user-node-pools-to-0)ma il [ `System` pool](use-system-pools.md) è comunque necessario per eseguire i componenti di sistema mentre il cluster è in esecuzione. Per ottimizzare ulteriormente i costi durante questi periodi, è possibile disattivare completamente (arrestare) il cluster. Questa azione arresterà completamente il piano di controllo e i nodi agente, consentendo di risparmiare su tutti i costi di calcolo, mantenendo tutti gli oggetti e lo stato del cluster archiviati per quando lo si avvia di nuovo. È quindi possibile riprendere il punto in cui si è rimasti dopo un fine settimana o fare in modo che il cluster sia in esecuzione solo durante l'esecuzione dei processi batch.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -24,19 +24,19 @@ Questo articolo presuppone che si disponga di un cluster del servizio Azure Kube
 
 Quando si usa la funzionalità di avvio/arresto del cluster, si applicano le restrizioni seguenti:
 
-- Questa funzionalità è supportata solo per i cluster con backup di set di scalabilità di macchine virtuali.
-- Lo stato del cluster di un cluster AKS arrestato viene mantenuto per un massimo di 12 mesi. Se il cluster viene arrestato per più di 12 mesi, non è possibile recuperare lo stato del cluster. Per ulteriori informazioni, vedere i [criteri di supporto di AKS](support-policies.md).
-- È possibile avviare o eliminare solo un cluster AKS interrotto. Per eseguire qualsiasi operazione come la scala o l'aggiornamento, avviare innanzitutto il cluster.
+- Questa funzionalità è supportata solo per i cluster supportati da set di scalabilità di macchine virtuali.
+- Lo stato del cluster di un cluster del servizio Web del servizio Web arrestato viene mantenuto per un massimo di 12 mesi. Se il cluster viene arrestato per più di 12 mesi, lo stato del cluster non può essere ripristinato. Per altre informazioni, vedere Criteri di supporto [del servizio Web Del servizio App.](support-policies.md)
+- È possibile avviare o eliminare solo un cluster del servizio Web Del servizio Web arrestato. Per eseguire qualsiasi operazione, ad esempio la scalabilità o l'aggiornamento, avviare prima il cluster.
 
-## <a name="stop-an-aks-cluster"></a>Arrestare un cluster AKS
+## <a name="stop-an-aks-cluster"></a>Arrestare un cluster del servizio Servizio Web Di windows
 
-È possibile usare il `az aks stop` comando per arrestare i nodi e il piano di controllo di un cluster AKS in esecuzione. Nell'esempio seguente viene arrestato un cluster denominato *myAKSCluster*:
+È possibile usare il comando per arrestare i nodi e il piano di controllo di un cluster del servizio Servizio Web Dick in `az aks stop` esecuzione. L'esempio seguente arresta un cluster *denominato myAKSCluster*:
 
 ```azurecli-interactive
 az aks stop --name myAKSCluster --resource-group myResourceGroup
 ```
 
-È possibile verificare quando il cluster viene arrestato usando il comando [AZ AKS Show][az-aks-show] e confermando l'impostazione `powerState` Mostra come nell' `Stopped` output seguente:
+È possibile verificare quando il cluster viene arrestato usando il [comando az aks show][az-aks-show] e confermando che `powerState` mostra come `Stopped` nell'output seguente:
 
 ```json
 {
@@ -52,21 +52,21 @@ az aks stop --name myAKSCluster --resource-group myResourceGroup
 }
 ```
 
-Se il `provisioningState` Mostra `Stopping` che indica che il cluster non è stato ancora arrestato completamente.
+Se indica `provisioningState` che il cluster non è ancora stato completamente `Stopping` arrestato.
 
 > [!IMPORTANT]
-> Se si usano i [budget](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/) per l'interruzione del Pod, l'operazione di arresto può richiedere più tempo perché il completamento del processo di svuotamento potrebbe richiedere più tempo.
+> Se si usano i budget [di interruzione dei pod,](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/) l'operazione di arresto può richiedere più tempo, in quanto il completamento del processo di svuotamento richiederà più tempo.
 
-## <a name="start-an-aks-cluster"></a>Avviare un cluster AKS
+## <a name="start-an-aks-cluster"></a>Avviare un cluster del servizio Web Disassoce
 
-È possibile usare il `az aks start` comando per avviare i nodi del cluster AKS e il piano di controllo interrotti. Il cluster viene riavviato con lo stato del piano di controllo precedente e il numero di nodi agente.  
-Nell'esempio seguente viene avviato un cluster denominato *myAKSCluster*:
+È possibile usare il comando per avviare i nodi e il piano di controllo di un cluster del `az aks start` servizio Web Disatteso arrestato. Il cluster viene riavviato con lo stato del piano di controllo precedente e il numero di nodi agente.  
+L'esempio seguente avvia un cluster *denominato myAKSCluster*:
 
 ```azurecli-interactive
 az aks start --name myAKSCluster --resource-group myResourceGroup
 ```
 
-È possibile verificare quando il cluster è stato avviato usando il comando [AZ AKS Show][az-aks-show] e confermare che il `powerState` Mostra `Running` come nell'output seguente:
+È possibile verificare quando il cluster è stato avviato usando il [comando az servizio][az-aks-show] WebKs show e confermando che `powerState` mostra come `Running` nell'output seguente:
 
 ```json
 {
@@ -82,13 +82,13 @@ az aks start --name myAKSCluster --resource-group myResourceGroup
 }
 ```
 
-Se il `provisioningState` Mostra `Starting` che indica che il cluster non è ancora stato completamente avviato.
+Se indica `provisioningState` che il cluster non è ancora stato completamente `Starting` avviato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per informazioni su come ridimensionare i `User` pool in 0, vedere [ridimensionare i `User` pool a 0](scale-cluster.md#scale-user-node-pools-to-0).
-- Per informazioni su come risparmiare sui costi usando le istanze di spot, vedere [aggiungere un pool di nodi spot ad AKS](spot-node-pool.md).
-- Per altre informazioni sui criteri di supporto di AKS, vedere [criteri di supporto AKS](support-policies.md).
+- Per informazioni su come ridimensionare `User` i pool a 0, vedere [Ridimensionare i pool a `User` 0.](scale-cluster.md#scale-user-node-pools-to-0)
+- Per informazioni su come risparmiare sui costi usando le istanze Spot, vedere [Aggiungere un pool di nodi spot al servizio Web Diaks.](spot-node-pool.md)
+- Per altre informazioni sui criteri di supporto del servizio Web Diaks, vedere Criteri [di supporto del servizio AKS.](support-policies.md)
 
 <!-- LINKS - external -->
 
@@ -96,9 +96,9 @@ Se il `provisioningState` Mostra `Starting` che indica che il cluster non è anc
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli
-[az-extension-add]: /cli/azure/extension#az-extension-add
-[az-extension-update]: /cli/azure/extension#az-extension-update
-[az-feature-register]: /cli/azure/feature#az-feature-register
-[az-feature-list]: /cli/azure/feature#az-feature-list
-[az-provider-register]: /cli/azure/provider#az-provider-register
+[az-extension-add]: /cli/azure/extension#az_extension_add
+[az-extension-update]: /cli/azure/extension#az_extension_update
+[az-feature-register]: /cli/azure/feature#az_feature_register
+[az-feature-list]: /cli/azure/feature#az_feature_list
+[az-provider-register]: /cli/azure/provider#az_provider_register
 [az-aks-show]: /cli/azure/aks#az_aks_show

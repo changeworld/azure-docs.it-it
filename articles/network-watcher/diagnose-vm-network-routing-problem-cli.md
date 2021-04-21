@@ -1,5 +1,5 @@
 ---
-title: Diagnosticare un problema di routing di rete VM-interfaccia della riga di comando di Azure
+title: Diagnosticare un problema di routing di rete della macchina virtuale - Interfaccia della riga di comando di Azure
 titleSuffix: Azure Network Watcher
 description: Questo articolo illustra come usare l'interfaccia della riga di comando di Azure per diagnosticare un problema di routing di rete di una macchina virtuale usando la funzionalità hop successivo di Azure Network Watcher.
 services: network-watcher
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 01/07/2021
 ms.author: damendo
 ms.custom: ''
-ms.openlocfilehash: 415fcc72116cc36644b58b619404d96ff63b024d
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 2ca7a3b25b1355e21782c1d9f736d20a14cbd4ac
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106065923"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107785452"
 ---
 # <a name="diagnose-a-virtual-machine-network-routing-problem---azure-cli"></a>Diagnosticare un problema di routing di rete di una macchina virtuale - Interfaccia della riga di comando di Azure
 
@@ -33,17 +33,17 @@ In questo articolo si distribuisce una macchina virtuale e quindi si controllano
 
 - Questo articolo richiede la versione 2.0 dell'interfaccia della riga di comando di Azure. Se si usa Azure Cloud Shell, la versione più recente è già installata. 
 
-- I comandi dell'interfaccia della riga di comando di Azure in questo articolo sono formattati per essere eseguiti in una shell bash.
+- I comandi dell'interfaccia della riga di comando di Azure in questo articolo sono formattati per l'esecuzione in una shell Bash.
 
 ## <a name="create-a-vm"></a>Creare una macchina virtuale
 
-Prima di poter creare una macchina virtuale, è necessario creare un gruppo di risorse per contenerla. Come prima cosa creare un gruppo di risorse con [az group create](/cli/azure/group#az-group-create). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella posizione *eastus*:
+Prima di poter creare una macchina virtuale, è necessario creare un gruppo di risorse per contenerla. Come prima cosa creare un gruppo di risorse con [az group create](/cli/azure/group#az_group_create). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella posizione *eastus*:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Creare una VM con il comando [az vm create](/cli/azure/vm#az-vm-create). Il comando crea le chiavi SSH, se non esistono già in una posizione predefinita. Per usare un set specifico di chiavi, utilizzare l'opzione `--ssh-key-value`. L'esempio seguente crea una macchina virtuale denominata *myVM*:
+Creare una VM con il comando [az vm create](/cli/azure/vm#az_vm_create). Il comando crea le chiavi SSH, se non esistono già in una posizione predefinita. Per usare un set specifico di chiavi, utilizzare l'opzione `--ssh-key-value`. L'esempio seguente crea una macchina virtuale denominata *myVM*:
 
 ```azurecli-interactive
 az vm create \
@@ -61,7 +61,7 @@ Per testare la comunicazione di rete con Network Watcher è necessario prima abi
 
 ### <a name="enable-network-watcher"></a>Abilitare Network Watcher
 
-Se si dispone già di un Network Watcher abilitato nell'area Stati Uniti orientali, passare al paragrafo [Usare la funzionalità Hop successivo](#use-next-hop). Usare il comando [az network watcher configure](/cli/azure/network/watcher#az-network-watcher-configure) per creare un Network Watcher nell'area degli Stati Uniti orientali:
+Se si dispone già di un Network Watcher abilitato nell'area Stati Uniti orientali, passare al paragrafo [Usare la funzionalità Hop successivo](#use-next-hop). Usare il comando [az network watcher configure](/cli/azure/network/watcher#az_network_watcher_configure) per creare un Network Watcher nell'area degli Stati Uniti orientali:
 
 ```azurecli-interactive
 az network watcher configure \
@@ -72,7 +72,7 @@ az network watcher configure \
 
 ### <a name="use-next-hop"></a>Usare la funzionalità Hop successivo
 
-Azure crea automaticamente le route per le destinazioni predefinite. È possibile creare route personalizzate per eseguire l'override delle route predefinite. In alcuni casi, le route personalizzate possono generare un errore di comunicazione. Per testare il routing da una macchina virtuale, usare [az network watcher show-next-hop](/cli/azure/network/watcher#az-network-watcher-show-next-hop) per determinare l'hop successivo quando il traffico è destinato a un indirizzo specifico.
+Azure crea automaticamente le route per le destinazioni predefinite. È possibile creare route personalizzate per eseguire l'override delle route predefinite. In alcuni casi, le route personalizzate possono generare un errore di comunicazione. Per testare il routing da una macchina virtuale, usare [az network watcher show-next-hop](/cli/azure/network/watcher#az_network_watcher_show_next_hop) per determinare l'hop successivo quando il traffico è destinato a un indirizzo specifico.
 
 Testare le comunicazioni in uscita dalla macchina virtuale a uno degli indirizzi IP di www.bing.com:
 
@@ -86,7 +86,7 @@ az network watcher show-next-hop \
   --out table
 ```
 
-Dopo alcuni secondi, l'output informa che **nextHopType** è **Internet** e che **RouteTableId** è una **Route di sistema**. Questo risultato informa l'utente che è presente una route valida per la destinazione.
+Dopo alcuni secondi, l'output informa che **nextHopType** è **Internet** e che **routeTableId** è **System Route.** Questo risultato informa l'utente che è presente una route valida per la destinazione.
 
 Testare le comunicazioni in uscita dalla macchina virtuale verso 172.31.0.100:
 
@@ -100,11 +100,11 @@ az network watcher show-next-hop \
   --out table
 ```
 
-L'output restituito informa che **None** è **NextHopType** e che **routeTableId** è anche la **Route di sistema**. Questo risultato informa che, nonostante sia presente una route di sistema valida per la destinazione, non vi è alcun hop successivo per indirizzare il traffico alla destinazione.
+L'output restituito informa **che None** è **il nextHopType** e che **routeTableId** è anche **System Route.** Questo risultato informa che, nonostante sia presente una route di sistema valida per la destinazione, non vi è alcun hop successivo per indirizzare il traffico alla destinazione.
 
 ## <a name="view-details-of-a-route"></a>Visualizzare i dettagli di una route
 
-Per analizzare ulteriormente il routing, esaminare le route valide per l'interfaccia di rete con il comando [az network nic show-effective-route-table](/cli/azure/network/nic#az-network-nic-show-effective-route-table):
+Per analizzare ulteriormente il routing, esaminare le route valide per l'interfaccia di rete con il comando [az network nic show-effective-route-table](/cli/azure/network/nic#az_network_nic_show_effective_route_table):
 
 ```azurecli-interactive
 az network nic show-effective-route-table \
@@ -154,7 +154,7 @@ Come si può notare nell'output del comando `az network watcher nic show-effecti
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando il gruppo di risorse e tutte le risorse in esso contenute non sono più necessari, è possibile usare [az group delete](/cli/azure/group#az-group-delete) per rimuoverli:
+Quando il gruppo di risorse e tutte le risorse in esso contenute non sono più necessari, è possibile usare [az group delete](/cli/azure/group#az_group_delete) per rimuoverli:
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes

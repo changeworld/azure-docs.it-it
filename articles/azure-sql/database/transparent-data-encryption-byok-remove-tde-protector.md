@@ -1,7 +1,7 @@
 ---
-title: Rimuovere la protezione Transparent Data Encryption (PowerShell & interfaccia della riga di comando di Azure
+title: Rimuovere la protezione TDE (PowerShell &'interfaccia della riga di comando di Azure)
 titleSuffix: Azure SQL Database & Azure Synapse Analytics
-description: Informazioni su come rispondere a una protezione Transparent Data Encryption potenzialmente compromessa per il database SQL di Azure o l'analisi delle sinapsi di Azure usando il supporto di Transparent Data Encryption with Bring Your Own Key
+description: Informazioni su come rispondere a una protezione TDE potenzialmente compromessa per database SQL di Azure o Azure Synapse Analytics usando il supporto TDE con Bring Your Own Key (BYOK).
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -12,54 +12,54 @@ author: shohamMSFT
 ms.author: shohamd
 ms.reviewer: vanto
 ms.date: 02/24/2020
-ms.openlocfilehash: c1613c61143044c4fa355c6225cf0fa1d4e2e09d
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: f98dcdd9c1a479703c82c01b4fd240507ea355de
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107308388"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107784465"
 ---
 # <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>Rimuovere una protezione TDE (Transparent Data Encryption) tramite PowerShell
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
 
-Questo argomento descrive come rispondere a una protezione Transparent Data Encryption potenzialmente compromessa per il database SQL di Azure o per l'analisi delle sinapsi di Azure che usa Transparent Data Encryption con chiavi gestite dal cliente nel supporto Azure Key Vault-Bring Your Own Key (BYOK). Per altre informazioni sul supporto BYOK per TDE, vedere la [pagina di panoramica](transparent-data-encryption-byok-overview.md).
+Questo argomento descrive come rispondere a una protezione TDE potenzialmente compromessa per database SQL di Azure o Azure Synapse Analytics che usa TDE con chiavi gestite dal cliente nel supporto di Azure Key Vault - Bring Your Own Key (BYOK). Per altre informazioni sul supporto BYOK per TDE, vedere la [pagina di panoramica](transparent-data-encryption-byok-overview.md).
 
 > [!CAUTION]
-> Le procedure descritte in questo articolo devono essere eseguite solo in casi estremi o in ambienti di test. Esaminare con attenzione i passaggi, poiché l'eliminazione di protezioni Transparent Data Encryption da Azure Key Vault comporterà la mancata **disponibilità del database**.
+> Le procedure descritte in questo articolo devono essere eseguite solo in casi estremi o in ambienti di test. Esaminare attentamente i passaggi, in quanto l'eliminazione delle protezione TDE usate attivamente Azure Key Vault il **database diventa non disponibile.**
 
-Se si sospetta che una chiave sia compromessa, in modo che un servizio o un utente abbia accesso non autorizzato alla chiave, è consigliabile eliminare la chiave.
+Se si sospetta che una chiave venga compromessa, in modo che un servizio o un utente abbia accesso non autorizzato alla chiave, è meglio eliminarla.
 
-Tenere presente che quando la protezione Transparent Data Encryption viene eliminata in Key Vault, in un massimo di 10 minuti, tutti i database crittografati inizieranno a negare tutte le connessioni con il messaggio di errore corrispondente e a impostare lo stato su [inaccessibile](./transparent-data-encryption-byok-overview.md#inaccessible-tde-protector).
+Tenere presente che dopo l'eliminazione della protezione TDE nel Key Vault, in un massimo di 10 minuti, tutti i database crittografati inizieranno a negare tutte le connessioni con il messaggio di errore corrispondente e ne modificheranno lo stato [in Inaccessibile.](./transparent-data-encryption-byok-overview.md#inaccessible-tde-protector)
 
-Questa guida dettagliata passa a due approcci a seconda del risultato desiderato dopo una risposta a un evento imprevisto compromesso:
+Questa guida dettagliata illustra due approcci a seconda del risultato desiderato dopo una risposta agli eventi imprevisti compromessa:
 
-- Per rendere **inaccessibili** i database nel database SQL di Azure o in Azure sinapsi Analytics.
-- Per rendere **inaccessibili** i database nel database SQL di Azure o in Azure sinapsi Analytics.
+- Per rendere i database in database SQL di Azure/Azure Synapse Analytics **inaccessibili.**
+- Per rendere i database in database SQL di Azure/Azure Azure Synapse Analytics **inaccessibile.**
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 - È necessario disporre di una sottoscrizione di Azure e avere il ruolo di amministratore di tale sottoscrizione.
-- È necessario che Azure PowerShell sia installato e in esecuzione.
-- In questa guida si presuppone che si stia già usando una chiave di Azure Key Vault come protezione Transparent Data Encryption per un database SQL di Azure o una sinapsi di Azure. Per altre informazioni, vedere [Transparent Data Encryption with BYOK Support](transparent-data-encryption-byok-overview.md) (Transparent Data Encryption con supporto BYOK).
+- È necessario aver installato Azure PowerShell in esecuzione.
+- Questa guida dettagliata presuppone che si sta già usando una chiave di Azure Key Vault come protezione TDE per un database SQL di Azure o Azure Synapse. Per altre informazioni, vedere [Transparent Data Encryption with BYOK Support](transparent-data-encryption-byok-overview.md) (Transparent Data Encryption con supporto BYOK).
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
- Per istruzioni sull'installazione del modulo Az, vedere [Installare Azure PowerShell](/powershell/azure/install-az-ps). Per i cmdlet specifici, vedere [AzureRM. SQL](/powershell/module/AzureRM.Sql/).
+ Per istruzioni sull'installazione del modulo Az, vedere [Installare Azure PowerShell](/powershell/azure/install-az-ps). Per cmdlet specifici, vedere [AzureRM.Sql](/powershell/module/AzureRM.Sql/).
 
 > [!IMPORTANT]
-> Il modulo Azure Resource Manager di PowerShell (RM) è ancora supportato, ma tutto lo sviluppo futuro riguarda il modulo AZ. SQL. Il modulo AzureRM continuerà a ricevere correzioni di bug almeno fino a dicembre 2020.  Gli argomenti per i comandi nei moduli Az e AzureRm sono sostanzialmente identici. Per altre informazioni sulla compatibilità, vedere [Introduzione del nuovo modulo Az di Azure PowerShell](/powershell/azure/new-azureps-module-az).
+> Il modulo PowerShell Azure Resource Manager (RM) è ancora supportato, ma tutto lo sviluppo futuro è per il modulo Az.Sql. Il modulo AzureRM continuerà a ricevere correzioni di bug almeno fino a dicembre 2020.  Gli argomenti per i comandi nei moduli Az e AzureRm sono sostanzialmente identici. Per altre informazioni sulla compatibilità, vedere [Introduzione del nuovo modulo Az di Azure PowerShell](/powershell/azure/new-azureps-module-az).
 
 # <a name="the-azure-cli"></a>[L’interfaccia della riga di comando di Azure](#tab/azure-cli)
 
-Per l'installazione, vedere [installare l'interfaccia della](/cli/azure/install-azure-cli)riga di comando di Azure.
+Per l'installazione, vedere [Installare l'interfaccia della riga di comando di Azure.](/cli/azure/install-azure-cli)
 
 * * *
 
-## <a name="check-tde-protector-thumbprints"></a>Controllare le identificazioni personali della protezione Transparent Data Encryption
+## <a name="check-tde-protector-thumbprints"></a>Controllare le identificazioni dell'identificazione personale della protezione TDE
 
-Nei passaggi seguenti viene descritto come controllare le identificazioni personali della protezione Transparent Data Encryption ancora utilizzate dai file di log virtuali (VLF) di un determinato database.
-È possibile trovare l'identificazione personale della protezione Transparent Data Encryption del database e l'ID del database eseguendo:
+La procedura seguente illustra come controllare le identificazioni dell'identificazione personale della protezione TDE ancora in uso dai file di log virtuali (VLF) di un database specificato.
+L'identificazione personale della protezione TDE corrente del database e l'ID del database sono disponibili eseguendo:
 
 ```sql
 SELECT [database_id],
@@ -69,7 +69,7 @@ SELECT [database_id],
  FROM [sys].[dm_database_encryption_keys]
 ```
 
-La query seguente restituisce VLF e la protezione Transparent Data Encryption corrispondente in uso. Ogni identificazione digitale diversa fa riferimento a una chiave diversa in Azure Key Vault (AKV):
+La query seguente restituisce le rispettive identificazioni personale delle VFS e della protezione TDE in uso. Ogni identificazione personale diversa fa riferimento a una chiave diversa in Azure Key Vault (AKV):
 
 ```sql
 SELECT * FROM sys.dm_db_log_info (database_id)
@@ -79,21 +79,21 @@ In alternativa, è possibile usare PowerShell o l'interfaccia della riga di coma
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Il comando di PowerShell **Get-AzureRmSqlServerKeyVaultKey**   fornisce l'identificazione personale della protezione Transparent Data Encryption utilizzata nella query, in modo che sia possibile visualizzare le chiavi da mantenere e le chiavi da eliminare in AKV. Solo le chiavi non più utilizzate dal database possono essere eliminate in modo sicuro dal Azure Key Vault.
+Il comando di PowerShell **Get-AzureRmSqlServerKeyVaultKey** fornisce l'identificazione personale della protezione TDE usata nella query, in modo da poter visualizzare le chiavi da mantenere e le chiavi da eliminare   in AKV. Solo le chiavi non più usate dal database possono essere eliminate in modo sicuro da Azure Key Vault.
 
 # <a name="the-azure-cli"></a>[L’interfaccia della riga di comando di Azure](#tab/azure-cli)
 
-Il comando di PowerShell **AZ SQL Server Key Show**   fornisce l'identificazione personale della protezione Transparent Data Encryption usata nella query, in modo da poter vedere quali sono le chiavi da mantenere e quali chiavi eliminare in AKV. Solo le chiavi non più utilizzate dal database possono essere eliminate in modo sicuro dal Azure Key Vault.
+Il comando di PowerShell **az sql server key show** fornisce l'identificazione personale della protezione TDE usata nella query, in modo da poter visualizzare le chiavi da mantenere e le chiavi da eliminare in   AKV. Solo le chiavi non più usate dal database possono essere eliminate in modo sicuro da Azure Key Vault.
 
 * * *
 
-## <a name="keep-encrypted-resources-accessible"></a>Mantieni accessibili le risorse crittografate
+## <a name="keep-encrypted-resources-accessible"></a>Mantenere accessibili le risorse crittografate
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 1. Creare una [nuova chiave in Key Vault](/powershell/module/az.keyvault/add-azkeyvaultkey). Assicurarsi che la nuova chiave venga creata in un insieme di credenziali delle chiavi separato dalla protezione TDE potenzialmente compromessa, poiché il provisioning del controllo di accesso viene eseguito a livello di insieme di credenziali.
 
-2. Aggiungere la nuova chiave al server usando i cmdlet [Add-AzSqlServerKeyVaultKey](/powershell/module/az.sql/add-azsqlserverkeyvaultkey) e [set-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) e aggiornarla come nuova protezione Transparent Data Encryption del server.
+2. Aggiungere la nuova chiave al server usando i cmdlet [Add-AzSqlServerKeyVaultKey](/powershell/module/az.sql/add-azsqlserverkeyvaultkey) e [Set-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) e aggiornarla come nuova protezione TDE del server.
 
    ```powershell
    # add the key from Key Vault to the server  
@@ -104,7 +104,7 @@ Il comando di PowerShell **AZ SQL Server Key Show**   fornisce l'identificazio
        -ServerName <LogicalServerName> -Type AzureKeyVault -KeyId <KeyVaultKeyId>
    ```
 
-3. Verificare che il server e tutte le repliche siano stati aggiornati alla nuova protezione Transparent Data Encryption usando il cmdlet [Get-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/get-azsqlservertransparentdataencryptionprotector) .
+3. Assicurarsi che il server e le repliche siano stati aggiornati alla nuova protezione TDE usando il cmdlet [Get-AzSqlServerTransparentDataEncryptionProtector.](/powershell/module/az.sql/get-azsqlservertransparentdataencryptionprotector)
 
    > [!NOTE]
    > La propagazione della nuova protezione TDE a tutti i database e ai database secondari nel server può richiedere alcuni minuti.
@@ -120,13 +120,13 @@ Il comando di PowerShell **AZ SQL Server Key Show**   fornisce l'identificazio
    Backup-AzKeyVaultKey -VaultName <KeyVaultName> -Name <KeyVaultKeyName> -OutputFile <DesiredBackupFilePath>
    ```
 
-5. Eliminare la chiave compromessa da Key Vault usando il cmdlet [Remove-AzKeyVaultKey](/powershell/module/az.keyvault/remove-azkeyvaultkey) .
+5. Eliminare la chiave compromessa Key Vault il cmdlet [Remove-AzKeyVaultKey.](/powershell/module/az.keyvault/remove-azkeyvaultkey)
 
    ```powershell
    Remove-AzKeyVaultKey -VaultName <KeyVaultName> -Name <KeyVaultKeyName>
    ```
 
-6. Per ripristinare una chiave per Key Vault in futuro usando il cmdlet [Restore-AzKeyVaultKey](/powershell/module/az.keyvault/restore-azkeyvaultkey) :
+6. Per ripristinare una chiave da Key Vault in futuro usando il cmdlet [Restore-AzKeyVaultKey:](/powershell/module/az.keyvault/restore-azkeyvaultkey)
 
    ```powershell
    Restore-AzKeyVaultKey -VaultName <KeyVaultName> -InputFile <BackupFilePath>
@@ -134,11 +134,11 @@ Il comando di PowerShell **AZ SQL Server Key Show**   fornisce l'identificazio
 
 # <a name="the-azure-cli"></a>[L’interfaccia della riga di comando di Azure](#tab/azure-cli)
 
-Per informazioni di riferimento sui comandi, vedere l'insieme di credenziali delle credenziali di [Azure](/cli/azure/keyvault/key).
+Per informazioni di riferimento sul comando, vedere l'elenco di [credenziali delle chiavi dell'interfaccia della riga di comando di Azure.](/cli/azure/keyvault/key)
 
-1. Creare una [nuova chiave in Key Vault](/cli/azure/keyvault/key#az-keyvault-key-create). Assicurarsi che la nuova chiave venga creata in un insieme di credenziali delle chiavi separato dalla protezione TDE potenzialmente compromessa, poiché il provisioning del controllo di accesso viene eseguito a livello di insieme di credenziali.
+1. Creare una [nuova chiave in Key Vault](/cli/azure/keyvault/key#az_keyvault_key_create). Assicurarsi che la nuova chiave venga creata in un insieme di credenziali delle chiavi separato dalla protezione TDE potenzialmente compromessa, poiché il provisioning del controllo di accesso viene eseguito a livello di insieme di credenziali.
 
-2. Aggiungere la nuova chiave al server e aggiornarla come nuova protezione Transparent Data Encryption del server.
+2. Aggiungere la nuova chiave al server e aggiornarla come nuova protezione TDE del server.
 
    ```azurecli
    # add the key from Key Vault to the server  
@@ -148,7 +148,7 @@ Per informazioni di riferimento sui comandi, vedere l'insieme di credenziali del
    az sql server tde-key set --server-key-type AzureKeyVault --kid <KeyVaultKeyId> --resource-group <SQLDatabaseResourceGroupName> --server <LogicalServerName>
    ```
 
-3. Verificare che il server e tutte le repliche siano stati aggiornati alla nuova protezione Transparent Data Encryption.
+3. Assicurarsi che il server e le repliche siano stati aggiornati alla nuova protezione TDE.
 
    > [!NOTE]
    > La propagazione della nuova protezione TDE a tutti i database e ai database secondari nel server può richiedere alcuni minuti.
@@ -164,13 +164,13 @@ Per informazioni di riferimento sui comandi, vedere l'insieme di credenziali del
    az keyvault key backup --file <DesiredBackupFilePath> --name <KeyVaultKeyName> --vault-name <KeyVaultName>
    ```
 
-5. Eliminare la chiave compromessa dal Key Vault.
+5. Eliminare la chiave compromessa da Key Vault.
 
    ```azurecli
    az keyvault key delete --name <KeyVaultKeyName> --vault-name <KeyVaultName>
    ```
 
-6. Per ripristinare una chiave per Key Vault in futuro.
+6. Per ripristinare una chiave da Key Vault in futuro.
 
    ```azurecli
    az keyvault key restore --file <BackupFilePath> --vault-name <KeyVaultName>
