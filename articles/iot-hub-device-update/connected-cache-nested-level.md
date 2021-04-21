@@ -1,52 +1,51 @@
 ---
-title: Gateway di Azure IoT Edge annidato a due livelli di cache connessa Microsoft con proxy non autenticato in uscita | Microsoft Docs
+title: Microsoft cache connessa due livelli annidati Azure IoT Edge gateway con proxy non autenticato in uscita | Microsoft Docs
 titleSuffix: Device Update for Azure IoT Hub
-description: Esercitazione di Microsoft Connected cache a due livelli annidato Azure IoT Edge Gateway con proxy non autenticato in uscita
+description: Esercitazione cache connessa gateway di Azure IoT Edge a due livelli con proxy non autenticato in uscita
 author: andyriv
 ms.author: andyriv
 ms.date: 2/16/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
-ms.openlocfilehash: e9749dfd7b28551a4fc2e7c6ba70ba9cce4e5a69
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 623ce808423f76ae1be079e0424fe3ddf27d1d58
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107307300"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107811887"
 ---
-# <a name="microsoft-connected-cache-preview-deployment-scenario-sample-two-level-nested-azure-iot-edge-gateway-with-outbound-unauthenticated-proxy"></a>Esempio di scenario di distribuzione dell'anteprima di Microsoft Connected cache: gateway Azure IoT Edge annidato a due livelli con proxy non autenticato in uscita
+# <a name="microsoft-connected-cache-preview-deployment-scenario-sample-two-level-nested-azure-iot-edge-gateway-with-outbound-unauthenticated-proxy"></a>Esempio di scenario cache connessa di distribuzione di Microsoft Azure IoT Edge: gateway di distribuzione annidato a due livelli con proxy non autenticato in uscita
 
-Dato il diagramma seguente, in questo scenario sono presenti un gateway Azure IoT Edge e un dispositivo Azure IoT Edge downstream, uno Azure IoT Edge Gateway che è stato associato a un altro gateway Azure IoT Edge e un server proxy nella rete perimetrale IT. Di seguito è riportato un esempio delle variabili di ambiente della cache connessa Microsoft che verrebbero impostate nell'portale di Azure UX per entrambi i moduli di MCC distribuiti nei gateway di Azure IoT Edge. Nell'esempio riportato di seguito viene illustrata la configurazione per due livelli di gateway Azure IoT Edge, ma non esiste alcun limite alla profondità degli host upstream supportati da Microsoft Connected cache. Non esiste alcuna differenza nelle opzioni di creazione del contenitore MCC degli esempi precedenti.
+Il diagramma seguente descrive lo scenario in cui un gateway Azure IoT Edge ha accesso diretto alle risorse della rete CDN e funge da padre di un altro gateway Azure IoT Edge rete. Il gateway IoT Edge figlio funge da elemento padre di un Azure IoT foglia, ad esempio Raspberry Pi. Sia il Azure IoT Edge figlio che Azure IoT dispositivo sono isolati da Internet. L'esempio seguente illustra la configurazione per due livelli di gateway Azure IoT Edge, ma non esiste alcun limite alla profondità degli host upstream che verranno supportati da Microsoft cache connessa. Non esiste alcuna differenza nelle opzioni di creazione cache connessa contenitori di Microsoft degli esempi precedenti.
 
-Per informazioni dettagliate sulla configurazione di distribuzioni a più livelli di Azure IoT Edge Gateway, vedere la documentazione [connessione a downstream IOT Edge Devices-Azure IOT Edge](../iot-edge/how-to-connect-downstream-iot-edge-device.md?preserve-view=true&tabs=azure-portal&view=iotedge-2020-11) . Si noti inoltre che quando si distribuiscono Azure IoT Edge, la cache connessa Microsoft e i moduli personalizzati, tutti i moduli devono trovarsi nello stesso registro contenitori.
+Per altre informazioni sulla configurazione di distribuzioni a più livelli di IoT Edge gateway Azure IoT Edge Azure IoT Edge downstream, vedere la documentazione Connettere dispositivi Azure IoT Edge [downstream.](../iot-edge/how-to-connect-downstream-iot-edge-device.md?preserve-view=true&tabs=azure-portal&view=iotedge-2020-11) Si noti anche che quando si distribuiscono Azure IoT Edge, Microsoft cache connessa e moduli personalizzati, tutti i moduli devono risiedere nello stesso registro contenitori.
 
-Il diagramma seguente illustra lo scenario in cui un Azure IoT Edge Gateway come accesso diretto alle risorse della rete CDN funge da padre per un altro gateway Azure IoT Edge che funge da padre per un dispositivo foglia di Azure, ad esempio un dispositivo Raspberry Pi. Solo l'elemento padre del gateway Azure IoT Edge dispone di connettività Internet alle risorse della rete CDN ed entrambi i dispositivi Azure IoT Edge figlio e Azure Internet sono isolati. 
+>[!Note]
+>Quando si distribuiscono Azure IoT Edge, microsoft cache connessa e moduli personalizzati, tutti i moduli devono risiedere nello stesso registro contenitori.
 
-  :::image type="content" source="media/connected-cache-overview/nested-level-proxy.png" alt-text="Cache connessa Microsoft annidata" lightbox="media/connected-cache-overview/nested-level-proxy.png":::
+  :::image type="content" source="media/connected-cache-overview/nested-level-proxy.png" alt-text="Microsoft cache connessa annidato" lightbox="media/connected-cache-overview/nested-level-proxy.png":::
 
 ## <a name="parent-gateway-configuration"></a>Configurazione del gateway padre
-
-1. Aggiungere il modulo Microsoft Connected cache alla distribuzione del dispositivo Azure IoT Edge Gateway nell'hub Azure.
+1. Aggiungere il modulo Microsoft cache connessa alla distribuzione del dispositivo gateway Azure IoT Edge in hub IoT di Azure (vedere [Supporto](connected-cache-disconnected-device-update.md) per dispositivi disconnessi per informazioni dettagliate su come ottenere il modulo).
 2. Aggiungere le variabili di ambiente per la distribuzione. Di seguito è riportato un esempio delle variabili di ambiente.
 
     **Variabili di ambiente**
 
-    | Nome                 | Valore                                       |
-    | ----------------------------- | --------------------------------------------| 
-    | CACHE_NODE_ID                 | Vedere la descrizione della variabile di ambiente. |
-    | CUSTOMER_ID                   | Vedere la descrizione della variabile di ambiente. |
-    | CUSTOMER_KEY                  | Vedere la descrizione della variabile di ambiente. |
-    | STORAGE_ *N* _SIZE_GB           | N = 5                                       |
-    | CACHEABLE_CUSTOM_1_HOST       | Packagerepo.com:80                          |
-    | CACHEABLE_CUSTOM_1_CANONICAL  | Packagerepo.com                             |
-    | IS_SUMMARY_ACCESS_UNRESTRICTED| true                                        |
-    | UPSTREAM_PROXY                | IP o FQDN del server proxy                     |
+    | Nome                          | Valore                                                                 |
+    | ----------------------------- | ----------------------------------------------------------------------| 
+    | CACHE_NODE_ID                 | Vedere le [descrizioni delle](connected-cache-configure.md) variabili di ambiente |
+    | CUSTOMER_ID                   | Vedere [le descrizioni delle variabili](connected-cache-configure.md) di ambiente |
+    | CUSTOMER_KEY                  | Vedere [le descrizioni delle variabili](connected-cache-configure.md) di ambiente |
+    | STORAGE_1_SIZE_GB             | 10                                                                    |
+    | CACHEABLE_CUSTOM_1_HOST       | Packagerepo.com:80                                                    |
+    | CACHEABLE_CUSTOM_1_CANONICAL  | Packagerepo.com                                                       |
+    | IS_SUMMARY_ACCESS_UNRESTRICTED| true                                                                  |
 
-3. Aggiungere le opzioni di creazione del contenitore per la distribuzione. Non esiste alcuna differenza nelle opzioni di creazione del contenitore di MCC dall'esempio precedente. Di seguito è riportato un esempio delle opzioni di creazione del contenitore.
+3. Aggiungere le opzioni di creazione del contenitore per la distribuzione. Non esistono differenze nelle opzioni di creazione del contenitore MCC dell'esempio precedente. Di seguito è riportato un esempio delle opzioni di creazione del contenitore.
 
 ### <a name="container-create-options"></a>Opzioni di creazione del contenitore
 
-```markdown
+```json
 {
     "HostConfig": {
         "Binds": [
@@ -65,38 +64,42 @@ Il diagramma seguente illustra lo scenario in cui un Azure IoT Edge Gateway come
             ]
         }
     }
+}
 ```
 
 ## <a name="child-gateway-configuration"></a>Configurazione del gateway figlio
 
 >[!Note]
->Se sono stati replicati i contenitori usati nella configurazione nel proprio registro privato, sarà necessario apportare una modifica alle impostazioni di configurazione. toml e alle impostazioni di runtime nella distribuzione del modulo. Per ulteriori informazioni, vedere [connessione a downstream IOT Edge Devices-Azure IOT Edge](../iot-edge/how-to-connect-downstream-iot-edge-device.md?preserve-view=true&tabs=azure-portal&view=iotedge-2020-11#deploy-modules-to-lower-layer-devices) .
+>Se sono stati replicati contenitori usati nella configurazione nel registro privato, sarà necessario apportare una modifica alle impostazioni config.toml e alle impostazioni di runtime nella distribuzione del modulo. Per altre informazioni, vedere [Connettere dispositivi downstream IoT Edge - Azure IoT Edge](../iot-edge/how-to-connect-downstream-iot-edge-device.md?preserve-view=true&tabs=azure-portal&view=iotedge-2020-11#deploy-modules-to-lower-layer-devices) per altri dettagli.
 
-1. Modificare il percorso dell'immagine per l'agente perimetrale, come illustrato nell'esempio seguente:
 
-```markdown
-[agent]
-name = "edgeAgent"
-type = "docker"
-env = {}
-[agent.config]
-image = "<parent_device_fqdn_or_ip>:8000/iotedge/azureiotedge-agent:1.2.0-rc2"
-auth = {}
-```
-2. Modificare le impostazioni di runtime dell'hub perimetro e dell'agente perimetrale nella distribuzione Azure IoT Edge come illustrato nell'esempio seguente:
+1. Modificare il percorso dell'immagine per l'agente Edge, come illustrato nell'esempio seguente:
+
+    ```markdown
+    [agent]
+    name = "edgeAgent"
+    type = "docker"
+    env = {}
+    [agent.config]
+    image = "<parent_device_fqdn_or_ip>:8000/iotedge/azureiotedge-agent:1.2.0-rc2"
+    auth = {}
+    ```
+2. Modificare le impostazioni di runtime dell'hub Edge e dell'agente Edge nella distribuzione Azure IoT Edge come illustrato in questo esempio:
     
-    * In Hub Edge, nel campo immagine, immettere ```$upstream:8000/iotedge/azureiotedge-hub:1.2.0-rc2```
-    * In agente Edge, nel campo immagine, immettere ```$upstream:8000/iotedge/azureiotedge-agent:1.2.0-rc2```
+    * In Hub edge immettere nel campo immagine ```$upstream:8000/iotedge/azureiotedge-hub:1.2.0-rc2```
+    * In Edge Agent (Agente Edge) immettere nel campo image (Immagine) ```$upstream:8000/iotedge/azureiotedge-agent:1.2.0-rc2```
 
-3. Aggiungere il modulo Microsoft Connected cache alla distribuzione del dispositivo Azure IoT Edge Gateway nell'hub Azure.
+3. Aggiungere il modulo Microsoft cache connessa alla distribuzione Azure IoT Edge dispositivo gateway in hub IoT di Azure.
 
    * Scegliere un nome per il modulo: ```ConnectedCache```
    * Modificare l'URI dell'immagine: ```$upstream:8000/mcc/linux/iot/mcc-ubuntu-iot-amd64:latest```
 
-4. Aggiungere le stesse variabili di ambiente e le stesse opzioni di creazione del contenitore utilizzate nella distribuzione padre.
+4. Aggiungere lo stesso set di variabili di ambiente e le opzioni di creazione del contenitore usate nella distribuzione padre.
+>[!Note]
+>Il CACHE_NODE_ID deve essere univoco.  I CUSTOMER_ID e CUSTOMER_KEY specificati saranno identici all'elemento padre. (vedere [Configurare Microsoft cache connessa](connected-cache-configure.md)
 
-Per la convalida di Microsoft Connected cache correttamente funzionante, eseguire il comando seguente nel terminale del dispositivo IoT Edge che ospita il modulo o qualsiasi dispositivo in rete.
+Per una convalida del corretto funzionamento di Microsoft cache connessa, eseguire il comando seguente nel terminale del dispositivo IoT Edge che ospita il modulo o qualsiasi dispositivo in rete. Sostituire \<Azure IoT Edge Gateway IP\> con l'indirizzo IP o il nome host del gateway IoT Edge rete. Per informazioni sulla visibilità di questo report, vedere i dettagli delle variabili di ambiente.
 
 ```bash
-    wget "http://<CHILD Azure IoT Edge Gateway IP>/mscomtest/wuidt.gif?cacheHostOrigin=au.download.windowsupdate.com
+    wget http://<CHILD Azure IoT Edge Gateway IP>/mscomtest/wuidt.gif?cacheHostOrigin=au.download.windowsupdate.com
 ```

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/19/2021
+ms.date: 04/20/2021
 ms.author: b-juche
-ms.openlocfilehash: a8c06b25b923d663e982e940100be7b9a2a009e1
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: 6cef4860184b217e96e8967ab24a3befc632e316
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107726845"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107811851"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Domande frequenti sulle Azure NetApp Files
 
@@ -29,7 +29,7 @@ Questo articolo contiene le risposte alle domande frequenti sulle Azure NetApp F
 
 ### <a name="does-the-data-path-for-nfs-or-smb-go-over-the-internet"></a>Il percorso dati per NFS o SMB viene distribuito tramite Internet?  
 
-No. Il percorso dati per NFS o SMB non passa attraverso Internet. Azure NetApp Files è un servizio nativo di Azure distribuito nella rete virtuale di Azure in cui è disponibile il servizio. Azure NetApp Files usa una subnet delegata ed effettua il provisioning di un'interfaccia di rete direttamente nella rete virtuale. 
+No. Il percorso dati per NFS o SMB non passa attraverso Internet. Azure NetApp Files è un servizio nativo di Azure distribuito nella rete virtuale di Azure in cui il servizio è disponibile. Azure NetApp Files usa una subnet delegata ed effettua il provisioning di un'interfaccia di rete direttamente nella rete virtuale. 
 
 Per [informazioni dettagliate, Azure NetApp Files linee guida per la pianificazione](./azure-netapp-files-network-topologies.md) della rete.  
 
@@ -94,7 +94,7 @@ Per l'elenco completo delle operazioni API, [Azure NetApp Files'API REST.](/rest
 
 ### <a name="can-i-use-azure-policies-with-azure-netapp-files"></a>È possibile usare i criteri di Azure con Azure NetApp Files?
 
-Sì, è possibile creare [criteri di Azure personalizzati.](../governance/policy/tutorials/create-custom-policy-definition.md) 
+Sì, è possibile creare criteri [di Azure personalizzati.](../governance/policy/tutorials/create-custom-policy-definition.md) 
 
 Non è tuttavia possibile creare criteri di Azure (criteri di denominazione personalizzati) nell Azure NetApp Files intervazione. Vedere [Linee guida per Azure NetApp Files pianificazione della rete.](azure-netapp-files-network-topologies.md#considerations)
 
@@ -124,7 +124,7 @@ Azure NetApp Files metriche delle prestazioni dei volumi. È anche possibile usa
 
 ### <a name="whats-the-performance-impact-of-kerberos-on-nfsv41"></a>Qual è l'impatto sulle prestazioni di Kerberos in NFSv4.1?
 
-Vedere Impatto sulle prestazioni di Kerberos sui volumi [NFSv4.1](performance-impact-kerberos.md) per informazioni sulle opzioni di sicurezza per NFSv4.1, sui vettori di prestazioni testati e sull'impatto sulle prestazioni previsto. 
+Per informazioni sulle opzioni di sicurezza per NFSv4.1, sui vettori di prestazioni testati e sull'impatto previsto sulle prestazioni, vedere Impatto sulle prestazioni di Kerberos sui volumi [NFSv4.1.](performance-impact-kerberos.md) 
 
 ## <a name="nfs-faqs"></a>Domande frequenti su NFS
 
@@ -166,7 +166,7 @@ Assicurarsi che sia abilitato nel client Windows per velocizzare la ricerca di `
 
 Per i client NFSv4.1, Azure NetApp Files supporta il meccanismo di blocco dei file NFSv4.1 che mantiene lo stato di tutti i blocchi di file in un modello basato su lease. 
 
-Per RFC 3530, Azure NetApp Files un singolo periodo di lease per tutto lo stato di un client NFS. Se il client non rinnova il lease entro il periodo definito, tutti gli stati associati al lease del client verranno rilasciati dal server.  
+Per RFC 3530, Azure NetApp Files un singolo periodo di lease per tutti gli stati di un client NFS. Se il client non rinnova il lease entro il periodo definito, tutti gli stati associati al lease del client verranno rilasciati dal server.  
 
 Ad esempio, se un client che monta un volume non risponde o si arresta in modo anomalo oltre i timeout, i blocchi verranno rilasciati. Il client può rinnovare il lease in modo esplicito o implicito eseguendo operazioni come la lettura di un file.   
 
@@ -184,19 +184,19 @@ Sì, è necessario creare una connessione Active Directory prima di distribuire 
 
 ### <a name="how-many-active-directory-connections-are-supported"></a>Quante connessioni Active Directory sono supportate?
 
-Azure NetApp Files non supporta più connessioni Active Directory (AD) in una singola *area,* anche se le connessioni ad Active Directory sono in account NetApp diversi. Tuttavia, è possibile avere più connessioni AD in una *singola* sottoscrizione, purché le connessioni ad Active Directory siano in aree diverse. Se sono necessarie più connessioni AD in una singola area, è possibile usare sottoscrizioni separate a tale scopo. 
+Azure NetApp Files non supporta più connessioni Active Directory (AD) in una singola *area,* anche se le connessioni ad Active Directory si verificano in account NetApp diversi. Tuttavia, è possibile avere più connessioni AD in una *singola* sottoscrizione, purché le connessioni ad Active Directory siano in aree diverse. Se sono necessarie più connessioni AD in una singola area, è possibile usare sottoscrizioni separate a tale scopo. 
 
 Viene configurata una connessione AD per ogni account NetApp. La connessione AD è visibile solo tramite l'account NetApp in cui è stata creata.
 
 ### <a name="does-azure-netapp-files-support-azure-active-directory"></a>La Azure NetApp Files supporta Azure Active Directory? 
 
-Sono [supportati Azure Active Directory servizi](../active-directory-domain-services/overview.md) di dominio Active Directory Domain Services [(AD DS).](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) È possibile usare controller di dominio Active Directory esistenti con Azure NetApp Files. I controller di dominio possono risiedere in Azure come macchine virtuali o in locale tramite ExpressRoute o VPN da sito a sito. Azure NetApp Files non supporta l'aggiunta ad AD [Azure Active Directory](https://azure.microsoft.com/resources/videos/azure-active-directory-overview/) in questo momento.
+Sono [supportati Azure Active Directory servizi](../active-directory-domain-services/overview.md) di dominio di Active Directory Domain Services [(AD DS).](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) È possibile usare controller di dominio Active Directory esistenti con Azure NetApp Files. I controller di dominio possono risiedere in Azure come macchine virtuali o in locale tramite ExpressRoute o VPN da sito a sito. Azure NetApp Files non supporta l'aggiunta ad AD [Azure Active Directory](https://azure.microsoft.com/resources/videos/azure-active-directory-overview/) in questo momento.
 
 Se si usa Azure NetApp Files con Azure Active Directory Domain Services, il percorso dell'unità organizzativa sarà `OU=AADDC Computers` quando si configura Active Directory per l'account NetApp.
 
 ### <a name="what-versions-of-windows-server-active-directory-are-supported"></a>Quali versioni di Windows Server Active Directory sono supportate?
 
-Azure NetApp Files supporta le versioni di Windows Server 2008r2SP1-2019 Active Directory Domain Services.
+Azure NetApp Files supporta le versioni di Windows Server 2008r2SP1-2019 di Active Directory Domain Services.
 
 ### <a name="why-does-the-available-space-on-my-smb-client-not-show-the-provisioned-size"></a>Perché lo spazio disponibile nel client SMB non mostra le dimensioni di cui è stato effettuato il provisioning?
 
@@ -213,6 +213,11 @@ La gestione `SMB Shares` di , e tramite Mmc `Sessions` `Open Files` (Computer Ma
 ### <a name="how-can-i-obtain-the-ip-address-of-an-smb-volume-via-the-portal"></a>Come è possibile ottenere l'indirizzo IP di un volume SMB tramite il portale?
 
 Usare il collegamento Json View (Visualizzazione **JSON)** nel riquadro di panoramica del volume e cercare **l'identificatore startIp** nelle **proprietà**  ->  **mountTargets**.
+
+### <a name="can-an-azure-netapp-files-smb-share-act-as-an-dfs-namespace-dfs-n-root"></a>Una condivisione Azure NetApp Files SMB può fungere da radice dello spazio dei nomi DFS (DFS-N)?
+
+No. Tuttavia, Azure NetApp Files condivisioni SMB possono fungere da destinazione cartella dello spazio dei nomi DFS (DFS-N).   
+Per usare una condivisione SMB Azure NetApp Files come destinazione cartella DFS-N, specificare il percorso di montaggio Universal Naming Convention (UNC) della condivisione SMB Azure NetApp Files usando la procedura Aggiungi destinazione cartella [DFS.](/windows-server/storage/dfs-namespaces/add-folder-targets#to-add-a-folder-target)  
 
 ### <a name="smb-encryption-faqs"></a>Domande frequenti sulla crittografia SMB
 
@@ -240,9 +245,9 @@ SMB 3.0 usa l'algoritmo AES-CCM, mentre SMB 3.1.1 usa l'algoritmo AES-GCM
 
 #### <a name="is-smb-encryption-required"></a>È necessaria la crittografia SMB?
 
-La crittografia SMB non è necessaria. Di conseguenza, è abilitato solo per una determinata condivisione se l'utente Azure NetApp Files abilitarla. Azure NetApp Files condivisioni non vengono mai esposte a Internet. Sono accessibili solo dall'interno di una determinata rete virtuale, tramite VPN o express route, quindi Azure NetApp Files condivisioni sono intrinsecamente sicure. La scelta di abilitare la crittografia SMB dipende interamente dall'utente. Prima di abilitare questa funzionalità, è necessario tenere presenti i problemi di prestazioni previsti.
+La crittografia SMB non è necessaria. Di conseguenza, è abilitato solo per una determinata condivisione se l'utente Azure NetApp Files abilitarla. Azure NetApp Files condivisioni non vengono mai esposte a Internet. Sono accessibili solo dall'interno di una determinata rete virtuale, tramite VPN o express route, quindi Azure NetApp Files condivisioni sono intrinsecamente sicure. La scelta di abilitare la crittografia SMB dipende interamente dall'utente. Prima di abilitare questa funzionalità, tenere presente la penalità prevista per le prestazioni.
 
-#### <a name="what-is-the-anticipated-impact-of-smb-encryption-on-client-workloads"></a><a name="smb_encryption_impact"></a>Qual è l'impatto previsto della crittografia SMB sui carichi di lavoro client?
+#### <a name="what-is-the-anticipated-impact-of-smb-encryption-on-client-workloads"></a><a name="smb_encryption_impact"></a>Qual è l'impatto previsto della crittografia SMB sui carichi di lavoro dei client?
 
 Anche se la crittografia SMB influisce sia sul client (sovraccarico della CPU per la crittografia e la decrittografia dei messaggi) che sull'archiviazione (riduzione della velocità effettiva), la tabella seguente evidenzia solo l'impatto sull'archiviazione. È consigliabile testare l'impatto delle prestazioni di crittografia sulle applicazioni prima di distribuire i carichi di lavoro nell'ambiente di produzione.
 
@@ -261,11 +266,11 @@ Azure NetApp Files metriche di utilizzo del volume e del pool di capacità. È a
 
 No. Azure NetApp Files non è supportato da Azure Storage Explorer.
 
-### <a name="how-do-i-determine-if-a-directory-is-approaching-the-limit-size"></a>Ricerca per categorie determinare se una directory sta per raggiunto il limite di dimensioni?
+### <a name="how-do-i-determine-if-a-directory-is-approaching-the-limit-size"></a>Ricerca per categorie determinare se una directory sta per essere in grado di limitare le dimensioni?
 
 È possibile usare il comando da un client per verificare se una directory sta per raggiunto il limite di dimensioni massime per i metadati della `stat` directory (320 MB).   
 
-Per una directory di 320 MB, il numero di blocchi è 655360, con dimensioni di blocco pari a 512 byte.  ovvero 320x1024x1024/512.  Questo numero si traduce in circa 4 milioni di file al massimo per una directory di 320 MB. Tuttavia, il numero effettivo di file massimi potrebbe essere inferiore, a seconda di fattori come il numero di file contenenti caratteri non ASCII nella directory. Di conseguenza, è necessario usare il comando come indicato di seguito `stat` per determinare se la directory sta per raggiunto il limite.  
+Per una directory di 320 MB, il numero di blocchi è 655360, con dimensioni di blocco pari a 512 byte.  ovvero 320x1024x1024/512.  Questo numero si traduce in circa 4 milioni di file al massimo per una directory di 320 MB. Tuttavia, il numero effettivo di file massimi potrebbe essere inferiore, a seconda di fattori come il numero di file contenenti caratteri non ASCII nella directory. Di conseguenza, è necessario usare il comando come indicato di seguito per determinare se la `stat` directory si sta avvicinando al limite.  
 
 Esempi:
 
@@ -296,7 +301,7 @@ NetApp offre una soluzione basata su SaaS, [NetApp Cloud Sync.](https://cloud.ne
 I requisiti per la migrazione dei dati da locale Azure NetApp Files sono i seguenti:The requirements for data migration from on premises to Azure NetApp Files are as follows: 
 
 - Assicurarsi Azure NetApp Files sia disponibile nell'area di Azure di destinazione.
-- Convalidare la connettività di rete tra l'origine e l Azure NetApp Files IP del volume di destinazione. Il trasferimento dei dati tra locale e il Azure NetApp Files è supportato tramite ExpressRoute.
+- Convalidare la connettività di rete tra l'origine e l Azure NetApp Files IP del volume di destinazione. Il trasferimento dei dati tra locale e il Azure NetApp Files è supportato su ExpressRoute.
 - Creare il volume Azure NetApp Files destinazione.
 - Trasferire i dati di origine nel volume di destinazione usando lo strumento di copia file preferito.
 
@@ -306,7 +311,7 @@ Azure NetApp Files fornisce volumi NFS e SMB.  Qualsiasi strumento di copia basa
 
 NetApp offre una soluzione basata su SaaS, [NetApp Cloud Sync.](https://cloud.netapp.com/cloud-sync-service)  La soluzione consente di replicare i dati NFS o SMB Azure NetApp Files le esportazioni NFS o le condivisioni SMB. 
 
-È anche possibile usare un'ampia gamma di strumenti gratuiti per copiare i dati. Per NFS, è possibile usare gli strumenti dei carichi di lavoro, ad esempio [rsync,](https://rsync.samba.org/examples.html) per copiare e sincronizzare i dati di origine in un volume Azure NetApp Files locale. Per SMB, è possibile usare i carichi di lavoro [robocopy](/windows-server/administration/windows-commands/robocopy) nello stesso modo.  Questi strumenti possono anche replicare le autorizzazioni per file o cartelle. 
+È anche possibile usare un'ampia gamma di strumenti gratuiti per copiare i dati. Per NFS, è possibile usare gli strumenti dei carichi di lavoro, ad esempio [rsync,](https://rsync.samba.org/examples.html) per copiare e sincronizzare i dati di origine in un volume Azure NetApp Files dati. Per SMB, è possibile usare i carichi di lavoro [robocopy](/windows-server/administration/windows-commands/robocopy) nello stesso modo.  Questi strumenti possono anche replicare le autorizzazioni per file o cartelle. 
 
 I requisiti per la replica di un volume Azure NetApp Files in un'altra area di Azure sono i seguenti: 
 - Assicurarsi Azure NetApp Files sia disponibile nell'area di Azure di destinazione.
@@ -328,9 +333,9 @@ No. Il servizio Importazione/Esportazione di Azure non supporta Azure NetApp Fil
 
 È possibile montare Azure NetApp Files NFS in macchine virtuali AvS Windows o Linux. È possibile eseguire il mapping Azure NetApp Files condivisioni SMB nelle macchine virtuali AvS Windows. Per altri dettagli, vedere [Azure NetApp Files con soluzione Azure VMware]( ../azure-vmware/netapp-files-with-azure-vmware-solution.md).  
 
-### <a name="what-regions-are-supported-for-using-azure-netapp-files-nfs-or-smb-volumes-with-azure-vmware-solution-avs"></a>Quali aree sono supportate per l'Azure NetApp Files di volumi NFS o SMB con soluzione Azure VMware (AVS)?
+### <a name="what-regions-are-supported-for-using-azure-netapp-files-nfs-or-smb-volumes-with-azure-vmware-solution-avs"></a>Quali aree sono supportate per l'uso Azure NetApp Files volumi NFS o SMB con soluzione Azure VMware (AVS)?
 
-L'Azure NetApp Files di volumi NFS o SMB con AVS è supportato nelle aree seguenti: Stati Uniti orientali, Stati Uniti occidentali, Europa occidentale e Australia orientale.
+L'Azure NetApp Files volumi NFS o SMB con AVS è supportato nelle aree seguenti: Stati Uniti orientali, Stati Uniti occidentali, Europa occidentale e Australia orientale.
 
 ## <a name="next-steps"></a>Passaggi successivi  
 

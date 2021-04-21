@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: parthpandyaMSFT
 ms.author: parthp
 ms.date: 09/23/2019
-ms.openlocfilehash: f43bdd0ec6654ba2fc8a04dbb62d2d658e06ce0f
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 189966c468fe5a39fbd44f7961e9512b7b054882
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107108357"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107811793"
 ---
 # <a name="how-to-migrate-your-account-from-cloud-partner-portal-to-partner-center"></a>Come eseguire la migrazione dell'account dal portale Cloud Partner al Centro per i partner
 
@@ -27,7 +27,7 @@ Se si è un utente con il ruolo di proprietario nel portale Cloud Partner per un
 
 ### <a name="your-account-has-been-migrated-to-partner-center"></a>È stata eseguita la migrazione dell'account nel Centro per i partner
 
-È ora possibile gestire l'account nel centro per i partner. Le modifiche, ad esempio l'aggiunta o l'eliminazione di utenti, verranno sincronizzate di nuovo nel portale Cloud Partner.
+È ora possibile gestire l'account in Partner Center. Le modifiche, ad esempio l'aggiunta o l'eliminazione di utenti, verranno sincronizzate di nuovo nel portale Cloud Partner.
 
 ### <a name="you-have-not-yet-migrated-your-account-to-partner-center"></a>Non è ancora stata eseguita la migrazione dell'account nel Centro per i partner
 
@@ -45,7 +45,7 @@ Fare clic sul banner per avviare il processo di migrazione dell'account. Sarà n
 
 ## <a name="publishers-moving-from-cpp"></a>Editori provenienti dal portale Cloud Partner
 
-Se è stata eseguita la migrazione dell'account da CPP, non è necessario creare un nuovo account del centro per i partner. È necessario avere ricevuto un collegamento personalizzato al nuovo account del centro per i partner nella posta elettronica e in una notifica di banner dopo aver eseguito l'accesso all'account CPP esistente.
+Se è stata eseguita la migrazione dell'account dal CPP, non è necessario creare un nuovo account Partner Center account. Dovrebbe essere stato ricevuto un collegamento personalizzato al nuovo account di Partner Center tramite posta elettronica e in una notifica banner dopo l'accesso all'account CPP esistente.
 
 Dopo avere abilitato il nuovo account del Centro per i partner visitando questo collegamento personalizzato, è possibile tornare al proprio account visitando il [dashboard del marketplace commerciale](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) nel Centro per i partner.
 
@@ -72,7 +72,7 @@ Per informazioni specifiche su ciò che è necessario fare entro il **15 ottobre
 
 1. Se l'account di iscrizione a MPN è stato originariamente creato nel Partner Membership Center (PMC), accedere al [Centro per i partner](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) per verificare che sia stata eseguita la migrazione dell'account. Se viene visualizzata una schermata del profilo con l'ID MPN, si è pronti per continuare. In caso contrario, è necessario avviare la migrazione dell'account seguendo le istruzioni nel [Partner Membership Center](https://partners.microsoft.com/partnerprogram/Welcome.aspx). Per assistenza, vedere la pagina del [supporto](https://partner.microsoft.com/support?issueid=100-0077).
 2. Passare alla [pagina di panoramica del marketplace commerciale nel Centro per i partner](https://partner.microsoft.com/dashboard/commercial-marketplace/overview). Se nel riquadro di spostamento a sinistra viene visualizzato "Marketplace commerciale", l'utente è registrato e può continuare con il passaggio successivo. In caso contrario, [registrarsi al marketplace commerciale](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership).
-3. Verificare che le proprie offerte siano disponibili in AppSource [eseguendo una ricerca delle offerte](https://appsource.microsoft.com/). Se le offerte sono già presenti in AppSource, continuare con il passaggio successivo. Per le offerte non disponibili in AppSource, creare una [nuova offerta Dynamics 365 Customer Engagement](.\partner-center-portal\create-new-customer-engagement-offer.md) o una [nuova offerta Dynamics 365 Operations](.\partner-center-portal\create-new-operations-offer.md).
+3. Verificare che le proprie offerte siano disponibili in AppSource [eseguendo una ricerca delle offerte](https://appsource.microsoft.com/). Se le offerte sono già presenti in AppSource, continuare con il passaggio successivo. Per qualsiasi offerta non in AppSource, vedere Pianificare un'offerta [Dynamics 365 Customer Engagement](dynamics-365-customer-engage-offer-setup.md) o Creare [un'offerta Dynamics 365 Operations.](.\partner-center-portal\create-new-operations-offer.md)
 4. Nella [pagina dei contratti](https://partner.microsoft.com/dashboard/account/agreements) del Centro per i partner verificare di aver esaminato e accettato l'**Addendum ISV di Business Applications**.
 5. Nella pagina [Impostazioni account](https://partner.microsoft.com/dashboard/account/v3/accountsettings/billingprofile) del Centro per i partner assicurarsi che le informazioni di fatturazione siano complete.
 6. Inviare ogni offerta nuova ed esistente per la certificazione e la pubblicazione, anche se le offerte sono state certificate in precedenza.
