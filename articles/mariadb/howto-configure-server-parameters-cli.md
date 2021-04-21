@@ -8,14 +8,14 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 10/1/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4009d8047dae7bf8d9ba66566ff8797fa09a8878
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a3ebcf5a381efceb5e7de503caf88f4ffd3b504e
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98662305"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107774738"
 ---
-# <a name="configure-server-parameters-in-azure-database-for-mariadb-using-the-azure-cli"></a>Configurare i parametri del server nel database di Azure per MariaDB usando l'interfaccia della riga di comando
+# <a name="configure-server-parameters-in-azure-database-for-mariadb-using-the-azure-cli"></a>Configurare i parametri del server in Database di Azure per MariaDB usando l'interfaccia della riga di comando di Azure
 È possibile elencare, visualizzare e aggiornare i parametri di configurazione per un'istanza di Database di Azure per il server MariaDB usando la utilità dell'interfaccia della riga di comando di Azure. Un subset delle configurazioni del motore viene esposto a livello di server e può essere modificato.
 
 >[!Note]
@@ -27,7 +27,7 @@ Per proseguire con questa guida, si richiedono:
 - L'utilità della riga di comando dell'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). In alternativa, è possibile usare Azure Cloud Shell nel browser.
 
 ## <a name="list-server-configuration-parameters-for-azure-database-for-mariadb-server"></a>Elencare i parametri di configurazione del server per Database di Azure per il server MariaDB
-Per elencare tutti i parametri modificabili in un server e i relativi valori, eseguire il comando [az mariadb server configuration list](/cli/azure/mariadb/server/configuration#az-mariadb-server-configuration-list).
+Per elencare tutti i parametri modificabili in un server e i relativi valori, eseguire il comando [az mariadb server configuration list](/cli/azure/mariadb/server/configuration#az_mariadb_server_configuration_list).
 
 È possibile elencare i parametri di configurazione per il server **mydemoserver.mariadb.database.azure.com** nel gruppo di risorse **myresourcegroup**.
 ```azurecli-interactive
@@ -37,7 +37,7 @@ az mariadb server configuration list --resource-group myresourcegroup --server m
 Per la definizione di ognuno dei parametri elencati, vedere la sezione di riferimento di MariaDB nell'articolo sulle [variabili di sistema del server](https://mariadb.com/kb/en/library/server-system-variables/).
 
 ## <a name="show-server-configuration-parameter-details"></a>Visualizzare i dettagli dei parametri di configurazione server
-Per visualizzare i dettagli di un determinato parametro di configurazione per un server, eseguire il comando [az mariadb server configuration show](/cli/azure/mariadb/server/configuration#az-mariadb-server-configuration-show).
+Per visualizzare i dettagli di un determinato parametro di configurazione per un server, eseguire il comando [az mariadb server configuration show](/cli/azure/mariadb/server/configuration#az_mariadb_server_configuration_show).
 
 Questo esempio illustra i dettagli del parametro di configurazione **slow\_query\_log** per il server **mydemoserver.mariadb.database.azure.com** nel gruppo di risorse **myresourcegroup**.
 ```azurecli-interactive
@@ -45,7 +45,7 @@ az mariadb server configuration show --name slow_query_log --resource-group myre
 ```
 
 ## <a name="modify-a-server-configuration-parameter-value"></a>Modificare un valore di un parametro di configurazione server
-È anche possibile modificare il valore di un determinato parametro di configurazione del server, che aggiorna il valore di configurazione sottostante del motore del server MariaDB. Per aggiornare la configurazione, usare il comando [az mariadb server configuration set](/cli/azure/mariadb/server/configuration#az-mariadb-server-configuration-set). 
+È anche possibile modificare il valore di un determinato parametro di configurazione del server, che aggiorna il valore di configurazione sottostante del motore del server MariaDB. Per aggiornare la configurazione, usare il comando [az mariadb server configuration set](/cli/azure/mariadb/server/configuration#az_mariadb_server_configuration_set). 
 
 Per aggiornare il parametro di configurazione **slow\_query\_log** per il server **mydemoserver.mariadb.database.azure.com** nel gruppo di risorse **myresourcegroup**.
 ```azurecli-interactive
@@ -60,9 +60,9 @@ az mariadb server configuration set --name slow_query_log --resource-group myres
 In questo modo il parametro di configurazione **slow\_query\_log** viene reimpostato sul valore predefinito **OFF**. 
 
 ## <a name="setting-parameters-not-listed"></a>Impostazione dei parametri non elencati
-Se il parametro Server che si desidera aggiornare non è elencato nella portale di Azure, è possibile impostare facoltativamente il parametro a livello di connessione utilizzando `init_connect` . In questo modo vengono impostati i parametri del server per ogni client che si connette al server. 
+Se il parametro del server da aggiornare non è elencato nel portale di Azure, è possibile impostare il parametro a livello di connessione usando `init_connect` . In questo modo vengono impostati i parametri del server per ogni client che si connette al server. 
 
-Aggiornare il parametro di configurazione del server **init \_ Connect** del server **mydemoserver.MariaDB.database.Azure.com** nel gruppo di risorse **myresourcegroup** per impostare i valori, ad esempio il set di caratteri.
+Aggiornare il parametro di configurazione del server **init \_ connect** del server **mydemoserver.mariadb.database.azure.com** nel gruppo di risorse **myresourcegroup** per impostare valori come il set di caratteri.
 ```azurecli-interactive
 az mariadb server configuration set --name init_connect --resource-group myresourcegroup --server mydemoserver --value "SET character_set_client=utf8;SET character_set_database=utf8mb4;SET character_set_connection=latin1;SET character_set_results=latin1;"
 ```
@@ -91,7 +91,7 @@ SELECT name FROM mysql.time_zone_name;
 
 ### <a name="setting-the-global-level-time-zone"></a>Impostazione del fuso orario a livello globale
 
-Il fuso orario a livello globale può essere impostato tramite il comando [az mariadb server configuration set](/cli/azure/mariadb/server/configuration#az-mariadb-server-configuration-set).
+Il fuso orario a livello globale può essere impostato tramite il comando [az mariadb server configuration set](/cli/azure/mariadb/server/configuration#az_mariadb_server_configuration_set).
 
 Il comando seguente aggiorna il parametro di configurazione **time\_zone** per il server **mydemoserver.mariadb.database.azure.com** nel gruppo di risorse **myresourcegroup** su **US/Pacific**.
 

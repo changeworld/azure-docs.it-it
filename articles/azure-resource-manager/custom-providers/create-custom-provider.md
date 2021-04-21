@@ -5,12 +5,12 @@ author: MSEvanhi
 ms.topic: tutorial
 ms.date: 06/24/2020
 ms.author: evanhi
-ms.openlocfilehash: 23ae69f49d37a210dd9fa1bfeedeca6c1b461e20
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 721fe31f514cb948c93dc2a779a92ef3b2775ef9
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94888862"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107779238"
 ---
 # <a name="quickstart-create-a-custom-provider-and-deploy-custom-resources"></a>Avvio rapido: Creare un provider personalizzato e distribuire le risorse personalizzate
 
@@ -27,7 +27,7 @@ Preparare l'ambiente per l'interfaccia della riga di comando di Azure.
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-Gli esempi dell'interfaccia della riga di comando di Azure usano `az rest` per richieste `REST`. Per altre informazioni, vedere [az rest](/cli/azure/reference-index#az-rest).
+Gli esempi dell'interfaccia della riga di comando di Azure usano `az rest` per richieste `REST`. Per altre informazioni, vedere [az rest](/cli/azure/reference-index#az_rest).
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -52,7 +52,7 @@ Per distribuire il provider personalizzato, usare l'interfaccia della riga di co
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
-In questo esempio viene richiesto di specificare un gruppo di risorse, la località e il nome dell'app per le funzioni del provider. I nomi sono archiviati in variabili che vengono usate in altri comandi. I comandi [az group create](/cli/azure/group#az-group-create) e [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create) distribuiscono le risorse.
+In questo esempio viene richiesto di specificare un gruppo di risorse, la località e il nome dell'app per le funzioni del provider. I nomi sono archiviati in variabili che vengono usate in altri comandi. I comandi [az group create](/cli/azure/group#az_group_create) e [az deployment group create](/cli/azure/deployment/group#az_deployment_group_create) distribuiscono le risorse.
 
 ```azurecli-interactive
 read -p "Enter a resource group name:" rgName &&

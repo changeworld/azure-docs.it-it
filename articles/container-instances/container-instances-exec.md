@@ -1,14 +1,14 @@
 ---
-title: Eseguire comandi nell'istanza del contenitore in esecuzione
+title: Eseguire comandi nell'istanza di contenitore in esecuzione
 description: Informazioni su come eseguire un comando in un contenitore attualmente in esecuzione in Istanze di Azure Container
 ms.topic: article
 ms.date: 03/30/2018
-ms.openlocfilehash: de48e6ac246e2b0751561b4c60bb63d88b599bdf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 42832910efff67f111c669793798d9ff0e413536
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "79247202"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107790780"
 ---
 # <a name="execute-a-command-in-a-running-azure-container-instance"></a>Eseguire un comando in un'istanza di contenitore di Azure in esecuzione
 
@@ -89,6 +89,6 @@ Istanze di Azure Container attualmente supporta l'avvio di un singolo processo c
 Informazioni su altri strumenti di risoluzione dei problemi e problemi di distribuzione comuni in [Risolvere i problemi di distribuzione in Istanze di Azure Container](container-instances-troubleshooting.md).
 
 <!-- LINKS - internal -->
-[az-container-create]: /cli/azure/container#az-container-create
-[az-container-exec]: /cli/azure/container#az-container-exec
+[az-container-create]: /cli/azure/container#az_container_create
+[az-container-exec]: /cli/azure/container#az_container_exec
 [azure-cli]: /cli/azure

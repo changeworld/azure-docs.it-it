@@ -81,11 +81,13 @@ additionalContent:
       items:
         - title: Espandere la condivisione file locale nel cloud
           links:
-            - url: ./files/storage-sync-files-planning.md
+            - url: ./file-sync/file-sync-introduction.md
+              text: Informazioni su Sincronizzazione file di Azure
+            - url: ./file-sync/file-sync-planning.md
               text: Sincronizzare le condivisioni file di Azure con file server Windows (Azure FileSync)
-            - url: ./files/storage-sync-files-deployment-guide.md
+            - url: ./file-sync/file-sync-deployment-guide.md
               text: Distribuire Sincronizzazione file di Azure
-            - url: ./files/index.yml
+            - url: ./file-sync/index.yml
               text: Altro >
         - title: Trasferimento dati online (da ambiente locale ad Azure)
           links:

@@ -6,13 +6,13 @@ ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 10/30/2020
-ms.openlocfilehash: d90b9e38158d951990fffc21a43317c688da12c9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 03/24/2021
+ms.openlocfilehash: d05566c0734f95e14335c6165de0b2104fa19bc6
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99052043"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107764856"
 ---
 # <a name="quickstart-create-your-first-logic-apps-workflow---azure-portal"></a>Avvio rapido: Creare il primo flusso di lavoro di App per la logica - Portale di Azure
 
@@ -37,7 +37,7 @@ Per informazioni su come creare e gestire la prima app per la logica tramite alt
     > [!IMPORTANT]
     > Se si usa il [connettore Gmail](/connectors/gmail/), tenere presente che solo gli account G Suite Business possono usare questo connettore senza restrizioni nelle app per la logica. Se si dispone di un account Gmail consumer, è possibile usare questo connettore solo con servizi approvati da Google specifici oppure è possibile [creare un'app client Google da usare per l'autenticazione con il connettore Gmail](/connectors/gmail/#authentication-and-bring-your-own-application). Per altre informazioni, vedere [Informative sulla privacy e sulla sicurezza dei dati per i connettori Google in App per la logica di Azure](../connectors/connectors-google-data-security-privacy-policy.md).
 
-* Se l'app per la logica deve comunicare attraverso un firewall che limita il traffico a indirizzi IP specifici, il firewall deve consentire l'accesso *sia* per gli indirizzi [IP in](logic-apps-limits-and-config.md#outbound) [ingresso](logic-apps-limits-and-config.md#inbound) che in uscita usati dal servizio o dal runtime di app per la logica nell'area di Azure in cui è presente l'app per la logica. Se l'app per la logica usa anche [connettori gestiti](../connectors/apis-list.md#managed-api-connectors), ad esempio il connettore Office 365 Outlook o il connettore SQL oppure usa [connettori personalizzati](/connectors/custom-connectors/), il firewall deve anche consentire l'accesso per *tutti* gli [indirizzi IP in uscita del connettore gestito](logic-apps-limits-and-config.md#outbound) nell'area di Azure dell'app per la logica.
+* Se l'app per la logica deve comunicare tramite un firewall che limita  il traffico a indirizzi IP specifici, tale firewall deve consentire l'accesso sia per gli indirizzi [IP](logic-apps-limits-and-config.md#outbound) [in](logic-apps-limits-and-config.md#inbound) ingresso che in uscita usati dal servizio App per la logica o dal runtime nell'area di Azure in cui è presente l'app per la logica. Se l'app per la logica usa anche connettori [gestiti,](../connectors/managed.md)ad esempio il connettore Office 365  Outlook o SQL, oppure connettori [personalizzati,](/connectors/custom-connectors/)il firewall deve anche consentire l'accesso a tutti gli indirizzi [IP](logic-apps-limits-and-config.md#outbound) in uscita del connettore gestito nell'area di Azure dell'app per la logica.
 
 <a name="create-logic-app"></a>
 

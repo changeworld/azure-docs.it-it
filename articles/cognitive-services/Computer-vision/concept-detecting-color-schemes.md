@@ -1,5 +1,5 @@
 ---
-title: Rilevamento della combinazione di colori-Visione artificiale
+title: Rilevamento combinazioni colori - Visione artificiale
 titleSuffix: Azure Cognitive Services
 description: Concetti relativi al rilevamento della combinazione di colori nelle immagini tramite l'API Visione artificiale.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 4e7774d2cd100931f92ff80066ebea4463c6f65c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2b113c424851065e244c3943bf4a4816bae9bba8
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "96532653"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107778914"
 ---
 # <a name="detect-color-schemes-in-images"></a>Rilevare le combinazioni di colori nelle immagini
 
@@ -30,7 +30,7 @@ Visione artificiale restituisce anche un valore booleano che indica se un'immagi
 
 L'esempio seguente illustra la risposta JSON restituita da Visione artificiale quando rileva la combinazione di colori dell'immagine di esempio. In questo caso, l'immagine di esempio non è in bianco e nero, ma i colori di primo piano e di sfondo dominanti sono il nero e i colori dominanti per l'immagine nel suo complesso sono il nero e il bianco.
 
-![Mountain outdoor al tramonto, con la silhouette di una persona](./Images/mountain_vista.png)
+![Mountain all'aperto al momento del sole, con il tempo di una persona](./Images/mountain_vista.png)
 
 ```json
 {
@@ -80,6 +80,6 @@ La tabella seguente mostra la valutazione in bianco e nero di Visione artificial
 
 ## <a name="use-the-api"></a>Usare l'API
 
-La funzionalità di rilevamento della combinazione di colori fa parte dell'API [analizza immagine](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) . È possibile chiamare questa API tramite un SDK nativo o con chiamate REST. Includere `Color` nel parametro di query **visualFeatures** . Quindi, quando si ottiene la risposta JSON completa, è sufficiente analizzare la stringa per il contenuto della `"color"` sezione.
+La funzionalità di rilevamento delle combinazioni colori fa parte [dell'API Analizza immagine](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-ga/operations/56f91f2e778daf14a499f21b) colori. È possibile chiamare questa API tramite un SDK nativo o con chiamate REST. Includere `Color` nel parametro di query **visualFeatures.** Quindi, quando si ottiene la risposta JSON completa, è sufficiente analizzare la stringa per il contenuto della `"color"` sezione .
 
 * [Avvio rapido: API REST o librerie client di Visione artificiale](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)

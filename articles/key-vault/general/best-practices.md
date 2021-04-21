@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/29/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 83fc2639ccfeccb7de974739562e1a212bac78a4
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 5e4ec2749cec8444382e2b6e7c856e74c57ebb59
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/20/2021
-ms.locfileid: "107749907"
+ms.locfileid: "107777168"
 ---
 # <a name="best-practices-to-use-key-vault"></a>Procedure consigliate per usare Azure Key Vault
 
@@ -34,7 +34,7 @@ I suggerimenti durante il controllo dell'accesso all'insieme di credenziali sono
 
 ## <a name="backup"></a>Backup
 
-Assicurarsi di eseguire backup regolari dell'insieme di credenziali durante l'aggiornamento, l'eliminazione o la creazione di oggetti all'interno di un insieme di credenziali.
+Assicurarsi di eseguire backup regolari dell'insieme di credenziali in caso di aggiornamento,eliminazione/creazione di oggetti all'interno di un insieme di credenziali.
 
 ### <a name="azure-powershell-backup-commands"></a>Azure PowerShell comandi di backup
 
@@ -44,9 +44,9 @@ Assicurarsi di eseguire backup regolari dell'insieme di credenziali durante l'ag
 
 ### <a name="azure-cli-backup-commands"></a>Comandi di backup dell'interfaccia della riga di comando di Azure
 
-* [Certificato di backup](/cli/azure/keyvault/certificate#az-keyvault-certificate-backup)
-* [Chiave di backup](/cli/azure/keyvault/key#az-keyvault-key-backup)
-* [Segreto di backup](/cli/azure/keyvault/secret#az-keyvault-secret-backup)
+* [Certificato di backup](/cli/azure/keyvault/certificate#az_keyvault_certificate_backup)
+* [Chiave di backup](/cli/azure/keyvault/key#az_keyvault_key_backup)
+* [Segreto di backup](/cli/azure/keyvault/secret#az_keyvault_secret_backup)
 
 
 ## <a name="turn-on-logging"></a>Attivare la registrazione

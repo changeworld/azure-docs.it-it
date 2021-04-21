@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 12/26/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 8d26b6c92462abc13c42257d2c6e571156eacc0f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6c54bdc2738f9455926882c439ff8942c1c0a5a6
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96011757"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107759767"
 ---
-Le condivisioni file di Azure vengono distribuite in *account di archiviazione*, ovvero oggetti di primo livello che rappresentano un pool di archiviazione condiviso. Questo pool di archiviazione condiviso può essere usato per distribuire più condivisioni file, nonché altre risorse di archiviazione, come contenitori BLOB, code o tabelle. Tutte le risorse di archiviazione distribuite in un account di archiviazione condividono i limiti applicabili a tale account. Per visualizzare i limiti correnti per un account di archiviazione, vedere [Obiettivi di scalabilità e prestazioni per File di Azure](../articles/storage/files/storage-files-scale-targets.md).
+Le condivisioni file di Azure vengono distribuite in *account di archiviazione*, ovvero oggetti di primo livello che rappresentano un pool di archiviazione condiviso. Questo pool di archiviazione condiviso può essere usato per distribuire più condivisioni file, nonché altre risorse di archiviazione, come contenitori BLOB, code o tabelle. Tutte le risorse di archiviazione distribuite in un account di archiviazione condividono i limiti applicabili a tale account. Per i limiti correnti dell'account di archiviazione, File di Azure [obiettivi di scalabilità e prestazioni](../articles/storage/files/storage-files-scale-targets.md).
 
 Sono due i tipi principali di account di archiviazione che verranno usati per le distribuzioni di File di Azure: 
 - **Account di archiviazione per utilizzo generico v2**: gli account di archiviazione per utilizzo generico v2 consentono di distribuire condivisioni file di Azure in hardware standard o basato su disco rigido (HDD). Oltre a archiviare le condivisioni file di Azure, gli account di archiviazione per utilizzo generico v2 possono archiviare altre risorse di archiviazione, ad esempio contenitori BLOB, code o tabelle. 

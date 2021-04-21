@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: image-builder
 ms.collection: linux
 ms.reviewer: cynthn
-ms.openlocfilehash: aaaabe758b036335062907c8e5549ae876c63997
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 77460d1675b806e04c72e5f46da0ec4274d99d41
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104594734"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107762534"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Anteprima: Creare un modello di Image Builder di Azure 
 
@@ -88,7 +88,7 @@ Per impostazione predefinita, Image Builder userà una macchina virtuale di comp
 
 ## <a name="osdisksizegb"></a>osDiskSizeGB
 
-Per impostazione predefinita, Image Builder non modifica le dimensioni dell'immagine, usa le dimensioni dell'immagine di origine. È possibile aumentare **solo** le dimensioni del disco del sistema operativo (Win e Linux), questo è facoltativo e il valore 0 indica che la dimensione dell'immagine di origine è uguale a quella di. Non è possibile ridurre le dimensioni del disco del sistema operativo a dimensioni inferiori rispetto a quelle dell'immagine di origine.
+Per impostazione predefinita, Image Builder non modifica le dimensioni dell'immagine, usa le dimensioni dell'immagine di origine. È possibile **aumentare** solo le dimensioni del disco del sistema operativo (Win e Linux), questo è facoltativo e un valore pari a 0 indica che lasciare le stesse dimensioni dell'immagine di origine. Non è possibile ridurre le dimensioni del disco del sistema operativo a quelle dell'immagine di origine.
 
 ```json
  {
@@ -121,7 +121,7 @@ Per altre informazioni, vedere [Definire le dipendenze della risorsa](../../azur
 
 ## <a name="identity"></a>Identità
 
-Obbligatorio: per il generatore di immagini è necessario disporre delle autorizzazioni per leggere/scrivere immagini, leggere negli script da archiviazione di Azure è necessario creare un'identità User-Assigned di Azure, che dispone delle autorizzazioni per le singole risorse. Per informazioni dettagliate sul funzionamento delle autorizzazioni di Image Builder e sui passaggi pertinenti, consultare la [documentazione](image-builder-user-assigned-identity.md).
+Obbligatorio: Image Builder avere le autorizzazioni per leggere/scrivere immagini, leggere negli script da Archiviazione di Azure è necessario creare un'identità di Azure User-Assigned, che abbia le autorizzazioni per le singole risorse. Per informazioni dettagliate sul funzionamento Image Builder autorizzazioni e sui passaggi pertinenti, vedere la [documentazione](image-builder-user-assigned-identity.md).
 
 
 ```json
@@ -134,16 +134,16 @@ Obbligatorio: per il generatore di immagini è necessario disporre delle autoriz
 ```
 
 
-Supporto di Image Builder per un'identità User-Assigned:
-* Supporta solo una singola identità
-* Non supporta i nomi di dominio personalizzati
+Image Builder supporto per un'User-Assigned identity:
+* Supporta una sola identità
+* Non supporta nomi di dominio personalizzati
 
 Per altre informazioni, vedere [Cosa sono le identità gestite per le risorse di Azure?](../../active-directory/managed-identities-azure-resources/overview.md).
 Per altre informazioni sulla distribuzione di questa funzionalità, vedere [Configurare le identità gestite per le risorse di Azure in una macchina virtuale di Azure tramite l'interfaccia della riga di comando di Azure](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#user-assigned-managed-identity).
 
 ## <a name="properties-source"></a>Proprietà: source
 
-La sezione `source` contiene informazioni sull'immagine di origine che verrà usata da Image Builder. Il generatore di immagini attualmente supporta solo in modo nativo la creazione di immagini di generazione Hyper-V (Gen1) 1 nella raccolta di immagini condivise (SIG) o nell'immagine gestita di Azure. Se si vuole creare immagini Gen2, è necessario usare un'immagine Gen2 di origine e distribuirla nel disco rigido virtuale. Successivamente, sarà necessario creare un'immagine gestita dal disco rigido virtuale e inserirla nel SIG come immagine Gen2.
+La sezione `source` contiene informazioni sull'immagine di origine che verrà usata da Image Builder. Image Builder attualmente supporta solo in modo nativo la creazione di immagini di generazione Hyper-V (Gen1) 1 in Azure Shared Image Gallery (SIG) o Managed Image. Se si vogliono creare immagini Gen2, è necessario usare un'immagine Di generazione 2 di origine e distribuirvi il disco rigido virtuale. Dopo, sarà quindi necessario creare un'immagine gestita dal disco rigido virtuale e inserirla nell'immagine SIG come immagine gen2.
 
 L'API richiede un "tipo di origine" che definisce l'origine per la compilazione dell'immagine, attualmente ne esistono tre tipi:
 - PlatformImage: indica che l'immagine di origine è un'immagine del Marketplace.
@@ -152,7 +152,7 @@ L'API richiede un "tipo di origine" che definisce l'origine per la compilazione 
 
 
 > [!NOTE]
-> Quando si utilizzano immagini personalizzate di Windows esistenti, è possibile eseguire il comando Sysprep fino a 8 volte in una singola immagine di Windows. per ulteriori informazioni, vedere la documentazione di [Sysprep](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep) .
+> Quando si usano immagini personalizzate di Windows esistenti, è possibile eseguire il comando Sysprep fino a 8 volte in una singola immagine Windows. Per altre informazioni, vedere la documentazione [di sysprep.](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep)
 
 ### <a name="platformimage-source"></a>Origine PlatformImage 
 Azure Image Builder supporta le immagini di Windows Server, dei client e di Azure Marketplace in Linux. Vedere [qui](../image-builder-overview.md#os-support) per l'elenco completo. 
@@ -176,7 +176,7 @@ az vm image list -l westus -f UbuntuServer -p Canonical --output table –-all
 
 È possibile usare "latest" nella versione, la versione viene valutata quando avviene la compilazione dell'immagine, non quando viene inviato il modello. Se si usa questa funzionalità con la destinazione Raccolta immagini condivise, è possibile evitare di inviare di nuovo il modello e rieseguire la compilazione dell'immagine a intervalli, in modo che le immagini vengano ricreate dalle immagini più recenti.
 
-#### <a name="support-for-market-place-plan-information"></a>Supporto per le informazioni sul piano Market Place
+#### <a name="support-for-market-place-plan-information"></a>Supporto per informazioni sul piano market place
 È anche possibile specificare le informazioni sul piano, ad esempio:
 ```json
     "source": {
@@ -196,7 +196,7 @@ az vm image list -l westus -f UbuntuServer -p Canonical --output table –-all
 Imposta l'immagine di origine come un'immagine gestita esistente di un disco rigido virtuale generalizzato o di una macchina virtuale.
 
 > [!NOTE]
-> L'immagine gestita di origine deve essere di un sistema operativo supportato e l'immagine deve avere la stessa area del modello di generatore di immagini di Azure. 
+> L'immagine gestita di origine deve essere di un sistema operativo supportato e l'immagine deve avere la stessa area del modello Image Builder Azure. 
 
 ```json
         "source": { 
@@ -212,7 +212,7 @@ Imposta l'immagine di origine come un'immagine gestita esistente di un disco rig
 Imposta l'immagine di origine in una versione dell'immagine esistente in Raccolta immagini condivise.
 
 > [!NOTE]
-> L'immagine gestita di origine deve essere di un sistema operativo supportato e l'immagine deve essere identica a quella del modello di generatore di immagini di Azure. in caso contrario, replicare la versione dell'immagine nell'area del modello del generatore di immagini.
+> L'immagine gestita di origine deve essere di un sistema operativo supportato e l'immagine deve avere la stessa area del modello di Azure Image Builder. In caso contrario, replicare la versione dell'immagine nell'area modello Image Builder.
 
 
 ```json
@@ -222,7 +222,7 @@ Imposta l'immagine di origine in una versione dell'immagine esistente in Raccolt
    } 
 ```
 
-`imageVersionId` deve essere l'ID della risorsa della versione dell'immagine. Usare [az sig image-version list](/cli/azure/sig/image-version#az-sig-image-version-list) per elencare le versioni delle immagini.
+`imageVersionId` deve essere l'ID della risorsa della versione dell'immagine. Usare [az sig image-version list](/cli/azure/sig/image-version#az_sig_image_version_list) per elencare le versioni delle immagini.
 
 
 ## <a name="properties-buildtimeoutinminutes"></a>Proprietà: buildTimeoutInMinutes
@@ -274,7 +274,7 @@ Quando si usa `customize`:
 La sezione customize è una matrice. Image Builder di Azure eseguirà le funzioni di personalizzazione in ordine sequenziale. Eventuali errori nelle funzioni di personalizzazione impediranno il processo di compilazione. 
 
 > [!NOTE]
-> I comandi inline possono essere visualizzati nella definizione del modello di immagine e da supporto tecnico Microsoft quando si assiste a un caso di supporto. Se si dispone di informazioni riservate, è necessario spostarle in script in archiviazione di Azure, dove l'accesso richiede l'autenticazione.
+> I comandi inline possono essere visualizzati nella definizione del modello di immagine e Supporto tecnico Microsoft quando si supporta un caso di supporto. Se si dispone di informazioni riservate, queste devono essere spostate negli script Archiviazione di Azure, in cui l'accesso richiede l'autenticazione.
  
 ### <a name="shell-customizer"></a>Funzione di personalizzazione shell
 
@@ -310,10 +310,10 @@ Proprietà customize:
     * Per generare sha256Checksum, usando un terminale in Mac o Linux eseguire: `sha256sum <fileName>`
 
 > [!NOTE]
-> I comandi inline vengono archiviati come parte della definizione del modello di immagine, che possono essere visualizzati quando si esegue il dump della definizione dell'immagine e sono visibili anche per supporto tecnico Microsoft nel caso di un caso di supporto a scopo di risoluzione dei problemi. Se si dispone di comandi o valori sensibili, si consiglia vivamente di spostarli negli script e di usare un'identità utente per l'autenticazione in archiviazione di Azure.
+> I comandi inline vengono archiviati come parte della definizione del modello di immagine, che è possibile visualizzare quando si esegue il dump della definizione dell'immagine e sono visibili anche a Supporto tecnico Microsoft in caso di un caso di supporto per la risoluzione dei problemi. Se si dispone di comandi o valori sensibili, è consigliabile spostarlo negli script e usare un'identità utente per eseguire l'autenticazione Archiviazione di Azure.
 
-#### <a name="super-user-privileges"></a>Privilegi con privilegi avanzati
-Per eseguire i comandi con privilegi avanzati, è necessario che siano preceduti da `sudo` , è possibile aggiungerli negli script o utilizzarli come comandi inline, ad esempio:
+#### <a name="super-user-privileges"></a>Privilegi utente con privilegi elevati
+Perché i comandi possano essere eseguiti con privilegi di utente con privilegi elevati, devono essere preceduti dal prefisso , è possibile aggiungerli agli script o usarli `sudo` come comandi inline, ad esempio:
 ```json
                 "type": "Shell",
                 "name": "setupBuildPath",
@@ -417,7 +417,7 @@ Proprietà della funzione di personalizzazione File:
 - **sourceUri** - un endpoint di archiviazione accessibile; può essere un'archiviazione Azure o GitHub. È possibile scaricare un solo file, non tutta la directory. Se è necessario scaricare una directory, usare un file compresso, quindi decomprimerlo usando la funzione di personalizzazione shell o PowerShell. 
 
 > [!NOTE]
-> Se il sourceUri è un account di archiviazione di Azure, indipendentemente dal fatto che il BLOB sia contrassegnato come pubblico, è necessario concedere all'identità utente gestita le autorizzazioni per l'accesso in lettura al BLOB. Per impostare le autorizzazioni di archiviazione, vedere questo [esempio](./image-builder-user-assigned-identity.md#create-a-resource-group) .
+> Se sourceUri è un account Archiviazione di Azure, indipendentemente dal fatto che il BLOB sia contrassegnato come pubblico, è necessario concedere all'identità utente gestita le autorizzazioni per l'accesso in lettura al BLOB. Vedere questo esempio [per](./image-builder-user-assigned-identity.md#create-a-resource-group) impostare le autorizzazioni di archiviazione.
 
 - **destination** - è il percorso di destinazione completo e il nome del file. Qualsiasi percorso e sottodirectory a cui si fa riferimento deve essere esistente, usare le funzioni di personalizzazione shell o PowerShell per configurarli in anticipo. Per creare il percorso, è possibile usare le funzioni di personalizzazione dello script. 
 
@@ -456,7 +456,7 @@ Proprietà customize:
 - **updateLimit** - facoltativo, definisce il numero di aggiornamenti che è possibile installare, valore predefinito 1000.
  
 > [!NOTE]
-> Il Windows Update verbi può avere esito negativo se sono presenti riavvii di Windows in attesa o se le installazioni dell'applicazione sono ancora in esecuzione, in genere è possibile che questo errore venga visualizzato nel file customization. log `System.Runtime.InteropServices.COMException (0x80240016): Exception from HRESULT: 0x80240016` . Si consiglia vivamente di prendere in considerazione l'aggiunta di un riavvio di Windows e/o di consentire alle applicazioni un tempo sufficiente per completare le installazioni usando i comandi di [sospensione](/powershell/module/microsoft.powershell.utility/start-sleep) o attesa nei comandi o negli script inline prima di eseguire Windows Update.
+> L Windows Update personalizzazione può non riuscire se sono presenti riavvii di Windows in sospeso o installazioni di applicazioni ancora in esecuzione. In genere questo errore può essere visualizzato nel file `System.Runtime.InteropServices.COMException (0x80240016): Exception from HRESULT: 0x80240016` customization.log. È consigliabile aggiungere un riavvio di Windows e/o consentire alle [](/powershell/module/microsoft.powershell.utility/start-sleep) applicazioni un tempo sufficiente per completare le installazioni usando i comandi di sospensione o attesa nei comandi o negli script inline prima di eseguire Windows Update.
 
 ### <a name="generalize"></a>Generalizzazione 
 Per impostazione predefinita, Image Builder di Azure eseguirà anche il codice di "deprovisioning" alla fine di ogni fase di personalizzazione dell'immagine, in modo da "generalizzare" l'immagine. La generalizzazione è un processo in cui l'immagine è configurata in modo da poter essere riutilizzata per creare più macchine virtuali. Per le macchine virtuali Windows, Image Builder di Azure usa Sysprep. Per Linux, Image Builder di Azure esegue "waagent-deprovision". 
@@ -511,10 +511,10 @@ Azure Image Builder supporta tre destinazioni di distribuzione:
 - **sharedImage** - Raccolta immagini condivise.
 - **VHD** - disco rigido virtuale in un account di archiviazione.
 
-È possibile distribuire un'immagine in entrambi i tipi di destinazione nella stessa configurazione.
+È possibile distribuire un'immagine a entrambi i tipi di destinazione nella stessa configurazione.
 
 > [!NOTE]
-> Il comando Sysprep AIB predefinito non include "/Mode: VM", tuttavia questo potrebbe essere necessario quando si creano immagini per le quali verrà installato il ruolo HyperV. Se è necessario aggiungere questo argomento di comando, è necessario eseguire l'override del comando Sysprep.
+> Il comando sysprep AIB predefinito non include "/mode:vm", tuttavia questo potrebbe essere necessario quando si creano immagini in cui è installato il ruolo HyperV. Se è necessario aggiungere questo argomento di comando, è necessario eseguire l'override del comando sysprep.
 
 Poiché è possibile distribuire in più di una destinazione, Image Builder mantiene uno stato per ogni destinazione di distribuzione a cui è possibile accedere eseguendo una query per `runOutputName`.  `runOutputName` è un oggetto per cui è possibile eseguire una query dopo la distribuzione per ottenere informazioni su tale distribuzione. Ad esempio, è possibile eseguire una query per il percorso del disco rigido virtuale o delle aree in cui è stata replicata la versione dell'immagine oppure in cui è stata creata la versione dell'immagine SIG. Si tratta di una proprietà di tutte le destinazioni di distribuzione. `runOutputName` deve essere univoco per ogni destinazione di distribuzione. Di seguito è riportato un esempio che esegue una query per una distribuzione di Raccolta immagini condivise:
 
@@ -568,7 +568,7 @@ L'output dell'immagine sarà una risorsa dell'immagine gestita.
  
 Proprietà distribute:
 - **type** - managedImage 
-- **imageId** : ID risorsa dell'immagine di destinazione, formato previsto:/subscriptions/ \<subscriptionId> /resourceGroups/ \<destinationResourceGroupName> /providers/Microsoft.Compute/images/\<imageName>
+- **imageId:** ID risorsa dell'immagine di destinazione, formato previsto: /subscriptions/ \<subscriptionId> /resourceGroups/ \<destinationResourceGroupName> /providers/Microsoft.Compute/images/\<imageName>
 - **location** - percorso dell'immagine gestita.  
 - **runOutputName** - nome univoco per identificare la distribuzione.  
 - **artifactTags** - facoltativo, tag della coppia chiave-valore specificata dall'utente.
@@ -608,21 +608,21 @@ Prima di poter distribuire in Raccolta immagini, è necessario creare una raccol
 Proprietà distribute per le raccolte di immagini condivise:
 
 - **type** - sharedImage  
-- **galleryImageId** : ID della raccolta di immagini condivise, che può essere specificato in due formati:
-    * Controllo automatico delle versioni: generatore di immagini genera un numero di versione monotona per l'utente. questa operazione è utile quando si vuole salvare le immagini dallo stesso modello: il formato è: `/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/galleries/<sharedImageGalleryName>/images/<imageGalleryName>` .
-    * Controllo delle versioni esplicito: è possibile passare il numero di versione che si vuole venga usato da Image Builder. Il formato è: `/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.Compute/galleries/<sharedImageGalName>/images/<imageDefName>/versions/<version e.g. 1.1.1>`
+- **galleryImageId:** ID della raccolta di immagini condivise, che può essere specificato in due formati:
+    * Controllo automatico delle versioni: Image Builder verrà generato automaticamente un numero di versione monotonico, utile quando si vuole mantenere la ricompilazione delle immagini dallo stesso modello: il formato è: `/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/galleries/<sharedImageGalleryName>/images/<imageGalleryName>` .
+    * Controllo esplicito delle versioni: è possibile passare il numero di versione che si vuole usare in Image Builder. Il formato è: `/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.Compute/galleries/<sharedImageGalName>/images/<imageDefName>/versions/<version e.g. 1.1.1>`
 
 - **runOutputName** - nome univoco per identificare la distribuzione.  
 - **artifactTags** - facoltativo, tag della coppia chiave-valore specificata dall'utente.
-- **replicationRegions** - matrice di aree per la replica. Una delle aree deve essere l'area in cui è distribuita la raccolta. L'aggiunta di aree comporta un aumento del tempo di compilazione, in quanto la compilazione non viene completata fino al completamento della replica.
-- **excludeFromLatest** (facoltativo) consente di contrassegnare la versione dell'immagine creata non usata come ultima versione nella definizione del sig. il valore predefinito è "false".
+- **replicationRegions** - matrice di aree per la replica. Una delle aree deve essere l'area in cui è distribuita la raccolta. L'aggiunta di aree significa un aumento del tempo di compilazione, in quanto la compilazione non viene completata fino al completamento della replica.
+- **excludeFromLatest** (facoltativo) Consente di contrassegnare la versione dell'immagine creata non essere usata come versione più recente nella definizione SIG. Il valore predefinito è 'false'.
 - **storageAccountType** (facoltativo) AIB supporta la specifica di questi tipi di archiviazione per la versione dell'immagine da creare:
     * "Standard_LRS"
     * "Standard_ZRS"
 
 
 > [!NOTE]
-> Se il modello di immagine e a cui viene fatto riferimento `image definition` non si trovano nella stessa posizione, verrà visualizzato un ulteriore tempo per la creazione di immagini. Il generatore di immagini attualmente non dispone di un `location` parametro per la risorsa di versione dell'immagine `image definition` . Se, ad esempio, la definizione di un'immagine si trova in westus e si desidera che la versione dell'immagine venga replicata in eastus, viene copiato un BLOB in westus, da questo, viene creata una risorsa di versione dell'immagine in westus, che viene quindi replicata in eastus. Per evitare il tempo di replica aggiuntivo, verificare `image definition` che il modello di immagine e si trovino nella stessa posizione.
+> Se il modello di immagine e il riferimento non sono nella stessa posizione, verrà visualizzato un tempo `image definition` aggiuntivo per la creazione delle immagini. Image Builder non dispone attualmente di un parametro per la risorsa della versione `location` dell'immagine, viene preso dal relativo elemento `image definition` padre. Ad esempio, se una definizione di immagine si trova in westus e si vuole che la versione dell'immagine sia replicata in eastus, un BLOB viene copiato in westus, da questo viene creata una risorsa di versione dell'immagine in westus e quindi viene eseguita la replica in eastus. Per evitare il tempo di replica aggiuntivo, assicurarsi che il modello di immagine e `image definition` si presentino nella stessa posizione.
 
 
 ### <a name="distribute-vhd"></a>Distribute: VHD  
@@ -660,7 +660,7 @@ az resource show \
 ## <a name="image-template-operations"></a>Operazioni sui modelli di immagine
 
 ### <a name="starting-an-image-build"></a>Avvio di una compilazione di immagini
-Per avviare una compilazione, è necessario richiamare ' Run ' nella risorsa modello di immagine, esempi di `run` comandi:
+Per avviare una compilazione, è necessario richiamare "Esegui" nella risorsa modello di immagine, esempi di `run` comandi:
 
 ```PowerShell
 Invoke-AzResourceAction -ResourceName $imageTemplateName -ResourceGroupName $imageResourceGroup -ResourceType Microsoft.VirtualMachineImages/imageTemplates -ApiVersion "2020-02-14" -Action Run -Force
@@ -675,10 +675,10 @@ az resource invoke-action \
      --action Run 
 ```
 
-### <a name="cancelling-an-image-build"></a>Annullamento di una compilazione dell'immagine
-Se si sta eseguendo una compilazione di immagini che si ritiene non corretta, in attesa dell'input dell'utente o se si ritiene che non verrà mai completata correttamente, è possibile annullare la compilazione.
+### <a name="cancelling-an-image-build"></a>Annullamento di una compilazione di immagini
+Se si esegue una compilazione di immagine che si ritiene non corretta, in attesa dell'input dell'utente o si ritiene che non verrà mai completata correttamente, è possibile annullare la compilazione.
 
-La compilazione può essere annullata in qualsiasi momento. Se la fase di distribuzione è stata avviata, è comunque possibile annullare, ma sarà necessario eseguire la pulizia di tutte le immagini che potrebbero non essere completate. Il comando Annulla non attende il completamento dell'annullamento. monitorare l' `lastrunstatus.runstate` annullamento dello stato di avanzamento, usando questi [comandi](image-builder-troubleshoot.md#customization-log)di stato.
+La compilazione può essere annullata in qualsiasi momento. Se la fase di distribuzione è stata avviata, è comunque possibile annullare, ma sarà necessario pulire tutte le immagini che potrebbero non essere completate. Il comando cancel non attende il completamento dell'operazione cancel. Monitorare l'annullamento dello stato `lastrunstatus.runstate` usando questi comandi di [stato](image-builder-troubleshoot.md#customization-log).
 
 
 Esempi di `cancel` comandi:

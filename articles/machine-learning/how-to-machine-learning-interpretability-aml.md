@@ -1,7 +1,7 @@
 ---
-title: Interpretare & i modelli di Machine Learning in Python (anteprima)
+title: Interpretare & modelli di Machine Learning in Python (anteprima)
 titleSuffix: Azure Machine Learning
-description: Informazioni su come ottenere spiegazioni sul modo in cui il modello di Machine Learning determina l'importanza delle funzionalità e esegue stime quando si usa Azure Machine Learning SDK.
+description: Informazioni su come ottenere spiegazioni su come il modello di Machine Learning determina l'importanza delle caratteristiche ed esegue stime quando si usa Azure Machine Learning SDK.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,33 +11,34 @@ ms.reviewer: Luis.Quintanilla
 ms.date: 07/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, responsible-ml
-ms.openlocfilehash: 2d60c6dbedb24847b95ce268bedafcb073421319
-ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
+ms.openlocfilehash: d79458cfc76adcfd35a6b8dee40c0c45786abc28
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107576517"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107763290"
 ---
 # <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python-preview"></a>Usare il pacchetto di interpretabilità per spiegare i modelli di Machine Learning & stime in Python (anteprima)
 
-In questa guida dettagliata si apprenderà a usare il pacchetto di interpretabilità di Azure Machine Learning Python SDK per eseguire le attività seguenti:
+Questa guida dettagliata illustra come usare il pacchetto di interpretabilità di Azure Machine Learning Python SDK per eseguire le attività seguenti:
 
 
-* Spiegare l'intero comportamento del modello o le singole stime nel computer personale in locale.
+* Spiegare il comportamento dell'intero modello o le singole stime nel computer personale in locale.
 
-* Abilitare le tecniche di interpretabilità per le funzionalità progettate.
+* Abilitare tecniche di interpretabilità per le funzionalità progettate.
 
-* Illustrare il comportamento per l'intero modello e le singole stime in Azure.
+* Spiegare il comportamento per l'intero modello e le singole stime in Azure.
 
 * Usare un dashboard di visualizzazione per interagire con le spiegazioni del modello.
 
 * Distribuire uno spiegatore di assegnazione dei punteggi insieme al modello per osservare le spiegazioni durante l'inferenza.
 
 
+Per altre informazioni sulle tecniche di interpretabilità supportate e sui modelli di Machine Learning, vedere Interpretabilità dei modelli [in](how-to-machine-learning-interpretability.md) Azure Machine Learning [notebook di esempio.](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model)
 
-Per altre informazioni sulle tecniche di interpretabilità supportate e sui modelli di Machine Learning, vedere Interpretabilità dei modelli [Azure Machine Learning](how-to-machine-learning-interpretability.md) e [notebook di esempio.](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model)
+Per indicazioni su come abilitare l'interpretabilità per i modelli con training con Machine Learning automatizzato, vedere [Interpretability: model explanations for automated machine learning models (preview) (Interpretabilità:](how-to-machine-learning-interpretability-automl.md)spiegazioni dei modelli di Machine Learning automatizzato - anteprima). 
 
-## <a name="generate-feature-importance-value-on-your-personal-machine"></a>Generare il valore di importanza della funzionalità nel computer personale 
+## <a name="generate-feature-importance-value-on-your-personal-machine"></a>Generare il valore di importanza delle funzionalità nel computer personale 
 L'esempio seguente illustra come usare il pacchetto di interpretabilità nel computer personale senza contattare i servizi di Azure.
 
 1. Installare il pacchetto `azureml-interpret`.
@@ -66,11 +67,11 @@ L'esempio seguente illustra come usare il pacchetto di interpretabilità nel com
     ```
 
 3. Chiamare lo spiegatore in locale.
-   * Per inizializzare un oggetto dello spiegatore, passare il modello e alcuni dati di training al costruttore dello explainer.
-   * Per rendere le spiegazioni e le visualizzazioni più informative, è possibile scegliere di passare i nomi delle funzionalità e i nomi delle classi di output se si effettua la classificazione.
+   * Per inizializzare un oggetto spiegazione, passare il modello e alcuni dati di training al costruttore dell'spiegazione.
+   * Per rendere più informative le spiegazioni e le visualizzazioni, è possibile scegliere di passare i nomi delle funzionalità e i nomi delle classi di output se si effettua la classificazione.
 
-   I blocchi di codice seguenti illustrano come creare un'istanza di un oggetto explainer con `TabularExplainer` `MimicExplainer` , e in `PFIExplainer` locale.
-   * `TabularExplainer` chiama uno dei tre spiegatori SHAP sottostanti ( `TreeExplainer` , `DeepExplainer` o `KernelExplainer` ).
+   I blocchi di codice seguenti illustrano come creare un'istanza di un oggetto spiegazione con `TabularExplainer` `MimicExplainer` , e in `PFIExplainer` locale.
+   * `TabularExplainer` chiama uno dei tre spiegatori SHAP sottostanti ( `TreeExplainer` `DeepExplainer` , o `KernelExplainer` ).
    * `TabularExplainer` seleziona automaticamente quello più appropriato per il caso d'uso, ma è possibile chiamare direttamente ognuno dei tre spiegatori sottostanti.
 
     ```python
@@ -122,7 +123,7 @@ L'esempio seguente illustra come usare il pacchetto di interpretabilità nel com
 
 ### <a name="explain-the-entire-model-behavior-global-explanation"></a>Spiegare l'intero comportamento del modello (spiegazione globale) 
 
-Fare riferimento all'esempio seguente per ottenere i valori di importanza delle caratteristiche di aggregazione (globali).
+Fare riferimento all'esempio seguente per ottenere i valori di importanza della funzionalità aggregata (globale).
 
 ```python
 
@@ -141,10 +142,10 @@ dict(zip(sorted_global_importance_names, sorted_global_importance_values))
 global_explanation.get_feature_importance_dict()
 ```
 
-### <a name="explain-an-individual-prediction-local-explanation"></a>Spiegare una stima singola (spiegazione locale)
-Ottenere i singoli valori di importanza delle caratteristiche di punti dati diversi chiamando spiegazioni per una singola istanza o un gruppo di istanze.
+### <a name="explain-an-individual-prediction-local-explanation"></a>Spiegare una singola stima (spiegazione locale)
+Ottenere i singoli valori di importanza delle funzionalità di punti dati diversi chiamando spiegazioni per una singola istanza o un gruppo di istanze.
 > [!NOTE]
-> `PFIExplainer` non supporta spiegazioni locali.
+> `PFIExplainer` non supporta le spiegazioni locali.
 
 ```python
 # get explanation for the first data point in the test set
@@ -155,13 +156,13 @@ sorted_local_importance_names = local_explanation.get_ranked_local_names()
 sorted_local_importance_values = local_explanation.get_ranked_local_values()
 ```
 
-### <a name="raw-feature-transformations"></a>Trasformazioni di funzionalità non elaborati
+### <a name="raw-feature-transformations"></a>Trasformazioni di funzionalità non elaborate
 
-È possibile scegliere di ottenere spiegazioni in termini di funzionalità non elaborati e non trasformate anziché in termini di funzionalità progettate. Per questa opzione, si passa la pipeline di trasformazione delle funzionalità all'oggetto explainer in `train_explain.py` . In caso contrario, l'spiegazione fornisce spiegazioni in termini di funzionalità progettate.
+È possibile scegliere di ottenere spiegazioni in termini di funzionalità non trasformate e non trasformate anziché in termini di funzionalità progettate. Per questa opzione, si passa la pipeline di trasformazione della funzionalità all'oggetto explainer in `train_explain.py` . In caso contrario, lo spiegatore fornisce spiegazioni in termini di funzionalità progettate.
 
-Il formato delle trasformazioni supportate è identico a quello descritto in [sklearn-pandas.](https://github.com/scikit-learn-contrib/sklearn-pandas) In generale, tutte le trasformazioni sono supportate purché opevano su una singola colonna in modo che sia chiaro che sono uno-a-molti.
+Il formato delle trasformazioni supportate è lo stesso descritto in [sklearn-pandas.](https://github.com/scikit-learn-contrib/sklearn-pandas) In generale, le trasformazioni sono supportate purché opevano su una singola colonna in modo che sia chiaro che sono uno-a-molti.
 
-Ottenere una spiegazione delle funzionalità non elaborati usando o `sklearn.compose.ColumnTransformer` con un elenco di tuple di trasformatori adattate. Nell'esempio seguente viene utilizzato `sklearn.compose.ColumnTransformer` .
+Ottenere una spiegazione delle funzionalità non elaborate usando `sklearn.compose.ColumnTransformer` o con un elenco di tuple di trasformatori adattati. Nell'esempio seguente viene utilizzato `sklearn.compose.ColumnTransformer` .
 
 ```python
 from sklearn.compose import ColumnTransformer
@@ -231,7 +232,7 @@ tabular_explainer = TabularExplainer(clf.steps[-1][1],
 
 ## <a name="generate-feature-importance-values-via-remote-runs"></a>Generare valori di importanza delle funzionalità tramite esecuzioni remote
 
-Nell'esempio seguente viene illustrato come utilizzare la classe `ExplanationClient` per abilitare l'interpretabilità del modello per le esecuzioni remote. Dal punto di vista concettuale è simile al processo locale, con la differenza che:
+Nell'esempio seguente viene illustrato come usare la classe `ExplanationClient` per abilitare l'interpretabilità del modello per le esecuzioni remote. È concettualmente simile al processo locale, ad eccezione dell'utente:
 
 * Usare `ExplanationClient` nell'esecuzione remota per caricare il contesto di interpretabilità.
 * Scaricare il contesto in un secondo momento in un ambiente locale.
@@ -271,9 +272,9 @@ Nell'esempio seguente viene illustrato come utilizzare la classe `ExplanationCli
     #client.upload_model_explanation(global_explanation, top_k=2, comment='global explanation: Only top 2 features')
     ```
 
-1. Configurare un'istanza Azure Machine Learning calcolo come destinazione di calcolo e inviare l'esecuzione del training. Per istruzioni, vedere [Creare e Azure Machine Learning cluster di calcolo.](how-to-create-attach-compute-cluster.md) È anche possibile trovare utili [i notebook di](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model/azure-integration/remote-explanation) esempio.
+1. Configurare un'istanza Azure Machine Learning calcolo come destinazione di calcolo e inviare l'esecuzione del training. Per [istruzioni, vedere Creare e Azure Machine Learning cluster di calcolo.](how-to-create-attach-compute-cluster.md) I notebook di esempio possono [risultare utili.](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model/azure-integration/remote-explanation)
 
-1. Scaricare la spiegazione nel percorso Jupyter Notebook.
+1. Scaricare la spiegazione nel sito Jupyter Notebook.
 
     ```python
     from azureml.interpret import ExplanationClient
@@ -302,16 +303,16 @@ from interpret_community.widget import ExplanationDashboard
 ExplanationDashboard(global_explanation, model, datasetX=x_test)
 ```
 
-Le visualizzazioni supportano spiegazioni sulle funzionalità progettate e non elaborate. Le spiegazioni non elaborate si basano sulle funzionalità del set di dati originale e le spiegazioni progettate si basano sulle funzionalità del set di dati con la progettazione delle funzionalità applicata.
+Le visualizzazioni supportano spiegazioni sulle funzionalità progettate e non elaborati. Le spiegazioni non elaborati si basano sulle funzionalità del set di dati originale e le spiegazioni progettate si basano sulle caratteristiche del set di dati a cui è applicata la progettazione delle funzionalità.
 
-Quando si tenta di interpretare un modello rispetto al set di dati originale, è consigliabile usare spiegazioni non elaborate perché ogni importanza della funzionalità corrisponderà a una colonna del set di dati originale. Uno scenario in cui le spiegazioni progettate possono essere utili è quando si esamina l'impatto delle singole categorie da una funzionalità categorica. Se a una funzionalità categorica viene applicata una codifica one-hot, le spiegazioni ingegnerizzate risultanti includeranno un valore di importanza diverso per categoria, uno per ogni funzionalità progettata con un solo hot engineer. Ciò può essere utile quando si restringe la parte del set di dati più informativa per il modello.
+Quando si tenta di interpretare un modello rispetto al set di dati originale, è consigliabile usare spiegazioni non elaborati perché ogni importanza delle caratteristiche corrisponderà a una colonna del set di dati originale. Uno scenario in cui le spiegazioni progettate possono essere utili è quando si esamina l'impatto delle singole categorie da una funzionalità categorica. Se viene applicata una codifica one-hot a una funzionalità categorica, le spiegazioni progettate risultanti includeranno un valore di importanza diverso per ogni categoria, uno per ogni funzionalità progettata in modo one-hot. Ciò può essere utile quando si restringe la parte del set di dati più informativa per il modello.
 
 > [!NOTE]
-> Le spiegazioni progettate e non elaborate vengono calcolate in sequenza. Per prima cosa viene creata una spiegazione progettata in base al modello e alla pipeline di featurization. La spiegazione non elaborata viene quindi creata in base a tale spiegazione progettata aggregando l'importanza delle funzionalità progettate provenienti dalla stessa funzionalità non elaborata.
+> Le spiegazioni progettate e non elaborati vengono calcolate in sequenza. Prima di tutto viene creata una spiegazione progettata in base al modello e alla pipeline di evolutazione delle attività. La spiegazione non elaborata viene quindi creata in base a tale spiegazione progettata aggregando l'importanza delle funzionalità progettate che derivano dalla stessa funzionalità non elaborata.
 
 ### <a name="create-edit-and-view-dataset-cohorts"></a>Creare, modificare e visualizzare coorti di set di dati
 
-La barra multifunzione superiore mostra le statistiche complessive sul modello e sui dati. È possibile suddividere e suddividere i dati in coorti di set di dati, o sottogruppi, per analizzare o confrontare le prestazioni e le spiegazioni del modello in questi sottogruppi definiti. Confrontando le statistiche e le spiegazioni dei set di dati tra questi sottogruppi, è possibile ottenere un'idea del motivo per cui si verificano errori in un gruppo rispetto a un altro.
+La barra multifunzione superiore mostra le statistiche complessive sul modello e sui dati. È possibile suddividere e suddividere i dati in coorti di set di dati, o sottogruppi, per analizzare o confrontare le prestazioni e le spiegazioni del modello in questi sottogruppi definiti. Confrontando le statistiche e le spiegazioni dei set di dati tra questi sottogruppi, è possibile capire perché si verificano possibili errori in un gruppo rispetto a un altro.
 
 [![Creazione, modifica e visualizzazione di coorti di set di dati](./media/how-to-machine-learning-interpretability-aml/dataset-cohorts.gif)](./media/how-to-machine-learning-interpretability-aml/dataset-cohorts.gif#lightbox)
 
@@ -320,57 +321,57 @@ La barra multifunzione superiore mostra le statistiche complessive sul modello e
 Le prime tre schede del dashboard di spiegazione forniscono un'analisi complessiva del modello con training insieme alle stime e alle spiegazioni.
 
 #### <a name="model-performance"></a>Prestazioni del modello
-Valutare le prestazioni del modello esplorando la distribuzione dei valori di stima e i valori delle metriche delle prestazioni del modello. È possibile analizzare ulteriormente il modello esaminando un'analisi comparativa delle relative prestazioni in coorti o sottogruppi diversi del set di dati. Selezionare i filtri lungo il valore y e il valore x per tagliare dimensioni diverse. Visualizzare metriche come accuratezza, precisione, richiamo, tasso di falsi positivi (FPR) e tasso di falsi negativi (FNR).
+Valutare le prestazioni del modello esplorando la distribuzione dei valori di stima e i valori delle metriche delle prestazioni del modello. È possibile analizzare ulteriormente il modello esaminando un'analisi comparativa delle relative prestazioni tra coorti o sottogruppi diversi del set di dati. Selezionare i filtri lungo y-value e x-value per tagliare tra dimensioni diverse. Visualizzare metriche come accuratezza, precisione, richiamo, tasso di falsi positivi (FPR) e tasso falso negativo (FNR).
 
-[![Scheda Prestazioni del modello nella visualizzazione della spiegazione](./media/how-to-machine-learning-interpretability-aml/model-performance.gif)](./media/how-to-machine-learning-interpretability-aml/model-performance.gif#lightbox)
+[![Scheda Prestazioni modello nella visualizzazione spiegazione](./media/how-to-machine-learning-interpretability-aml/model-performance.gif)](./media/how-to-machine-learning-interpretability-aml/model-performance.gif#lightbox)
 
 #### <a name="dataset-explorer"></a>Esplora set di dati
-Esplorare le statistiche del set di dati selezionando filtri diversi lungo gli assi X, Y e colore per sezionare i dati in base a dimensioni diverse. Creare coorti di set di dati precedenti per analizzare le statistiche del set di dati con filtri come il risultato previsto, le funzionalità del set di dati e i gruppi di errori. Usare l'icona a forma di ingranaggio nell'angolo superiore destro del grafico per modificare i tipi di grafico.
+Esplorare le statistiche del set di dati selezionando filtri diversi lungo gli assi X, Y e color per suddividere i dati in dimensioni diverse. Creare coorti di set di dati precedenti per analizzare le statistiche del set di dati con filtri quali risultati stimati, funzionalità del set di dati e gruppi di errori. Usare l'icona a forma di ingranaggio nell'angolo superiore destro del grafico per modificare i tipi di grafo.
 
-[![Scheda Dataset Explorer (Esplora set di dati) nella visualizzazione spiegazione](./media/how-to-machine-learning-interpretability-aml/dataset-explorer.gif)](./media/how-to-machine-learning-interpretability-aml/dataset-explorer.gif#lightbox)
+[![Scheda Esplora set di dati nella visualizzazione spiegazione](./media/how-to-machine-learning-interpretability-aml/dataset-explorer.gif)](./media/how-to-machine-learning-interpretability-aml/dataset-explorer.gif#lightbox)
 
-#### <a name="aggregate-feature-importance"></a>Importanza delle caratteristiche di aggregazione
-Esplorare le principali caratteristiche importanti che influiscono sulle stime complessive del modello (note anche come spiegazione globale). Usare il dispositivo di scorrimento per visualizzare i valori di importanza delle caratteristiche decrescenti. Selezionare fino a tre coorti per visualizzarne i valori di importanza delle caratteristiche affiancati. Fare clic su una delle barre delle caratteristiche nel grafico per vedere in che modo i valori della funzionalità selezionata influiscono sulla stima del modello nel grafico delle dipendenze riportato di seguito.
+#### <a name="aggregate-feature-importance"></a>Priorità delle funzionalità di aggregazione
+Esplorare le principali funzionalità importanti che influiscono sulle stime complessive del modello (note anche come spiegazione globale). Usare il dispositivo di scorrimento per visualizzare i valori di importanza delle caratteristiche decrescenti. Selezionare fino a tre coorti per visualizzare i valori di importanza delle funzionalità affiancati. Fare clic su una delle barre delle caratteristiche nel grafico per vedere in che modo i valori della funzionalità selezionata influiscono sulla stima del modello nel grafico delle dipendenze riportato di seguito.
 
 [![Scheda Priorità delle caratteristiche di aggregazione nella visualizzazione della spiegazione](./media/how-to-machine-learning-interpretability-aml/aggregate-feature-importance.gif)](./media/how-to-machine-learning-interpretability-aml/aggregate-feature-importance.gif#lightbox)
 
-### <a name="understand-individual-predictions-local-explanation"></a>Informazioni sulle singole stime (spiegazione locale) 
+### <a name="understand-individual-predictions-local-explanation"></a>Informazioni sulle stime singole (spiegazione locale) 
 
-La quarta scheda della scheda spiegazione consente di esaminare un singolo punto dati e le relative priorità delle singole funzionalità. È possibile caricare il singolo tracciato di importanza delle caratteristiche per qualsiasi punto dati facendo clic su uno dei singoli punti dati nel grafico a dispersione principale o selezionando un punto dati specifico nella procedura guidata del pannello a destra.
+La quarta scheda della scheda spiegazione consente di esaminare un singolo punto dati e la relativa importanza delle singole caratteristiche. È possibile caricare il singolo tracciato di importanza delle caratteristiche per qualsiasi punto dati facendo clic su uno dei singoli punti dati nel grafico a dispersione principale o selezionando un punto dati specifico nella procedura guidata del pannello a destra.
 
 |Grafico|Descrizione|
 |----|-----------|
-|Importanza delle singole funzionalità|Mostra le principali caratteristiche importanti per una singola stima. Illustra il comportamento locale del modello sottostante in un punto dati specifico.|
-|What-If analisi|Consente di apportare modifiche ai valori delle caratteristiche del punto dati reale selezionato e osservare le modifiche risultanti al valore di stima generando un ipotetico punto dati con i nuovi valori di funzionalità.|
-|Aspettativa condizionale individuale (ICE)|Consente di modificare il valore della funzionalità da un valore minimo a un valore massimo. Illustra come cambia la stima del punto dati quando cambia una funzionalità.|
+|Importanza delle singole caratteristiche|Mostra le principali k caratteristiche importanti per una singola stima. Consente di illustrare il comportamento locale del modello sottostante in un punto dati specifico.|
+|What-If analisi|Consente di apportare modifiche ai valori delle caratteristiche del punto dati reale selezionato e osservare le modifiche risultanti al valore di stima generando un punto dati ipotetico con i nuovi valori di funzionalità.|
+|Aspettativa condizionale individuale (ICE)|Consente di modificare il valore della funzionalità da un valore minimo a un valore massimo. Illustra come cambia la stima del punto dati quando viene modificata una funzionalità.|
 
-[![Importanza delle singole funzionalità e scheda What-if nel dashboard di spiegazione](./media/how-to-machine-learning-interpretability-aml/individual-tab.gif)](./media/how-to-machine-learning-interpretability-aml/individual-tab.gif#lightbox)
+[![Importanza delle singole funzionalità e scheda Analisi di what-if nel dashboard di spiegazione](./media/how-to-machine-learning-interpretability-aml/individual-tab.gif)](./media/how-to-machine-learning-interpretability-aml/individual-tab.gif#lightbox)
 
 > [!NOTE]
-> Si tratta di spiegazioni basate su molte approssimazioni e non sono la "causa" delle stime. Senza una rigida affidabilità matematica dell'inferenza causale, non si consiglia agli utenti di prendere decisioni reali in base alle perturbazioni delle funzionalità dello What-If strumenti. Questo strumento è principalmente per comprendere il modello e il debug.
+> Si tratta di spiegazioni basate su molte approssimazioni e non sono la "causa" delle stime. Senza una rigida affidabilità matematica dell'inferenza causale, non si consiglia agli utenti di prendere decisioni reali in base alle perturbazioni delle funzionalità dello strumento What-If sicurezza. Questo strumento è principalmente per comprendere il modello e il debug.
 
 ### <a name="visualization-in-azure-machine-learning-studio"></a>Visualizzazione in studio di Azure Machine Learning
 
-Se si completano i passaggi di [interpretabilità](how-to-machine-learning-interpretability-aml.md#generate-feature-importance-values-via-remote-runs) remota (caricamento delle spiegazioni generate Azure Machine Learning cronologia di esecuzione), è possibile visualizzare le visualizzazioni nel dashboard delle spiegazioni in [studio di Azure Machine Learning](https://ml.azure.com). Questo dashboard è una versione più semplice del widget del dashboard generato all'interno del notebook di Jupyter. What-If generazione di punti dati e tracciati ICE sono disabilitati perché non è presente alcun calcolo attivo in studio di Azure Machine Learning in grado di eseguire i calcoli in tempo reale.
+Se si completano i passaggi di [interpretazione](how-to-machine-learning-interpretability-aml.md#generate-feature-importance-values-via-remote-runs) remota (caricamento delle spiegazioni generate nella cronologia di esecuzione di Azure Machine Learning), è possibile visualizzare le visualizzazioni nel dashboard delle [spiegazioni in studio di Azure Machine Learning](https://ml.azure.com). Questo dashboard è una versione più semplice del widget del dashboard generato all'interno del notebook di Jupyter. What-If la generazione di punti dati e i tracciati ICE sono disabilitati perché non è presente alcun calcolo attivo in studio di Azure Machine Learning in grado di eseguire i calcoli in tempo reale.
 
 Se il set di dati, le spiegazioni globali e locali sono disponibili, i dati popolano tutte le schede. Se è disponibile solo una spiegazione globale, la scheda Priorità singola funzionalità verrà disabilitata.
 
 Seguire uno di questi percorsi per accedere al dashboard delle spiegazioni in studio di Azure Machine Learning:
 
 * **Riquadro Esperimenti** (anteprima)
-  1. Selezionare **Esperimenti** nel riquadro sinistro per visualizzare un elenco degli esperimenti eseguiti in Azure Machine Learning.
+  1. Selezionare **Esperimenti** nel riquadro sinistro per visualizzare un elenco di esperimenti eseguiti in Azure Machine Learning.
   1. Selezionare un esperimento specifico per visualizzare tutte le esecuzioni in tale esperimento.
-  1. Selezionare un'esecuzione e quindi la **scheda Explanations (Spiegazioni)** nel dashboard di visualizzazione della spiegazione.
+  1. Selezionare un'esecuzione e quindi la **scheda Spiegazioni** nel dashboard di visualizzazione della spiegazione.
 
-   [![Dashboard di visualizzazione con importanza delle funzionalità di aggregazione in AzureML Studio negli esperimenti](./media/how-to-machine-learning-interpretability-aml/model-explanation-dashboard-aml-studio.png)](./media/how-to-machine-learning-interpretability-aml/model-explanation-dashboard-aml-studio.png#lightbox)
+   [![Dashboard di visualizzazione con priorità delle funzionalità di aggregazione in AzureML Studio negli esperimenti](./media/how-to-machine-learning-interpretability-aml/model-explanation-dashboard-aml-studio.png)](./media/how-to-machine-learning-interpretability-aml/model-explanation-dashboard-aml-studio.png#lightbox)
 
 * **Riquadro** Modelli
-  1. Se il modello originale è stato registrato seguendo la procedura descritta in Distribuire modelli con [Azure Machine Learning](./how-to-deploy-and-where.md), è possibile selezionare **Modelli** nel riquadro sinistro per visualizzarlo.
+  1. Se il modello originale è stato registrato seguendo la procedura descritta in Distribuire modelli [con](./how-to-deploy-and-where.md)Azure Machine Learning , è possibile selezionare **Modelli** nel riquadro sinistro per visualizzarlo.
   1. Selezionare un modello e quindi la **scheda Spiegazioni** per visualizzare il dashboard delle spiegazioni.
 
 ## <a name="interpretability-at-inference-time"></a>Interpretabilità in fase di inferenza
 
-È possibile distribuire lo strumento di spiegazione insieme al modello originale e usarlo in fase di inferenza per fornire i singoli valori di importanza delle caratteristiche (spiegazione locale) per qualsiasi nuovo punto dati. Sono anche disponibili spiegazioni per il punteggio più leggero per migliorare le prestazioni di interpretabilità in fase di inferenza, attualmente supportata solo in Azure Machine Learning SDK. Il processo di distribuzione di uno spiegatore di assegnazione dei punteggi più leggero è simile alla distribuzione di un modello e include i passaggi seguenti:
+È possibile distribuire lo strumento di spiegazione insieme al modello originale e usarlo in fase di inferenza per fornire i singoli valori di importanza delle funzionalità (spiegazione locale) per qualsiasi nuovo punto dati. Sono anche disponibili spiegatori di assegnazione dei punteggi più leggeri per migliorare le prestazioni di interpretabilità in fase di inferenza, attualmente supportato solo in Azure Machine Learning SDK. Il processo di distribuzione di uno spiegatore di assegnazione dei punteggi più leggero è simile alla distribuzione di un modello e include i passaggi seguenti:
 
 1. Creare un oggetto spiegazione. Ad esempio, è possibile usare `TabularExplainer` :
 
@@ -411,7 +412,7 @@ Seguire uno di questi percorsi per accedere al dashboard delle spiegazioni in st
    print(scoring_explainer_model.name, scoring_explainer_model.id, scoring_explainer_model.version, sep = '\t')
    ```
 
-1. Come passaggio facoltativo, è possibile recuperare lo spiegazione dei punteggi dal cloud e testare le spiegazioni.
+1. Come passaggio facoltativo, è possibile recuperare lo spiegatore di assegnazione dei punteggi dal cloud e testare le spiegazioni.
 
    ```python
    from azureml.interpret.scoring.scoring_explainer import load
@@ -430,7 +431,7 @@ Seguire uno di questi percorsi per accedere al dashboard delle spiegazioni in st
 
 1. Distribuire l'immagine in una destinazione di calcolo seguendo questa procedura:
 
-   1. Se necessario, registrare il modello di stima originale seguendo la procedura descritta in Distribuire [modelli con Azure Machine Learning](./how-to-deploy-and-where.md).
+   1. Se necessario, registrare il modello di stima originale seguendo la procedura descritta in [Distribuire modelli con Azure Machine Learning](./how-to-deploy-and-where.md).
 
    1. Creare un file di assegnazione dei punteggi.
 
@@ -561,17 +562,17 @@ Seguire uno di questi percorsi per accedere al dashboard delle spiegazioni in st
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
-* **Dati di tipo sparse** non supportati: il dashboard di spiegazione del modello si interrompe o rallenta in modo sostanziale con un numero elevato di funzionalità, pertanto attualmente non è supportato il formato di dati di tipo sparse. Inoltre, si verificano problemi di memoria generali con set di dati di grandi dimensioni e un numero elevato di funzionalità. 
+* **Dati di tipo sparse** non supportati: il dashboard di spiegazione del modello interrompe o rallenta notevolmente con un numero elevato di funzionalità, pertanto attualmente non è supportato il formato di dati di tipo sparse. Inoltre, si verificano problemi di memoria generali con set di dati di grandi dimensioni e un numero elevato di funzionalità. 
 
-* Modelli di previsione non supportati con spiegazioni del **modello:** l'interpretabilità, la migliore spiegazione del modello, non è disponibile per gli esperimenti di previsione AutoML che consigliano gli algoritmi seguenti come modello migliore: TCNForecaster, AutoArima, ExponentialSmoothing, Average, Naive, Seasonal Average e Seasonal Naive. La previsione AutoML include modelli di regressione che supportano le spiegazioni. Tuttavia, nel dashboard di spiegazione, la scheda "Importanza delle singole funzionalità" non è supportata solo per la previsione a causa della complessità nelle pipeline di dati.
+* Modelli di previsione non supportati con spiegazioni del **modello:** l'interpretabilità, la migliore spiegazione del modello, non è disponibile per gli esperimenti di previsione AutoML che consigliano gli algoritmi seguenti come modello migliore: TCNForecaster, AutoArima, ExponentialSmoothing, Average, Naive, Seasonal Average e Seasonal Naive. La previsione AutoML include modelli di regressione che supportano le spiegazioni. Tuttavia, nel dashboard di spiegazione la scheda "Importanza delle singole funzionalità" non è supportata per la previsione a causa della complessità delle pipeline di dati.
 
-* **Spiegazione** locale per l'indice dei dati: il dashboard di spiegazione non supporta la relazione tra i valori di importanza locale e un identificatore di riga del set di dati di convalida originale se tale set di dati è maggiore di 5000 punti dati quando il dashboard esegue in modo casuale il campionamento dei dati. Tuttavia, il dashboard mostra i valori delle funzionalità del set di dati non elaborati per ogni punto dati passato nel dashboard nella scheda Priorità singola funzionalità. Gli utenti possono eseguire il mapping delle priorità locali al set di dati originale tramite la corrispondenza dei valori delle funzionalità del set di dati non elaborati. Se le dimensioni del set di dati di convalida sono inferiori a 5000 esempi, la funzionalità in AzureML Studio corrisponderà all'indice nel `index` set di dati di convalida.
+* Spiegazione locale per l'indice dei **dati:** il dashboard di spiegazione non supporta la relazione tra i valori di importanza locale e un identificatore di riga del set di dati di convalida originale se tale set di dati è maggiore di 5000 punti dati, perché il dashboard sottocampiona in modo casuale i dati. Tuttavia, il dashboard mostra i valori delle funzionalità del set di dati non elaborati per ogni punto dati passato nel dashboard nella scheda Priorità singola funzionalità. Gli utenti possono eseguire il mapping delle priorità locali al set di dati originale tramite la corrispondenza dei valori delle caratteristiche dei set di dati non elaborati. Se le dimensioni del set di dati di convalida sono inferiori a 5000 esempi, la funzionalità in AzureML Studio corrisponderà all'indice nel `index` set di dati di convalida.
 
-* Tracciati di **what-if/ICE** non supportati in Studio: i tracciati What-If e Ice (Individual Conditional Expectation) non sono supportati in studio di Azure Machine Learning nella scheda Spiegazioni perché la spiegazione caricata richiede un calcolo attivo per ricalcolare le stime e le probabilità di caratteristiche perturbate. È attualmente supportata nei notebook di Jupyter quando viene eseguita come widget usando l'SDK.
+* Tracciati **what-if/ICE** non supportati in studio: i tracciati What-If e ICE (Individual Conditional Expectation) non sono supportati in studio di Azure Machine Learning nella scheda Spiegazioni perché la spiegazione caricata richiede un calcolo attivo per ricalcolare stime e probabilità di funzionalità perturbate. È attualmente supportato nei notebook di Jupyter quando viene eseguito come widget usando l'SDK.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 [Altre informazioni sull'interpretabilità dei modelli](how-to-machine-learning-interpretability.md)
 
-[Vedere i Azure Machine Learning notebook di esempio di interpretabilità](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model)
+[Vedere i notebook Azure Machine Learning di esempio di interpretabilità](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model)

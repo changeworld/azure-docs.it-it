@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: robinsh
-ms.openlocfilehash: 4dbda13ffe04e0a4214b24ccaca2b8103a39b9f2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ea6ec30ad5f3b1cdbc906cc94cb211295b84e802
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92536063"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107761728"
 ---
 # <a name="configure-iot-hub-file-uploads-using-azure-cli"></a>Configurare gli upload dei file nell'hub IoT tramite l'interfaccia della riga di comando di Azure
 
@@ -27,9 +27,9 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 * [Interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
-* Un hub IoT di Azure. Se non si dispone di un hub Internet delle cose, è possibile usare il [ `az iot hub create` comando](/cli/azure/iot/hub#az-iot-hub-create) per crearne uno o [creare un hub Internet delle cose usando il portale](iot-hub-create-through-portal.md).
+* Un hub IoT di Azure. Se non si ha un hub IoT, [ `az iot hub create` ](/cli/azure/iot/hub#az_iot_hub_create) è possibile usare il comando per crearne uno o creare un [hub IoT usando il portale](iot-hub-create-through-portal.md).
 
-* Un account dell'Archiviazione di Azure. Se non si ha un account di archiviazione di Azure, è possibile usare l'interfaccia della riga di comando di Azure per crearne uno. Per altre informazioni, vedere [Creare un account di archiviazione](../storage/common/storage-account-create.md).
+* Un account dell'Archiviazione di Azure. Se non si ha un account Archiviazione di Azure, è possibile usare l'interfaccia della riga di comando di Azure per crearne uno. Per altre informazioni, vedere [Creare un account di archiviazione](../storage/common/storage-account-create.md).
 
 ## <a name="sign-in-and-set-your-azure-account"></a>Accedere all'account Azure e impostarlo
 
@@ -138,7 +138,7 @@ Per altre informazioni sulle funzionalità di caricamento dei file dell'hub IoT,
 Per ulteriori informazioni sulla gestione dell'hub IoT di Azure, consultare questi collegamenti:
 
 * [Gestire in blocco i dispositivi IoT](iot-hub-bulk-identity-mgmt.md)
-* [Monitorare l'hub Internet delle cose](monitor-iot-hub.md)
+* [Monitorare l'hub IoT](monitor-iot-hub.md)
 
 Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 

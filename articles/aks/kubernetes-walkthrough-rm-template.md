@@ -5,18 +5,18 @@ services: container-service
 ms.topic: quickstart
 ms.date: 03/15/2021
 ms.custom: mvc,subject-armqs, devx-track-azurecli
-ms.openlocfilehash: e88c56f050f2f6d1183eef23a844f5eaf1f671c2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4bcaafdb1f465fb8568078dfb5bfaf988d0cd587
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103492949"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107764442"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-an-arm-template"></a>Avvio rapido: Distribuire un cluster del servizio Azure Kubernetes con un modello di Resource Manager
 
 Il servizio Azure Kubernetes è un servizio Kubernetes gestito che permette di distribuire e gestire rapidamente i cluster. Contenuto dell'avvio rapido:
-* Distribuire un cluster AKS usando un modello di Azure Resource Manager. 
-* Eseguire un'applicazione a più contenitori con un front-end Web e un'istanza di redis nel cluster. 
+* Distribuire un cluster del servizio Web Del Servizio Azure Resource Manager servizio Azure Resource Manager servizio. 
+* Eseguire un'applicazione multi-contenitore con un front-end Web e un'istanza Redis nel cluster. 
 
 ![Immagine del passaggio ad Azure Vote](media/container-service-kubernetes-walkthrough/azure-voting-application.png)
 
@@ -34,15 +34,15 @@ Se l'ambiente soddisfa i prerequisiti e si ha familiarità con l'uso dei modelli
 
 - Questo articolo richiede la versione 2.0.61 o successiva dell'interfaccia della riga di comando di Azure. Se si usa Azure Cloud Shell, la versione più recente è già installata.
 
-- Per creare un cluster AKS usando un modello di Gestione risorse, è necessario specificare una chiave pubblica SSH. Se questa risorsa è necessaria, vedere la sezione seguente. in caso contrario, passare alla sezione [esaminare il modello](#review-the-template) .
+- Per creare un cluster del servizio AKS usando un Resource Manager, specificare una chiave pubblica SSH. Se è necessaria questa risorsa, vedere la sezione seguente. in caso contrario, passare [alla sezione Esaminare il](#review-the-template) modello.
 
 ### <a name="create-an-ssh-key-pair"></a>Creare una coppia di chiavi SSH
 
-Per accedere ai nodi AKS, è possibile connettersi usando una coppia di chiavi SSH (pubblica e privata), che viene generata usando il `ssh-keygen` comando. Per impostazione predefinita, questi file vengono creati nella directory *~/.ssh*. Se si esegue il `ssh-keygen` comando, qualsiasi coppia di chiavi SSH con lo stesso nome già esistente nel percorso specificato viene sovrascritta.
+Per accedere ai nodi del servizio AKS, connettersi usando una coppia di chiavi SSH (pubblica e privata), generata tramite il `ssh-keygen` comando . Per impostazione predefinita, questi file vengono creati nella directory *~/.ssh*. `ssh-keygen`L'esecuzione del comando sovrascriverà qualsiasi coppia di chiavi SSH con lo stesso nome già esistente nel percorso specificato.
 
 1. Passare a [https://shell.azure.com](https://shell.azure.com) per aprire Cloud Shell nel browser.
 
-1. Eseguire il comando `ssh-keygen`. Nell'esempio seguente viene creata una coppia di chiavi SSH usando la crittografia RSA e una lunghezza di bit di 2048:
+1. Eseguire il comando `ssh-keygen`. L'esempio seguente crea una coppia di chiavi SSH usando la crittografia RSA e una lunghezza in bit pari a 2048:
 
     ```console
     ssh-keygen -t rsa -b 2048
@@ -86,27 +86,27 @@ La creazione del cluster del servizio Azure Kubernetes richiede alcuni minuti. A
 
 ### <a name="connect-to-the-cluster"></a>Stabilire la connessione al cluster
 
-Per gestire un cluster Kubernetes, usare il client da riga di comando Kubernetes, [kubectl][kubectl]. `kubectl` è già installato se si usa Azure Cloud Shell. 
+Per gestire un cluster Kubernetes, usare il client della riga di comando Kubernetes, [kubectl][kubectl]. `kubectl` è già installato se si usa Azure Cloud Shell. 
 
-1. Installare `kubectl` localmente usando il comando [AZ AKS install-cli][az-aks-install-cli] :
+1. Eseguire `kubectl` l'installazione in locale [usando il comando az aks install-cli:][az-aks-install-cli]
 
     ```azurecli
     az aks install-cli
     ```
 
-2. Configurare `kubectl` per connettersi al cluster Kubernetes usando il comando [AZ AKS Get-credentials][az-aks-get-credentials] . Questo comando scarica le credenziali e configura l'interfaccia della riga di comando di Kubernetes per usarli.
+2. Configurare `kubectl` per connettersi al cluster Kubernetes usando il [comando az aks get-credentials.][az-aks-get-credentials] Questo comando scarica le credenziali e configura l'interfaccia della riga di comando di Kubernetes per usarli.
 
     ```azurecli-interactive
     az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
     ```
 
-3. Verificare la connessione al cluster usando il comando [kubectl Get][kubectl-get] . Questo comando restituisce un elenco dei nodi del cluster.
+3. Verificare la connessione al cluster usando il [comando kubectl get.][kubectl-get] Questo comando restituisce un elenco dei nodi del cluster.
 
     ```console
     kubectl get nodes
     ```
 
-    Output Mostra i nodi creati nei passaggi precedenti. Assicurarsi che lo stato di tutti i nodi sia impostato su *Pronto*:
+    L'output mostra i nodi creati nei passaggi precedenti. Assicurarsi che lo stato di tutti i nodi sia impostato su *Pronto*:
 
     ```output
     NAME                       STATUS   ROLES   AGE     VERSION
@@ -117,18 +117,18 @@ Per gestire un cluster Kubernetes, usare il client da riga di comando Kubernetes
 
 ### <a name="run-the-application"></a>Eseguire l'applicazione
 
-Un [file manifesto di Kubernetes][kubernetes-deployment] definisce uno stato desiderato del cluster, ad esempio le immagini del contenitore da eseguire. 
+Un [file manifesto Kubernetes][kubernetes-deployment] definisce lo stato desiderato di un cluster, ad esempio le immagini del contenitore da eseguire. 
 
-In questa Guida introduttiva si userà un manifesto per creare tutti gli oggetti necessari per eseguire l' [applicazione Azure vote][azure-vote-app]. Questo manifesto include due [distribuzioni Kubernetes][kubernetes-deployment]:
-* Applicazioni Python di Azure vote di esempio.
+In questa guida introduttiva si userà un manifesto per creare tutti gli oggetti necessari per eseguire [l'applicazione Azure Vote.][azure-vote-app] Questo manifesto include due [distribuzioni di Kubernetes:][kubernetes-deployment]
+* Le applicazioni Python di Azure Vote di esempio.
 * Istanza di Redis. 
 
-Vengono creati anche due [Servizi Kubernetes][kubernetes-service] :
-* Servizio interno per l'istanza di Redis.
-* Un servizio esterno per accedere all'applicazione Azure vote da Internet.
+Vengono [creati anche due servizi Kubernetes:][kubernetes-service]
+* Un servizio interno per l'istanza di Redis.
+* Un servizio esterno per accedere all'applicazione Azure Vote da Internet.
 
 1. Creare un file denominato `azure-vote.yaml`.
-    * Se si utilizza il Azure Cloud Shell, questo file può essere creato utilizzando `vi` o `nano` come se si utilizzasse un sistema virtuale o fisico
+    * Se si usa il Azure Cloud Shell, questo file può essere creato usando o come se si lavora `vi` in un sistema fisico o `nano` virtuale
 1. Copiare nella definizione YAML seguente:
 
     ```yaml
@@ -225,7 +225,7 @@ Vengono creati anche due [Servizi Kubernetes][kubernetes-service] :
     kubectl apply -f azure-vote.yaml
     ```
 
-    L'output Mostra le distribuzioni e i servizi creati correttamente:
+    L'output mostra le distribuzioni e i servizi creati correttamente:
 
     ```output
     deployment "azure-vote-back" created
@@ -238,20 +238,20 @@ Vengono creati anche due [Servizi Kubernetes][kubernetes-service] :
 
 Durante l'esecuzione dell'applicazione, un servizio Kubernetes espone il front-end dell'applicazione a Internet. Il processo potrebbe richiedere alcuni minuti.
 
-Monitorare lo stato di avanzamento usando il comando [kubectl Get Service][kubectl-get] con l' `--watch` argomento.
+Monitorare lo stato usando [il comando kubectl get service][kubectl-get] con l'argomento `--watch` .
 
 ```console
 kubectl get service azure-vote-front --watch
 ```
 
-L'output **IP esterno** per il `azure-vote-front` servizio viene inizialmente visualizzato come *in sospeso*.
+**L'output EXTERNAL-IP** per `azure-vote-front` il servizio verrà inizialmente visualizzato come in *sospeso.*
 
 ```output
 NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
 azure-vote-front   LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
 ```
 
-Quando l'indirizzo **IP esterno** passa da *in sospeso* a un indirizzo IP pubblico effettivo, usare `CTRL-C` per arrestare il processo di `kubectl` controllo. L'output di esempio seguente mostra un indirizzo IP pubblico valido assegnato al servizio:
+Quando **l'indirizzo EXTERNAL-IP** cambia da *in sospeso* a un indirizzo IP pubblico effettivo, usare `CTRL-C` per arrestare il processo di `kubectl` controllo. L'output di esempio seguente mostra un indirizzo IP pubblico valido assegnato al servizio:
 
 ```output
 azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
@@ -276,11 +276,11 @@ az group delete --name myResourceGroup --yes --no-wait
 
 ## <a name="get-the-code"></a>Ottenere il codice
 
-Le immagini del contenitore preesistenti sono state usate in questa Guida introduttiva per creare una distribuzione di Kubernetes. Il codice dell'applicazione correlato, Dockerfile, e il file manifesto Kubernetes sono [disponibili in GitHub.][azure-vote-app]
+In questa guida introduttiva sono state usate immagini del contenitore preesiste per creare una distribuzione Kubernetes. Il codice dell'applicazione correlato, il dockerfile e il file manifesto Kubernetes sono [disponibili in GitHub.][azure-vote-app]
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa Guida introduttiva è stato distribuito un cluster Kubernetes e quindi è stata distribuita un'applicazione a più contenitori. [Accedere al dashboard Web di Kubernetes][kubernetes-dashboard] per il cluster AKS.
+In questa guida introduttiva è stato distribuito un cluster Kubernetes in cui è stata quindi distribuita un'applicazione multi-contenitore. [Accedere al dashboard Web di Kubernetes per][kubernetes-dashboard] il cluster del servizio Kubernetes.
 
 Per altre informazioni sul servizio Azure Container e l'analisi del codice completo per un esempio di distribuzione, passare all'esercitazione sul cluster Kubernetes.
 
@@ -299,12 +299,12 @@ Per altre informazioni sul servizio Azure Container e l'analisi del codice compl
 [kubernetes-concepts]: concepts-clusters-workloads.md
 [aks-monitor]: ../azure-monitor/containers/container-insights-onboard.md
 [aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
-[az-aks-browse]: /cli/azure/aks#az-aks-browse
-[az-aks-create]: /cli/azure/aks#az-aks-create
-[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
-[az-aks-install-cli]: /cli/azure/aks#az-aks-install-cli
-[az-group-create]: /cli/azure/group#az-group-create
-[az-group-delete]: /cli/azure/group#az-group-delete
+[az-aks-browse]: /cli/azure/aks#az_aks_browse
+[az-aks-create]: /cli/azure/aks#az_aks_create
+[az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
+[az-aks-install-cli]: /cli/azure/aks#az_aks_install_cli
+[az-group-create]: /cli/azure/group#az_group_create
+[az-group-delete]: /cli/azure/group#az_group_delete
 [azure-cli-install]: /cli/azure/install-azure-cli
 [sp-delete]: kubernetes-service-principal.md#additional-considerations
 [azure-portal]: https://portal.azure.com
@@ -312,4 +312,4 @@ Per altre informazioni sul servizio Azure Container e l'analisi del codice compl
 [kubernetes-service]: concepts-network.md#services
 [kubernetes-dashboard]: kubernetes-dashboard.md
 [ssh-keys]: ../virtual-machines/linux/create-ssh-keys-detailed.md
-[az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
+[az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az_ad_sp_create_for_rbac

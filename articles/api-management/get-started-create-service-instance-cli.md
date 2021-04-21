@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: creare un'istanza di gestione API di Azure con CLI"
+title: "Avvio rapido: Creare un'istanza di Azure API Management'interfaccia della riga di comando"
 description: Creare una nuova istanza del servizio Gestione API di Azure usando l'interfaccia della riga di comando di Azure.
 author: dlepow
 ms.service: api-management
@@ -7,14 +7,14 @@ ms.topic: quickstart
 ms.custom: ''
 ms.date: 09/10/2020
 ms.author: apimpm
-ms.openlocfilehash: 72d1faac02a21f23d46eb992af1d501bca89e71f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 19fc2e1629e7f67063e3cc3eec8cb3707b6dd2e4
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101688077"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107775854"
 ---
-# <a name="quickstart-create-a-new-azure-api-management-service-instance-by-using-the-azure-cli"></a>Guida introduttiva: creare una nuova istanza del servizio gestione API di Azure usando l'interfaccia della riga di comando di Azure
+# <a name="quickstart-create-a-new-azure-api-management-service-instance-by-using-the-azure-cli"></a>Guida introduttiva: Creare una nuova istanza del servizio azure API Management usando l'interfaccia della riga di comando di Azure
 
 Gestione API di Azure consente alle organizzazioni di pubblicare API per permettere a sviluppatori esterni, partner e interni di sfruttare tutte le potenzialità dei dati e dei servizi. Gestione API fornisce le competenze fondamentali per assicurare un programma API di successo attraverso il coinvolgimento degli sviluppatori, informazioni aziendali approfondite, strumenti di analisi, sicurezza e protezione. Gestione API consente di creare e gestire gateway API moderni per servizi back-end esistenti ospitati ovunque. Per altre informazioni, vedere la [panoramica](api-management-key-concepts.md).
 
@@ -30,7 +30,7 @@ Questo argomento di avvio rapido descrive i passaggi per la creazione di una nuo
 
 Le istanze di Gestione API di Azure, analogamente a tutte le risorse di Azure, devono essere distribuite in un gruppo di risorse. I gruppi di risorse consentono di organizzare e gestire le risorse di Azure correlate.
 
-Per iniziare, creare un gruppo di risorse denominato *myResourceGroup* nell'area Stati Uniti centrali (centralus) con il comando [az group create](/cli/azure/group#az-group-create) seguente:
+Per iniziare, creare un gruppo di risorse denominato *myResourceGroup* nell'area Stati Uniti centrali (centralus) con il comando [az group create](/cli/azure/group#az_group_create) seguente:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location centralus
@@ -38,7 +38,7 @@ az group create --name myResourceGroup --location centralus
 
 ## <a name="create-a-new-service"></a>Creare un nuovo servizio
 
-Ora che si dispone di un gruppo di risorse, è possibile creare un'istanza del servizio Gestione API. Crearne una usando il comando [az apim create](/cli/azure/apim#az-apim-create) e specificare un nome di servizio e i dettagli del server di pubblicazione. Il nome del servizio deve essere univoco in Azure. 
+Ora che si dispone di un gruppo di risorse, è possibile creare un'istanza del servizio Gestione API. Crearne una usando il comando [az apim create](/cli/azure/apim#az_apim_create) e specificare un nome di servizio e i dettagli del server di pubblicazione. Il nome del servizio deve essere univoco in Azure. 
 
 Nell'esempio seguente viene usato come nome di servizio *myapim*. Aggiornarlo con un valore univoco. Aggiornare anche il nome dell'organizzazione del server di pubblicazione dell'API e l'indirizzo di posta elettronica per la ricezione delle notifiche. 
 
@@ -53,7 +53,7 @@ Per impostazione predefinita, il comando crea l'istanza nel livello Developer, u
 > [!TIP]
 > Possono essere necessari da 30 a 40 minuti per creare e attivare un servizio Gestione API in questo livello. Il comando precedente usa l'opzione `--no-wait` in modo che il comando restituisca immediatamente il controllo mentre viene creato il servizio.
 
-Controllare lo stato della distribuzione eseguendo il comando [az apim show](/cli/azure/apim#az-apim-show):
+Controllare lo stato della distribuzione eseguendo il comando [az apim show](/cli/azure/apim#az_apim_show):
 
 ```azurecli-interactive
 az apim show --name myapim --resource-group myResourceGroup --output table
@@ -79,7 +79,7 @@ Nel momento in cui l'istanza del servizio Gestione API è online, è possibile i
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando il gruppo di risorse e l'istanza del servizio Gestione API non sono più necessari, è possibile usare il comando [az group delete](/cli/azure/group#az-group-delete) per rimuoverli.
+Quando il gruppo di risorse e l'istanza del servizio Gestione API non sono più necessari, è possibile usare il comando [az group delete](/cli/azure/group#az_group_delete) per rimuoverli.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup

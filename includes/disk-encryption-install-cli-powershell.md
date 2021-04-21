@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/06/2019
 ms.author: mbaldwin
 ms.custom: include file
-ms.openlocfilehash: 3d8cd9891329e86ce47dac6d8d44af529c104b61
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: a550087f552238820ecff079ff1dc2523c4172d3
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107386796"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107776809"
 ---
 La funzionalità Crittografia dischi di Azure può essere abilitata e gestita tramite l'[interfaccia della riga di comando di Azure](/cli/azure) e [Azure PowerShell](/powershell/azure/new-azureps-module-az). A tale scopo, è necessario installare gli strumenti localmente e connettersi alla sottoscrizione di Azure.
 
@@ -21,7 +21,7 @@ La funzionalità Crittografia dischi di Azure può essere abilitata e gestita tr
 
 L'[interfaccia della riga di comando di Azure 2.0](/cli/azure) è uno strumento da riga di comando per la gestione delle risorse di Azure. L'interfaccia della riga di comando è progettata per eseguire query sui dati in modo flessibile, supportare operazioni a esecuzione prolungata come processi non bloccanti e semplificare la creazione di script. È possibile installarla in locale seguendo i passaggi descritti in [Installare l'interfaccia della riga di comando di Azure.](/cli/azure/install-azure-cli).
 
-Per [accedere all'account di Azure con l'interfaccia della riga di comando di Azure](/cli/azure/authenticate-azure-cli), usare il comando [az login](/cli/azure/reference-index#az-login).
+Per [accedere all'account di Azure con l'interfaccia della riga di comando di Azure](/cli/azure/authenticate-azure-cli), usare il comando [az login](/cli/azure/reference-index#az_login).
 
 ```azurecli
 az login
@@ -33,7 +33,7 @@ Per selezionare un tenant per l'accesso, usare:
 az login --tenant <tenant>
 ```
 
-In caso di più sottoscrizioni, per specificarne una in particolare è necessario ottenere l'elenco di sottoscrizioni tramite [az account list](/cli/azure/account#az-account-list) (elenco account di accesso di AZ) e specificarla da [az account set](/cli/azure/account#az-account-set) (imposta account di accesso di AZ).
+In caso di più sottoscrizioni, per specificarne una in particolare è necessario ottenere l'elenco di sottoscrizioni tramite [az account list](/cli/azure/account#az_account_list) (elenco account di accesso di AZ) e specificarla da [az account set](/cli/azure/account#az_account_set) (imposta account di accesso di AZ).
      
 ```azurecli
 az account list

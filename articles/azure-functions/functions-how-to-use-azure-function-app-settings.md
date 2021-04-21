@@ -1,59 +1,59 @@
 ---
-title: Configurare le impostazioni dell'app per le funzioni in funzioni di Azure
-description: Informazioni su come configurare le impostazioni dell'app per le funzioni in funzioni di Azure.
+title: Configurare le impostazioni dell'app per le funzioni in Funzioni di Azure
+description: Informazioni su come configurare le impostazioni dell'app per le funzioni in Funzioni di Azure.
 ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
 ms.topic: conceptual
 ms.date: 04/13/2020
 ms.custom: cc996988-fb4f-47, devx-track-azurecli
-ms.openlocfilehash: 5080d16a7b14506b24e07e2ee4ba862c645f83a8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ed87a5a744defb15d4a898aeabdce5267b7431fe
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98875450"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107775656"
 ---
 # <a name="manage-your-function-app"></a>Gestire l'app per le funzioni 
 
-In Funzioni di Azure un'app per le funzioni fornisce il contesto di esecuzione per le singole funzioni. I comportamenti dell'app per le funzioni si applicano a tutte le funzioni ospitate da un'app per le funzioni specifica. Tutte le funzioni in un'app per le funzioni devono essere della stessa [lingua](supported-languages.md). 
+In Funzioni di Azure un'app per le funzioni fornisce il contesto di esecuzione per le singole funzioni. I comportamenti dell'app per le funzioni si applicano a tutte le funzioni ospitate da un'app per le funzioni specifica. Tutte le funzioni in un'app per le funzioni devono essere dello stesso [linguaggio.](supported-languages.md) 
 
-Le singole funzioni in un'app per le funzioni vengono distribuite insieme e vengono ridimensionate insieme. Tutte le funzioni nella stessa app per le funzioni condividono le risorse, per ogni istanza, di ridimensionamento dell'app per le funzioni. 
+Le singole funzioni in un'app per le funzioni vengono distribuite insieme e vengono ridimensionate insieme. Tutte le funzioni nella stessa app per le funzioni condividono le risorse, per istanza, mentre l'app per le funzioni viene ridimensionata. 
 
-Le stringhe di connessione, le variabili di ambiente e altre impostazioni dell'applicazione sono definite separatamente per ogni app per le funzioni. Tutti i dati che devono essere condivisi tra app per le funzioni devono essere archiviati esternamente in un archivio permanente.
+Le stringhe di connessione, le variabili di ambiente e altre impostazioni dell'applicazione vengono definite separatamente per ogni app per le funzioni. Tutti i dati che devono essere condivisi tra app per le funzioni devono essere archiviati esternamente in un archivio persistente.
 
 ## <a name="get-started-in-the-azure-portal"></a>Attività iniziali nel portale di Azure
 
-1. Innanzitutto passare al [portale di Azure] e accedere all'account di Azure. Nella barra di ricerca nella parte superiore del portale immettere il nome dell'app per le funzioni e selezionarlo dall'elenco. 
+1. Innanzitutto passare al [portale di Azure] e accedere all'account di Azure. Nella barra di ricerca nella parte superiore del portale immettere il nome dell'app per le funzioni e selezionarla nell'elenco. 
 
-2. In **Impostazioni** nel riquadro a sinistra selezionare **configurazione**.
+2. In **Impostazioni** nel riquadro sinistro selezionare **Configurazione**.
 
     :::image type="content" source="./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png" alt-text="Panoramica dell'app per le funzioni nel portale di Azure":::
 
-È possibile passare a tutti gli elementi necessari per gestire l'app per le funzioni dalla pagina Panoramica, in particolare le **[impostazioni dell'applicazione](#settings)** e le **[funzionalità della piattaforma](#platform-features)**.
+È possibile passare a tutti gli elementi necessari per gestire l'app per le funzioni dalla pagina di panoramica, in particolare le **[impostazioni dell'applicazione](#settings)** e **[le funzionalità della piattaforma](#platform-features)**.
 
 ## <a name="work-with-application-settings"></a><a name="settings"></a>Usare le impostazioni dell'applicazione
 
-Le impostazioni dell'applicazione possono essere gestite dal [portale di Azure](functions-how-to-use-azure-function-app-settings.md?tabs=portal#settings) e usando l' [interfaccia](functions-how-to-use-azure-function-app-settings.md?tabs=azurecli#settings) della riga di comando di Azure e [Azure PowerShell](functions-how-to-use-azure-function-app-settings.md?tabs=powershell#settings). È anche possibile gestire le impostazioni dell'applicazione da [Visual Studio Code](functions-develop-vs-code.md#application-settings-in-azure) e da [Visual Studio](functions-develop-vs.md#function-app-settings). 
+Le impostazioni dell'applicazione possono essere gestite [dal](functions-how-to-use-azure-function-app-settings.md?tabs=portal#settings) portale di Azure usando l'interfaccia della riga di comando di [Azure](functions-how-to-use-azure-function-app-settings.md?tabs=azurecli#settings) [e Azure PowerShell](functions-how-to-use-azure-function-app-settings.md?tabs=powershell#settings). È anche possibile gestire le impostazioni dell'applicazione [da Visual Studio Code](functions-develop-vs-code.md#application-settings-in-azure) e da [Visual Studio](functions-develop-vs.md#function-app-settings). 
 
-Queste impostazioni vengono archiviate crittografate. Per altre informazioni, vedere [sicurezza delle impostazioni dell'applicazione](security-concepts.md#application-settings).
+Queste impostazioni vengono archiviate crittografate. Per altre informazioni, vedere [Sicurezza delle impostazioni dell'applicazione.](security-concepts.md#application-settings)
 
 # <a name="portal"></a>[Portale](#tab/portal)
 
 Per trovare le impostazioni dell'applicazione, vedere [Introduzione all'portale di Azure](#get-started-in-the-azure-portal). 
 
-La scheda **Impostazioni applicazione** mantiene le impostazioni usate dall'app per le funzioni. È necessario selezionare **Mostra valori** per visualizzare i valori nel portale. Per aggiungere un'impostazione nel portale, selezionare **nuova impostazione applicazione** e aggiungere la nuova coppia chiave-valore.
+La **scheda Impostazioni applicazione** mantiene le impostazioni usate dall'app per le funzioni. È necessario selezionare **Mostra valori** per visualizzare i valori nel portale. Per aggiungere un'impostazione nel portale, selezionare **Nuova impostazione applicazione** e aggiungere la nuova coppia chiave-valore.
 
-![Impostazioni dell'app per le funzioni nella portale di Azure.](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-settings-tab.png)
+![Impostazioni dell'app per le funzioni nel portale di Azure.](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-settings-tab.png)
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azurecli)
 
-Il [`az functionapp config appsettings list`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-list) comando restituisce le impostazioni dell'applicazione esistenti, come nell'esempio seguente:
+Il [`az functionapp config appsettings list`](/cli/azure/functionapp/config/appsettings#az_functionapp_config_appsettings_list) comando restituisce le impostazioni dell'applicazione esistenti, come nell'esempio seguente:
 
 ```azurecli-interactive
 az functionapp config appsettings list --name <FUNCTION_APP_NAME> \
 --resource-group <RESOURCE_GROUP_NAME>
 ```
 
-Il [`az functionapp config appsettings set`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) comando aggiunge o aggiorna un'impostazione dell'applicazione. Nell'esempio seguente viene creata un'impostazione con una chiave denominata `CUSTOM_FUNCTION_APP_SETTING` e un valore `12345` :
+Il [`az functionapp config appsettings set`](/cli/azure/functionapp/config/appsettings#az_functionapp_config_appsettings_set) comando aggiunge o aggiorna un'impostazione dell'applicazione. L'esempio seguente crea un'impostazione con una chiave `CUSTOM_FUNCTION_APP_SETTING` denominata e un valore `12345` :
 
 
 ```azurecli-interactive
@@ -70,7 +70,7 @@ Il [`Get-AzFunctionAppSetting`](/powershell/module/az.functions/get-azfunctionap
 Get-AzFunctionAppSetting -Name <FUNCTION_APP_NAME> -ResourceGroupName <RESOURCE_GROUP_NAME>
 ```
 
-Il [`Update-AzFunctionAppSetting`](/powershell/module/az.functions/update-azfunctionappsetting) comando aggiunge o aggiorna un'impostazione dell'applicazione. Nell'esempio seguente viene creata un'impostazione con una chiave denominata `CUSTOM_FUNCTION_APP_SETTING` e un valore `12345` :
+Il [`Update-AzFunctionAppSetting`](/powershell/module/az.functions/update-azfunctionappsetting) comando aggiunge o aggiorna un'impostazione dell'applicazione. Nell'esempio seguente viene creata un'impostazione con una chiave `CUSTOM_FUNCTION_APP_SETTING` denominata e un valore `12345` :
 
 ```azurepowershell-interactive
 Update-AzFunctionAppSetting -Name <FUNCTION_APP_NAME> -ResourceGroupName <RESOURCE_GROUP_NAME> -AppSetting @{"CUSTOM_FUNCTION_APP_SETTING" = "12345"}
@@ -82,17 +82,17 @@ Update-AzFunctionAppSetting -Name <FUNCTION_APP_NAME> -ResourceGroupName <RESOUR
 
 [!INCLUDE [functions-environment-variables](../../includes/functions-environment-variables.md)]
 
-Quando si sviluppa un'app per le funzioni in locale, è necessario mantenere le copie locali di questi valori nel file di progetto local.settings.js. Per altre informazioni, vedere [file di impostazioni locali](functions-run-local.md#local-settings-file).
+Quando si sviluppa un'app per le funzioni in locale, è necessario mantenere copie locali di questi valori nel local.settings.jsnel file di progetto. Per altre informazioni, vedere [File di impostazioni locali.](functions-run-local.md#local-settings-file)
 
 ## <a name="hosting-plan-type"></a>Tipo di piano di hosting
 
-Quando si crea un'app per le funzioni, si crea anche un piano di hosting in cui viene eseguita l'app. Un piano può avere una o più app per le funzioni. La funzionalità, la scalabilità e i prezzi delle funzioni dipendono dal tipo di piano. Per altre informazioni, vedere [Opzioni di hosting di funzioni di Azure](functions-scale.md).
+Quando si crea un'app per le funzioni, si crea anche un piano di hosting in cui viene eseguita l'app. Un piano può avere una o più app per le funzioni. La funzionalità, la scalabilità e i prezzi delle funzioni dipendono dal tipo di piano. Per altre informazioni, vedere Opzioni [Funzioni di Azure di hosting.](functions-scale.md)
 
-È possibile determinare il tipo di piano usato dall'app per le funzioni dalla portale di Azure o usando l'interfaccia della riga di comando di Azure o le API di Azure PowerShell. 
+È possibile determinare il tipo di piano usato dall'app per le funzioni dal portale di Azure o usando l'interfaccia della riga di comando di Azure o le API Azure PowerShell servizio. 
 
 I valori seguenti indicano il tipo di piano:
 
-| Tipo di piano | Portale | INTERFACCIA della riga di comando di Azure/PowerShell |
+| Tipo di piano | Portale | Interfaccia della riga di comando di Azure/PowerShell |
 | --- | --- | --- |
 | [Consumo](consumption-plan.md) | **Consumo** | `Dynamic` |
 | [Premium](functions-premium-plan.md) | **ElasticPremium** | `ElasticPremium` |
@@ -100,13 +100,13 @@ I valori seguenti indicano il tipo di piano:
 
 # <a name="portal"></a>[Portale](#tab/portal)
 
-Per determinare il tipo di piano usato dall'app per le funzioni, vedere **piano di servizio app** nella scheda **Panoramica** per l'app per le funzioni nella [portale di Azure](https://portal.azure.com). Per visualizzare il piano tariffario, selezionare il nome del **piano di servizio app** e quindi selezionare **Proprietà** nel riquadro sinistro.
+Per determinare il tipo di piano usato dall'app  per le funzioni, vedere Piano di servizio **app** nella scheda Panoramica per l'app per le [funzioni nel portale di Azure](https://portal.azure.com). Per visualizzare il piano tariffario, selezionare il nome del piano di **servizio app** e quindi selezionare **Proprietà** nel riquadro sinistro.
 
 ![Visualizzare il piano nel portale](./media/functions-scale/function-app-overview-portal.png)
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azurecli)
 
-Eseguire il comando dell'interfaccia della riga di comando di Azure seguente per ottenere il tipo di piano di hosting:
+Eseguire il comando seguente dell'interfaccia della riga di comando di Azure per ottenere il tipo di piano di hosting:
 
 ```azurecli-interactive
 functionApp=<FUNCTION_APP_NAME>
@@ -116,11 +116,11 @@ az appservice plan list --query "[?id=='$appServicePlanId'].sku.tier" --output t
 
 ```  
 
-Nell'esempio precedente sostituire `<RESOURCE_GROUP>` e `<FUNCTION_APP_NAME>` con i nomi del gruppo di risorse e dell'app per le funzioni, rispettivi. 
+Nell'esempio precedente sostituire `<RESOURCE_GROUP>` e con i nomi del gruppo di risorse e `<FUNCTION_APP_NAME>` dell'app per le funzioni, rispettivamente. 
 
 # <a name="azure-powershell"></a>[Azure PowerShell](#tab/powershell)
 
-Eseguire il comando di Azure PowerShell seguente per ottenere il tipo di piano di hosting:
+Eseguire il comando Azure PowerShell seguente per ottenere il tipo di piano di hosting:
 
 ```azurepowershell-interactive
 $FunctionApp = '<FUNCTION_APP_NAME>'
@@ -129,21 +129,21 @@ $ResourceGroup = '<RESOURCE_GROUP>'
 $PlanID = (Get-AzFunctionApp -ResourceGroupName $ResourceGroup -Name $FunctionApp).AppServicePlan
 (Get-AzFunctionAppPlan -Name $PlanID -ResourceGroupName $ResourceGroup).SkuTier
 ```
-Nell'esempio precedente sostituire `<RESOURCE_GROUP>` e `<FUNCTION_APP_NAME>` con i nomi del gruppo di risorse e dell'app per le funzioni, rispettivi. 
+Nell'esempio precedente sostituire `<RESOURCE_GROUP>` e con i nomi del gruppo di risorse e `<FUNCTION_APP_NAME>` dell'app per le funzioni, rispettivamente. 
 
 ---
 
 ## <a name="plan-migration"></a>Pianificare la migrazione
 
-È possibile usare i comandi dell'interfaccia della riga di comando di Azure per migrare un'app per le funzioni tra un piano a consumo e un piano Premium in Windows I comandi specifici dipendono dalla direzione della migrazione. La migrazione diretta a un piano dedicato (servizio app) non è attualmente supportata.
+È possibile usare i comandi dell'interfaccia della riga di comando di Azure per eseguire la migrazione di un'app per le funzioni tra un piano a consumo e un piano Premium in Windows. I comandi specifici dipendono dalla direzione della migrazione. La migrazione diretta a un piano dedicato (servizio app) non è attualmente supportata.
 
 Questa migrazione non è supportata in Linux.
 
-### <a name="consumption-to-premium"></a>Consumo a Premium
+### <a name="consumption-to-premium"></a>Da consumo a Premium
 
 Usare la procedura seguente per eseguire la migrazione da un piano a consumo a un piano Premium in Windows:
 
-1. Eseguire il comando seguente per creare un nuovo piano di servizio app (Premium elastico) nella stessa area e nello stesso gruppo di risorse dell'app per le funzioni esistente.  
+1. Eseguire il comando seguente per creare un nuovo piano di servizio app (Elastic Premium) nella stessa area e nello stesso gruppo di risorse dell'app per le funzioni esistente.  
 
     ```azurecli-interactive
     az functionapp plan create --name <NEW_PREMIUM_PLAN_NAME> --resource-group <MY_RESOURCE_GROUP> --location <REGION> --sku EP1
@@ -155,13 +155,13 @@ Usare la procedura seguente per eseguire la migrazione da un piano a consumo a u
     az functionapp update --name <MY_APP_NAME> --resource-group <MY_RESOURCE_GROUP> --plan <NEW_PREMIUM_PLAN>
     ```
 
-1. Se il piano dell'app per le funzioni di consumo precedente non è più necessario, eliminare il piano dell'app per le funzioni originale dopo avere verificato che la migrazione a quella nuova è stata completata. Eseguire il comando seguente per ottenere un elenco di tutti i piani a consumo nel gruppo di risorse.
+1. Se il piano dell'app per le funzioni a consumo precedente non è più necessario, eliminare il piano dell'app per le funzioni originale dopo aver confermato di aver eseguito correttamente la migrazione a quello nuovo. Eseguire il comando seguente per ottenere un elenco di tutti i piani a consumo nel gruppo di risorse.
 
     ```azurecli-interactive
     az functionapp plan list --resource-group <MY_RESOURCE_GROUP> --query "[?sku.family=='Y'].{PlanName:name,Sites:numberOfSites}" -o table
     ```
 
-    È possibile eliminare tranquillamente il piano con zero siti, ovvero quello da cui è stata eseguita la migrazione.
+    È possibile eliminare il piano senza siti, ovvero quello da cui è stata eseguita la migrazione.
 
 1. Eseguire il comando seguente per eliminare il piano a consumo da cui è stata eseguita la migrazione.
 
@@ -169,11 +169,11 @@ Usare la procedura seguente per eseguire la migrazione da un piano a consumo a u
     az functionapp plan delete --name <CONSUMPTION_PLAN_NAME> --resource-group <MY_RESOURCE_GROUP>
     ```
 
-### <a name="premium-to-consumption"></a>Premium a consumo
+### <a name="premium-to-consumption"></a>Da Premium a Consumo
 
 Usare la procedura seguente per eseguire la migrazione da un piano Premium a un piano a consumo in Windows:
 
-1. Eseguire il comando seguente per creare una nuova app per le funzioni (consumo) nella stessa area e nello stesso gruppo di risorse dell'app per le funzioni esistente. Questo comando crea anche un nuovo piano a consumo in cui viene eseguita l'app per le funzioni.
+1. Eseguire il comando seguente per creare una nuova app per le funzioni (Consumo) nella stessa area e nello stesso gruppo di risorse dell'app per le funzioni esistente. Questo comando crea anche un nuovo piano a consumo in cui viene eseguita l'app per le funzioni.
 
     ```azurecli-interactive
     az functionapp create --resource-group <MY_RESOURCE_GROUP> --name <NEW_CONSUMPTION_APP_NAME> --consumption-plan-location <REGION> --runtime dotnet --functions-version 3 --storage-account <STORAGE_NAME>
@@ -191,13 +191,13 @@ Usare la procedura seguente per eseguire la migrazione da un piano Premium a un 
     az functionapp delete --name <NEW_CONSUMPTION_APP_NAME> --resource-group <MY_RESOURCE_GROUP>
     ```
 
-1. Se il piano dell'app per le funzioni Premium precedente non è più necessario, eliminare il piano dell'app per le funzioni originale dopo avere verificato che la migrazione a quella nuova è stata completata. Si noti che se il piano non viene eliminato, verrà comunque addebitato il piano Premium. Eseguire il comando seguente per ottenere un elenco di tutti i piani Premium nel gruppo di risorse.
+1. Se il piano dell'app per le funzioni Premium precedente non è più necessario, eliminare il piano di app per le funzioni originale dopo aver confermato di aver completato la migrazione a quello nuovo. Si noti che se il piano non viene eliminato, verrà comunque addebitato il piano Premium. Eseguire il comando seguente per ottenere un elenco di tutti i piani Premium nel gruppo di risorse.
 
     ```azurecli-interactive
     az functionapp plan list --resource-group <MY_RESOURCE_GROUP> --query "[?sku.family=='EP'].{PlanName:name,Sites:numberOfSites}" -o table
     ```
 
-1. Eseguire il comando seguente per eliminare il piano Premium di cui è stata eseguita la migrazione.
+1. Eseguire il comando seguente per eliminare il piano Premium da cui è stata eseguita la migrazione.
 
     ```azurecli-interactive
     az functionapp plan delete --name <PREMIUM_PLAN> --resource-group <MY_RESOURCE_GROUP>
@@ -205,12 +205,12 @@ Usare la procedura seguente per eseguire la migrazione da un piano Premium a un 
 
 ## <a name="platform-features"></a>Funzionalità della piattaforma
 
-Le app per le funzioni vengono eseguite in e vengono gestite da app Azure piattaforma del servizio. Di conseguenza, le app per le funzioni hanno accesso alla maggior parte delle funzionalità di piattaforma di hosting Web di base di Azure. Il riquadro sinistro consente di accedere alle numerose funzionalità della piattaforma del servizio app che è possibile usare nelle app per le funzioni. 
+Le app per le funzioni vengono eseguite nella piattaforma Servizio app di Azure gestita da . Di conseguenza, le app per le funzioni hanno accesso alla maggior parte delle funzionalità di piattaforma di hosting Web di base di Azure. Nel riquadro sinistro è possibile accedere alle numerose funzionalità della piattaforma del servizio app che è possibile usare nelle app per le funzioni. 
 
 > [!NOTE]
 > Non tutte le funzionalità del servizio app sono disponibili quando un'app per le funzioni viene eseguita nel piano di hosting a consumo.
 
-Il resto di questo articolo è incentrato sulle funzionalità del servizio app seguenti nell'portale di Azure utili per le funzioni:
+La parte restante di questo articolo è incentrata sulle funzionalità del servizio app seguenti nel portale di Azure utili per Le funzioni:
 
 + [Editor del servizio app](#editor)
 + [Console](#console)
@@ -225,9 +225,9 @@ Per altre informazioni su come usare le impostazioni del servizio app, vedere [C
 
 ![Editor del servizio app](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-appservice-editor.png)
 
-L'editor del servizio app è un editor avanzato, disponibile nel portale, che si può usare per modificare i file di configurazione JSON e i file del codice nello stesso modo. Quando si sceglie questa opzione, viene aperta una scheda separata del browser con un editor di base. Ciò consente di realizzare l'integrazione con l'archivio Git, eseguire il codice e il relativo debug e modificare le impostazioni dell'app per le funzioni. Questo editor fornisce un ambiente di sviluppo avanzato per le funzioni rispetto all'editor di funzioni incorporato.  
+L'editor del servizio app è un editor avanzato, disponibile nel portale, che si può usare per modificare i file di configurazione JSON e i file del codice nello stesso modo. Quando si sceglie questa opzione, viene aperta una scheda separata del browser con un editor di base. Ciò consente di realizzare l'integrazione con l'archivio Git, eseguire il codice e il relativo debug e modificare le impostazioni dell'app per le funzioni. Questo editor offre un ambiente di sviluppo avanzato per le funzioni rispetto all'editor di funzioni predefinito.  
 
-Si consiglia di provare a sviluppare le funzioni nel computer locale. Quando si sviluppa in locale e si esegue la pubblicazione in Azure, i file di progetto sono di sola lettura nel portale. Per altre informazioni, vedere [codice e test di funzioni di Azure in locale](functions-develop-local.md).
+È consigliabile prendere in considerazione lo sviluppo delle funzioni nel computer locale. Quando si sviluppa in locale e si pubblica in Azure, i file di progetto sono di sola lettura nel portale. Per altre informazioni, vedere [Creare codice e testare Funzioni di Azure in locale.](functions-develop-local.md)
 
 ### <a name="console"></a><a name="console"></a>Console
 
@@ -235,7 +235,7 @@ Si consiglia di provare a sviluppare le funzioni nel computer locale. Quando si 
 
 La console nel portale è uno strumento ideale per gli sviluppatori quando si desidera interagire con l'app per le funzioni dalla riga di comando. I comandi comuni includono la creazione e lo spostamento di file e directory, nonché l'esecuzione di script e file batch. 
 
-Quando si sviluppa localmente, è consigliabile usare il [Azure Functions Core Tools](functions-run-local.md) e l'interfaccia della riga di comando di [Azure].
+Quando si sviluppa in locale, è consigliabile usare il Azure Functions Core Tools [e](functions-run-local.md) l'interfaccia della riga di comando [di Azure.]
 
 ### <a name="advanced-tools-kudu"></a><a name="kudu"></a>Strumenti avanzati (Kudu)
 
@@ -246,21 +246,21 @@ Gli strumenti avanzati per il servizio app, noto anche come Kudu, consentono l'a
 
 ### <a name="deployment-center"></a><a name="deployment"></a>Centro distribuzione
 
-Quando si usa una soluzione di controllo del codice sorgente per sviluppare e gestire il codice delle funzioni, centro distribuzione consente di compilare e distribuire dal controllo del codice sorgente. Il progetto viene compilato e distribuito in Azure quando si effettuano gli aggiornamenti. Per altre informazioni, vedere [tecnologie di distribuzione in funzioni di Azure](functions-deployment-technologies.md).
+Quando si usa una soluzione di controllo del codice sorgente per sviluppare e gestire il codice delle funzioni, il Centro distribuzione consente di compilare e distribuire dal controllo del codice sorgente. Il progetto viene compilato e distribuito in Azure quando si apportano aggiornamenti. Per altre informazioni, vedere [Tecnologie di distribuzione in Funzioni di Azure](functions-deployment-technologies.md).
 
 ### <a name="cross-origin-resource-sharing"></a><a name="cors"></a>Condivisione di risorse tra le origini
 
-Per impedire l'esecuzione di codice dannoso sul client, i browser moderni bloccano le richieste dalle applicazioni Web alle risorse in esecuzione in un dominio separato. La [condivisione di risorse tra le origini (CORS)](https://developer.mozilla.org/docs/Web/HTTP/CORS) consente `Access-Control-Allow-Origin` a un'intestazione di dichiarare quali origini sono autorizzate a chiamare gli endpoint nell'app per le funzioni.
+Per impedire l'esecuzione di codice dannoso nel client, i browser moderni bloccano le richieste dalle applicazioni Web alle risorse in esecuzione in un dominio separato. [La condivisione di risorse tra le](https://developer.mozilla.org/docs/Web/HTTP/CORS) origini consente a un'intestazione di dichiarare quali origini sono autorizzate a chiamare gli endpoint `Access-Control-Allow-Origin` nell'app per le funzioni.
 
 #### <a name="portal"></a>Portale
 
-Quando si configura l'elenco di **origini consentite** per l'app per le funzioni, l' `Access-Control-Allow-Origin` intestazione viene aggiunta automaticamente a tutte le risposte dagli endpoint HTTP nell'app per le funzioni. 
+Quando si configura **l'elenco Origini** consentite per l'app per le funzioni, l'intestazione viene aggiunta automaticamente a tutte le risposte dagli endpoint `Access-Control-Allow-Origin` HTTP nell'app per le funzioni. 
 
 ![Configurare l'elenco CORS dell'app per le funzioni](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-cors.png)
 
 Quando si usa il carattere jolly ( `*` ), tutti gli altri domini vengono ignorati. 
 
-Usare il [`az functionapp cors add`](/cli/azure/functionapp/cors#az-functionapp-cors-add) comando per aggiungere un dominio all'elenco delle origini consentite. Nell'esempio seguente viene aggiunto il dominio contoso.com:
+Usare il [`az functionapp cors add`](/cli/azure/functionapp/cors#az_functionapp_cors_add) comando per aggiungere un dominio all'elenco delle origini consentite. L'esempio seguente aggiunge il contoso.com seguente:
 
 ```azurecli-interactive
 az functionapp cors add --name <FUNCTION_APP_NAME> \
@@ -268,19 +268,19 @@ az functionapp cors add --name <FUNCTION_APP_NAME> \
 --allowed-origins https://contoso.com
 ```
 
-Usare il [`az functionapp cors show`](/cli/azure/functionapp/cors#az-functionapp-cors-show) comando per elencare le origini consentite correnti.
+Usare il [`az functionapp cors show`](/cli/azure/functionapp/cors#az_functionapp_cors_show) comando per elencare le origini consentite correnti.
 
 ### <a name="authentication"></a><a name="auth"></a>Authentication
 
 ![Configurare l'autenticazione per un'app per le funzioni](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-authentication.png)
 
-Quando le funzioni usano un trigger HTTP, è possibile richiedere innanzitutto l'autenticazione delle chiamate. Il servizio app supporta l'autenticazione Azure Active Directory e l'accesso con i provider di social networking, ad esempio Facebook, Microsoft e Twitter. Per informazioni dettagliate sulla configurazione di specifici provider di autenticazione, vedere [Autenticazione e autorizzazione nel servizio app di Azure](../app-service/overview-authentication-authorization.md). 
+Quando le funzioni usano un trigger HTTP, è possibile richiedere innanzitutto l'autenticazione delle chiamate. Il servizio app supporta Azure Active Directory e l'accesso con provider di social network, ad esempio Facebook, Microsoft e Twitter. Per informazioni dettagliate sulla configurazione di specifici provider di autenticazione, vedere [Autenticazione e autorizzazione nel servizio app di Azure](../app-service/overview-authentication-authorization.md). 
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 + [Configurare le impostazioni del servizio app di Azure](../app-service/configure-common.md)
-+ [Distribuzione continua per funzioni di Azure](functions-continuous-deployment.md)
++ [Distribuzione continua per Funzioni di Azure](functions-continuous-deployment.md)
 
 [Interfaccia della riga di comando di Azure]: /cli/azure/
 [Azure portal]: https://portal.azure.com

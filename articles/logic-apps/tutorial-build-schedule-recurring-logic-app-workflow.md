@@ -6,13 +6,13 @@ ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 09/30/2020
-ms.openlocfilehash: 95275e68d0c7674caf4dd2b20f5586db5193fd03
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 03/24/2021
+ms.openlocfilehash: 0dab2f49043f3a59dd4f06633e3f0228fc39a424
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99054061"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107792094"
 ---
 # <a name="tutorial-create-schedule-based-and-recurring-automation-workflows-with-azure-logic-apps"></a>Esercitazione: Creare flussi di lavoro di automazione ricorrenti e basati su pianificazione con App per la logica di Azure
 
@@ -43,7 +43,7 @@ Al termine, a livello generale l'app per la logica dovrebbe avere un flusso di l
 
 * Per ottenere il tempo di viaggio per un itinerario, è necessaria una chiave di accesso per l'API di Bing Maps. Per ottenere questa chiave, seguire i passaggi per [ottenere una chiave di Bing Maps](/bingmaps/getting-started/bing-maps-dev-center-help/getting-a-bing-maps-key).
 
-* Se l'app per la logica deve comunicare attraverso un firewall che limita il traffico a indirizzi IP specifici, il firewall deve consentire l'accesso *sia* per gli indirizzi [IP in](logic-apps-limits-and-config.md#outbound) [ingresso](logic-apps-limits-and-config.md#inbound) che in uscita usati dal servizio o dal runtime di app per la logica nell'area di Azure in cui è presente l'app per la logica. Se l'app per la logica usa anche [connettori gestiti](../connectors/apis-list.md#managed-api-connectors), ad esempio il connettore Office 365 Outlook o il connettore SQL oppure usa [connettori personalizzati](/connectors/custom-connectors/), il firewall deve anche consentire l'accesso per *tutti* gli [indirizzi IP in uscita del connettore gestito](logic-apps-limits-and-config.md#outbound) nell'area di Azure dell'app per la logica.
+* Se l'app per la logica deve comunicare tramite un firewall che limita  il traffico a indirizzi IP specifici, tale firewall deve consentire l'accesso sia per gli indirizzi [IP](logic-apps-limits-and-config.md#outbound) [in](logic-apps-limits-and-config.md#inbound) ingresso che in uscita usati dal servizio App per la logica o dal runtime nell'area di Azure in cui si trova l'app per la logica. Se l'app per la logica usa anche connettori [gestiti,](../connectors/managed.md)ad esempio il connettore Office 365  Outlook o SQL, o connettori [personalizzati,](/connectors/custom-connectors/)il firewall deve anche consentire l'accesso a tutti gli indirizzi [IP](logic-apps-limits-and-config.md#outbound) in uscita del connettore gestito nell'area di Azure dell'app per la logica.
 
 ## <a name="create-your-logic-app"></a>Creare l'app per la logica
 

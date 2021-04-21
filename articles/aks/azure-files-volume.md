@@ -1,16 +1,16 @@
 ---
-title: Creazione manuale di File di Azure condivisione
+title: Creare manualmente File di Azure condivisione
 titleSuffix: Azure Kubernetes Service
 description: Informazioni su come creare manualmente un volume con i File di Azure per l'uso con pod multipli contemporaneamente nel servizio Azure Kubernetes
 services: container-service
 ms.topic: article
 ms.date: 03/01/2019
-ms.openlocfilehash: 4e009c5de2e24c1b0bd94fb4c11b0c52a3bc378d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7f3c8ae63e908f440740277084293a011b80b9d7
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102609074"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107776089"
 ---
 # <a name="manually-create-and-use-a-volume-with-azure-files-share-in-azure-kubernetes-service-aks"></a>Creare manualmente e usare un volume con la condivisione di File di Azure nel servizio Azure Kubernetes
 
@@ -26,7 +26,7 @@ Questo articolo presuppone che si disponga di un cluster del servizio Azure Kube
 
 ## <a name="create-an-azure-file-share"></a>Creare una condivisione file di Azure
 
-Prima di poter usare i File di Azure come volume Kubernetes, è necessario creare un account di archiviazione di Azure e la condivisione file. I comandi seguenti creano un gruppo di risorse denominato *myAKSShare*, un account di archiviazione e una condivisione file denominata *aksshare*:
+Prima di poter usare i File di Azure come volume Kubernetes, è necessario creare un account di archiviazione di Azure e la condivisione file. I comandi seguenti creano un gruppo di risorse denominato *myAKSShare*, un account di archiviazione e una condivisione File denominata *aksshare*:
 
 ```azurecli-interactive
 # Change these four parameters as needed for your own environment
@@ -68,9 +68,9 @@ kubectl create secret generic azure-secret --from-literal=azurestorageaccountnam
 ```
 
 ## <a name="mount-file-share-as-an-inline-volume"></a>Montare la condivisione file come volume inline
-> Nota: a partire da 1.18.15, 1.19.7, 1.20.2, 1.21.0, lo spazio dei nomi Secret nel volume inline `azureFile` può essere impostato solo come `default` spazio dei nomi, per specificare un altro spazio dei nomi Secret, usare invece sotto l'esempio di volume permanente.
+> Nota: a partire da 1.18.15, 1.19.7, 1.20.2, 1.21.0, lo spazio dei nomi del segreto nel volume inline può essere impostato solo come spazio dei nomi, per specificare uno spazio dei nomi segreto diverso, usare invece l'esempio di `azureFile` `default` volume persistente seguente.
 
-Per montare la condivisione File di Azure nel pod, configurare il volume nella specifica del contenitore. Creare un nuovo file denominato `azure-files-pod.yaml` con il contenuto seguente. Se è stato modificato il nome della condivisione file o nome del segreto, aggiornare il *shareName* e *secretName*. Se lo si desidera, annotare `mountPath`, che è il percorso in cui la condivisione file viene montata nel pod. Per i contenitori Windows Server specificare un valore per *mountPath* usando la convenzione di percorso di Windows, ad esempio *'D:'* .
+Per montare la File di Azure condivisione nel pod, configurare il volume nella specifica del contenitore. Creare un nuovo file denominato `azure-files-pod.yaml` con il contenuto seguente. Se è stato modificato il nome della condivisione file o nome del segreto, aggiornare il *shareName* e *secretName*. Se lo si desidera, annotare `mountPath`, che è il percorso in cui la condivisione file viene montata nel pod. Per i contenitori Windows Server specificare un valore per *mountPath* usando la convenzione di percorso di Windows, ad esempio *'D:'* .
 
 ```yaml
 apiVersion: v1
@@ -135,7 +135,7 @@ Volumes:
 ## <a name="mount-file-share-as-an-persistent-volume"></a>Montare la condivisione file come volume permanente
  - Opzioni di montaggio
 
-Il valore predefinito per *FileMode* e *dirMode* è *0777* per Kubernetes versione 1,15 e successive. L'esempio seguente imposta *0755* sull'oggetto *PersistentVolume* :
+Il valore predefinito per *fileMode* e *dirMode* è *0777* per Kubernetes versione 1.15 e successive. L'esempio seguente *imposta 0755 sull'oggetto* *PersistentVolume:*
 
 ```yaml
 apiVersion: v1
@@ -161,7 +161,7 @@ spec:
   - nobrl
 ```
 
-Per aggiornare le opzioni di montaggio, creare un file *azurefile-Mount-Options-PV. YAML* con una *PersistentVolume*. Ad esempio:
+Per aggiornare le opzioni di montaggio, creare un file *azurefile-mount-options-pv.yaml* con *persistentVolume*. Ad esempio:
 
 ```yaml
 apiVersion: v1
@@ -186,7 +186,7 @@ spec:
   - nobrl
 ```
 
-Creare un file *azurefile-Mount-Options-PVC. YAML* con un *PersistentVolumeClaim* che usa *PersistentVolume*. Ad esempio:
+Creare un file *azurefile-mount-options-pvc.yaml* con *persistentVolumeClaim* che usa *PersistentVolume*. Ad esempio:
 
 ```yaml
 apiVersion: v1
@@ -218,7 +218,7 @@ NAME        STATUS   VOLUME      CAPACITY   ACCESS MODES   STORAGECLASS   AGE
 azurefile   Bound    azurefile   5Gi        RWX            azurefile      5s
 ```
 
-Aggiornare le specifiche del contenitore in modo che facciano riferimento al *PersistentVolumeClaim* e aggiornino il pod. Ad esempio:
+Aggiornare la specifica del contenitore per fare riferimento *a PersistentVolumeClaim e* aggiornare il pod. Ad esempio:
 
 ```yaml
 ...
@@ -234,7 +234,7 @@ Per le procedure consigliate associate, vedere [Procedure consigliate per archiv
 
 Per altre informazioni su come i cluster del servizio Azure Kubernetes interagiscono con i File di Azure, vedere l'argomento relativo ai [plug-in Kubernetes per i File di Azure][kubernetes-files].
 
-Per i parametri della classe di archiviazione, vedere [provisioning statico (Bring your own file share)](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/docs/driver-parameters.md#static-provisionbring-your-own-file-share).
+Per i parametri della classe di archiviazione, vedere [Provisioning statico (bring your own file share)](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/docs/driver-parameters.md#static-provisionbring-your-own-file-share).
 
 <!-- LINKS - external -->
 [kubectl-create]: https://kubernetes.io/docs/user-guide/kubectl/v1.8/#create
@@ -245,10 +245,10 @@ Per i parametri della classe di archiviazione, vedere [provisioning statico (Bri
 [kubernetes-security-context]: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
 
 <!-- LINKS - internal -->
-[az-group-create]: /cli/azure/group#az-group-create
-[az-storage-create]: /cli/azure/storage/account#az-storage-account-create
-[az-storage-key-list]: /cli/azure/storage/account/keys#az-storage-account-keys-list
-[az-storage-share-create]: /cli/azure/storage/share#az-storage-share-create
+[az-group-create]: /cli/azure/group#az_group_create
+[az-storage-create]: /cli/azure/storage/account#az_storage_account_create
+[az-storage-key-list]: /cli/azure/storage/account/keys#az_storage_account_keys_list
+[az-storage-share-create]: /cli/azure/storage/share#az_storage_share_create
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli

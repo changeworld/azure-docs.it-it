@@ -1,23 +1,23 @@
 ---
-title: 'Guida introduttiva: distribuire un cluster AKS usando il portale di Azure'
+title: 'Guida introduttiva: Distribuire un cluster del servizio Web Disassoce con il portale di Azure'
 titleSuffix: Azure Kubernetes Service
 description: Informazioni su come creare rapidamente un cluster Kubernetes, distribuire un'applicazione e monitorare le prestazioni nel servizio Azure Kubernetes usando il portale di Azure.
 services: container-service
 ms.topic: quickstart
 ms.date: 03/15/2021
 ms.custom: mvc, seo-javascript-october2019, contperf-fy21q3
-ms.openlocfilehash: aa07dd84cbd107aca77236f4d084ef95a7f1005b
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 28ba2ffd2007aeb45081cf66b05395a2b8456bf7
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105544282"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107779706"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>Avvio rapido: Distribuire un cluster del servizio Azure Kubernetes usando il portale di Azure
 
 Il servizio Azure Kubernetes è un servizio Kubernetes gestito che permette di distribuire e gestire rapidamente i cluster. Contenuto dell'avvio rapido:
-* Distribuire un cluster AKS usando il portale di Azure. 
-* Eseguire un'applicazione a più contenitori con un front-end Web e un'istanza di redis nel cluster. 
+* Distribuire un cluster del servizio Web Diaks usando il portale di Azure. 
+* Eseguire un'applicazione multi-contenitore con un front-end Web e un'istanza di Redis nel cluster. 
 * Monitorare l'integrità del cluster e dei pod che eseguono l'applicazione.
 
 ![Immagine del passaggio all'applicazione Azure Vote di esempio](media/container-service-kubernetes-walkthrough/azure-voting-application.png)
@@ -37,10 +37,10 @@ Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://po
 2. Selezionare **Contenitori** > **Servizio Kubernetes**.
 
 3. Nella pagina **Informazioni di base** configurare le opzioni seguenti:
-    - **Dettagli progetto**: 
+    - **Dettagli del progetto:** 
         * Selezionare una **sottoscrizione** di Azure.
-        * Selezionare o creare un **gruppo di risorse** di Azure, ad esempio *myResourceGroup*.
-    - **Dettagli cluster**: 
+        * Selezionare o creare un gruppo **di risorse di** Azure, ad esempio *myResourceGroup.*
+    - **Dettagli del cluster:** 
         * Immettere un **nome cluster Kubernetes**, ad esempio *myAKSCluster*. 
         * Selezionare un'**area** e una **versione di Kubernetes** per il cluster del servizio Azure Kubernetes.
     - **Pool di nodi primario**: 
@@ -51,33 +51,33 @@ Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://po
 
 4. Selezionare **Avanti: Pool di nodi** al termine.
 
-5. Mantieni le opzioni predefinite dei **pool di nodi** . Nella parte inferiore della schermata fare clic su **Successivo: Autenticazione**.
+5. Mantenere le opzioni **predefinite pool di** nodi. Nella parte inferiore della schermata fare clic su **Successivo: Autenticazione**.
     > [!CAUTION]
-    > Le entità servizio Azure AD appena create possono richiedere alcuni minuti per propagarsi e diventare disponibili, causando errori di convalida e di "entità servizio non trovata" nel portale di Azure. Se si raggiunge questo problema, vedere [l'articolo sulla risoluzione dei problemi](troubleshooting.md#received-an-error-saying-my-service-principal-wasnt-found-or-is-invalid-when-i-try-to-create-a-new-cluster) per la mitigazione.
+    > La Azure AD propagazione e la disponibilità delle entità servizio appena create possono richiedere alcuni minuti, causando errori di "entità servizio non trovata" ed errori di convalida in portale di Azure. Se si verifica questo problema, vedere [l'articolo sulla risoluzione dei problemi per](troubleshooting.md#received-an-error-saying-my-service-principal-wasnt-found-or-is-invalid-when-i-try-to-create-a-new-cluster) la mitigazione.
 
 6. Nella pagina **Autenticazione** configurare le opzioni seguenti:
-    - Creare una nuova identità del cluster in uno dei seguenti casi:
-        * Lasciando il campo di **autenticazione** con l' **identità gestita System-Assinged** o
-        * Scelta dell' **entità servizio** per l'utilizzo di un'entità servizio. 
-            * Selezionare *(nuovo) entità servizio predefinita* per creare un'entità servizio predefinita oppure
-            * Selezionare *Configura entità servizio* per usare una esistente. È necessario specificare l'ID e il segreto del client SPN dell'entità esistente.
-    - Abilitare l'opzione di controllo degli accessi in base al ruolo Kubernetes (Kubernetes RBAC) per fornire un controllo più accurato sull'accesso alle risorse Kubernetes distribuite nel cluster AKS.
+    - Creare una nuova identità del cluster:
+        * Lasciare il **campo** Autenticazione **con l'identità gestita con sistema** oppure
+        * Scelta **dell'entità servizio** per usare un'entità servizio. 
+            * Selezionare *(nuova) entità servizio predefinita* per creare un'entità servizio predefinita oppure
+            * Selezionare *Configura entità servizio* per usarne una esistente. Sarà necessario fornire l'ID client e il segreto SPN dell'entità esistente.
+    - Abilitare l'opzione Controllo degli accessi in base al ruolo di Kubernetes per fornire un controllo più granulare sull'accesso alle risorse Kubernetes distribuite nel cluster del servizio Kubernetes.
 
     Per impostazione predefinita, viene usata la rete di livello *Basic* e Monitoraggio di Azure per i contenitori è abilitato. 
 
 7. Una volta completata la convalida, selezionare **Rivedi e crea** e quindi **Crea**. 
 
 
-8. La creazione del cluster del servizio Azure Kubernetes richiede alcuni minuti. Al termine della distribuzione, passare alla risorsa eseguendo una delle operazioni seguenti:
-    * Fare clic su **Vai alla risorsa** o
-    * Passare al gruppo di risorse del cluster AKS e selezionare la risorsa AKS. 
-        * Per il dashboard del cluster di esempio seguente: esplorazione di *myResourceGroup* e selezione della risorsa *myAKSCluster* .
+8. La creazione del cluster del servizio Azure Kubernetes richiede alcuni minuti. Al termine della distribuzione, passare alla risorsa:
+    * Fare **clic su Vai alla risorsa** oppure
+    * Selezionare il gruppo di risorse del cluster del servizio Web Diacks e selezionare la risorsa del servizio. 
+        * Per il dashboard del cluster di esempio seguente: cercare *myResourceGroup* e selezionare *la risorsa myAKSCluster.*
 
         ![Esempio di dashboard del servizio Azure Kubernetes nel portale di Azure](media/kubernetes-walkthrough-portal/aks-portal-dashboard.png)
 
 ## <a name="connect-to-the-cluster"></a>Stabilire la connessione al cluster
 
-Per gestire un cluster Kubernetes, usare il client da riga di comando Kubernetes, [kubectl][kubectl]. `kubectl` è già installato se si usa Azure Cloud Shell. 
+Per gestire un cluster Kubernetes, usare il client della riga di comando kubernetes, [kubectl][kubectl]. `kubectl` è già installato se si usa Azure Cloud Shell. 
 
 1. Aprire Cloud Shell usando il pulsante `>_` nella parte superiore del portale di Azure.
 
@@ -85,10 +85,10 @@ Per gestire un cluster Kubernetes, usare il client da riga di comando Kubernetes
 
     > [!NOTE]
     > Per eseguire queste operazioni in un'installazione della shell locale:
-    > 1. Verificare l'installazione dell'interfaccia della riga di comando di Azure.
-    > 2. Connettersi ad Azure tramite il `az login` comando.
+    > 1. Verificare che l'interfaccia della riga di comando di Azure sia installata.
+    > 2. Connettersi ad Azure tramite il `az login` comando .
 
-2. Configurare `kubectl` per connettersi al cluster Kubernetes usando il comando [AZ AKS Get-credentials][az-aks-get-credentials] . Il comando seguente Scarica le credenziali e configura l'interfaccia della riga di comando di Kubernetes per usarle.
+2. Configurare `kubectl` per connettersi al cluster Kubernetes usando il [comando az servizio Kubernetes get-credentials.][az-aks-get-credentials] Il comando seguente scarica le credenziali e configura l'interfaccia della riga di comando di Kubernetes per usarle.
 
     ```azurecli
     az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
@@ -100,7 +100,7 @@ Per gestire un cluster Kubernetes, usare il client da riga di comando Kubernetes
     kubectl get nodes
     ```
 
-    Output Mostra il singolo nodo creato nei passaggi precedenti. Verificare che lo stato del nodo sia *pronto*:
+    L'output mostra il singolo nodo creato nei passaggi precedenti. Verificare che lo stato del nodo sia *Pronto:*
 
     ```output
     NAME                       STATUS    ROLES     AGE       VERSION
@@ -109,17 +109,17 @@ Per gestire un cluster Kubernetes, usare il client da riga di comando Kubernetes
 
 ## <a name="run-the-application"></a>Eseguire l'applicazione
 
-Un file manifesto di Kubernetes definisce uno stato desiderato del cluster, ad esempio le immagini del contenitore da eseguire. 
+Un file manifesto Kubernetes definisce lo stato desiderato di un cluster, ad esempio le immagini del contenitore da eseguire. 
 
-In questa Guida introduttiva si userà un manifesto per creare tutti gli oggetti necessari per eseguire l'applicazione Azure vote. Questo manifesto include due distribuzioni Kubernetes:
-* Applicazioni Python di Azure vote di esempio.
-* Istanza di Redis. 
+In questa guida introduttiva si userà un manifesto per creare tutti gli oggetti necessari per eseguire l'applicazione Azure Vote. Questo manifesto include due distribuzioni kubernetes:
+* Applicazioni Python di azure vote di esempio.
+* Un'istanza di Redis. 
 
 Vengono creati anche due servizi Kubernetes:
-* Servizio interno per l'istanza di Redis.
-* Un servizio esterno per accedere all'applicazione Azure vote da Internet.
+* Un servizio interno per l'istanza di Redis.
+* Un servizio esterno per accedere all'applicazione Azure Vote da Internet.
 
-1. Nella Cloud Shell usare un editor per creare un file denominato `azure-vote.yaml` , ad esempio:
+1. Nel Cloud Shell usare un editor per creare un file denominato `azure-vote.yaml` , ad esempio:
     * `code azure-vote.yaml`
     * `nano azure-vote.yaml` o 
     * `vi azure-vote.yaml`. 
@@ -214,13 +214,13 @@ Vengono creati anche due servizi Kubernetes:
         app: azure-vote-front
     ```
 
-1. Distribuire l'applicazione usando il `kubectl apply` comando e specificare il nome del manifesto YAML:
+1. Distribuire l'applicazione usando `kubectl apply` il comando e specificare il nome del manifesto YAML:
 
     ```console
     kubectl apply -f azure-vote.yaml
     ```
 
-    L'output Mostra le distribuzioni e i servizi creati correttamente:
+    L'output mostra le distribuzioni e i servizi creati correttamente:
 
     ```output
     deployment "azure-vote-back" created
@@ -233,20 +233,20 @@ Vengono creati anche due servizi Kubernetes:
 
 Durante l'esecuzione dell'applicazione, un servizio Kubernetes espone il front-end dell'applicazione a Internet. Il processo potrebbe richiedere alcuni minuti.
 
-Per monitorare lo stato di avanzamento, utilizzare il `kubectl get service` comando con l' `--watch` argomento.
+Per monitorare lo stato di avanzamento, `kubectl get service` usare il comando con l'argomento `--watch` .
 
 ```console
 kubectl get service azure-vote-front --watch
 ```
 
-L'output **IP esterno** per il `azure-vote-front` servizio viene inizialmente visualizzato come *in sospeso*.
+**L'output EXTERNAL-IP** per `azure-vote-front` il servizio verrà inizialmente visualizzato come in *sospeso.*
 
 ```output
 NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
 azure-vote-front   LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
 ```
 
-Quando l'indirizzo **IP esterno** passa da *in sospeso* a un indirizzo IP pubblico effettivo, usare `CTRL-C` per arrestare il processo di `kubectl` controllo. L'output di esempio seguente mostra un indirizzo IP pubblico valido assegnato al servizio:
+Quando **l'indirizzo EXTERNAL-IP** cambia da *in sospeso* a un indirizzo IP pubblico effettivo, usare `CTRL-C` per arrestare il processo di `kubectl` controllo. L'output di esempio seguente mostra un indirizzo IP pubblico valido assegnato al servizio:
 
 
 ```output
@@ -259,27 +259,27 @@ Per vedere in azione l'app Azure Vote, aprire un Web browser all'indirizzo IP es
 
 ## <a name="monitor-health-and-logs"></a>Monitoraggio di stato e log
 
-Dopo la creazione del cluster, Monitoraggio di Azure per i contenitori è stato abilitato. Il monitoraggio di Azure per i contenitori fornisce le metriche di integrità sia per il cluster AKS che per i pod in esecuzione nel cluster.
+Dopo la creazione del cluster, Monitoraggio di Azure per i contenitori è stato abilitato. Monitoraggio di Azure per i contenitori fornisce metriche di integrità per il cluster del servizio Contenitore di Microsoft Monitoraggio di Azure e i pod in esecuzione nel cluster.
 
-Il popolamento dei dati delle metriche richiede alcuni minuti nell'portale di Azure. Per visualizzare lo stato di integrità corrente, il tempo di esecuzione e l'utilizzo delle risorse per i pod di voto di Azure:
+Il popolamento dei dati delle metriche nel portale di Azure. Per visualizzare lo stato di integrità corrente, il tempo di attività e l'utilizzo delle risorse per i pod di Azure Vote:
 
-1. Tornare alla risorsa AKS nella portale di Azure.
-1. In **monitoraggio** sul lato sinistro scegliere **Insights (informazioni dettagliate**).
-1. In alto, scegliere **+ Aggiungi filtro**.
-1. Selezionare **spazio dei nomi** come proprietà, quindi scegliere *\<All but kube-system\>* .
-1. Selezionare i **contenitori** per visualizzarli.
+1. Tornare alla risorsa AKS nel portale di Azure.
+1. In **Monitoraggio** sul lato sinistro scegliere **Informazioni dettagliate.**
+1. Nella parte superiore scegliere **+ Aggiungi filtro.**
+1. Selezionare **Spazio** dei nomi come proprietà e quindi scegliere *\<All but kube-system\>* .
+1. Selezionare **Contenitori** per visualizzarli.
 
-`azure-vote-back` `azure-vote-front` Vengono visualizzati i contenitori e, come illustrato nell'esempio seguente:
+Verranno `azure-vote-back` visualizzati `azure-vote-front` i contenitori e , come illustrato nell'esempio seguente:
 
 ![Visualizzare l'integrità dei contenitori in esecuzione nel servizio Azure Kubernetes](media/kubernetes-walkthrough-portal/monitor-containers.png)
 
-Per visualizzare i log per il `azure-vote-front` Pod, selezionare **Visualizza log del contenitore** nell'elenco a discesa contenitori. Questi log includono i flussi *stdout* e *stderr* del contenitore.
+Per visualizzare i log per il `azure-vote-front` pod, selezionare **Visualizza log contenitori** dall'elenco a discesa dei contenitori. Questi log includono i flussi *stdout* e *stderr* del contenitore.
 
 ![Visualizzare i log dei contenitori nel servizio Azure Kubernetes](media/kubernetes-walkthrough-portal/monitor-container-logs.png)
 
 ## <a name="delete-cluster"></a>Eliminare il cluster
 
-Per evitare addebiti per Azure, pulire le risorse non necessarie. Selezionare il pulsante **Elimina** nel dashboard del cluster AKS. È anche possibile usare il comando [AZ AKS Delete][az-aks-delete] nel cloud Shell:
+Per evitare addebiti per Azure, pulire le risorse non necessarie. Selezionare il pulsante **Elimina nel** dashboard del cluster del servizio Web Diaks. È anche possibile usare il [comando az aks delete][az-aks-delete] nel Cloud Shell:
 
 ```azurecli
 az aks delete --resource-group myResourceGroup --name myAKSCluster --no-wait
@@ -291,14 +291,14 @@ az aks delete --resource-group myResourceGroup --name myAKSCluster --no-wait
 
 ## <a name="get-the-code"></a>Ottenere il codice
 
-Le immagini del contenitore preesistenti sono state usate in questa Guida introduttiva per creare una distribuzione di Kubernetes. Il codice dell'applicazione correlato, Dockerfile, e il file manifesto Kubernetes sono [disponibili in GitHub.][azure-vote-app]
+In questa guida introduttiva sono state usate immagini del contenitore preesiste per creare una distribuzione Kubernetes. Il codice dell'applicazione correlato, il file manifesto Dockerfile e Kubernetes sono [disponibili in GitHub.][azure-vote-app]
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa Guida introduttiva è stato distribuito un cluster Kubernetes e quindi è stata distribuita un'applicazione a più contenitori. Accedere al dashboard Web di Kubernetes per il cluster AKS.
+In questa guida introduttiva è stato distribuito un cluster Kubernetes e quindi è stata distribuita un'applicazione multi-contenitore. Accedere al dashboard Web Di Kubernetes per il cluster del servizio Kubernetes.
 
 
-Per altre informazioni su AKS, vedere un esempio completo, inclusa la compilazione di un'applicazione, la distribuzione da Container Registry di Azure, l'aggiornamento di un'applicazione in esecuzione e il ridimensionamento e l'aggiornamento del cluster, continuare con l'esercitazione sul cluster Kubernetes.
+Per altre informazioni sul servizio Kubernetes, vedere un esempio completo, tra cui la compilazione di un'applicazione, la distribuzione da Registro Azure Container, l'aggiornamento di un'applicazione in esecuzione e il ridimensionamento e l'aggiornamento del cluster, continuare con l'esercitazione sul cluster Kubernetes.
 
 > [!div class="nextstepaction"]
 > [Esercitazione sul servizio Azure Container][aks-tutorial]
@@ -312,8 +312,8 @@ Per altre informazioni su AKS, vedere un esempio completo, inclusa la compilazio
 
 <!-- LINKS - internal -->
 [kubernetes-concepts]: concepts-clusters-workloads.md
-[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
-[az-aks-delete]: /cli/azure/aks#az-aks-delete
+[az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
+[az-aks-delete]: /cli/azure/aks#az_aks_delete
 [aks-monitor]: ../azure-monitor/containers/container-insights-overview.md
 [aks-network]: ./concepts-network.md
 [aks-tutorial]: ./tutorial-kubernetes-prepare-app.md

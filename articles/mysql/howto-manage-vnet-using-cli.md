@@ -1,5 +1,5 @@
 ---
-title: Gestire gli endpoint VNet-interfaccia della riga di comando di Azure-database di Azure per MySQL
+title: Gestire gli endpoint di rete virtuale - Interfaccia della riga di comando di Azure - Database di Azure per MySQL
 description: Questo articolo descrive come creare e gestire gli endpoint e le regole di servizio di rete virtuale per Database di Azure per MySQL tramite l'interfaccia della riga di comando di Azure.
 author: mksuni
 ms.author: sumuth
@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 237b9bc4d7ac6366a67accb31fdf3c80c778b5d6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0bc686efbd07cf39d7932b175b6f9800b1ff185f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94636759"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107774666"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-vnet-service-endpoints-using-azure-cli"></a>Creare e gestire gli endpoint di servizio di rete virtuale per Database di Azure per MySQL tramite l'interfaccia della riga di comando di Azure
 Gli endpoint e le regole dei servizi di rete virtuale estendono lo spazio di indirizzi privato di una rete virtuale a un server di Database di Azure per MySQL. Usando pratici comandi dell'interfaccia della riga di comando di Azure è possibile creare, aggiornare, eliminare, elencare e visualizzare gli endpoint e le regole di servizio rete virtuale per gestire il server. Per una panoramica degli endpoint di servizio di rete virtuale per Database di Azure per MySQL, incluse le limitazioni, vedere [Usare gli endpoint e le regole di servizio di rete virtuale per Database di Azure per MySQL](concepts-data-access-and-security-vnet.md). Gli endpoint di servizio di rete virtuale sono disponibili in tutte le aree supportate per Database di Azure per MySQL.
@@ -22,7 +22,7 @@ Gli endpoint e le regole dei servizi di rete virtuale estendono lo spazio di ind
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-- Sono necessari un database [di Azure per il server MySQL e il database](quickstart-create-mysql-server-database-using-azure-cli.md).
+- Sono necessari un [database e un server di Database di Azure per MySQL.](quickstart-create-mysql-server-database-using-azure-cli.md)
  
 - Questo articolo richiede la versione 2.0 dell'interfaccia della riga di comando di Azure. Se si usa Azure Cloud Shell, la versione più recente è già installata.
 
@@ -33,7 +33,7 @@ Gli endpoint e le regole dei servizi di rete virtuale estendono lo spazio di ind
 ## <a name="configure-vnet-service-endpoints-for-azure-database-for-mysql"></a>Configurare gli endpoint di servizio di rete virtuale per Database di Azure per MySQL
 Per configurare le reti virtuali vengono usati i comandi [az network vnet](/cli/azure/network/vnet).
 
-Se si possiedono più sottoscrizioni, scegliere quella appropriata in cui verrà fatturata la risorsa. Selezionare l'ID sottoscrizione specifico sotto l'account tramite il comando [az account set](/cli/azure/account#az-account-set). Sostituire la proprietà **ID** dell'output **AZ login** per la sottoscrizione nel segnaposto ID sottoscrizione.
+Se si possiedono più sottoscrizioni, scegliere quella appropriata in cui verrà fatturata la risorsa. Selezionare l'ID sottoscrizione specifico sotto l'account tramite il comando [az account set](/cli/azure/account#az_account_set). Sostituire la **proprietà id** dell'output **di az login** per la sottoscrizione nel segnaposto dell'ID sottoscrizione.
 
 - L'account deve avere le autorizzazioni necessarie per la creazione di una rete virtuale e di un endpoint di servizio.
 

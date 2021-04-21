@@ -6,13 +6,13 @@ ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: tutorial
 ms.custom: mvc, devx-track-csharp
-ms.date: 02/27/2020
-ms.openlocfilehash: bd1715dc0a3767bc5826154616bbdc97c7b61dd3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 03/24/2021
+ms.openlocfilehash: 7809ba52b270f07da9e04bc18c7c12e2268f1b73
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99576364"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107792238"
 ---
 # <a name="tutorial-automate-tasks-to-process-emails-by-using-azure-logic-apps-azure-functions-and-azure-storage"></a>Esercitazione: Automatizzare le attività per elaborare i messaggi di posta elettronica con App per la logica di Azure, Funzioni di Azure e Archiviazione di Azure
 
@@ -47,7 +47,7 @@ Al termine, a livello generale l'app per la logica dovrebbe avere un flusso di l
 
 * Scaricare e installare lo [strumento gratuito Microsoft Azure Storage Explorer](https://storageexplorer.com/). Questo strumento consente di controllare che il contenitore di archiviazione sia configurato correttamente.
 
-* Se l'app per la logica deve comunicare attraverso un firewall che limita il traffico a indirizzi IP specifici, il firewall deve consentire l'accesso *sia* per gli indirizzi [IP in](logic-apps-limits-and-config.md#outbound) [ingresso](logic-apps-limits-and-config.md#inbound) che in uscita usati dal servizio o dal runtime di app per la logica nell'area di Azure in cui è presente l'app per la logica. Se l'app per la logica usa anche [connettori gestiti](../connectors/apis-list.md#managed-api-connectors), ad esempio il connettore Office 365 Outlook o il connettore SQL oppure usa [connettori personalizzati](/connectors/custom-connectors/), il firewall deve anche consentire l'accesso per *tutti* gli [indirizzi IP in uscita del connettore gestito](logic-apps-limits-and-config.md#outbound) nell'area di Azure dell'app per la logica.
+* Se l'app per la logica deve comunicare tramite un firewall che limita  il traffico a indirizzi IP specifici, tale firewall deve consentire l'accesso sia agli indirizzi [IP](logic-apps-limits-and-config.md#outbound) [in](logic-apps-limits-and-config.md#inbound) ingresso che in uscita usati dal servizio App per la logica o dal runtime nell'area di Azure in cui è presente l'app per la logica. Se l'app per la logica usa anche connettori [gestiti,](../connectors/managed.md)ad esempio il connettore Outlook di Office 365 o il connettore SQL, oppure connettori [personalizzati,](/connectors/custom-connectors/)il firewall deve anche consentire l'accesso a tutti gli indirizzi [IP](logic-apps-limits-and-config.md#outbound) in uscita del connettore gestito nell'area di Azure dell'app per la logica. 
 
 ## <a name="set-up-storage-to-save-attachments"></a>Configurare l'archiviazione per salvare gli allegati
 
@@ -104,7 +104,7 @@ Al termine, a livello generale l'app per la logica dovrebbe avere un flusso di l
 
       ![Contenitore di archiviazione completato](./media/tutorial-process-email-attachments-workflow/created-storage-container.png)
 
-   Per creare un contenitore di archiviazione è anche possibile usare [Azure PowerShell](/powershell/module/az.storage/new-azstoragecontainer) o l'[interfaccia della riga di comando di Azure](/cli/azure/storage/container#az-storage-container-create).
+   Per creare un contenitore di archiviazione è anche possibile usare [Azure PowerShell](/powershell/module/az.storage/new-azstoragecontainer) o l'[interfaccia della riga di comando di Azure](/cli/azure/storage/container#az_storage_container_create).
 
 Connettere quindi Storage Explorer all'account di archiviazione.
 

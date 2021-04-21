@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 41c6995f16b836231142520362f9aace7d91ffe0
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: a5e0e5544c5e66f43b56de49beaa3ef3932d33f9
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107500312"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107776880"
 ---
 # <a name="create-a-vm-from-a-generalized-image-version-using-the-azure-cli"></a>Creare una macchina virtuale da una versione di immagine generalizzata usando l'interfaccia della riga di comando di Azure
 
@@ -23,7 +23,7 @@ Creare una macchina virtuale da una [versione generalizzata dell'immagine](./sha
 
 ## <a name="get-the-image-id"></a>Ottenere l'ID immagine
 
-Elencare le definizioni di immagini in una raccolta usando [az sig image-definition list](/cli/azure/sig/image-definition#az-sig-image-definition-list) per visualizzare il nome e l'ID delle definizioni.
+Elencare le definizioni di immagini in una raccolta usando [az sig image-definition list](/cli/azure/sig/image-definition#az_sig_image_definition_list) per visualizzare il nome e l'ID delle definizioni.
 
 ```azurecli-interactive 
 resourceGroup=myGalleryRG
@@ -33,7 +33,7 @@ az sig image-definition list --resource-group $resourceGroup --gallery-name $gal
 
 ## <a name="create-the-vm"></a>Creare la macchina virtuale
 
-Creare una macchina virtuale usando il comando [az vm create](/cli/azure/vm#az-vm-create). Per usare la versione più recente dell'immagine, `--image` impostare sull'ID della definizione dell'immagine. 
+Creare una macchina virtuale usando il comando [az vm create](/cli/azure/vm#az_vm_create). Per usare la versione più recente dell'immagine, `--image` impostare sull'ID della definizione dell'immagine. 
 
 Sostituire i nomi delle risorse di questo esempio secondo necessità. 
 

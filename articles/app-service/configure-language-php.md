@@ -1,22 +1,22 @@
 ---
 title: Configurare le app PHP
-description: Informazioni su come configurare un'app PHP nelle istanze di Windows native o in un contenitore PHP predefinito nel servizio app Azure. Questo articolo illustra le attività di configurazione più comuni.
+description: Informazioni su come configurare un'app PHP nelle istanze native di Windows o in un contenitore PHP predefinito in Servizio app di Azure. Questo articolo illustra le attività di configurazione più comuni.
 ms.devlang: php
 ms.topic: article
 ms.date: 06/02/2020
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: afac8273b5729bcf5470be471145214426dc7dab
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c40bc01553b9e848d668c0a699e9dcc9929f079e
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90055300"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107779328"
 ---
-# <a name="configure-a-php-app-for-azure-app-service"></a>Configurare un'app PHP per il servizio app Azure
+# <a name="configure-a-php-app-for-azure-app-service"></a>Configurare un'app PHP per Servizio app di Azure
 
-Questa guida illustra come configurare le app Web PHP, i back-end per dispositivi mobili e le app per le API nel servizio app Azure.
+Questa guida illustra come configurare le app Web PHP, i back-end per dispositivi mobili e le app per le API in Servizio app di Azure.
 
-Questa guida fornisce i concetti chiave e le istruzioni per gli sviluppatori PHP che distribuiscono le app nel servizio app. Se non si è mai usato Servizio app di Azure, seguire per prima cosa l'[Avvio rapido di PHP](quickstart-php.md) e l'[esercitazione di PHP con MySQL](tutorial-php-mysql-app.md).
+Questa guida fornisce i concetti chiave e le istruzioni per gli sviluppatori PHP che distribuiscono app nel servizio app. Se non si è mai usato Servizio app di Azure, seguire per prima cosa l'[Avvio rapido di PHP](quickstart-php.md) e l'[esercitazione di PHP con MySQL](tutorial-php-mysql-app.md).
 
 ## <a name="show-php-version"></a>Visualizzare la versione di PHP
 
@@ -56,7 +56,7 @@ az webapp list-runtimes --linux | grep PHP
 
 ::: zone pivot="platform-windows"  
 
-Eseguire il comando seguente nella [cloud Shell](https://shell.azure.com) per impostare la versione di PHP su 7,4:
+Eseguire il comando seguente nel [Cloud Shell](https://shell.azure.com) per impostare la versione PHP su 7.4:
 
 ```azurecli-interactive
 az webapp config set --name <app-name> --resource-group <resource-group-name> --php-version 7.4
@@ -76,22 +76,22 @@ az webapp config set --name <app-name> --resource-group <resource-group-name> --
 
 ::: zone pivot="platform-windows"  
 
-## <a name="run-composer"></a>Esegui Composer
+## <a name="run-composer"></a>Eseguire Composer
 
-Se si vuole che il servizio app esegua [Composer](https://getcomposer.org/) in fase di distribuzione, il modo più semplice consiste nell'includere il compositore nel repository.
+Se si vuole che il servizio app eseere [Composer](https://getcomposer.org/) in fase di distribuzione, il modo più semplice è includere Composer nel repository.
 
-Da una finestra del terminale locale passare alla directory radice del repository e seguire le istruzioni in [scaricare Composer](https://getcomposer.org/download/) per scaricare *Composer. phar* nella directory radice.
+Da una finestra del terminale locale passare alla radice del repository e seguire le istruzioni riportate in [scaricare Composer](https://getcomposer.org/download/) per scaricare *composer.phar* nella radice della directory.
 
-Eseguire i comandi seguenti (è necessario che [NPM](https://www.npmjs.com/get-npm) sia installato):
+Eseguire i comandi seguenti (è necessario [che npm sia](https://www.npmjs.com/get-npm) installato):
 
 ```bash
 npm install kuduscript -g
 kuduscript --node --scriptType bash --suppressPrompt
 ```
 
-La radice del repository dispone ora di due file aggiuntivi: *. Deployment* e *deploy.sh*.
+La radice del repository include ora due file aggiuntivi: *.deployment* *e deploy.sh*.
 
-Aprire *deploy.sh* e trovare la `Deployment` sezione, che ha un aspetto simile al seguente:
+Aprire *deploy.sh* e trovare la `Deployment` sezione, simile alla seguente:
 
 ```bash
 ##################################################################################################################################
@@ -99,7 +99,7 @@ Aprire *deploy.sh* e trovare la `Deployment` sezione, che ha un aspetto simile a
 # ----------
 ```
 
-Aggiungere la sezione di codice è necessario eseguire lo strumento necessario *alla fine* della `Deployment` sezione:
+Aggiungere la sezione di codice necessaria per eseguire lo strumento *richiesto alla fine* della `Deployment` sezione:
 
 ```bash
 # 4. Use composer
@@ -113,13 +113,13 @@ if [ -e "$DEPLOYMENT_TARGET/composer.json" ]; then
 fi
 ```
 
-Eseguire il commit di tutte le modifiche e distribuire il codice usando git o la distribuzione zip con l'automazione della compilazione abilitata. Composer dovrebbe ora essere eseguito come parte dell'automazione della distribuzione.
+Eseguire il commit di tutte le modifiche e distribuire il codice usando Git o zip deploy con l'automazione della compilazione abilitata. Composer dovrebbe ora essere in esecuzione come parte dell'automazione della distribuzione.
 
-## <a name="run-gruntbowergulp"></a>Esegui grugnito/Bower/Gulp
+## <a name="run-gruntbowergulp"></a>Eseguire Grunt/Bower/Gulp
 
-Se si vuole che il servizio app esegua strumenti di automazione diffusi in fase di distribuzione, ad esempio grugnito, Bower o Gulp, è necessario fornire uno [script di distribuzione personalizzato](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script). Il servizio app esegue questo script quando si esegue la distribuzione con git o con la [distribuzione zip](deploy-zip.md) con l'automazione della compilazione abilitata. 
+Se si vuole che il servizio app eserciti gli strumenti di automazione più diffusi in fase di distribuzione, ad esempio Grunt, Bower o Gulp, è necessario fornire uno [script di distribuzione personalizzato.](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script) Il servizio app esegue questo script quando si esegue la distribuzione con Git o con la [distribuzione ZIP](deploy-zip.md) con l'automazione della compilazione abilitata. 
 
-Per abilitare il repository per l'esecuzione di questi strumenti, è necessario aggiungerli alle dipendenze in *package.js.* Ad esempio:
+Per consentire al repository di eseguire questi strumenti, è necessario aggiungerli alle dipendenze inpackage.js *in .* Ad esempio:
 
 ```json
 "dependencies": {
@@ -130,16 +130,16 @@ Per abilitare il repository per l'esecuzione di questi strumenti, è necessario 
 }
 ```
 
-Da una finestra del terminale locale passare alla directory radice del repository ed eseguire i comandi seguenti (è necessario che [NPM](https://www.npmjs.com/get-npm) sia installato):
+Da una finestra del terminale locale passare alla radice del repository ed eseguire i comandi seguenti (è necessario [che sia installato npm):](https://www.npmjs.com/get-npm)
 
 ```bash
 npm install kuduscript -g
 kuduscript --node --scriptType bash --suppressPrompt
 ```
 
-La radice del repository dispone ora di due file aggiuntivi: *. Deployment* e *deploy.sh*.
+La radice del repository include ora due file aggiuntivi: *.deployment* *e deploy.sh*.
 
-Aprire *deploy.sh* e trovare la `Deployment` sezione, che ha un aspetto simile al seguente:
+Aprire *deploy.sh* e trovare la `Deployment` sezione , che ha un aspetto simile al seguente:
 
 ```bash
 ##################################################################################################################################
@@ -147,17 +147,17 @@ Aprire *deploy.sh* e trovare la `Deployment` sezione, che ha un aspetto simile a
 # ----------
 ```
 
-Questa sezione termina con l'esecuzione di `npm install --production` . Aggiungere la sezione di codice è necessario eseguire lo strumento necessario *alla fine* della `Deployment` sezione:
+Questa sezione termina con l'esecuzione di `npm install --production` . Aggiungere la sezione di codice necessaria per eseguire lo strumento *richiesto alla fine* della sezione `Deployment` :
 
 - [Bower](#bower)
 - [Gulp](#gulp)
 - [Grunt](#grunt)
 
-Vedere un [esempio nell'esempio MEAN.js, in](https://github.com/Azure-Samples/meanjs/blob/master/deploy.sh#L112-L135)cui lo script di distribuzione esegue anche un `npm install` comando personalizzato.
+Vedere un [esempio nell'esempio MEAN.js ,](https://github.com/Azure-Samples/meanjs/blob/master/deploy.sh#L112-L135)in cui lo script di distribuzione esegue anche un comando `npm install` personalizzato.
 
 ### <a name="bower"></a>Bower
 
-Questo frammento di codice viene eseguito `bower install` .
+Questo frammento di codice esegue `bower install` .
 
 ```bash
 if [ -e "$DEPLOYMENT_TARGET/bower.json" ]; then
@@ -170,7 +170,7 @@ fi
 
 ### <a name="gulp"></a>Gulp
 
-Questo frammento di codice viene eseguito `gulp imagemin` .
+Questo frammento di codice esegue `gulp imagemin` .
 
 ```bash
 if [ -e "$DEPLOYMENT_TARGET/gulpfile.js" ]; then
@@ -183,7 +183,7 @@ fi
 
 ### <a name="grunt"></a>Grunt
 
-Questo frammento di codice viene eseguito `grunt` .
+Questo frammento di codice esegue `grunt` .
 
 ```bash
 if [ -e "$DEPLOYMENT_TARGET/Gruntfile.js" ]; then
@@ -241,9 +241,9 @@ getenv("DB_HOST")
 
 ::: zone pivot="platform-windows"  
 
-Il framework Web scelto può usare una sottodirectory come radice del sito. Ad esempio, [Laravel](https://laravel.com/)usa la directory *public/* subdirectory come radice del sito.
+Il framework Web scelto può usare una sottodirectory come radice del sito. Ad esempio, [Laravel](https://laravel.com/)usa la *sottodirectory public/* come radice del sito.
 
-Per personalizzare la radice del sito, impostare il percorso dell'applicazione virtuale per l'app usando il [`az resource update`](/cli/azure/resource#az-resource-update) comando. L'esempio seguente imposta la radice del sito sulla sottodirectory *public/* sottodirectory nel repository. 
+Per personalizzare la radice del sito, impostare il percorso dell'applicazione virtuale per l'app usando il [`az resource update`](/cli/azure/resource#az_resource_update) comando . L'esempio seguente imposta la radice del sito *sulla sottodirectory public/* nel repository. 
 
 ```azurecli-interactive
 az resource update --name web --resource-group <group-name> --namespace Microsoft.Web --resource-type config --parent sites/<app-name> --set properties.virtualApplications[0].physicalPath="site\wwwroot\public" --api-version 2015-06-01
@@ -295,7 +295,7 @@ Se è necessario apportare modifiche all'installazione di PHP, è possibile modi
 
 ::: zone pivot="platform-windows"  
 
-Per personalizzare le direttive PHP_INI_USER, PHP_INI_PERDIR e PHP_INI_ALL (vedere [ direttivephp.ini](https://www.php.net/manual/ini.list.php)), aggiungere un `.user.ini` file alla directory radice dell'app.
+Per personalizzare PHP_INI_USER, PHP_INI_PERDIR e PHP_INI_ALL (vedere direttive [php.ini](https://www.php.net/manual/ini.list.php)), aggiungere un file alla `.user.ini` directory radice dell'app.
 
 Aggiungere le impostazioni di configurazione al file  `.user.ini` usando la stessa sintassi che si userebbe in un file `php.ini`. Ad esempio, se si desidera attivare l'impostazione `display_errors` e impostare `upload_max_filesize` su 10 M, il file `.user.ini` conterrà il testo seguente:
 
@@ -310,7 +310,7 @@ Aggiungere le impostazioni di configurazione al file  `.user.ini` usando la stes
 
 Ridistribuire l'app con le modifiche e riavviarla.
 
-In alternativa all'uso di un `.user.ini` file, è possibile usare [ini_set ()](https://www.php.net/manual/function.ini-set.php) nell'app per personalizzare le direttive non PHP_INI_SYSTEM.
+In alternativa all'uso di un file, è possibile usare ini_set() nell'app per personalizzare queste direttive `.user.ini` PHP_INI_SYSTEM non personalizzate. [](https://www.php.net/manual/function.ini-set.php)
 
 ::: zone-end
 
@@ -408,7 +408,7 @@ Le installazioni di PHP predefinite contengono le estensioni usate più di frequ
 
 Per abilitare le estensioni aggiuntive, eseguire la procedura seguente:
 
-Aggiungere una `bin` directory alla directory radice dell'app e inserirvi i `.dll` file di estensione, ad esempio *mongodb.dll*. Verificare che le estensioni siano compatibili con la versione di PHP in Azure e con VC9, ma non con thread-safe (nts).
+Aggiungere una directory alla directory radice dell'app e inserire i file di `bin` `.dll` estensione, ad esempio *mongodb.dll*. Verificare che le estensioni siano compatibili con la versione di PHP in Azure e con VC9, ma non con thread-safe (nts).
 
 Distribuire le modifiche.
 
@@ -452,7 +452,7 @@ Per rendere effettive le modifiche apportate, riavviare l'app.
 
 ::: zone pivot="platform-windows"  
 
-Usare l'utilità standard [error_log ()](https://php.net/manual/function.error-log.php) per visualizzare i log di diagnostica nel servizio app Azure.
+Usare [l'utilità error_log()](https://php.net/manual/function.error-log.php) standard per visualizzare i log di diagnostica in Servizio app di Azure.
 
 [!INCLUDE [Access diagnostic logs](../../includes/app-service-web-logs-access-no-h.md)]
 
@@ -469,7 +469,7 @@ Usare l'utilità standard [error_log ()](https://php.net/manual/function.error-l
 Quando un'app PHP funzionante si comporta in modo diverso nel servizio app o presenta errori, provare a eseguire le operazioni seguenti:
 
 - [Accedere al flusso di log](#access-diagnostic-logs).
-- Testare l'app in locale nella modalità di produzione. Il servizio app esegue l'app in modalità di produzione, quindi è necessario assicurarsi che il progetto funzioni come previsto in modalità di produzione localmente. Ad esempio:
+- Testare l'app in locale nella modalità di produzione. Il servizio app esegue l'app in modalità di produzione, quindi è necessario assicurarsi che il progetto funzioni come previsto in modalità di produzione in locale. Ad esempio:
     - A seconda del file *composer.json*, è possibile che siano installati pacchetti diversi per la modalità di produzione (`require` o `require-dev`).
     - Alcuni framework Web possono distribuire i file statici in modo diverso in modalità di produzione.
     - Alcuni framework Web possono usare script di avvio personalizzati durante l'esecuzione in modalità di produzione.
@@ -492,4 +492,3 @@ Quando un'app PHP funzionante si comporta in modo diverso nel servizio app o pre
 > [Domande frequenti sul Servizio app di Azure in Linux](faq-app-service-linux.md)
 
 ::: zone-end
-

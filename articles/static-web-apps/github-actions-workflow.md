@@ -7,22 +7,25 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 04/09/2021
 ms.author: cshoe
-ms.openlocfilehash: 4f1f432da33bded4fc0f04170673e5943dec5fb0
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: b20a1670c13a272ed48088567a205d854ac99179
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107311329"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107791248"
 ---
 # <a name="github-actions-workflows-for-azure-static-web-apps-preview"></a>Flussi di lavoro di GitHub Actions per App Web statiche di Azure (anteprima)
 
-Quando si crea una nuova risorsa App Web statica di Azure, Azure genera un flusso di lavoro di GitHub Actions per controllare la distribuzione continua dell'app. Il flusso di lavoro è basato su un file YAML. Questo articolo descrive in dettaglio la struttura e le opzioni del file del flusso di lavoro.
+Quando si crea una nuova risorsa App Web statiche di Azure, Azure genera un flusso di lavoro GitHub Actions per controllare la distribuzione continua dell'app. Il flusso di lavoro è basato su un file YAML. Questo articolo descrive in dettaglio la struttura e le opzioni del file del flusso di lavoro.
 
 Le distribuzioni vengono avviate da [trigger](#triggers), che eseguono i [processi](#jobs) definiti da singoli [passaggi](#steps).
 
+> [!NOTE]
+> App Web statiche di Azure supporta anche Azure DevOps. Vedere [Pubblicare con Azure DevOps](publish-devops.md) per informazioni sulla configurazione di una pipeline.
+
 ## <a name="file-location"></a>Percorso del file
 
-Quando si collega il repository GitHub alle app Web statiche di Azure, viene aggiunto un file del flusso di lavoro al repository.
+Quando si collega il repository GitHub a App Web statiche di Azure, viene aggiunto un file del flusso di lavoro al repository.
 
 Per visualizzare il file del flusso di lavoro generato, seguire questa procedura.
 
@@ -96,7 +99,7 @@ on:
 
 Tramite le impostazioni associate alla proprietà `on`, è possibile definire quali rami attivano un processo e impostare i trigger da attivare per i diversi stati delle richieste pull.
 
-In questo esempio viene avviato un flusso di lavoro quando il ramo _principale_ viene modificato. Le modifiche che avviano il flusso di lavoro includono il push dei commit e l'apertura delle richieste pull per il ramo scelto.
+In questo esempio viene avviato un flusso di lavoro quando cambia _il ramo_ principale. Le modifiche che avviano il flusso di lavoro includono il push dei commit e l'apertura delle richieste pull per il ramo scelto.
 
 ## <a name="jobs"></a>Processi
 
@@ -107,11 +110,11 @@ Nel file del flusso di lavoro di App Web statiche sono disponibili due processi.
 | Nome                     | Descrizione                                                                                                    |
 | ------------------------ | -------------------------------------------------------------------------------------------------------------- |
 | `build_and_deploy_job`   | Viene eseguito quando si effettua il push dei commit o si apre una richiesta pull nel ramo elencato nella proprietà `on`.          |
-| `close_pull_request_job` | Viene eseguito solo quando si chiude una richiesta pull, che rimuove l'ambiente di gestione temporanea creato dalle richieste pull. |
+| `close_pull_request_job` | Viene eseguito SOLO quando si chiude una richiesta pull, rimuovendo così l'ambiente di gestione temporanea creato dalle richieste pull. |
 
 ## <a name="steps"></a>Passaggi
 
-I passaggi sono attività sequenziali per un processo. Un passaggio esegue azioni quali l'installazione di dipendenze, l'esecuzione di test e la distribuzione dell'applicazione in produzione.
+I passaggi sono attività sequenziali per un processo. Un passaggio esegue azioni come l'installazione delle dipendenze, l'esecuzione di test e la distribuzione dell'applicazione nell'ambiente di produzione.
 
 Un file del flusso di lavoro definisce i passaggi seguenti.
 
@@ -148,14 +151,14 @@ La distribuzione chiama sempre `npm install` prima di qualsiasi comando personal
 
 | Comando             | Descrizione                                                                                                                                                                                                                                                                                                                                                                                |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `app_build_command` | Definisce un comando personalizzato da eseguire durante la distribuzione dell'applicazione per contenuti statici.<br><br>Ad esempio, per configurare una build di produzione per un'applicazione angolare, creare uno script NPM denominato `build-prod` da eseguire `ng build --prod` e immettere `npm run build-prod` come comando personalizzato. Se lasciato vuoto, il flusso di lavoro tenterà di eseguire i comandi `npm run build` o `npm run build:azure`. |
+| `app_build_command` | Definisce un comando personalizzato da eseguire durante la distribuzione dell'applicazione per contenuti statici.<br><br>Ad esempio, per configurare una build di produzione per un'applicazione Angular, creare uno script npm denominato da eseguire e `build-prod` `ng build --prod` immettere come comando `npm run build-prod` personalizzato. Se lasciato vuoto, il flusso di lavoro tenterà di eseguire i comandi `npm run build` o `npm run build:azure`. |
 | `api_build_command` | Definisce un comando personalizzato da eseguire durante la distribuzione dell'applicazione per le API di Funzioni di Azure.                                                                                                                                                                                                                                                                                                  |
 
-## <a name="skip-app-build"></a>Ignora compilazione app
+## <a name="skip-app-build"></a>Ignorare la compilazione dell'app
 
-Se è necessario avere il controllo completo sulla modalità di compilazione dell'applicazione front-end, è possibile aggiungere istruzioni di compilazione personalizzate nel flusso di lavoro. È quindi possibile configurare l'azione app Web statiche per ignorare il processo di compilazione automatica e distribuire semplicemente l'app che è stata compilata in un passaggio precedente.
+Se è necessario il controllo completo sulla modalità di compilazione dell'applicazione front-end, è possibile aggiungere istruzioni di compilazione personalizzate nel flusso di lavoro. È quindi possibile configurare l'azione App Web statiche per ignorare il processo di compilazione automatica e distribuire semplicemente l'app compilata in un passaggio precedente.
 
-Per ignorare la compilazione dell'app, impostare `skip_app_build` su `true` e `app_location` sul percorso della cartella da distribuire.
+Per ignorare la compilazione dell'app, `skip_app_build` impostare su e sul percorso della cartella da `true` `app_location` distribuire.
 
 ```yml
 with:
@@ -175,21 +178,24 @@ with:
 | `skip_app_build` | Impostare il valore su `true` per ignorare la compilazione dell'app front-end. |
 
 > [!NOTE]
-> È possibile ignorare la compilazione solo per l'app front-end. Se l'app ha un'API, verrà comunque creata dall'azione GitHub app Web statiche.
+> È possibile ignorare solo la compilazione per l'app front-end. Se l'app ha un'API, verrà comunque compilata da GitHub Action di App Web statiche.
 
-## <a name="route-file-location"></a>Percorso del file della route
+## <a name="route-file-location"></a>Percorso file di route
 
-È possibile personalizzare il flusso di lavoro per cercare il [staticwebapp.config.js](routes.md) in qualsiasi cartella nel repository. Nella sezione `with` di un processo è possibile definire la proprietà seguente.
+È possibile personalizzare il flusso di lavoro affinché cerchi il file [routes.json](routes.md) in qualsiasi cartella del repository. Nella sezione `with` di un processo è possibile definire la proprietà seguente.
 
 | Proprietà          | Descrizione                                                                                                                                 |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| `routes_location` | Definisce il percorso della directory in cui viene trovato il _staticwebapp.config.jssul_ file. Questo percorso è relativo alla radice del repository. |
+| `routes_location` | Definisce il percorso della directory in cui è disponibile il file _routes.json_. Questo percorso è relativo alla radice del repository. |
 
-Il fatto di essere esplicito sulla posizione del _staticwebapp.config.jsnel_ file è particolarmente importante se il passaggio di compilazione del Framework front-end non sposta questo file in per `output_location` impostazione predefinita.
+È particolarmente importante essere espliciti sul percorso del file _routes.json_ se il passaggio di compilazione del framework front-end non sposta questo file in `output_location` per impostazione predefinita.
+
+> [!IMPORTANT]
+> La funzionalità definita nelroutes.js _nel_ file è ora deprecata. Vedere il file App Web statiche di Azure [file di](./configuration.md) configurazione per informazionistaticwebapp.config.js _su_.
 
 ## <a name="environment-variables"></a>Variabili di ambiente
 
-È possibile impostare le variabili di ambiente per la compilazione tramite la `env` sezione della configurazione di un processo.
+È possibile impostare le variabili di ambiente per la compilazione tramite `env` la sezione della configurazione di un processo.
 
 ```yaml
 jobs:
@@ -217,9 +223,9 @@ jobs:
           HUGO_VERSION: 0.58.0
 ```
 
-## <a name="monorepo-support"></a>Supporto di monorepo
+## <a name="monorepo-support"></a>Supporto monorepo
 
-Un monorepository è un repository che contiene il codice per più di un'applicazione. Per impostazione predefinita, un file di flusso di lavoro di app Web statiche tiene traccia di tutti i file in un repository, ma è possibile modificarlo in modo che sia destinato a una singola app. Pertanto, per i monorepository, ogni app statica dispone di un proprio file di configurazione che viene affiancato nella cartella _. github/workflows_ del repository.
+Un monorepo è un repository che contiene il codice per più di un'applicazione. Per impostazione predefinita, un file del flusso di lavoro di App Web statiche tiene traccia di tutti i file in un repository, ma è possibile adattarlo a una singola app come destinazione. Pertanto, per monorepos, ogni app statica ha il proprio file di configurazione che si risiede side-by-side nella cartella _.github/workflows_ del repository.
 
 ```files
 ├── .github
@@ -236,9 +242,9 @@ Un monorepository è un repository che contiene il codice per più di un'applica
 └── README.md
 ```
 
-Per fare riferimento a un file di flusso di lavoro a una singola app, è necessario specificare i percorsi nelle `push` `pull_request` sezioni e.
+Per impostare come destinazione un file del flusso di lavoro per una singola app, specificare i percorsi nelle `push` sezioni `pull_request` e .
 
-Nell'esempio seguente viene illustrato come aggiungere un `paths` nodo alle `push` sezioni e `pull_request` di un file denominato _Azure-static-Web-Apps-Purple-Pond. yml_.
+L'esempio seguente illustra come aggiungere un nodo alle sezioni e di un `paths` `push` file denominato `pull_request` _azure-static-web-apps-purple-manipulation.yml_.
 
 ```yml
 on:
@@ -261,9 +267,9 @@ on:
 
 In questo caso, solo le modifiche apportate ai file seguenti attivano una nuova compilazione:
 
-- Tutti i file all'interno della cartella _App1_
-- Tutti i file all'interno della cartella _API1_
-- Modifiche al file del flusso di lavoro _Azure-static-Web-Apps-Purple-Pond. yml_ dell'app
+- Tutti i file all'interno _della cartella app1_
+- Tutti i file all'interno della _cartella api1_
+- Modifiche apportate al file del flusso di lavoro _azure-static-web-apps-purple-manipulation.yml dell'app_
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,22 +1,22 @@
 ---
-title: Come eseguire il provisioning dei dispositivi per il multitenant nel servizio Device provisioning in hub Azure
-description: Come eseguire il provisioning dei dispositivi per il multitenant con l'istanza del servizio Device provisioning (DPS)
+title: Come effettuare il provisioning dei dispositivi per la multi-distribuzione nel hub IoT di Azure Device Provisioning
+description: Come effettuare il provisioning dei dispositivi per la multi-distribuzione con l'istanza del servizio Device Provisioning
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/10/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 04ab4ae4d3de6f33f800011b9b0802665d5fb16e
-ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
+ms.openlocfilehash: 0b88923ff6447785a4ef5a7c80e1ff44d1a2b9cb
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107228317"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107777384"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Come effettuare il provisioning per la multi-tenancy 
 
-Questo articolo illustra come eseguire il provisioning sicuro di più dispositivi chiave simmetrica in un gruppo di hub Internet con [criteri di allocazione](concepts-service.md#allocation-policy). I criteri di allocazione definiti dal servizio di provisioning supportano un'ampia gamma di scenari di allocazione. Due scenari comuni sono:
+Questo articolo illustra come effettuare il provisioning sicuro di più dispositivi a chiave simmetrica a un gruppo di hub IoT usando un criterio [di allocazione.](concepts-service.md#allocation-policy) I criteri di allocazione definiti dal servizio di provisioning supportano un'ampia gamma di scenari di allocazione. Due scenari comuni sono:
 
 * **Georilevazione/GeoLatency**: quando un dispositivo si sposta tra le posizioni, la latenza della rete viene migliorata effettuando il provisioning del dispositivo sull'hub IoT più vicino a ogni posizione. In questo scenario per le registrazioni viene selezionato un gruppo di hub IoT, che si estendono su più aree geografiche. Per queste registrazioni il criterio di allocazione selezionato è **Latenza più bassa**. Questo criterio fa sì che il servizio Device Provisioning valuti la latenza del dispositivo e determini l'hub IoT più vicino tra quelli all'interno del gruppo. 
 
@@ -47,7 +47,7 @@ Questo articolo usa un esempio di dispositivo simulato proveniente da [Azure IoT
 In questa sezione si userà Azure Cloud Shell per creare due nuovi hub IoT a livello di area nelle aree **Stati Uniti occidentali** e **Stati Uniti orientali** per un tenant.
 
 
-1. Usare Azure Cloud Shell per creare un gruppo di risorse con il comando [az group create](/cli/azure/group#az-group-create). Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. 
+1. Usare Azure Cloud Shell per creare un gruppo di risorse con il comando [az group create](/cli/azure/group#az_group_create). Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. 
 
     L'esempio seguente crea un gruppo di risorse denominato *contoso-us-resource-group* nell'area *eastus*. È consigliabile usare questo gruppo per tutte le risorse create in questo articolo. Ciò faciliterà la pulizia una volta completate le operazioni.
 
@@ -55,7 +55,7 @@ In questa sezione si userà Azure Cloud Shell per creare due nuovi hub IoT a liv
     az group create --name contoso-us-resource-group --location eastus
     ```
 
-2. Usare Azure Cloud Shell per creare un hub IoT nell'area **eastus** con il comando [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create). L'hub IoT verrà aggiunto a *contoso-us-resource-group*.
+2. Usare Azure Cloud Shell per creare un hub IoT nell'area **eastus** con il comando [az iot hub create](/cli/azure/iot/hub#az_iot_hub_create). L'hub IoT verrà aggiunto a *contoso-us-resource-group*.
 
     L'esempio seguente crea un hub IoT denominato *contoso-east-hub* nella località *eastus*. È necessario usare il nome univoco dell'hub al posto di **contoso-east-hub**.
 
@@ -65,7 +65,7 @@ In questa sezione si userà Azure Cloud Shell per creare due nuovi hub IoT a liv
     
     Il completamento del comando può richiedere alcuni minuti.
 
-3. Usare Azure Cloud Shell per creare un hub IoT nell'area **westus** con il comando [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create). Questo hub IoT verrà aggiunto anche a *contoso-us-resource-group*.
+3. Usare Azure Cloud Shell per creare un hub IoT nell'area **westus** con il comando [az iot hub create](/cli/azure/iot/hub#az_iot_hub_create). Questo hub IoT verrà aggiunto anche a *contoso-us-resource-group*.
 
     L'esempio seguente crea un hub IoT denominato *contoso-west-hub* nella località *westus*. È necessario usare il nome univoco dell'hub al posto di **contoso-west-hub**.
 
@@ -189,7 +189,7 @@ Per rendere più semplici le operazioni di pulizia, queste macchine virtuali ver
 
 In questa sezione si clonerà Azure IoT C SDK in ogni macchina virtuale. L'SDK contiene un esempio che consentirà di simulare il provisioning di dispositivi del tenant da ogni area.
 
-1. Per ogni macchina virtuale, installare **CMake**, **g + +**, **GCC** e [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) usando i comandi seguenti:
+1. Per ogni macchina virtuale, installare **CMake**, **g++**, **gcc** e [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) usando i comandi seguenti:
 
     ```bash
     sudo apt-get update
@@ -418,11 +418,11 @@ Per eliminare il gruppo di risorse per nome:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per ulteriori informazioni sul nuovo provisioning, vedere
+* Per altre informazioni sul reprovisioning, vedere
 
 > [!div class="nextstepaction"]
 > [Concetti di reprovisioning di un dispositivo hub IoT](concepts-device-reprovision.md)
 
-* Per ulteriori informazioni sul deprovisioning, vedere.
+* Per altre informazioni sul deprovisioning, vedere
 > [!div class="nextstepaction"]
 > [Come eseguire il deprovisioning di dispositivi di cui in precedenza è stato eseguito il provisioning automatico](how-to-unprovision-devices.md)

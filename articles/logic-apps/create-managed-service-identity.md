@@ -1,29 +1,29 @@
 ---
 title: Eseguire l'autenticazione con le identità gestite
-description: Accesso alle risorse protette da Azure Active Directory senza accesso con credenziali o segreti usando un'identità gestita
+description: Accedere alle risorse protette Azure Active Directory senza accedere con credenziali o segreti usando un'identità gestita
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: article
 ms.date: 03/30/2021
-ms.openlocfilehash: 54880f22fae7f9a193a13745702345f5f7efdc32
-ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
+ms.openlocfilehash: 8e081257d70c9bc9c9f75df18b30f8dcf119e48e
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107210918"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107763344"
 ---
 # <a name="authenticate-access-to-azure-resources-by-using-managed-identities-in-azure-logic-apps"></a>Autenticare l'accesso alle risorse di Azure usando identità gestite in App per la logica di Azure
 
-Per accedere facilmente ad altre risorse protette da Azure Active Directory (Azure AD) e autenticare l'identità, l'app per la logica può usare un' [identità gestita](../active-directory/managed-identities-azure-resources/overview.md) (in precedenza identità del servizio gestita o MSI), anziché credenziali, segreti o token Azure ad. Azure gestisce questa identità per l'utente e consente di proteggere le credenziali perché non è necessario gestire i segreti o usare direttamente i token di Azure AD.
+Per accedere facilmente ad altre risorse protette da Azure Active Directory (Azure AD) e autenticare l'identità, l'app per la logica può usare un'identità gestita [(in](../active-directory/managed-identities-azure-resources/overview.md) precedenza Identità del servizio gestita) anziché credenziali, segreti o token Azure AD. Azure gestisce questa identità per l'utente e consente di proteggere le credenziali perché non è necessario gestire i segreti o usare direttamente Azure AD token.
 
-App per la logica di Azure supporta le identità gestite [*assegnate dal sistema*](../active-directory/managed-identities-azure-resources/overview.md) e [*assegnate dall'utente*](../active-directory/managed-identities-azure-resources/overview.md). L'app per la logica o le singole connessioni possono usare l'identità assegnata dal sistema o una *singola* identità assegnata dall'utente, che può essere condivisa in un gruppo di app per la logica, ma non in entrambe.
+App per la logica di Azure supporta le identità gestite [*assegnate dal sistema*](../active-directory/managed-identities-azure-resources/overview.md) e [*assegnate dall'utente*](../active-directory/managed-identities-azure-resources/overview.md). L'app per la logica o le singole  connessioni possono usare l'identità assegnata dal sistema o una singola identità assegnata dall'utente, che è possibile condividere tra un gruppo di app per la logica, ma non entrambe.
 
 <a name="triggers-actions-managed-identity"></a>
 
-## <a name="where-can-logic-apps-use-managed-identities"></a>Dove possono usare le identità gestite per le app per la logica?
+## <a name="where-can-logic-apps-use-managed-identities"></a>Dove le app per la logica possono usare le identità gestite?
 
-Attualmente, solo [trigger e azioni predefiniti specifici](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions) e [connettori gestiti specifici](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions) che supportano Azure ad OAuth possono usare un'identità gestita per l'autenticazione. Ad esempio, ecco una selezione:
+Attualmente, solo [trigger e](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions) azioni predefiniti [](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions) specifici e connettori gestiti specifici che supportano Azure AD OAuth possono usare un'identità gestita per l'autenticazione. Ad esempio, ecco una selezione:
 
 <a name="built-in-managed-identity"></a>
 
@@ -33,10 +33,10 @@ Attualmente, solo [trigger e azioni predefiniti specifici](../logic-apps/logic-a
 * Servizi app di Azure
 * Funzioni di Azure
 * HTTP
-* HTTP e webhook
+* HTTP + Webhook
 
 > [!NOTE]
-> Mentre l'azione e il trigger HTTP possono autenticare le connessioni agli account di archiviazione di Azure dietro i firewall di Azure usando l'identità gestita assegnata dal sistema, non possono usare l'identità gestita assegnata dall'utente per autenticare le stesse connessioni.
+> Anche se il trigger e l'azione HTTP possono autenticare le connessioni agli account Archiviazione di Azure dietro i firewall di Azure usando l'identità gestita assegnata dal sistema, non possono usare l'identità gestita assegnata dall'utente per autenticare le stesse connessioni.
 
 <a name="managed-connectors-managed-identity"></a>
 
@@ -48,7 +48,7 @@ Attualmente, solo [trigger e azioni predefiniti specifici](../logic-apps/logic-a
 * Azure Resource Manager
 * HTTP con Azure AD
 
-Il supporto per i connettori gestiti è attualmente in fase di anteprima. Per l'elenco corrente, vedere [tipi di autenticazione per i trigger e le azioni che supportano l'autenticazione](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions).
+Il supporto per i connettori gestiti è attualmente in anteprima. Per l'elenco corrente, vedere [Tipi di autenticazione per trigger e azioni che supportano l'autenticazione.](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions)
 
 Questo articolo illustra come configurare entrambi i tipi di identità gestite per l'app per la logica. Per altre informazioni, vedere gli argomenti seguenti:
 
@@ -64,7 +64,7 @@ Questo articolo illustra come configurare entrambi i tipi di identità gestite p
 
 * La risorsa di destinazione di Azure a cui si vuole accedere. In questa risorsa si aggiungerà un ruolo per l'identità gestita che consente all'app per la logica di autenticare l'accesso alla risorsa di destinazione.
 
-* App per la logica in cui si vuole usare il [trigger o le azioni che supportano le identità gestite](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions).
+* L'app per la logica in cui si vuole usare [il trigger o le azioni che supportano le identità gestite.](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions)
 
 ## <a name="enable-managed-identity"></a>Abilitare un'identità gestita
 
@@ -95,7 +95,7 @@ A differenza delle identità assegnate dall'utente, l'identità assegnata dal si
    > [!NOTE]
    > Se viene visualizzato un errore che indica che è possibile avere una sola identità gestita, l'app per la logica è già associata all'identità assegnata dall'utente. Per poter aggiungere l'identità assegnata dal sistema, è necessario prima *rimuovere* l'identità assegnata dall'utente dall'app per la logica.
 
-   L'app per la logica può ora usare l'identità assegnata dal sistema, che è registrata con Azure AD ed è rappresentata da un ID oggetto.
+   L'app per la logica può ora usare l'identità assegnata dal sistema, registrata con Azure AD ed è rappresentata da un ID oggetto.
 
    ![ID oggetto per l'identità assegnata dal sistema](./media/create-managed-service-identity/object-id-system-assigned-identity.png)
 
@@ -181,7 +181,7 @@ Per configurare un'identità gestita assegnata dall'utente per l'app per la logi
 
    ![Aggiungere una nuova identità gestita](./media/create-managed-service-identity/add-user-assigned-identity.png)
 
-1. Fornire informazioni sull'identità gestita e quindi selezionare **Verifica + crea**, ad esempio:
+1. Specificare le informazioni sull'identità gestita e quindi selezionare **Rivedi e crea,** ad esempio:
 
    ![Creare un'identità gestita assegnata dall'utente](./media/create-managed-service-identity/create-user-assigned-identity.png)
 
@@ -222,7 +222,7 @@ Per automatizzare la creazione e la distribuzione delle risorse di Azure, ad ese
 
 * Un oggetto `identity` con la proprietà `type` impostata su `UserAssigned`
 
-* Oggetto figlio `userAssignedIdentities` che specifica la risorsa e il nome assegnati dall'utente
+* Oggetto figlio che specifica la risorsa e il nome `userAssignedIdentities` assegnati dall'utente
 
 Questo esempio illustra una definizione di risorsa dell'app per la logica per una richiesta HTTP PUT e include un oggetto `identity` senza parametri. Anche la risposta alla richiesta PUT e l'operazione GET successiva hanno questo oggetto `identity`:
 
@@ -312,14 +312,14 @@ Prima di poter usare l'identità gestita dell'app per la logica per l'autenticaz
 * [Azure portal](#azure-portal-assign-access)
 * [Modello di Azure Resource Manager](../role-based-access-control/role-assignments-template.md)
 * Azure PowerShell ([New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment)). Per altre informazioni, vedere [Aggiungere un'assegnazione di ruolo usando il controllo degli accessi in base al ruolo di Azure e Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
-* Interfaccia della riga di comando di Azure ([az role assignment create](/cli/azure/role/assignment#az-role-assignment-create)). Per altre informazioni, vedere [Aggiungere un'assegnazione di ruolo usando il controllo degli accessi in base al ruolo di Azure e l'interfaccia della riga di comando di Azure](../role-based-access-control/role-assignments-cli.md).
+* Interfaccia della riga di comando di Azure ([az role assignment create](/cli/azure/role/assignment#az_role_assignment_create)). Per altre informazioni, vedere [Aggiungere un'assegnazione di ruolo usando il controllo degli accessi in base al ruolo di Azure e l'interfaccia della riga di comando di Azure](../role-based-access-control/role-assignments-cli.md).
 * [API REST di Azure](../role-based-access-control/role-assignments-rest.md)
 
 <a name="azure-portal-assign-access"></a>
 
 ### <a name="assign-access-in-the-azure-portal"></a>Assegnare l'accesso nel portale di Azure
 
-Nella risorsa di Azure di destinazione in cui si vuole che l'identità gestita abbia accesso, assegnare a tale identità l'accesso in base al ruolo alla risorsa di destinazione.
+Nella risorsa di Azure di destinazione a cui si vuole che l'identità gestita abbia accesso, concedere a tale identità l'accesso in base al ruolo alla risorsa di destinazione.
 
 1. Nel [portale di Azure](https://portal.azure.com) passare alla risorsa di Azure a cui si vuole che l'identità gestita abbia accesso.
 
@@ -332,7 +332,7 @@ Nella risorsa di Azure di destinazione in cui si vuole che l'identità gestita a
 
 1. In **Aggiungi un'assegnazione di ruolo** selezionare un **Ruolo** che offra all'identità l'accesso necessario alla risorsa di destinazione.
 
-   Per l'esempio di questo argomento, l'identità necessita di un [ruolo che possa accedere al BLOB in un contenitore di archiviazione di Azure](../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights), quindi selezionare il ruolo di **collaboratore dati BLOB di archiviazione** per l'identità gestita.
+   Per l'esempio di questo argomento, l'identità richiede un ruolo che possa accedere  [al BLOB in](../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights)un contenitore Archiviazione di Azure , quindi selezionare il ruolo Collaboratore dati BLOB di archiviazione per l'identità gestita.
 
    ![Selezionare il ruolo "Collaboratore ai dati dei BLOB di archiviazione"](./media/create-managed-service-identity/select-role-for-identity.png)
 
@@ -384,33 +384,33 @@ Questa procedura mostra come usare l'identità gestita con un trigger o un'azion
 1. Se non è ancora stato fatto, aggiungere [il trigger o l'azione che supporta le identità gestite](logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions).
 
    > [!NOTE]
-   > Non tutti i trigger e le azioni supportano l'aggiunta di un tipo di autenticazione. Per altre informazioni, vedere [tipi di autenticazione per i trigger e le azioni che supportano l'autenticazione](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions).
+   > Non tutti i trigger e le azioni supportano l'aggiunta di un tipo di autenticazione. Per altre informazioni, vedere [Tipi di autenticazione per trigger e azioni che supportano l'autenticazione.](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions)
 
-1. Nel trigger o nell'azione aggiunta, attenersi alla seguente procedura:
+1. Nel trigger o nell'azione aggiunta seguire questa procedura:
 
    * **Trigger e azioni predefiniti che supportano l'uso di un'identità gestita**
 
-     1. Aggiungere la proprietà **Authentication** se la proprietà non è già visualizzata.
+     1. Aggiungere la **proprietà Authentication** se la proprietà non è già visualizzata.
 
-     1. In **tipo di autenticazione** selezionare **identità gestita**.
+     1. In **Tipo di autenticazione** selezionare Identità **gestita**.
 
-     Per altre informazioni, vedere [esempio: autenticare un trigger o un'azione incorporata con un'identità gestita](#authenticate-built-in-managed-identity).
+     Per altre informazioni, vedere [Esempio: Autenticare un trigger o un'azione predefinita con un'identità gestita.](#authenticate-built-in-managed-identity)
  
    * **Trigger e azioni del connettore gestito che supportano l'uso di un'identità gestita**
 
-     1. Nella pagina Selezione tenant selezionare **Connetti con identità gestita**.
+     1. Nella pagina di selezione del tenant selezionare **Connetti con identità gestita**.
 
      1. Nella pagina successiva specificare un nome di connessione.
 
-        Per impostazione predefinita, l'elenco di identità gestite Mostra solo l'identità gestita attualmente abilitata perché un'app per la logica supporta l'abilitazione di una sola identità gestita alla volta, ad esempio:
+        Per impostazione predefinita, l'elenco di identità gestite mostra solo l'identità gestita attualmente abilitata perché un'app per la logica supporta l'abilitazione di una sola identità gestita alla volta, ad esempio:
 
-        ![Screenshot che mostra la pagina Nome connessione e l'identità gestita selezionata.](./media/create-managed-service-identity/system-assigned-managed-identity.png)
+        ![Screenshot che mostra la pagina del nome della connessione e l'identità gestita selezionata.](./media/create-managed-service-identity/system-assigned-managed-identity.png)
 
-     Per altre informazioni, vedere [esempio: autenticare un trigger o un'azione del connettore gestito con un'identità gestita](#authenticate-managed-connector-managed-identity).
+     Per altre informazioni, vedere [Esempio: Autenticare un trigger o un'azione del connettore gestito con un'identità gestita.](#authenticate-managed-connector-managed-identity)
 
 <a name="authenticate-built-in-managed-identity"></a>
 
-#### <a name="example-authenticate-built-in-trigger-or-action-with-a-managed-identity"></a>Esempio: autenticare un trigger o un'azione incorporata con un'identità gestita
+#### <a name="example-authenticate-built-in-trigger-or-action-with-a-managed-identity"></a>Esempio: Autenticare un trigger o un'azione predefinita con un'identità gestita
 
 Il trigger o l'azione HTTP può usare l'identità assegnata dal sistema abilitata per l'app per la logica. In generale, il trigger o l'azione HTTP usa queste proprietà per specificare la risorsa o l'entità a cui si vuole accedere:
 
@@ -434,20 +434,20 @@ Per eseguire l'[operazione Snapshot BLOB](/rest/api/storageservices/snapshot-blo
 |----------|----------|---------------|-------------|
 | **Metodo** | Sì | `PUT`| Il metodo HTTP usato dall'operazione Snapshot BLOB |
 | **URI** | Sì | `https://{storage-account-name}.blob.core.windows.net/{blob-container-name}/{folder-name-if-any}/{blob-file-name-with-extension}` | L'ID risorsa per un file di archiviazione BLOB di Azure nell'ambiente globale (pubblico) di Azure che usa questa sintassi |
-| **Intestazioni** | Per archiviazione di Azure | `x-ms-blob-type` = `BlockBlob` <p>`x-ms-version` = `2019-02-02` <p>`x-ms-date` = `@{formatDateTime(utcNow(),'r')}` | I `x-ms-blob-type` `x-ms-version` `x-ms-date` valori di intestazione, e sono necessari per le operazioni di archiviazione di Azure. <p><p>**Importante**: nel trigger HTTP in uscita e nelle richieste di azione per Archiviazione di Azure, l'intestazione richiede la proprietà `x-ms-version` e la versione dell'API per l'operazione che si vuole eseguire. `x-ms-date`Deve corrispondere alla data corrente. In caso contrario, l'app per la logica ha esito negativo con un `403 FORBIDDEN` errore. Per ottenere la data corrente nel formato richiesto, è possibile usare l'espressione nel valore di esempio. <p>Per altre informazioni, vedere gli argomenti seguenti: <p><p>- [Intestazioni delle richieste - Snapshot BLOB](/rest/api/storageservices/snapshot-blob#request) <br>- [Controllo delle versioni per i servizi di Archiviazione di Azure](/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests) |
-| **Query** | Solo per l'operazione snapshot BLOB | `comp` = `snapshot` | Nome e valore del parametro di query per l'operazione. |
+| **Intestazioni** | Ad Archiviazione di Azure | `x-ms-blob-type` = `BlockBlob` <p>`x-ms-version` = `2019-02-02` <p>`x-ms-date` = `@{formatDateTime(utcNow(),'r')}` | I `x-ms-blob-type` valori `x-ms-version` dell'intestazione , e `x-ms-date` sono obbligatori per le Archiviazione di Azure operazioni. <p><p>**Importante**: nel trigger HTTP in uscita e nelle richieste di azione per Archiviazione di Azure, l'intestazione richiede la proprietà `x-ms-version` e la versione dell'API per l'operazione che si vuole eseguire. Deve `x-ms-date` essere la data corrente. In caso contrario, l'app per la logica ha esito negativo con `403 FORBIDDEN` un errore. Per ottenere la data corrente nel formato richiesto, è possibile usare l'espressione nel valore di esempio. <p>Per altre informazioni, vedere gli argomenti seguenti: <p><p>- [Intestazioni delle richieste - Snapshot BLOB](/rest/api/storageservices/snapshot-blob#request) <br>- [Controllo delle versioni per i servizi di Archiviazione di Azure](/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests) |
+| **Query** | Solo per l'operazione Snapshot BLOB | `comp` = `snapshot` | Nome e valore del parametro di query per l'operazione. |
 |||||
 
 L'azione HTTP di esempio mostra tutti i valori delle proprietà:
 
 ![Aggiungere un'azione HTTP per accedere a una risorsa di Azure](./media/create-managed-service-identity/http-action-example.png)
 
-1. Dopo aver aggiunto l'azione HTTP, aggiungere la proprietà **Authentication** all'azione http. Dall'elenco **Aggiungi nuovo parametro** selezionare **Autenticazione**.
+1. Dopo aver aggiunto l'azione HTTP, aggiungere la **proprietà Authentication** all'azione HTTP. Dall'elenco **Aggiungi nuovo parametro** selezionare **Autenticazione**.
 
    ![Aggiungere la proprietà "Autenticazione" all'azione HTTP](./media/create-managed-service-identity/add-authentication-property.png)
 
    > [!NOTE]
-   > Non tutti i trigger e le azioni supportano l'aggiunta di un tipo di autenticazione. Per altre informazioni, vedere [tipi di autenticazione per i trigger e le azioni che supportano l'autenticazione](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions).
+   > Non tutti i trigger e le azioni supportano l'aggiunta di un tipo di autenticazione. Per altre informazioni, vedere [Tipi di autenticazione per trigger e azioni che supportano l'autenticazione.](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions)
 
 1. Dall'elenco **Tipo di autenticazione** selezionare **Identità gestita**.
 
@@ -483,37 +483,37 @@ L'azione HTTP di esempio mostra tutti i valori delle proprietà:
 
 <a name="authenticate-managed-connector-managed-identity"></a>
 
-#### <a name="example-authenticate-managed-connector-trigger-or-action-with-a-managed-identity"></a>Esempio: autenticare un trigger o un'azione del connettore gestito con un'identità gestita
+#### <a name="example-authenticate-managed-connector-trigger-or-action-with-a-managed-identity"></a>Esempio: Autenticare un trigger o un'azione del connettore gestito con un'identità gestita
 
-L'azione Azure Resource Manager, **Read an Resource**, può usare l'identità gestita abilitata per l'app per la logica. Questo esempio illustra come usare l'identità gestita assegnata dal sistema.
+L Azure Resource Manager app per la logica read **a resource** può usare l'identità gestita abilitata per l'app per la logica. Questo esempio illustra come usare l'identità gestita assegnata dal sistema.
 
-1. Dopo aver aggiunto l'azione al flusso di lavoro, nella pagina Selezione tenant selezionare **Connetti con identità gestita**.
+1. Dopo aver aggiunto l'azione al flusso di lavoro, nella pagina di selezione del tenant selezionare **Connetti con identità gestita.**
 
-   ![Screenshot che mostra l'azione Azure Resource Manager e l'opzione "Connetti con identità gestita" selezionata.](./media/create-managed-service-identity/select-connect-managed-identity.png)
+   ![Screenshot che mostra Azure Resource Manager'azione e l'opzione "Connetti con identità gestita" selezionata.](./media/create-managed-service-identity/select-connect-managed-identity.png)
 
-   L'azione Mostra ora la pagina Nome connessione con l'elenco di identità gestite, che include il tipo di identità gestito attualmente abilitato nell'app per la logica.
+   L'azione mostra ora la pagina del nome della connessione con l'elenco di identità gestite, che include il tipo di identità gestita attualmente abilitato nell'app per la logica.
 
-1. Nella pagina Nome connessione specificare un nome per la connessione. Nell'elenco identità gestite selezionare l'identità gestita, che è l' **identità gestita assegnata dal sistema** in questo esempio e selezionare **Crea**. Se è stata abilitata un'identità gestita assegnata dall'utente, selezionare invece tale identità.
+1. Nella pagina nome connessione specificare un nome per la connessione. Nell'elenco delle identità gestite selezionare l'identità gestita, ovvero l'identità gestita assegnata dal sistema **in** questo esempio e selezionare **Crea.** Se è stata abilitata un'identità gestita assegnata dall'utente, selezionarla.
 
-   ![Screenshot che mostra Azure Resource Manager azione con il nome della connessione immesso e la "identità gestita assegnata dal sistema" selezionata.](./media/create-managed-service-identity/system-assigned-managed-identity.png)
+   ![Screenshot che mostra Azure Resource Manager azione con il nome della connessione immesso e l'opzione "Identità gestita assegnata dal sistema" selezionata.](./media/create-managed-service-identity/system-assigned-managed-identity.png)
 
-   Se l'identità gestita non è abilitata, viene visualizzato l'errore seguente quando si tenta di creare la connessione:
+   Se l'identità gestita non è abilitata, quando si tenta di creare la connessione viene visualizzato l'errore seguente:
 
    *È necessario abilitare l'identità gestita per l'app per la logica e quindi concedere l'accesso necessario all'identità nella risorsa di destinazione.*
 
-   ![Screenshot che mostra Azure Resource Manager azione con errore se non è abilitata alcuna identità gestita.](./media/create-managed-service-identity/system-assigned-managed-identity-disabled.png)
+   ![Screenshot che mostra Azure Resource Manager'azione con errore quando non è abilitata alcuna identità gestita.](./media/create-managed-service-identity/system-assigned-managed-identity-disabled.png)
 
-1. Dopo aver creato la connessione, la finestra di progettazione può recuperare qualsiasi valore dinamico, contenuto o schema usando l'autenticazione di identità gestita.
+1. Dopo aver creato correttamente la connessione, la finestra di progettazione può recuperare qualsiasi valore dinamico, contenuto o schema usando l'autenticazione dell'identità gestita.
 
 1. Continuare a compilare l'app per la logica nel modo desiderato.
 
 <a name="logic-app-resource-definition-connection-managed-identity"></a>
 
-### <a name="logic-app-resource-definition-and-connections-that-use-a-managed-identity"></a>Definizione delle risorse dell'app per la logica e connessioni che usano un'identità gestita
+### <a name="logic-app-resource-definition-and-connections-that-use-a-managed-identity"></a>Definizione della risorsa dell'app per la logica e connessioni che usano un'identità gestita
 
-Una connessione che Abilita e usa un'identità gestita è un tipo di connessione speciale che funziona solo con un'identità gestita. In fase di esecuzione, la connessione usa l'identità gestita abilitata nell'app per la logica. Questa configurazione viene salvata nell'oggetto della definizione della risorsa dell'app per la logica `parameters` , che contiene l' `$connections` oggetto che include i puntatori all'ID risorsa della connessione, insieme all'ID risorsa dell'identità, se l'identità assegnata dall'utente è abilitata.
+Una connessione che abilita e usa un'identità gestita è un tipo di connessione speciale che funziona solo con un'identità gestita. In fase di esecuzione, la connessione usa l'identità gestita abilitata nell'app per la logica. Questa configurazione viene salvata nell'oggetto della definizione della risorsa dell'app per la logica, che contiene l'oggetto che include puntatori all'ID risorsa della connessione insieme `parameters` all'ID risorsa dell'identità, se l'identità assegnata dall'utente è `$connections` abilitata.
 
-Questo esempio Mostra come appare la configurazione quando l'app per la logica Abilita l'identità gestita assegnata dal sistema:
+Questo esempio mostra l'aspetto della configurazione quando l'app per la logica abilita l'identità gestita assegnata dal sistema:
 
 ```json
 "parameters": {
@@ -534,7 +534,7 @@ Questo esempio Mostra come appare la configurazione quando l'app per la logica A
 }
 ```
 
-Questo esempio Mostra come appare la configurazione quando l'app per la logica Abilita un'identità gestita assegnata dall'utente:
+Questo esempio mostra l'aspetto della configurazione quando l'app per la logica abilita un'identità gestita assegnata dall'utente:
 
 ```json
 "parameters": {
@@ -556,15 +556,15 @@ Questo esempio Mostra come appare la configurazione quando l'app per la logica A
 }
 ```
 
-Durante il runtime, il servizio app per la logica verifica se un trigger e qualsiasi azione del connettore gestito nell'app per la logica sono configurati per l'uso dell'identità gestita e che tutte le autorizzazioni necessarie sono configurate per l'uso dell'identità gestita per l'accesso alle risorse di destinazione specificate dal trigger e dalle azioni. In caso di esito positivo, il servizio app per la logica Recupera il token di Azure AD associato all'identità gestita e usa tale identità per autenticare l'accesso alla risorsa di destinazione ed eseguire l'operazione configurata in trigger e azioni.
+Durante il runtime, il servizio App per la logica verifica se i trigger e le azioni del connettore gestito nell'app per la logica sono impostati per l'uso dell'identità gestita e che tutte le autorizzazioni necessarie siano impostate per l'uso dell'identità gestita per l'accesso alle risorse di destinazione specificate dal trigger e dalle azioni. Se ha esito positivo, il servizio App per la logica recupera il token Azure AD associato all'identità gestita e usa tale identità per autenticare l'accesso alla risorsa di destinazione ed eseguire l'operazione configurata in trigger e azioni.
 
 <a name="arm-templates-connection-resource-managed-identity"></a>
 
-## <a name="arm-template-for-managed-connections-and-managed-identities"></a>Modello ARM per le connessioni gestite e le identità gestite
+## <a name="arm-template-for-managed-connections-and-managed-identities"></a>Modello arm per connessioni gestite e identità gestite
 
-Se si automatizza la distribuzione con un modello ARM e l'app per la logica include un trigger o un'azione del connettore gestito che usa un'identità gestita, verificare che la definizione della risorsa di connessione sottostante includa la `parameterValueType` proprietà con `Alternative` come valore della proprietà. In caso contrario, la distribuzione ARM non consentirà di configurare la connessione per usare l'identità gestita per l'autenticazione e la connessione non funzionerà nel flusso di lavoro dell'app per la logica. Questo requisito si applica solo a [specifici trigger e azioni del connettore gestito](#managed-connectors-managed-identity) in cui è stata selezionata l' [opzione **Connetti con identità gestita**](#authenticate-managed-connector-managed-identity).
+Se si automatizza la distribuzione con un modello arm e l'app per la logica include un trigger o un'azione del connettore gestito che usa un'identità gestita, verificare che la definizione della risorsa di connessione sottostante includa la proprietà con come valore della `parameterValueType` `Alternative` proprietà . In caso contrario, la distribuzione arm non configura la connessione per usare l'identità gestita per l'autenticazione e la connessione non funzionerà nel flusso di lavoro dell'app per la logica. Questo requisito si applica solo a trigger e azioni specifici del [connettore](#managed-connectors-managed-identity) gestito in cui è stata selezionata [ **l'opzione Connetti**](#authenticate-managed-connector-managed-identity)con identità gestita .
 
-Ad esempio, di seguito è illustrata la definizione di risorsa di connessione sottostante per un'azione di automazione di Azure che usa un'identità gestita in cui la definizione include la `parameterValueType` proprietà, che è impostata su `Alternative` come valore della proprietà:
+Ad esempio, di seguito è illustrata la definizione della risorsa di connessione sottostante per un'azione Automazione di Azure che usa un'identità gestita in cui la definizione include la proprietà , che è impostata su `parameterValueType` come valore della proprietà `Alternative` :
 
 ```json
 {

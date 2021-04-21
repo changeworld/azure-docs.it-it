@@ -1,5 +1,5 @@
 ---
-title: Guida introduttiva-inviare dati di telemetria alla Guida introduttiva dell'hub Azure (CLI)
+title: 'Guida introduttiva: Inviare dati di telemetria hub IoT di Azure (interfaccia della riga di comando)'
 description: Questa Guida introduttiva illustra agli sviluppatori come iniziare a usare l'interfaccia della riga di comando di Azure per creare un hub IoT, inviare dati di telemetria e visualizzare i messaggi tra un dispositivo e l'hub.
 ms.service: iot-hub
 ms.topic: quickstart
@@ -11,14 +11,14 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 11/06/2019
-ms.openlocfilehash: 4671880490a9ce9e29f49ede0e7687bdcf639a7e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a34fd5480ae47678f250dbf888005c396ba32f38
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102199799"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107792148"
 ---
-# <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-monitor-it-with-the-azure-cli"></a>Guida introduttiva: inviare dati di telemetria da un dispositivo a un hub e monitorarli con l'interfaccia della riga di comando di Azure
+# <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-monitor-it-with-the-azure-cli"></a>Avvio rapido: Inviare dati di telemetria da un dispositivo a un hub IoT e monitorarlo con l'interfaccia della riga di comando di Azure
 
 [!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
 
@@ -45,7 +45,7 @@ Per avviare Cloud Shell:
     > [!NOTE]
     > Se è la prima volta che si usa Cloud Shell, viene richiesto di creare una risorsa di archiviazione necessaria per usare Cloud Shell.  Selezionare una sottoscrizione per creare un account di archiviazione e una condivisione File di Microsoft Azure. 
 
-2. Selezionare l'ambiente dell'interfaccia della riga di comando preferito nell'elenco a discesa **Seleziona ambiente**. In questa Guida introduttiva viene usato l'ambiente **Bash**. Tutti i comandi CLI seguenti funzionano anche nell'ambiente PowerShell. 
+2. Selezionare l'ambiente dell'interfaccia della riga di comando preferito nell'elenco a discesa **Seleziona ambiente**. In questa Guida introduttiva viene usato l'ambiente **Bash**. Tutti i comandi dell'interfaccia della riga di comando seguenti funzionano anche nell'ambiente PowerShell. 
 
     ![Selezionare l'ambiente dell'interfaccia della riga di comando](media/quickstart-send-telemetry-cli/cloud-shell-environment.png)
 
@@ -55,7 +55,7 @@ In questa sezione vengono preparate due sessioni dell'interfaccia della riga di 
 
 L'interfaccia della riga di comando di Azure richiede l'accesso all'account Azure. Tutte le comunicazioni tra la sessione della shell dell'interfaccia della riga di comando di Azure e l'hub IoT vengono autenticate e crittografate. Di conseguenza, in questa Guida introduttiva non è richiesta alcuna autenticazione aggiuntiva, ad esempio una stringa di connessione, da usare con un dispositivo reale.
 
-*  Eseguire il comando [az extension add](/cli/azure/extension#az-extension-add) per aggiungere l'estensione Microsoft Azure IoT per l'interfaccia della riga di comando di Azure alla shell in uso. L'estensione IoT aggiunge i comandi specifici di hub IoT, IoT Edge e servizio Device Provisioning in hub IoT all'interfaccia della riga di comando di Azure.
+*  Eseguire il comando [az extension add](/cli/azure/extension#az_extension_add) per aggiungere l'estensione Microsoft Azure IoT per l'interfaccia della riga di comando di Azure alla shell in uso. L'estensione IoT aggiunge i comandi specifici di hub IoT, IoT Edge e servizio Device Provisioning in hub IoT all'interfaccia della riga di comando di Azure.
 
    ```azurecli
    az extension add --name azure-iot
@@ -76,13 +76,13 @@ In questa sezione viene usata l'interfaccia della riga di comando di Azure per c
 > [!TIP]
 > Facoltativamente, è possibile creare un gruppo di risorse di Azure, un hub IoT e altre risorse usando il [portale di Azure](iot-hub-create-through-portal.md), [Visual Studio Code](iot-hub-create-use-iot-toolkit.md) o altri metodi programmatici.  
 
-1. Eseguire il comando [AZ Group create](/cli/azure/group#az-group-create) per creare un gruppo di risorse. Il comando seguente crea un gruppo denominato *MyResourceGroup* nella posizione *eastus*. 
+1. Eseguire il [comando az group create](/cli/azure/group#az_group_create) per creare un gruppo di risorse. Il comando seguente crea un gruppo denominato *MyResourceGroup* nella posizione *eastus*. 
 
     ```azurecli
     az group create --name MyResourceGroup --location eastus
     ```
 
-1. Eseguire il comando [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create) per creare un hub IoT. La creazione di un hub IoT potrebbe richiedere alcuni minuti. 
+1. Eseguire il comando [az iot hub create](/cli/azure/iot/hub#az_iot_hub_create) per creare un hub IoT. La creazione di un hub IoT potrebbe richiedere alcuni minuti. 
 
     *YourIotHubName*. sostituire il segnaposto in basso con il nome scelto per l'hub IoT. Un nome dell'hub IoT deve essere univoco a livello globale in Azure. Tale segnaposto viene usato nella parte restante di questa Guida introduttiva per rappresentare il nome dell'hub IoT.
 
@@ -184,12 +184,12 @@ Se si continua con il prossimo articolo consigliato, è possibile conservare le 
 > L'eliminazione di un gruppo di risorse è irreversibile. Il gruppo di risorse e tutte le risorse in esso contenute vengono eliminati in modo permanente. Assicurarsi di non eliminare accidentalmente il gruppo di risorse sbagliato o le risorse errate. 
 
 Per eliminare un gruppo di risorse per nome:
-1. Eseguire il comando [az group delete](/cli/azure/group#az-group-delete). In questo modo vengono rimossi il gruppo di risorse, l'hub IoT e la registrazione del dispositivo creato.
+1. Eseguire il comando [az group delete](/cli/azure/group#az_group_delete). In questo modo vengono rimossi il gruppo di risorse, l'hub IoT e la registrazione del dispositivo creato.
 
     ```azurecli
     az group delete --name MyResourceGroup
     ```
-1. Eseguire il comando [az group list](/cli/azure/group#az-group-list) per verificare che il gruppo di risorse sia stato eliminato.  
+1. Eseguire il comando [az group list](/cli/azure/group#az_group_list) per verificare che il gruppo di risorse sia stato eliminato.  
 
     ```azurecli
     az group list
@@ -201,4 +201,4 @@ In questa Guida introduttiva è stata usata l'interfaccia della riga di comando 
 Per uno sviluppatore di dispositivi, il passaggio successivo suggerito consiste nel vedere la Guida introduttiva per i dati di telemetria che usa Azure IoT SDK per dispositivi per C. Facoltativamente, vedere uno degli articoli della Guida introduttiva ai dati di telemetria dell'hub IoT di Azure per la telemetria nel linguaggio preferito o nell'SDK.
 
 > [!div class="nextstepaction"]
-> [Guida introduttiva: inviare dati di telemetria da un dispositivo a un hub Internet (C)](quickstart-send-telemetry-c.md)
+> [Avvio rapido: Inviare dati di telemetria da un dispositivo a un hub IoT (C)](quickstart-send-telemetry-c.md)
