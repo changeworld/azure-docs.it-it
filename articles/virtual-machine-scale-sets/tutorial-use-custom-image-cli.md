@@ -9,12 +9,12 @@ ms.date: 05/01/2020
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
 ms.reviewer: akjosh
-ms.openlocfilehash: b12715e299f523d7ace56a72b0098b5d7ffac0ab
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a9a4abe550da4f0438f875127b3b689045c06e6f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98683056"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107763002"
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-the-azure-cli"></a>Esercitazione: Creare e usare un'immagine personalizzata per i set di scalabilità di macchine virtuali con l'interfaccia della riga di comando di Azure
 Quando si crea un set di scalabilità, si specifica un'immagine da usare quando vengono distribuite le istanze di macchina virtuale. Per ridurre il numero di attività dopo la distribuzione delle istanze di macchina virtuale, è possibile usare un'immagine di VM personalizzata. Questa immagine di VM personalizzata include le installazioni o le configurazioni delle applicazioni necessarie. Le istanze di macchina virtuale create nel set di scalabilità usano l'immagine di VM personalizzata e sono pronte per gestire il traffico delle applicazioni. In questa esercitazione si apprenderà come:
@@ -77,7 +77,7 @@ Una raccolta di immagini è la risorsa principale usata per l'abilitazione della
 
 I caratteri consentiti per i nomi delle raccolte sono lettere maiuscole o minuscole, numeri e punti. Il nome della raccolta non può contenere trattini.   I nomi di raccolta devono essere univoci all'interno della sottoscrizione. 
 
-Creare una raccolta di immagini usando [sig az create](/cli/azure/sig#az-sig-create). L'esempio seguente crea un gruppo di risorse denominato *myGalleryRG* nell'area *Stati Uniti orientali* e una raccolta denominata *myGallery*.
+Creare una raccolta di immagini usando [sig az create](/cli/azure/sig#az_sig_create). L'esempio seguente crea un gruppo di risorse denominato *myGalleryRG* nell'area *Stati Uniti orientali* e una raccolta denominata *myGallery*.
 
 ```azurecli-interactive
 az group create --name myGalleryRG --location eastus
@@ -94,7 +94,7 @@ Assicurarsi che la definizione di immagine sia del tipo corretto. Se la VM è st
 
 Per altre informazioni sui valori che è possibile specificare per la definizione di immagine, vedere [Definizioni di immagini](../virtual-machines/shared-image-galleries.md#image-definitions).
 
-Creare una definizione di immagine nella raccolta usando [az sig image-definition create](/cli/azure/sig/image-definition#az-sig-image-definition-create).
+Creare una definizione di immagine nella raccolta usando [az sig image-definition create](/cli/azure/sig/image-definition#az_sig_image_definition_create).
 
 In questo esempio la definizione di immagine è denominata *myImageDefinition* ed è relativa a un'immagine [specializzata](../virtual-machines/shared-image-galleries.md#generalized-and-specialized-images) del sistema operativo Linux. Per creare una definizione per le immagini usando un sistema operativo Windows, usare `--os-type Windows`. 
 
@@ -116,7 +116,7 @@ az sig image-definition create \
 
 ## <a name="create-the-image-version"></a>Creare una versione di immagine
 
-Creare una versione di immagine dalla VM usando [az image gallery create-image-version](/cli/azure/sig/image-version#az-sig-image-version-create).  
+Creare una versione di immagine dalla VM usando [az image gallery create-image-version](/cli/azure/sig/image-version#az_sig_image_version_create).  
 
 I caratteri consentiti per le versioni delle immagini sono numeri e punti. I numeri devono essere compresi nell'intervallo di un valore Integer a 32 bit. Formato: *MajorVersion*.*MinorVersion*.*Patch*.
 
@@ -144,9 +144,9 @@ az sig image-version create \
 
 
 ## <a name="create-a-scale-set-from-the-image"></a>Creare un set di scalabilità dall'immagine
-Creare un set di scalabilità dall'immagine specializzata usando [`az vmss create`](/cli/azure/vmss#az-vmss-create). 
+Creare un set di scalabilità dall'immagine specializzata usando [`az vmss create`](/cli/azure/vmss#az_vmss_create). 
 
-Creare il set di scalabilità usando [`az vmss create`](/cli/azure/vmss#az-vmss-create) con il parametro --specialized per indicare che l'immagine è specializzata. 
+Creare il set di scalabilità usando [`az vmss create`](/cli/azure/vmss#az_vmss_create) con il parametro --specialized per indicare che l'immagine è specializzata. 
 
 Usare l'ID definizione immagine per `--image` per creare le istanze del set di scalabilità dalla versione più recente dell'immagine disponibile. È anche possibile creare le istanze del set di scalabilità da una versione specifica fornendo l'ID versione dell'immagine per `--image`. 
 
@@ -199,7 +199,7 @@ Digitare l'indirizzo IP pubblico nel Web browser. La pagina Web NGINX predefinit
 
 È possibile condividere immagini tra sottoscrizioni usando il controllo degli accessi in base al ruolo di Azure. È possibile condividere immagini nella raccolta, definizioni di immagini o versioni di immagini. Qualsiasi utente che abbia autorizzazioni di lettura per una versione di immagine, anche tra sottoscrizioni diverse, potrà distribuire una VM usando la versione dell'immagine.
 
-È consigliabile condividere con altri utenti a livello di raccolta. Per ottenere l'ID oggetto della raccolta, usare [az sig show](/cli/azure/sig#az-sig-show).
+È consigliabile condividere con altri utenti a livello di raccolta. Per ottenere l'ID oggetto della raccolta, usare [az sig show](/cli/azure/sig#az_sig_show).
 
 ```azurecli-interactive
 az sig show \
@@ -208,7 +208,7 @@ az sig show \
    --query id
 ```
 
-Usare l'ID oggetto come ambito, insieme a un indirizzo di posta elettronica e a [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create), per concedere a un utente l'accesso alla raccolta di immagini condivise. Sostituire `<email-address>` e `<gallery iD>` con le proprie informazioni.
+Usare l'ID oggetto come ambito, insieme a un indirizzo di posta elettronica e a [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create), per concedere a un utente l'accesso alla raccolta di immagini condivise. Sostituire `<email-address>` e `<gallery iD>` con le proprie informazioni.
 
 ```azurecli-interactive
 az role assignment create \

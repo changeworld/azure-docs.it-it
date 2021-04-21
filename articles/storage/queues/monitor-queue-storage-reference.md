@@ -1,22 +1,22 @@
 ---
-title: Riferimento ai dati di monitoraggio dell'archiviazione code di Azure
-description: Informazioni di riferimento su log e metriche per il monitoraggio dei dati dall'archiviazione code di Azure.
+title: archiviazione code di Azure informazioni di riferimento sui dati di monitoraggio
+description: Informazioni di riferimento su log e metriche per il monitoraggio dei dati archiviazione code di Azure.
 author: normesta
 services: azure-monitor
 ms.author: normesta
-ms.date: 10/02/2020
+ms.date: 04/20/2021
 ms.topic: reference
 ms.service: azure-monitor
 ms.subservice: logs
-ms.custom: monitoring
-ms.openlocfilehash: 95f20737b044140fe12ea939e71cd2397cb4826d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: subject-monitoring
+ms.openlocfilehash: 506f5a46688f597b8ac5db341c5bbe5eb5fb67c8
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100576686"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107763146"
 ---
-# <a name="azure-queue-storage-monitoring-data-reference"></a>Riferimento ai dati di monitoraggio dell'archiviazione code di Azure
+# <a name="azure-queue-storage-monitoring-data-reference"></a>archiviazione code di Azure informazioni di riferimento sui dati di monitoraggio
 
 Per informazioni dettagliate sulla raccolta e l'analisi dei dati di monitoraggio per Archiviazione di Azure, vedere [Monitoraggio di Archiviazione di Azure](monitor-queue-storage.md).
 
@@ -26,7 +26,7 @@ Le tabelle seguenti elencano le metriche della piattaforma raccolte per Archivia
 
 ### <a name="capacity-metrics"></a>Metriche della capacità
 
-I valori delle metriche di capacità vengono aggiornati quotidianamente (fino a 24 ore). L'intervallo di tempo definisce l'intervallo di tempo per cui vengono presentati i valori delle metriche. L'intervallo di tempo supportato per tutte le metriche relative alla capacità è un'ora (PT1H).
+I valori delle metriche della capacità vengono aggiornati ogni giorno (fino a 24 ore). L'intervallo di tempo definisce l'intervallo di tempo per cui vengono presentati i valori delle metriche. L'intervallo di tempo supportato per tutte le metriche relative alla capacità è un'ora (PT1H).
 
 Archiviazione di Azure fornisce le metriche seguenti relative alla capacità in Monitoraggio di Azure.
 
@@ -34,19 +34,19 @@ Archiviazione di Azure fornisce le metriche seguenti relative alla capacità in 
 
 [!INCLUDE [Account-level capacity metrics](../../../includes/azure-storage-account-capacity-metrics.md)]
 
-#### <a name="queue-storage-metrics"></a>Metriche di archiviazione di Accodamento
+#### <a name="queue-storage-metrics"></a>Metriche di Archiviazione code
 
-Questa tabella mostra le [metriche di archiviazione delle code](../../azure-monitor/essentials/metrics-supported.md#microsoftstoragestorageaccountsqueueservices).
+Questa tabella mostra le [metriche di Archiviazione code](../../azure-monitor/essentials/metrics-supported.md#microsoftstoragestorageaccountsqueueservices).
 
 | Metrica | Descrizione |
 | ------------------- | ----------------- |
-| **QueueCapacity** | Quantità di spazio di archiviazione di Accodamento usato dall'account di archiviazione. <br><br> Unità `Bytes` <br> Tipo di aggregazione: `Average` <br> Esempio di valore: `1024` |
-| **QueueCount** | Numero di code nell'account di archiviazione. <br><br> Unità `Count` <br> Tipo di aggregazione: `Average` <br> Esempio di valore: `1024` |
-| **QueueMessageCount** | Numero approssimativo di messaggi della coda nell'account di archiviazione. <br><br> Unità `Count` <br> Tipo di aggregazione: `Average` <br> Esempio di valore: `1024` |
+| **QueueCapacity** | Quantità di archiviazione code usata dall'account di archiviazione. <br><br> Unità: `Bytes` <br> Tipo di aggregazione: `Average` <br> Esempio di valore: `1024` |
+| **QueueCount** | Numero di code nell'account di archiviazione. <br><br> Unità: `Count` <br> Tipo di aggregazione: `Average` <br> Esempio di valore: `1024` |
+| **QueueMessageCount** | Numero di messaggi non scaduti nella coda nell'account di archiviazione. <br><br> Unità: `Count` <br> Tipo di aggregazione: `Average` <br> Esempio di valore: `1024` |
 
 ### <a name="transaction-metrics"></a>Metriche di transazione
 
-Le metriche di transazione vengono generate su per tutte le richieste a un account di archiviazione da Archiviazione di Azure a Monitoraggio di Azure. In caso non siano presenti attività nell'account di archiviazione, non ci saranno dati per le metriche di transazione nel periodo. Tutte le metriche delle transazioni sono disponibili sia per l'account che per il livello di servizio di archiviazione di Accodamento. L'intervallo di tempo definisce l'intervallo di tempo per cui vengono presentati i valori delle metriche. Gli intervalli di tempo supportati per tutte le metriche di transazioni sono PT1H e PT1M.
+Le metriche di transazione vengono generate su per tutte le richieste a un account di archiviazione da Archiviazione di Azure a Monitoraggio di Azure. In caso non siano presenti attività nell'account di archiviazione, non ci saranno dati per le metriche di transazione nel periodo. Tutte le metriche delle transazioni sono disponibili sia a livello di account che di servizio di archiviazione code. L'intervallo di tempo definisce l'intervallo di tempo per cui vengono presentati i valori delle metriche. Gli intervalli di tempo supportati per tutte le metriche di transazioni sono PT1H e PT1M.
 
 [!INCLUDE [Transaction metrics](../../../includes/azure-storage-account-transaction-metrics.md)]
 
@@ -79,5 +79,5 @@ La tabella seguente elenca le proprietà dei log delle risorse di Archiviazione 
 
 ## <a name="see-also"></a>Vedi anche
 
-- Per una descrizione del monitoraggio dell'archiviazione code di Azure, vedere [monitoraggio dell'archiviazione code di Azure](monitor-queue-storage.md) .
+- Vedere [Monitoraggio archiviazione code di Azure](monitor-queue-storage.md) per una descrizione del monitoraggio archiviazione code di Azure.
 - Per informazioni dettagliate sul monitoraggio delle risorse di Azure, vedere [Monitoraggio delle risorse di Azure con Monitoraggio di Azure](../../azure-monitor/essentials/monitor-azure-resource.md).

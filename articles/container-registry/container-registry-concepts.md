@@ -1,76 +1,76 @@
 ---
-title: Informazioni sui registri, i repository, le immagini e gli artefatti
-description: Introduzione ai concetti chiave di registri contenitori di Azure, repository, immagini del contenitore e altri elementi.
+title: Informazioni su registri, repository, immagini ed elementi
+description: Introduzione ai concetti chiave di registri contenitori di Azure, repository, immagini del contenitore e altri artefatti.
 ms.topic: article
 ms.date: 01/29/2021
-ms.openlocfilehash: 27c4604820dda50686b6cb3f36e69b38283750c3
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 64ab3812b3f23a7b3a480d3530c82bd39f2d29a5
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106381923"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107784084"
 ---
-# <a name="about-registries-repositories-and-artifacts"></a>Informazioni sui registri, i repository e gli artefatti
+# <a name="about-registries-repositories-and-artifacts"></a>Informazioni su registri, repository ed elementi
 
-Questo articolo presenta i concetti chiave relativi a registri contenitori, repository e immagini del contenitore ed elementi correlati. 
+Questo articolo presenta i concetti chiave dei registri contenitori, dei repository e delle immagini dei contenitori e degli artefatti correlati. 
 
 :::image type="content" source="media/container-registry-concepts/registry-elements.png" alt-text="Registro di sistema, repository ed elementi":::
 
 ## <a name="registry"></a>Registro
 
-Un *Registro* contenitori è un servizio che archivia e distribuisce le immagini del contenitore e gli artefatti correlati. Docker Hub è un esempio di registro contenitori pubblico che funge da catalogo generale delle immagini del contenitore docker. Azure Container Registry consente agli utenti di controllare direttamente il contenuto del contenitore, con l'autenticazione integrata, la [replica geografica](container-registry-geo-replication.md) che supporta la distribuzione e l'affidabilità globali per le distribuzioni con chiusura in rete, la [configurazione della rete virtuale con collegamento privato](container-registry-private-link.md), [blocco dei tag](container-registry-image-lock.md)e molte altre funzionalità avanzate. 
+Un registro *contenitori* è un servizio che archivia e distribuisce le immagini del contenitore e gli artefatti correlati. Docker Hub è un esempio di registro contenitori pubblico che funge da catalogo generale di immagini del contenitore Docker. Registro Azure Container offre agli utenti il controllo diretto del contenuto del contenitore, con autenticazione [integrata,](container-registry-geo-replication.md) replica geografica che supporta la distribuzione globale e l'affidabilità per le distribuzioni a chiusura della [rete,](container-registry-private-link.md)la configurazione della rete virtuale con collegamento privato, il blocco dei [tag](container-registry-image-lock.md)e molte altre funzionalità avanzate. 
 
-Oltre alle immagini del contenitore compatibili con Docker, Azure Container Registry supporta una gamma di [elementi di contenuto](container-registry-image-formats.md) , inclusi i grafici Helm e i formati di immagine OCI (Open Container Initiative).
+Oltre alle immagini del contenitore compatibili con Docker, [](container-registry-image-formats.md) Registro Azure Container supporta una gamma di elementi di contenuto, tra cui grafici Helm e formati di immagine OCI (Open Container Initiative).
 
 ## <a name="repository"></a>Archivio
 
-Un *repository* è una raccolta di immagini del contenitore o di altri artefatti in un registro con lo stesso nome, ma con tag diversi. Ad esempio, le tre immagini seguenti si trovano nel `acr-helloworld` repository:
+Un *repository* è una raccolta di immagini del contenitore o altri artefatti in un registro che hanno lo stesso nome, ma tag diversi. Ad esempio, nel repository sono presenti le tre immagini `acr-helloworld` seguenti:
 
-- *ACR-HelloWorld: più recente*
-- *ACR-HelloWorld: V1*
-- *ACR-HelloWorld: V2*
+- *acr-helloworld:latest*
+- *acr-helloworld:v1*
+- *acr-helloworld:v2*
 
-I nomi dei repository possono anche includere [spazi dei nomi](container-registry-best-practices.md#repository-namespaces), Gli spazi dei nomi consentono di identificare i repository correlati e la proprietà dell'artefatto nell'organizzazione usando nomi delimitati da barre. Tuttavia, il registro di sistema gestisce tutti i repository in modo indipendente, non come una gerarchia. Ad esempio:
+I nomi dei repository possono anche includere [spazi dei nomi](container-registry-best-practices.md#repository-namespaces), Gli spazi dei nomi consentono di identificare i repository correlati e la proprietà degli artefatti nell'organizzazione usando nomi delimitati da barre. Tuttavia, il Registro di sistema gestisce tutti i repository in modo indipendente, non come gerarchia. Ad esempio:
 
-- *Marketing/campaign10-18/Web: V2*
-- *Marketing/campaign10-18/API: V3*
-- *Marketing/campaign10-18/email-sender: V2*
-- *prodotto-restituzione/Web-invio: 20180604*
-- *Product-Returns/legacy-Integrator: 20180715*
+- *marketing/campaign10-18/web:v2*
+- *marketing/campaign10-18/api:v3*
+- *marketing/campaign10-18/email-sender:v2*
+- *product-returns/web-submission:20180604*
+- *product-returns/legacy-integrator:20180715*
 
 I nomi dei repository possono includere solo caratteri alfanumerici minuscoli, punti, trattini, caratteri di sottolineatura e barre. 
 
-Per le regole di denominazione complete del repository, vedere la [specifica Open Container Initiative Distribution](https://github.com/docker/distribution/blob/master/docs/spec/api.md#overview).
+Per le regole di denominazione complete dei repository, vedere [Open Container Initiative Distribution Specification](https://github.com/docker/distribution/blob/master/docs/spec/api.md#overview).
 
 ## <a name="artifact"></a>Elemento
 
-Un'immagine del contenitore o un altro artefatto all'interno di un registro è associato a uno o più tag, ha uno o più livelli ed è identificato da un manifesto. Comprendere in che modo questi componenti sono correlati tra loro possono aiutare a gestire il registro di sistema in modo efficace.
+Un'immagine del contenitore o un altro elemento all'interno di un registro è associato a uno o più tag, ha uno o più livelli e viene identificato da un manifesto. La comprensione della relazione tra questi componenti consente di gestire il registro in modo efficace.
 
 ### <a name="tag"></a>Tag
 
-Il *tag* per un'immagine o un altro artefatto ne specifica la versione. Un singolo artefatto all'interno di un repository può essere assegnato a uno o più tag e può anche essere "senza tag". Ovvero, è possibile eliminare tutti i tag da un'immagine, mentre i dati dell'immagine (i relativi livelli) rimangono nel registro di sistema.
+Il *tag* per un'immagine o un altro elemento ne specifica la versione. A un singolo elemento all'interno di un repository è possibile assegnare uno o più tag e anche "senza tag". In altre parole, è possibile eliminare tutti i tag da un'immagine, mentre i dati dell'immagine (i relativi livelli) rimangono nel Registro di sistema.
 
-Il nome di un'immagine è definito dal repository (o da repository e spazio dei nomi) e da un tag. È possibile eseguire il push e il pull di un'immagine specificandone il nome nella relativa operazione. Il tag `latest` viene usato per impostazione predefinita se non ne viene fornito uno nei comandi di Docker.
+Il nome di un'immagine è definito dal repository (o da repository e spazio dei nomi) e da un tag. È possibile eseguire il push e il pull di un'immagine specificandone il nome nella relativa operazione. Il tag `latest` viene usato per impostazione predefinita se non ne viene specificato uno nei comandi Docker.
 
-Il modo in cui vengono contrassegnate le immagini del contenitore è guidato dagli scenari per lo sviluppo o la distribuzione. Ad esempio, sono consigliati Tag stabili per la manutenzione delle immagini di base e tag univoci per la distribuzione di immagini. Per altre informazioni, vedere [consigli per l'assegnazione di tag e il controllo delle versioni delle immagini del contenitore](container-registry-image-tag-version.md).
+La modalità di creazione di tag per le immagini dei contenitori è guidata dagli scenari per svilupparle o distribuirle. Ad esempio, i tag stabili sono consigliati per la gestione delle immagini di base e tag univoci per la distribuzione delle immagini. Per altre informazioni, vedere [Raccomandazioni per l'assegnazione di tag e il controllo delle versioni delle immagini del contenitore](container-registry-image-tag-version.md).
 
-Per le regole di denominazione dei tag, vedere la [documentazione di Docker](https://docs.docker.com/engine/reference/commandline/tag/).
+Per le regole di denominazione dei tag, vedere la [documentazione di Docker.](https://docs.docker.com/engine/reference/commandline/tag/)
 
 ### <a name="layer"></a>Livello
 
-Le immagini del contenitore e gli artefatti sono costituiti da uno o più *livelli*. Tipi di artefatti diversi definiscono i livelli in modo diverso. In un'immagine del contenitore Docker, ad esempio, ogni livello corrisponde a una riga nel Dockerfile che definisce l'immagine:
+Le immagini e gli artefatti del contenitore sono costituito da uno o più *livelli*. Tipi di artefatti diversi definiscono i livelli in modo diverso. Ad esempio, in un'immagine del contenitore Docker ogni livello corrisponde a una riga nel Dockerfile che definisce l'immagine:
 
 :::image type="content" source="media/container-registry-concepts/container-image-layers.png" alt-text="Livelli di un'immagine del contenitore":::
 
-Gli artefatti in un registro condividono livelli comuni, aumentando l'efficienza di archiviazione. Ad esempio, più immagini in repository diversi potrebbero avere un livello di base ASP.NET Core comune, ma solo una copia di tale livello viene archiviata nel registro di sistema. La condivisione dei livelli ottimizza anche la distribuzione dei livelli nei nodi, con più elementi che condividono livelli comuni. Se un'immagine già presente in un nodo include il livello ASP.NET Core come base, il pull successivo di un'immagine diversa che fa riferimento allo stesso livello non trasferisce il livello al nodo. ma farà invece riferimento a quello già presente.
+Gli artefatti in un registro condividono livelli comuni, aumentando l'efficienza di archiviazione. Ad esempio, diverse immagini in repository diversi potrebbero avere un livello di base ASP.NET Core comune, ma solo una copia di tale livello viene archiviata nel Registro di sistema. La condivisione dei livelli ottimizza anche la distribuzione dei livelli ai nodi, con più artefatti che condividono livelli comuni. Se un'immagine già presente in un nodo include il livello ASP.NET Core come base, il pull successivo di un'immagine diversa che fa riferimento allo stesso livello non trasferisce il livello al nodo. ma farà invece riferimento a quello già presente.
 
-Per garantire l'isolamento e la protezione da potenziali manipolazioni dei livelli, i livelli non vengono condivisi tra i registri.
+Per garantire un isolamento e una protezione sicuri dalla potenziale manipolazione dei livelli, i livelli non vengono condivisi tra i registri.
 
 ### <a name="manifest"></a>manifesto
 
-Ogni immagine del contenitore o artefatto di cui è stato eseguito il push in un registro contenitori è associato a un *manifesto*. Il manifesto, generato dal registro di sistema quando viene eseguito il push del contenuto, identifica in modo univoco gli artefatti e specifica i livelli. È possibile elencare i manifesti per un repository con il comando dell'interfaccia della riga di comando di Azure [AZ ACR repository Show-manifests][az-acr-repository-show-manifests]. 
+Ogni elemento o immagine del contenitore di cui è stato push in un registro contenitori è associato a un *manifesto*. Il manifesto, generato dal registro quando viene inserito il contenuto, identifica in modo univoco gli artefatti e specifica i livelli. È possibile elencare i manifesti per un repository con il comando [az acr repository show-manifests][az-acr-repository-show-manifests]dell'interfaccia della riga di comando di Azure. 
 
-Un manifesto di base per un'immagine Linux ha un `hello-world` aspetto simile al seguente:
+Un manifesto di base per un'immagine Linux `hello-world` è simile al seguente:
 
   ```json
   {
@@ -97,7 +97,7 @@ Un manifesto di base per un'immagine Linux ha un `hello-world` aspetto simile al
 az acr repository show-manifests --name <acrName> --repository <repositoryName>
 ```
 
-Ad esempio, elencare i manifesti per il repository "ACR-HelloWorld":
+Ad esempio, elencare i manifesti per il repository "acr-helloworld":
 
 ```azurecli
 az acr repository show-manifests --name myregistry --repository acr-helloworld
@@ -132,29 +132,29 @@ az acr repository show-manifests --name myregistry --repository acr-helloworld
 
 ### <a name="manifest-digest"></a>Hash di manifesto
 
-I manifesti sono identificati da un hash SHA-256 univoco, l'*hash di manifesto*. Ogni immagine o artefatto, indipendentemente dal fatto che sia contrassegnato o meno, viene identificato dal digest. Il valore digest è univoco anche se i dati del livello dell'artefatto sono identici a quelli di un altro artefatto. Questo meccanismo consente quindi di eseguire ripetutamente il push di immagini con tag identici in un registro. Ad esempio, è possibile eseguire più volte il push di `myimage:latest` nel registro senza errori poiché ogni immagine viene identificata dal relativo hash univoco.
+I manifesti sono identificati da un hash SHA-256 univoco, l'*hash di manifesto*. Ogni immagine o artefatto, indipendentemente dal fatto che sia contrassegnato o meno, viene identificato dal relativo digest. Il valore digest è univoco anche se i dati del livello dell'artefatto sono identici a quelli di un altro artefatto. Questo meccanismo consente quindi di eseguire ripetutamente il push di immagini con tag identici in un registro. Ad esempio, è possibile eseguire più volte il push di `myimage:latest` nel registro senza errori poiché ogni immagine viene identificata dal relativo hash univoco.
 
-È possibile effettuare il pull di un elemento da un registro specificandone il digest nell'operazione pull. Alcuni sistemi possono essere configurati per eseguire il pull mediante Digest perché garantisce che la versione dell'immagine venga tirata, anche se un'immagine con tag identico viene inserita in un secondo momento nel registro di sistema.
+È possibile eseguire il pull di un elemento da un registro specificandone il digest nell'operazione pull. Alcuni sistemi possono essere configurati per il pull tramite digest perché garantisce il pull della versione dell'immagine, anche se viene successivamente inserito un'immagine con tag identico nel registro.
 
 > [!IMPORTANT]
-> Se si effettuano ripetutamente il push degli artefatti modificati con tag identici, è possibile creare "orfani", ovvero artefatti senza tag, ma che utilizzano ancora spazio nel registro di sistema. Le immagini senza tag non vengono visualizzate nell'interfaccia della riga di comando o nel portale di Azure quando si elencano o si visualizzano le immagini in base ai tag. Tuttavia, i loro livelli sono comunque presenti e occupano spazio nel registro. L'eliminazione di un'immagine senza tag libera lo spazio del registro di sistema quando il manifesto è l'unico, o l'ultimo, che punta a un livello specifico. Per informazioni su come liberare spazio usato dalle immagini non contrassegnate, vedere [eliminare immagini del contenitore in Azure container Registry](container-registry-delete.md).
+> Se si esegono ripetutamente elementi modificati con tag identici, è possibile creare "orfani", elementi senza tag, ma che utilizzano comunque spazio nel registro. Le immagini senza tag non vengono visualizzate nell'interfaccia della riga di comando o nel portale di Azure quando si elencano o si visualizzano le immagini in base ai tag. Tuttavia, i loro livelli sono comunque presenti e occupano spazio nel registro. L'eliminazione di un'immagine senza tag libera spazio nel Registro di sistema quando il manifesto è l'unico, o l'ultimo, che punta a un livello specifico. Per informazioni su come liberare spazio usato dalle immagini senza tag, vedere [Eliminare immagini del contenitore in Registro Azure Container](container-registry-delete.md).
 
-## <a name="addressing-an-artifact"></a>Indirizzamento di un elemento
+## <a name="addressing-an-artifact"></a>Indirizzamento di un artefatto
 
-Per risolvere un elemento del registro di sistema per le operazioni push e pull con Docker o altri strumenti client, combinare il nome completo del registro di sistema, il nome del repository (incluso il percorso dello spazio dei nomi se applicabile) e un tag artefatto o un digest del manifesto. Vedere le sezioni precedenti per le spiegazioni di questi termini.
+Per risolvere un artefatto del registro per le operazioni push e pull con Docker o altri strumenti client, combinare il nome completo del registro, il nome del repository (incluso il percorso dello spazio dei nomi, se applicabile) e un tag di artefatto o un digest del manifesto. Per le spiegazioni di questi termini, vedere le sezioni precedenti.
 
-  **Indirizzo per tag**: `[loginServerUrl]/[repository][:tag]`
+  **Indirizzo per tag:**`[loginServerUrl]/[repository][:tag]`
     
-  **Indirizzo in base al digest**: `[loginServerUrl]/[repository@sha256][:digest]`  
+  **Indirizzo per digest:**`[loginServerUrl]/[repository@sha256][:digest]`  
 
-Quando si usa Docker o altri strumenti client per eseguire il pull o il push di elementi in un registro contenitori di Azure, usare l'URL completo del registro di sistema, denominato anche nome del *server di accesso* . Nel cloud di Azure l'URL completo di un registro contenitori di Azure ha il formato `myregistry.azurecr.io` (tutti minuscole).
+Quando si usa Docker o altri strumenti client per eseguire il pull o il push di elementi in un registro Azure Container, usare l'URL completo del Registro di sistema, denominato anche nome *del server di* accesso. Nel cloud di Azure l'URL completo di un registro Azure Container è nel formato `myregistry.azurecr.io` (tutto minuscolo).
 
 > [!NOTE]
-> * Non è possibile specificare un numero di porta nell'URL del server di accesso del registro di sistema, ad esempio `myregistry.azurecr.io:443` . 
+> * Non è possibile specificare un numero di porta nell'URL del server di accesso del Registro di sistema, ad esempio `myregistry.azurecr.io:443` . 
 > * Il tag `latest` viene usato per impostazione predefinita se non si specifica un tag nel comando.  
 
    
-### <a name="push-by-tag"></a>Push per tag
+### <a name="push-by-tag"></a>Push in base al tag
 
 Esempi: 
 
@@ -162,13 +162,13 @@ Esempi:
 
    `docker push myregistry.azurecr.io/marketing/email-sender`
 
-### <a name="pull-by-tag"></a>Pull per tag
+### <a name="pull-by-tag"></a>Eseguire il pull in base al tag
 
 Esempio: 
 
   `docker pull myregistry.azurecr.io/marketing/campaign10-18/email-sender:v2`
 
-### <a name="pull-by-manifest-digest"></a>Pull in base al digest del manifesto
+### <a name="pull-by-manifest-digest"></a>Eseguire il pull in base al digest del manifesto
 
 
 Esempio:
@@ -179,11 +179,9 @@ Esempio:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Altre informazioni sull' [archiviazione del registro di sistema](container-registry-storage.md) e i [formati di contenuto supportati](container-registry-image-formats.md) in Azure container Registry.
+Altre informazioni [sull'archiviazione del Registro di](container-registry-storage.md) sistema e sui formati di contenuto [supportati](container-registry-image-formats.md) in Registro Azure Container.
 
-Informazioni su come eseguire il [push e il pull delle immagini](container-registry-get-started-docker-cli.md) da container Registry di Azure.
+Informazioni su come [eseguire il push e il pull di](container-registry-get-started-docker-cli.md) immagini Registro Azure Container.
 
 <!-- LINKS - Internal -->
-[az-acr-repository-show-manifests]: /cli/azure/acr/repository#az-acr-repository-show-manifests
-
-
+[az-acr-repository-show-manifests]: /cli/azure/acr/repository#az_acr_repository_show_manifests

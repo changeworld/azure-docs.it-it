@@ -7,26 +7,26 @@ ms.topic: how-to
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 6253deb53229172cd499a6aa14b8d8f19bc07b63
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: de342267292c6a93c4a1ba2eae232403ccaf9514
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94629258"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107785272"
 ---
 # <a name="configure-a-point-to-site-p2s-vpn-on-windows-for-use-with-azure-files"></a>Configurare una VPN da punto a sito in Windows per l'uso con File di Azure
 È possibile usare una connessione VPN da punto a sito per montare le condivisioni file di Azure su SMB dall'esterno di Azure, senza aprire la porta 445. Una connessione VPN da punto a sito è una connessione VPN tra Azure e un singolo client. Per usare una connessione VPN da punto a sito con File di Azure, è necessario configurarla per ogni client da connettere. Se è necessario connettere molti client alle condivisioni file di Azure dalla rete locale, è possibile usare una connessione VPN da sito a sito invece di una da punto a sito per ogni client. Per altre informazioni, vedere [Configurare una VPN da sito a sito per l'uso con File di Azure](storage-files-configure-s2s-vpn.md).
 
 Per una descrizione completa delle opzioni di rete disponibili per File di Azure, è consigliabile leggere l'articolo [Considerazioni sulla rete per l'accesso diretto alle condivisioni file di Azure](storage-files-networking-overview.md) prima di procedere con questo articolo.
 
-Questo articolo illustra i passaggi per configurare una VPN da punto a sito in Windows (client Windows e Windows Server) per montare le condivisioni file di Azure direttamente in locale. Se si vuole instradare il traffico di Sincronizzazione file di Azure tramite una VPN, vedere come [configurare le impostazioni di proxy e firewall di Sincronizzazione file di Azure](storage-sync-files-firewall-and-proxy.md).
+Questo articolo illustra i passaggi per configurare una VPN da punto a sito in Windows (client Windows e Windows Server) per montare le condivisioni file di Azure direttamente in locale. Se si vuole instradare il traffico di Sincronizzazione file di Azure tramite una VPN, vedere come [configurare le impostazioni di proxy e firewall di Sincronizzazione file di Azure](../file-sync/file-sync-firewall-and-proxy.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 - La versione più recente del modulo Azure PowerShell. Per altre informazioni su come installare Azure PowerShell, vedere [Installare il modulo Azure PowerShell](/powershell/azure/install-az-ps) e selezionare il sistema operativo in uso. Se si preferisce, è anche possibile usare l'interfaccia della riga di comando di Azure in Windows, ma le istruzioni seguenti vengono presentate per Azure PowerShell.
 
-- Una condivisione file di Azure che si vuole montare in locale. Le condivisioni file di Azure vengono distribuite all'interno degli account di archiviazione, ovvero costrutti di gestione che rappresentano un pool condiviso di risorse di archiviazione in cui è possibile distribuire più condivisioni file, oltre ad altre risorse di archiviazione, ad esempio contenitori BLOB o code. Per altre informazioni su come distribuire condivisioni file di Azure e account di archiviazione, vedere [creare una condivisione file di Azure](storage-how-to-create-file-share.md).
+- Una condivisione file di Azure che si vuole montare in locale. Le condivisioni file di Azure vengono distribuite all'interno di account di archiviazione, ovvero costrutti di gestione che rappresentano un pool condiviso di archiviazione in cui è possibile distribuire più condivisioni file, nonché altre risorse di archiviazione, ad esempio contenitori BLOB o code. Per altre informazioni su come distribuire condivisioni file e account di archiviazione di Azure, vedere [Creare una condivisione file di Azure](storage-how-to-create-file-share.md).
 
-- Un endpoint privato per l'account di archiviazione che contiene la condivisione file di Azure che si vuole montare in locale. Per altre informazioni su come creare un endpoint privato, vedere [Configuring file di Azure Network Endpoints](storage-files-networking-endpoints.md?tabs=azure-powershell). 
+- Endpoint privato per l'account di archiviazione contenente la condivisione file di Azure da montare in locale. Per altre informazioni su come creare un endpoint privato, vedere Configurazione File di Azure [endpoint di rete.](storage-files-networking-endpoints.md?tabs=azure-powershell) 
 
 ## <a name="deploy-a-virtual-network"></a>Distribuire una rete virtuale
 Per accedere alla condivisione file di Azure e ad altre risorse di Azure dall'ambiente locale tramite una VPN da punto a sito, è necessario creare una rete virtuale. La connessione VPN da punto a sito che verrà creata automaticamente è un bridge tra il computer Windows locale e questa rete virtuale di Azure.

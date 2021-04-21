@@ -12,12 +12,12 @@ author: davidtrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 07/11/2019
-ms.openlocfilehash: c84c81fa81cf4ba9be454eea5782927a09c3252a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ec767e5f3a88c52f9686eec8f7e458ab517ee35f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101690961"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107784336"
 ---
 # <a name="getting-started-with-azure-sql-managed-instance"></a>Introduzione all'istanza gestita di SQL di Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -44,7 +44,7 @@ Come primo passaggio, è necessario creare la prima istanza gestita di SQL con l
   > - È anche possibile usare ExpressRoute o una connessione da sito a sito dalla rete locale, ma questi approcci esulano dall'ambito di queste guide introduttive.
   > - Se si modifica il periodo di conservazione da 0 (conservazione illimitata) a qualsiasi altro valore, tenere presente che la conservazione verrà applicata solo ai log scritti dopo la modifica del valore di conservazione (i log scritti durante il periodo in cui la conservazione è stata impostata su illimitata vengono conservati, anche dopo l'abilitazione della conservazione).
 
-In alternativa alla creazione manuale dell'istanza gestita di SQL, è possibile usare [PowerShell](scripts/create-configure-managed-instance-powershell.md), [PowerShell con modello di Resource Manager](./create-template-quickstart.md) o l'[interfaccia della riga di comando di Azure](/cli/azure/sql/mi#az-sql-mi-create) per creare script e automatizzare questo processo.
+In alternativa alla creazione manuale dell'istanza gestita di SQL, è possibile usare [PowerShell](scripts/create-configure-managed-instance-powershell.md), [PowerShell con modello di Resource Manager](./create-template-quickstart.md) o l'[interfaccia della riga di comando di Azure](/cli/azure/sql/mi#az_sql_mi_create) per creare script e automatizzare questo processo.
 
 ### <a name="migrate-your-databases"></a>Eseguire la migrazione dei database
 

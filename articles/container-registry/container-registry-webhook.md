@@ -3,18 +3,18 @@ title: Webhook per rispondere alle azioni del registro
 description: Informazioni su come usare i webhook per attivare eventi specifici quando nei repository del registro si verificano azioni push o pull.
 ms.topic: article
 ms.date: 05/24/2019
-ms.openlocfilehash: 5374b58ba72727500294a173c26e9a131b29fe34
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4f6fb719f8d9d51429a19616aa5548b32a2687e0
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101722246"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107773401"
 ---
 # <a name="using-azure-container-registry-webhooks"></a>Uso dei webhook di Registro Azure Container
 
 Un Registro Azure Container archivia e gestisce le immagini dei contenitori Docker private, in modo analogo a come Docker Hub archivia le immagini Docker pubbliche. Può anche ospitare repository per [grafici Helm](container-registry-helm-repos.md) (anteprima), un formato di creazione di pacchetti per la distribuzione di applicazioni in Kubernetes. È possibile usare i webhook per attivare eventi specifici quando in uno dei repository del registro si verificano determinate azioni. I webhook possono rispondere agli eventi a livello di registro oppure possono essere limitati a un tag di repository specifico. Con un registro di [replica geografica](container-registry-geo-replication.md), ogni webhook viene configurato per rispondere agli eventi in una replica a livello di area specifica.
 
-L'endpoint per un webhook deve essere accessibile pubblicamente dal registro di sistema. È possibile configurare le richieste webhook del registro di sistema per l'autenticazione a un endpoint protetto.
+L'endpoint per un webhook deve essere accessibile pubblicamente dal Registro di sistema. È possibile configurare le richieste webhook del Registro di sistema per l'autenticazione a un endpoint protetto.
 
 Per informazioni dettagliate sulle richieste di webhook, vedere le [informazioni di riferimento sullo schema del webhook di Registro Azure Container](container-registry-webhook-reference.md).
 
@@ -43,11 +43,11 @@ Per informazioni dettagliate sulle richieste di webhook, vedere le [informazioni
 
 Modulo di webhook di esempio:
 
-![Screenshot che mostra la creazione di un webhook ACR nella portale di Azure.](./media/container-registry-webhook/webhook.png)
+![Screenshot che mostra la creazione del webhook ACR U I nel portale di Azure.](./media/container-registry-webhook/webhook.png)
 
 ## <a name="create-webhook---azure-cli"></a>Creare un webhook - Interfaccia della riga di comando di Azure
 
-Per creare un webhook usando l'interfaccia della riga di comando di Azure, usare il comando [az acr webhook create](/cli/azure/acr/webhook#az-acr-webhook-create). Il comando seguente crea un webhook per tutti gli eventi di eliminazione di immagini nel registro *mycontainerregistry*:
+Per creare un webhook usando l'interfaccia della riga di comando di Azure, usare il comando [az acr webhook create](/cli/azure/acr/webhook#az_acr_webhook_create). Il comando seguente crea un webhook per tutti gli eventi di eliminazione di immagini nel registro *mycontainerregistry*:
 
 ```azurecli-interactive
 az acr webhook create --registry mycontainerregistry --name myacrwebhook01 --actions delete --uri http://webhookuri.com
@@ -67,7 +67,7 @@ Prima di usare il webhook, è possibile testarlo con il pulsante **Ping**. Il co
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
-Per testare un webhook di Registro Azure Container con l'interfaccia della riga di comando di Azure, usare il comando [az acr webhook ping](/cli/azure/acr/webhook#az-acr-webhook-ping).
+Per testare un webhook di Registro Azure Container con l'interfaccia della riga di comando di Azure, usare il comando [az acr webhook ping](/cli/azure/acr/webhook#az_acr_webhook_ping).
 
 ```azurecli-interactive
 az acr webhook ping --registry mycontainerregistry --name myacrwebhook01

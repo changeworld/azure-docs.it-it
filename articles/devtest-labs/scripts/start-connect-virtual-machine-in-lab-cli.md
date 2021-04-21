@@ -4,12 +4,12 @@ description: Questo script dell'interfaccia della riga di comando di Azure avvia
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 08/11/2020
-ms.openlocfilehash: 8a3308a4e13b82cd90e00b6c25edadf4cc8aa4ee
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f82d43fc212da034d978ee3d65236d806daeb008
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102198167"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107764982"
 ---
 # <a name="use-azure-cli-to-start-a-virtual-machine-in-a-lab-in-azure-devtest-labs"></a>Usare l'interfaccia della riga di comando di Azure per avviare una macchina virtuale in Azure DevTest Labs
 
@@ -30,7 +30,7 @@ Questo script usa i comandi seguenti:
 
 | Comando | Note |
 |---|---|
-| [avvio AZ Lab VM](/cli/azure/lab/vm#az-lab-vm-start) | Avvia una macchina virtuale (VM) in un lab. Il completamento di questa operazione può richiedere tempo. |
+| [az lab vm start](/cli/azure/lab/vm#az_lab_vm_start) | Avvia una macchina virtuale (VM) in un lab. Il completamento di questa operazione può richiedere tempo. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,17 +1,17 @@
 ---
-title: Guida introduttiva-inviare eventi a griglia di eventi
+title: Guida introduttiva- Inviare eventi a Griglia di eventi
 description: In questa guida introduttiva si abilitano gli eventi di Griglia di eventi per il proprio registro contenitori e quindi si inviano gli eventi push e delete di un'immagine di contenitore a un'applicazione di esempio.
 ms.topic: article
 ms.date: 08/23/2018
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: b3957ff3b0ed01d2375f33c4984cc97a64a3642c
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 43dea2640c9c9445ea464205f6c586bc1e486206
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106065107"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107784026"
 ---
-# <a name="quickstart-send-events-from-private-container-registry-to-event-grid"></a>Guida introduttiva: inviare eventi dal registro contenitori privato a griglia di eventi
+# <a name="quickstart-send-events-from-private-container-registry-to-event-grid"></a>Guida introduttiva: Inviare eventi dal registro contenitori privato a Griglia di eventi
 
 Griglia di eventi di Azure è un servizio di routing di eventi completamente gestito che consente un uso degli eventi uniforme tramite un modello di pubblicazione-sottoscrizione. In questa guida introduttiva si usa l'interfaccia della riga di comando di Azure per creare un registro contenitori, sottoscrivere gli eventi del registro e quindi distribuire un'applicazione Web di esempio per ricevere gli eventi. Infine, si attivano gli eventi `push` e `delete` di un'immagine di contenitore e si visualizza il payload degli eventi nell'applicazione di esempio.
 
@@ -236,6 +236,6 @@ In questa guida introduttiva si è distribuito un registro contenitori, si è co
 
 <!-- LINKS - Internal -->
 [az-acr-create]: /cli/azure/acr/repository
-[az-acr-repository-delete]: /cli/azure/acr/repository#az-acr-repository-delete
-[az-eventgrid-event-subscription-create]: /cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-create
-[az-group-create]: /cli/azure/group#az-group-create
+[az-acr-repository-delete]: /cli/azure/acr/repository#az_acr_repository_delete
+[az-eventgrid-event-subscription-create]: /cli/azure/eventgrid/event-subscription#az_eventgrid_event_subscription_create
+[az-group-create]: /cli/azure/group#az_group_create

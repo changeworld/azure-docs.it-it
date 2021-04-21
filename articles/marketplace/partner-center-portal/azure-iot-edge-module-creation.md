@@ -1,18 +1,18 @@
 ---
 title: Creare un'offerta del modulo Azure IoT Edge con il Centro per i partner in Azure Marketplace
-description: Informazioni su come creare, configurare e pubblicare un'offerta di modulo IoT Edge in Azure Marketplace tramite il centro per i partner.
+description: Informazioni su come creare, configurare e pubblicare un'offerta IoT Edge modulo Azure Marketplace usando Partner Center.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: keferna
 ms.author: keferna
 ms.date: 08/07/2020
-ms.openlocfilehash: 6de387605a8c127485b68773b6cd1b19c7136d17
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 12600cadaa84ae116818eec06459d5db0c05304a
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107107500"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107773421"
 ---
 # <a name="create-an-iot-edge-module-offer"></a>Creare un'offerta di moduli IoT Edge
 
@@ -27,7 +27,7 @@ Questo articolo descrive come creare e pubblicare un'offerta del modulo IoT Edge
     ![Menu di spostamento di sinistra.](./media/new-offer-iot-edge.png)
 
 > [!IMPORTANT]
-> Dopo la pubblicazione di un'offerta, le modifiche apportate al centro per i partner vengono visualizzate solo negli archivi online dopo la ripubblicazione dell'offerta. Assicurarsi di ripubblicare sempre l'offerta dopo avere apportato modifiche.
+> Dopo la pubblicazione di un'offerta, le modifiche apportate Partner Center vengono visualizzate negli store online solo dopo la ripubblicazione dell'offerta. Assicurarsi di ripubblicare sempre l'offerta dopo avere apportato modifiche.
 
 ### <a name="offer-id-and-alias"></a>ID e alias dell'offerta
 
@@ -80,7 +80,7 @@ Di seguito sono elencate alcune risorse aggiuntive per la gestione dei clienti p
 
 - [Lead di clienti tramite l'offerta del marketplace commerciale](commercial-marketplace-get-customer-leads.md)
 - [Domande frequenti sulla gestione dei lead](../lead-management-faq.md#common-questions-about-lead-management)
-- [Risoluzione degli errori di configurazione del lead](../lead-management-faq.md#publishing-config-errors)
+- [Risoluzione degli errori di configurazione dei lead](../lead-management-faq.md#publishing-config-errors)
 - PDF [Panoramica della gestione dei clienti potenziali](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) (assicurarsi che il blocco dei popup sia disattivato)
 
 Prima di continuare, selezionare **Salva bozza**.
@@ -91,12 +91,12 @@ Questa pagina consente di definire le categorie usate per raggruppare l'offerta 
 
 #### <a name="category"></a>Category
 
-Selezionare le categorie e le sottocategorie per inserire l'offerta nelle aree di ricerca del Marketplace appropriate. Assicurarsi di descrivere il modo in cui l'offerta supporta queste categorie nella descrizione dell'offerta. Selezionare:
+Selezionare categorie e sottocategorie per inserire l'offerta nelle aree di ricerca del marketplace appropriate. Assicurarsi di descrivere il modo in cui l'offerta supporta queste categorie nella descrizione dell'offerta. Selezionare:
 
-- Almeno una delle due categorie, incluse una categoria primaria e una secondaria (facoltativo).
-- Fino a due sottocategorie per ogni categoria primaria e/o secondaria. Se per l'offerta non è applicabile alcuna sottocategoria, selezionare **non applicabile**.
+- Almeno una e fino a due categorie, tra cui una categoria primaria e una secondaria (facoltativo).
+- Fino a due sottocategorie per ogni categoria primaria e/o secondaria. Se all'offerta non è applicabile alcuna sottocategoria, selezionare **Non applicabile.**
 
-Vedere l'elenco completo di categorie e sottocategorie nell'elenco delle [procedure](../gtm-offer-listing-best-practices.md)consigliate. Nel Marketplace i moduli IOT Edge vengono sempre visualizzati nella categoria  **Internet delle cose**  >  **IOT Edge modulo**   .
+Vedere l'elenco completo delle categorie e delle sottocategorie in Procedure consigliate per [l'inserzione dell'offerta.](../gtm-offer-listing-best-practices.md) Nel marketplace, i IoT Edge vengono sempre visualizzati nella  **categoria** Internet delle cose  >  **IoT Edge modulo.**  
 
 #### <a name="legal"></a>Note legali
 
@@ -201,13 +201,13 @@ Fornire i logo e le immagini da usare con l'offerta. Tutte le immagini devono es
 
 #### <a name="store-logos"></a>Logo dello store
 
-Fornire un file PNG per il logo di **grandi** dimensioni. Il centro per i partner lo utilizzerà per creare un logo **piccolo** e **medio** . Facoltativamente, è possibile sostituirli con immagini diverse in un secondo momento.
+Specificare un file PNG per il logo **Di** grandi dimensioni. Partner Center verrà utilizzato per creare un logo **Piccolo** e **Medio.** Facoltativamente, è possibile sostituirli con immagini diverse in un secondo momento.
 
-- **Grande** (da 216 x 216 a 350 x 350 px, obbligatorio)
-- **Media** (90 x 90 px, facoltativo)
-- **Piccolo** (48 x 48 px, facoltativo)
+- **Large** (da 216 x 216 a 350 x 350 px, obbligatorio)
+- **Media** (90 x 90 px, facoltativa)
+- **Small** (48 x 48 px, facoltativo)
 
-Questi logo vengono usati in posizioni diverse nell'elenco:
+Questi logo vengono usati in posizioni diverse nell'inserzione:
 
 [!INCLUDE [logos-azure-marketplace-only](../includes/logos-azure-marketplace-only.md)]
 
@@ -223,49 +223,49 @@ Aggiungere fino a cinque video che descrivono l'offerta. Immettere il nome del v
 
 #### <a name="marketplace--examples"></a>Esempi di Marketplace
 
-Di seguito è riportato un esempio di come vengono visualizzate le informazioni sull'offerta in Azure Marketplace:
+Ecco un esempio di come vengono visualizzate le informazioni sull'offerta Azure Marketplace:
 
-:::image type="content" source="media/example-iot-azure-marketplace-offer.png" alt-text="Viene illustrato come viene visualizzata questa offerta in Azure Marketplace.":::
+:::image type="content" source="media/example-iot-azure-marketplace-offer.png" alt-text="Illustra come viene visualizzata questa offerta in Azure Marketplace.":::
 
-#### <a name="call-out-descriptions"></a>Descrizioni di chiamata
+#### <a name="call-out-descriptions"></a>Descrizioni dei call-out
 
-1. Logo grande
+1. Logo di grandi dimensioni
 2. Categorie
 3. Indirizzo di supporto (collegamento)
 4. Termini e condizioni
-5. Indirizzo privacy policy (collegamento)
+5. Indirizzo dell'informativa sulla privacy (collegamento)
 6. Nome
 7. Riepilogo
 8. Descrizione
 9. Collegamenti utili
 10. Screenshot/video
 
-<br>Di seguito è riportato un esempio di come vengono visualizzate le informazioni sull'offerta nei risultati della ricerca in Azure Marketplace:
+<br>Ecco un esempio di come vengono visualizzate le informazioni sull'offerta nei Azure Marketplace di ricerca:
 
-:::image type="content" source="media/example-iot-azure-marketplace-offer-search-results.png" alt-text="Illustra il modo in cui questa offerta viene visualizzata nei risultati della ricerca di Azure Marketplace.":::
+:::image type="content" source="media/example-iot-azure-marketplace-offer-search-results.png" alt-text="Illustra come viene visualizzata questa offerta nei Azure Marketplace di ricerca.":::
 
-#### <a name="call-out-descriptions"></a>Descrizioni di chiamata
+#### <a name="call-out-descriptions"></a>Descrizioni dei call-out
 
 1. Logo piccolo
 2. Nome offerta
 3. Riepilogo dei risultati della ricerca
 
-<br>Di seguito è riportato un esempio di come vengono visualizzate le informazioni sull'offerta nell'portale di Azure:
+<br>Ecco un esempio di come vengono visualizzate le informazioni sull'offerta nel portale di Azure:
 
-:::image type="content" source="media/example-iot-azure-portal-offer.png" alt-text="Viene illustrato il modo in cui questa offerta viene visualizzata nel portale di Azure.":::
+:::image type="content" source="media/example-iot-azure-portal-offer.png" alt-text="Illustra come viene visualizzata questa offerta nel portale di Azure.":::
 
-#### <a name="call-out-descriptions"></a>Descrizioni di chiamata
+#### <a name="call-out-descriptions"></a>Descrizioni dei call-out
 
 1. Nome
 2. Descrizione
 3. Collegamenti utili
 4. Schermate
 
-<br>Di seguito è riportato un esempio di come vengono visualizzate le informazioni sull'offerta nei risultati della ricerca portale di Azure:
+<br>Ecco un esempio di come vengono visualizzate le informazioni sull'offerta nei risultati portale di Azure ricerca:
 
-:::image type="content" source="media/example-iot-azure-portal-offer-search-results.png" alt-text="Viene illustrato il modo in cui questa offerta viene visualizzata nei risultati della ricerca portale di Azure.":::
+:::image type="content" source="media/example-iot-azure-portal-offer-search-results.png" alt-text="Illustra come viene visualizzata questa offerta nei risultati portale di Azure ricerca.":::
 
-#### <a name="call-out-descriptions"></a>Descrizioni di chiamata
+#### <a name="call-out-descriptions"></a>Descrizioni dei call-out
 
 1. Logo piccolo
 2. Nome offerta
@@ -291,15 +291,15 @@ Prima di passare alla sezione successiva, Panoramica del piano, selezionare **Sa
 
 ## <a name="plan-overview"></a>Panoramica del piano
 
-Questa scheda consente di specificare diverse opzioni per il piano all'interno della stessa offerta nel Centro per i partner. I piani (in precedenza denominati SKU) possono variare in termini di cloud disponibili, ad esempio cloud globali, cloud governativi e immagine a cui fa riferimento il piano. Per presentare l'offerta nel marketplace, è necessario configurare almeno un piano.
+Questa scheda consente di specificare diverse opzioni per il piano all'interno della stessa offerta nel Centro per i partner. I piani (in precedenza definiti SKU) possono differire in termini di cloud disponibili, ad esempio cloud globali, cloud per enti pubblici e l'immagine a cui fa riferimento il piano. Per presentare l'offerta nel marketplace, è necessario configurare almeno un piano.
 
-È possibile creare fino a 100 piani per ogni offerta: fino a 45 di questi possono essere privati. Scopri di più sui piani privati in [offerte private in Microsoft Commercial Marketplace](../private-offers.md).
+È possibile creare fino a 100 piani per ogni offerta: fino a 45 di questi possono essere privati. Altre informazioni sui piani privati nelle [offerte private nel Marketplace commerciale Microsoft.](../private-offers.md)
 
 Dopo aver creato i piani, la scheda **Panoramica del piano** mostra:
 
 - Nomi dei piani
 - Modello di prezzi
-- Aree di Azure (globale o per enti pubblici)
+- Aree di Azure (globali o per enti pubblici)
 - Stato attuale di pubblicazione
 - Eventuali azioni disponibili
 
@@ -327,16 +327,16 @@ Questa scheda consente di configurare i cloud in cui è disponibile il piano. Le
 
 #### <a name="azure-regions"></a>Aree di Azure
 
-Tutti i piani per le offerte del modulo IoT Edge vengono resi disponibili automaticamente in **Azure Global**.  Il piano può essere usato dai clienti in tutte le aree di Azure globali che usano il Marketplace. Per informazioni dettagliate, vedere [Disponibilità geografica e supporto delle valute](../marketplace-geo-availability-currencies.md).
+Tutti i piani per IoT Edge offerte di moduli vengono resi automaticamente disponibili in **Globale di Azure.**  Il piano può essere usato dai clienti in tutte le aree di Azure globali che usano il marketplace. Per informazioni dettagliate, vedere [Disponibilità geografica e supporto delle valute](../marketplace-geo-availability-currencies.md).
 
-Selezionare l'opzione [Azure Government](../../azure-government/documentation-government-welcome.md) per fare in modo che la soluzione venga visualizzata qui. Si tratta di un Government Community Cloud con accesso controllato per i clienti delle agenzie governative federali, statali e locali degli Stati Uniti e partner idonei a servire questi enti. In qualità di editore, l'utente è responsabile di eventuali controlli di conformità, misure di sicurezza e procedure consigliate per questa community cloud. Azure per enti pubblici usa data center e reti fisicamente isolate, situate solo negli Stati Uniti. Prima della [pubblicazione](../../azure-government/documentation-government-manage-marketplace-partners.md) in Azure per enti pubblici, testare e confermare la soluzione in tale area, perché i risultati potrebbero essere diversi. Per preparare e testare la soluzione, richiedere un account di prova dalla [versione di valutazione di Microsoft Azure per enti pubblici](https://azure.microsoft.com/global-infrastructure/government/request/).
+Selezionare [l Azure per enti pubblici](../../azure-government/documentation-government-welcome.md) per visualizzare la soluzione qui. Si tratta di un Government Community Cloud con accesso controllato per i clienti delle agenzie governative federali, statali e locali degli Stati Uniti e partner idonei a servire questi enti. In qualità di editore, l'utente è responsabile di eventuali controlli di conformità, misure di sicurezza e procedure consigliate per questa community cloud. Azure per enti pubblici usa data center e reti fisicamente isolate, situate solo negli Stati Uniti. Prima della [pubblicazione](../../azure-government/documentation-government-manage-marketplace-partners.md) in Azure per enti pubblici, testare e confermare la soluzione in tale area, perché i risultati potrebbero essere diversi. Per preparare e testare la soluzione, richiedere un account di prova dalla [versione di valutazione di Microsoft Azure per enti pubblici](https://azure.microsoft.com/global-infrastructure/government/request/).
 
 > [!NOTE]
 > Dopo che il piano è stato pubblicato e disponibile in un'area specifica, non è possibile rimuovere tale area.
 
 #### <a name="azure-government-certifications"></a>Certificazioni di Azure per enti pubblici
 
-Questa opzione è visibile solo se **Azure per enti pubblici** è selezionato in **aree di Azure**.
+Questa opzione è visibile solo se **Azure per enti pubblici** è selezionata in Aree **di Azure.**
 
 I servizi di Azure per enti pubblici gestiscono dati soggetti a determinati requisiti e regolamenti governativi. Ad esempio, FedRAMP, NIST 800.171 (DIB), ITAR, IRS 1075, DoD L4 e CJIS. Per rendere consapevoli delle certificazioni per questi programmi, è possibile specificare fino a 100 collegamenti che descrivono tali certificazioni. Questi possono essere collegamenti diretti alle presentazioni del programma o al proprio sito Web. Questi collegamenti sono visibili solo ai clienti di Azure per enti pubblici.
 
@@ -346,7 +346,7 @@ Questa scheda contiene informazioni specifiche per i vari piani all'interno dell
 
 ### <a name="plan-name"></a>Nome del piano
 
-Questo campo è precompilato con il nome assegnato al piano al momento della creazione. È possibile modificare il nome in base alle esigenze. Non può superare la lunghezza di 50 caratteri. Questo nome viene visualizzato come titolo del piano in Azure Marketplace e nel portale di Azure. Viene usato come nome del modulo predefinito quando il piano è pronto per essere usato.
+Questo campo è precompilato con il nome assegnato al piano al momento della creazione. È possibile modificare il nome in base alle esigenze. Non può superare la lunghezza di 50 caratteri. Questo nome viene visualizzato come titolo del piano in Azure Marketplace e nella portale di Azure. Viene usato come nome del modulo predefinito quando il piano è pronto per essere usato.
 
 ### <a name="plan-summary"></a>Riepilogo del piano
 
@@ -360,21 +360,21 @@ Dopo aver completato questi campi, selezionare **Salva bozza**.
 
 #### <a name="plan-examples"></a>Esempi di piano
 
-Di seguito è riportato un esempio di dettagli dei piani di Azure Marketplace (i prezzi elencati sono solo a scopo esemplificativo e non sono destinati a riflettere i costi effettivi):
+Di seguito è riportato un esempio di Azure Marketplace dettagli del piano . Tutti i prezzi elencati sono solo a scopo esemplettuato e non sono destinati a riflettere i costi effettivi:
 
-:::image type="content" source="media/example-iot-azure-marketplace-plan.png" alt-text="Illustra i dettagli del piano di Azure Marketplace.":::
+:::image type="content" source="media/example-iot-azure-marketplace-plan.png" alt-text="Illustra i Azure Marketplace del piano.":::
 
-#### <a name="call-out-descriptions"></a>Descrizioni di chiamata
+#### <a name="call-out-descriptions"></a>Descrizioni dei call-out
 
 1. Nome offerta
 2. Nome piano
 3. Descrizione piano
 
-<br>Di seguito è riportato un esempio dei dettagli del piano di portale di Azure (i prezzi elencati sono solo a scopo esemplificativo e non sono destinati a riflettere i costi effettivi):
+<br>Di seguito è riportato un esempio dei dettagli del piano portale di Azure(tutti i prezzi elencati sono solo a scopo di esempio e non sono destinati a riflettere i costi effettivi):
 
-:::image type="content" source="media/example-iot-azure-marketplace-plan-details.png" alt-text="Vengono illustrati i dettagli del piano portale di Azure.":::
+:::image type="content" source="media/example-iot-azure-marketplace-plan-details.png" alt-text="Illustra i dettagli portale di Azure piano.":::
 
-#### <a name="call-out-descriptions"></a>Descrizioni di chiamata
+#### <a name="call-out-descriptions"></a>Descrizioni dei call-out
 
 1. Nome offerta
 2. Nome piano
@@ -393,7 +393,7 @@ Questo campo viene comunemente usato quando:
 
 ## <a name="technical-configuration"></a>Configurazione tecnica
 
-Il tipo di offerta di **modulo IoT Edge** è un tipo specifico di contenitore in esecuzione in un dispositivo IoT Edge. Nella scheda **configurazione tecnica** verranno fornite informazioni di riferimento per il repository di immagini contenitore all'interno del [container Registry di Azure](https://azure.microsoft.com/services/container-registry/), insieme a impostazioni di configurazione che consentono ai clienti di utilizzare il modulo in modo semplice.
+Il tipo di offerta di **modulo IoT Edge** è un tipo specifico di contenitore in esecuzione in un dispositivo IoT Edge. Nella scheda **Configurazione tecnica** verranno fornite informazioni di riferimento per il repository di immagini del contenitore all'interno di [Registro Azure Container](https://azure.microsoft.com/services/container-registry/), insieme alle impostazioni di configurazione che consentono ai clienti di usare facilmente il modulo.
 
 Dopo aver pubblicato l'offerta, l'immagine del contenitore IoT Edge viene copiata in Azure Marketplace in un registro contenitori pubblico specifico. Tutte le richieste degli utenti di Azure per l'uso del modulo vengono gestite dal registro contenitori pubblico di Azure Marketplace, non da quello privato.
 
@@ -411,19 +411,19 @@ Specificare le informazioni seguenti nella scheda **Image repository details** (
 
 **Nome del Registro Azure Container**: Specificare il nome del [Registro Azure Container](../../container-registry/container-registry-intro.md) con l'immagine del contenitore. Il registro contenitori deve trovarsi nel gruppo di risorse di Azure specificato in precedenza. Specificare solo il nome del registro, non il nome completo del server di accesso. Assicurarsi di non inserire **azurecr.io** nel nome. È possibile trovare il nome del registro nella pagina [Registri contenitori](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.ContainerRegistry%2Fregistries) del portale di Azure.
 
-**Nome utente amministratore per il container Registry di Azure**: specificare il [nome utente amministratore](../../container-registry/container-registry-authentication.md#admin-account)) associato al container Registry di Azure con l'immagine del contenitore. Il nome utente e la password sono necessari per assicurarsi che l'azienda abbia accesso al registro. Per ottenere il nome utente e la password dell'amministratore, impostare la proprietà **admin-enabled** su **True** usando l'interfaccia della riga di comando di Azure (CLI). Facoltativamente è possibile impostare **Utente amministratore** su **Abilita** nel portale di Azure.
+**Nome utente amministratore per l Registro Azure Container:** specificare il nome utente amministratore [)](../../container-registry/container-registry-authentication.md#admin-account)associato all'Registro Azure Container con l'immagine del contenitore. Il nome utente e la password sono necessari per assicurarsi che l'azienda abbia accesso al registro. Per ottenere il nome utente e la password dell'amministratore, impostare la proprietà **admin-enabled** su **True** usando l'interfaccia della riga di comando di Azure (CLI). Facoltativamente è possibile impostare **Utente amministratore** su **Abilita** nel portale di Azure.
 
 :::image type="content" source="media/example-iot-update-container-registry.png" alt-text="Finestra di dialogo Aggiorna registro contenitori.":::
 
-#### <a name="call-out-description"></a>Descrizione della chiamata
+#### <a name="call-out-description"></a>Descrizione del call-out
 
 1. Utente amministratore
 
-<br>**Password del Registro Azure Container**: specificare la password per il nome utente dell'amministratore associata al Registro Azure Container con l'immagine del contenitore. Il nome utente e la password sono necessari per assicurarsi che l'azienda abbia accesso al registro. Per ottenere la password nel portale di Azure, passare a **Registro contenitori** > **Chiavi di accesso** o con l'interfaccia della riga di comando di Azure usare il [comando show](/cli/azure/acr/credential#az-acr-credential-show).
+<br>**Password del Registro Azure Container**: specificare la password per il nome utente dell'amministratore associata al Registro Azure Container con l'immagine del contenitore. Il nome utente e la password sono necessari per assicurarsi che l'azienda abbia accesso al registro. Per ottenere la password nel portale di Azure, passare a **Registro contenitori** > **Chiavi di accesso** o con l'interfaccia della riga di comando di Azure usare il [comando show](/cli/azure/acr/credential#az_acr_credential_show).
 
-:::image type="content" source="media/example-iot-access-keys.png" alt-text="Viene illustrata la schermata chiave di accesso nella portale di Azure.":::
+:::image type="content" source="media/example-iot-access-keys.png" alt-text="Illustra la schermata della chiave di accesso nel portale di Azure.":::
 
-#### <a name="call-out-descriptions"></a>Descrizioni di chiamata
+#### <a name="call-out-descriptions"></a>Descrizioni dei call-out
 
 1. Chiavi di accesso
 2. Username
@@ -432,7 +432,7 @@ Specificare le informazioni seguenti nella scheda **Image repository details** (
 **Nome del repository all'interno del Registro Azure Container**. Specificare il nome del repository di Registro Azure Container con l'immagine. Specificare il nome del repository quando si esegue il push dell'immagine nel registro. È possibile trovare il nome del repository passando alla pagina [Registro contenitori](https://azure.microsoft.com/services/container-registry/) > **Repository**. Per altre informazioni, vedere [Visualizzare i repository del registro contenitori nel portale di Azure](../../container-registry/container-registry-repositories.md). Dopo averlo impostato, il nome non potrà essere modificato. Usare un nome univoco per ogni offerta nell'account.
 
 > [!NOTE]
-> Azure Container Registry crittografato per la certificazione dei moduli Edge non è supportato. Il Container Registry di Azure deve essere creato senza la crittografia abilitata.
+> L'autenticazione crittografata non è Registro Azure Container per la certificazione del modulo Edge. Registro Azure Container deve essere creato senza crittografia abilitata.
 
 ### <a name="image-tags-for-new-versions-of-your-offer"></a>Tag dell'immagine per le nuove versioni dell'offerta
 
@@ -446,7 +446,7 @@ Definire le impostazioni più comuni per distribuire il modulo IoT Edge. Ottimiz
 
 **Route predefinite**. L'hub di IoT Edge gestisce la comunicazione tra i moduli, l'hub IoT e i dispositivi. È possibile impostare route per l'input e l'output dei dati tra i moduli e l'hub IoT, per inviare i messaggi alla destinazione desiderata senza dover usare servizi aggiuntivi per l'elaborazione dei messaggi e senza scrivere codice aggiuntivo. Le route vengono costruite mediante coppie nome/valore. È possibile definire fino a cinque nomi di route predefiniti, ognuno con una lunghezza di 512 caratteri.
 
-Assicurarsi di usare la sintassi di [Route](../../iot-edge/module-composition.md#declare-routes)corretta nel valore di route (in genere definito da/Message/* in $upstream). Ciò significa che tutti i messaggi inviati dai moduli passano all'hub IoT. Per fare riferimento al modulo, usarne il nome predefinito, che sarà il **nome dell'offerta** senza spazi e caratteri speciali. Per fare riferimento ad altri moduli non ancora noti, usare la convenzione <FROM_MODULE_NAME> per indicare ai clienti che devono aggiornare queste informazioni. Per informazioni dettagliate sulle route IoT Edge, vedere [dichiarare le route](../../iot-edge/module-composition.md#declare-routes)).
+Assicurarsi di usare la sintassi di [route](../../iot-edge/module-composition.md#declare-routes)corretta ) nel valore di route (in genere definito come FROM/message/* INTO $upstream). Ciò significa che tutti i messaggi inviati dai moduli passano all'hub IoT. Per fare riferimento al modulo, usarne il nome predefinito, che sarà il **nome dell'offerta** senza spazi e caratteri speciali. Per fare riferimento ad altri moduli non ancora noti, usare la convenzione <FROM_MODULE_NAME> per indicare ai clienti che devono aggiornare queste informazioni. Per informazioni dettagliate sulle IoT Edge, vedere [Dichiarare route](../../iot-edge/module-composition.md#declare-routes).
 
 Ad esempio, se il modulo ContosoModule è in ascolto di dati di input in ContosoInput e di output in ContosoOutput, è opportuno definire le due route predefinite seguenti:
 
@@ -455,21 +455,21 @@ Ad esempio, se il modulo ContosoModule è in ascolto di dati di input in Contoso
 - Nome 2: FromContosoModuleToCloud
 - Valore 2: FROM /messages/modules/ContonsoModule/outputs/ContosoOutput INTO $upstream
 
-**Proprietà desiderate predefinite del modulo gemello**. Un modulo gemello è un documento Json contenuto nell'hub IoT in cui vengono archiviate le informazioni di stato relative a un'istanza del modulo, incluse le proprietà desiderate. Le proprietà desiderate vengono usate insieme alle proprietà segnalate per sincronizzare la configurazione o le condizioni del modulo. Il back-end della soluzione è in grado di impostare le proprietà desiderate e il modulo è in grado di leggerle. Il modulo può anche ricevere notifiche relative alle modifiche apportate alle proprietà desiderate. Le proprietà desiderate vengono create usando fino a cinque coppie nome/valore e ogni valore predefinito deve essere composto da meno di 512 caratteri. È possibile definire fino a cinque proprietà nome/valore desiderate del dispositivo gemello. I valori delle proprietà desiderate del dispositivo gemello devono essere un JSON valido, non preceduto da carattere di escape, senza matrici e con una gerarchia annidata massima pari a quattro livelli. In uno scenario in cui un parametro obbligatorio per un valore predefinito non ha senso (ad esempio, l'indirizzo IP del server di un cliente), è possibile aggiungere un parametro come valore predefinito. Per altre informazioni sulle proprietà desiderate del dispositivo gemello, vedere [definire o aggiornare le proprietà desiderate](../../iot-edge/module-composition.md#define-or-update-desired-properties).
+**Proprietà desiderate predefinite del modulo gemello**. Un modulo gemello è un documento Json contenuto nell'hub IoT in cui vengono archiviate le informazioni di stato relative a un'istanza del modulo, incluse le proprietà desiderate. Le proprietà desiderate vengono usate insieme alle proprietà segnalate per sincronizzare la configurazione o le condizioni del modulo. Il back-end della soluzione è in grado di impostare le proprietà desiderate e il modulo è in grado di leggerle. Il modulo può anche ricevere notifiche relative alle modifiche apportate alle proprietà desiderate. Le proprietà desiderate vengono create usando fino a cinque coppie nome/valore e ogni valore predefinito deve contenere meno di 512 caratteri. È possibile definire fino a cinque proprietà nome/valore desiderate del dispositivo gemello. I valori delle proprietà desiderate del dispositivo gemello devono essere un JSON valido, non preceduto da carattere di escape, senza matrici e con una gerarchia annidata massima pari a quattro livelli. In uno scenario in cui un parametro obbligatorio per un valore predefinito non ha senso (ad esempio, l'indirizzo IP del server di un cliente), è possibile aggiungere un parametro come valore predefinito. Per altre informazioni sulle proprietà desiderate dei gemelli, vedere [Definire o aggiornare le proprietà desiderate.](../../iot-edge/module-composition.md#define-or-update-desired-properties)
 
 Se, ad esempio, un modulo supporta una frequenza di aggiornamento configurabile in modo dinamico tramite le proprietà desiderate del dispositivo gemello, è opportuno definire le proprietà desiderate del dispositivo gemello predefinite seguenti:
 
 - Nome 1: RefreshRate
 - Valore 1: 60
 
-**Variabili di ambiente predefinite**. Le variabili di ambiente forniscono a un modulo informazioni aggiuntive che semplificano il processo di configurazione. Le variabili di ambiente vengono create usando le coppie nome/valore. Ogni nome e valore predefinito della variabile di ambiente deve essere composto da meno di 512 caratteri ed è possibile definirne fino a cinque. Quando un parametro obbligatorio per un valore predefinito non ha senso (ad esempio, l'indirizzo IP del server di un cliente), è possibile aggiungere un parametro come valore predefinito.
+**Variabili di ambiente predefinite**. Le variabili di ambiente forniscono a un modulo informazioni aggiuntive che semplificano il processo di configurazione. Le variabili di ambiente vengono create usando le coppie nome/valore. Ogni nome e valore della variabile di ambiente predefinita deve essere inferiore a 512 caratteri ed è possibile definire fino a cinque caratteri. Quando un parametro obbligatorio per un valore predefinito non ha senso (ad esempio, l'indirizzo IP del server di un cliente), è possibile aggiungere un parametro come valore predefinito.
 
 Se ad esempio un modulo richiede di accettare le condizioni d'uso prima dell'avvio, è possibile definire la variabile di ambiente seguente:
 
 - Nome 1: ACCEPT_EULA
 - Valore 1: S
 
-**Default container create options** (Opzioni di creazione del contenitore predefinito). Le opzioni di creazione del contenitore guidano la creazione del contenitore Docker del modulo IoT Edge. IoT Edge supporta le opzioni del contenitore per la creazione dell'API del motore Docker. Vedere tutte le opzioni in [List containers](https://docs.docker.com/engine/api/v1.30/#operation/ContainerList) (Elencare i contenitori). Il campo Crea opzioni deve essere JSON valido, non di escape e inferiore a 512 caratteri.
+**Default container create options** (Opzioni di creazione del contenitore predefinito). Le opzioni di creazione del contenitore guidano la creazione del contenitore Docker del modulo IoT Edge. IoT Edge supporta le opzioni del contenitore per la creazione dell'API del motore Docker. Vedere tutte le opzioni in [List containers](https://docs.docker.com/engine/api/v1.30/#operation/ContainerList) (Elencare i contenitori). Il campo delle opzioni di creazione deve essere JSON valido, senza caratteri di escape e meno di 512 caratteri.
 
 Se, ad esempio, un modulo richiede l'associazione della porta, è possibile definire le opzioni di creazione seguenti:
 
@@ -491,7 +491,7 @@ Nella pagina di revisione è possibile visualizzare lo stato di pubblicazione:
 
 Per inviare l'offerta per la pubblicazione, selezionare **Pubblica**.
 
-Si riceverà un messaggio di posta elettronica per far sapere all'utente che una versione di anteprima dell'offerta è disponibile per la revisione e l'approvazione. Per pubblicare l'offerta al pubblico, passare a centro per i partner e selezionare **Go-Live**.
+Si riceverà un messaggio di posta elettronica per far sapere all'utente che una versione di anteprima dell'offerta è disponibile per la revisione e l'approvazione. Per pubblicare l'offerta al pubblico, passare a Partner Center e selezionare **Go-live**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

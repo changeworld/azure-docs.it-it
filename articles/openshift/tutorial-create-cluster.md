@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: azure-redhat-openshift
 ms.date: 10/26/2020
-ms.openlocfilehash: 55c1b6f6c6690f0c8f00a8a2469834781f35fb3c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: dda4fc6a80bbe07977f8d2a5ffcbea895a4e1fe6
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102449799"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107771840"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-4-cluster"></a>Esercitazione: Creare un cluster di Azure Red Hat OpenShift 4
 
@@ -27,7 +27,7 @@ Se si sceglie di installare e usare l'interfaccia della riga di comando in local
 
 Azure Red Hat OpenShift richiede almeno 40 core per creare ed eseguire un cluster OpenShift. La quota di risorse di Azure predefinita per una nuova sottoscrizione di Azure non soddisfa questo requisito. Per richiedere un aumento del limite di risorse, vedere [Quota standard: aumentare i limiti per serie di macchine virtuali](../azure-portal/supportability/per-vm-quota-requests.md).
 
-Il segreto ARO pull non modifica il costo della Licenza RH OpenShift per ARO.
+Il segreto pull ARO non modifica il costo della licenza RH OpenShift per ARO.
 
 ### <a name="verify-your-permissions"></a>Verificare le autorizzazioni
 
@@ -100,7 +100,7 @@ Se si specifica un dominio personalizzato per il cluster, tenere presente quanto
 
 ### <a name="create-a-virtual-network-containing-two-empty-subnets"></a>Creare una rete virtuale contenente due subnet vuote
 
-Successivamente, verrà creata una rete virtuale contenente due subnet vuote. Se si dispone di una rete virtuale esistente che soddisfi le proprie esigenze, è possibile ignorare questo passaggio.
+Successivamente, verrà creata una rete virtuale contenente due subnet vuote. Se si dispone di una rete virtuale esistente che soddisfa le proprie esigenze, è possibile ignorare questo passaggio.
 
 1. **Impostare le variabili seguenti nell'ambiente della shell in cui si eseguiranno i comandi `az`.**
 
@@ -112,7 +112,7 @@ Successivamente, verrà creata una rete virtuale contenente due subnet vuote. Se
 
 2. **Creare un gruppo di risorse.**
 
-   Un gruppo di risorse di Azure è un gruppo logico in cui le risorse di Azure vengono distribuite e gestite. Quando si crea un gruppo di risorse, viene chiesto di specificare una posizione. È la località in cui vengono archiviati i metadati del gruppo di risorse e anche quella in cui vengono eseguite le risorse in Azure se non si specifica un'altra area durante la creazione della risorsa. Creare un gruppo di risorse con il comando [az group create](/cli/azure/group#az-group-create).
+   Un gruppo di risorse di Azure è un gruppo logico in cui le risorse di Azure vengono distribuite e gestite. Quando si crea un gruppo di risorse, viene chiesto di specificare una posizione. È la località in cui vengono archiviati i metadati del gruppo di risorse e anche quella in cui vengono eseguite le risorse in Azure se non si specifica un'altra area durante la creazione della risorsa. Creare un gruppo di risorse con il comando [az group create](/cli/azure/group#az_group_create).
     
    > [!NOTE] 
    > Azure Red Hat OpenShift non è disponibile in tutte le aree in cui è possibile creare un gruppo di risorse di Azure. Per informazioni su dove è supportato Azure Red Hat OpenShift, vedere [Available regions](https://azure.microsoft.com/en-gb/global-infrastructure/services/?products=openshift) (Aree disponibili).
@@ -139,7 +139,7 @@ Successivamente, verrà creata una rete virtuale contenente due subnet vuote. Se
 
 2. **Creare una rete virtuale.**
 
-   I cluster di Azure Red Hat OpenShift che eseguono OpenShift 4 richiedono una rete virtuale con due subnet vuote, per i nodi master e di lavoro. È possibile creare una nuova rete virtuale per questo o usare una rete virtuale esistente.
+   I cluster di Azure Red Hat OpenShift che eseguono OpenShift 4 richiedono una rete virtuale con due subnet vuote, per i nodi master e di lavoro. È possibile creare una nuova rete virtuale o usare una rete virtuale esistente.
 
    Creare una nuova rete virtuale nello stesso gruppo di risorse creato in precedenza:
 

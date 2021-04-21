@@ -4,12 +4,12 @@ description: Esempio di script dell'interfaccia della riga di comando di Azure -
 ms.topic: sample
 ms.date: 04/20/2017
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 13120ad4478febf9281ff423a3a7a8f8f3b25845
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 539c3a7dd95045b2e569dbb339be0e5a0c845902
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97934408"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107786285"
 ---
 # <a name="create-a-function-app-with-a-named-storage-account-connection"></a>Creare un'app per le funzioni con una connessione a un account di archiviazione specificato 
 
@@ -35,11 +35,11 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 
 | Comando | Note |
 |---|---|
-| [az group create](/cli/azure/group#az-group-create) | Crea un gruppo di risorse con una località. |
-| [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Creare un account di archiviazione. |
-| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Crea un'app per le funzioni nel [Piano a consumo](../consumption-plan.md) serverless. |
-| [az storage account show-connection-string](/cli/azure/storage/account#az-storage-account-show-connection-string) | Ottiene la stringa di connessione per l'account. |
-| [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) | Imposta la stringa di connessione come impostazione dell'app nell'app per le funzioni. |
+| [az group create](/cli/azure/group#az_group_create) | Crea un gruppo di risorse con una località. |
+| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Creare un account di archiviazione. |
+| [az functionapp create](/cli/azure/functionapp#az_functionapp_create) | Crea un'app per le funzioni nel [Piano a consumo](../consumption-plan.md) serverless. |
+| [az storage account show-connection-string](/cli/azure/storage/account#az_storage_account_show_connection_string) | Ottiene la stringa di connessione per l'account. |
+| [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az_functionapp_config_appsettings_set) | Imposta la stringa di connessione come impostazione dell'app nell'app per le funzioni. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: sample
 ms.date: 07/29/2020
-ms.openlocfilehash: 492246b5dfb19664ea54ce8b5462c7d77f8d951b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 19809d7150c8a461f97282d1583d0d870d6af8bb
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94562713"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107770670"
 ---
 # <a name="create-a-resource-lock-for-azure-cosmos-gremlin-api-database-and-graph-using-azure-cli"></a>Creare un blocco di risorse per un database e un grafo dell'API Gremlin di Azure Cosmos tramite l'interfaccia della riga di comando di Azure
 [!INCLUDE[appliesto-gremlin-api](../../../includes/appliesto-gremlin-api.md)]
@@ -34,10 +34,10 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 
 | Comando | Note |
 |---|---|
-| [az lock create](/cli/azure/lock#az-lock-create) | Crea un blocco. |
-| [az lock list](/cli/azure/lock#az-lock-list) | Elenca le informazioni del blocco. |
-| [az lock show](/cli/azure/lock#az-lock-show) | Mostra le proprietà di un blocco. |
-| [az lock delete](/cli/azure/lock#az-lock-delete) | Elimina un blocco. |
+| [az lock create](/cli/azure/lock#az_lock_create) | Crea un blocco. |
+| [az lock list](/cli/azure/lock#az_lock_list) | Elenca le informazioni del blocco. |
+| [az lock show](/cli/azure/lock#az_lock_show) | Mostra le proprietà di un blocco. |
+| [az lock delete](/cli/azure/lock#az_lock_delete) | Elimina un blocco. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

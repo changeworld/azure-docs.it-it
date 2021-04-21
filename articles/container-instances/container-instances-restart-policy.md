@@ -1,14 +1,14 @@
 ---
-title: Criteri di riavvio per le attività Esegui una sola volta
+title: Criteri di riavvio per attività run-once
 description: Informazioni su come usare Istanze di Azure Container per eseguire attività eseguite fino al completamento, ad esempio nella compilazione, nei test o nei processi per il rendering di immagini.
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: 49280549fa834b82574f81494f1cf44817d8be5d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 3bce208e3663ecfcebe520be92de3ac4443c0c8f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102203828"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107771156"
 ---
 # <a name="run-containerized-tasks-with-restart-policies"></a>Eseguire attività in contenitori con criteri di riavvio
 
@@ -44,7 +44,7 @@ az container create \
 
 ## <a name="run-to-completion-example"></a>Eseguire l'esempio di completamento
 
-Per visualizzare i criteri di riavvio in azione, creare un'istanza di contenitore dall'immagine Microsoft [ACI-WordCount][aci-wordcount-image] e specificare il `OnFailure` criterio di riavvio. Questo contenitore di esempio esegue uno script di Python che, per impostazione predefinita, analizza il testo [Amleto](http://shakespeare.mit.edu/hamlet/full.html) di Shakespeare, scrive le 10 parole più comuni in STDOUT ed esce.
+Per vedere il criterio di riavvio in azione, creare un'istanza di contenitore [dall'immagine microsoft aci-wordcount][aci-wordcount-image] e specificare i `OnFailure` criteri di riavvio. Questo contenitore di esempio esegue uno script di Python che, per impostazione predefinita, analizza il testo [Amleto](http://shakespeare.mit.edu/hamlet/full.html) di Shakespeare, scrive le 10 parole più comuni in STDOUT ed esce.
 
 Eseguire il contenitore di esempio con il comando seguente [az container create][az-container-create]:
 
@@ -96,7 +96,7 @@ Questo esempio mostra l'output che lo script ha inviato a STDOUT. Le attività n
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Gli scenari basati su attività, ad esempio l'elaborazione batch di un set di dati di grandi dimensioni con diversi contenitori, possono sfruttare le [variabili di ambiente](container-instances-environment-variables.md) o le [righe di comando](container-instances-start-command.md) personalizzate in fase di esecuzione.
+Gli scenari basati su attività, ad esempio l'elaborazione batch di [](container-instances-environment-variables.md) un set di dati di grandi dimensioni con diversi contenitori, possono sfruttare le variabili di ambiente personalizzate o le righe [di comando](container-instances-start-command.md) in fase di esecuzione.
 
 Per informazioni dettagliate su come mantenere l'output dei contenitori che vengono eseguiti fino al completamento, vedere [Montaggio di una condivisione file di Azure con Istanze di Azure Container](./container-instances-volume-azure-files.md).
 
@@ -104,7 +104,7 @@ Per informazioni dettagliate su come mantenere l'output dei contenitori che veng
 [aci-wordcount-image]: https://hub.docker.com/_/microsoft-azuredocs-aci-wordcount
 
 <!-- LINKS - Internal -->
-[az-container-create]: /cli/azure/container#az-container-create
-[az-container-logs]: /cli/azure/container#az-container-logs
-[az-container-show]: /cli/azure/container#az-container-show
+[az-container-create]: /cli/azure/container#az_container_create
+[az-container-logs]: /cli/azure/container#az_container_logs
+[az-container-show]: /cli/azure/container#az_container_show
 [azure-cli-install]: /cli/azure/install-azure-cli

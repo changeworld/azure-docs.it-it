@@ -4,12 +4,12 @@ description: Creare un'app per le funzioni e distribuire il codice di funzione d
 ms.date: 07/03/2018
 ms.topic: sample
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 219e993ad7132c90de6db680facc9b8f815947cc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8abbe30067a488055e59de86372482d99cadaae3
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97934391"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107786262"
 ---
 # <a name="create-a-function-app-in-azure-that-is-deployed-from-github"></a>Creare un'app per le funzioni in Azure distribuita da GitHub
 
@@ -40,9 +40,9 @@ Ogni comando della tabella include collegamenti alla documentazione specifica de
 
 | Comando | Note |
 |---|---|
-| [az group create](/cli/azure/group#az-group-create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
-| [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Crea l'account di archiviazione necessario per l'app per le funzioni. |
-| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Crea un'app per le funzioni nel [Piano a consumo](../consumption-plan.md) serverless e la associa a un repository Git o Mercurial. |
+| [az group create](/cli/azure/group#az_group_create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
+| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Crea l'account di archiviazione necessario per l'app per le funzioni. |
+| [az functionapp create](/cli/azure/functionapp#az_functionapp_create) | Crea un'app per le funzioni nel [Piano a consumo](../consumption-plan.md) serverless e la associa a un repository Git o Mercurial. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

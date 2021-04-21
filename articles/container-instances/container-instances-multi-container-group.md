@@ -4,12 +4,12 @@ description: In questa esercitazione si apprenderà come distribuire un gruppo d
 ms.topic: article
 ms.date: 07/02/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: bc956bed8324398c2d60f4641cd0bcb821fb51c2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 93ab139342795634a968cd538672e0e1b9bb08ae
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93091345"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107763902"
 ---
 # <a name="tutorial-deploy-a-multi-container-group-using-a-resource-manager-template"></a>Esercitazione: Distribuire un gruppo multi-contenitore usando un modello di Resource Manager
 
@@ -151,7 +151,7 @@ Creare un gruppo di risorse con il comando [az group create][az-group-create].
 az group create --name myResourceGroup --location eastus
 ```
 
-Distribuire il modello con il comando [AZ Deployment Group create][az-deployment-group-create] .
+Distribuire il modello con il [comando az deployment group create.][az-deployment-group-create]
 
 ```azurecli-interactive
 az deployment group create --resource-group myResourceGroup --template-file azuredeploy.json
@@ -236,8 +236,8 @@ Per esempi di modello aggiuntivi, vedere [Modelli di Azure Resource Manager per 
 
 <!-- LINKS - Internal -->
 [aci-tutorial]: ./container-instances-tutorial-prepare-app.md
-[az-container-logs]: /cli/azure/container#az-container-logs
-[az-container-show]: /cli/azure/container#az-container-show
-[az-group-create]: /cli/azure/group#az-group-create
-[az-deployment-group-create]: /cli/azure/deployment/group#az-deployment-group-create
+[az-container-logs]: /cli/azure/container#az_container_logs
+[az-container-show]: /cli/azure/container#az_container_show
+[az-group-create]: /cli/azure/group#az_group_create
+[az-deployment-group-create]: /cli/azure/deployment/group#az_deployment_group_create
 [template-reference]: /azure/templates/microsoft.containerinstance/containergroups

@@ -1,5 +1,5 @@
 ---
-title: Esempio di script dell'interfaccia della riga di comando di Azure-instrada il traffico attraverso un'appliance virtuale
+title: Esempio di script dell'interfaccia della riga di comando di Azure - Instradare il traffico attraverso un'appliance virtuale di rete
 description: Esempio di script dell'interfaccia della riga di comando di Azure - Instradare il traffico attraverso un'appliance virtuale di rete.
 services: virtual-network
 documentationcenter: virtual-network
@@ -13,14 +13,14 @@ ms.workload: infrastructure
 ms.date: 07/07/2017
 ms.author: kumud
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a349f8160e8ab5b6459b2085e21e7368570c57db
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7970ab4472000c53e23f7962a9cbf4ec05ea3465
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87503838"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107763182"
 ---
-# <a name="use-an-azure-cli-script-to-route-traffic-through-a-network-virtual-appliance"></a>Usare uno script dell'interfaccia della riga di comando di Azure per instradare il traffico attraverso un'appliance virtuale
+# <a name="use-an-azure-cli-script-to-route-traffic-through-a-network-virtual-appliance"></a>Usare uno script dell'interfaccia della riga di comando di Azure per instradare il traffico attraverso un'appliance virtuale di rete
 
 Questo script di esempio crea una rete virtuale con subnet front-end e back-end. Crea anche una VM con inoltro IP attivato per instradare il traffico tra le due subnet. Dopo aver eseguito lo script è possibile distribuire il software di rete, ad esempio un'applicazione firewall, nella VM.
 
@@ -56,8 +56,8 @@ Questo script usa i comandi seguenti per creare un gruppo di risorse, una rete v
 | [az network nsg create](/cli/azure/network/nsg) | Consente di creare un gruppo di sicurezza di rete. |
 | [az network nsg rule create](/cli/azure/network/nsg/rule) | Consente di creare regole del gruppo di sicurezza di rete per le porte HTTP e HTTPS in ingresso alla VM. |
 | [az network vnet subnet update](/cli/azure/network/vnet/subnet)| Consente di associare il gruppo di sicurezza di rete e le tabelle di route alle subnet. |
-| [az network route-table create](/cli/azure/network/route-table#az-network-route-table-create)| Consente di creare una tabella di route per tutte le route. |
-| [az network route-table route create](/cli/azure/network/route-table/route#az-network-route-table-route-create)| Consente di creare le route per instradare il traffico tra subnet e Internet attraverso la VM. |
+| [az network route-table create](/cli/azure/network/route-table#az_network_route_table_create)| Consente di creare una tabella di route per tutte le route. |
+| [az network route-table route create](/cli/azure/network/route-table/route#az_network_route_table_route_create)| Consente di creare le route per instradare il traffico tra subnet e Internet attraverso la VM. |
 | [az vm create](/cli/azure/vm) | Consente di creare una macchina virtuale e vi connette la NIC. Questo comando specifica anche l'immagine della macchina virtuale da usare e le credenziali di amministrazione. |
 | [az group delete](/cli/azure/group) | Consente di eliminare un gruppo di risorse e tutte le risorse in esso contenute. |
 
@@ -65,4 +65,4 @@ Questo script usa i comandi seguenti per creare un gruppo di risorse, una rete v
 
 Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere la [documentazione sull'interfaccia della riga di comando di Azure](/cli/azure).
 
-Altri esempi di script dell'interfaccia della riga di comando di rete sono disponibili nella [documentazione di panoramica sulle reti di Azure](../cli-samples.md)
+Altri esempi di script dell'interfaccia della riga di comando di rete sono disponibili nella [Rete di Azure panoramica](../cli-samples.md)

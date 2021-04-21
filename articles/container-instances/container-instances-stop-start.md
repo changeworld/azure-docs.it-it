@@ -1,34 +1,34 @@
 ---
 title: Arrestare o avviare manualmente il gruppo di contenitori
-description: Informazioni su come arrestare o avviare manualmente un gruppo di contenitori in istanze di contenitore di Azure.
+description: Informazioni su come arrestare o avviare manualmente un gruppo di contenitori in Istanze di Azure Container.
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: 1801dad463d478c754e621dad0ae9406899ae7e3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 43498a7d31f0cb78751d2f318aede8523b7b9345
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102198116"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107787000"
 ---
 # <a name="manually-stop-or-start-containers-in-azure-container-instances"></a>Arrestare o avviare manualmente i contenitori in Istanze di Azure Container
 
-L'impostazione dei [criteri di riavvio](container-instances-restart-policy.md) di un gruppo di contenitori determina il modo in cui le istanze del contenitore vengono avviate o interrotte per È possibile eseguire l'override dell'impostazione predefinita arrestando o avviando manualmente un gruppo di contenitori.
+[L'impostazione dei criteri di](container-instances-restart-policy.md) riavvio di un gruppo di contenitori determina la modalità di avvio o arresto delle istanze del contenitore per impostazione predefinita. È possibile ignorare l'impostazione predefinita arrestando o avviando manualmente un gruppo di contenitori.
 
 [!INCLUDE [container-instances-restart-ip](../../includes/container-instances-restart-ip.md)]
 
 ## <a name="stop"></a>Interrompere
 
-Arrestare manualmente un gruppo di contenitori in esecuzione, ad esempio usando il comando [AZ container stop][az-container-stop] o portale di Azure. Per determinati carichi di lavoro del contenitore, potrebbe essere necessario arrestare un gruppo di contenitori con esecuzione prolungata dopo un periodo definito per risparmiare sui costi. 
+Arrestare manualmente un gruppo di contenitori in esecuzione, ad esempio usando il [comando az container stop][az-container-stop] o portale di Azure. Per determinati carichi di lavoro del contenitore, potrebbe essere necessario arrestare un gruppo di contenitori con esecuzione lunga dopo un periodo definito per risparmiare sui costi. 
 
-*Quando un gruppo di contenitori entra nello stato interrotto, termina e ricicla tutti i contenitori del gruppo. Non mantiene lo stato del contenitore.*
+*Quando un gruppo di contenitori entra nello stato Arrestato, termina e ricicla tutti i contenitori nel gruppo. Non mantiene lo stato del contenitore.*
 
-Quando i contenitori vengono riciclati, le [risorse](container-instances-container-groups.md#resource-allocation) vengono deallocate e la fatturazione viene arrestata per il gruppo di contenitori.
+Quando i contenitori vengono riciclati, le [risorse vengono](container-instances-container-groups.md#resource-allocation) deallocate e la fatturazione viene arrestata per il gruppo di contenitori.
 
-L'azione di arresto non ha effetto se il gruppo di contenitori è già stato terminato (si trova nello stato SUCCEEDED o Failed). Ad esempio, un gruppo di contenitori con attività del contenitore Run-Once che è stato eseguito correttamente termina con lo stato succeeded. Il tentativo di arrestare il gruppo in tale stato non modifica lo stato. 
+L'azione di arresto non ha alcun effetto se il gruppo di contenitori è già terminato (si trova nello stato Operazione completata o Non riuscita). Ad esempio, un gruppo di contenitori con attività del contenitore run-once che sono state eseguite correttamente termina nello stato Operazione completata. I tentativi di arrestare il gruppo in tale stato non modificano lo stato. 
 
 ## <a name="start"></a>Avvio
 
-Quando un gruppo di contenitori viene arrestato, perché i contenitori sono terminati autonomamente oppure il gruppo è stato arrestato manualmente, è possibile avviare i contenitori. Ad esempio, usare il comando [AZ container Start][az-container-start] o portale di Azure per avviare manualmente i contenitori nel gruppo. Se l'immagine di un contenitore viene aggiornata, verrà inserita una nuova immagine. 
+Quando un gruppo di contenitori viene arrestato, perché i contenitori sono terminati per conto proprio o il gruppo è stato arrestato manualmente, è possibile avviare i contenitori. Ad esempio, usare il [comando az container start][az-container-start] o portale di Azure per avviare manualmente i contenitori nel gruppo. Se l'immagine di un contenitore viene aggiornata, verrà inserita una nuova immagine. 
 
 L'avvio di un gruppo di contenitori inizia una nuova distribuzione con la stessa configurazione del contenitore. Questa azione consente di riusare rapidamente la configurazione di un gruppo di contenitori nota che funziona come previsto. Non è necessario creare un nuovo gruppo di contenitori per eseguire lo stesso carico di lavoro.
 
@@ -36,9 +36,9 @@ Tutti i contenitori in un gruppo di contenitori vengono avviati da questa azione
 
 Dopo aver avviato o riavviato manualmente un gruppo di contenitori, questo funzionerà in base ai criteri di riavvio configurati.
   
-## <a name="restart"></a>Riavvia
+## <a name="restart"></a>Riavvio
 
-È possibile riavviare un gruppo di contenitori mentre è in esecuzione, ad esempio usando il comando [AZ container restart][az-container-restart] . Questa operazione riavvia tutti i contenitori nel gruppo di contenitori. Se l'immagine di un contenitore viene aggiornata, verrà inserita una nuova immagine. 
+È possibile riavviare un gruppo di contenitori mentre è in esecuzione, ad esempio usando il [comando az container restart.][az-container-restart] Questa operazione riavvia tutti i contenitori nel gruppo di contenitori. Se l'immagine di un contenitore viene aggiornata, verrà inserita una nuova immagine. 
 
 Il riavvio di un gruppo di contenitori è utile quando si desidera risolvere un problema di distribuzione. Ad esempio, se una limitazione temporanea delle risorse impedisce la corretta esecuzione dei contenitori, riavviare il gruppo potrebbe risolvere il problema.
 
@@ -48,13 +48,13 @@ Dopo aver riavviato manualmente un gruppo di contenitori, il gruppo di contenito
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Altre informazioni sulle [impostazioni dei criteri di riavvio](container-instances-restart-policy.md) in istanze di contenitore di Azure.
+Altre informazioni sulle [impostazioni dei criteri di riavvio](container-instances-restart-policy.md) in Istanze di Azure Container.
 
-Oltre a arrestare e avviare manualmente un gruppo di contenitori con la configurazione esistente, è possibile [aggiornare le impostazioni](container-instances-update.md) di un gruppo di contenitori in esecuzione.
+Oltre ad arrestare e avviare manualmente un gruppo di contenitori con la configurazione esistente, è possibile [aggiornare le impostazioni](container-instances-update.md) di un gruppo di contenitori in esecuzione.
 
 <!-- LINKS - External -->
 
 <!-- LINKS - Internal -->
-[az-container-restart]: /cli/azure/container#az-container-restart
-[az-container-start]: /cli/azure/container#az-container-start
-[az-container-stop]: /cli/azure/container#az-container-stop
+[az-container-restart]: /cli/azure/container#az_container_restart
+[az-container-start]: /cli/azure/container#az_container_start
+[az-container-stop]: /cli/azure/container#az_container_stop

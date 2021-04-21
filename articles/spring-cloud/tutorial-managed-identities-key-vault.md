@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: identità gestita per la connessione Key Vault'
+title: 'Esercitazione: Identità gestita per connettersi Key Vault'
 description: Configurare un'identità gestita per connettere Key Vault a un'app di Azure Spring Cloud
 author: MikeDodaro
 ms.author: brendm
@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/08/2020
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: bbfafeaf9ce24911bb4893748d456d22e02fc411
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 870a04af244d18826e1041316895f746e27870eb
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104879176"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107786586"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-spring-cloud-app"></a>Esercitazione: Usare un'identità gestita per connettere Key Vault all'app di Azure Spring Cloud
 
@@ -29,14 +29,14 @@ Azure Key Vault può essere usato per archiviare in modo sicuro e controllare ri
 * [Installare Maven 3.0 o versione successiva](https://maven.apache.org/download.cgi)
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
-Un gruppo di risorse è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. Creare un gruppo di risorse che contenga sia l'insieme di credenziali delle chiavi che Spring Cloud usando il comando [az group create](/cli/azure/group#az-group-create):
+Un gruppo di risorse è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. Creare un gruppo di risorse che contenga sia l'insieme di credenziali delle chiavi che Spring Cloud usando il comando [az group create](/cli/azure/group#az_group_create):
 
 ```azurecli-interactive
 az group create --name "myResourceGroup" -l "EastUS"
 ```
 
 ## <a name="set-up-your-key-vault"></a>Configurare l'insieme di credenziali delle chiavi
-Per creare un insieme di credenziali delle chiavi, usare il comando [az keyvault create](/cli/azure/keyvault#az-keyvault-create):
+Per creare un insieme di credenziali delle chiavi, usare il comando [az keyvault create](/cli/azure/keyvault#az_keyvault_create):
 
 > [!Important]
 > Ogni insieme di credenziali delle chiavi deve avere un nome univoco. Negli esempi seguenti sostituire <your-keyvault-name> con il nome dell'insieme di credenziali delle chiavi.
@@ -47,7 +47,7 @@ az keyvault create --name "<your-keyvault-name>" -g "myResourceGroup"
 
 Prendere nota del valore di `vaultUri` restituito, che avrà il formato "https://<your-keyvault-name>.vault.azure.net". Verrà usato nel passaggio successivo.
 
-È ora possibile inserire un segreto nell'insieme di credenziali delle chiavi usando il comando [az keyvault secret set](/cli/azure/keyvault/secret#az-keyvault-secret-set):
+È ora possibile inserire un segreto nell'insieme di credenziali delle chiavi usando il comando [az keyvault secret set](/cli/azure/keyvault/secret#az_keyvault_secret_set):
 
 ```azurecli-interactive
 az keyvault secret set --vault-name "<your-keyvault-name>" \
@@ -69,7 +69,7 @@ az spring-cloud app create -n "springapp" -s "myspringcloud" -g "myResourceGroup
 export SERVICE_IDENTITY=$(az spring-cloud app show --name "springapp" -s "myspringcloud" -g "myResourceGroup" | jq -r '.identity.principalId')
 ```
 
-Prendere nota dell'oggetto restituito `url` , che sarà nel formato `https://<your-app-name>.azuremicroservices.io` . Verrà usato nel passaggio successivo.
+Prendere nota dell'oggetto `url` restituito, che sarà nel formato `https://<your-app-name>.azuremicroservices.io` . Verrà usato nel passaggio successivo.
 
 
 ## <a name="grant-your-app-access-to-key-vault"></a>Concedere all'app l'accesso a Key Vault

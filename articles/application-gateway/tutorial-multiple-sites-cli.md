@@ -1,5 +1,5 @@
 ---
-title: Ospitare più siti Web usando l'interfaccia della riga di comando
+title: Ospitare più siti Web tramite l'interfaccia della riga di comando
 titleSuffix: Azure Application Gateway
 description: Informazioni su come creare un gateway applicazione che ospita più siti Web usando l'interfaccia della riga di comando di Azure.
 services: application-gateway
@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 350962aed89d04c5508e7b2c50e8a838cd5a7174
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cb924ab1f8947fefc83ed35a409628a576fad4b9
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94566147"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107772677"
 ---
 # <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-the-azure-cli"></a>Creare un gateway applicazione che ospita più siti Web usando l'interfaccia della riga di comando di Azure
 
@@ -77,7 +77,7 @@ az network public-ip create \
 
 ## <a name="create-the-application-gateway"></a>Creare il gateway applicazione
 
-È possibile usare [az network application-gateway create](/cli/azure/network/application-gateway#az-network-application-gateway-create) per creare il gateway applicazione. Quando si crea un gateway applicazione usando l'interfaccia della riga di comando di Azure, specificare le informazioni di configurazione, ad esempio le impostazioni relative a capacità, SKU e HTTP. Il gateway applicazione viene assegnato alla subnet *myAGSubnet* e all'indirizzo IP pubblico *myAGPublicIPAddress* creati in precedenza. 
+È possibile usare [az network application-gateway create](/cli/azure/network/application-gateway#az_network_application_gateway_create) per creare il gateway applicazione. Quando si crea un gateway applicazione usando l'interfaccia della riga di comando di Azure, specificare le informazioni di configurazione, ad esempio le impostazioni relative a capacità, SKU e HTTP. Il gateway applicazione viene assegnato alla subnet *myAGSubnet* e all'indirizzo IP pubblico *myAGPublicIPAddress* creati in precedenza. 
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -105,7 +105,7 @@ Il processo di creazione del gateway applicazione può richiedere alcuni minuti.
 
 ### <a name="add-the-backend-pools"></a>Aggiungere i pool back-end
 
-Aggiungere i pool back-end necessari per contenere i server back-end usando [AZ Network Application-Gateway Address-Pool create](/cli/azure/network/application-gateway/address-pool#az-network-application-gateway-address-pool-create)
+Aggiungere i pool back-end necessari per contenere i server [back-end usando az network application-gateway address-pool create](/cli/azure/network/application-gateway/address-pool#az_network_application_gateway_address-pool_create)
 ```azurecli-interactive
 az network application-gateway address-pool create \
   --gateway-name myAppGateway \
@@ -120,11 +120,11 @@ az network application-gateway address-pool create \
 
 ### <a name="add-listeners"></a>Aggiungere i listener
 
-Aggiungere i listener necessari per instradare il traffico usando [AZ Network Application-Gateway http-listener create](/cli/azure/network/application-gateway/http-listener#az-network-application-gateway-http-listener-create).
+Aggiungere i listener necessari per instradare il traffico usando [az network application-gateway http-listener create.](/cli/azure/network/application-gateway/http-listener#az_network_application_gateway_http_listener_create)
 
 >[!NOTE]
-> Con il gateway applicazione o lo SKU WAF V2, è anche possibile configurare fino a 5 nomi host per listener ed è possibile usare caratteri jolly nel nome host. Per ulteriori informazioni, vedere [nomi host con caratteri jolly nel listener](multiple-site-overview.md#wildcard-host-names-in-listener-preview) .
->Per usare più nomi host e caratteri jolly in un listener usando l'interfaccia della riga di comando di Azure, è necessario usare `--host-names` anziché `--host-name` . Con i nomi host, è possibile menzionare fino a cinque nomi host come valori separati da spazi. Ad esempio: `--host-names "*.contoso.com *.fabrikam.com"`
+> Con il gateway applicazione o lo SKU WAF v2 è anche possibile configurare fino a 5 nomi host per listener ed è possibile usare caratteri jolly nel nome host. Per altre [informazioni, vedere Nomi host con](multiple-site-overview.md#wildcard-host-names-in-listener-preview) caratteri jolly nel listener.
+>Per usare più nomi host e caratteri jolly in un listener tramite l'interfaccia della riga di comando di Azure, è necessario usare `--host-names` invece di `--host-name` . Con i nomi host è possibile menzionare fino a cinque nomi host come valori delimitati da spazi. Ad esempio: `--host-names "*.contoso.com *.fabrikam.com"`
 
 ```azurecli-interactive
 az network application-gateway http-listener create \
@@ -148,7 +148,7 @@ az network application-gateway http-listener create \
 
 Le regole vengono elaborate nell'ordine in cui sono elencate. Il traffico viene indirizzato usando la prima regola corrispondente indipendentemente dalla specificità. Se ad esempio si dispone di due regole, una che usa un listener di base e una che usa un listener multisito, entrambe sulla stessa porta, la regola con il listener multisito deve essere elencata prima della regola con il listener di base per funzionare come previsto. 
 
-In questo esempio vengono create due nuove regole ed è stata eliminata la regola predefinita creata durante la distribuzione del gateway applicazione. È possibile aggiungere la regola usando [az network application-gateway rule create](/cli/azure/network/application-gateway/rule#az-network-application-gateway-rule-create).
+In questo esempio si creano due nuove regole e si elimina la regola predefinita creata durante la distribuzione del gateway applicazione. È possibile aggiungere la regola usando [az network application-gateway rule create](/cli/azure/network/application-gateway/rule#az_network_application_gateway_rule_create).
 
 ```azurecli-interactive
 az network application-gateway rule create \
@@ -225,7 +225,7 @@ done
 
 ## <a name="create-a-cname-record-in-your-domain"></a>Creare un record CNAME nel dominio
 
-Dopo aver creato il gateway applicazione con l'indirizzo IP pubblico, è possibile ottenere l'indirizzo DNS e usarlo per creare un record CNAME nel dominio. Per ottenere l'indirizzo DNS del gateway applicazione è possibile usare [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show). Copiare il valore *fqdn* di DNSSettings e usarlo come valore del record CNAME creato. 
+Dopo aver creato il gateway applicazione con l'indirizzo IP pubblico, è possibile ottenere l'indirizzo DNS e usarlo per creare un record CNAME nel dominio. Per ottenere l'indirizzo DNS del gateway applicazione è possibile usare [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show). Copiare il valore *fqdn* di DNSSettings e usarlo come valore del record CNAME creato. 
 
 ```azurecli-interactive
 az network public-ip show \
@@ -235,7 +235,7 @@ az network public-ip show \
   --output tsv
 ```
 
-Non è consigliabile usare record A perché l'indirizzo VIP può cambiare al riavvio del gateway applicazione.
+L'uso dei record A non è consigliato perché l'indirizzo VIP può cambiare al riavvio del gateway applicazione.
 
 ## <a name="test-the-application-gateway"></a>Testare il gateway applicazione
 
