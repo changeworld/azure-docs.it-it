@@ -1,6 +1,6 @@
 ---
-title: Creare regole di analisi personalizzate per rilevare le minacce con Azure Sentinel | Microsoft Docs
-description: Usare questa esercitazione per imparare a creare regole di analisi personalizzate per rilevare le minacce alla sicurezza con Azure Sentinel. Sfruttare i vantaggi offerti dal raggruppamento di eventi, dal raggruppamento di avvisi e dall'arricchimento degli avvisi, oltre a comprendere automaticamente DISABILITAto.
+title: Creare regole di analisi personalizzate per rilevare le minacce con Azure Sentinel| Microsoft Docs
+description: Usare questa esercitazione per informazioni su come creare regole di analisi personalizzate per rilevare le minacce alla sicurezza con Azure Sentinel. Sfruttare i vantaggi del raggruppamento di eventi, del raggruppamento degli avvisi e dell'arricchimento degli avvisi e comprendere AUTO DISABLED.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -12,59 +12,59 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/10/2021
+ms.date: 04/21/2021
 ms.author: yelevin
-ms.openlocfilehash: 70b56e70ec0e6f511142c48cc89720c054807a5c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 180a5edd00b6085ffd91568471ca763f5e4e9711
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105042799"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107814857"
 ---
-# <a name="tutorial-create-custom-analytics-rules-to-detect-threats"></a>Esercitazione: creare regole di analisi personalizzate per rilevare le minacce
+# <a name="tutorial-create-custom-analytics-rules-to-detect-threats"></a>Esercitazione: Creare regole di analisi personalizzate per rilevare le minacce
 
-Dopo aver [connesso le origini dati](quickstart-onboard.md) ad Azure Sentinel, è possibile creare regole di analisi personalizzate che consentono di individuare le minacce e i comportamenti anomali presenti nell'ambiente. Queste regole eseguono la ricerca di eventi o set di eventi specifici nell'ambiente, generano un avviso quando vengono raggiunte determinate soglie o condizioni di evento, generano eventi imprevisti per il SOC per la valutazione e l'analisi e rispondono alle minacce con processi di monitoraggio e aggiornamento automatici. 
+Dopo aver connesso [](quickstart-onboard.md) le origini dati a Azure Sentinel, è possibile creare regole di analisi personalizzate per individuare le minacce e i comportamenti anomali presenti nell'ambiente. Queste regole consentono di cercare eventi o set di eventi specifici nell'ambiente, avvisare l'utente quando vengono raggiunte determinate soglie o condizioni, generare eventi imprevisti per il soc per la trivazione e l'analisi e rispondere alle minacce con processi automatizzati di rilevamento e correzione. 
 
 Questa esercitazione consente di creare regole personalizzate per rilevare le minacce con Azure Sentinel.
 
-Al termine dell'esercitazione, sarà possibile effettuare le operazioni seguenti:
+Al termine dell'esercitazione, sarà possibile eseguire le operazioni seguenti:
 > [!div class="checklist"]
 > * Creare regole di analisi
-> * Definire la modalità di elaborazione degli eventi e degli avvisi
-> * Definire la modalità di generazione degli avvisi e degli eventi imprevisti
-> * Scegliere le risposte automatiche alle minacce per le regole
+> * Definire la modalità di elaborazione di eventi e avvisi
+> * Definire la modalità di generazione di avvisi ed eventi imprevisti
+> * Scegliere risposte automatiche alle minacce per le regole
 
 ## <a name="create-a-custom-analytics-rule-with-a-scheduled-query"></a>Creare una regola di analisi personalizzata con una query pianificata
 
-1. Dal menu di navigazione di Azure Sentinel selezionare **Analytics**.
+1. Dal menu Azure Sentinel di spostamento selezionare **Analytics.**
 
-1. Nella barra delle azioni nella parte superiore selezionare **+ Crea** e selezionare **regola di query pianificata**. Verrà visualizzata la **creazione guidata regola di analisi**.
+1. Nella barra delle azioni nella parte superiore selezionare **+Crea e** selezionare **Regola di query pianificata.** Verrà aperta la creazione **guidata delle regole di Analisi**.
 
-    :::image type="content" source="media/tutorial-detect-threats-custom/create-scheduled-query-small.png" alt-text="Crea query pianificata" lightbox="media/tutorial-detect-threats-custom/create-scheduled-query-full.png":::
+    :::image type="content" source="media/tutorial-detect-threats-custom/create-scheduled-query-small.png" alt-text="Creare una query pianificata" lightbox="media/tutorial-detect-threats-custom/create-scheduled-query-full.png":::
 
-### <a name="analytics-rule-wizard---general-tab"></a>Creazione guidata regola di analisi-scheda generale
+### <a name="analytics-rule-wizard---general-tab"></a>Creazione guidata regola di Analisi - Scheda Generale
 
-- Consente di specificare un **nome** univoco e una **Descrizione**. 
+- Specificare un nome **univoco e** una **Descrizione.** 
 
-- Nel campo **tattiche** è possibile scegliere tra le categorie di attacchi per la classificazione della regola. Si basano sulle tattiche della [Mitre ATT&](https://attack.mitre.org/) il Framework CK.
+- Nel campo **Tattiche** è possibile scegliere tra le categorie di attacchi in base alle quali classificare la regola. Si basano sulle tattiche del framework [MITRE ATT&CK.](https://attack.mitre.org/)
 
-- Impostare la **gravità** dell'avviso in base alle esigenze. 
+- Impostare la **gravità dell'avviso** in base alle esigenze. 
 
-- Quando si crea la regola, il relativo **stato** è **abilitato** per impostazione predefinita, il che significa che verrà eseguito immediatamente dopo aver completato la creazione. Se non si vuole che venga eseguita immediatamente, selezionare **disabilitato** e la regola verrà aggiunta alla scheda **regole attive** ed è possibile abilitarla da tale posizione quando necessario.
+- Quando si crea la regola, il **relativo stato** è **Abilitato** per impostazione predefinita, ovvero verrà eseguito immediatamente dopo aver completato la creazione. Se non si vuole eseguirla immediatamente, selezionare Disabilitato e la regola verrà aggiunta alla scheda **Regole** attive ed è possibile abilitarla da qui quando è necessaria. 
 
-   :::image type="content" source="media/tutorial-detect-threats-custom/general-tab.png" alt-text="Avviare la creazione di una regola di analisi personalizzata":::
+   :::image type="content" source="media/tutorial-detect-threats-custom/general-tab.png" alt-text="Iniziare a creare una regola di analisi personalizzata":::
 
-## <a name="define-the-rule-query-logic-and-configure-settings"></a>Definire la logica della query della regola e configurare le impostazioni
+## <a name="define-the-rule-query-logic-and-configure-settings"></a>Definire la logica di query della regola e configurare le impostazioni
 
-Nella scheda **impostare la logica della regola** è possibile scrivere una query direttamente nel campo della **query della regola** oppure creare la query in log Analytics, quindi copiarla e incollarla qui.
+Nella scheda **Imposta logica regola** è possibile scrivere una query direttamente nel campo **Query** regola oppure creare la query in Log Analytics e quindi copiarla e incollarla qui.
 
-- Le query sono scritte nel linguaggio di query Kusto (KQL). Scopri di più sui [concetti](/azure/data-explorer/kusto/concepts/) e sulle [query](/azure/data-explorer/kusto/query/)KQL e scopri questa [Guida di riferimento rapido](/azure/data-explorer/kql-quick-reference).
+- Le query sono scritte nel linguaggio di query Kusto (KQL). Per altre informazioni sui [](/azure/data-explorer/kusto/query/)concetti e sulle query KQL, vedere questa guida di [riferimento rapido.](/azure/data-explorer/kql-quick-reference) [](/azure/data-explorer/kusto/concepts/)
 
-- Nell'esempio illustrato in questa schermata viene eseguita una query sulla tabella *SecurityEvent* per visualizzare un tipo di [eventi di accesso di Windows non riusciti](/windows/security/threat-protection/auditing/event-4625).
+- L'esempio illustrato in questo screenshot esegue una query *nella tabella SecurityEvent* per visualizzare un tipo di eventi [di accesso di Windows non riusciti.](/windows/security/threat-protection/auditing/event-4625)
 
-   :::image type="content" source="media/tutorial-detect-threats-custom/set-rule-logic-tab-1-new.png" alt-text="Configurare la logica e le impostazioni della regola di query" lightbox="media/tutorial-detect-threats-custom/set-rule-logic-tab-all-1-new.png":::
+   :::image type="content" source="media/tutorial-detect-threats-custom/set-rule-logic-tab-1-new.png" alt-text="Configurare la logica e le impostazioni delle regole di query" lightbox="media/tutorial-detect-threats-custom/set-rule-logic-tab-all-1-new.png":::
 
-- Ecco un'altra query di esempio, che avvisa l'utente quando viene creato un numero anomalo di risorse nell' [attività di Azure](../azure-monitor/essentials/activity-log.md).
+- Ecco un'altra query di esempio, che avvisa quando viene creato un numero anomalo di risorse in [Attività di Azure.](../azure-monitor/essentials/activity-log.md)
 
     ```kusto
     AzureActivity
@@ -74,190 +74,190 @@ Nella scheda **impostare la logica della regola** è possibile scrivere una quer
     ```
 
     > [!NOTE]
-    > #### <a name="rule-query-best-practices"></a>Procedure consigliate per le query sulle regole
-    > - La lunghezza della query deve avere una lunghezza compresa tra 1 e 10.000 caratteri e non può contenere " `search *` " o " `union *` ".
+    > #### <a name="rule-query-best-practices"></a>Procedure consigliate per le query delle regole
+    > - La lunghezza della query deve essere compresa tra 1 e 10.000 caratteri e non può contenere " `search *` " o `union *` " ". È possibile usare [funzioni definite dall'utente per](/azure/data-explorer/kusto/query/functions/user-defined-functions) superare la limitazione della lunghezza delle query.
     >
-    > - L'uso di funzioni ADX per creare query di Esplora dati di Azure nella finestra di query Log Analytics **non è supportato**.
+    > - L'uso di funzioni ADX per creare Esplora dati di Azure query all'interno della finestra di query di Log Analytics **non è supportato.**
     >
-    > - Quando si utilizza la **`bag_unpack`** funzione in una query, se si proiettano le colonne come campi utilizzando " `project field1` " e la colonna non esiste, la query avrà esito negativo. Per evitare che ciò accada, è necessario proiettare la colonna come indicato di seguito:
+    > - Quando si usa la funzione in una query, se si proiettano le colonne come campi usando " " e la colonna non esiste, la **`bag_unpack`** query avrà esito `project field1` negativo. Per proteggersi da questo problema, è necessario proiettare la colonna nel modo seguente:
     >   - `project field1 = column_ifexists("field1","")`
 
-### <a name="alert-enrichment"></a>Arricchimento avvisi
+### <a name="alert-enrichment"></a>Arricchimento degli avvisi
 
 > [!IMPORTANT]
-> Le funzionalità di arricchimento degli avvisi sono attualmente in **Anteprima**. Vedere le [condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) per le note legali aggiuntive che si applicano alle funzionalità di Azure disponibili in versione beta, in anteprima o non ancora rilasciate a livello generale.
+> Le funzionalità di arricchimento degli avvisi sono attualmente disponibili in **ANTEPRIMA.** Per altre condizioni legali applicabili alle funzionalità di Azure in versione beta, in anteprima o altrimenti non ancora rilasciate nella disponibilità [generale, vedere](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) Le condizioni per l'utilizzo supplementari per le Microsoft Azure preview.
     
-- Usare la sezione configurazione **mapping entità** per eseguire il mapping dei parametri dai risultati della query a entità riconosciute da Azure Sentinel. Le entità arricchiscono l'output delle regole (avvisi ed eventi imprevisti) con informazioni essenziali che fungono da blocchi predefiniti di tutti i processi di analisi e azioni correttive che seguono. Si tratta anche dei criteri in base ai quali è possibile raggruppare gli avvisi in eventi imprevisti nella scheda **Impostazioni evento imprevisto** .
+- Usare la **sezione Entity mapping** configuration (Configurazione mapping entità) per eseguire il mapping dei parametri dai risultati della query Azure Sentinel entità riconosciute. Le entità arricchiscono l'output delle regole (avvisi ed eventi imprevisti) con informazioni essenziali che funge da blocchi predefiniti di qualsiasi processo di indagine e azioni correttive che seguono. Sono anche i criteri in base ai quali è possibile raggruppare gli avvisi in eventi imprevisti nella **scheda Impostazioni eventi imprevisti.**
 
-    Altre informazioni sulle [entità in Sentinel di Azure](entities-in-azure-sentinel.md).
+    Altre informazioni sulle [entità in Azure Sentinel](entities-in-azure-sentinel.md).
 
-    Vedere eseguire il mapping [dei campi dati alle entità in Sentinel di Azure](map-data-fields-to-entities.md) per istruzioni complete sul mapping delle entità, oltre a informazioni importanti sulla compatibilità con le [versioni precedenti](map-data-fields-to-entities.md#notes-on-the-new-version).
+    Per istruzioni complete sul mapping di entità, oltre a informazioni importanti sulla [compatibilità con le versioni precedenti, vedere](map-data-fields-to-entities.md) Eseguire il mapping dei campi dati alle entità in [Azure Sentinel.](map-data-fields-to-entities.md#notes-on-the-new-version)
 
-- Usare la sezione configurazione dei **dettagli personalizzati** per estrarre gli elementi di dati degli eventi dalla query ed esporli negli avvisi generati da questa regola, offrendo la visibilità immediata del contenuto degli eventi negli avvisi e negli eventi imprevisti.
+- Usare la **sezione Configurazione** dettagli personalizzati per estrarre gli elementi dei dati degli eventi dalla query ed estrarli negli avvisi generati da questa regola, offrendo una visibilità immediata del contenuto degli eventi negli avvisi e negli eventi imprevisti.
 
-    Altre informazioni sull'emersione di dettagli personalizzati negli avvisi e vedere le [istruzioni complete](surface-custom-details-in-alerts.md).
+    Altre informazioni su come visualizzare i dettagli personalizzati negli avvisi e vedere le [istruzioni complete.](surface-custom-details-in-alerts.md)
 
-### <a name="query-scheduling-and-alert-threshold"></a>Pianificazione di query e soglia di avviso
+### <a name="query-scheduling-and-alert-threshold"></a>Pianificazione delle query e soglia di avviso
 
-- Nella sezione **pianificazione query** impostare i parametri seguenti:
+- Nella **sezione Pianificazione query** impostare i parametri seguenti:
 
-   :::image type="content" source="media/tutorial-detect-threats-custom/set-rule-logic-tab-2.png" alt-text="Impostare la pianificazione di query e il raggruppamento di eventi" lightbox="media/tutorial-detect-threats-custom/set-rule-logic-tab-all-2-new.png":::
+   :::image type="content" source="media/tutorial-detect-threats-custom/set-rule-logic-tab-2.png" alt-text="Impostare la pianificazione delle query e il raggruppamento di eventi" lightbox="media/tutorial-detect-threats-custom/set-rule-logic-tab-all-2-new.png":::
 
-    - Impostare **Esegui query ogni** per controllare la frequenza con cui viene eseguita la query, con una frequenza pari a ogni 5 minuti o raramente come ogni 14 giorni.
+    - Impostare **Esegui query ogni** per controllare la frequenza con cui viene eseguita la query, con una frequenza di 5 minuti o raramente una volta ogni 14 giorni.
 
-    - Impostare i **dati di ricerca dagli ultimi** per determinare il periodo di tempo dei dati analizzati dalla query, ad esempio, può eseguire una query sugli ultimi 10 minuti di dati o le ultime 6 ore di dati. Il valore massimo è 14 giorni.
+    - Impostare **Dati** di ricerca dall'ultimo per determinare il periodo di tempo dei dati coperti dalla query, ad esempio è possibile eseguire una query degli ultimi 10 minuti di dati o delle ultime 6 ore di dati. Il valore massimo è 14 giorni.
 
         > [!NOTE]
-        > **Intervalli di query e periodo lookback**
+        > **Intervalli di query e periodo di lookback**
         >
-        >  Queste due impostazioni sono indipendenti l'una dall'altra, fino a un punto. È possibile eseguire una query a un breve intervallo che copre un periodo di tempo più lungo dell'intervallo (in effetti con query sovrapposte), ma non è possibile eseguire una query a un intervallo che supera il periodo di copertura. in caso contrario, si disporrà di gap nel code coverage complessivo delle query.
+        >  Queste due impostazioni sono indipendenti l'una dall'altra, fino a un certo punto. È possibile eseguire una query a intervalli brevi che coprono un periodo di tempo più lungo dell'intervallo (in effetti con query sovrapposte), ma non è possibile eseguire una query a un intervallo che supera il periodo di copertura. In caso contrario, si verificano gap nella copertura complessiva delle query.
         >
         > **Ritardo di inserimento**
         >
-        > Per tenere conto della **latenza** che può verificarsi tra la generazione di un evento nell'origine e l'inserimento in Sentinel di Azure e per garantire la copertura completa senza duplicazione dei dati, Azure Sentinel esegue le regole di analisi pianificate in un **ritardo di cinque minuti** dall'orario pianificato.
+        > Per verificare la **latenza** che può verificarsi tra la generazione di un evento nell'origine e l'inserimento in Azure Sentinel e per garantire  una copertura completa senza duplicazione dei dati, Azure Sentinel esegue le regole di analisi pianificate con un ritardo di cinque minuti rispetto all'ora pianificata.
         >
-        > Per una spiegazione tecnica dettagliata del motivo per cui questo ritardo è necessario e del modo in cui risolve questo problema, vedere il post di Blog eccellente di Ron Marsiano sull'argomento "[gestione del ritardo di inserimento nelle regole di avviso pianificate di Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/handling-ingestion-delay-in-azure-sentinel-scheduled-alert-rules/ba-p/2052851)".
+        > Per una spiegazione tecnica dettagliata del motivo per cui questo ritardo è necessario e di come risolve questo problema, vedere l'eccellente post di blog di Ron Marsiano sull'argomento["](https://techcommunity.microsoft.com/t5/azure-sentinel/handling-ingestion-delay-in-azure-sentinel-scheduled-alert-rules/ba-p/2052851)Gestione del ritardo di inserimento Azure Sentinel regole di avviso pianificate ".
 
-- Utilizzare la sezione **soglia avvisi** per definire il livello di riservatezza della regola. Ad esempio, impostare **Genera avviso quando il numero di risultati della query** su **è maggiore di** e immettere il numero 1000 se si desidera che la regola generi un avviso solo se la query restituisce più di 1000 risultati ogni volta che viene eseguito. Si tratta di un campo obbligatorio, quindi se non si vuole impostare una soglia, ovvero se si vuole che l'avviso registri ogni evento, immettere 0 nel campo numerico.
+- Usare la **sezione Soglia di** avviso per definire il livello di riservatezza della regola. Ad esempio, impostare Genera avviso quando  il numero di risultati della query è maggiore di e immettere il numero 1000 se si vuole che la regola generi un avviso solo se la **query** restituisce più di 1000 risultati ogni volta che viene eseguita. Si tratta di un campo obbligatorio, quindi se non si vuole impostare una soglia, ad esempio se si vuole che l'avviso registri ogni evento, immettere 0 nel campo numero.
     
 ### <a name="results-simulation"></a>Simulazione dei risultati
 
-Nell'area **simulazione risultati** , sul lato destro della procedura guidata, selezionare **test con dati correnti** e Azure Sentinel visualizzerà un grafico dei risultati (eventi del log) che la query avrebbe generato nelle ultime 50 volte in cui verrebbe eseguita, in base alla pianificazione attualmente definita. Se si modifica la query, selezionare di nuovo **test con dati correnti** per aggiornare il grafico. Il grafico mostra il numero di risultati nel periodo di tempo definito, determinato dalle impostazioni nella sezione **pianificazione query** .
+**Nell'area** Simulazione risultati, sul lato destro  della procedura guidata, selezionare Test con i dati correnti e Azure Sentinel mostrerà un grafico dei risultati (eventi di log) che la query avrebbe generato nelle ultime 50 volte che sarebbe stata eseguita, in base alla pianificazione attualmente definita. Se si modifica la query, selezionare di nuovo Test con **i dati correnti** per aggiornare il grafico. Il grafico mostra il numero di risultati nel periodo di tempo definito, determinato dalle impostazioni nella sezione **Pianificazione query.**
   
-Di seguito è illustrata la simulazione dei risultati per la query nella schermata precedente. Il lato sinistro è la visualizzazione predefinita e il lato destro è quello visualizzato quando si passa il mouse su un punto nel tempo sul grafico.
+Ecco l'aspetto della simulazione dei risultati per la query nello screenshot precedente. Il lato sinistro è la visualizzazione predefinita e il lato destro è quello visualizzato quando si passa il mouse su un punto nel tempo sul grafico.
 
-:::image type="content" source="media/tutorial-detect-threats-custom/results-simulation.png" alt-text="Schermate di simulazione dei risultati":::
+:::image type="content" source="media/tutorial-detect-threats-custom/results-simulation.png" alt-text="Screenshot della simulazione dei risultati":::
 
-Se si nota che la query attiverà troppi avvisi o troppo frequenti, è possibile provare le impostazioni nelle [sezioni](#query-scheduling-and-alert-threshold) **pianificazione query** e **soglia di avviso** e selezionare **di nuovo test con dati correnti** .
+Se la query attiva troppi avvisi o avvisi troppo frequenti, è  possibile provare  [](#query-scheduling-and-alert-threshold) a usare le impostazioni nelle sezioni Pianificazione query e Soglia avviso e selezionare di nuovo **Test** con i dati correnti.
 
-### <a name="event-grouping-and-rule-suppression"></a>Raggruppamento di eventi e eliminazione di regole
+### <a name="event-grouping-and-rule-suppression"></a>Raggruppamento di eventi ed eliminazione delle regole
 
 > [!IMPORTANT]
-> Il raggruppamento di eventi è attualmente in **Anteprima**. Vedere le [condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) per le note legali aggiuntive che si applicano alle funzionalità di Azure disponibili in versione beta, in anteprima o non ancora rilasciate a livello generale.
+> Il raggruppamento di eventi è attualmente disponibile in **ANTEPRIMA.** Per altre note legali applicabili alle funzionalità di Azure in versione beta, in anteprima o altrimenti non ancora rilasciate nella disponibilità [generale, vedere](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) Condizioni supplementari per l'utilizzo per le anteprime di Microsoft Azure.
     
-- In **raggruppamento eventi** scegliere uno dei due modi per gestire il raggruppamento degli **eventi** negli **avvisi**: 
+- In **Raggruppamento di eventi** scegliere uno dei due modi per gestire il raggruppamento di **eventi** in **avvisi:** 
 
-    - **Raggruppare tutti gli eventi in un singolo avviso** (impostazione predefinita). La regola genera un singolo avviso ogni volta che viene eseguito, purché la query restituisca più risultati rispetto alla **soglia di avviso** specificata sopra. L'avviso include un riepilogo di tutti gli eventi restituiti nei risultati. 
+    - **Raggruppare tutti gli eventi in un singolo avviso** (impostazione predefinita). La regola genera un singolo avviso ogni volta che viene eseguita, purché la query restituisca più risultati rispetto alla soglia **di avviso specificata sopra.** L'avviso include un riepilogo di tutti gli eventi restituiti nei risultati. 
 
-    - **Attiva un avviso per ogni evento**. La regola genera un avviso univoco per ogni evento restituito dalla query. Questa opzione è utile se si desidera che gli eventi vengano visualizzati singolarmente o se si desidera raggrupparli in base a determinati parametri, in base all'utente, al nome host o a un altro elemento. È possibile definire questi parametri nella query.
+    - **Attiva un avviso per ogni evento**. La regola genera un avviso univoco per ogni evento restituito dalla query. Ciò è utile se si vuole che gli eventi siano visualizzati singolarmente o se si vuole raggrupparli in base a determinati parametri, ad esempio per utente, nome host o altro. È possibile definire questi parametri nella query.
     
-        Attualmente, il numero di avvisi che una regola può generare è limitato a 20. Se in una determinata regola, il **raggruppamento di eventi** è impostato in modo da **attivare un avviso per ogni evento** e la query della regola restituisce più di 20 eventi, ognuno dei primi 19 eventi genererà un avviso univoco e il ventesimo avviso riepiloga l'intero set di eventi restituiti. In altre parole, il ventesimo avviso è quello che verrebbe generato sotto l'opzione **raggruppa tutti gli eventi in un singolo avviso** .
+        Attualmente, il numero di avvisi che una regola può generare è limitato a 20. Se in una determinata regola **il** raggruppamento di eventi è impostato su Attiva un avviso per ogni evento e la query della regola restituisce più di 20 eventi, ognuno dei primi 19 eventi genererà un avviso univoco e il 20° avviso riepiloga l'intero set di eventi restituiti. In altre parole, il 20° avviso è ciò che sarebbe stato generato nell'opzione Raggruppa tutti gli **eventi in un singolo** avviso.
 
     > [!NOTE]
-    > Qual è la differenza tra **gli eventi** e gli **avvisi**?
+    > Qual è la differenza tra **eventi** e **avvisi?**
     >
-    > - Un **evento** è una descrizione di una singola occorrenza di un'azione. Ad esempio, una singola voce in un file di log può contare come un evento. In questo contesto un evento fa riferimento a un singolo risultato restituito da una query in una regola di analisi.
+    > - Un **evento** è una descrizione di una singola occorrenza di un'azione. Ad esempio, una singola voce in un file di log può essere conteggiato come evento. In questo contesto un evento fa riferimento a un singolo risultato restituito da una query in una regola di analisi.
     >
-    > - Un **avviso** è una raccolta di eventi che, presi insieme, sono significativi dal punto di vista della sicurezza. Un avviso può contenere un solo evento se l'evento presenta implicazioni di sicurezza significative, ad esempio un account di accesso amministrativo da un paese esterno all'orario di ufficio.
+    > - Un **avviso** è una raccolta di eventi che, nel loro insieme, sono significativi dal punto di vista della sicurezza. Un avviso può contenere un singolo evento se l'evento ha implicazioni significative sulla sicurezza, ad esempio un accesso amministrativo da un paese esterno al di fuori dell'orario di ufficio.
     >
-    > - Che cosa sono gli **eventi imprevisti**? La logica interna di Sentinel di Azure consente di creare **eventi imprevisti** da **avvisi** o gruppi di avvisi. La coda degli eventi imprevisti è il punto focale della valutazione del lavoro degli analisti SOC, dell'analisi e della correzione.
+    > - A proposito, cosa sono **gli eventi imprevisti?** Azure Sentinel logica interna di crea eventi **imprevisti** da **avvisi** o gruppi di avvisi. La coda degli eventi imprevisti è il punto focale del lavoro degli analisti SOC: analisi, analisi e correzione.
     > 
-    > Azure Sentinel inserisce gli eventi non elaborati da alcune origini dati e gli avvisi già elaborati da altri. È importante tenere presente quale è la gestione in qualsiasi momento.
+    > Azure Sentinel gli eventi non elaborati da alcune origini dati e gli avvisi già elaborati da altre. È importante notare quale si sta occupando in qualsiasi momento.
 
-- Nella sezione **eliminazione** , è possibile attivare l'impostazione **Interrompi esecuzione query dopo la generazione** dell'  avviso se, dopo aver ricevuto un avviso, si desidera sospendere il funzionamento di questa regola per un periodo di tempo superiore all'intervallo di query. Se si attiva questa impostazione, è necessario impostare **Interrompi esecuzione query per** sull'intervallo di tempo durante il quale la query deve arrestarsi, fino a 24 ore.
+- Nella sezione **Eliminazione** è possibile attivare l'impostazione Interrompi esecuzione **query** dopo la generazione dell'avviso se, dopo aver visualizzato un avviso, si vuole sospendere l'operazione di questa regola per un periodo di tempo che supera l'intervallo di query.  Se si attiva questa opzione, è necessario impostare Interrompi **esecuzione query per** per il periodo di tempo in cui l'esecuzione della query deve essere interrotta, fino a 24 ore.
 
-## <a name="configure-the-incident-creation-settings"></a>Configurare le impostazioni per la creazione degli eventi imprevisti
+## <a name="configure-the-incident-creation-settings"></a>Configurare le impostazioni di creazione dell'evento imprevisto
 
-Nella scheda **Impostazioni evento imprevisto** è possibile scegliere se e in che modo Azure Sentinel attiva gli avvisi in eventi imprevisti. Se questa scheda viene lasciata da sola, Azure Sentinel creerà un singolo evento imprevisto separato da ogni avviso. È possibile scegliere di non creare eventi imprevisti o di raggruppare più avvisi in un singolo evento imprevisto, modificando le impostazioni in questa scheda.
+Nella scheda **Impostazioni eventi** imprevisti è possibile scegliere se e come Azure Sentinel gli avvisi in eventi imprevisti utilizzabili. Se questa scheda viene lasciata sola, Azure Sentinel un singolo evento imprevisto separato da ogni avviso. È possibile scegliere di non creare eventi imprevisti o raggruppare più avvisi in un singolo evento imprevisto modificando le impostazioni in questa scheda.
 
 > [!IMPORTANT]
-> La scheda Impostazioni evento imprevisto è attualmente in **Anteprima**. Vedere le [condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) per le note legali aggiuntive che si applicano alle funzionalità di Azure disponibili in versione beta, in anteprima o non ancora rilasciate a livello generale.
+> La scheda delle impostazioni dell'evento imprevisto è attualmente disponibile in **ANTEPRIMA.** Per altre condizioni legali applicabili alle funzionalità di Azure in versione beta, in anteprima o altrimenti non ancora rilasciate nella disponibilità [generale, vedere](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) Le condizioni per l'utilizzo supplementari per le Microsoft Azure preview.
 
-:::image type="content" source="media/tutorial-detect-threats-custom/incident-settings-tab.png" alt-text="Definire le impostazioni per la creazione degli eventi imprevisti e il raggruppamento degli avvisi":::
+:::image type="content" source="media/tutorial-detect-threats-custom/incident-settings-tab.png" alt-text="Definire le impostazioni di creazione dell'evento imprevisto e raggruppamento di avvisi":::
 
 ### <a name="incident-settings"></a>Impostazioni degli eventi imprevisti
 
-Nella sezione **delle impostazioni degli eventi imprevisti** , la **creazione di eventi imprevisti da avvisi attivati da questa regola di analisi** viene impostata per impostazione predefinita su **abilitato**, ovvero Azure Sentinel creerà un singolo evento imprevisto separato da ogni avviso attivato dalla regola.
+Nella sezione **Impostazioni**  evento imprevisto l'opzione Crea eventi imprevisti da avvisi attivati da questa regola di analisi è impostata per impostazione predefinita su **Abilitato,** ovvero Azure Sentinel creerà un singolo evento imprevisto separato da ogni avviso attivato dalla regola.
     
-- Se non si vuole che questa regola provochi la creazione di eventi imprevisti (ad esempio, se questa regola è solo per raccogliere informazioni per l'analisi successiva), impostare questa impostazione su **disabilitato**.
+- Se non si vuole che questa regola comporta la creazione di eventi imprevisti (ad esempio, se questa regola è solo per raccogliere informazioni per l'analisi successiva), impostare questa opzione su **Disabilitato.**
 
-- Se si desidera creare un singolo evento imprevisto da un gruppo di avvisi, anziché uno per ogni singolo avviso, vedere la sezione successiva.
+- Se si vuole creare un singolo evento imprevisto da un gruppo di avvisi, anziché uno per ogni singolo avviso, vedere la sezione successiva.
 
-### <a name="alert-grouping"></a>Raggruppamento avvisi
+### <a name="alert-grouping"></a>Raggruppamento di avvisi
 
-Nella sezione **raggruppamento avvisi** , se si desidera che venga generato un singolo evento imprevisto da un gruppo di un massimo di 150 avvisi simili o ricorrenti (vedere la nota), impostare gli **avvisi relativi ai gruppi, attivati da questa regola di analisi, in eventi imprevisti** per **abilitati** e impostare i parametri seguenti.
+Nella  sezione Raggruppamento avvisi, se si vuole che un singolo evento imprevisto sia generato da un gruppo di un massimo di 150 avvisi simili o ricorrenti (vedere la nota), impostare Raggruppa gli avvisi correlati, attivati da questa regola di **analisi,** in Eventi imprevisti **su** Abilitato e impostare i parametri seguenti.
 
-- **Limitare il gruppo agli avvisi creati nell'intervallo di tempo selezionato**: determinare l'intervallo di tempo entro il quale verranno raggruppati gli avvisi simili o ricorrenti. Tutti gli avvisi corrispondenti entro questo intervallo di tempo genereranno collettivamente un evento imprevisto o un set di eventi imprevisti (a seconda delle impostazioni di raggruppamento seguenti). Gli avvisi esterni a questo intervallo di tempo genereranno un evento imprevisto o un set di eventi imprevisti distinti.
+- **Limita il gruppo agli avvisi creati nell'intervallo** di tempo selezionato: determinare l'intervallo di tempo entro il quale gli avvisi simili o ricorrenti verranno raggruppati. Tutti gli avvisi corrispondenti entro questo intervallo di tempo genereranno collettivamente un evento imprevisto o un set di eventi imprevisti (a seconda delle impostazioni di raggruppamento riportate di seguito). Gli avvisi al di fuori di questo intervallo di tempo genereranno un evento imprevisto separato o un set di eventi imprevisti.
 
-- **Avvisi di gruppo generati da questa regola di analisi in un singolo evento imprevisto da**: scegliere la base in cui verranno raggruppati gli avvisi:
+- **Raggruppa gli avvisi attivati da questa regola di analisi in un** singolo evento imprevisto in base a : scegliere la base in base alla quale gli avvisi verranno raggruppati:
 
-    - **Raggruppare gli avvisi in un singolo evento imprevisto se tutte le entità corrispondono: gli** avvisi vengono raggruppati se condividono valori identici per ognuna delle entità mappate (definite nella scheda logica della regola di impostazione precedente). Questa è l'impostazione consigliata.
+    - **Raggruppare** gli avvisi in un singolo evento imprevisto se tutte le entità corrispondono: gli avvisi vengono raggruppati se condividono valori identici per ogni entità mappata (definita nella scheda Imposta logica regola sopra). Questa è l'impostazione consigliata.
 
-    - **Raggruppa tutti gli avvisi attivati da questa regola in un singolo evento imprevisto**: tutti gli avvisi generati da questa regola vengono raggruppati anche se non condividono valori identici.
+    - **Raggruppa tutti gli avvisi attivati da** questa regola in un singolo evento imprevisto: tutti gli avvisi generati da questa regola vengono raggruppati anche se non condividono valori identici.
 
-    - **Raggruppa gli avvisi in un singolo evento imprevisto se le entità selezionate corrispondono: gli** avvisi vengono raggruppati se condividono valori identici per alcune delle entità mappate, che è possibile selezionare dall'elenco a discesa. Questa impostazione può essere utile se, ad esempio, si desidera creare eventi imprevisti distinti in base agli indirizzi IP di origine o di destinazione.
+    - **Raggruppa gli** avvisi in un singolo evento imprevisto se le entità selezionate corrispondono: gli avvisi vengono raggruppati se condividono valori identici per alcune delle entità mappate (che è possibile selezionare dall'elenco a discesa). È possibile usare questa impostazione se, ad esempio, si vogliono creare eventi imprevisti separati in base agli indirizzi IP di origine o di destinazione.
 
-- **Riapri eventi imprevisti corrispondenti chiusi**: se un evento imprevisto è stato risolto e chiuso e successivamente viene generato un altro avviso che deve appartenere a tale evento imprevisto, impostare questa impostazione su **abilitato** se si desidera che l'evento imprevisto chiuso venga riaperto e lasciare **disabilitato** se si desidera che l'avviso crei un nuovo evento imprevisto.
+- **Riaperre** eventi imprevisti corrispondenti chiusi: se un evento imprevisto è stato risolto e chiuso e successivamente viene generato un altro avviso che  dovrebbe appartenere a tale evento imprevisto, impostare questa impostazione su **Abilitato** se si vuole riaperre l'evento imprevisto chiuso e lasciare disabilitato se si vuole che l'avviso crei un nuovo evento imprevisto.
     
     > [!NOTE]
-    > È possibile raggruppare **fino a 150 avvisi** in un singolo evento imprevisto. Se vengono generati più di 150 avvisi da una regola che li raggruppa in un singolo evento imprevisto, verrà generato un nuovo evento imprevisto con gli stessi dettagli dell'evento imprevisto e gli avvisi in eccesso verranno raggruppati nel nuovo evento imprevisto.
+    > **È possibile raggruppare fino a 150** avvisi in un singolo evento imprevisto. Se più di 150 avvisi vengono generati da una regola che li raggruppa in un singolo evento imprevisto, verrà generato un nuovo evento imprevisto con gli stessi dettagli dell'evento imprevisto originale e gli avvisi in eccesso verranno raggruppati nel nuovo evento imprevisto.
 
-## <a name="set-automated-responses-and-create-the-rule"></a>Impostare le risposte automatiche e creare la regola
+## <a name="set-automated-responses-and-create-the-rule"></a>Impostare risposte automatiche e creare la regola
 
-1. Nella scheda **risposte automatiche** selezionare gli schemi che si desidera eseguire automaticamente quando viene generato un avviso dalla regola personalizzata. Per altre informazioni sulla creazione e l'automazione dei PlayBook, vedere [rispondere alle minacce](tutorial-respond-threats-playbook.md).
+1. Nella scheda **Risposte automatiche** selezionare i playbook da eseguire automaticamente quando viene generato un avviso dalla regola personalizzata. Per altre informazioni sulla creazione e l'automazione dei playbook, vedere [Rispondere alle minacce](tutorial-respond-threats-playbook.md).
 
-    :::image type="content" source="media/tutorial-detect-threats-custom/automated-response-tab.png" alt-text="Definire le impostazioni della risposta automatica":::
+    :::image type="content" source="media/tutorial-detect-threats-custom/automated-response-tab.png" alt-text="Definire le impostazioni di risposta automatica":::
 
-1. Selezionare **Verifica e crea** per esaminare tutte le impostazioni per la nuova regola di avviso. Quando viene visualizzato il messaggio "convalida superata", selezionare **Crea** per inizializzare la regola di avviso.
+1. Selezionare **Rivedi e crea** per esaminare tutte le impostazioni per la nuova regola di avviso. Quando viene visualizzato il messaggio "Convalida superata", selezionare **Crea per** inizializzare la regola di avviso.
 
     :::image type="content" source="media/tutorial-detect-threats-custom/review-and-create-tab.png" alt-text="Esaminare tutte le impostazioni e creare la regola":::
 
 ## <a name="view-the-rule-and-its-output"></a>Visualizzare la regola e il relativo output
   
-- È possibile trovare la regola personalizzata appena creata (di tipo "pianificato") nella tabella nella scheda **regole attive** della schermata principale di **analisi** . Da questo elenco è possibile abilitare, disabilitare o eliminare ogni regola.
+- È possibile trovare la regola personalizzata appena creata (di tipo "Pianificato") nella tabella nella scheda **Regole** attive nella schermata **di Analisi** principale. Da questo elenco è possibile abilitare, disabilitare o eliminare ogni regola.
 
-- Per visualizzare i risultati delle regole di avviso create, passare alla pagina **eventi imprevisti** , in cui è possibile valutare, [esaminare gli eventi imprevisti](tutorial-investigate-cases.md)e correggere le minacce.
+- Per visualizzare i risultati delle regole di  avviso create, passare alla pagina Eventi imprevisti, in cui è possibile esaminare [gli](tutorial-investigate-cases.md)eventi imprevisti e correggere le minacce.
 
 > [!NOTE]
-> Gli avvisi generati in Sentinel di Azure sono disponibili tramite [Microsoft Graph sicurezza](/graph/security-concept-overview). Per ulteriori informazioni, vedere la [documentazione relativa agli avvisi di sicurezza Microsoft Graph](/graph/api/resources/security-api-overview).
+> Gli avvisi generati in Azure Sentinel sono disponibili [tramite Microsoft Graph Sicurezza](/graph/security-concept-overview). Per altre informazioni, vedere la documentazione [Microsoft Graph avvisi di sicurezza.](/graph/api/resources/security-api-overview)
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
-### <a name="issue-no-events-appear-in-query-results"></a>Problema: nessun evento viene visualizzato nei risultati della query
+### <a name="issue-no-events-appear-in-query-results"></a>Problema: non vengono visualizzati eventi nei risultati della query
 
-Se il **raggruppamento di eventi** è impostato in modo da **attivare un avviso per ogni evento**, in determinati scenari, quando si visualizzano i risultati della query in un secondo momento, ad esempio quando si esegue la trasformazione tramite pivot verso gli avvisi di un evento imprevisto, è possibile che non venga visualizzato alcun risultato della query. Questo perché la connessione dell'evento all'avviso viene eseguita tramite l'hashing delle informazioni dell'evento specifico e l'inclusione dell'hash nella query. Se i risultati della query sono stati modificati dopo la generazione dell'avviso, l'hash non sarà più valido e non verrà visualizzato alcun risultato. 
+Se  il raggruppamento di eventi è impostato in modo da attivare un avviso per ogni evento **,** in determinati scenari, quando si visualizzano i risultati della query in un secondo momento (ad esempio quando si esegue il pivot negli avvisi di un evento imprevisto), è possibile che non venga visualizzato alcun risultato della query. Questo avviene perché la connessione dell'evento all'avviso viene eseguita tramite l'hashing delle informazioni dell'evento specifico e l'inclusione dell'hash nella query. Se i risultati della query sono stati modificati dopo la generazione dell'avviso, l'hash non sarà più valido e non verrà visualizzato alcun risultato. 
 
 Per visualizzare gli eventi, rimuovere manualmente la riga con l'hash dalla query della regola ed eseguire la query.
 
-### <a name="issue-a-scheduled-rule-failed-to-execute-or-appears-with-auto-disabled-added-to-the-name"></a>Problema: una regola pianificata non è stata eseguita o viene visualizzata con il nome DISABILITAto automatico aggiunto al nome
+### <a name="issue-a-scheduled-rule-failed-to-execute-or-appears-with-auto-disabled-added-to-the-name"></a>Problema: non è stato possibile eseguire una regola pianificata o viene visualizzata l'opzione AUTO DISABLED aggiunta al nome
 
-Si tratta di un caso raro in cui non è possibile eseguire una regola di query pianificata, ma ciò può verificarsi. Azure Sentinel classifica gli errori in primo piano come temporanei o permanenti in base al tipo specifico di errore e alle circostanze che lo hanno generato.
+È raro che l'esecuzione di una regola di query pianificata non riesca, ma può verificarsi. Azure Sentinel classifica gli errori in anticipo come temporanei o permanenti, in base al tipo specifico di errore e alle circostanze che lo hanno causato.
 
 #### <a name="transient-failure"></a>Errore temporaneo
 
-Un errore temporaneo si verifica a causa di una circostanza che è temporanea e tornerà presto alla normalità, a quel punto l'esecuzione della regola avrà esito positivo. Di seguito sono riportati alcuni esempi di errori classificati da Azure Sentinel come temporanei:
+Un errore temporaneo si verifica a causa di una circostanza temporanea che presto tornerà alla normalità, a quel punto l'esecuzione della regola avrà esito positivo. Ecco alcuni esempi di errori Azure Sentinel classificati come temporanei:
 
-- Una query di regola richiede troppo tempo per l'esecuzione e il timeout.
-- Problemi di connettività tra origini dati e Log Analytics o tra Log Analytics e Sentinel di Azure.
-- Eventuali altri errori nuovi e sconosciuti sono considerati temporanei.
+- L'esecuzione di una query della regola richiede troppo tempo e si timeout.
+- Problemi di connettività tra origini dati e Log Analytics o tra Log Analytics e Azure Sentinel.
+- Qualsiasi altro errore nuovo e sconosciuto viene considerato temporaneo.
 
-In caso di errore temporaneo, Azure Sentinel continua a provare a eseguire nuovamente la regola dopo gli intervalli predeterminati e in continua crescita, fino a un punto. Successivamente, la regola verrà eseguita di nuovo solo al successivo orario pianificato. Una regola non verrà mai disabilitata automaticamente a causa di un errore temporaneo.
+In caso di errore temporaneo, Azure Sentinel continua a tentare di eseguire di nuovo la regola dopo intervalli predeterminati e in continua crescita, fino a un certo punto. Successivamente, la regola verrà eseguita di nuovo solo alla successiva ora pianificata. Una regola non verrà mai disabilitata automaticamente a causa di un errore temporaneo.
 
-#### <a name="permanent-failure---rule-auto-disabled"></a>Errore permanente: la regola è disabilitata automaticamente
+#### <a name="permanent-failure---rule-auto-disabled"></a>Errore permanente : regola disabilitata automaticamente
 
-Si verifica un errore permanente a causa di una modifica nelle condizioni che consentono l'esecuzione della regola, che senza intervento umano non tornerà allo stato precedente. Di seguito sono riportati alcuni esempi di errori classificati come permanenti:
+Un errore permanente si verifica a causa di una modifica delle condizioni che consentono l'esecuzione della regola, che senza l'intervento umano non tornerà allo stato precedente. Di seguito sono riportati alcuni esempi di errori classificati come permanenti:
 
-- L'area di lavoro di destinazione (su cui è stata eseguita la query della regola) è stata eliminata.
-- La tabella di destinazione in cui è stata eseguita la query della regola è stata eliminata.
-- Azure Sentinel è stato rimosso dall'area di lavoro di destinazione.
-- Una funzione utilizzata dalla query della regola non è più valida. è stato modificato o rimosso.
+- L'area di lavoro di destinazione (in cui è stata eseguita la query della regola) è stata eliminata.
+- La tabella di destinazione (in cui è stata eseguita la query della regola) è stata eliminata.
+- Azure Sentinel stato rimosso dall'area di lavoro di destinazione.
+- Una funzione usata dalla query della regola non è più valida. è stato modificato o rimosso.
 - Le autorizzazioni per una delle origini dati della query della regola sono state modificate.
 - Una delle origini dati della query della regola è stata eliminata o disconnessa.
 
-**Nel caso di un numero predeterminato di errori permanenti consecutivi, dello stesso tipo e della stessa regola,** Azure Sentinel smette di provare a eseguire la regola e, inoltre, esegue i passaggi seguenti:
+**In caso di un numero predeterminato di errori permanenti consecutivi dello stesso tipo e della stessa regola,** Azure Sentinel interrompe il tentativo di eseguire la regola ed esegue anche la procedura seguente:
 
 - Disabilita la regola.
-- Aggiunge le parole **"auto disabled"** all'inizio del nome della regola.
-- Aggiunge la causa dell'errore (e la disabilitazione) alla descrizione della regola.
+- Aggiunge le **parole "AUTO DISABLED"** all'inizio del nome della regola.
+- Aggiunge il motivo dell'errore (e la disabilitazione) alla descrizione della regola.
 
-È possibile determinare facilmente la presenza di eventuali regole disabilitate automaticamente, ordinando l'elenco di regole in base al nome. Le regole disabilitate automaticamente si troveranno nella parte superiore dell'elenco.
+È possibile determinare facilmente la presenza di eventuali regole disabilitate automaticamente ordinando l'elenco di regole in base al nome. Le regole disabilitate automaticamente si trovaranno nella parte superiore o nella parte superiore dell'elenco.
 
-I responsabili SOC devono assicurarsi di controllare regolarmente l'elenco di regole per la presenza di regole disabilitate automaticamente.
+I responsabili SOC devono assicurarsi di controllare regolarmente l'elenco delle regole per la presenza di regole disabilitate automaticamente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 In questa esercitazione si è appreso come iniziare a rilevare le minacce usando Azure Sentinel.
 
-- Informazioni su come [analizzare gli eventi imprevisti in Sentinel di Azure](tutorial-investigate-cases.md).
-- Informazioni sulle [entità in Sentinel di Azure](entities-in-azure-sentinel.md).
-- Informazioni su come [configurare le risposte automatiche alle minacce in Sentinel di Azure](tutorial-respond-threats-playbook.md).
+- Informazioni su come [analizzare gli eventi imprevisti in Azure Sentinel](tutorial-investigate-cases.md).
+- Informazioni sulle [entità in Azure Sentinel](entities-in-azure-sentinel.md).
+- Informazioni su come [configurare risposte di minacce automatizzate in Azure Sentinel](tutorial-respond-threats-playbook.md).

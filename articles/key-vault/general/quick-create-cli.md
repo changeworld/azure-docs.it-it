@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: quickstart
 ms.date: 01/27/2021
 ms.author: mbaldwin
-ms.openlocfilehash: f7f6f5d82c5fda7101e80ddcb8b17dc6bdef6532
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 588bee2922ee44f3f89b5d252b5b4a6991d26b82
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99070301"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107815127"
 ---
 # <a name="quickstart-create-a-key-vault-using-the-azure-cli"></a>Avvio rapido: Creare un insieme di credenziali delle chiavi usando l'interfaccia della riga di comando di Azure
 
@@ -43,6 +43,6 @@ Azure Key Vault è un servizio cloud che offre uno spazio di archiviazione prote
 In questa guida introduttiva viene creata e quindi eliminata un'istanza del servizio Key Vault. Per altre informazioni sul servizio Key Vault e su come integrarlo nelle applicazioni, continuare con gli articoli seguenti.
 
 - Leggere una [panoramica di Azure Key Vault](overview.md)
-- Vedere [Panoramica della sicurezza di Azure Key Vault](security-overview.md)
+- Vedere [Panoramica della sicurezza di Azure Key Vault](security-features.md)
 - Vedere le informazioni di riferimento sui [comandi az keyvault dell'interfaccia della riga di comando di Azure](/cli/azure/keyvault)
 

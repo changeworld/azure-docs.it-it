@@ -10,12 +10,12 @@ author: BlackMist
 ms.date: 04/08/2021
 ms.custom: devx-track-python
 adobe-target: true
-ms.openlocfilehash: 4f97883c157d04358322b01cab7049dcbbabdc4f
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: cd395f0ff29eed1e09f5bdac882482b201052c90
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107031087"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107814830"
 ---
 # <a name="what-is-azure-machine-learning"></a>Informazioni su Azure Machine Learning
 
@@ -40,7 +40,7 @@ Queste previsioni o stime di Machine Learning possono rendere più intelligenti 
 ## <a name="machine-learning-tools-to-fit-each-task"></a>Strumenti di Machine Learning adatti per ogni attività 
 
 Azure Machine Learning offre tutti gli strumenti necessari agli sviluppatori e ai data scientist per i rispettivi flussi di lavoro di Machine Learning, tra cui:
-+ [Progettazione Azure Machine Learning](tutorial-designer-automobile-price-train-score.md): trascinare i moduli per compilare gli esperimenti e quindi distribuire le pipeline in un ambiente con basso codice.
++ Progettazione [Azure Machine Learning :](tutorial-designer-automobile-price-train-score.md)moduli drag-n-drop per compilare gli esperimenti e quindi distribuire pipeline in un ambiente a basso codice.
 
 + Notebook di Jupyter: usare i [notebook di esempio](https://github.com/Azure/MachineLearningNotebooks) forniti o creare notebook personalizzati per sfruttare gli esempi dell'<a href="/python/api/overview/azure/ml/intro" target="_blank">SDK per Python</a> per Machine Learning. 
 
@@ -48,11 +48,11 @@ Azure Machine Learning offre tutti gli strumenti necessari agli sviluppatori e a
 
 + L’[acceleratore di soluzione molti modelli](https://aka.ms/many-models) (anteprima) si basa su Azure Machine Learning consente di eseguire il training, utilizzare e gestire centinaia o addirittura migliaia di modelli di Machine Learning.
 
-+ L' [estensione Machine Learning per Visual Studio Code (anteprima)](how-to-set-up-vs-code-remote.md) offre un ambiente di sviluppo completo per la creazione e la gestione dei progetti di machine learning.
++ [L'estensione di Machine Learning Visual Studio Code (anteprima)](how-to-set-up-vs-code-remote.md) offre un ambiente di sviluppo completo per la compilazione e la gestione dei progetti di Machine Learning.
 
-+ L'interfaccia della riga di comando di [Machine Learning](reference-azure-machine-learning-cli.md) è un'estensione dell'interfaccia della riga di comando di Azure che fornisce i comandi per la gestione con risorse di Azure Machine Learning
++ [L'interfaccia della riga di](reference-azure-machine-learning-cli.md) comando di Machine Learning è un'estensione dell'interfaccia della riga di comando di Azure che fornisce comandi per la gestione con Azure Machine Learning risorse dalla riga di comando.
 
-+ [Integrazione con Framework open source](concept-open-source.md) come PyTorch, TensorFlow e Scikit-learn e molto altro per il training, la distribuzione e la gestione del processo di Machine Learning end-to-end.
++ Integrazione con [framework open source](concept-open-source.md) come PyTorch, TensorFlow e scikit-learn e molto altro ancora per il training, la distribuzione e la gestione del processo di Machine Learning end-to-end.
 
 + [Apprendimento per rinforzo](how-to-use-reinforcement-learning.md) con Ray RLlib
 
@@ -78,14 +78,14 @@ Grazie alla disponibilità di molte [destinazioni di calcolo](how-to-create-atta
 
 + **Tenere traccia degli esperimenti**
 
-  Informazioni su come [tenere traccia e visualizzare gli esperimenti di data science](tutorial-first-experiment-automated-ml.md) nello Studio. 
+  Informazioni su come [tenere traccia e visualizzare gli esperimenti di data science](how-to-track-monitor-analyze-runs.md) nello Studio. 
 
-    ![Dettagli dell'esecuzione in Azure Machine Learning Studio](media/how-to-track-experiments/experimentation-tab.gif)
+    :::image type="content" source="media/how-to-track-monitor-analyze-runs/run-history.png" alt-text="Dettagli dell'esecuzione in Azure Machine Learning Studio":::
 
 
 + **E molto altro ancora...**
 
-  Visitare Azure Machine Learning Studio all'indirizzo [ml.azure.com](https://studio.azureml.net). 
+  Visitare Azure Machine Learning Studio all'indirizzo [ml.azure.com](https://studio.azureml.net).
 
 
 ## <a name="mlops-deploy--lifecycle-management"></a>MLOps: Esecuzione della distribuzione e gestione del ciclo di vita

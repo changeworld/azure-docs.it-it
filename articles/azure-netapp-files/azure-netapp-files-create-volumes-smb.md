@@ -12,24 +12,24 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 04/19/2021
+ms.date: 04/20/2021
 ms.author: b-juche
-ms.openlocfilehash: 9bb995e5e3038d7a4cd24f0db2608461c8848497
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: 28fc465627032522afb9da8f6ec0fad704834d09
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107726296"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107813705"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Creare un volume SMB per Azure NetApp Files
 
-Azure NetApp Files supporta la creazione di volumi tramite NFS (NFSv3 e NFSv4.1), SMB3 o protocollo doppio (NFSv3 e SMB). L'utilizzo della capacità di un volume concorre al calcolo della capacità di cui è stato effettuato il provisioning del pool. 
+Azure NetApp Files supporta la creazione di volumi usando NFS (NFSv3 e NFSv4.1), SMB3 o dual protocol (NFSv3 e SMB). L'utilizzo della capacità di un volume concorre al calcolo della capacità di cui è stato effettuato il provisioning del pool. 
 
-Questo articolo illustra come creare un volume SMB3. Per i volumi NFS, vedere [Creare un volume NFS.](azure-netapp-files-create-volumes.md) Per i volumi con doppio protocollo, vedere [Creare un volume con doppio protocollo.](create-volumes-dual-protocol.md)
+Questo articolo illustra come creare un volume SMB3. Per i volumi NFS, vedere [Creare un volume NFS.](azure-netapp-files-create-volumes.md) Per i volumi a doppio protocollo, vedere [Creare un volume dual-protocol](create-volumes-dual-protocol.md).
 
 ## <a name="before-you-begin"></a>Prima di iniziare 
 
-* È necessario avere già configurato un pool di capacità. Vedere [Configurare un pool di capacità.](azure-netapp-files-set-up-capacity-pool.md)     
+* È necessario avere già configurato un pool di capacità. Vedere [Configurare un pool di capacità](azure-netapp-files-set-up-capacity-pool.md).     
 * È necessario delegare una subnet ad Azure NetApp Files. Vedere [Delegare una subnet Azure NetApp Files](azure-netapp-files-delegate-subnet.md).
 
 ## <a name="configure-active-directory-connections"></a>Configurare le connessioni di Active Directory 
@@ -81,9 +81,9 @@ Prima di creare un volume SMB, è necessario creare una connessione Active Direc
     
         ![Creare una subnet](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
 
-    * Se si vuole applicare un criterio di  snapshot esistente al volume, fare clic su Mostra sezione avanzata per espanderlo, specificare se si vuole nascondere il percorso dello snapshot e selezionare un criterio di snapshot nel menu a discesa. 
+    * Se si desidera applicare un criterio di  snapshot esistente al volume, fare clic su Mostra sezione avanzata per espanderlo, specificare se si vuole nascondere il percorso dello snapshot e selezionare un criterio di snapshot nel menu a discesa. 
 
-        Per informazioni sulla creazione di un criterio di snapshot, vedere [Gestire i criteri di snapshot.](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies)
+        Per informazioni sulla creazione di criteri snapshot, vedere [Gestire i criteri snapshot.](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies)
 
         ![Mostra selezione avanzata](../media/azure-netapp-files/volume-create-advanced-selection.png)
 
@@ -91,11 +91,11 @@ Prima di creare un volume SMB, è necessario creare una connessione Active Direc
     * Selezionare **SMB** come tipo di protocollo per il volume. 
     * Selezionare la connessione **Active Directory** nell'elenco a discesa.
     * Specificare il nome del volume condiviso in **Nome condivisione**.
-    * Se si vuole abilitare la crittografia per SMB3, selezionare **Abilita crittografia del protocollo SMB3.**   
+    * Se si vuole abilitare la crittografia per SMB3, selezionare **Abilita crittografia del protocollo SMB3**.   
         Questa funzionalità abilita la crittografia per i dati SMB3 in-flight. I client SMB che non usano la crittografia SMB3 non saranno in grado di accedere a questo volume.  I dati in stato di inquieto vengono crittografati indipendentemente da questa impostazione.  
         Per altre informazioni, vedere Domande frequenti sulla crittografia [SMB.](azure-netapp-files-faqs.md#smb-encryption-faqs) 
 
-        La funzionalità di crittografia del protocollo **SMB3** è attualmente in anteprima. Se questa è la prima volta che si usa questa funzionalità, registrare la funzionalità prima di usarla: 
+        La **funzionalità di crittografia del protocollo SMB3** è attualmente in anteprima. Se è la prima volta che si usa questa funzionalità, registrarla prima di usarla: 
 
         ```azurepowershell-interactive
         Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSMBEncryption
@@ -104,19 +104,19 @@ Prima di creare un volume SMB, è necessario creare una connessione Active Direc
         Controllare lo stato della registrazione della funzionalità: 
 
         > [!NOTE]
-        > RegistrationState **può** essere nello stato `Registering` per un massimo di 60 minuti prima di cambiare in `Registered` . Attendere che lo stato sia `Registered` prima di continuare.
+        > RegistrationState **può** essere nello `Registering` stato per un massimo di 60 minuti prima di cambiare in `Registered` . Attendere che lo stato sia `Registered` prima di continuare.
 
         ```azurepowershell-interactive
         Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSMBEncryption
         ```
         
-        È anche possibile usare i [comandi dell'interfaccia della riga](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) di comando di Azure e per `az feature register` `az feature show` registrare la funzionalità e visualizzare lo stato della registrazione.  
-    * Se si vuole abilitare la disponibilità continua per il volume SMB, selezionare **Abilita disponibilità continua**.    
+        È anche possibile usare i comandi [dell'interfaccia della riga](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) di comando di Azure `az feature register` e per `az feature show` registrare la funzionalità e visualizzare lo stato della registrazione.  
+    * Se si vuole abilitare la disponibilità continua per il volume SMB, selezionare **Abilita disponibilità continua.**    
 
         > [!IMPORTANT]   
-        > La funzionalità Disponibilità continua SMB è attualmente disponibile in anteprima pubblica. È necessario inviare una richiesta di elenco di attesa per l'accesso alla funzionalità tramite la pagina Azure NetApp Files di invio dell'elenco di attesa dell'anteprima pubblica delle condivisioni di disponibilità continua **[SMB](https://aka.ms/anfsmbcasharespreviewsignup)**. Attendere un messaggio di posta elettronica di conferma ufficiale dal team Azure NetApp Files prima di usare la funzionalità Disponibilità continua.   
+        > La funzionalità disponibilità continua SMB è attualmente disponibile in anteprima pubblica. È necessario inviare una richiesta di elenco di attesa per accedere alla funzionalità tramite la pagina di invio della lista di attesa Azure NetApp Files di disponibilità continua **[SMB](https://aka.ms/anfsmbcasharespreviewsignup)** in anteprima pubblica . Attendere un messaggio di posta elettronica di conferma ufficiale dal team Azure NetApp Files prima di usare la funzionalità disponibilità continua.   
         > 
-        > È consigliabile abilitare la disponibilità continua solo per i carichi di lavoro SQL. L'uso di condivisioni di disponibilità continua SMB per carichi di lavoro diversi SQL Server *non è* supportato. Questa funzionalità è attualmente supportata in Windows SQL Server. La SQL Server Linux non è attualmente supportata. Se si usa un account non amministratore (dominio) per installare SQL Server, assicurarsi che all'account sia assegnato il privilegio di sicurezza richiesto. Se l'account di dominio non dispone dei privilegi di sicurezza necessari ( ) e il privilegio non può essere impostato a livello di dominio, è possibile concedere il privilegio all'account usando il campo Utenti con privilegi di sicurezza delle connessioni `SeSecurityPrivilege` Active Directory.  Vedere [Creare una connessione Active Directory.](create-active-directory-connections.md#create-an-active-directory-connection)
+        > È consigliabile abilitare la disponibilità continua solo per SQL Server e i contenitori dei profili utente [FsLogix](../virtual-desktop/create-fslogix-profile-container.md). L'uso di condivisioni di disponibilità continua SMB per carichi di lavoro diversi SQL Server e i contenitori del profilo utente FsLogix *non è* supportato. Questa funzionalità è attualmente supportata in Windows SQL Server. La SQL Server Linux non è attualmente supportata. Se si usa un account non amministratore (dominio) per installare SQL Server, assicurarsi che all'account siano assegnati i privilegi di sicurezza necessari. Se l'account di dominio non dispone del privilegio di sicurezza necessario ( ) e il privilegio non può essere impostato a livello di dominio, è possibile concedere il privilegio all'account usando il campo Utenti con privilegi di sicurezza delle connessioni `SeSecurityPrivilege` Active Directory.  Vedere [Creare una connessione Active Directory.](create-active-directory-connections.md#create-an-active-directory-connection)
 
     <!-- [1/13/21] Commenting out command-based steps below, because the plan is to use form-based (URL) registration, similar to CRR feature registration -->
     <!-- 
@@ -153,7 +153,7 @@ L'accesso a un volume SMB viene gestito tramite le autorizzazioni.
 Per impostazione predefinita, un nuovo volume dispone delle autorizzazioni di condivisione **Tutti/Controllo completo**. I membri del gruppo Domain Admins possono modificare le autorizzazioni di condivisione come indicato di seguito:  
 
 1. Eseguire il mapping della condivisione a un'unità.  
-2. Fare clic con il pulsante destro del mouse **sull'unità, scegliere** Proprietà e quindi passare alla **scheda** Sicurezza.
+2. Fare clic con il pulsante destro del mouse **sull'unità, scegliere Proprietà** e quindi passare alla **scheda** Sicurezza.
 
 [![Impostare le autorizzazioni di condivisione](../media/azure-netapp-files/set-share-permissions.png)](../media/azure-netapp-files/set-share-permissions.png#lightbox)
 

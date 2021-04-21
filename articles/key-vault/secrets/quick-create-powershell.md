@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: impostare & recuperare un segreto da Key Vault tramite PowerShell "'
+title: 'Avvio rapido: Impostare & un segreto da Key Vault usando PowerShell"'
 description: In questa guida di avvio rapido sono disponibili informazioni su come creare, recuperare ed eliminare segreti da un'istanza di Azure Key Vault usando Azure PowerShell.
 services: key-vault
 author: msmbaldwin
@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, devx-track-azurepowershell
 ms.date: 01/27/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 5e3b78dfb8f08f1a596ad12884ec088cd36c4a98
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8a0ebfc90fb57a6e67d7c9e41b78d9db502b2720
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104582451"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107814641"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-powershell"></a>Avvio rapido: Impostare e recuperare un segreto da Azure Key Vault usando PowerShell
 
@@ -57,7 +57,7 @@ Convertire prima di tutto il valore di **hVFkk965BuUv** in una stringa sicura di
 $secretvalue = ConvertTo-SecureString "hVFkk965BuUv" -AsPlainText -Force
 ```
 
-Usare quindi il cmdlet [set-AzKeyVaultSecret](/powershell/module/az.keyvault/set-azkeyvaultsecret) di Azure PowerShell per creare un segreto in Key Vault denominato **ExamplePassword** con il valore **hVFkk965BuUv** :
+Usare quindi il cmdlet [Azure PowerShell Set-AzKeyVaultSecret](/powershell/module/az.keyvault/set-azkeyvaultsecret) per creare un segreto in Key Vault denominato **ExamplePassword** con il valore **hVFkk965BuUv:**
 
 
 ```azurepowershell-interactive
@@ -96,6 +96,6 @@ Remove-AzResourceGroup -Name ContosoResourceGroup
 In questo argomento di avvio rapido è stata creata un'istanza di Key Vault in cui è stato archiviato un segreto. Per altre informazioni sul servizio Key Vault e su come integrarlo nelle applicazioni, continuare con gli articoli seguenti.
 
 - Leggere una [panoramica di Azure Key Vault](../general/overview.md)
-- Informazioni su come [archiviare i segreti a più righe in Key Vault](multiline-secrets.md)
+- Informazioni su come [archiviare segreti su più righe in Key Vault](multiline-secrets.md)
 - Vedere le informazioni di riferimento sui [cmdlet di Azure PowerShell Key Vault](/powershell/module/az.keyvault/#key_vault)
-- Vedere [Panoramica della sicurezza di Azure Key Vault](../general/security-overview.md)
+- Vedere [Panoramica della sicurezza di Azure Key Vault](../general/security-features.md)

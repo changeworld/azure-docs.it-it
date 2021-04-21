@@ -9,12 +9,12 @@ ms.subservice: secrets
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 6d4f3f744a85c14c42ffef1c894b237081e871f8
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: dc4368075e1cecb43887c9fab21e55b23208dbab
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107752427"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107814929"
 ---
 # <a name="about-azure-key-vault-secrets"></a>Informazioni sui segreti di Azure Key Vault
 
@@ -132,5 +132,5 @@ Guide pratiche per il controllo dell'accesso in Key Vault:
 - [Informazioni su chiavi, segreti e certificati](../general/about-keys-secrets-certificates.md)
 - [Informazioni sulle chiavi](../keys/about-keys.md)
 - [Informazioni sui certificati](../certificates/about-certificates.md)
-- [Proteggere l'accesso a un insieme di credenziali delle chiavi](../general/security-overview.md)
+- [Proteggere l'accesso a un insieme di credenziali delle chiavi](../general/security-features.md)
 - [Guida per gli sviluppatori all'insieme di credenziali delle chiavi](../general/developers-guide.md)

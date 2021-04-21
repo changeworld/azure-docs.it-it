@@ -10,14 +10,14 @@ ms.topic: quickstart
 ms.custom: mvc,subject-armqs
 ms.date: 10/14/2020
 ms.author: sebansal
-ms.openlocfilehash: 48686fb78dc4295da3bd390d92ae3837cd09a4d0
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 048482c6b52d3fd9225224bd3b4ff3ee66bf24fd
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105639419"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107815361"
 ---
-# <a name="quickstart-create-an-azure-key-vault-and-a-key-by-using-arm-template"></a>Guida introduttiva: creare un insieme di credenziali delle chiavi di Azure e una chiave usando il modello ARM 
+# <a name="quickstart-create-an-azure-key-vault-and-a-key-by-using-arm-template"></a>Avvio rapido: Creare un insieme di credenziali delle chiavi di Azure e una chiave usando un modello di Azure Azure Key Vault 
 
 [Azure Key Vault](../general/overview.md) è un servizio cloud che offre un archivio sicuro per i segreti, ad esempio le chiavi, le password, i certificati e così via. Questa guida di avvio rapido illustra il processo di distribuzione di un modello di Azure Resource Manager per creare un insieme di credenziali delle chiavi e una chiave.
 
@@ -29,7 +29,7 @@ ms.locfileid: "105639419"
 Per completare questo articolo:
 
 - Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
-- Per l'utente deve essere assegnato un ruolo predefinito di Azure, ad esempio. Collaboratore. [Per altre informazioni, vedi qui](../../role-based-access-control/role-assignments-portal.md)
+- L'utente deve avere un ruolo predefinito di Azure assegnato ad esempio. Collaboratore. [Per altre informazioni, vedi qui](../../role-based-access-control/role-assignments-portal.md)
 - Per la configurazione delle autorizzazioni nel modello è necessario l'ID oggetto utente di Azure AD. La procedura seguente recupera l'ID oggetto (GUID).
 
     1. Eseguire il seguente comando di Azure PowerShell o dell'interfaccia della riga di comando di Azure selezionando **Prova** e quindi incollare lo script nel riquadro della shell. Per incollare lo script, fare clic con il pulsante destro del mouse nella shell e quindi scegliere **Incolla**.
@@ -168,7 +168,7 @@ Nel modello sono definite due risorse:
 Altri esempi di modelli per Azure Key Vault sono disponibili in [Modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Keyvault&pageNumber=1&sort=Popular).
 
 ## <a name="deploy-the-template"></a>Distribuire il modello
-È possibile usare [portale di Azure](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal), Azure PowerShell, l'interfaccia della riga di comando di Azure o l'API REST. Per informazioni sui metodi di distribuzione, vedere [deploy templates](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-powershell).
+È possibile usare [portale di Azure](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal), Azure PowerShell, l'interfaccia della riga di comando di Azure o l'API REST. Per altre informazioni sui metodi di distribuzione, vedere [Distribuire modelli](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-powershell).
 
 ## <a name="review-deployed-resources"></a>Esaminare le risorse distribuite
 
@@ -223,4 +223,4 @@ In questa guida di avvio rapido sono stati creati un insieme di credenziali dell
 
 - Leggere una [panoramica di Azure Key Vault](../general/overview.md)
 - Vedere altre informazioni su [Azure Resource Manager](../../azure-resource-manager/management/overview.md)
-- Vedere [Panoramica della sicurezza di Key Vault](../general/security-overview.md)
+- Vedere [Panoramica della sicurezza di Key Vault](../general/security-features.md)

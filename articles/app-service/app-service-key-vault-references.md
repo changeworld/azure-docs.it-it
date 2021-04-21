@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 02/05/2021
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: b87001f9b283c774096fe669d58a9b487174625d
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 1e6f46b205790d81a3e76d2aafbcf7e13dbb5afd
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107750771"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107815217"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions"></a>Usare Key Vault per il servizio app e le Funzioni di Azure
 
@@ -28,14 +28,14 @@ Per leggere i segreti da Key Vault, è necessario avere creato un insieme di cre
    > [!NOTE] 
    > I riferimenti a Key Vault supportano attualmente solo identità gestite assegnate dal sistema. Non è possibile usare identità assegnate dall'utente.
 
-1. Creare [criteri di accesso in Key Vault](../key-vault/general/security-overview.md#privileged-access) per l'identità di applicazione creata in precedenza. Abilitare l'autorizzazione per il segreto "Get" in questi criteri. Non configurare l'"applicazione autorizzata" o le impostazioni di `applicationId`, poiché questa operazione non è compatibile con un'identità gestita.
+1. Creare [criteri di accesso in Key Vault](../key-vault/general/security-features.md#privileged-access) per l'identità di applicazione creata in precedenza. Abilitare l'autorizzazione per il segreto "Get" in questi criteri. Non configurare l'"applicazione autorizzata" o le impostazioni di `applicationId`, poiché questa operazione non è compatibile con un'identità gestita.
 
 ### <a name="access-network-restricted-vaults"></a>Accedere agli insiemi di credenziali con restrizioni di rete
 
 > [!NOTE]
 > Le applicazioni basate su Linux non sono attualmente in grado di risolvere i segreti da un insieme di credenziali delle chiavi con restrizioni di rete, a meno che l'app non sia ospitata in un [ambiente del servizio app](./environment/intro.md).
 
-Se l'insieme di credenziali è configurato [con restrizioni di rete,](../key-vault/general/overview-vnet-service-endpoints.md)è anche necessario assicurarsi che l'applicazione abbia accesso alla rete.
+Se l'insieme di credenziali è configurato con [restrizioni di rete,](../key-vault/general/overview-vnet-service-endpoints.md)è anche necessario assicurarsi che l'applicazione abbia accesso alla rete.
 
 1. Assicurarsi che l'applicazione abbia funzionalità di rete in uscita configurate, come descritto in Funzionalità di rete del servizio [app](./networking-features.md) e Funzioni di Azure [di rete.](../azure-functions/functions-networking-options.md)
 
@@ -194,11 +194,11 @@ Un esempio di pseudo-modello per un'app per le funzioni potrebbe essere simile a
 
 ## <a name="troubleshooting-key-vault-references"></a>Risoluzione dei Key Vault riferimenti
 
-Se un riferimento non viene risolto correttamente, verrà usato il valore di riferimento. Ciò significa che per le impostazioni dell'applicazione viene creata una variabile di ambiente il cui valore ha la `@Microsoft.KeyVault(...)` sintassi . Ciò potrebbe causare la generazione di errori da parte dell'applicazione, perché prevedeva un segreto di una determinata struttura.
+Se un riferimento non viene risolto correttamente, verrà usato il valore di riferimento. Ciò significa che per le impostazioni dell'applicazione viene creata una variabile di ambiente il cui valore ha la `@Microsoft.KeyVault(...)` sintassi . Ciò può causare la generazione di errori da parte dell'applicazione, perché prevedeva un segreto di una determinata struttura.
 
 In genere, ciò è dovuto a una configurazione errata dei criteri Key Vault [di accesso.](#granting-your-app-access-to-key-vault) Tuttavia, potrebbe anche essere dovuto a un segreto non più esistente o a un errore di sintassi nel riferimento stesso.
 
-Se la sintassi è corretta, è possibile visualizzare altre cause di errore controllando lo stato di risoluzione corrente nel portale. Passare a Impostazioni applicazione e selezionare "Modifica" per il riferimento in questione. Sotto la configurazione dell'impostazione dovrebbero essere visualizzate informazioni sullo stato, inclusi gli eventuali errori. L'assenza di questi elementi implica che la sintassi di riferimento non è valida.
+Se la sintassi è corretta, è possibile visualizzare altre cause di errore controllando lo stato di risoluzione corrente nel portale. Passare a Impostazioni applicazione e selezionare "Modifica" per il riferimento in questione. Sotto la configurazione dell'impostazione dovrebbero essere visualizzate informazioni sullo stato, inclusi eventuali errori. L'assenza di questi elementi implica che la sintassi di riferimento non è valida.
 
 È anche possibile usare uno dei rilevatori predefiniti per ottenere informazioni aggiuntive.
 
@@ -216,4 +216,4 @@ Se la sintassi è corretta, è possibile visualizzare altre cause di errore cont
 2. Passare a **Funzionalità della piattaforma.**
 3. Selezionare **Diagnostica e risoluzione dei problemi**.
 4. Scegliere **Disponibilità e prestazioni e** selezionare App per le funzioni in basso o **segnalazione di errori.**
-5. Fare clic su **Key Vault diagnostica delle impostazioni dell'applicazione.**
+5. Fare clic Key Vault **diagnostica delle impostazioni dell'applicazione.**

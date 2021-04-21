@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
 ms.custom: devx-track-python
-ms.openlocfilehash: 62249f579909c3f8bfa9bcdf4e77e45453fcb68b
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: b980a74ebd4fd072c5e04089a737cb387d968f74
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107792022"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107814425"
 ---
 # <a name="quickstart-azure-key-vault-certificate-client-library-for-python"></a>Avvio rapido: Libreria client dei certificati di Azure Key Vault per Python
 
@@ -213,7 +213,7 @@ az group delete --resource-group KeyVault-PythonQS-rg
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Panoramica dell'insieme di credenziali chiave di Azure](../general/overview.md)
-- [Proteggere l'accesso a un insieme di credenziali delle chiavi](../general/security-overview.md)
+- [Proteggere l'accesso a un insieme di credenziali delle chiavi](../general/security-features.md)
 - [Guida per gli sviluppatori per Azure Key Vault](../general/developers-guide.md)
-- [Panoramica della sicurezza di Key Vault](../general/security-overview.md)
+- [Panoramica della sicurezza di Key Vault](../general/security-features.md)
 - [Eseguire l'autenticazione con Key Vault](../general/authentication.md)

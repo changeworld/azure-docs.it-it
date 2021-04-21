@@ -5,12 +5,12 @@ ms.devlang: php
 ms.topic: article
 ms.date: 06/02/2020
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: c40bc01553b9e848d668c0a699e9dcc9929f079e
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 94cbe0fa6669546cee8e989a6db2fcbb428cb9d0
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107779328"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107829441"
 ---
 # <a name="configure-a-php-app-for-azure-app-service"></a>Configurare un'app PHP per Servizio app di Azure
 
@@ -28,6 +28,9 @@ Per visualizzare la versione corrente di PHP, eseguire il comando seguente in [C
 az webapp config show --resource-group <resource-group-name> --name <app-name> --query phpVersion
 ```
 
+> [!NOTE]
+> Per risolvere uno slot di sviluppo, includere il `--slot` parametro seguito dal nome dello slot.
+
 Per visualizzare tutte le versioni di PHP supportate, eseguire il comando seguente in [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
@@ -44,6 +47,9 @@ Per visualizzare la versione corrente di PHP, eseguire il comando seguente in [C
 az webapp config show --resource-group <resource-group-name> --name <app-name> --query linuxFxVersion
 ```
 
+> [!NOTE]
+> Per risolvere uno slot di sviluppo, includere il `--slot` parametro seguito dal nome dello slot.
+
 Per visualizzare tutte le versioni di PHP supportate, eseguire il comando seguente in [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
@@ -56,10 +62,10 @@ az webapp list-runtimes --linux | grep PHP
 
 ::: zone pivot="platform-windows"  
 
-Eseguire il comando seguente nel [Cloud Shell](https://shell.azure.com) per impostare la versione PHP su 7.4:
+Eseguire il comando seguente nella [Cloud Shell](https://shell.azure.com) per impostare la versione di PHP su 7.4:
 
 ```azurecli-interactive
-az webapp config set --name <app-name> --resource-group <resource-group-name> --php-version 7.4
+az webapp config set --resource-group <resource-group-name> --name <app-name> --php-version 7.4
 ```
 
 ::: zone-end
@@ -69,18 +75,18 @@ az webapp config set --name <app-name> --resource-group <resource-group-name> --
 Eseguire il comando seguente in [Cloud Shell](https://shell.azure.com) per impostare la versione di PHP su 7.2:
 
 ```azurecli-interactive
-az webapp config set --name <app-name> --resource-group <resource-group-name> --linux-fx-version "PHP|7.2"
+az webapp config set --resource-group <resource-group-name> --name <app-name> --linux-fx-version "PHP|7.2"
 ```
 
 ::: zone-end
 
 ::: zone pivot="platform-windows"  
 
-## <a name="run-composer"></a>Eseguire Composer
+## <a name="run-composer"></a>Esegui Composer
 
-Se si vuole che il servizio app eseere [Composer](https://getcomposer.org/) in fase di distribuzione, il modo più semplice è includere Composer nel repository.
+Se si vuole che il servizio app [eserviti Composer](https://getcomposer.org/) in fase di distribuzione, il modo più semplice è includere Composer nel repository.
 
-Da una finestra del terminale locale passare alla radice del repository e seguire le istruzioni riportate in [scaricare Composer](https://getcomposer.org/download/) per scaricare *composer.phar* nella radice della directory.
+Da una finestra del terminale locale passare alla radice del repository e seguire le istruzioni riportate in [Scaricare Composer](https://getcomposer.org/download/) per scaricare *composer.phar* nella radice della directory.
 
 Eseguire i comandi seguenti (è necessario [che npm sia](https://www.npmjs.com/get-npm) installato):
 
@@ -91,7 +97,7 @@ kuduscript --node --scriptType bash --suppressPrompt
 
 La radice del repository include ora due file aggiuntivi: *.deployment* *e deploy.sh*.
 
-Aprire *deploy.sh* e trovare la `Deployment` sezione, simile alla seguente:
+Aprire *deploy.sh* e trovare la `Deployment` sezione , che ha un aspetto simile al seguente:
 
 ```bash
 ##################################################################################################################################
@@ -99,7 +105,7 @@ Aprire *deploy.sh* e trovare la `Deployment` sezione, simile alla seguente:
 # ----------
 ```
 
-Aggiungere la sezione di codice necessaria per eseguire lo strumento *richiesto alla fine* della `Deployment` sezione:
+Aggiungere la sezione di codice necessaria per eseguire lo strumento *richiesto alla fine* della sezione `Deployment` :
 
 ```bash
 # 4. Use composer
@@ -117,9 +123,9 @@ Eseguire il commit di tutte le modifiche e distribuire il codice usando Git o zi
 
 ## <a name="run-gruntbowergulp"></a>Eseguire Grunt/Bower/Gulp
 
-Se si vuole che il servizio app eserciti gli strumenti di automazione più diffusi in fase di distribuzione, ad esempio Grunt, Bower o Gulp, è necessario fornire uno [script di distribuzione personalizzato.](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script) Il servizio app esegue questo script quando si esegue la distribuzione con Git o con la [distribuzione ZIP](deploy-zip.md) con l'automazione della compilazione abilitata. 
+Se si vuole che il servizio app esegui gli strumenti di automazione più diffusi in fase di distribuzione, ad esempio Grunt, Bower o Gulp, è necessario fornire uno [script di distribuzione personalizzato.](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script) Il servizio app esegue questo script quando si esegue la distribuzione con Git o con la [distribuzione ZIP con](deploy-zip.md) l'automazione della compilazione abilitata. 
 
-Per consentire al repository di eseguire questi strumenti, è necessario aggiungerli alle dipendenze inpackage.js *in .* Ad esempio:
+Per consentire al repository di eseguire questi strumenti, è necessario aggiungerli alle dipendenze in *package.jssu.* Ad esempio:
 
 ```json
 "dependencies": {
@@ -139,7 +145,7 @@ kuduscript --node --scriptType bash --suppressPrompt
 
 La radice del repository include ora due file aggiuntivi: *.deployment* *e deploy.sh*.
 
-Aprire *deploy.sh* e trovare la `Deployment` sezione , che ha un aspetto simile al seguente:
+Aprire *deploy.sh* e trovare la `Deployment` sezione, simile alla seguente:
 
 ```bash
 ##################################################################################################################################
@@ -147,13 +153,13 @@ Aprire *deploy.sh* e trovare la `Deployment` sezione , che ha un aspetto simile 
 # ----------
 ```
 
-Questa sezione termina con l'esecuzione di `npm install --production` . Aggiungere la sezione di codice necessaria per eseguire lo strumento *richiesto alla fine* della sezione `Deployment` :
+Questa sezione termina con l'esecuzione di `npm install --production` . Aggiungere la sezione di codice necessaria per eseguire lo strumento *richiesto alla fine* della `Deployment` sezione:
 
 - [Bower](#bower)
 - [Gulp](#gulp)
 - [Grunt](#grunt)
 
-Vedere un [esempio nell'esempio MEAN.js ,](https://github.com/Azure-Samples/meanjs/blob/master/deploy.sh#L112-L135)in cui lo script di distribuzione esegue anche un comando `npm install` personalizzato.
+Vedere un [esempio nell'esempio MEAN.js](https://github.com/Azure-Samples/meanjs/blob/master/deploy.sh#L112-L135), in cui lo script di distribuzione esegue anche un comando `npm install` personalizzato.
 
 ### <a name="bower"></a>Bower
 
@@ -241,9 +247,9 @@ getenv("DB_HOST")
 
 ::: zone pivot="platform-windows"  
 
-Il framework Web scelto può usare una sottodirectory come radice del sito. Ad esempio, [Laravel](https://laravel.com/)usa la *sottodirectory public/* come radice del sito.
+Il framework Web scelto può usare una sottodirectory come radice del sito. Ad esempio, [Laravel](https://laravel.com/), usa la *sottodirectory public/* come radice del sito.
 
-Per personalizzare la radice del sito, impostare il percorso dell'applicazione virtuale per l'app usando il [`az resource update`](/cli/azure/resource#az_resource_update) comando . L'esempio seguente imposta la radice del sito *sulla sottodirectory public/* nel repository. 
+Per personalizzare la radice del sito, impostare il percorso dell'applicazione virtuale per l'app usando il [`az resource update`](/cli/azure/resource#az_resource_update) comando . Nell'esempio seguente la radice del sito viene impostata sulla sottodirectory *public/* nel repository. 
 
 ```azurecli-interactive
 az resource update --name web --resource-group <group-name> --namespace Microsoft.Web --resource-type config --parent sites/<app-name> --set properties.virtualApplications[0].physicalPath="site\wwwroot\public" --api-version 2015-06-01
@@ -295,7 +301,7 @@ Se è necessario apportare modifiche all'installazione di PHP, è possibile modi
 
 ::: zone pivot="platform-windows"  
 
-Per personalizzare PHP_INI_USER, PHP_INI_PERDIR e PHP_INI_ALL (vedere direttive [php.ini](https://www.php.net/manual/ini.list.php)), aggiungere un file alla `.user.ini` directory radice dell'app.
+Per personalizzare PHP_INI_USER direttive PHP_INI_USER, PHP_INI_PERDIR e PHP_INI_ALL (vedere direttive [php.ini](https://www.php.net/manual/ini.list.php)), aggiungere un file alla `.user.ini` directory radice dell'app.
 
 Aggiungere le impostazioni di configurazione al file  `.user.ini` usando la stessa sintassi che si userebbe in un file `php.ini`. Ad esempio, se si desidera attivare l'impostazione `display_errors` e impostare `upload_max_filesize` su 10 M, il file `.user.ini` conterrà il testo seguente:
 
@@ -310,7 +316,7 @@ Aggiungere le impostazioni di configurazione al file  `.user.ini` usando la stes
 
 Ridistribuire l'app con le modifiche e riavviarla.
 
-In alternativa all'uso di un file, è possibile usare ini_set() nell'app per personalizzare queste direttive `.user.ini` PHP_INI_SYSTEM non personalizzate. [](https://www.php.net/manual/function.ini-set.php)
+In alternativa all'uso di un file, è possibile usare ini_set() nell'app per personalizzare queste direttive `.user.ini` non PHP_INI_SYSTEM. [](https://www.php.net/manual/function.ini-set.php)
 
 ::: zone-end
 
@@ -348,7 +354,7 @@ Eseguire prima di tutto il comando seguente in [Cloud Shell](https://shell.azure
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings PHP_INI_SCAN_DIR="d:\home\site\ini"
 ```
 
-Passare alla console Kudu ( `https://<app-name>.scm.azurewebsites.net/DebugConsole` ) e passare a `d:\home\site` .
+Passare alla console kudu ( `https://<app-name>.scm.azurewebsites.net/DebugConsole` ) e passare a `d:\home\site` .
 
 In `d:\home\site` creare una directory denominata `ini`, quindi creare un file *INI* nella directory `d:\home\site\ini` (ad esempio, *settings.ini*) con le direttive che si vogliono personalizzare. Usare la stessa sintassi che si userebbe in un file *php.ini*. 
 
@@ -408,7 +414,7 @@ Le installazioni di PHP predefinite contengono le estensioni usate più di frequ
 
 Per abilitare le estensioni aggiuntive, eseguire la procedura seguente:
 
-Aggiungere una directory alla directory radice dell'app e inserire i file di `bin` `.dll` estensione, ad esempio *mongodb.dll*. Verificare che le estensioni siano compatibili con la versione di PHP in Azure e con VC9, ma non con thread-safe (nts).
+Aggiungere una directory alla directory radice dell'app e inserire i file di estensione `bin` `.dll` (ad esempio, *mongodb.dll*). Verificare che le estensioni siano compatibili con la versione di PHP in Azure e con VC9, ma non con thread-safe (nts).
 
 Distribuire le modifiche.
 
@@ -452,7 +458,7 @@ Per rendere effettive le modifiche apportate, riavviare l'app.
 
 ::: zone pivot="platform-windows"  
 
-Usare [l'utilità error_log()](https://php.net/manual/function.error-log.php) standard per visualizzare i log di diagnostica in Servizio app di Azure.
+Usare [l'utilità error_log()](https://php.net/manual/function.error-log.php) standard per visualizzare i log di diagnostica Servizio app di Azure.
 
 [!INCLUDE [Access diagnostic logs](../../includes/app-service-web-logs-access-no-h.md)]
 

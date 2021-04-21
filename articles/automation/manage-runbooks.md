@@ -5,12 +5,13 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/24/2021
 ms.topic: conceptual
-ms.openlocfilehash: 7eb576a3d084630ebe6020b57814f12687dc9bd9
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: a172189d8b52a80fc50e7d8c882859f7855aeca8
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106168621"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107830089"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Gestire runbook in Automazione di Azure
 
@@ -23,7 +24,7 @@ Creare un nuovo runbook in Automazione di Azure usando il portale di Azure o Win
 * [Modificare runbook testuali in Automazione di Azure](automation-edit-textual-runbook.md)
 * [Informazioni sui concetti chiave del flusso di lavoro di Windows PowerShell per i runbook di Automazione](automation-powershell-workflow.md)
 * [Gestire pacchetti Python 2 in Automazione di Azure](python-packages.md)
-* [Gestire i pacchetti Python 3 (anteprima) in automazione di Azure](python-3-packages.md)
+* [Gestire i pacchetti Python 3 (anteprima) in Automazione di Azure](python-3-packages.md)
 
 ### <a name="create-a-runbook-in-the-azure-portal"></a>Creare un runbook nel portale di Azure
 
@@ -51,7 +52,7 @@ New-AzAutomationRunbook @params
 
 ## <a name="import-a-runbook"></a>Importare un runbook
 
-È possibile importare uno script di PowerShell o del flusso di lavoro PowerShell (con estensione **ps1**), un Runbook grafico (**graphrunbook**) o uno script Python 2 o Python 3 (**. py**) per creare il proprio Runbook. È necessario specificare il [tipo di runbook](automation-runbook-types.md) che viene creato durante l'importazione tenendo conto delle considerazioni seguenti.
+È possibile importare uno script di PowerShell o del flusso di lavoro di PowerShell (**ps1),** un runbook grafico ( con estensione **graphrunbook**) o uno script Python 2 o Python 3 ( con estensione **py**) per creare un runbook personalizzato. È necessario specificare il [tipo di runbook](automation-runbook-types.md) che viene creato durante l'importazione tenendo conto delle considerazioni seguenti.
 
 * È possibile importare un file **.ps1** che non contiene un flusso di lavoro in un [runbook di PowerShell](automation-runbook-types.md#powershell-runbooks) oppure in un [runbook del flusso di lavoro di PowerShell](automation-runbook-types.md#powershell-workflow-runbooks). Se il file viene importato in un runbook del flusso di lavoro PowerShell, questo viene convertito in un flusso di lavoro. In questo caso, i commenti vengono inclusi nel runbook per descrivere le modifiche apportate.
 
@@ -204,7 +205,7 @@ Se il runbook viene eseguito in genere all'interno di un vincolo temporale, fare
 
 ## <a name="work-with-multiple-subscriptions"></a>Usare più sottoscrizioni
 
-Il runbook deve essere in grado di funzionare con le [sottoscrizioni](automation-runbook-execution.md#subscriptions). Per gestire più sottoscrizioni, ad esempio, il runbook usa il cmdlet [Disable-AzContextAutosave](/powershell/module/Az.Accounts/Disable-AzContextAutosave). Tale cmdlet garantisce che il contesto di autenticazione non venga recuperato da un altro runbook in esecuzione nello stesso sandbox. Runbook usa anche il `Get-AzContext` cmdlet per recuperare il contesto della sessione corrente e assegnarlo alla variabile `$AzureContext` .
+Il runbook deve essere in grado di funzionare con le [sottoscrizioni](automation-runbook-execution.md#subscriptions). Per gestire più sottoscrizioni, ad esempio, il runbook usa il cmdlet [Disable-AzContextAutosave](/powershell/module/Az.Accounts/Disable-AzContextAutosave). Tale cmdlet garantisce che il contesto di autenticazione non venga recuperato da un altro runbook in esecuzione nello stesso sandbox. Il runbook usa anche il `Get-AzContext` cmdlet per recuperare il contesto della sessione corrente e assegnarlo alla variabile `$AzureContext` .
 
 ```powershell
 Disable-AzContextAutosave -Scope Process
@@ -311,7 +312,7 @@ Il riepilogo visualizza un conteggio e una rappresentazione grafica dello stato 
 
 Se si fa clic sul riquadro, viene visualizzata la pagina Processi, che include un elenco riepilogativo di tutti i processi eseguiti. In questa pagina vengono visualizzati lo stato, il nome del runbook e l'ora di inizio e di completamento di ogni processo.
 
-:::image type="content" source="./media/manage-runbooks/automation-account-jobs-status-blade.png" alt-text="Screenshot della pagina processi.":::
+:::image type="content" source="./media/manage-runbooks/automation-account-jobs-status-blade.png" alt-text="Screenshot della pagina Processi.":::
 
 È possibile filtrare l'elenco dei processi selezionando **Filtra processi**. Applicare il filtro in base a un runbook specifico, allo stato del processo oppure a una scelta nell'elenco a discesa e specificare l'intervallo di tempo per la ricerca.
 
@@ -319,7 +320,7 @@ Se si fa clic sul riquadro, viene visualizzata la pagina Processi, che include u
 
 In alternativa, è possibile visualizzare i dettagli di riepilogo dei processi per un runbook specifico selezionandolo nella pagina Runbook nel proprio account di Automazione e quindi selezionare il riquadro **Processi**. Viene visualizzata la pagina Processi. In tale pagina è possibile fare clic su un record del processo per visualizzarne i dettagli e l'output.
 
-:::image type="content" source="./media/manage-runbooks/automation-runbook-job-summary-blade.png" alt-text="Screenshot della pagina processi con il pulsante errori evidenziato.":::
+:::image type="content" source="./media/manage-runbooks/automation-runbook-job-summary-blade.png" alt-text="Screenshot della pagina Processi con il pulsante Errori evidenziato.":::
 
 ### <a name="retrieve-job-statuses-using-powershell"></a>Recuperare gli stati del processo tramite PowerShell
 

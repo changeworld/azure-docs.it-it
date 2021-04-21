@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: eea3c8525d31a3ca551e9cbc7d21d7dde163b5cc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 1b6a138317d0cc2e10e893d1969f9d5452064d8f
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94697986"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107813741"
 ---
 # <a name="azure-api-management-faqs"></a>Domande frequenti su Gestione API di Azure
 Risposte alle domande comuni, modelli e procedure consigliate per Gestione API di Azure.
@@ -52,8 +53,8 @@ Quando una funzionalità è in anteprima, significa che si stanno raccogliendo a
 Esistono diverse opzioni per proteggere la connessione tra il gateway di Gestione API e i servizi back-end. È possibile:
 
 * Usare l'autenticazione HTTP di base. Per altre informazioni, vedere [Importare e pubblicare la prima API](import-and-publish.md).
-* Usare l'autenticazione reciproca TLS come descritto in [come proteggere i servizi back-end usando l'autenticazione con certificati client in gestione API di Azure](api-management-howto-mutual-certificates.md).
-* Usare il filtro IP nel servizio back-end. In tutti i livelli di gestione API, ad eccezione del livello di consumo, l'indirizzo IP del gateway rimane costante, con alcune avvertenze descritte nell' [articolo della documentazione IP](api-management-howto-ip-addresses.md).
+* Usare l'autenticazione reciproca TLS come descritto in [Come proteggere i servizi back-end usando](api-management-howto-mutual-certificates.md)l'autenticazione del certificato client in Azure API Management .
+* Usare il filtro IP nel servizio back-end. In tutti i livelli di API Management ad eccezione del livello Consumo, l'indirizzo IP del gateway rimane costante, con alcune avvertenze descritte nell'articolo della documentazione [IP](api-management-howto-ip-addresses.md).
 * Connettere l'istanza di Gestione API a una rete virtuale di Azure.
 
 ### <a name="how-do-i-copy-my-api-management-service-instance-to-a-new-instance"></a>Come si copia l'istanza del servizio Gestione API in una nuova istanza?
@@ -71,7 +72,7 @@ Sì, è possibile gestire Gestione API a livello di codice usando:
 * I cmdlet di PowerShell per la [distribuzione del servizio](/powershell/module/wds) e per la [gestione del servizio](/powershell/azure/servicemanagement/overview).
 
 ### <a name="how-do-i-add-a-user-to-the-administrators-group"></a>Come si aggiunge un utente al gruppo di amministratori?
-Gruppi di amministratori è un gruppo di sistema non modificabile. Gli amministratori della sottoscrizione di Azure sono membri di questo gruppo. Non è possibile aggiungere un utente a questo gruppo. Per altre informazioni [, vedere come creare e usare i gruppi per gestire gli account sviluppatore in gestione API di Azure](./api-management-howto-create-groups.md) .
+I gruppi Administrators sono un gruppo di sistema non modificabile. Gli amministratori delle sottoscrizioni di Azure sono membri di questo gruppo. Non è possibile aggiungere un utente a questo gruppo. Per [altre informazioni, vedere How to create and use groups to manage developer accounts in Azure API Management](./api-management-howto-create-groups.md) (Come creare e usare i gruppi per gestire gli account per sviluppatori in Azure API Management per altre informazioni).
 
 ### <a name="why-is-the-policy-that-i-want-to-add-unavailable-in-the-policy-editor"></a>Perché il criterio da aggiungere non è disponibile nell'editor dei criteri?
 Se il criterio che si vuole aggiungere è in grigio o ombreggiato nell'editor dei criteri, assicurarsi che l'ambito del criterio sia corretto. Ogni istruzione di criterio è progettata per essere usata in ambiti e sezioni dei criteri specifici. Per esaminare le sezioni dei criteri e gli ambiti di un criterio, vedere la sezione sull'utilizzo in [API Management policies](./api-management-policies.md) (Criteri di Gestione API).
@@ -92,7 +93,7 @@ Per informazioni su come configurare un server di autorizzazione OAuth 2.0 con l
 Gestione API usa il [metodo di routing del traffico relativo alle prestazioni](../traffic-manager/traffic-manager-routing-methods.md#performance) nelle distribuzioni in più posizioni geografiche. Il traffico in ingresso viene instradato al gateway API più vicino. Quando un'area diventa offline, il traffico in ingresso viene automaticamente indirizzato al gateway successivo più vicino. Altre informazioni sui metodi di routing sono disponibili in [Metodi di routing di Gestione traffico](../traffic-manager/traffic-manager-routing-methods.md).
 
 ### <a name="can-i-use-an-azure-resource-manager-template-to-create-an-api-management-service-instance"></a>È possibile usare un modello di Azure Resource Manager per creare un'istanza del servizio Gestione API?
-Sì. Vedere i modelli di avvio rapido del [servizio gestione API di Azure](https://aka.ms/apimtemplate) .
+Sì. Vedere i [modelli di avvio rapido del servizio Azure API Management.](https://aka.ms/apimtemplate)
 
 ### <a name="can-i-use-a-self-signed-tlsssl-certificate-for-a-back-end"></a>È possibile usare un certificato TLS/SSL autofirmato per un back-end?
 Sì. Questa operazione può essere eseguita tramite PowerShell o eseguendo direttamente l'invio all'API. La convalida della catena di certificati verrà quindi disabilitata e si consentirà l'utilizzo di certificati autofirmati o firmati privatamente per le comunicazioni da Gestione API ai servizi back-end.

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.author: mbaldwin
 author: msmbaldwin
 ms.date: 09/30/2020
-ms.openlocfilehash: c3ffbba9546ada54a42c3f2c2aa5d98da599b353
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: b9c249bedd0432458b3e6f5c010cdc5ff39dff44
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107749733"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107815667"
 ---
 # <a name="azure-key-vault-recovery-management-with-soft-delete-and-purge-protection"></a>Azure Key Vault gestione del ripristino con protezione da eliminazione e ripulitura soft
 
@@ -38,10 +38,10 @@ Per altre informazioni sui Key Vault, vedere
 
 ## <a name="what-are-soft-delete-and-purge-protection"></a>Informazioni sulla protezione da eliminazione e ripulitura
 
-[La protezione da eliminazione](soft-delete-overview.md) e ripulitura soft è due diverse funzionalità di ripristino dell'insieme di credenziali delle chiavi.
+[La protezione dell'eliminazione](soft-delete-overview.md) e dell'eliminazione soft sono due diverse funzionalità di ripristino dell'insieme di credenziali delle chiavi.
 
 > [!IMPORTANT]
-> L'attivazione dell'eliminazione soft è fondamentale per garantire che gli insiemi di credenziali delle chiavi e le credenziali siano protetti da eliminazioni accidentali. Tuttavia, l'attivazione dell'eliminazione software è considerata una modifica di rilievo perché potrebbe essere necessario modificare la logica dell'applicazione o fornire autorizzazioni aggiuntive alle entità servizio. Prima di attivare l'eliminazione software usando le istruzioni riportate di seguito, assicurarsi che l'applicazione sia compatibile con la modifica usando questo [ **documento qui.**](soft-delete-change.md)
+> L'attivazione dell'eliminazione soft è fondamentale per garantire che gli insiemi di credenziali delle chiavi e le credenziali siano protetti dall'eliminazione accidentale. Tuttavia, l'attivazione dell'eliminazione software è considerata una modifica di rilievo perché potrebbe essere necessario modificare la logica dell'applicazione o fornire autorizzazioni aggiuntive alle entità servizio. Prima di attivare l'eliminazione software usando le istruzioni riportate di seguito, assicurarsi che l'applicazione sia compatibile con la modifica usando questo [ **documento qui.**](soft-delete-change.md)
 
 **L'eliminazione** soft è progettata per impedire l'eliminazione accidentale dell'insieme di credenziali delle chiavi e delle chiavi, dei segreti e dei certificati archiviati all'interno dell'insieme di credenziali delle chiavi. Si pensi all'eliminazione soft come a un cestino. Quando si elimina un insieme di credenziali delle chiavi o un oggetto dell'insieme di credenziali delle chiavi, questo rimarrà recuperabile per un periodo di conservazione configurabile dall'utente o per un valore predefinito di 90 giorni. Gli insiemi di credenziali delle chiavi nello stato eliminato temporaneamente possono anche essere **eliminati** definitivamente. In questo modo è possibile ricreare gli insiemi di credenziali delle chiavi e gli oggetti dell'insieme di credenziali delle chiavi con lo stesso nome. Sia il ripristino che l'eliminazione di insiemi di credenziali delle chiavi e oggetti richiedono autorizzazioni elevate per i criteri di accesso. **Una volta abilitata, l'eliminazione soft non può essere disabilitata.**
 
@@ -64,7 +64,7 @@ Per altre informazioni sull'eliminazione soft, vedere Azure Key Vault [panoramic
 1. Verificare se il pulsante di opzione accanto all'eliminazione soft è impostato su "Abilita ripristino".
 1. Se l'eliminazione soft non è abilitata nell'insieme di credenziali delle chiavi, fare clic sul pulsante di opzione per abilitare l'eliminazione soft e fare clic su "Salva".
 
-:::image type="content" source="../media/key-vault-recovery-1.png" alt-text="In Proprietà è evidenziata l'eliminazione soft, così come il valore per abilitarla.":::
+:::image type="content" source="../media/key-vault-recovery-1.png" alt-text="In Proprietà è evidenziata l'opzione Eliminazione soft, così come il valore per abilitarla.":::
 
 ## <a name="grant-access-to-a-service-principal-to-purge-and-recover-deleted-secrets"></a>Concedere l'accesso a un'entità servizio per ripulire e recuperare i segreti eliminati
 
@@ -102,7 +102,7 @@ Per altre informazioni sull'eliminazione soft, vedere Azure Key Vault [panoramic
 1. Selezionare l'insieme di credenziali delle chiavi.
 1. Selezionare il pannello corrispondente al tipo di segreto che si vuole gestire (chiavi, segreti o certificati).
 1. Nella parte superiore della schermata fare clic su "Gestisci elementi eliminati (chiavi, segreti o certificati)
-1. Sul lato destro dello schermo verrà visualizzato un riquadro contestuale.
+1. Sul lato destro dello schermo verrà visualizzato un riquadro di contesto.
 1. Se il segreto, la chiave o il certificato non viene visualizzato nell'elenco, non si trova nello stato di eliminazione soft.
 1. Selezionare il segreto, la chiave o il certificato che si vuole gestire.
 1. Selezionare l'opzione per il ripristino o l'eliminazione nella parte inferiore del riquadro del contesto.
@@ -385,7 +385,7 @@ Per altre informazioni sull'eliminazione soft, vedere Azure Key Vault [panoramic
   Undo-AzKeyVaultSecretRemoval -VaultName ContosoVault -Name SQLPAssword
   ```
 
-* Ripulire un segreto in stato **eliminato (AVVISO! QUESTA OPERAZIONE ELIMINERÀ DEFINITIVAMENTE LA CHIAVE.**
+* Ripulire un segreto nello stato **eliminato (AVVISO! QUESTA OPERAZIONE ELIMINERÀ DEFINITIVAMENTE LA CHIAVE.**
 
   ```powershell
   Remove-AzKeyVaultSecret -VaultName ContosoVault -InRemovedState -name SQLPassword
@@ -398,6 +398,5 @@ Per altre informazioni sull'eliminazione soft, vedere Azure Key Vault [panoramic
 - [Key Vault dell'interfaccia della riga di comando di Azure](/cli/azure/keyvault)
 - [Backup di Azure Key Vault](backup.md)
 - [Come abilitare la registrazione di Key Vault](howto-logging.md)
-- [Proteggere l'accesso a un insieme di credenziali delle chiavi](security-overview.md)
+- [Azure Key Vault di sicurezza](security-features.md)
 - [Guida per gli sviluppatori per Azure Key Vault](developers-guide.md)
-- [Procedure consigliate per l'uso di un insieme di credenziali delle chiavi](security-overview.md)

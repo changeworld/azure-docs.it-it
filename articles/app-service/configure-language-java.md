@@ -1,6 +1,6 @@
 ---
 title: Configurare le app Java
-description: Informazioni su come configurare le app Java per l'esecuzione Servizio app di Azure. Questo articolo illustra le attività di configurazione più comuni.
+description: Informazioni su come configurare le app Java per l'esecuzione in Servizio app di Azure. Questo articolo illustra le attività di configurazione più comuni.
 keywords: servizio app di Azure, app Web, windows, oss, java, tomcat, jboss
 author: jasonfreeberg
 ms.devlang: java
@@ -11,31 +11,31 @@ ms.reviewer: cephalin
 ms.custom: seodec18, devx-track-java, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
 adobe-target: true
-ms.openlocfilehash: cbf530b31797c2c72496548b3ed8f2928378ce9f
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 134ac04c4f6fb5f0e38a868adc735fc816fbc875
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107779490"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107829513"
 ---
 # <a name="configure-a-java-app-for-azure-app-service"></a>Configurare un'app Java per il servizio app di Azure
 
 Servizio app di Azure consente agli sviluppatori Java di compilare, distribuire e ridimensionare rapidamente le applicazioni Web Java SE, Tomcat e JBoss EAP in un servizio completamente gestito. Distribuire applicazioni con plug-in Maven, dalla riga di comando o in editor come IntelliJ, Eclipse o Visual Studio Code.
 
-Questa guida fornisce i concetti chiave e le istruzioni per gli sviluppatori Java che usano il servizio app. Se non si è mai usato Servizio app di Azure, è consigliabile leggere prima l'avvio [rapido per Java.](quickstart-java.md) Le domande generali sull'uso del servizio app non specifiche per lo sviluppo Java sono disponibili nelle domande [frequenti sul servizio app.](faq-configuration-and-management.md)
+Questa guida fornisce i concetti chiave e le istruzioni per gli sviluppatori Java che usano il servizio app. Se non si è mai usato Servizio app di Azure, leggere prima l'avvio rapido [di Java.](quickstart-java.md) Per domande generali sull'uso del servizio app non specifiche dello sviluppo Java, vedere Domande [frequenti sul servizio app](faq-configuration-and-management.md).
 
 ## <a name="deploying-your-app"></a>Distribuzione dell'app
 
-È possibile usare [il plug-in app Web di Azure per Maven](https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md) per distribuire i file war o jar. La distribuzione con gli ID più diffusi è supportata anche con [Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/) o [Azure Toolkit for Eclipse](/azure/developer/java/toolkit-for-eclipse).
+È possibile usare [il plug-in app Web](https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md) di Azure per Maven per distribuire i file con estensione war o jar. La distribuzione con GLID più diffusi è supportata anche con Azure Toolkit for IntelliJ [o](/azure/developer/java/toolkit-for-intellij/) [Azure Toolkit for Eclipse](/azure/developer/java/toolkit-for-eclipse).
 
 Altrimenti, il metodo di distribuzione dipenderà dal tipo di archivio:
 
 ### <a name="java-se"></a>Java SE
 
-Per distribuire i file con estensione jar in Java SE, usare `/api/zipdeploy/` l'endpoint del sito Kudu. Per altre informazioni su questa API, vedere [questa documentazione](./deploy-zip.md#rest). 
+Per distribuire file con estensione jar in Java SE, usare `/api/zipdeploy/` l'endpoint del sito Kudu. Per altre informazioni su questa API, vedere [questa documentazione](./deploy-zip.md#rest). 
 
 > [!NOTE]
->  Per identificare ed eseguire l'applicazione, il servizio app deve avere un nome `app.jar` per l'applicazione con estensione jar. Il plug-in Maven (menzionato in precedenza) rinomina automaticamente l'applicazione durante la distribuzione. Se non si vuole rinominare il file JAR in *app.jar,* è possibile caricare uno script della shell con il comando per eseguire l'app con estensione jar. Incollare il percorso assoluto di questo script nella casella [di testo File di](faq-app-service-linux.md#built-in-images) avvio nella sezione Configurazione del portale. Lo script di avvio non viene eseguito dalla directory in cui si trova. Pertanto, usare sempre percorsi assoluti per fare riferimento ai file dello script di avvio, ad esempio `java -jar /home/myapp/myapp.jar`.
+>  Per identificare ed eseguire l'applicazione, è necessario che il servizio app sia denominato `app.jar` . Il plug-in Maven (menzionato in precedenza) rinomina automaticamente l'applicazione durante la distribuzione. Se non si vuole rinominare il file JAR in *app.jar,* è possibile caricare uno script della shell con il comando per eseguire l'app con estensione jar. Incollare il percorso assoluto di questo script nella casella [di testo File di](faq-app-service-linux.md#built-in-images) avvio nella sezione Configurazione del portale. Lo script di avvio non viene eseguito dalla directory in cui si trova. Pertanto, usare sempre percorsi assoluti per fare riferimento ai file dello script di avvio, ad esempio `java -jar /home/myapp/myapp.jar`.
 
 ### <a name="tomcat"></a>Tomcat
 
@@ -45,9 +45,9 @@ Per distribuire file con estensione war in Tomcat, usare l'endpoint `/api/wardep
 
 ### <a name="jboss-eap"></a>JBoss EAP
 
-Per distribuire file war in JBoss, usare `/api/wardeploy/` l'endpoint per pubblicare il file di archivio. Per altre informazioni su questa API, vedere [questa documentazione](./deploy-zip.md#deploy-war-file).
+Per distribuire i file war in JBoss, usare `/api/wardeploy/` l'endpoint per pubblicare il file di archivio. Per altre informazioni su questa API, vedere [questa documentazione](./deploy-zip.md#deploy-war-file).
 
-Per distribuire i file con estensione ear, [usare FTP.](deploy-ftp.md)
+Per distribuire i file con estensione ear, [usare FTP](deploy-ftp.md).
 
 ::: zone-end
 
@@ -86,15 +86,15 @@ Le immagini Java integrate sono basate sul sistema operativo [Alpine Linux](http
 
 ### <a name="flight-recorder"></a>Flight Recorder
 
-Tutti i runtime Java nel servizio app che usano JVM Azul sono associati a Zulu Flight Recorder. È possibile usarlo per registrare eventi JVM, di sistema e dell'applicazione e risolvere i problemi nelle applicazioni Java.
+Tutti i runtime Java nel servizio app che usano IMM Azul sono associati a Zulu Flight Recorder. È possibile usarlo per registrare eventi JVM, sistema e applicazione e risolvere i problemi nelle applicazioni Java.
 
 ::: zone pivot="platform-windows"
 
 #### <a name="timed-recording"></a>Registrazione temporizzata
 
-Per eseguire una registrazione programmata, è necessario il PID (ID processo) dell'applicazione Java. Per trovare il PID, aprire un browser nel sito SCM dell'app Web all'indirizzo https://<nome-sito>.scm.azurewebsites.net/ProcessExplorer/. Questa pagina mostra i processi in esecuzione nell'app Web. Trovare il processo denominato "java" nella tabella e copiare il PID (ID processo) corrispondente.
+Per eseguire una registrazione a tempo, è necessario il PID (ID processo) dell'applicazione Java. Per trovare il PID, aprire un browser nel sito SCM dell'app Web all'indirizzo https://<nome-sito>.scm.azurewebsites.net/ProcessExplorer/. Questa pagina mostra i processi in esecuzione nell'app Web. Trovare il processo denominato "java" nella tabella e copiare il PID corrispondente (ID processo).
 
-Aprire quindi il **Console di debug** sulla barra degli strumenti superiore del sito SCM ed eseguire il comando seguente. Sostituire `<pid>` con l'ID processo copiato in precedenza. Questo comando avvia una registrazione del profiler di 30 secondi dell'applicazione Java e genera un file `timed_recording_example.jfr` denominato nella `D:\home` directory .
+Aprire quindi il **Console di debug** nella barra degli strumenti superiore del sito di Gestione controllo servizi ed eseguire il comando seguente. Sostituire `<pid>` con l'ID processo copiato in precedenza. Questo comando avvia una registrazione del profiler di 30 secondi dell'applicazione Java e genera un file `timed_recording_example.jfr` denominato nella `D:\home` directory .
 
 ```
 jcmd <pid> JFR.start name=TimedRecording settings=profile duration=30s filename="D:\home\timed_recording_example.JFR"
@@ -103,7 +103,7 @@ jcmd <pid> JFR.start name=TimedRecording settings=profile duration=30s filename=
 ::: zone-end
 ::: zone pivot="platform-linux"
 
-Eseguire SSH nel servizio app ed eseguire il `jcmd` comando per visualizzare un elenco di tutti i processi Java in esecuzione. Oltre a jcmd, l'applicazione Java dovrebbe essere in esecuzione con un numero ID processo (PID).
+Accedere tramite SSH al servizio app ed eseguire `jcmd` il comando per visualizzare un elenco di tutti i processi Java in esecuzione. Oltre a jcmd, l'applicazione Java dovrebbe essere in esecuzione con un numero ID processo (PID).
 
 ```shell
 078990bbcd11:/home# jcmd
@@ -170,7 +170,7 @@ Il Servizio app di Azure per Linux supporta l'ottimizzazione e la personalizzazi
 
 ### <a name="set-java-runtime-options"></a>Impostare le opzioni di runtime Java
 
-Per impostare la memoria allocata o altre opzioni di runtime JVM, creare [un'impostazione dell'app](configure-common.md#configure-app-settings) `JAVA_OPTS` denominata con le opzioni. Il servizio app passa questa impostazione come variabile di ambiente al runtime Java all'avvio.
+Per impostare la memoria allocata o altre opzioni di runtime JVM, creare [un'impostazione dell'app](configure-common.md#configure-app-settings) `JAVA_OPTS` denominata con le opzioni . Il servizio app passa questa impostazione come variabile di ambiente al runtime Java all'avvio.
 
 Nel portale di Azure, sotto **Impostazioni applicazione** per l'app Web creare una nuova impostazione dell'app denominata `JAVA_OPTS` che includa le impostazioni aggiuntive, ad esempio `-Xms512m -Xmx1204m`.
 
@@ -231,7 +231,7 @@ Per migliorare le prestazioni delle applicazioni Tomcat, è possibile compilare 
 
 ## <a name="secure-applications"></a>Proteggere le applicazioni
 
-Le applicazioni Java in esecuzione nel servizio app hanno lo stesso set di procedure consigliate per [la sicurezza](../security/fundamentals/paas-applications-using-app-services.md) di altre applicazioni.
+Le applicazioni Java in esecuzione nel servizio app hanno lo stesso set di [procedure consigliate per la sicurezza](../security/fundamentals/paas-applications-using-app-services.md) delle altre applicazioni.
 
 ### <a name="authenticate-users-easy-auth"></a>Autenticare gli utenti (Easy Auth)
 
@@ -342,7 +342,7 @@ Questa sezione illustra come connettere le applicazioni Java distribuite nel Ser
 7. Nel portale di Azure passare all'applicazione nel servizio app e creare una nuova impostazione dell'applicazione.
 
     - Per **le app Java SE,** creare una variabile di ambiente denominata con il valore `JAVA_OPTS` `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar` .
-    - Per **Tomcat** creare una variabile di ambiente denominata `CATALINA_OPTS` con il valore `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar` .
+    - Per **Tomcat,** creare una variabile di ambiente `CATALINA_OPTS` denominata con il valore `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar` .
 
 ::: zone-end
 ::: zone pivot="platform-linux"
@@ -356,7 +356,7 @@ Questa sezione illustra come connettere le applicazioni Java distribuite nel Ser
 7. Nel portale di Azure passare all'applicazione nel servizio app e creare una nuova impostazione dell'applicazione.
    
     - Per **le app Java SE,** creare una variabile di ambiente denominata con il valore `JAVA_OPTS` `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar` .
-    - Per **Tomcat** creare una variabile di ambiente denominata `CATALINA_OPTS` con il valore `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar` .
+    - Per **Tomcat,** creare una variabile di ambiente `CATALINA_OPTS` denominata con il valore `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar` .
 
 ::: zone-end
 
@@ -368,7 +368,7 @@ Questa sezione illustra come connettere le applicazioni Java distribuite nel Ser
 
 1. Creare un account AppDynamics in [AppDynamics.com](https://www.appdynamics.com/community/register/)
 2. Scaricare l'agente Java dal sito Web di AppDynamics, il nome file sarà simile a *AppServerAgent-x.x.x.xxxxx.zip*
-3. Usare la [console kudu](https://github.com/projectkudu/kudu/wiki/Kudu-console) per creare una nuova directory */home/site/wwwroot/apm*.
+3. Usare la [console Kudu](https://github.com/projectkudu/kudu/wiki/Kudu-console) per creare una nuova directory */home/site/wwwroot/apm*.
 4. Caricare i file dell'agente Java decompressi in una directory in */home/site/wwwroot/apm*. I file per l'agente devono trovarsi in */home/site/wwwroot/apm/appdynamics*.
 5. Nel portale di Azure passare all'applicazione nel servizio app e creare una nuova impostazione dell'applicazione.
 
@@ -464,6 +464,232 @@ Determinare quindi se l'origine dati deve essere disponibile per un'applicazione
         <resource-env-ref-type>javax.sql.DataSource</resource-env-ref-type>
     </resource-env-ref>
     ```
+
+#### <a name="shared-server-level-resources"></a>Risorse a livello di server condiviso
+
+Le installazioni tomcat nel servizio app in Windows sono presenti nello spazio condiviso nel piano di servizio app. Non è possibile modificare direttamente un'installazione tomcat per la configurazione a livello di server. Per apportare modifiche alla configurazione a livello di server all'installazione di Tomcat, è necessario copiare Tomcat in una cartella locale in cui è possibile modificare la configurazione di Tomcat. 
+
+##### <a name="automate-creating-custom-tomcat-on-app-start"></a>Automatizzare la creazione di Tomcat personalizzati all'avvio dell'app
+
+È possibile usare uno script di avvio per eseguire azioni prima dell'avvio di un'app Web. Lo script di avvio per la personalizzazione di Tomcat deve completare i passaggi seguenti:
+
+1. Controllare se Tomcat è già stato copiato e configurato in locale. In caso contrario, lo script di avvio può terminare qui.
+2. Copiare Tomcat in locale.
+3. Apportare le modifiche di configurazione necessarie.
+4. Indicare che la configurazione è stata completata correttamente.
+
+Ecco uno script di PowerShell che completa questi passaggi:
+
+```powershell
+    # Check for marker file indicating that config has already been done
+    if(Test-Path "$LOCAL_EXPANDED\tomcat\config_done_marker"){
+        return 0
+    }
+
+    # Delete previous Tomcat directory if it exists
+    # In case previous config could not be completed or a new config should be forcefully installed
+    if(Test-Path "$LOCAL_EXPANDED\tomcat"){
+        Remove-Item "$LOCAL_EXPANDED\tomcat" --recurse
+    }
+
+    # Copy Tomcat to local
+    # Using the environment variable $AZURE_TOMCAT90_HOME uses the 'default' version of Tomcat
+    Copy-Item -Path "$AZURE_TOMCAT90_HOME\*" -Destination "$LOCAL_EXPANDED\tomcat" -Recurse
+
+    # Perform the required customization of Tomcat
+    {... customization ...}
+
+    # Mark that the operation was a success
+    New-Item -Path "$LOCAL_EXPANDED\tomcat\config_done_marker" -ItemType File
+```
+
+##### <a name="transforms"></a>Trasformazioni
+
+Un caso d'uso comune per la personalizzazione di una versione di Tomcat è la modifica dei file di configurazione `server.xml` `context.xml` , o `web.xml` Tomcat. Il servizio app modifica già questi file per fornire funzionalità della piattaforma. Per continuare a usare queste funzionalità, è importante mantenere il contenuto di questi file quando si apportano modifiche. A tale scopo, è consigliabile usare una [trasformazione XSL (XSLT).](https://www.w3schools.com/xml/xsl_intro.asp) Usare una trasformazione XSL per apportare modifiche ai file XML mantenendo il contenuto originale del file.
+
+###### <a name="example-xslt-file"></a>File XSLT di esempio
+
+Questa trasformazione di esempio aggiunge un nuovo nodo connettore a `server.xml` . Si noti *la trasformazione Identità*, che mantiene il contenuto originale del file.
+
+```xml
+    <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+    <xsl:output method="xml" indent="yes"/>
+  
+    <!-- Identity transform: this ensures that the original contents of the file are included in the new file -->
+    <!-- Ensure that your transform files include this block -->
+    <xsl:template match="@* | node()" name="Copy">
+      <xsl:copy>
+        <xsl:apply-templates select="@* | node()"/>
+      </xsl:copy>
+    </xsl:template>
+  
+    <xsl:template match="@* | node()" mode="insertConnector">
+      <xsl:call-template name="Copy" />
+    </xsl:template>
+  
+    <xsl:template match="comment()[not(../Connector[@scheme = 'https']) and
+                                   contains(., '&lt;Connector') and
+                                   (contains(., 'scheme=&quot;https&quot;') or
+                                    contains(., &quot;scheme='https'&quot;))]">
+      <xsl:value-of select="." disable-output-escaping="yes" />
+    </xsl:template>
+  
+    <xsl:template match="Service[not(Connector[@scheme = 'https'] or
+                                     comment()[contains(., '&lt;Connector') and
+                                               (contains(., 'scheme=&quot;https&quot;') or
+                                                contains(., &quot;scheme='https'&quot;))]
+                                    )]
+                        ">
+      <xsl:copy>
+        <xsl:apply-templates select="@* | node()" mode="insertConnector" />
+      </xsl:copy>
+    </xsl:template>
+  
+    <!-- Add the new connector after the last existing Connnector if there is one -->
+    <xsl:template match="Connector[last()]" mode="insertConnector">
+      <xsl:call-template name="Copy" />
+  
+      <xsl:call-template name="AddConnector" />
+    </xsl:template>
+  
+    <!-- ... or before the first Engine if there is no existing Connector -->
+    <xsl:template match="Engine[1][not(preceding-sibling::Connector)]"
+                  mode="insertConnector">
+      <xsl:call-template name="AddConnector" />
+  
+      <xsl:call-template name="Copy" />
+    </xsl:template>
+  
+    <xsl:template name="AddConnector">
+      <!-- Add new line -->
+      <xsl:text>&#xa;</xsl:text>
+      <!-- This is the new connector -->
+      <Connector port="8443" protocol="HTTP/1.1" SSLEnabled="true" 
+                 maxThreads="150" scheme="https" secure="true" 
+                 keystroreFile="${{user.home}}/.keystore" keystorePass="changeit"
+                 clientAuth="false" sslProtocol="TLS" />
+    </xsl:template>
+
+</xsl:stylesheet>
+```
+
+###### <a name="function-for-xsl-transform"></a>Funzione per la trasformazione XSL
+
+PowerShell include strumenti predefiniti per la trasformazione di file XML tramite trasformazioni XSL. Lo script seguente è una funzione di esempio che è possibile usare in `startup.ps1` per eseguire la trasformazione:
+
+```powershell
+    function TransformXML{
+        param ($xml, $xsl, $output)
+
+        if (-not $xml -or -not $xsl -or -not $output)
+        {
+            return 0
+        }
+
+        Try
+        {
+            $xslt_settings = New-Object System.Xml.Xsl.XsltSettings;
+            $XmlUrlResolver = New-Object System.Xml.XmlUrlResolver;
+            $xslt_settings.EnableScript = 1;
+
+            $xslt = New-Object System.Xml.Xsl.XslCompiledTransform;
+            $xslt.Load($xsl,$xslt_settings,$XmlUrlResolver);
+            $xslt.Transform($xml, $output);
+
+        }
+
+        Catch
+        {
+            $ErrorMessage = $_.Exception.Message
+            $FailedItem = $_.Exception.ItemName
+            Write-Host  'Error'$ErrorMessage':'$FailedItem':' $_.Exception;
+            return 0
+        }
+        return 1
+    }
+```
+
+##### <a name="app-settings"></a>Impostazioni app
+
+La piattaforma deve anche sapere dove è installata la versione personalizzata di Tomcat. È possibile impostare il percorso di installazione `CATALINA_BASE` nell'impostazione dell'app.
+
+È possibile usare l'interfaccia della riga di comando di Azure per modificare questa impostazione:
+
+```powershell
+    az webapp config appsettings set -g $MyResourceGroup -n $MyUniqueApp --settings CATALINA_BASE="%LOCAL_EXPANDED%\tomcat"
+```
+
+In caso contrario, è possibile modificare manualmente l'impostazione nel portale di Azure:
+
+1. Passare a Impostazioni **Configurazione**  >    >  **Impostazioni applicazione**.
+1. Selezionare **Nuova impostazione applicazione.**
+1. Usare questi valori per creare l'impostazione:
+   1. **Nome**: `CATALINA_BASE`
+   1. **Valore**: `"%LOCAL_EXPANDED%\tomcat"`
+
+##### <a name="example-startupps1"></a>Esempio startup.ps1
+
+Lo script di esempio seguente copia un tomcat personalizzato in una cartella locale, esegue una trasformazione XSL e indica che la trasformazione è riuscita:
+
+```powershell
+    # Locations of xml and xsl files
+    $target_xml="$LOCAL_EXPANDED\tomcat\conf\server.xml"
+    $target_xsl="$HOME\site\server.xsl"
+
+    # Define the transform function
+    # Useful if transforming multiple files
+    function TransformXML{
+        param ($xml, $xsl, $output)
+
+        if (-not $xml -or -not $xsl -or -not $output)
+        {
+            return 0
+        }
+
+        Try
+        {
+            $xslt_settings = New-Object System.Xml.Xsl.XsltSettings;
+            $XmlUrlResolver = New-Object System.Xml.XmlUrlResolver;
+            $xslt_settings.EnableScript = 1;
+
+            $xslt = New-Object System.Xml.Xsl.XslCompiledTransform;
+            $xslt.Load($xsl,$xslt_settings,$XmlUrlResolver);
+            $xslt.Transform($xml, $output);
+        }
+
+        Catch
+        {
+            $ErrorMessage = $_.Exception.Message
+            $FailedItem = $_.Exception.ItemName
+            Write-Host  'Error'$ErrorMessage':'$FailedItem':' $_.Exception;
+            return 0
+        }
+        return 1
+    }
+
+    # Check for marker file indicating that config has already been done
+    if(Test-Path "$LOCAL_EXPANDED\tomcat\config_done_marker"){
+        return 0
+    }
+
+    # Delete previous Tomcat directory if it exists
+    # In case previous config could not be completed or a new config should be forcefully installed
+    if(Test-Path "$LOCAL_EXPANDED\tomcat"){
+        Remove-Item "$LOCAL_EXPANDED\tomcat" --recurse
+    }
+
+    # Copy Tomcat to local
+    # Using the environment variable $AZURE_TOMCAT90_HOME uses the 'default' version of Tomcat
+    Copy-Item -Path "$AZURE_TOMCAT90_HOME\*" -Destination "$LOCAL_EXPANDED\tomcat" -Recurse
+
+    # Perform the required customization of Tomcat
+    $success = TransformXML -xml $target_xml -xsl $target_xsl -output $target_xml
+
+    # Mark that the operation was a success if successful
+    if($success){
+        New-Item -Path "$LOCAL_EXPANDED\tomcat\config_done_marker" -ItemType File
+    }
+```
 
 #### <a name="finalize-configuration"></a>Completare la configurazione
 
@@ -675,14 +901,14 @@ Per la registrazione di un'origine dati con [JBoss EAP](https://access.redhat.co
     data-source add --name=postgresDS --driver-name=postgres --jndi-name=java:jboss/datasources/postgresDS --connection-url=${POSTGRES_CONNECTION_URL,env.POSTGRES_CONNECTION_URL:jdbc:postgresql://db:5432/postgres} --user-name=${POSTGRES_SERVER_ADMIN_FULL_NAME,env.POSTGRES_SERVER_ADMIN_FULL_NAME:postgres} --password=${POSTGRES_SERVER_ADMIN_PASSWORD,env.POSTGRES_SERVER_ADMIN_PASSWORD:example} --use-ccm=true --max-pool-size=5 --blocking-timeout-wait-millis=5000 --enabled=true --driver-class=org.postgresql.Driver --exception-sorter-class-name=org.jboss.jca.adapters.jdbc.extensions.postgres.PostgreSQLExceptionSorter --jta=true --use-java-context=true --valid-connection-checker-class-name=org.jboss.jca.adapters.jdbc.extensions.postgres.PostgreSQLValidConnectionChecker
     ```
 
-1. Creare uno script di avvio che `startup_script.sh` chiama i comandi dell'interfaccia della riga di comando di JBoss. L'esempio seguente illustra come chiamare `jboss-cli-commands.cli` . Successivamente si eseguirà la configurazione del servizio app per eseguire questo script all'avvio del contenitore. 
+1. Creare uno script di avvio che `startup_script.sh` chiama i comandi dell'interfaccia della riga di comando di JBoss. Nell'esempio seguente viene illustrato come chiamare `jboss-cli-commands.cli` . Successivamente si creerà il servizio app per eseguire questo script all'avvio del contenitore. 
 
     ```bash
     $JBOSS_HOME/bin/jboss-cli.sh --connect --file=/home/site/deployments/tools/jboss-cli-commands.cli
     ```
 
 1. Usando un client FTP di propria scelta, caricare il driver JDBC, `jboss-cli-commands.cli` , e la definizione del modulo in `startup_script.sh` `/site/deployments/tools/` .
-2. Configurare il sito per l'esecuzione `startup_script.sh` all'avvio del contenitore. Nel portale di Azure passare a **Configuration**  >  **General Settings** Startup Command (Comando di avvio delle  >  **impostazioni generali di configurazione).** Impostare il campo del comando di avvio su `/home/site/deployments/tools/startup_script.sh` . **Salvare** le modifiche.
+2. Configurare il sito per l'esecuzione `startup_script.sh` all'avvio del contenitore. Nel portale di Azure passare **a** Configuration General Settings Startup  >  Command (Comando di avvio delle **impostazioni** generali  >  **di configurazione).** Impostare il campo del comando di avvio su `/home/site/deployments/tools/startup_script.sh` . **Salvare** le modifiche.
 
 Per verificare che l'origine dati sia stata aggiunta al server JBoss, eseguire SSH nell'app Web ed eseguire `$JBOSS_HOME/bin/jboss-cli.sh --connect` . Dopo aver eseguito la connessione a JBoss, eseguire `/subsystem=datasources:read-resource` per stampare un elenco delle origini dati.
 
@@ -694,11 +920,11 @@ Per verificare che l'origine dati sia stata aggiunta al server JBoss, eseguire S
 
 Il servizio app consente agli utenti di scegliere la versione principale della JVM, ad esempio Java 8 o Java 11, nonché la versione secondaria, ad esempio 1.8.0_232 o 11.0.5. È anche possibile scegliere di aggiornare automaticamente la versione secondaria quando diventano disponibili nuove versioni secondarie. Nella maggior parte dei casi, i siti di produzione devono usare versioni JVM secondarie aggiunte. Ciò impedirà interruzioni impreviste durante un aggiornamento automatico della versione secondaria.
 
-Se si sceglie di aggiungere la versione secondaria, sarà necessario aggiornare periodicamente la versione secondaria JVM nel sito. Per assicurarsi che l'applicazione venga eseguita nella versione secondaria più recente, creare uno slot di staging e incrementare la versione secondaria nel sito di staging. Dopo aver confermato che l'applicazione viene eseguita correttamente nella nuova versione secondaria, è possibile scambiare gli slot di gestione temporanea e di produzione.
+Se si sceglie di aggiungere la versione secondaria, sarà necessario aggiornare periodicamente la versione secondaria JVM nel sito. Per assicurarsi che l'applicazione venga eseguita nella versione secondaria più recente, creare uno slot di staging e incrementare la versione secondaria nel sito di staging. Dopo aver confermato che l'applicazione viene eseguita correttamente nella nuova versione secondaria, è possibile scambiare gli slot di staging e di produzione.
 
-## <a name="jboss-eap-hardware-options"></a>Opzioni hardware EAP JBoss
+## <a name="jboss-eap-hardware-options"></a>Opzioni hardware JBoss EAP
 
-JBoss EAP è disponibile solo nelle opzioni hardware Premium e Isolated. I clienti che hanno creato un sito EAP JBoss su un livello Gratuito, Condiviso, Basic o Standard durante l'anteprima pubblica devono aumentare fino al livello hardware Premium o Isolato per evitare comportamenti imprevisti.
+JBoss EAP è disponibile solo nelle opzioni hardware Premium e Isolato. I clienti che hanno creato un sito JBoss EAP a un livello Gratuito, Condiviso, Basic o Standard durante l'anteprima pubblica devono aumentare al livello hardware Premium o Isolato per evitare comportamenti imprevisti.
 
 ## <a name="java-runtime-statement-of-support"></a>Istruzione di supporto del runtime Java
 
@@ -714,7 +940,7 @@ Ai pacchetti JDK supportati vengono automaticamente applicate patch con cadenza 
 
 Le patch e le correzioni per le principali vulnerabilità della sicurezza verranno rilasciate da Azul Systems non appena disponibili. Una vulnerabilità "principale" viene definita da un punteggio di base pari o superiore a 9,0 in [NIST Common Vulnerability Scoring System, versione 2](https://nvd.nist.gov/vuln-metrics/cvss).
 
-Tomcat 8.0 ha raggiunto End of Life (EOL) a partire dal [30 settembre 2018.](https://tomcat.apache.org/tomcat-80-eol.html) Mentre il runtime è ancora disponibile in Servizio app di Azure, Azure non applica gli aggiornamenti della sicurezza a Tomcat 8.0. Se possibile, eseguire la migrazione delle applicazioni a Tomcat 8.5 o 9.0. Sia Tomcat 8.5 che 9.0 sono disponibili in Servizio app di Azure. Per altre [informazioni, vedere il sito ufficiale di Tomcat.](https://tomcat.apache.org/whichversion.html) 
+Tomcat 8.0 ha raggiunto la fine della vita (EOL) a partire dal [30 settembre 2018.](https://tomcat.apache.org/tomcat-80-eol.html) Mentre il runtime è ancora disponibile in Servizio app di Azure, Azure non applica gli aggiornamenti della sicurezza a Tomcat 8.0. Se possibile, eseguire la migrazione delle applicazioni a Tomcat 8.5 o 9.0. Tomcat 8.5 e 9.0 sono entrambi disponibili in Servizio app di Azure. Per altre informazioni, vedere il sito ufficiale di [Tomcat.](https://tomcat.apache.org/whichversion.html) 
 
 ### <a name="deprecation-and-retirement"></a>Deprecazione e ritiro
 
@@ -727,7 +953,7 @@ Gli sviluppatori possono scaricare l'edizione Production di Azul Zulu Enterprise
 
 ### <a name="development-support"></a>Supporto per lo sviluppo
 
-Il supporto del prodotto [per Azul Zulu JDK](https://www.azul.com/downloads/azure-only/zulu/) supportato da Azure è disponibile tramite Microsoft quando si sviluppa per Azure o [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) con un piano supporto tecnico di Azure [completo.](https://azure.microsoft.com/support/plans/)
+Il supporto del prodotto per [il JDK Azul Zulu](https://www.azul.com/downloads/azure-only/zulu/) supportato [](https://azure.microsoft.com/overview/azure-stack/) da Azure è disponibile tramite Microsoft durante lo sviluppo per Azure o Azure Stack con un piano di supporto tecnico di Azure [qualificato.](https://azure.microsoft.com/support/plans/)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -3,19 +3,19 @@ title: Come disabilitare le funzioni in Funzioni di Azure
 description: Informazioni su come disabilitare e abilitare le funzioni in Funzioni di Azure.
 ms.topic: conceptual
 ms.date: 03/15/2021
-ms.custom: devx-track-csharp
-ms.openlocfilehash: 03803abfda010c81fa8286a478d626ef39db59fb
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.custom: devx-track-csharp, devx-track-azurepowershell
+ms.openlocfilehash: c4743603504639cba5c48af57046179a0680b371
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107777582"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107829880"
 ---
 # <a name="how-to-disable-functions-in-azure-functions"></a>Come disabilitare le funzioni in Funzioni di Azure
 
 Questo articolo illustra come disabilitare una funzione in Funzioni di Azure. *Disabilitare* una funzione significa fare in modo che il runtime ignori il trigger automatico definito per la funzione. Ciò consente di impedire l'esecuzione di una funzione specifica senza arrestare l'intera app per le funzioni.
 
-Il modo consigliato per disabilitare una funzione è con un'impostazione dell'app nel formato `AzureWebJobs.<FUNCTION_NAME>.Disabled` impostato su `true` . È possibile creare e modificare questa impostazione dell'applicazione in diversi [modi,](https://portal.azure.com)tra  cui usando l'interfaccia della riga di comando di [Azure](/cli/azure/) e dalla scheda Panoramica della funzione nella portale di Azure . 
+Il modo consigliato per disabilitare una funzione è con un'impostazione dell'app nel formato `AzureWebJobs.<FUNCTION_NAME>.Disabled` impostato su `true` . È possibile creare e modificare questa impostazione dell'applicazione in diversi modi, ad  esempio usando l'interfaccia della riga di comando di [Azure](/cli/azure/) e dalla scheda Panoramica della funzione nel portale di Azure [.](https://portal.azure.com) 
 
 > [!NOTE]  
 > Quando si disabilita una funzione attivata tramite HTTP usando i metodi descritti in questo articolo, l'endpoint può ancora essere accessibile quando viene eseguito nel computer locale.  
@@ -24,7 +24,7 @@ Il modo consigliato per disabilitare una funzione è con un'impostazione dell'ap
 
 # <a name="portal"></a>[Portale](#tab/portal)
 
-Usare i **pulsanti** **Abilita e Disabilita** nella pagina Panoramica **della** funzione. Questi pulsanti funzionano modificando il valore `AzureWebJobs.<FUNCTION_NAME>.Disabled` dell'impostazione dell'app. Questa impostazione specifica della funzione viene creata la prima volta che viene disabilitata. 
+Usare i **pulsanti** **Abilita e** Disabilita nella pagina **Panoramica della** funzione. Questi pulsanti funzionano modificando il valore `AzureWebJobs.<FUNCTION_NAME>.Disabled` dell'impostazione dell'app. Questa impostazione specifica della funzione viene creata la prima volta che viene disabilitata. 
 
 ![Opzione Stato funzione](media/disable-function/function-state-switch.png)
 
@@ -35,7 +35,7 @@ Anche quando si pubblica nell'app per le funzioni da un progetto locale, è comu
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azurecli)
 
-Nell'interfaccia della riga di comando di Azure, il comando [`az functionapp config appsettings set`](/cli/azure/functionapp/config/appsettings#az_functionapp_config_appsettings_set) consente di creare e modificare l'impostazione dell'app. Il comando seguente disabilita una funzione denominata creando `QueueTrigger` un'impostazione dell'app denominata `AzureWebJobs.QueueTrigger.Disabled` e impostandola su `true` . 
+Nell'interfaccia della riga di comando di Azure, il comando [`az functionapp config appsettings set`](/cli/azure/functionapp/config/appsettings#az_functionapp_config_appsettings_set) consente di creare e modificare l'impostazione dell'app. Il comando seguente disabilita una funzione denominata `QueueTrigger` creando un'impostazione dell'app denominata `AzureWebJobs.QueueTrigger.Disabled` e impostandola su `true` . 
 
 ```azurecli-interactive
 az functionapp config appsettings set --name <FUNCTION_APP_NAME> \
@@ -53,7 +53,7 @@ az functionapp config appsettings set --name <myFunctionApp> \
 
 # <a name="azure-powershell"></a>[Azure PowerShell](#tab/powershell)
 
-Il [`Update-AzFunctionAppSetting`](/powershell/module/az.functions/update-azfunctionappsetting) comando aggiunge o aggiorna un'impostazione dell'applicazione. Il comando seguente disabilita una funzione denominata creando `QueueTrigger` un'impostazione dell'app denominata `AzureWebJobs.QueueTrigger.Disabled` e impostandola su `true` . 
+Il [`Update-AzFunctionAppSetting`](/powershell/module/az.functions/update-azfunctionappsetting) comando aggiunge o aggiorna un'impostazione dell'applicazione. Il comando seguente disabilita una funzione denominata `QueueTrigger` creando un'impostazione dell'app denominata `AzureWebJobs.QueueTrigger.Disabled` e impostandola su `true` . 
 
 ```azurepowershell-interactive
 Update-AzFunctionAppSetting -Name <FUNCTION_APP_NAME> -ResourceGroupName <RESOURCE_GROUP_NAME> -AppSetting @{"AzureWebJobs.QueueTrigger.Disabled" = "true"}
@@ -68,15 +68,15 @@ Update-AzFunctionAppSetting -Name <FUNCTION_APP_NAME> -ResourceGroupName <RESOUR
 
 ## <a name="functions-in-a-slot"></a>Funzioni in uno slot
 
-Per impostazione predefinita, le impostazioni dell'app si applicano anche alle app in esecuzione negli slot di distribuzione. È tuttavia possibile eseguire l'override dell'impostazione dell'app usata dallo slot impostando un'impostazione dell'app specifica dello slot. Ad esempio, potrebbe essere necessario che una funzione sia attiva nell'ambiente di produzione, ma non durante i test di distribuzione, ad esempio una funzione attivata dal timer. 
+Per impostazione predefinita, le impostazioni dell'app si applicano anche alle app in esecuzione negli slot di distribuzione. È tuttavia possibile eseguire l'override dell'impostazione dell'app usata dallo slot impostando un'impostazione dell'app specifica dello slot. Ad esempio, potrebbe essere necessario che una funzione sia attiva nell'ambiente di produzione, ma non durante i test di distribuzione, ad esempio una funzione attivata da un timer. 
 
 Per disabilitare una funzione solo nello slot di staging:
 
 # <a name="portal"></a>[Portale](#tab/portal)
 
-Passare all'istanza di slot dell'app per le funzioni selezionando Slot **di** distribuzione in **Distribuzione**, scegliendo lo slot e selezionando **Funzioni** nell'istanza dello slot.  Scegliere la funzione, quindi usare i pulsanti **Abilita** **e Disabilita** nella pagina **Panoramica della** funzione. Questi pulsanti funzionano modificando il valore `AzureWebJobs.<FUNCTION_NAME>.Disabled` dell'impostazione dell'app. Questa impostazione specifica della funzione viene creata la prima volta che viene disabilitata. 
+Passare all'istanza dello slot dell'app per le funzioni selezionando **Slot** di distribuzione in **Distribuzione**, scegliendo lo slot e selezionando **Funzioni** nell'istanza dello slot.  Scegliere la funzione, quindi usare **i pulsanti Abilita** e **Disabilita** nella pagina **Panoramica della** funzione. Questi pulsanti funzionano modificando il valore `AzureWebJobs.<FUNCTION_NAME>.Disabled` dell'impostazione dell'app. Questa impostazione specifica della funzione viene creata la prima volta che viene disabilitata. 
 
-È anche possibile aggiungere direttamente l'impostazione dell'app `AzureWebJobs.<FUNCTION_NAME>.Disabled` denominata con il valore di nella configurazione `true` **per** l'istanza dello slot. Quando si aggiunge un'impostazione dell'app specifica dello slot, assicurarsi di selezionare la **casella Impostazione slot di** distribuzione. In questo modo viene mantenuto il valore dell'impostazione con lo slot durante gli scambi.
+È anche possibile aggiungere direttamente l'impostazione dell'app `AzureWebJobs.<FUNCTION_NAME>.Disabled` denominata con il valore di nella configurazione `true` **per** l'istanza dello slot. Quando si aggiunge un'impostazione dell'app specifica dello slot, assicurarsi di selezionare la **casella di impostazione Slot di** distribuzione. In questo modo il valore dell'impostazione viene mantenuto con lo slot durante gli scambi.
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azurecli)
 
@@ -99,11 +99,11 @@ Azure PowerShell attualmente non supporta questa funzionalità.
 
 ---
 
-Per altre informazioni, vedere [Funzioni di Azure slot di distribuzione.](functions-deployment-slots.md)
+Per altre informazioni, vedere Funzioni di Azure [slot di distribuzione](functions-deployment-slots.md).
 
 ## <a name="localsettingsjson"></a>local.settings.json
 
-Le funzioni possono essere disabilitate nello stesso modo quando vengono eseguite in locale. Per disabilitare una funzione denominata , aggiungere una voce alla raccolta `HttpExample` Values nella local.settings.jsnel file , come indicato di seguito:
+Le funzioni possono essere disabilitate nello stesso modo quando vengono eseguite in locale. Per disabilitare una funzione denominata , aggiungere una voce alla raccolta Values nella local.settings.js`HttpExample` nel file , come indicato di seguito:
 
 ```json
 {

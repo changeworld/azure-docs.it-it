@@ -10,16 +10,16 @@ ms.custom: mvc
 ms.date: 04/01/2021
 ms.author: mbaldwin
 author: msmbaldwin
-ms.openlocfilehash: b56031d131743a3dc8c97bcd3e85d4653cdd2833
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: a9df83535bf0ee7a6c484a7682392d2ad0ef59f7
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107484184"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107815325"
 ---
 # <a name="what-is-azure-key-vault-managed-hsm"></a>Che cos'è il modulo di protezione hardware gestito di Azure Key Vault?
 
-Il modulo di protezione hardware gestito di Azure Key Vault è un servizio cloud completamente gestito, a disponibilità elevata, a tenant singolo e conforme agli standard che consente di proteggere le chiavi crittografiche per le applicazioni cloud tramite moduli di protezione hardware convalidati in base agli standard **FIPS 140-2 livello 3**.  
+Il modulo di protezione hardware gestito di Azure Key Vault è un servizio cloud completamente gestito, a disponibilità elevata, a tenant singolo e conforme agli standard che consente di proteggere le chiavi crittografiche per le applicazioni cloud tramite moduli di protezione hardware convalidati in base agli standard **FIPS 140-2 livello 3**. Per informazioni sui prezzi, vedere la sezione Managed HSM Pools [nella Azure Key Vault prezzi.](https://azure.microsoft.com/pricing/details/key-vault/) 
 
 ## <a name="why-use-managed-hsm"></a>Perché usare il modulo di protezione hardware gestito?
 
@@ -36,7 +36,7 @@ Il modulo di protezione hardware gestito di Azure Key Vault è un servizio cloud
 - **Controllo di accesso isolato**: il modello di controllo degli accessi in base al ruolo locale del modulo di protezione hardware gestito consente agli amministratori designati del cluster di moduli di protezione hardware di avere il controllo completo su tali moduli e nemmeno gli amministratori del gruppo di gestione, della sottoscrizione o del gruppo di risorse possono aggirare questo controllo.
 - **Moduli di protezione hardware convalidati in base agli standard FIPS 140-2 livello 3**: è possibile proteggere i dati e soddisfare i requisiti di conformità con i moduli di protezione hardware convalidati in base agli standard FIPS (Federal Information Protection Standard) 140-2 livello 3. I moduli di protezione hardware gestiti usano schede HSM Marvell LiquidSecurity.
 - **Monitoraggio e controllo**: integrazione completa con Monitoraggio di Azure. È possibile ottenere i log completi di tutte le attività tramite Monitoraggio di Azure e usare Azure Log Analytics per l'analisi e gli avvisi.
-- **Residenza dei dati:** il modulo di protezione HSM gestito non archivia/elabora i dati dei clienti all'esterno dell'area in cui il cliente distribuisce l'istanza del modulo di protezione.
+- **Residenza dei dati:** il modulo di protezione hsm gestito non archivia/elabora i dati dei clienti all'esterno dell'area in cui il cliente distribuisce l'istanza HSM.
 
 ### <a name="integrated-with-azure-and-microsoft-paassaas-services"></a>Integrazione con i servizi PaaS/SaaS di Azure e Microsoft 
 

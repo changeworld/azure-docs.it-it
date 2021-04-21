@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-azurecli
 ms.date: 01/27/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 655ea1920fc80c8cd677281f09cfca21120e1d61
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: dc5fa0eeabc437f16ca64c34b4bb72e62c0c3b21
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107726431"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107815019"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-azure-cli"></a>Guida introduttiva: Impostare e recuperare un segreto da Azure Key Vault usando l'interfaccia della riga di comando di Azure
 
@@ -39,7 +39,7 @@ In questo argomento di avvio rapido viene creato un insieme di credenziali delle
 
 Per aggiungere un segreto all'insieme di credenziali, sono sufficienti un paio di passaggi aggiuntivi. Questa password può essere usata da un'applicazione. La password sarà denominata **ExamplePassword** e al suo interno verrà archiviato il valore di **hVFkk965BuUv**.
 
-Usare il comando [az keyvault secret set](/cli/azure/keyvault/secret#az_keyvault_secret_set) dell'interfaccia della riga di comando di Azure seguente per creare un segreto in Key Vault denominato **ExamplePassword** che archivierà il valore **hVFkk965BuUv** :
+Usare il comando [az keyvault secret set](/cli/azure/keyvault/secret#az_keyvault_secret_set) dell'interfaccia della riga di comando di Azure seguente per creare un segreto in Key Vault **denominato ExamplePassword** che archivierà il valore **hVFkk965BuUv** :
 
 ```azurecli
 az keyvault secret set --vault-name "<your-unique-keyvault-name>" --name "ExamplePassword" --value "hVFkk965BuUv"
@@ -68,4 +68,4 @@ In questo argomento di avvio rapido è stata creata un'istanza di Key Vault in c
 - Leggere una [panoramica di Azure Key Vault](../general/overview.md)
 - Informazioni su come [archiviare segreti su più righe in Key Vault](multiline-secrets.md)
 - Vedere le informazioni di riferimento sui [comandi az keyvault dell'interfaccia della riga di comando di Azure](/cli/azure/keyvault)
-- Vedere [Panoramica della sicurezza di Azure Key Vault](../general/security-overview.md)
+- Vedere [Panoramica della sicurezza di Azure Key Vault](../general/security-features.md)

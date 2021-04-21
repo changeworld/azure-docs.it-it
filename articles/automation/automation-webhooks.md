@@ -5,12 +5,13 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/18/2021
 ms.topic: conceptual
-ms.openlocfilehash: c46a8753c87e981d9e3d6ecdd698bbbe6cba9894
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 338fb56c4af5c24b7b746ffd6508c2fe7d52b131
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104775783"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107830197"
 ---
 # <a name="start-a-runbook-from-a-webhook"></a>Avviare un runbook da un webhook
 
@@ -21,7 +22,7 @@ Un webhook consente a un servizio esterno di avviare un runbook specifico in Aut
 
 ![Panoramica dei webhook](media/automation-webhooks/webhook-overview-image.png)
 
-Per informazioni sui requisiti dei client per TLS 1,2 con webhook, vedere l' [imposizione di tls 1,2 per automazione di Azure](automation-managing-data.md#tls-12-enforcement-for-azure-automation).
+Per comprendere i requisiti client per TLS 1.2 con webhook, vedere Imposizione [di TLS 1.2 per](automation-managing-data.md#tls-12-enforcement-for-azure-automation)Automazione di Azure .
 
 ## <a name="webhook-properties"></a>Proprietà dei webhook
 
@@ -87,9 +88,9 @@ Prendere in considerazione le strategie seguenti:
 
 * È possibile includere logica in un runbook per determinare se quest'ultimo viene chiamato da un webhook. Fare in modo che il runbook controlli la proprietà `WebhookName` del parametro `WebhookData`. Il runbook può eseguire ulteriori operazioni di convalida cercando informazioni specifiche nella proprietà `RequestHeader` e `RequestBody`.
 
-* Fare in modo che il Runbook esegua una convalida di una condizione esterna quando riceve una richiesta di webhook. Si consideri ad esempio un runbook chiamato da GitHub ogni volta che viene eseguito un nuovo commit in un repository di GitHub. Il runbook può connettersi a GitHub per verificare che sia stato eseguito un nuovo commit prima di continuare.
+* Chiedere al runbook di eseguire una convalida di una condizione esterna quando riceve una richiesta webhook. Si consideri ad esempio un runbook chiamato da GitHub ogni volta che viene eseguito un nuovo commit in un repository di GitHub. Il runbook può connettersi a GitHub per verificare che sia stato eseguito un nuovo commit prima di continuare.
 
-* Automazione di Azure supporta i tag del servizio rete virtuale di Azure, in particolare [GuestAndHybridManagement](../virtual-network/service-tags-overview.md). È possibile usare i tag di servizio per definire i controlli di accesso alla rete nei [gruppi di sicurezza di rete](../virtual-network/network-security-groups-overview.md#security-rules) o nel firewall di [Azure](../firewall/service-tags.md) e attivare i webhook dall'interno della rete virtuale. I tag di servizio possono essere usati al posto di indirizzi IP specifici quando si creano regole di sicurezza. Specificando il nome del tag del servizio **GuestAndHybridManagement**  nel campo di origine o di destinazione appropriato di una regola, è possibile consentire o negare il traffico per il servizio di automazione. Questo tag di servizio non supporta l'abilitazione di un controllo più granulare limitando gli intervalli IP a un'area specifica.
+* Automazione di Azure supporta i tag del servizio di rete virtuale di Azure, in particolare [GuestAndHybridManagement.](../virtual-network/service-tags-overview.md) È possibile usare i tag di [](../virtual-network/network-security-groups-overview.md#security-rules) servizio per definire i controlli di accesso alla rete nei gruppi di sicurezza di rete [o Firewall di Azure](../firewall/service-tags.md) webhook e attivare webhook dall'interno della rete virtuale. I tag di servizio possono essere usati al posto di indirizzi IP specifici quando si creano regole di sicurezza. Specificando il nome del tag del servizio **GuestAndHybridManagement**  nel campo di origine o destinazione appropriato di una regola, è possibile consentire o negare il traffico per il servizio di automazione. Questo tag di servizio non supporta consentire un controllo più granulare limitando gli intervalli IP a un'area specifica.
 
 ## <a name="create-a-webhook"></a>Creare un webhook
 
@@ -102,7 +103,7 @@ Seguire questa procedura per creare un nuovo webhook collegato a un Runbook nel 
 5. Fare clic sull'icona di copia e premere CTRL+C per copiare l'URL del webhook. Annotarlo in un luogo sicuro. 
 
     > [!IMPORTANT]
-    > Dopo la creazione del webhook, non è possibile recuperare di nuovo l'URL. Assicurarsi di copiarlo e registrarlo come sopra.
+    > Dopo la creazione del webhook, non è possibile recuperare di nuovo l'URL. Assicurarsi di copiarlo e registrarlo come indicato in precedenza.
 
    ![URL webhook](media/automation-webhooks/copy-webhook-url.png)
 
@@ -135,12 +136,12 @@ Se la richiesta ha esito positivo, la risposta del webhook conterrà l'ID del pr
 
 Il client non è in grado di determinare quando viene completato il processo del runbook o lo stato di avanzamento dal webhook. Può recuperare queste informazioni usando l'ID processo con un altro metodo, ad esempio [Windows PowerShell](/powershell/module/servicemanagement/azure.service/get-azureautomationjob) o l'[API di Automazione di Azure](/rest/api/automation/job).
 
-### <a name="use-a-webhook-from-an-arm-template"></a>Usare un webhook da un modello ARM
+### <a name="use-a-webhook-from-an-arm-template"></a>Usare un webhook da un modello di Arm
 
-I webhook di automazione possono anche essere richiamati dai [modelli di Azure Resource Manager (ARM)](/azure/azure-resource-manager/templates/overview). Il modello ARM emette una `POST` richiesta e riceve un codice restituito proprio come qualsiasi altro client. Vedere [usare un webhook](#use-a-webhook).
+I webhook di automazione possono essere richiamati anche [dai modelli Azure Resource Manager (ARM).](/azure/azure-resource-manager/templates/overview) Il modello arm genera una `POST` richiesta e riceve un codice restituito come qualsiasi altro client. Vedere [Usare un webhook](#use-a-webhook).
 
    > [!NOTE]
-   > Per motivi di sicurezza, l'URI viene restituito solo la prima volta che si distribuisce un modello.
+   > Per motivi di sicurezza, l'URI viene restituito solo la prima volta che viene distribuito un modello.
 
 Questo modello di esempio crea un ambiente di test e restituisce l'URI per il webhook creato.
 

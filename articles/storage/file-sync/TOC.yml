@@ -17,13 +17,13 @@
       href: file-sync-networking-overview.md
     - name: Suddivisione in livelli nel cloud
       items:
-        - name: Panoramica del cloud a livelli
+        - name: Panoramica della distribuzione a livelli nel cloud
           href: file-sync-cloud-tiering-overview.md
-        - name: Panoramica dei criteri di cloud a livelli
+        - name: Panoramica dei criteri di livelli cloud
           href: file-sync-cloud-tiering-policy.md
-        - name: Scegliere i criteri di cloud a livelli
+        - name: Scegliere i criteri di livelli cloud
           href: file-sync-choose-cloud-tiering-policies.md
-        - name: Monitorare il cloud a livelli
+        - name: Monitorare la distribuzione a livelli nel cloud
           href: file-sync-monitor-cloud-tiering.md
     - name: Obiettivi di scalabilità e prestazioni
       href: ../files/storage-files-scale-targets.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
@@ -51,6 +51,10 @@
           href: ../files/storage-how-to-create-file-share.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
         - name: Distribuire Sincronizzazione file di Azure
           href: file-sync-deployment-guide.md
+        - name: Usare DFS-N con File di Azure
+          href: ../files/files-manage-namespaces.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
+        - name: Acquistare prenotazioni di archiviazione
+          href: ../files/files-reserve-capacity.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
     - name: Rete
       items:
         - name: Configurazione degli endpoint di rete di Sincronizzazione file di Azure
@@ -141,7 +145,7 @@
               href: ../files/storage-files-migration-linux-hybrid.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
             - name: Eseguire la migrazione da un server NAS locale a un file server ibrido con Sincronizzazione file di Azure
               href: ../files/storage-files-migration-nas-hybrid.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
-            - name: Eseguire la migrazione da un server NAS locale a un dispositivo file server con DataBox
+            - name: Eseguire la migrazione da un NAS locale a un file server ibrido con DataBox
               href: ../files/storage-files-migration-nas-hybrid-databox.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
         - name: Da StorSimple
           items:
