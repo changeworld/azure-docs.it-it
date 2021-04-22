@@ -7,49 +7,50 @@ manager: femila
 ms.topic: reference
 ms.service: media-services
 ms.custom: subject-monitoring
-ms.date: 03/17/2021
-ms.openlocfilehash: 4e4c65966ec8a6a5b47d5f68596f6d2d496fda17
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.date: 04/21/2021
+ms.openlocfilehash: 3fd7b8013ec67d718f308ccd1b72a6f90012e02e
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107835507"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107873056"
 ---
 # <a name="monitoring-media-services-data-reference"></a>Informazioni di riferimento sui dati di Servizi multimediali di monitoraggio
 
 Questo articolo illustra i dati utili per il monitoraggio di Servizi multimediali. Per altre informazioni su tutte le metriche della piattaforma supportate in Monitoraggio di Azure, vedere [Metriche supportate con Monitoraggio di Azure](../../../azure-monitor/essentials/metrics-supported.md).
 
-## <a name="media-services-metrics"></a>Metriche di Servizi multimediali
+## <a name="metrics"></a>Metriche
 
 Le metriche vengono raccolte a intervalli regolari indipendentemente dal fatto che il valore venga modificato. Sono utili per la generazione di avvisi perché possono essere campionate di frequente e perché un avviso può essere generato rapidamente con una logica relativamente semplice.
 
 
 Servizi multimediali supporta le metriche di monitoraggio per le risorse seguenti:
 
-|Tipo di metrica | Spazio dei nomi del provider di risorse/tipo<br/> e collegamento a singole metriche |
+|Tipo di metrica | Provider di risorse/Spazio dei nomi del tipo<br/> e collegamento a singole metriche |
 |-------|-----|
-| Generale di Servizi multimediali | [Generale](/azure/azure-monitor/essentials/metrics-supported#microsoftmediamediaservices) |
+| Servizi multimediali - Generale | [Generale](/azure/azure-monitor/essentials/metrics-supported#microsoftmediamediaservices) |
 | Eventi live | [Microsoft.Media/mediaservices/liveEvents](/azure/azure-monitor/essentials/metrics-supported#microsoftmediamediaservicesliveevents) 
-| Endpoint di streaming | [Microsoft.Media/mediaservices/streamingEndpoints,](/azure/azure-monitor/essentials/metrics-supported#microsoftmediamediaservicesstreamingendpoints)che sono rilevanti per [l'API REST degli endpoint di streaming](/rest/api/media/streamingendpoints). 
+| Endpoint di streaming | [Microsoft.Media/mediaservices/streamingEndpoints,](/azure/azure-monitor/essentials/metrics-supported#microsoftmediamediaservicesstreamingendpoints)rilevanti per [l'API REST degli endpoint di streaming.](/rest/api/media/streamingendpoints) 
 
 
-È anche necessario esaminare [le quote e i limiti dell'account.](../limits-quotas-constraints-reference.md)
+È anche consigliabile esaminare [le quote e i limiti dell'account.](../limits-quotas-constraints-reference.md)
 
 
 ## <a name="metric-dimensions"></a>Dimensioni delle metriche
 
 Per altre informazioni sulle dimensioni delle metriche, vedere [Metriche multidimensionali.](../../../azure-monitor/essentials/data-platform-metrics.md#multi-dimensional-metrics)
 
-<!--**PLACEHOLDER** for dimensions table.-->
-OutputFormat, HttpStatusCode, ErrorCode, TrackName
+Servizi multimediali ha le dimensioni delle metriche seguenti.  Sono auto-esplicativi in base alle metriche supportate.  Per altre [informazioni, vedere i collegamenti](#metrics) alle metriche precedenti.   
+- OutputFormat
+- HttpStatusCode 
+- ErrorCode 
+- TrackName 
 
 ## <a name="resource-logs"></a>Log risorse
 
-## <a name="media-services-resource-logs"></a>Log delle risorse di Servizi multimediali
-
 I log delle risorse forniscono dati dettagliati e frequenti sul funzionamento di una risorsa di Azure. Per altre informazioni, vedere [Come raccogliere e utilizzare i dati di log dalle risorse di Azure.](../../../azure-monitor/essentials/platform-logs-overview.md)
 
-Servizi multimediali supporta i log delle risorse seguenti: [Microsoft.Media/mediaservices](/azure/azure-monitor/essentials/resource-logs-categories#microsoftmediamediaservices)
+Servizi multimediali supporta i log delle risorse [seguenti: Microsoft.Media/mediaservices](/azure/azure-monitor/essentials/resource-logs-categories#microsoftmediamediaservices)
 
 ## <a name="schemas"></a>Schemi
 
@@ -57,7 +58,7 @@ Per una descrizione dettagliata dello schema dei log di diagnostica di primo liv
 
 ## <a name="key-delivery-log-schema-properties"></a>Proprietà dello schema del log di recapito delle chiavi
 
-Queste proprietà sono specifiche dello schema del log di distribuzione delle chiavi.
+Queste proprietà sono specifiche dello schema del log di recapito delle chiavi.
 
 |Nome|Descrizione|
 |---|---|
@@ -65,11 +66,11 @@ Queste proprietà sono specifiche dello schema del log di distribuzione delle ch
 |keyType|Può essere uno dei valori seguenti: "Clear" (nessuna crittografia), "FairPlay", "PlayReady" o "Widevine".|
 |policyName|Nome Azure Resource Manager del criterio.|
 |tokenType|Tipo di token.|
-|messaggio di stato|Messaggio di stato.|
+|statusMessage|Messaggio di stato.|
 
 ### <a name="example"></a>Esempio
 
-Proprietà dello schema delle richieste di distribuzione delle chiavi.
+Proprietà dello schema delle richieste di recapito delle chiavi.
 
 ```json
 {

@@ -1,5 +1,5 @@
 ---
-title: Metodo Per ottenere i formati di glossario supportati
+title: Metodo Get supported glossary formats (Ottenere i formati di glossario supportati)
 titleSuffix: Azure Cognitive Services
 description: Il metodo get supported glossary formats restituisce l'elenco dei formati di glossario supportati.
 services: cognitive-services
@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 03/25/2021
+ms.date: 04/21/2021
 ms.author: v-jansk
-ms.openlocfilehash: b2419c9d1fe32390afcd81b77d1cf32900b9fe8a
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: ea22e6a3afe8ee90cb7b59d1aca0a37fc4fa03d6
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107836218"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107864920"
 ---
 # <a name="get-supported-glossary-formats"></a>Ottenere i formati di glossario supportati
 
-Il metodo Get supported glossary formats (Ottieni formati di glossario supportati) restituisce un elenco dei formati di glossario supportati dal servizio di traduzione dei documenti. L'elenco include l'estensione di file comune usata.
+Il metodo Get supported glossary formats (Ottieni formati di glossario supportati) restituisce un elenco di formati di glossario supportati dal servizio traduzione documenti. L'elenco include l'estensione di file comune usata.
 
 ## <a name="request-url"></a>URL richiesta
 
@@ -32,8 +32,8 @@ Informazioni su come trovare il [nome di dominio personalizzato](../get-started-
 
 > [!IMPORTANT]
 >
-> * **Tutte le richieste API al servizio Di traduzione documenti richiedono un endpoint di dominio personalizzato.**
-> * Non è possibile usare l'endpoint presente nella  pagina chiavi ed endpoint della risorsa portale di Azure, né l'endpoint del traduttore globale, , per effettuare richieste HTTP a `api.cognitive.microsofttranslator.com` Document Translation.
+> * **Tutte le richieste API al servizio Traduzione documenti richiedono un endpoint di dominio personalizzato.**
+> * Non è possibile usare l'endpoint presente nella pagina delle chiavi e _dell'endpoint_ della risorsa portale di Azure, né l'endpoint del traduttore globale, per effettuare richieste `api.cognitive.microsofttranslator.com` HTTP alla traduzione dei documenti.
 
 ## <a name="request-headers"></a>Intestazioni della richiesta
 
@@ -58,7 +58,7 @@ Di seguito sono riportati i possibili codici di stato HTTP restituiti da una ric
 
 Tipo di base per list return nell'API Get supported glossary formats (Ottieni formati di glossario supportati).
 
-### <a name="successful-get-supported-glossary-formats-response"></a>Risposta con esito positivo per ottenere i formati di glossario supportati
+### <a name="successful-get-supported-glossary-formats-response"></a>Risposta corretta per ottenere i formati di glossario supportati
 
 Tipo di base per list return nell'API Get supported glossary formats (Ottieni formati di glossario supportati).
 
@@ -73,16 +73,16 @@ Tipo di base per list return nell'API Get supported glossary formats (Ottieni fo
 |Nome|Type|Descrizione|
 |--- |--- |--- |
 |codice|string|Enumerazioni contenenti codici di errore di alto livello. Valori possibili:<br/><ul><li>InternalServerError</li><li>InvalidArgument</li><li>InvalidRequest</li><li>RequestRateTooHigh</li><li>ResourceNotFound</li><li>ServiceUnavailable</li><li>Non autorizzata</li></ul>|
-|message|string|Ottiene un messaggio di errore di alto livello.|
-|innerError|InnerErrorV2|Nuovo formato di errore interno, conforme alle linee guida dell'API Servizi cognitivi. Contiene le proprietà obbligatorie ErrorCode, message e optional properties target, details(key value pair), inner error (questo può essere annidato).|
+|message|string|Ottiene il messaggio di errore di alto livello.|
+|innerError|InnerErrorV2|Nuovo formato di errore interno, conforme alle linee guida dell'API Servizi cognitivi. Contiene le proprietà obbligatorie ErrorCode, message e optional properties target, details(coppia chiave-valore), inner error (può essere annidato).|
 |innerError.code|string|Ottiene la stringa di errore del codice.|
-|innerError.message|string|Ottiene un messaggio di errore di alto livello.|
+|innerError.message|string|Ottiene il messaggio di errore di alto livello.|
 
 ## <a name="examples"></a>Esempio
 
-### <a name="example-successful-response"></a>Risposta riuscita di esempio
+### <a name="example-successful-response"></a>Esempio di risposta con esito positivo
 
-Di seguito è riportato un esempio di risposta corretta.
+Di seguito è riportato un esempio di risposta con esito positivo.
 
 ```JSON
 {

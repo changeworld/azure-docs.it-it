@@ -1,21 +1,21 @@
 ---
 title: Avviare la traduzione
 titleSuffix: Azure Cognitive Services
-description: Avviare una richiesta di traduzione di documenti con il servizio Traduzione documenti.
+description: Avviare una richiesta di traduzione di documenti con il servizio traduzione documenti.
 services: cognitive-services
 author: jann-skotdal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 03/25/2021
+ms.date: 04/21/2021
 ms.author: v-jansk
-ms.openlocfilehash: 1d167962e22953a4a9ca69ece347f8427b9218c9
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 820b5f39192fffa0ec54b44c6016965599d85a8c
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107836246"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107863696"
 ---
 # <a name="start-translation"></a>Avviare la traduzione
 

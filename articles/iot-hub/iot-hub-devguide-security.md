@@ -16,12 +16,12 @@ ms.custom:
 - 'Role: Operations'
 - devx-track-js
 - devx-track-csharp
-ms.openlocfilehash: e72af412f61f2084fb78907c15a92a22b9e3bc99
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: 7f919069005e8fcb813baf2521c8cb20cffafc88
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107567180"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107870356"
 ---
 # <a name="control-access-to-iot-hub"></a>Controllare l'accesso all'hub IoT
 
@@ -99,7 +99,7 @@ Il protocollo HTTPS implementa l'autenticazione includendo un token valido nell'
 
 Nome utente (per DeviceId viene fatta distinzione tra maiuscole e minuscole): `iothubname.azure-devices.net/DeviceId`
 
-Password (è possibile generare un token di firma di accesso condiviso con il comando di estensione dell'interfaccia della riga di comando [az iot hub generate-sas-token](/cli/azure/ext/azure-iot/iot/hub#ext-azure-iot-az-iot-hub-generate-sas-token) o con [Azure IoT Tools per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)):
+Password (è possibile generare un token di firma di accesso condiviso con il comando di estensione dell'interfaccia della riga di comando [az iot hub generate-sas-token](/cli/azure/iot/hub#az_iot_hub_generate_sas_token) o con [Azure IoT Tools per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)):
 
 `SharedAccessSignature sr=iothubname.azure-devices.net%2fdevices%2fDeviceId&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501`
 
@@ -303,7 +303,7 @@ Il risultato, che concede l'accesso a tutte le funzionalità per device1, sarà:
 `SharedAccessSignature sr=myhub.azure-devices.net%2fdevices%2fdevice1&sig=13y8ejUk2z7PLmvtwR5RqlGBOVwiq7rQR3WZ5xZX3N4%3D&se=1456971697`
 
 > [!NOTE]
-> è possibile generare un token di firma di accesso condiviso con il comando di estensione dell'interfaccia della riga di comando [az iot hub generate-sas-token](/cli/azure/ext/azure-iot/iot/hub#ext-azure-iot-az-iot-hub-generate-sas-token) o con [Azure IoT Tools per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
+> è possibile generare un token di firma di accesso condiviso con il comando di estensione dell'interfaccia della riga di comando [az iot hub generate-sas-token](/cli/azure/iot/hub#az_iot_hub_generate_sas_token) o con [Azure IoT Tools per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 
 ### <a name="use-a-shared-access-policy"></a>Usare criteri di accesso condiviso
 
@@ -383,7 +383,7 @@ I certificati supportati includono:
 
 * **Un certificato X-509 auto-generato e auto-firmato**. Un produttore di dispositivi o un distributore interno può generare questi certificati e archiviare la chiave privata corrispondente (e il certificato) nel dispositivo. È possibile usare strumenti come [OpenSSL](https://www.openssl.org/) e l'utilità [Windows SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) per questo scopo. È compatibile solo con l'autenticazione tramite identificazione personale.
 
-Un dispositivo può usare un certificato X.509 o un token di sicurezza per l'autenticazione, ma non per entrambi. Con l'autenticazione del certificato X.509, assicurarsi di avere una strategia per gestire il rollover del certificato alla scadenza di un certificato esistente.
+Un dispositivo può usare un certificato X.509 o un token di sicurezza per l'autenticazione, ma non per entrambi. Con l'autenticazione del certificato X.509, assicurarsi di avere una strategia in atto per gestire il rollover dei certificati alla scadenza di un certificato esistente.
 
 La funzionalità seguente per i dispositivi che usano l'autenticazione dell'autorità di certificazione X.509 non è ancora disponibile a livello generale e deve essere abilitata [la modalità di anteprima:](iot-hub-preview-mode.md)
 
@@ -396,7 +396,7 @@ Per altre informazioni sull'autenticazione tramite l'autorità di certificazione
 
 Il componente [Azure IoT SDK per servizi per C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/service) (versione 1.0.8+) supporta la registrazione di un dispositivo che usa un certificato X.509 per l'autenticazione. Anche altre API come quelle per l'importazione e l'esportazione dei dispositivi supportano i certificati X.509.
 
-È anche possibile usare il comando di estensione dell'interfaccia della riga di comando [az iot hub device-identity](/cli/azure/ext/azure-iot/iot/hub/device-identity) per configurare i certificati X.509 per i dispositivi.
+È anche possibile usare il comando di estensione dell'interfaccia della riga di comando [az iot hub device-identity](/cli/azure/iot/hub/device-identity) per configurare i certificati X.509 per i dispositivi.
 
 ### <a name="c-support"></a>Supporto per C\#
 

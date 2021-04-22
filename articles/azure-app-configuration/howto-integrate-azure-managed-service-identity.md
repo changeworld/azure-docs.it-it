@@ -1,19 +1,19 @@
 ---
 title: Usare le identità gestite per accedere a Configurazione app
 titleSuffix: Azure App Configuration
-description: Eseguire l'Configurazione app di Azure con identità gestite
+description: Eseguire l'autenticazione Configurazione app di Azure con identità gestite
 author: AlexandraKemperMS
 ms.author: alkemper
 ms.service: azure-app-configuration
 ms.custom: devx-track-csharp, fasttrack-edit
 ms.topic: conceptual
 ms.date: 04/08/2021
-ms.openlocfilehash: 591f767fe0ef2150f7fe180108f207b56f7c915f
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 7a9eb992ff0cb98fdae2920da2beeda0bbd8941b
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107764308"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107877535"
 ---
 # <a name="use-managed-identities-to-access-app-configuration"></a>Usare le identità gestite per accedere a Configurazione app
 
@@ -24,9 +24,9 @@ Configurazione app di Azure e le librerie client .NET Core, .NET Framework e Jav
 Questo articolo illustra come sfruttare l'identità gestita per accedere a Configurazione app. Si basa sull'app Web presentata nelle guide introduttive. Prima di continuare,  [creare un'app ASP.NET Core con Configurazione](./quickstart-aspnet-core-app.md) app.
 
 > [!NOTE]
-> Questo articolo usa Servizio app di Azure esempio, ma lo stesso concetto si applica a qualsiasi altro servizio di Azure che supporta l'identità gestita, ad esempio [servizio Azure Kubernetes](../aks/use-azure-ad-pod-identity.md), Macchina virtuale di [Azure](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md) [e Istanze di Azure Container](../container-instances/container-instances-managed-identity.md). Se il carico di lavoro è ospitato in uno di questi servizi, è anche possibile sfruttare il supporto delle identità gestite del servizio.
+> Questo articolo usa Servizio app di Azure esempio, ma lo stesso concetto si applica a qualsiasi altro servizio di Azure che supporta l'identità gestita, ad esempio [servizio Azure Kubernetes](../aks/use-azure-ad-pod-identity.md), Macchina virtuale di [Azure](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)e [Istanze di Azure Container](../container-instances/container-instances-managed-identity.md). Se il carico di lavoro è ospitato in uno di questi servizi, è anche possibile sfruttare il supporto delle identità gestite del servizio.
 
-Questo articolo illustra anche come usare l'identità gestita in combinazione con i riferimenti Key Vault configurazione app. Con una singola identità gestita, è possibile accedere facilmente sia ai segreti Key Vault che ai valori di configurazione da Configurazione app. Se si vuole esplorare questa funzionalità, completare prima Use Key Vault References with ASP.NET Core (Usare Key Vault [riferimenti con ASP.NET Core).](./use-key-vault-references-dotnet-core.md)
+Questo articolo illustra anche come usare l'identità gestita in combinazione con i riferimenti Key Vault configurazione app. Con una singola identità gestita, è possibile accedere facilmente sia ai segreti Key Vault che ai valori di configurazione da Configurazione app. Se si vuole esplorare questa funzionalità, completare prima Use Key Vault References with ASP.NET Core (Usa Key Vault [riferimenti con ASP.NET Core).](./use-key-vault-references-dotnet-core.md)
 
 Per completare i passaggi riportati in questa esercitazione, è possibile usare qualsiasi editor di codice. [Visual Studio Code](https://code.visualstudio.com/) è un'ottima scelta per le piattaforme Windows, macOS e Linux.
 
@@ -41,7 +41,7 @@ In questo articolo vengono illustrate le operazioni seguenti:
 
 Per completare l'esercitazione, sono necessari:
 
-* [.NET Core SDK](https://www.microsoft.com/net/download/windows).
+* [.NET Core SDK](https://dotnet.microsoft.com/download).
 * [Azure Cloud Shell configurato](../cloud-shell/quickstart.md).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -148,7 +148,7 @@ Per configurare un'identità gestita nel portale, creare prima un'applicazione e
     >Come illustrato nelle domande frequenti sulle identità gestite per le risorse di [Azure,](../active-directory/managed-identities-azure-resources/managed-identities-faq.md#what-identity-will-imds-default-to-if-dont-specify-the-identity-in-the-request)esiste un modo predefinito per risolvere l'identità gestita usata. In questo caso, la libreria di identità di Azure impone di specificare l'identità desiderata per evitare problemi di runtime in futuro (ad esempio, se viene aggiunta una nuova identità gestita assegnata dall'utente o se l'identità gestita assegnata dal sistema è abilitata). Sarà quindi necessario specificare clientId anche se è definita una sola identità gestita assegnata dall'utente e non è presente alcuna identità gestita assegnata dal sistema.
 
 
-1. Per usare sia i valori di Configurazione app che Key Vault riferimenti, aggiornare *Program.cs* come illustrato di seguito. Questo codice chiama come parte di per indicare al provider di configurazione quali credenziali usare per `SetCredential` `ConfigureKeyVault` l'autenticazione Key Vault.
+1. Per usare sia i valori di Configurazione app che Key Vault riferimenti, aggiornare *Program.cs* come illustrato di seguito. Questo codice chiama come parte di per indicare al provider di configurazione quali credenziali usare durante `SetCredential` `ConfigureKeyVault` l'autenticazione Key Vault.
 
     ### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
 

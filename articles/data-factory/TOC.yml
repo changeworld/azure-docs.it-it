@@ -15,7 +15,7 @@
       href: quickstart-create-data-factory-portal.md
     - name: Creare data factory - Strumento Copia dati
       href: quickstart-create-data-factory-copy-data-tool.md
-    - name: Creare data factory - Interfaccia della riga di comando di Azure
+    - name: Creare un data factory - Interfaccia della riga di comando di Azure
       href: quickstart-create-data-factory-azure-cli.md
     - name: Creare una data factory - Azure PowerShell
       href: quickstart-create-data-factory-powershell.md
@@ -38,7 +38,7 @@
       items:
         - name: Da Archiviazione BLOB di Azure al database SQL di Azure
           items:
-            - name: Strumento copia dati
+            - name: Strumento Copia dati
               href: tutorial-copy-data-tool.md
             - name: Interfaccia utente
               href: tutorial-copy-data-portal.md
@@ -46,7 +46,7 @@
               href: tutorial-copy-data-dot-net.md
         - name: Da un database di SQL Server ad Archiviazione BLOB di Azure
           items:
-            - name: Strumento copia dati
+            - name: Strumento Copia dati
               href: tutorial-hybrid-copy-data-tool.md
             - name: Interfaccia utente
               href: tutorial-hybrid-copy-portal.md
@@ -107,7 +107,7 @@
       items:
         - name: Trasformare i dati con i flussi di dati di mapping
           items:
-            - name: Procedure consigliate per l'destinazione dei dati nel lake con ADLS Gen2
+            - name: Procedure consigliate per la destinazione dei dati nel lake con ADLS Gen2
               href: tutorial-data-flow-write-to-lake.md
             - name: Trasformare i dati nel lake con Delta Lake
               href: tutorial-data-flow-delta-lake.md
@@ -201,7 +201,7 @@
               href: data-flow-expression-functions.md
         - name: Preparare i dati con Power Query data wrangling
           items:
-            - name: Panoramica della wrangling dei dati
+            - name: Panoramica del data wrangling
               href: wrangling-overview.md
             - name: Funzioni supportate
               href: wrangling-functions.md
@@ -439,7 +439,7 @@
           href: copy-activity-monitoring.md
         - name: Eliminare file usando l'attività Delete
           href: delete-activity.md
-        - name: Strumento copia dati
+        - name: Strumento Copia dati
           href: copy-data-tool.md
         - name: Formato e supporto della compressione
           href: supported-file-formats-and-compression-codecs.md
@@ -480,7 +480,7 @@
           href: transform-data-databricks-notebook.md
         - name: Attività Python di Databricks
           href: transform-data-databricks-python.md
-        - name: Esplora dati command
+        - name: Esplora dati'attività Command
           href: /azure/data-explorer/data-factory-command-activity?toc=/azure/data-factory/toc.json
         - name: Attività U-SQL di Data Lake
           href: transform-data-using-data-lake-analytics.md
@@ -498,7 +498,7 @@
           href: transform-data-machine-learning-service.md
         - name: Machine Learning Studio (versione classica) attività Batch Execution
           href: transform-data-using-machine-learning.md
-        - name: attività aggiorna risorsa di Machine Learning Studio (versione classica)
+        - name: Machine Learning Studio (versione classica) Aggiornare l'attività della risorsa
           href: update-machine-learning-models.md
         - name: Attività stored procedure
           href: transform-data-using-stored-procedure.md
@@ -506,7 +506,7 @@
           href: compute-linked-services.md
     - name: Flusso di controllo
       items:
-        - name: Attività Accoda variabile
+        - name: Attività Append Variable
           href: control-flow-append-variable-activity.md
         - name: attività Execute Pipeline
           href: control-flow-execute-pipeline-activity.md
@@ -518,7 +518,7 @@
           href: control-flow-get-metadata-activity.md
         - name: attività If Condition
           href: control-flow-if-condition-activity.md
-        - name: Attività Di ricerca
+        - name: Attività di ricerca
           href: control-flow-lookup-activity.md
         - name: Attività Imposta variabile
           href: control-flow-set-variable-activity.md
@@ -528,7 +528,7 @@
           href: control-flow-until-activity.md
         - name: Attività di convalida
           href: control-flow-validation-activity.md
-        - name: Attività Wait
+        - name: Attività di attesa
           href: control-flow-wait-activity.md
         - name: Attività Web
           href: control-flow-web-activity.md
@@ -744,7 +744,7 @@
               href: how-to-sqldb-to-cosmosdb.md
             - name: Deduplicazione e controllo dei valori Null con i frammenti
               href: how-to-data-flow-dedupe-nulls-snippets.md
-            - name: Elaborare i dati da modelli aml usando il flusso di dati
+            - name: Elaborare i dati dai modelli aml usando il flusso di dati
               href: scenario-dataflow-process-data-aml-models.md
         - name: Migrazione SSIS dall'ambiente locale
           items:
@@ -827,7 +827,7 @@
     - name: Criteri di Azure predefiniti
       href: policy-reference.md
     - name: Interfaccia della riga di comando di Azure
-      href: /cli/azure/ext/datafactory/datafactory
+      href: /cli/azure/datafactory
 - name: Risorse
   items:
     - name: White paper

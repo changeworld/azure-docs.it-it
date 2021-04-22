@@ -25,7 +25,7 @@
     - name: Risoluzione dei problemi dell'analizzatore Internet
       href: troubleshoot.md
     - name: Informazioni di riferimento sull'interfaccia della riga di comando dell'analizzatore Internet
-      href: /cli/azure/ext/internet-analyzer/internet-analyzer
+      href: /cli/azure/internet-analyzer
     - name: Roadmap per Azure
       href: 'https://azure.microsoft.com/roadmap/?category=networking'
     - name: Blog

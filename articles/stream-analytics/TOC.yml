@@ -322,7 +322,7 @@
           href: stream-analytics-machine-learning-integration-tutorial.md
         - name: Rilevamento anomalie
           href: stream-analytics-machine-learning-anomaly-detection.md
-        - name: Usare le API REST di ML
+        - name: Usare le API REST di Machine Learning
           href: stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md
     - name: Eseguire il debug con il diagramma del processo
       href: stream-analytics-job-diagram-with-metrics.md
@@ -677,7 +677,7 @@
     - name: Modello di Resource Manager
       href: /azure/templates/microsoft.streamanalytics/allversions
     - name: Interfaccia della riga di comando di Azure
-      href: /cli/azure/ext/stream-analytics/stream-analytics
+      href: /cli/azure/stream-analytics
     - name: Criteri di Azure predefiniti
       displayName: 'samples, policies, definitions'
       href: ./policy-reference.md

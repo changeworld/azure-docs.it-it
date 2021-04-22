@@ -1,5 +1,5 @@
 ---
-title: Guida introduttiva - Hub IoT di Azure flusso di dispositivi C# per SSH e RDP
+title: 'Guida introduttiva: hub IoT di Azure flussi dispositivo in C# per SSH e RDP'
 description: In questo argomento di avvio rapido vengono eseguite due applicazioni C# di esempio che consentono scenari SSH e RDP su un flusso del dispositivo dell'hub IoT.
 author: robinsh
 ms.service: iot-hub
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: references_regions, devx-track-azurecli
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 3bca2701b708bfb957dce1c954f43f60f55b7dae
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 5bd33a2da6b2f1ae775f088950f14ac4df465fbf
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107479951"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107863948"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>Guida introduttiva: Abilitare SSH e RDP su un flusso del dispositivo dell'hub IoT con un'applicazione proxy C# (anteprima)
 
@@ -37,7 +37,7 @@ Questo articolo descrive prima la configurazione per SSH (tramite la porta 22) e
 
 * Le due applicazioni di esempio eseguite in questo argomento sono scritte in C#. È necessario .NET Core SDK 2.1.0 o versione successiva nel computer di sviluppo.
 
-    È possibile scaricare [.NET Core SDK per più piattaforme da .NET](https://www.microsoft.com/net/download/all).
+    È possibile scaricare [.NET Core SDK per più piattaforme da .NET](https://dotnet.microsoft.com/download).
 
     Verificare la versione corrente di C# installata nel computer di sviluppo tramite il comando seguente:
 

@@ -7,14 +7,14 @@ ms.date: 12/20/2018
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc, devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 377abef31dbc4364f37161194923bbf74d272d80
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 193c8b1f47960b9b42c61a9b0e394e5ebedf7bf7
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98012292"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107867584"
 ---
-# <a name="quickstart-create-a-stream-analytics-job-using-azure-powershell"></a>Guida introduttiva: creare un processo di analisi di flusso usando Azure PowerShell
+# <a name="quickstart-create-a-stream-analytics-job-using-azure-powershell"></a>Avvio rapido: Creare un processo di Analisi di flusso usando Azure PowerShell
 
 Il modulo Azure PowerShell viene usato per creare e gestire le risorse di Azure usando cmdlet o script di PowerShell. Questa guida introduttiva illustra in dettaglio l'uso del modulo Azure PowerShell per distribuire ed eseguire un processo di Analisi di flusso di Azure.
 
@@ -28,7 +28,7 @@ Il processo di esempio legge i dati in streaming da un dispositivo hub IoT. I da
 
 * Per questa guida di avvio rapido è richiesto il modulo Azure PowerShell. Eseguire `Get-Module -ListAvailable Az` per trovare la versione installata nel computer locale. Se è necessario eseguire l'installazione o l'aggiornamento, vedere come [installare il modulo Azure PowerShell](/powershell/azure/install-Az-ps).
 
-* Alcune azioni dell'hub Internet non sono supportate da Azure PowerShell e devono essere completate usando l'interfaccia della riga di comando di Azure versione 2.0.70 o successiva e l'estensione per l'interfaccia della riga di comando di Azure [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) e usare `az extension add --name azure-iot` per installare l'estensione IoT.
+* Alcune azioni dell'hub IoT non sono supportate da Azure PowerShell e devono essere completate con l'interfaccia della riga di comando di Azure versione 2.0.70 o successiva e l'estensione IoT per l'interfaccia della riga di comando di Azure. [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) e usare `az extension add --name azure-iot` per installare l'estensione IoT.
 
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
@@ -96,7 +96,7 @@ Il blocco di codice dell'interfaccia della riga di comando di Azure riportato di
     az iot hub device-identity create --hub-name "MyASAIoTHub" --device-id "MyASAIoTDevice"
     ```
 
-4. Ottenere la stringa di connessione del dispositivo usando il comando [az iot hub device-identity show-connection-string](/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-show-connection-string). Copiare l'intera stringa di connessione e salvarla per quando si creerà il simulatore Raspberry Pi.
+4. Ottenere la stringa di connessione del dispositivo usando il comando [az iot hub device-identity show-connection-string](/cli/azure/iot/hub/device-identity#az_iot_hub_device_identity_show_connection_string). Copiare l'intera stringa di connessione e salvarla per quando si creerà il simulatore Raspberry Pi.
 
     ```azurecli
     az iot hub device-identity show-connection-string --hub-name "MyASAIoTHub" --device-id "MyASAIoTDevice" --output table
@@ -112,7 +112,7 @@ Il blocco di codice dell'interfaccia della riga di comando di Azure riportato di
 
 Il seguente blocco di codice di Azure PowerShell usa comandi per creare l'archiviazione BLOB che viene usata per l'output del processo. Esaminare le sezioni per comprendere il codice.
 
-1. Creare un account di archiviazione standard per uso generico usando il cmdlet [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount).  Questo esempio crea un account di archiviazione denominato **myasaquickstartstorage** con archiviazione con ridondanza locale (con ridondanza locale) e la crittografia BLOB (abilitata per impostazione predefinita).
+1. Creare un account di archiviazione standard per uso generico usando il cmdlet [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount).  Questo esempio crea un account di archiviazione denominato **myasaquickstartstorage** con archiviazione con ridondanza locale (LRS) e crittografia BLOB (abilitata per impostazione predefinita).
 
 2. Recuperare il contesto `$storageAccount.Context` che definisce l'account di archiviazione da usare. Quando si usano gli account di archiviazione, si può fare riferimento al contesto anziché fornire ripetutamente le credenziali.
 

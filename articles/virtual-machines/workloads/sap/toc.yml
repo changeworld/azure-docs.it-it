@@ -76,7 +76,7 @@
           href: hana-li-portal.md
         - name: Configurazione a disponibilità elevata con STONITH
           href: ha-setup-with-stonith.md
-        - name: Disponibilità elevata di istanze Large di Azure per SAP in RHEL
+        - name: Disponibilità elevata di Istanze Large di Azure per SAP in RHEL
           href: large-instance-high-availability-rhel.md
         - name: Backup del sistema operativo per SKU di tipo II
           href: os-backup-type-ii-skus.md
@@ -332,7 +332,7 @@
 - name: Informazioni di riferimento
   items:
     - name: Interfaccia della riga di comando di Azure
-      href: /cli/azure/ext/sap-hana/hanainstance
+      href: /cli/azure/hanainstance
     - name: Azure PowerShell
       href: /powershell/module/az.hanaonazure/#sap-hana-on-azure
 - name: Risorse

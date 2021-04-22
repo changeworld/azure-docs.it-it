@@ -1,6 +1,6 @@
 ---
 title: Creare sottoscrizioni di Azure a livello di codice per un Contratto Microsoft Partner con le API più recenti
-description: Informazioni su come creare sottoscrizioni di Azure per un contratto di partner Microsoft a livello di codice usando le versioni più recenti dell'API REST, dell'interfaccia della riga di comando di Azure, Azure PowerShell e dei modelli di Azure Resource Manager.
+description: Informazioni su come creare sottoscrizioni di Azure per un Contratto Microsoft Partner a livello di codice usando le versioni più recenti dell'API REST, dell'interfaccia della riga di comando di Azure, Azure PowerShell e Azure Resource Manager personalizzati.
 author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
@@ -9,12 +9,12 @@ ms.date: 03/12/2021
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 5a731aab924e63eac468a22862f35aeff76bc068
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 69d8910ffe0e45c4c47a035d5c32e71f19d9e04a
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104593960"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107870662"
 ---
 # <a name="programmatically-create-azure-subscriptions-for-a-microsoft-partner-agreement-with-the-latest-apis"></a>Creare sottoscrizioni di Azure a livello di codice per un Contratto Microsoft Partner con le API più recenti
 
@@ -104,7 +104,7 @@ Si otterrà un elenco di tutti gli account di fatturazione a cui si ha accesso.
 ]
 ```
 
-Utilizzare la proprietà displayName per identificare l'account di fatturazione per il quale si desidera creare le sottoscrizioni. Assicurarsi che agreementType dell'account sia MicrosoftPartnerAgreement. Copiare il nome per l'account. Per creare una sottoscrizione per l'account di fatturazione di Contoso, ad esempio, copiare 99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-XX-XX. Incollare il valore da qualche parte per poterlo usare nel passaggio successivo.
+Usare la proprietà displayName per identificare l'account di fatturazione per cui si vogliono creare le sottoscrizioni. Assicurarsi che agreementType dell'account sia MicrosoftPartnerAgreement. Copiare il nome dell'account. Ad esempio, per creare una sottoscrizione per l'account di fatturazione Contoso, copiare 99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx. Incollare il valore da qualche parte per poterlo usare nel passaggio successivo.
 
 ---
 
@@ -235,7 +235,7 @@ Per ottenere questo valore, usare l'interfaccia della riga di comando di Azure o
 
 ### <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
-Eseguire la richiesta seguente, con `name` copiato dal primo passaggio ( ```99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx``` ) e `name` dal cliente copiato dal passaggio precedente ( ```acba85c9-xxxx-xxxx-xxxx-xxxxxxxxxxxx``` ).
+Eseguire la richiesta seguente, con `name` l'oggetto copiato dal primo passaggio ( ) e il ```99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx``` cliente copiato dal passaggio precedente `name` ( ```acba85c9-xxxx-xxxx-xxxx-xxxxxxxxxxxx``` ).
 
 ```azurecli
  az billing customer show --expand "enabledAzurePlans,resellers" --account-name "99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx" --name "acba85c9-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -363,7 +363,7 @@ Passare il valore *resellerId* facoltativo copiato dal secondo passaggio nella c
 
 Installare prima di tutto l'estensione eseguendo `az extension add --name account` e `az extension add --name alias`.
 
-Eseguire il comando [az account alias create](/cli/azure/ext/account/account/alias#ext_account_az_account_alias_create) seguente. 
+Eseguire il comando [az account alias create](/cli/azure/account/alias#az_account_alias_create) seguente. 
 
 ```azurecli
 az account alias create --name "sampleAlias" --billing-scope "/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx" --display-name "Dev Team Subscription" --workload "Production"
@@ -389,9 +389,9 @@ Passare il valore *resellerId* facoltativo copiato dal secondo passaggio nella c
 
 ## <a name="use-arm-template"></a>Usare un modello di Azure Resource Manager
 
-La sezione precedente ha illustrato come creare una sottoscrizione con PowerShell, l'interfaccia della riga di comando o l'API REST. Se è necessario automatizzare la creazione di sottoscrizioni, provare a usare un modello di Azure Resource Manager (modello ARM).
+La sezione precedente ha illustrato come creare una sottoscrizione con PowerShell, l'interfaccia della riga di comando o l'API REST. Se è necessario automatizzare la creazione di sottoscrizioni, è consigliabile usare un modello di Azure Resource Manager (modello arm).
 
-Il modello seguente crea una sottoscrizione. Per `billingScope` , fornire l'ID del cliente. Per `targetManagementGroup` , specificare il gruppo di gestione in cui si desidera creare la sottoscrizione.
+Il modello seguente crea una sottoscrizione. Per `billingScope` , specificare l'ID cliente. Per `targetManagementGroup` , specificare il gruppo di gestione in cui si vuole creare la sottoscrizione.
 
 ```json
 {
@@ -435,7 +435,7 @@ Il modello seguente crea una sottoscrizione. Per `billingScope` , fornire l'ID d
 }
 ```
 
-Distribuire il modello a [livello di gruppo di gestione](../../azure-resource-manager/templates/deploy-to-management-group.md).
+Distribuire il modello a livello [di gruppo di gestione.](../../azure-resource-manager/templates/deploy-to-management-group.md)
 
 ### <a name="rest"></a>[REST](#tab/rest)
 

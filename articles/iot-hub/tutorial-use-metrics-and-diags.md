@@ -1,6 +1,6 @@
 ---
-title: 'Esercitazione: Configurare e usare metriche e log con un hub Azure IoT dati'
-description: "Esercitazione: Informazioni su come configurare e usare metriche e log con un Azure IoT hub. Vengono forniti i dati da analizzare per facilitare la diagnosi dei problemi che l'hub potrebbe avere."
+title: 'Esercitazione: Configurare e usare metriche e log con un hub Azure IoT rete'
+description: "Esercitazione: Informazioni su come configurare e usare metriche e log con un hub Azure IoT dati. Vengono forniti i dati da analizzare per facilitare la diagnosi dei problemi che l'hub potrebbe avere."
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -12,12 +12,12 @@ ms.custom:
 - mqtt
 - devx-track-azurecli
 - devx-track-csharp
-ms.openlocfilehash: 099b7f4e812e92503c7ed8e3eb733f2e49ccd8b9
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 96a9f7c50f3e30d86497c7a612ddda248db3f703
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107768072"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107865694"
 ---
 # <a name="tutorial-set-up-and-use-metrics-and-logs-with-an-iot-hub"></a>Esercitazione: Configurare e usare metriche e log con un hub IoT
 
@@ -44,7 +44,7 @@ In questa esercitazione si eseguono le seguenti attività:
 
 - Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-- È necessario .NET Core SDK 2.1 o versione successiva nel computer di sviluppo. È possibile scaricare .NET Core SDK per più piattaforme da [.NET](https://www.microsoft.com/net/download/all).
+- È necessario .NET Core SDK 2.1 o versione successiva nel computer di sviluppo. È possibile scaricare .NET Core SDK per più piattaforme da [.NET](https://dotnet.microsoft.com/download).
 
   È possibile verificare la versione corrente di C# installata nel computer di sviluppo tramite il comando seguente:
 
@@ -219,7 +219,7 @@ Per configurare gli avvisi delle metriche:
 
 1. Configurare prima di tutto la condizione in base alla quale verrà attivato l'avviso.
 
-    1. In **Condizione** selezionare **Aggiungi condizione**. Nel riquadro **Configura logica dei segnali** digitare "telemetria" nella casella di ricerca e selezionare **Messaggi di telemetria inviati**.
+    1. In **Condizione** selezionare **Aggiungi condizione.** Nel riquadro **Configura logica dei segnali** digitare "telemetria" nella casella di ricerca e selezionare **Messaggi di telemetria inviati**.
 
        :::image type="content" source="media/tutorial-use-metrics-and-diags/configure-signal-logic-telemetry-messages-sent.png" alt-text="Screenshot che mostra la selezione della metrica.":::
 
@@ -245,7 +245,7 @@ Per configurare gli avvisi delle metriche:
 
 1. A questo punto occorre configurare l'azione per l'avviso.
 
-    1. Nel riquadro Crea regola **di avviso** selezionare Aggiungi gruppi di azioni in **Azioni**.  In **Selezionare un gruppo di azioni da collegare a questa regola di avviso** selezionare **Crea gruppo di azioni**.
+    1. Nel riquadro **Crea regola di avviso** selezionare Aggiungi gruppi di azioni in **Azioni.**  In **Selezionare un gruppo di azioni da collegare a questa regola di avviso** selezionare **Crea gruppo di azioni**.
 
     1. Nella scheda **Informazioni di base** del riquadro **Crea gruppo di azioni** assegnare al gruppo di azioni un nome e un nome visualizzato.
 

@@ -9,12 +9,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
 ms.custom: data4ml
-ms.openlocfilehash: 62801d40295762b0066f0d2887d7d528ee7b7c2a
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: ff1783dd31b8139940e56d24ae82866b428838b1
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101656823"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107861158"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Creare un progetto di etichettatura dei dati ed esportare le etichette 
 
@@ -53,11 +53,7 @@ Per creare un progetto, scegliere **Aggiungi il progetto**. Assegnare al progett
 * Scegliere **Classificazione delle immagini multi-classe** per i progetti in cui applicare a un'immagine solo un'*etichetta singola* da un set di etichette.
 * Scegliere **Classificazione delle immagini multi-etichetta** per i progetti in cui applicare a un'immagine *una o più* etichette da un set di etichette. Ad esempio, la foto di un cane potrebbe essere etichettata sia con *cane* che con *giorno*.
 * Scegliere **Identificazione oggetto (rettangolo di selezione)** per i progetti in cui assegnare un'etichetta e un rettangolo di selezione a ogni oggetto all'interno di un'immagine.
-* Scegliere **segmentazione istanza (poligono) (anteprima)** per i progetti quando si desidera assegnare un'etichetta e creare un poligono intorno a ogni oggetto all'interno di un'immagine.
-
-> [!IMPORTANT]
-> La segmentazione dell'istanza (poligono) è in anteprima pubblica.
-> La versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+* Scegliere **Segmentazione istanza (poligono)** per i progetti quando si vuole assegnare un'etichetta e disegnare un poligono intorno a ogni oggetto all'interno di un'immagine.
 
 Selezionare **Avanti** quando si è pronti per procedere.
 
@@ -107,7 +103,7 @@ Se si prevede di aggiungere nuove immagini al set di dati, usare l'aggiornamento
 
 Per aggiungere altre immagini al progetto, usare [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) per eseguire il caricamento nella cartella appropriata dell'archivio BLOB. 
 
-Selezionare la casella **Abilita aggiornamento incrementale** se si vuole che il progetto monitori continuamente la presenza di nuovi dati nell'archivio dati. Questi dati vengono inseriti nel progetto una volta al giorno quando sono abilitati, quindi è necessario attendere che vengano aggiunti nuovi dati all'archivio dati prima che vengano visualizzati nel progetto.  È possibile visualizzare un timestamp per l'ultimo aggiornamento dei dati nella sezione **aggiornamento incrementale** della scheda **Dettagli** per il progetto.
+Selezionare la casella **Abilita aggiornamento incrementale** se si vuole che il progetto monitori continuamente la presenza di nuovi dati nell'archivio dati. Questi dati verranno estratti nel progetto una volta al giorno quando sono abilitati, quindi sarà necessario attendere dopo aver aggiunto nuovi dati all'archivio dati prima che siano visualizzati nel progetto.  È possibile visualizzare un timestamp relativo all'ultimo aggiornamento dei dati nella sezione **Aggiornamento incrementale** della **scheda** Dettagli per il progetto.
 
 Deselezionare questa casella di controllo se non si vuole che le nuove immagini visualizzate nell'archivio dati vengano aggiunte al progetto.
 

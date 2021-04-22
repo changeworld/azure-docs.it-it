@@ -7,12 +7,12 @@ ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 03/02/2021
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: e42f85bb79dcb1bfe14cacbbfda3576888b841c9
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 315b505e9de853fbe4663eacdfe929149dbaa458
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107481329"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107873146"
 ---
 # <a name="quickstart-create-an-azure-managed-instance-for-apache-cassandra-cluster-from-the-azure-portal-preview"></a>Avvio rapido: Creare un cluster azure Istanza gestita per Apache Cassandra dal portale di Azure (anteprima)
  
@@ -59,7 +59,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 1. Selezionare quindi la **scheda** Rete.
 
-1. Nel riquadro **Rete** scegliere il nome **della rete virtuale** e la **subnet**. È possibile selezionare una rete virtuale esistente o crearne una nuova.
+1. Nel riquadro **Rete** scegliere il nome **della rete virtuale e** la **subnet**. È possibile selezionare una rete virtuale esistente o crearne una nuova.
 
    :::image type="content" source="./media/create-cluster-portal/networking.png" alt-text="Configurare i dettagli di rete." lightbox="./media/create-cluster-portal/networking.png" border="true":::
 

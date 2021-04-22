@@ -1,18 +1,18 @@
 ---
 title: Criteri di Azure controlli di conformità alle normative per Azure Machine Learning
 description: Elenca Criteri di Azure controlli di conformità alle normative disponibili per Azure Machine Learning. Queste definizioni di criteri predefinite rappresentano approcci comuni alla gestione della conformità delle risorse di Azure.
-ms.date: 04/14/2021
+ms.date: 04/21/2021
 ms.topic: sample
 author: BlackMist
 ms.author: larryfr
 ms.service: machine-learning
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 0a4b301c34d15eb02f2822828bd2a16bb50c3225
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 0c6b81169c7e6ba8c721171f899668c0a0779718
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107500831"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107877760"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-machine-learning"></a>Criteri di Azure controlli di conformità alle normative per Azure Machine Learning
 

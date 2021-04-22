@@ -9,12 +9,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
 ms.custom: data4ml
-ms.openlocfilehash: 5ba399418d8f93204b168c1058be20ffc775ef70
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 8f1d648c38760865752c87624dfcb112933650c7
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99096967"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107872624"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>Aggiungere tag alle immagini in un progetto di etichettatura 
 
@@ -71,14 +71,9 @@ Gli algoritmi di Machine Learning possono essere attivati. Se nel progetto sono 
 
 * In un secondo momento, è possibile visualizzare **Attività pre-etichettate** accanto al nome del progetto.  Le immagini verranno quindi visualizzate con un'etichetta suggerita che deriva da un modello di classificazione di Machine Learning. Nessun modello di Machine Learning ha una precisione del 100%. Sebbene vengano usate solo le immagini per cui il modello è attendibile, è possibile che le immagini siano ancora pre-etichettate in modo errato.  Quando vengono visualizzate queste etichette, correggere eventuali etichette errate prima di inviare la pagina.  
 
-* Per i modelli di identificazione degli oggetti, è possibile che siano già presenti caselle di delimitazione ed etichette.  Correggere quelli non corretti prima di inviare la pagina.
+* Per i modelli di identificazione degli oggetti, è possibile che i relimiti e le etichette di delimitazione sono già presenti.  Correggere quelli non corretti prima di inviare la pagina.
 
-* Per i modelli di segmentazione, è possibile visualizzare i poligoni e le etichette già presenti.  Correggere quelli non corretti prima di inviare la pagina. 
-
-    > [!IMPORTANT]
-    > Le funzionalità elencate con (anteprima) sono disponibili in anteprima pubblica.   
-    > La versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
+* Per i modelli di segmentazione, è possibile che i poligoni e le etichette sono già presenti.  Correggere quelli non corretti prima di inviare la pagina. 
 
 Soprattutto all'inizio di un progetto di etichettatura, il modello di Machine Learning può essere sufficientemente accurato da pre-etichettare solo un piccolo subset di immagini. Una volta etichettate queste immagini, il progetto di etichettatura tornerà all'etichettatura manuale per raccogliere più dati per il ciclo successivo di training del modello. Con il tempo, il modello diventerà più affidabile rispetto a una proporzione più elevata di immagini, ottenendo in seguito più attività di pre-etichettatura nel progetto.
 

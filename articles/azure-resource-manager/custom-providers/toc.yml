@@ -46,7 +46,7 @@
     - name: REST
       href: /rest/api/customproviders/
     - name: Interfaccia della riga di comando di Azure
-      href: /cli/azure/ext/custom-providers/custom-providers/
+      href: /cli/azure/custom-providers/
     - name: Azure PowerShell
       href: /powershell/module/Az.CustomProviders/
     - name: Criteri di Azure predefiniti

@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18, devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: af050ae95b4ab161028229299a8de5ed3426430b
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 08bf165254c8759a978b406b3e9a990a41ab7a30
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107482834"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107873208"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Esercitazione: Creare e gestire dati esportati
 
@@ -64,7 +64,7 @@ Per creare o visualizzare un'esportazione di dati o pianificare un'esportazione,
     - **Costo ammortizzato (utilizzo e acquisti)** : selezionare questa opzione per esportare dati sui costi ammortizzati per gli acquisti, come le prenotazioni di Azure
 1. Per **Tipo di esportazione**, effettuare una selezione:
     - **Esportazione giornaliera dei costi da** inizio mese: fornisce un nuovo file di esportazione giornaliero per i costi da inizio mese. I dati più recenti vengono aggregati dalle esportazioni giornaliere precedenti.
-    - **Esportazione settimanale dei costi per** gli ultimi sette giorni: crea un'esportazione settimanale dei costi per gli ultimi sette giorni dalla data di inizio selezionata dell'esportazione.
+    - **Esportazione settimanale dei costi per** gli ultimi sette giorni" Crea un'esportazione settimanale dei costi per gli ultimi sette giorni dalla data di inizio selezionata dell'esportazione.
     - **Esportazione mensile dei** costi del mese scorso: consente di esportare i costi dell'ultimo mese rispetto al mese corrente in cui si crea l'esportazione. In futuro, la pianificazione esegue un'esportazione il quinto giorno di ogni nuovo mese con i costi dei mesi precedenti.
     - **Esportazione una sola** volta: consente di scegliere un intervallo di date per i dati cronologici da esportare nell'archivio BLOB di Azure. È possibile esportare i costi cronologici relativi a un massimo di 90 giorni a partire dal giorno scelto. Questa esportazione viene eseguita immediatamente ed è disponibile nell'account di archiviazione entro due ore.
         A seconda del tipo di esportazione, scegliere una data di inizio oppure scegliere le date **Da** e **A**.
@@ -87,7 +87,7 @@ Per iniziare, preparare l'ambiente per l'interfaccia della riga di comando di Az
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-1. Dopo aver eseguito l'accesso, usare il comando [az costmanagement export list](/cli/azure/ext/costmanagement/costmanagement/export#ext_costmanagement_az_costmanagement_export_list) per vedere le esportazioni correnti:
+1. Dopo aver eseguito l'accesso, usare il comando [az costmanagement export list](/cli/azure/costmanagement/export#az_costmanagement_export_list) per vedere le esportazioni correnti:
 
    ```azurecli
    az costmanagement export list --scope "subscriptions/00000000-0000-0000-0000-000000000000"
@@ -110,7 +110,7 @@ Per iniziare, preparare l'ambiente per l'interfaccia della riga di comando di Az
    az storage account create --resource-group TreyNetwork --name cmdemo
    ```
 
-1. Per creare l'esportazione, eseguire il comando [az costmanagement export create](/cli/azure/ext/costmanagement/costmanagement/export#ext_costmanagement_az_costmanagement_export_create):
+1. Per creare l'esportazione, eseguire il comando [az costmanagement export create](/cli/azure/costmanagement/export#az_costmanagement_export_create):
 
    ```azurecli
    az costmanagement export create --name DemoExport --type ActualCost \
@@ -124,14 +124,14 @@ Per iniziare, preparare l'ambiente per l'interfaccia della riga di comando di Az
 
    In questo esempio viene utilizzato `MonthToDate`. L'esportazione crea un file ogni giorno per i costi da inizio mese. I dati più recenti vengono aggregati dalle esportazioni giornaliere del mese corrente.
 
-1. Per vedere i dettagli dell'operazione di esportazione, usare il comando [az costmanagement export show](/cli/azure/ext/costmanagement/costmanagement/export#ext_costmanagement_az_costmanagement_export_show):
+1. Per vedere i dettagli dell'operazione di esportazione, usare il comando [az costmanagement export show](/cli/azure/costmanagement/export#az_costmanagement_export_show):
 
    ```azurecli
    az costmanagement export show --name DemoExport \
       --scope "subscriptions/00000000-0000-0000-0000-000000000000"
    ```
 
-1. Per aggiornare un'esportazione, usare il comando [az costmanagement export update](/cli/azure/ext/costmanagement/costmanagement/export#ext_costmanagement_az_costmanagement_export_update):
+1. Per aggiornare un'esportazione, usare il comando [az costmanagement export update](/cli/azure/costmanagement/export#az_costmanagement_export_update):
 
    ```azurecli
    az costmanagement export update --name DemoExport
@@ -143,7 +143,7 @@ Per iniziare, preparare l'ambiente per l'interfaccia della riga di comando di Az
 >[!NOTE]
 >Inizialmente, possono essere necessarie 12-24 ore prima che l'esportazione venga eseguita. Tuttavia, può essere necessario più tempo prima che i dati vengano visualizzati nei file esportati.
 
-È possibile eliminare un'esportazione usando il comando [az costmanagement export delete](/cli/azure/ext/costmanagement/costmanagement/export#ext_costmanagement_az_costmanagement_export_delete):
+È possibile eliminare un'esportazione usando il comando [az costmanagement export delete](/cli/azure/costmanagement/export#az_costmanagement_export_delete):
 
 ```azurecli
 az costmanagement export delete --name DemoExport --scope "subscriptions/00000000-0000-0000-0000-000000000000"

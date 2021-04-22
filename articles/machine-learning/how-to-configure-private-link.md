@@ -11,21 +11,21 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 02/09/2021
-ms.openlocfilehash: 0ea4e3ae0113608203dad63f636ae4adb4eeff9b
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.openlocfilehash: 5e13c97427736d60f300d2d7b502c6f3e15fb481
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107737515"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107861446"
 ---
 # <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace"></a>Configurare la collegamento privato di Azure per un'area Azure Machine Learning lavoro
 
-In questo documento si apprenderà come usare le collegamento privato di Azure con l'area Azure Machine Learning lavoro. Per informazioni sulla creazione di una rete virtuale per Azure Machine Learning, vedere Panoramica [dell'isolamento della rete virtuale e della privacy](how-to-network-security-overview.md)
+In questo documento si apprenderà come usare le collegamento privato di Azure con l'area Azure Machine Learning lavoro. Per informazioni sulla creazione di una rete virtuale per Azure Machine Learning, vedere Panoramica [dell'isolamento della rete](how-to-network-security-overview.md) virtuale e della privacy
 
 collegamento privato di Azure consente di connettersi all'area di lavoro usando un endpoint privato. L'endpoint privato è un set di indirizzi IP privati all'interno della rete virtuale. È quindi possibile limitare l'accesso all'area di lavoro in modo che si verifichi solo tramite gli indirizzi IP privati. Collegamento privato consente di ridurre il rischio di esfiltrazione dei dati. Per altre informazioni sugli endpoint privati, vedere l'articolo [Collegamento privato di Azure](../private-link/private-link-overview.md).
 
 > [!IMPORTANT]
-> collegamento privato di Azure non influisce sul piano di controllo di Azure (operazioni di gestione), ad esempio l'eliminazione dell'area di lavoro o la gestione delle risorse di calcolo. Ad esempio, la creazione, l'aggiornamento o l'eliminazione di una destinazione di calcolo. Queste operazioni vengono eseguite normalmente sulla rete Internet pubblica. Le operazioni del piano dati, ad esempio l'studio di Azure Machine Learning, le API (incluse le pipeline pubblicate) o l'SDK usano l'endpoint privato.
+> collegamento privato di Azure non influisce sul piano di controllo di Azure (operazioni di gestione), ad esempio l'eliminazione dell'area di lavoro o la gestione delle risorse di calcolo. Ad esempio, la creazione, l'aggiornamento o l'eliminazione di una destinazione di calcolo. Queste operazioni vengono eseguite sulla rete Internet pubblica come di consueto. Le operazioni del piano dati, ad esempio l'studio di Azure Machine Learning, le API (incluse le pipeline pubblicate) o l'SDK usano l'endpoint privato.
 >
 > È possibile che si verifichino problemi durante il tentativo di accesso all'endpoint privato per l'area di lavoro se si usa Mozilla Firefox. Questo problema può essere correlato a DNS su HTTPS in Mozilla. È consigliabile usare Microsoft Edge o Google Chrome come soluzione alternativa.
 
@@ -66,7 +66,7 @@ ws = Workspace.create(name='myworkspace',
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
-[L'estensione dell'interfaccia della riga di](reference-azure-machine-learning-cli.md) comando di Azure per Machine Learning fornisce il comando [az ml workspace create.](/cli/azure/ext/azure-cli-ml/ml/workspace#ext_azure_cli_ml_az_ml_workspace_create) I parametri seguenti per questo comando possono essere usati per creare un'area di lavoro con una rete privata, ma richiede una rete virtuale esistente:
+[L'estensione dell'interfaccia della riga di](reference-azure-machine-learning-cli.md) comando di Azure per Machine Learning fornisce il comando [az ml workspace create.](/cli/azure/ml/workspace#az_ml_workspace_create) I parametri seguenti per questo comando possono essere usati per creare un'area di lavoro con una rete privata, ma richiede una rete virtuale esistente:
 
 * `--pe-name`: nome dell'endpoint privato creato.
 * `--pe-auto-approval`: indica se le connessioni endpoint private all'area di lavoro devono essere approvate automaticamente.
@@ -116,7 +116,7 @@ Per altre informazioni sulle classi e i metodi usati in questo esempio, vedere [
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
-[L'estensione dell'interfaccia della riga](reference-azure-machine-learning-cli.md) di comando di Azure per Machine Learning fornisce il comando [az ml workspace private-endpoint add.](/cli/azure/ext/azure-cli-ml/ml/workspace/private-endpoint#ext_azure_cli_ml_az_ml_workspace_private_endpoint_add)
+[L'estensione dell'interfaccia della riga](reference-azure-machine-learning-cli.md) di comando di Azure per Machine Learning fornisce il comando [az ml workspace private-endpoint add.](/cli/azure/ml/workspace/private-endpoint#az_ml_workspace_private_endpoint_add)
 
 ```azurecli
 az ml workspace private-endpoint add -w myworkspace  --pe-name myprivateendpoint --pe-auto-approval true --pe-vnet-name myvnet
@@ -128,7 +128,7 @@ Nell'Azure Machine Learning di lavoro nel portale selezionare __Connessioni endp
 
 * Quando si seleziona __l'area__, selezionare la stessa area della rete virtuale. 
 * Quando si __seleziona Tipo di__ risorsa, usare __Microsoft.MachineLearningServices/workspaces__. 
-* Impostare La risorsa __sul nome__ dell'area di lavoro.
+* Impostare Risorsa sul __nome__ dell'area di lavoro.
 
 Selezionare infine __Crea per__ creare l'endpoint privato.
 
@@ -153,7 +153,7 @@ ws.delete_private_endpoint_connection(private_endpoint_connection_name=connectio
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
-[L'estensione dell'interfaccia della riga di comando di Azure per Machine Learning](reference-azure-machine-learning-cli.md) fornisce il comando [az ml workspace private-endpoint delete.](/cli/azure/ext/azure-cli-ml/ml/workspace/private-endpoint#ext_azure_cli_ml_az_ml_workspace_private_endpoint_delete)
+[L'estensione dell'interfaccia della riga di comando di Azure per Machine Learning](reference-azure-machine-learning-cli.md) fornisce il comando [az ml workspace private-endpoint delete.](/cli/azure/ml/workspace/private-endpoint#az_ml_workspace_private_endpoint_delete)
 
 # <a name="portal"></a>[Portale](#tab/azure-portal)
 
@@ -192,7 +192,7 @@ ws.update(allow_public_access_when_behind_vnet=True)
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
-[L'estensione dell'interfaccia della riga di comando](reference-azure-machine-learning-cli.md) di Azure per Machine Learning fornisce il comando [az ml workspace update.](/cli/azure/ext/azure-cli-ml/ml/workspace#ext_azure_cli_ml_az_ml_workspace_update) Per abilitare l'accesso pubblico all'area di lavoro, aggiungere il parametro `--allow-public-access true` .
+[L'estensione dell'interfaccia della riga di comando](reference-azure-machine-learning-cli.md) di Azure per Machine Learning fornisce il comando [az ml workspace update.](/cli/azure/ml/workspace#az_ml_workspace_update) Per abilitare l'accesso pubblico all'area di lavoro, aggiungere il parametro `--allow-public-access true` .
 
 # <a name="portal"></a>[Portale](#tab/azure-portal)
 

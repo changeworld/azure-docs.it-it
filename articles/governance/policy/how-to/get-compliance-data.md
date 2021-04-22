@@ -1,14 +1,14 @@
 ---
 title: Ottenere i dati di conformità ai criteri
 description: Le valutazioni e gli effetti di Criteri di Azure determinano la conformità. Informazioni su come ottenere informazioni dettagliate sulle risorse di Azure.
-ms.date: 03/16/2021
+ms.date: 04/19/2021
 ms.topic: how-to
-ms.openlocfilehash: cdd23d685750fb8a5d3803f4b6030e7e67bbddce
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e1a9a7fcbbcbd7f490b2f665b40c7ed922ec61ee
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104598542"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107864596"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Ottenere i dati di conformità delle risorse di Azure
 
@@ -22,7 +22,7 @@ Esistono diversi modi per accedere alle informazioni sulla conformità generate 
 Prima di esaminare i metodi disponibili per creare report sulla conformità, è opportuno comprendere quando vengono aggiornate le informazioni sulla conformità e la frequenza e gli eventi che attivano un ciclo di valutazione.
 
 > [!WARNING]
-> Se lo stato di conformità viene segnalato come **non registrato**, verificare che il provider di risorse **Microsoft. PolicyInsights** sia registrato e che l'utente disponga delle autorizzazioni appropriate per il controllo degli accessi in base al ruolo di Azure (RBAC di Azure), come descritto nelle [autorizzazioni RBAC di Azure in criteri di Azure](../overview.md#azure-rbac-permissions-in-azure-policy).
+> Se lo stato di conformità viene segnalato come Non **registrato,** verificare che il provider di risorse **Microsoft.PolicyInsights** sia registrato e che l'utente abbia le autorizzazioni appropriate per il controllo degli accessi in base al ruolo di Azure, come descritto in Autorizzazioni del controllo degli accessi in base al ruolo di [Azure in Criteri di Azure](../overview.md#azure-rbac-permissions-in-azure-policy).
 
 ## <a name="evaluation-triggers"></a>Trigger di valutazione
 
@@ -30,13 +30,15 @@ I risultati di un ciclo di valutazione completato sono disponibili nel provider 
 
 Le valutazioni delle iniziative e dei criteri assegnati sono il risultato di diversi eventi:
 
-- Un criterio o un'iniziativa è stata appena assegnata a un ambito. L'applicazione dell'assegnazione all'ambito definito richiede circa 30 minuti. Una volta applicato, il ciclo di valutazione inizia per le risorse all'interno di tale ambito rispetto al criterio o all'iniziativa appena assegnata e a seconda degli effetti usati dal criterio o dall'iniziativa, le risorse sono contrassegnate come conformi, non conformi o esenti. La valutazione di un criterio o un'iniziativa estesa rispetto a un ambito di risorse di grandi dimensioni può richiedere tempo. Di conseguenza, non esiste un tempo predefinito di completamento di un ciclo di valutazione. Dopo il completamento, i risultati di conformità aggiornati sono disponibili nel portale e negli SDK.
+- Un criterio o un'iniziativa è stata appena assegnata a un ambito. L'applicazione dell'assegnazione all'ambito definito richiede circa 30 minuti. Dopo l'applicazione, il ciclo di valutazione inizia per le risorse all'interno di tale ambito rispetto ai criteri o all'iniziativa appena assegnati e, a seconda degli effetti usati dal criterio o dall'iniziativa, le risorse vengono contrassegnate come conformi, non conformi o esenti. La valutazione di un criterio o un'iniziativa estesa rispetto a un ambito di risorse di grandi dimensioni può richiedere tempo. Di conseguenza, non esiste un tempo predefinito di completamento di un ciclo di valutazione. Dopo il completamento, i risultati di conformità aggiornati sono disponibili nel portale e negli SDK.
 
 - Un criterio o un'iniziativa già assegnata a un ambito viene aggiornata. Il ciclo di valutazione e la tempistica per questo scenario sono gli stessi di quelli per una nuova assegnazione a un ambito.
 
 - Una risorsa viene distribuita o aggiornata all'interno di un ambito con un'assegnazione tramite Azure Resource Manager, l'API REST o un SDK supportato. In questo scenario l'evento di effetto (Append, Audit, Deny, Deploy) e le informazioni sullo stato conforme per la singola risorsa diventano disponibili nel portale e negli SDK dopo circa 15 minuti. Questo evento non causa una valutazione di altre risorse.
 
-- Viene creata, aggiornata o eliminata un' [esenzione dei criteri](../concepts/exemption-structure.md) . In questo scenario, l'assegnazione corrispondente viene valutata per l'ambito di esenzione definito.
+- Una sottoscrizione (tipo di risorsa ) viene creata o spostata all'interno di una gerarchia di gruppi di gestione con una definizione di criteri assegnata che `Microsoft.Resource/subscriptions` fa riferimento al tipo di risorsa della sottoscrizione. [](../../management-groups/overview.md) La valutazione degli effetti supportati dalla sottoscrizione (audit, auditIfNotExist, deployIfNotExists, modify), la registrazione e qualsiasi azione di correzione richiede circa 30 minuti.
+
+- Viene [creata,](../concepts/exemption-structure.md) aggiornata o eliminata un'esenzione dei criteri. In questo scenario, l'assegnazione corrispondente viene valutata per l'ambito di esenzione definito.
 
 - Ciclo di valutazione della conformità standard. Le assegnazioni vengono automaticamente rivalutate ogni 24 ore. Un criterio o un'iniziativa estesa di molte risorse può richiedere tempo, pertanto non è prevedibile quando verrà completato il ciclo di valutazione. Dopo il completamento, i risultati di conformità aggiornati sono disponibili nel portale e negli SDK.
 
@@ -46,12 +48,12 @@ Le valutazioni delle iniziative e dei criteri assegnati sono il risultato di div
 
 ### <a name="on-demand-evaluation-scan"></a>Analisi di valutazione su richiesta
 
-È possibile avviare un'analisi di valutazione per una sottoscrizione o un gruppo di risorse con l'interfaccia della riga di comando di Azure, Azure PowerShell, una chiamata all'API REST o tramite l' [azione GitHub di analisi della conformità dei criteri di Azure](https://github.com/marketplace/actions/azure-policy-compliance-scan).
+È possibile iniziare un'analisi di valutazione per una sottoscrizione o un gruppo di risorse con l'interfaccia della riga di comando di Azure, Azure PowerShell, una chiamata all'API REST o usando l'azione gitHub Criteri di Azure [Compliance Scan.](https://github.com/marketplace/actions/azure-policy-compliance-scan)
 Questa analisi è un processo asincrono.
 
-#### <a name="on-demand-evaluation-scan---github-action"></a>Analisi di valutazione su richiesta-azione GitHub
+#### <a name="on-demand-evaluation-scan---github-action"></a>Analisi di valutazione su richiesta - GitHub Action
 
-Usare l' [azione di analisi della conformità dei criteri di Azure](https://github.com/marketplace/actions/azure-policy-compliance-scan) per attivare un'analisi di valutazione su richiesta dal flusso di [lavoro GitHub](https://docs.github.com/actions/configuring-and-managing-workflows/configuring-a-workflow#about-workflows) in una o più risorse, gruppi di risorse o sottoscrizioni e controllare il flusso di lavoro in base allo stato di conformità delle risorse. È anche possibile configurare il flusso di lavoro per l'esecuzione a un'ora pianificata in modo da ottenere lo stato di conformità più recente in un momento appropriato. Facoltativamente, questa azione GitHub può generare un report sullo stato di conformità delle risorse analizzate per un'ulteriore analisi o per l'archiviazione.
+Usare [l'azione](https://github.com/marketplace/actions/azure-policy-compliance-scan) Criteri di Azure Compliance Scan (Analisi conformità di Criteri di Azure) per attivare un'analisi di valutazione su richiesta dal flusso di lavoro [GitHub](https://docs.github.com/actions/configuring-and-managing-workflows/configuring-a-workflow#about-workflows) su una o più risorse, gruppi di risorse o sottoscrizioni e controllarne il flusso di lavoro in base allo stato di conformità delle risorse. È anche possibile configurare il flusso di lavoro per l'esecuzione a un'ora pianificata in modo da ottenere lo stato di conformità più recente in un momento opportuno. Facoltativamente, questa azione GitHub può generare un report sullo stato di conformità delle risorse analizzate per un'ulteriore analisi o per l'archiviazione.
 
 L'esempio seguente esegue un'analisi della conformità per una sottoscrizione. 
 
@@ -76,19 +78,19 @@ jobs:
           /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
-Per altre informazioni ed esempi di flusso di lavoro, vedere l' [azione GitHub per il repository di analisi della conformità dei criteri di Azure](https://github.com/Azure/policy-compliance-scan).
+Per altre informazioni ed esempi di flusso di lavoro, vedere il repository [GitHub Action for Criteri di Azure Compliance Scan](https://github.com/Azure/policy-compliance-scan).
 
-#### <a name="on-demand-evaluation-scan---azure-cli"></a>Analisi di valutazione su richiesta-interfaccia della riga di comando di Azure
+#### <a name="on-demand-evaluation-scan---azure-cli"></a>Analisi di valutazione su richiesta - Interfaccia della riga di comando di Azure
 
-L'analisi di conformità viene avviata con il comando [AZ Policy state trigger-Scan](/cli/azure/policy/state#az_policy_state_trigger_scan) .
+L'analisi di conformità viene avviata con [il comando az policy state trigger-scan.](/cli/azure/policy/state#az_policy_state_trigger_scan)
 
-Per impostazione predefinita, `az policy state trigger-scan` avvia una valutazione per tutte le risorse nella sottoscrizione corrente. Per avviare una valutazione in un gruppo di risorse specifico, usare il parametro **Resource-Group** . Nell'esempio seguente viene avviata un'analisi di conformità nella sottoscrizione corrente per il gruppo di risorse _MyRG_:
+Per impostazione predefinita, `az policy state trigger-scan` avvia una valutazione per tutte le risorse nella sottoscrizione corrente. Per avviare una valutazione in un gruppo di risorse specifico, usare il **parametro resource-group.** Nell'esempio seguente viene avviata un'analisi di conformità nella sottoscrizione corrente per il gruppo di risorse _MyRG_:
 
 ```azurecli-interactive
 az policy state trigger-scan --resource-group "MyRG"
 ```
 
-È possibile scegliere di non attendere il completamento del processo asincrono prima di continuare con il parametro **No-wait** .
+È possibile scegliere di non attendere il completamento del processo asincrono prima di continuare con il **parametro no-wait.**
 
 #### <a name="on-demand-evaluation-scan---azure-powershell"></a>Analisi della valutazione su richiesta - Azure PowerShell
 
@@ -157,14 +159,14 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 }
 ```
 
-#### <a name="on-demand-evaluation-scan---visual-studio-code"></a>Analisi della valutazione su richiesta-Visual Studio Code
+#### <a name="on-demand-evaluation-scan---visual-studio-code"></a>Analisi di valutazione su richiesta - Visual Studio Code
 
-L'estensione di criteri di Azure per Visual Studio Code è in grado di eseguire un'analisi di valutazione per una risorsa specifica. Questa analisi è un processo sincrono, a differenza dei metodi Azure PowerShell e REST.
-Per informazioni dettagliate e procedure, vedere [la pagina relativa alla valutazione su richiesta con l'estensione vs code](./extension-for-vscode.md#on-demand-evaluation-scan).
+L Criteri di Azure per il Visual Studio è in grado di eseguire un'analisi di valutazione per una risorsa specifica. Questa analisi è un processo sincrono, a differenza dei Azure PowerShell e REST.
+Per informazioni dettagliate e procedure, vedere [Valutazione su richiesta con l'estensione VS Code.](./extension-for-vscode.md#on-demand-evaluation-scan)
 
 ## <a name="how-compliance-works"></a>Funzionamento della conformità
 
-In un'assegnazione, una risorsa **non è conforme** se non segue le regole di criteri o di iniziativa e non è _esente_. La tabella seguente illustra il funzionamento dei diversi effetti dei criteri in base alla valutazione della condizione per lo stato di conformità risultante:
+In un'assegnazione, una risorsa **è Non conforme** se non segue le regole dei criteri o dell'iniziativa e non è _esente._ La tabella seguente illustra il funzionamento dei diversi effetti dei criteri in base alla valutazione della condizione per lo stato di conformità risultante:
 
 | Stato della risorsa | Effetto | Valutazione dei criteri | Stato di conformità |
 | --- | --- | --- | --- |
@@ -178,58 +180,58 @@ In un'assegnazione, una risorsa **non è conforme** se non segue le regole di cr
 
 Ad esempio, si supponga di avere un gruppo di risorse, ContosoRG, con alcuni account di archiviazione (evidenziati in rosso) esposti su reti pubbliche.
 
-:::image type="complex" source="../media/getting-compliance-data/resource-group01.png" alt-text="Diagramma degli account di archiviazione esposti alle reti pubbliche nel gruppo di risorse contoso R G." border="false":::
-   Diagramma che mostra le immagini per cinque account di archiviazione nel gruppo di risorse contoso R G.  Gli account di archiviazione uno e tre sono blu, mentre gli account di archiviazione due, quattro e cinque sono rossi.
+:::image type="complex" source="../media/getting-compliance-data/resource-group01.png" alt-text="Diagramma degli account di archiviazione esposti alle reti pubbliche nel gruppo di risorse Contoso R G." border="false":::
+   Diagramma che mostra le immagini per cinque account di archiviazione nel gruppo di risorse Contoso R G.  Gli account di archiviazione uno e tre sono blu, mentre gli account di archiviazione due, quattro e cinque sono rossi.
 :::image-end:::
 
-In questo esempio, è necessario essere ben consapevoli dei rischi di sicurezza. Ora che è stata creata un'assegnazione di criteri, questa viene valutata per tutti gli account di archiviazione inclusi e non esenti nel gruppo di risorse ContosoRG. Controlla i tre account di archiviazione non conformi, modificandone di conseguenza lo stato impostandolo su **Non conforme**.
+In questo esempio, è necessario essere ben consapevoli dei rischi di sicurezza. Ora che è stata creata un'assegnazione di criteri, viene valutata per tutti gli account di archiviazione inclusi e non esenti nel gruppo di risorse ContosoRG. Controlla i tre account di archiviazione non conformi, modificandone di conseguenza lo stato impostandolo su **Non conforme**.
 
-:::image type="complex" source="../media/getting-compliance-data/resource-group03.png" alt-text="Diagramma della conformità dell'account di archiviazione nel gruppo di risorse contoso R G." border="false":::
-   Diagramma che mostra le immagini per cinque account di archiviazione nel gruppo di risorse contoso R G. Gli account di archiviazione uno e tre ora hanno segni di spunta verdi sotto di essi, mentre gli account di archiviazione due, quattro e cinque ora hanno segni di avviso rossi sotto di essi.
+:::image type="complex" source="../media/getting-compliance-data/resource-group03.png" alt-text="Diagramma della conformità dell'account di archiviazione nel gruppo di risorse G di Contoso R." border="false":::
+   Diagramma che mostra le immagini per cinque account di archiviazione nel gruppo di risorse Contoso R G. Gli account di archiviazione uno e tre ora hanno segni di spunta verdi sotto di essi, mentre gli account di archiviazione due, quattro e cinque ora hanno segni di avviso rossi sotto di essi.
 :::image-end:::
 
-Oltre ai criteri **conformi** e **non conformi**, i criteri e le risorse hanno altri quattro stati:
+Oltre a **Conforme** e **Non conforme,** i criteri e le risorse hanno altri quattro stati:
 
-- **Esenzione**: la risorsa è nell'ambito di un'assegnazione, ma ha un' [esenzione definita](../concepts/exemption-structure.md).
-- In **conflitto**: sono presenti due o più definizioni di criteri con regole in conflitto. Ad esempio, due definizioni aggiungono lo stesso tag con valori diversi.
+- **Esente:** la risorsa è nell'ambito di un'assegnazione, ma ha [un'esenzione definita.](../concepts/exemption-structure.md)
+- **In conflitto:** esistono due o più definizioni di criteri con regole in conflitto. Ad esempio, due definizioni accodare lo stesso tag con valori diversi.
 - **Non avviato**: il ciclo di valutazione per i criteri o la risorsa non è stato avviato.
 - **Non registrato**: il provider di risorse di Criteri di Azure non è stato registrato o l'account connesso non è autorizzato a leggere i dati di conformità.
 
-Criteri di Azure usa i campi **tipo**, **nome** o **tipo** nella definizione per determinare se una risorsa è una corrispondenza. Quando la risorsa corrisponde, viene considerata applicabile e presenta uno stato **conforme**, **non conforme** o **esentato**. Se il **tipo**, il **nome** o il **tipo** è l'unica proprietà nella definizione, tutte le risorse incluse e non esenti vengono considerate applicabili e vengono valutate.
+Criteri di Azure usa i **campi di** tipo , **name** o **kind** nella definizione per determinare se una risorsa corrisponde. Quando la risorsa corrisponde, viene considerata applicabile e ha lo stato **Conforme,** **Non conforme** o **Esente.** Se il **tipo**, **il nome** o **il** tipo è l'unica proprietà nella definizione, tutte le risorse incluse e non esenti vengono considerate applicabili e vengono valutate.
 
-La percentuale di conformità viene determinata dividendo le risorse **conformi** ed **esenti** dalle _risorse totali_. _Il totale delle risorse_ è definito come la somma delle risorse **conformi**, **non conformi**, **esentate** e in **conflitto** . I numeri di conformità generali sono la somma delle risorse distinte **conformi** o **esentate** divise per la somma di tutte le risorse distinte. Nell'immagine seguente sono presenti 20 risorse distinte applicabili, di cui una sola **Non conforme**.
+La percentuale di conformità viene determinata dividendo **le risorse Conformi** ed **Esenti** per _il totale delle risorse_. _Il totale_ delle risorse è definito come la somma delle risorse **Conformi**, **Non conformi**, **Esenti** **e In** conflitto. I numeri di conformità complessivi sono la somma delle risorse distinte **conformi** o esenti **divisa** per la somma di tutte le risorse distinte. Nell'immagine seguente sono presenti 20 risorse distinte applicabili, di cui una sola **Non conforme**.
 La conformità complessiva delle risorse è pari al 95% (19 su 20).
 
-:::image type="content" source="../media/getting-compliance-data/simple-compliance.png" alt-text="Screenshot dei dettagli di conformità dei criteri dalla pagina conformità." border="false":::
+:::image type="content" source="../media/getting-compliance-data/simple-compliance.png" alt-text="Screenshot dei dettagli di conformità dei criteri nella pagina Conformità." border="false":::
 
 > [!NOTE]
-> La conformità alle normative in criteri di Azure è una funzionalità in anteprima. Le proprietà di conformità da SDK e pagine del portale sono diverse per le iniziative abilitate. Per ulteriori informazioni, vedere [conformità normativa](../concepts/regulatory-compliance.md)
+> La conformità alle normative Criteri di Azure è una funzionalità di anteprima. Le proprietà di conformità dell'SDK e delle pagine nel portale sono diverse per le iniziative abilitate. Per altre informazioni, vedere [Conformità alle normative](../concepts/regulatory-compliance.md)
 
 ## <a name="portal"></a>Portale
 
 Il portale di Azure illustra un'esperienza grafica di visualizzazione e comprensione dello stato di conformità nell'ambiente in uso. Nella pagina **Criteri** l'opzione **Panoramica** fornisce i dettagli per gli ambiti disponibili sulla conformità dei criteri e delle iniziative. Oltre allo stato di conformità e al conteggio per assegnazione, contiene un grafico che mostra la conformità negli ultimi sette giorni. La pagina **Conformità** contiene buona parte di queste stesse informazioni (eccetto il grafico), ma fornisce altre opzioni di ordinamento e applicazione di filtri.
 
-:::image type="content" source="../media/getting-compliance-data/compliance-page.png" alt-text="Screenshot della pagina conformità, opzioni di filtro e dettagli." border="false":::
+:::image type="content" source="../media/getting-compliance-data/compliance-page.png" alt-text="Screenshot della pagina Conformità, opzioni di filtro e dettagli." border="false":::
 
-Dal momento che un criterio o un'iniziativa può essere assegnata a diversi ambiti, la tabella include l'ambito di ogni assegnazione e il tipo di definizione assegnato. È anche indicato il numero di risorse non conformi e di criteri non conformi per ogni assegnazione. La selezione di un criterio o di un'iniziativa nella tabella consente di esaminare in modo più approfondito la conformità per quella particolare assegnazione.
+Dal momento che un criterio o un'iniziativa può essere assegnata a diversi ambiti, la tabella include l'ambito di ogni assegnazione e il tipo di definizione assegnato. È anche indicato il numero di risorse non conformi e di criteri non conformi per ogni assegnazione. La selezione di un criterio o di un'iniziativa nella tabella offre un'analisi più approfondita della conformità per quella particolare assegnazione.
 
-:::image type="content" source="../media/getting-compliance-data/compliance-details.png" alt-text="Screenshot della pagina dei dettagli di conformità, compresi i conteggi e i dettagli conformi alle risorse." border="false":::
+:::image type="content" source="../media/getting-compliance-data/compliance-details.png" alt-text="Screenshot della pagina Dettagli conformità, inclusi i conteggi e i dettagli di conformità delle risorse." border="false":::
 
 L'elenco delle risorse nella scheda **Conformità risorsa** mostra lo stato di valutazione delle risorse esistenti per l'assegnazione corrente. Il valore predefinito della scheda è **Non conforme**, ma è possibile applicare un filtro.
-Gli eventi (aggiungere, controllare, negare, distribuire, modificare) attivati dalla richiesta di creazione di una risorsa vengono visualizzati nella scheda **eventi** .
+Gli eventi (aggiunta, controllo, negazione, distribuzione, modifica) attivati dalla richiesta di creazione di una risorsa vengono visualizzati nella **scheda** Eventi.
 
 > [!NOTE]
 > Per i criteri del motore del servizio Azure Kubernetes, la risorsa mostrata è il gruppo di risorse.
 
-:::image type="content" source="../media/getting-compliance-data/compliance-events.png" alt-text="Screenshot della scheda eventi nella pagina Dettagli conformità." border="false":::
+:::image type="content" source="../media/getting-compliance-data/compliance-events.png" alt-text="Screenshot della scheda Eventi nella pagina Dettagli conformità." border="false":::
 
-<a name="component-compliance"></a> Per le risorse in [modalità provider di risorse](../concepts/definition-structure.md#resource-provider-modes) , nella scheda **conformità risorse** Selezionare la risorsa o fare clic con il pulsante destro del mouse sulla riga e selezionare **Visualizza dettagli conformità** consente di aprire i dettagli di conformità dei componenti. Questa pagina include anche le schede per visualizzare i criteri assegnati a questa risorsa, eventi, eventi del componente e cronologia delle modifiche.
+<a name="component-compliance"></a>Per [le risorse](../concepts/definition-structure.md#resource-provider-modes) in  modalità Provider di risorse, nella scheda Conformità risorsa  selezionare la risorsa o fare clic con il pulsante destro del mouse sulla riga e scegliere Visualizza dettagli conformità per aprire i dettagli di conformità del componente. Questa pagina include anche le schede per visualizzare i criteri assegnati a questa risorsa, eventi, eventi del componente e cronologia delle modifiche.
 
-:::image type="content" source="../media/getting-compliance-data/compliance-components.png" alt-text="Screenshot della scheda conformità componenti e dei dettagli di conformità per un'assegnazione in modalità provider di risorse." border="false":::
+:::image type="content" source="../media/getting-compliance-data/compliance-components.png" alt-text="Screenshot della scheda Conformità componente e dei dettagli di conformità per un'assegnazione in modalità Provider di risorse." border="false":::
 
 Tornare alla pagina di conformità delle risorse e fare clic con il pulsante destro del mouse sulla riga dell'evento per cui si vogliono raccogliere maggiori dettagli, quindi selezionare **Mostra log attività**. La pagina del log attività viene aperta e pre-filtrata con la ricerca contenente i dettagli per l'assegnazione e gli eventi. Il log attività offre un contesto aggiuntivo e altre informazioni su tali eventi.
 
-:::image type="content" source="../media/getting-compliance-data/compliance-activitylog.png" alt-text="Screenshot del log attività per le attività e le valutazioni di criteri di Azure." border="false":::
+:::image type="content" source="../media/getting-compliance-data/compliance-activitylog.png" alt-text="Screenshot del log attività per Criteri di Azure attività e valutazioni." border="false":::
 
 ### <a name="understand-non-compliance"></a>Comprendere la mancata conformità
 
@@ -237,7 +239,7 @@ Quando una risorsa **non è conforme**, i motivi possibili sono molti. Per deter
 
 ## <a name="command-line"></a>Riga di comando
 
-Le stesse informazioni disponibili nel portale possono essere recuperate con l'API REST (incluso con [ARMClient](https://github.com/projectkudu/ARMClient)), Azure PowerShell e l'interfaccia della riga di comando di Azure. Per informazioni dettagliate sull'API REST, vedere informazioni di riferimento sui [criteri di Azure](/rest/api/policy/) . Le pagine di riferimento sull'API REST includono un pulsante verde "Prova", che consente di provare ogni operazione direttamente nel browser.
+Le stesse informazioni disponibili nel portale possono essere recuperate con l'API REST (inclusa [armClient),](https://github.com/projectkudu/ARMClient)Azure PowerShell e l'interfaccia della riga di comando di Azure. Per informazioni dettagliate complete sull'API REST, vedere le informazioni di [Criteri di Azure](/rest/api/policy/) riferimento. Le pagine di riferimento sull'API REST includono un pulsante verde "Prova", che consente di provare ogni operazione direttamente nel browser.
 
 Usare ARMClient o uno strumento simile per gestire l'autenticazione in Azure per gli esempi di API REST.
 
@@ -287,7 +289,7 @@ L'output riepiloga la sottoscrizione. Nell'output di esempio seguente la conform
 
 ### <a name="query-for-resources"></a>Eseguire query per le risorse
 
-Nell'esempio precedente, **value.policyAssignments.policyDefinitions.results.queryResultsUri** fornisce un URI di esempio per tutte le risorse non conformi per una definizione di criteri specifica. Esaminando il valore **$Filter** , ComplianceState è uguale (EQ) a' conforme ', viene specificato PolicyAssignmentId per la definizione dei criteri e quindi il PolicyDefinitionId stesso. Il motivo dell'inclusione di PolicyAssignmentId nel filtro è che PolicyDefinitionId potrebbe essere presente in diverse assegnazioni di criteri o iniziative con ambiti diversi. Specificando sia PolicyAssignmentId che PolicyDefinitionId, è possibile indicare in modo esplicito i risultati cercati. In precedenza per PolicyStates è stato usato **latest**, che imposta automaticamente una finestra temporale **from** e **to** delle ultime 24 ore.
+Nell'esempio precedente, **value.policyAssignments.policyDefinitions.results.queryResultsUri** fornisce un URI di esempio per tutte le risorse non conformi per una definizione di criteri specifica. Osservando il **valore $filter,** ComplianceState è uguale (eq) a 'NonCompliant', PolicyAssignmentId viene specificato per la definizione dei criteri e quindi PolicyDefinitionId stesso. Il motivo dell'inclusione di PolicyAssignmentId nel filtro è che PolicyDefinitionId potrebbe essere presente in diverse assegnazioni di criteri o iniziative con ambiti diversi. Specificando sia PolicyAssignmentId che PolicyDefinitionId, è possibile indicare in modo esplicito i risultati cercati. In precedenza per PolicyStates è stato usato **latest**, che imposta automaticamente una finestra temporale **from** e **to** delle ultime 24 ore.
 
 ```http
 https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2019-10-01&$from=2018-05-18 04:28:22Z&$to=2018-05-19 04:28:22Z&$filter=ComplianceState eq 'NonCompliant' and PolicyAssignmentId eq '/subscriptions/{subscriptionId}/resourcegroups/rg-tags/providers/microsoft.authorization/policyassignments/37ce239ae4304622914f0c77' and PolicyDefinitionId eq '/providers/microsoft.authorization/policydefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62'
@@ -357,7 +359,7 @@ Per altre informazioni sull'esecuzione di query sugli eventi dei criteri, vedere
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
-Il gruppo di comandi dell' [interfaccia](/cli/azure/what-is-azure-cli) della riga di comando di Azure per criteri di Azure copre la maggior parte delle operazioni disponibili in REST o Azure PowerShell. Per l'elenco completo dei comandi disponibili, vedere interfaccia della riga di comando di [Azure-Panoramica di criteri di Azure](/cli/azure/policy).
+Il [gruppo di comandi dell'interfaccia](/cli/azure/what-is-azure-cli) della riga di comando di Azure Criteri di Azure la maggior parte delle operazioni disponibili in REST o Azure PowerShell. Per l'elenco completo dei comandi disponibili, vedere Interfaccia della riga di comando di [Azure - Criteri di Azure Panoramica](/cli/azure/policy).
 
 Esempio: ottenere il riepilogo dello stato per i criteri più assegnati con il maggior numero di risorse non conformi.
 
@@ -365,7 +367,7 @@ Esempio: ottenere il riepilogo dello stato per i criteri più assegnati con il m
 az policy state summarize --top 1
 ```
 
-La parte superiore della risposta ha un aspetto simile a questo esempio:
+La parte superiore della risposta è simile all'esempio seguente:
 
 ```json
 {
@@ -641,14 +643,14 @@ PolicyDefinitionAction     : deny
 PolicyDefinitionCategory   : tbd
 ```
 
-Esempio: recupero di eventi correlati a risorse di rete virtuale non conformi che si sono verificate dopo una data specifica, conversione in un oggetto CSV ed esportazione in un file.
+Esempio: recupero di eventi correlati a risorse di rete virtuale non conformi che si sono verificati dopo una data specifica, conversione in un oggetto CSV ed esportazione in un file.
 
 ```azurepowershell-interactive
 $policyEvents = Get-AzPolicyEvent -Filter "ResourceType eq '/Microsoft.Network/virtualNetworks'" -From '2020-09-19'
 $policyEvents | ConvertTo-Csv | Out-File 'C:\temp\policyEvents.csv'
 ```
 
-L'output dell'oggetto ha un `$policyEvents` aspetto simile al seguente:
+L'output `$policyEvents` dell'oggetto è simile all'output seguente:
 
 ```output
 Timestamp                  : 9/19/2020 5:18:53 AM
@@ -683,9 +685,9 @@ Trent Baker
 
 ## <a name="azure-monitor-logs"></a>Log di Monitoraggio di Azure
 
-Se si dispone di un' [area di lavoro log Analytics](../../../azure-monitor/logs/log-query-overview.md) con `AzureActivity` dalla [soluzione analisi log attività](../../../azure-monitor/essentials/activity-log.md) collegata alla sottoscrizione, è anche possibile visualizzare i risultati di non conformità dalla valutazione delle risorse nuove e aggiornate usando semplici query kusto e la `AzureActivity` tabella. Con i dettagli dei log di Monitoraggio di Azure è possibile configurare gli avvisi in modo da individuare le risorse non conformi.
+Se si dispone di un'area di lavoro [Log Analytics](../../../azure-monitor/logs/log-query-overview.md) con dalla soluzione Analisi log attività associata alla sottoscrizione, è anche possibile visualizzare i risultati di non conformità dalla valutazione delle risorse nuove e aggiornate usando query Kusto semplici e la `AzureActivity` [](../../../azure-monitor/essentials/activity-log.md) `AzureActivity` tabella. Con i dettagli dei log di Monitoraggio di Azure è possibile configurare gli avvisi in modo da individuare le risorse non conformi.
 
-:::image type="content" source="../media/getting-compliance-data/compliance-loganalytics.png" alt-text="Screenshot dei log di monitoraggio di Azure che illustrano le azioni dei criteri di Azure nella tabella AzureActivity." border="false":::
+:::image type="content" source="../media/getting-compliance-data/compliance-loganalytics.png" alt-text="Screenshot dei Monitoraggio di Azure log che mostrano Criteri di Azure azioni nella tabella AzureActivity." border="false":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,7 +1,7 @@
 ---
 title: Creare e gestire un'istanza di calcolo
 titleSuffix: Azure Machine Learning
-description: Informazioni su come creare e gestire un'istanza di calcolo Azure Machine Learning. Usare come ambiente di sviluppo o come destinazione di calcolo per finalità di sviluppo e test.
+description: Informazioni su come creare e gestire un'Azure Machine Learning di calcolo. Usare come ambiente di sviluppo o come destinazione di calcolo per scopi di sviluppo/test.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,18 +11,18 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 2778f52b312e5d2fda7879b834fcd204285b7144
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 5ac525ae062efca25601c9e63a5c8f16f2be29be
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105628952"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107861227"
 ---
-# <a name="create-and-manage-an-azure-machine-learning-compute-instance"></a>Creare e gestire un'istanza di calcolo Azure Machine Learning
+# <a name="create-and-manage-an-azure-machine-learning-compute-instance"></a>Creare e gestire un'istanza Azure Machine Learning di calcolo
 
-Informazioni su come creare e gestire un' [istanza di calcolo](concept-compute-instance.md) nell'area di lavoro Azure Machine Learning.
+Informazioni su come creare e gestire un'istanza [di calcolo](concept-compute-instance.md) nell'area Azure Machine Learning lavoro.
 
-Usare un'istanza di calcolo come ambiente di sviluppo completamente configurato e gestito nel cloud. Per lo sviluppo e il test, è anche possibile usare l'istanza come [destinazione di calcolo](concept-compute-target.md#train) per il training o per una destinazione di [inferenza](concept-compute-target.md#deploy).   Un'istanza di calcolo può eseguire più processi in parallelo e dispone di una coda di processi. Come ambiente di sviluppo, un'istanza di calcolo non può essere condivisa con altri utenti nell'area di lavoro.
+Usare un'istanza di calcolo come ambiente di sviluppo completamente configurato e gestito nel cloud. Per lo sviluppo e il test, è anche possibile usare l'istanza come destinazione di calcolo di [training](concept-compute-target.md#train) o come [destinazione di inferenza.](concept-compute-target.md#deploy)   Un'istanza di calcolo può eseguire più processi in parallelo e ha una coda di processi. Come ambiente di sviluppo, un'istanza di calcolo non può essere condivisa con altri utenti nell'area di lavoro.
 
 In questo articolo vengono illustrate le operazioni seguenti:
 
@@ -32,23 +32,23 @@ In questo articolo vengono illustrate le operazioni seguenti:
 * Installare pacchetti R o Python
 * Creare nuovi ambienti o kernel Jupyter
 
-Le istanze di calcolo possono eseguire processi in modo sicuro in un [ambiente di rete virtuale](how-to-secure-training-vnet.md), senza richiedere alle aziende di aprire porte SSH. Il processo viene eseguito in un ambiente in contenitori e inserisce le dipendenze del modello in un contenitore docker. 
+Le istanze di calcolo possono eseguire processi in modo sicuro in un ambiente [di rete virtuale,](how-to-secure-training-vnet.md)senza richiedere alle aziende di aprire porte SSH. Il processo viene eseguito in un ambiente in contenitori e comballa le dipendenze del modello in un contenitore Docker. 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Un'area di lavoro di Azure Machine Learning. Per altre informazioni, vedere [creare un'area di lavoro Azure Machine Learning](how-to-manage-workspace.md).
+* Un'area di lavoro di Azure Machine Learning. Per altre informazioni, vedere [Creare un'area Azure Machine Learning lavoro.](how-to-manage-workspace.md)
 
-* Estensione dell'interfaccia della riga [di comando di Azure per il servizio Machine Learning](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro)o l' [estensione di Visual Studio code Azure Machine Learning](tutorial-setup-vscode-extension.md).
+* [L'estensione dell'interfaccia della riga Machine Learning azure per il](reference-azure-machine-learning-cli.md)servizio , Azure Machine Learning Python [SDK](/python/api/overview/azure/ml/intro)o l'estensione [Azure Machine Learning Visual Studio Code .](tutorial-setup-vscode-extension.md)
 
-## <a name="create"></a>Crea
+## <a name="create"></a>Create
 
-**Tempo stimato**: circa 5 minuti.
+**Tempo stimato:** circa 5 minuti.
 
-La creazione di un'istanza di calcolo è un processo una volta per l'area di lavoro. È possibile riutilizzare il calcolo come una workstation di sviluppo o come destinazione di calcolo per il training. È possibile avere più istanze di calcolo collegate all'area di lavoro.
+La creazione di un'istanza di calcolo è un processo una sola volta per l'area di lavoro. È possibile riutilizzare il calcolo come workstation di sviluppo o come destinazione di calcolo per il training. È possibile avere più istanze di calcolo collegate all'area di lavoro.
 
-I core dedicati per area per la quota della famiglia di VM e la quota di area totale, applicabile alla creazione dell'istanza di calcolo, sono unificati e condivisi con Azure Machine Learning quota del cluster di calcolo di training. Se si arresta l'istanza di calcolo, la quota non viene rilasciata per garantire che sia possibile riavviare l'istanza di calcolo. Si noti che non è possibile modificare le dimensioni della macchina virtuale dell'istanza di calcolo dopo che è stata creata.
+I core dedicati per area per ogni quota della famiglia di macchine virtuali e la quota regionale totale, che si applica alla creazione dell'istanza di calcolo, sono unificati e condivisi con la quota del cluster di calcolo di training Azure Machine Learning. L'arresto dell'istanza di calcolo non rilascia la quota per assicurarsi che sia possibile riavviare l'istanza di calcolo. Si noti che non è possibile modificare le dimensioni della macchina virtuale dell'istanza di calcolo dopo la creazione.
 
-Nell'esempio seguente viene illustrato come creare un'istanza di calcolo:
+L'esempio seguente illustra come creare un'istanza di calcolo:
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -80,10 +80,10 @@ except ComputeTargetException:
     instance.wait_for_completion(show_output=True)
 ```
 
-Per ulteriori informazioni sulle classi, i metodi e i parametri utilizzati in questo esempio, vedere i documenti di riferimento seguenti:
+Per altre informazioni sulle classi, i metodi e i parametri usati in questo esempio, vedere i documenti di riferimento seguenti:
 
 * [Classe ComputeInstance](/python/api/azureml-core/azureml.core.compute.computeinstance.computeinstance)
-* [ComputeTarget. Create](/python/api/azureml-core/azureml.core.compute.computetarget#create-workspace--name--provisioning-configuration-)
+* [ComputeTarget.create](/python/api/azureml-core/azureml.core.compute.computetarget#create-workspace--name--provisioning-configuration-)
 * [ComputeInstance.wait_for_completion](/python/api/azureml-core/azureml.core.compute.computeinstance(class)#wait-for-completion-show-output-false--is-delete-operation-false-)
 
 
@@ -93,29 +93,29 @@ Per ulteriori informazioni sulle classi, i metodi e i parametri utilizzati in qu
 az ml computetarget create computeinstance  -n instance -s "STANDARD_D3_V2" -v
 ```
 
-Per ulteriori informazioni, vedere il riferimento [AZ ml computetarget create computeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget/create#ext_azure_cli_ml_az_ml_computetarget_create_computeinstance) .
+Per altre informazioni, vedere il riferimento [az ml computetarget create computeinstance.](/cli/azure/ml/computetarget/create#az_ml_computetarget_create_computeinstance)
 
 # <a name="studio"></a>[Studio](#tab/azure-studio)
 
-Nell'area di lavoro in Azure Machine Learning Studio creare una nuova istanza di calcolo dalla sezione **calcolo** o nella sezione **notebook** quando si è pronti per eseguire uno dei notebook.
+Nell'area di lavoro studio di Azure Machine Learning creare una nuova istanza  di calcolo dalla sezione Calcolo o nella sezione **Notebook quando** si è pronti per eseguire uno dei notebook.
 
-Per informazioni sulla creazione di un'istanza di calcolo in studio, vedere [creare destinazioni di calcolo in Azure Machine Learning Studio](how-to-create-attach-compute-studio.md#compute-instance).
+Per informazioni sulla creazione di un'istanza di calcolo in studio, vedere Creare destinazioni di [calcolo in studio di Azure Machine Learning](how-to-create-attach-compute-studio.md#compute-instance).
 
 ---
 
-È anche possibile creare un'istanza di calcolo con un [modello di Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance). 
+È anche possibile creare un'istanza di calcolo con un [Azure Resource Manager modello .](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance) 
 
-### <a name="create-on-behalf-of-preview"></a>Crea per conto di (anteprima)
+### <a name="create-on-behalf-of-preview"></a>Creare per conto di (anteprima)
 
-In qualità di amministratore, è possibile creare un'istanza di calcolo per conto di un data scientist a cui assegnare l'istanza:
-* [Azure Resource Manager modello](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance).  Per informazioni dettagliate su come trovare TenantID e ObjectID necessari in questo modello, vedere [trovare ID oggetto Identity per la configurazione dell'autenticazione](../healthcare-apis/fhir/find-identity-object-ids.md).  È anche possibile trovare questi valori nel portale Azure Active Directory.
+L'amministratore può creare un'istanza di calcolo per conto di un data scientist e assegnare l'istanza con:
+* [Azure Resource Manager modello](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance).  Per informazioni dettagliate su come trovare tenantID e ObjectID necessari in questo modello, vedere Trovare gli ID oggetto [identità per la configurazione dell'autenticazione.](../healthcare-apis/fhir/find-identity-object-ids.md)  È anche possibile trovare questi valori nel portale Azure Active Directory dati.
 * API REST
 
-Per i data scientist per cui si crea l'istanza di calcolo sono necessarie le autorizzazioni di [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../role-based-access-control/overview.md) : 
-* *Microsoft. MachineLearningServices/Workspaces/Computes/Start/Action*
-* *Microsoft. MachineLearningServices/Workspaces/Computes/Stop/Action*
-* *Microsoft. MachineLearningServices/Workspaces/Computes/restart/Action*
-* *Microsoft. MachineLearningServices/Workspaces/Computes/applicationaccess/Action*
+Il data scientist per cui si crea l'istanza di calcolo deve avere le autorizzazioni seguenti per il controllo degli accessi in base al ruolo di [Azure:](../role-based-access-control/overview.md) 
+* *Microsoft.MachineLearningServices/workspaces/computes/start/action*
+* *Microsoft.MachineLearningServices/workspaces/computes/stop/action*
+* *Microsoft.MachineLearningServices/workspaces/computes/restart/action*
+* *Microsoft.MachineLearningServices/workspaces/computes/applicationaccess/action*
 
 Il data scientist può avviare, arrestare e riavviare l'istanza di calcolo. Possono usare l'istanza di calcolo per:
 * Jupyter
@@ -123,12 +123,12 @@ Il data scientist può avviare, arrestare e riavviare l'istanza di calcolo. Poss
 * RStudio
 * Notebook integrati
 
-## <a name="manage"></a>Gestione
+## <a name="manage"></a>Gestire
 
-Avviare, arrestare, riavviare ed eliminare un'istanza di calcolo. Un'istanza di calcolo non viene ridimensionata automaticamente, quindi assicurarsi di arrestare la risorsa per evitare addebiti continui.
+Avviare, arrestare, riavviare ed eliminare un'istanza di calcolo. Un'istanza di calcolo non viene automaticamente ridotta, quindi assicurarsi di arrestare la risorsa per evitare addebiti continui.
 
 > [!TIP]
-> L'istanza di calcolo ha un disco del sistema operativo da 120 GB. Se lo spazio su disco è esaurito, [usare il terminale](how-to-access-terminal.md) per cancellare almeno 1-2 GB prima di arrestare o riavviare l'istanza di calcolo.
+> L'istanza di calcolo ha un disco del sistema operativo da 120 GB. Se lo spazio su disco è insufficiente, usare il [terminale](how-to-access-terminal.md) per cancellare almeno 1-2 GB prima di arrestare o riavviare l'istanza di calcolo.
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -181,7 +181,7 @@ Negli esempi seguenti il nome dell'istanza di calcolo è **instance**
     az ml computetarget stop computeinstance -n instance -v
     ```
 
-    Per ulteriori informazioni, vedere [AZ ml computetarget stop computeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance#ext-azure-cli-ml-az-ml-computetarget-computeinstance-stop).
+    Per altre informazioni, vedere [az ml computetarget stop computeinstance.](/cli/azure/ml/computetarget/computeinstance#az_ml_computetarget_computeinstance_stop)
 
 * Avvio 
 
@@ -189,7 +189,7 @@ Negli esempi seguenti il nome dell'istanza di calcolo è **instance**
     az ml computetarget start computeinstance -n instance -v
     ```
 
-    Per altre informazioni, vedere [AZ ml computetarget Start computeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance#ext-azure-cli-ml-az-ml-computetarget-computeinstance-start).
+    Per altre informazioni, vedere [az ml computetarget start computeinstance.](/cli/azure/ml/computetarget/computeinstance#az_ml_computetarget_computeinstance_start)
 
 * Riavvio 
 
@@ -197,7 +197,7 @@ Negli esempi seguenti il nome dell'istanza di calcolo è **instance**
     az ml computetarget restart computeinstance -n instance -v
     ```
 
-    Per altre informazioni, vedere [AZ ml computetarget restart computeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance#ext-azure-cli-ml-az-ml-computetarget-computeinstance-restart).
+    Per altre informazioni, vedere [az ml computetarget restart computeinstance.](/cli/azure/ml/computetarget/computeinstance#az_ml_computetarget_computeinstance_restart)
 
 * Delete
 
@@ -205,7 +205,7 @@ Negli esempi seguenti il nome dell'istanza di calcolo è **instance**
     az ml computetarget delete -n instance -v
     ```
 
-    Per ulteriori informazioni, vedere [AZ ml computetarget Delete computeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget#ext-azure-cli-ml-az-ml-computetarget-delete).
+    Per altre informazioni, vedere [az ml computetarget delete computeinstance.](/cli/azure/ml/computetarget#az_ml_computetarget_delete)
 
 # <a name="studio"></a>[Studio](#tab/azure-studio)
 
@@ -216,10 +216,10 @@ Nell'area di lavoro in Azure Machine Learning Studio selezionare **Calcolo**, qu
 È possibile eseguire queste operazione:
 
 * Creare una nuova istanza di calcolo 
-* Aggiornare la scheda istanze di calcolo.
-* Avviare, arrestare e riavviare un'istanza di calcolo.  Si paga per l'istanza ogni volta che viene eseguito. Arrestare l'istanza di calcolo quando non viene usata per ridurre i costi. L'arresto di un'istanza di calcolo la dealloca. e quindi riavviarla quando è necessario.
+* Aggiornare la scheda delle istanze di calcolo.
+* Avviare, arrestare e riavviare un'istanza di calcolo.  L'istanza viene pagata ogni volta che è in esecuzione. Arrestare l'istanza di calcolo quando non viene in uso per ridurre i costi. L'arresto di un'istanza di calcolo la dealloca. e quindi riavviarla quando è necessario.
 * Eliminare un'istanza di calcolo.
-* Filtrare l'elenco delle istanze di calcolo in modo da visualizzare solo quelle create.
+* Filtrare l'elenco di istanze di calcolo per visualizzare solo le istanze create.
 
 Per ogni istanza di calcolo nell'area di lavoro creata (o creata automaticamente), è possibile:
 
@@ -230,15 +230,15 @@ Per ogni istanza di calcolo nell'area di lavoro creata (o creata automaticamente
 ---
 
 
-Il controllo degli accessi in base al ruolo di [Azure](../role-based-access-control/overview.md) consente di controllare quali utenti nell'area di lavoro possono creare, eliminare, avviare, arrestare e riavviare un'istanza di calcolo. Tutti gli utenti con il ruolo collaboratore e proprietario dell'area di lavoro possono creare, eliminare, avviare, arrestare e riavviare le istanze di calcolo nell'area di lavoro. Tuttavia, solo l'autore di un'istanza di calcolo specifica o l'utente assegnato se è stato creato per loro conto, può accedere a Jupyter, JupyterLab e RStudio in tale istanza di calcolo. Un'istanza di calcolo è dedicata a un singolo utente che ha accesso alla radice e può eseguire il terminale in tramite Jupyter/JupyterLab/RStudio. L'istanza di calcolo avrà accesso a utente singolo e tutte le azioni useranno l'identità dell'utente per il controllo degli accessi in base al ruolo di Azure e l'attribuzione delle esecuzioni dell'esperimento. L'accesso SSH viene controllato tramite il meccanismo di chiave pubblica/privata.
+[Il controllo degli accessi in](../role-based-access-control/overview.md) base al ruolo di Azure consente di controllare quali utenti nell'area di lavoro possono creare, eliminare, avviare, arrestare, riavviare un'istanza di calcolo. Tutti gli utenti con il ruolo collaboratore e proprietario dell'area di lavoro possono creare, eliminare, avviare, arrestare e riavviare le istanze di calcolo nell'area di lavoro. Tuttavia, solo l'autore di un'istanza di calcolo specifica o l'utente assegnato se è stata creata per loro conto può accedere a Jupyter, JupyterLab e RStudio in tale istanza di calcolo. Un'istanza di calcolo è dedicata a un singolo utente che dispone dell'accesso radice e può accedere tramite Jupyter/JupyterLab/RStudio. L'istanza di calcolo avrà accesso a utente singolo e tutte le azioni useranno l'identità dell'utente per il controllo degli accessi in base al ruolo di Azure e l'attribuzione delle esecuzioni dell'esperimento. L'accesso SSH viene controllato tramite il meccanismo di chiave pubblica/privata.
 
-Queste azioni possono essere controllate da RBAC di Azure:
+Queste azioni possono essere controllate dal controllo degli accessi in base al ruolo di Azure:
 * *Microsoft.MachineLearningServices/workspaces/computes/read*
 * *Microsoft.MachineLearningServices/workspaces/computes/write*
 * *Microsoft.MachineLearningServices/workspaces/computes/delete*
-* *Microsoft. MachineLearningServices/Workspaces/Computes/Start/Action*
-* *Microsoft. MachineLearningServices/Workspaces/Computes/Stop/Action*
-* *Microsoft. MachineLearningServices/Workspaces/Computes/restart/Action*
+* *Microsoft.MachineLearningServices/workspaces/computes/start/action*
+* *Microsoft.MachineLearningServices/workspaces/computes/stop/action*
+* *Microsoft.MachineLearningServices/workspaces/computes/restart/action*
 
 ## <a name="next-steps"></a>Passaggi successivi
 

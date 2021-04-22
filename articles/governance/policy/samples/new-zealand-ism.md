@@ -1,25 +1,25 @@
 ---
 title: Dettagli di conformità alle normative per la Nuova Zelanda con restrizioni ISM
-description: Dettagli dell'iniziativa incorporata per la conformità alle normative con restrizioni ISM in Nuova Zelanda. Ogni controllo viene mappato a una o più definizioni di Criteri di Azure che assistono nella valutazione.
-ms.date: 04/14/2021
+description: Dettagli dell'iniziativa integrata Per la conformità alle normative con restrizioni ISM in Nuova Zelanda. Ogni controllo viene mappato a una o più definizioni di Criteri di Azure che assistono nella valutazione.
+ms.date: 04/21/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: adcf818cc6a91f04d5a1ff3f772a1a8d6371aa30
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 45e3093dfeea2622a95692af60faa70ff07c2a91
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107506211"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107864344"
 ---
-# <a name="details-of-the-new-zealand-ism-restricted-regulatory-compliance-built-in-initiative"></a>Dettagli dell'iniziativa incorporata per la conformità alle normative con restrizioni ISM in Nuova Zelanda
+# <a name="details-of-the-new-zealand-ism-restricted-regulatory-compliance-built-in-initiative"></a>Dettagli dell'iniziativa integrata Per la conformità alle normative con restrizioni ISM in Nuova Zelanda
 
-L'articolo seguente illustra in dettaglio il mapping Criteri di Azure definizione  dell'iniziativa integrata di conformità alle normative ai domini di conformità e ai controlli **in** Nuova Zelanda con restrizioni ISM.
-Per altre informazioni su questo standard di conformità, vedere [Nuova Zelanda con restrizioni ISM.](https://www.nzism.gcsb.govt.nz/) Per informazioni sulle _Proprietà_, vedere [Struttura delle definizioni di criteri in Criteri di Azure](../concepts/definition-structure.md#type) e [Responsabilità condivisa nel cloud](../../../security/fundamentals/shared-responsibility.md).
+L'articolo seguente illustra in dettaglio Criteri di Azure definizione dell'iniziativa  incorporata Conformità alle normative viene mappata ai domini e ai controlli **di** conformità in Nuova Zelanda con restrizioni ISM.
+Per altre informazioni su questo standard di conformità, vedere [New Zealand ISM Restricted](https://www.nzism.gcsb.govt.nz/). Per informazioni sulle _Proprietà_, vedere [Struttura delle definizioni di criteri in Criteri di Azure](../concepts/definition-structure.md#type) e [Responsabilità condivisa nel cloud](../../../security/fundamentals/shared-responsibility.md).
 
-I mapping seguenti sono ai controlli con restrizioni **ISM della** Nuova Zelanda. Usare la barra di spostamento a destra per passare direttamente a un **dominio di conformità** specifico. Molti controlli vengono implementati con una definizione dell'iniziativa [Criteri di Azure](../overview.md). Per esaminare la definizione dell'iniziativa completa, aprire **Criteri** nel portale di Azure e selezionare la pagina **Definizioni**.
-Quindi, trovare e selezionare la definizione di iniziativa predefinita conformità alle normative **isM** con restrizioni della Nuova Zelanda.
+I mapping seguenti sono ai controlli con restrizioni ISM della Nuova **Zelanda.** Usare la barra di spostamento a destra per passare direttamente a un **dominio di conformità** specifico. Molti controlli vengono implementati con una definizione dell'iniziativa [Criteri di Azure](../overview.md). Per esaminare la definizione dell'iniziativa completa, aprire **Criteri** nel portale di Azure e selezionare la pagina **Definizioni**.
+Individuare e selezionare quindi la definizione dell'iniziativa predefinita Conformità alle normative ism con restrizioni della Nuova **Zelanda.**
 
-Questa iniziativa incorporata viene distribuita come parte dell'esempio di progetto [Nuova Zelanda con restrizioni ISM.](../../blueprints/samples/new-zealand-ism.md)
+Questa iniziativa incorporata viene distribuita come parte dell'esempio di progetto [New Zealand ISM Restricted](../../blueprints/samples/new-zealand-ism.md).
 
 > [!IMPORTANT]
 > Ogni controllo tra quelli riportati di seguito è associato a una o più definizioni di [Criteri di Azure](../overview.md).
@@ -27,9 +27,9 @@ Questa iniziativa incorporata viene distribuita come parte dell'esempio di proge
 
 ## <a name="information-security-monitoring"></a>Monitoraggio della sicurezza delle informazioni
 
-### <a name="625-conducting-vulnerability-assessments"></a>6.2.5 Esecuzione di valutazioni delle vulnerabilità
+### <a name="625-conducting-vulnerability-assessments"></a>6.2.5 Esecuzione di valutazioni della vulnerabilità
 
-**ID:** NZISM Security Benchmark ISM-3 **Proprietà:** Customer
+**ID:** NZISM Security Benchmark ISM-3 **Proprietà**: Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -47,7 +47,7 @@ Questa iniziativa incorporata viene distribuita come parte dell'esempio di proge
 
 ### <a name="1244-patching-vulnerabilities-in-products"></a>12.4.4 Vulnerabilità di applicazione di patch nei prodotti
 
-**ID:** NZISM Security Benchmark PRS-5 **Proprietà:** Customer
+**ID:** NZISM Security Benchmark PRS-5 **Proprietà**: Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -60,20 +60,20 @@ Questa iniziativa incorporata viene distribuita come parte dell'esempio di proge
 
 ## <a name="software-security"></a>Sicurezza del software
 
-### <a name="1419-maintaining-hardened-soes"></a>14.1.9 Gestione di soE con protezione avanzata
+### <a name="1419-maintaining-hardened-soes"></a>14.1.9 Manutenzione di soe con protezione avanzata
 
-**ID:** NZISM Security Benchmark SS-2 **Proprietà:** Customer
+**ID:** NZISM Security Benchmark SS-2 **Proprietà**: Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Distribuisci: configurare Dependency Agent per l'avirtualizzazione nei set di scalabilità di macchine virtuali Windows](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3be22e3b-d919-47aa-805e-8985dbeb0ad9) |Distribuire Dependency Agent per i set di scalabilità di macchine virtuali Windows se l'immagine della macchina virtuale è nell'elenco definito e l'agente non è installato. Se l'opzione upgradePolicy del set di scalabilità è impostata su Manuale, è necessario applicare l'estensione a tutte le macchine virtuali nel set aggiornandole. |DeployIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/DependencyAgentExtension_Windows_VMSS_Deploy.json) |
+|[Distribuire - Configurare Dependency Agent per l'abilità nei set di scalabilità di macchine virtuali Windows](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3be22e3b-d919-47aa-805e-8985dbeb0ad9) |Distribuire Dependency Agent per i set di scalabilità di macchine virtuali Windows se l'immagine della macchina virtuale è nell'elenco definito e l'agente non è installato. Se l'opzione upgradePolicy del set di scalabilità è impostata su Manuale, è necessario applicare l'estensione a tutte le macchine virtuali nel set aggiornandole. |DeployIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/DependencyAgentExtension_Windows_VMSS_Deploy.json) |
 |[La soluzione Endpoint Protection deve essere installata nei set di scalabilità di macchine virtuali](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F26a828e1-e88f-464e-bbb3-c134a282b9de) |Controlla la presenza e l'integrità di una soluzione Endpoint Protection nei set di scalabilità di macchine virtuali per proteggerli da minacce e vulnerabilità. |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_VmssMissingEndpointProtection_Audit.json) |
 |[È consigliabile distribuire l'estensione Microsoft IaaSAntimalware nei server Windows](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9b597639-28e4-48eb-b506-56b05d366257) |Questo criterio controlla le macchine virtuali Windows Server in cui non è distribuita l'estensione Microsoft IaaSAntimalware. |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/WindowsServers_AntiMalware_AuditIfNotExists.json) |
 |[Monitorare il server senza Endpoint Protection nel Centro sicurezza di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Faf6cd1bd-1635-48cb-bde7-5b15693900b9) |I server in cui non è installato un agente di Endpoint Protection verranno monitorati dal Centro sicurezza di Azure che invierà i consigli corrispondenti |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_MissingEndpointProtection_Audit.json) |
 
-### <a name="1424-application-whitelisting"></a>14.2.4 Elenco di applicazioni non vuoti
+### <a name="1424-application-whitelisting"></a>14.2.4 Elenco di applicazioni nell'elenco degli indirizzi
 
-**ID:** NZISM Security Benchmark SS-4 **Proprietà**: Customer
+**ID:** NZISM Security Benchmark SS-4 **Proprietà:** Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -81,7 +81,7 @@ Questa iniziativa incorporata viene distribuita come parte dell'esempio di proge
 
 ### <a name="1458-web-applications"></a>14.5.8 Applicazioni Web
 
-**ID:** NZISM Security Benchmark SS-8 **Proprietà**: Customer
+**ID:** NZISM Security Benchmark SS-8 **Proprietà:** Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -93,9 +93,9 @@ Questa iniziativa incorporata viene distribuita come parte dell'esempio di proge
 
 ## <a name="access-control-and-passwords"></a>Controllo di accesso e password
 
-### <a name="16132-system-user-identification"></a>16.1.32 Identificazione utente del sistema
+### <a name="16132-system-user-identification"></a>16.1.32 Identificazione utente di sistema
 
-**ID:** NZISM Security Benchmark AC-2 **Proprietà**: Customer
+**ID:** NZISM Security Benchmark AC-2 **Proprietà:** Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -105,15 +105,15 @@ Questa iniziativa incorporata viene distribuita come parte dell'esempio di proge
 |[Controlla i computer Windows in cui manca uno dei membri specificati nel gruppo Administrators](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F30f71ea1-ac77-4f26-9fc5-2d926bbd4ba7) |Richiede che i prerequisiti vengano distribuiti nell'ambito dell'assegnazione dei criteri. Per informazioni dettagliate, vedere [https://aka.ms/gcpol](https://aka.ms/gcpol). I computer saranno non conformi se il gruppo Administrators locale non contiene uno o più membri elencati nel parametro dei criteri. |auditIfNotExists |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_AdministratorsGroupMembersToInclude_AINE.json) |
 |[Controlla i computer Windows in cui sono presenti account in eccesso nel gruppo Administrators](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3d2a3320-2a72-4c67-ac5f-caa40fbee2b2) |Richiede che i prerequisiti vengano distribuiti nell'ambito dell'assegnazione dei criteri. Per informazioni dettagliate, vedere [https://aka.ms/gcpol](https://aka.ms/gcpol). I computer saranno non conformi se il gruppo Administrators locale contiene membri non elencati nel parametro dei criteri. |auditIfNotExists |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_AdministratorsGroupMembers_AINE.json) |
 |[Controlla i computer Windows in cui sono presenti i membri specificati nel gruppo Administrators](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F69bf4abd-ca1e-4cf6-8b5a-762d42e61d4f) |Richiede che i prerequisiti vengano distribuiti nell'ambito dell'assegnazione dei criteri. Per informazioni dettagliate, vedere [https://aka.ms/gcpol](https://aka.ms/gcpol). I computer saranno non conformi se il gruppo Administrators locale contiene membri non elencati nel parametro dei criteri. |auditIfNotExists |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_AdministratorsGroupMembersToExclude_AINE.json) |
-|[Distribuire - Configurare Dependency Agent per l'abilità nelle macchine virtuali Windows](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1c210e94-a481-4beb-95fa-1571b434fb04) |Distribuire Dependency Agent per le macchine virtuali Windows se l'immagine della macchina virtuale si trova nell'elenco definito e l'agente non è installato. |DeployIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/DependencyAgentExtension_Windows_VM_Deploy.json) |
+|[Distribuisci: configurare Dependency Agent per l'avirtualizzazione nelle macchine virtuali Windows](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1c210e94-a481-4beb-95fa-1571b434fb04) |Distribuire Dependency Agent per le macchine virtuali Windows se l'immagine della macchina virtuale è nell'elenco definito e l'agente non è installato. |DeployIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/DependencyAgentExtension_Windows_VM_Deploy.json) |
 |[Distribuisci l'estensione Configurazione guest Linux per abilitare le assegnazioni di Configurazione guest nelle macchine virtuali Linux](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F331e8ea8-378a-410f-a2e5-ae22f38bb0da) |Questo criterio distribuisce l'estensione Configurazione guest di Linux nelle macchine virtuali Linux ospitate in Azure supportate da Configurazione guest. L'estensione Configurazione guest di Linux è un prerequisito per tutte le assegnazioni di Configurazione guest di Linux e deve essere distribuita nelle macchine virtuali prima di usare qualsiasi definizione di criteri di Configurazione guest di Linux. Per altre informazioni su Configurazione guest, vedere [https://aka.ms/gcpol](https://aka.ms/gcpol). |deployIfNotExists |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_DeployExtensionLinux_Prerequisite.json) |
 |[Distribuisci l'estensione Configurazione guest Windows per abilitare le assegnazioni di Configurazione guest nelle macchine virtuali Windows](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F385f5831-96d4-41db-9a3c-cd3af78aaae6) |Questo criterio distribuisce l'estensione Configurazione guest di Windows nelle macchine virtuali Windows ospitate in Azure supportate da Configurazione guest. L'estensione Configurazione guest di Windows è un prerequisito per tutte le assegnazioni di Configurazione guest di Windows e deve essere distribuita nelle macchine virtuali prima di usare qualsiasi definizione di criteri di Configurazione guest di Windows. Per altre informazioni su Configurazione guest, vedere [https://aka.ms/gcpol](https://aka.ms/gcpol). |deployIfNotExists |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_DeployExtensionWindows_Prerequisite.json) |
 |[I cluster di Service Fabric deve usare solo Azure Active Directory per l'autenticazione client](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb54ed75b-3e1a-44ac-a333-05ba39b99ff0) |Controlla l'utilizzo dell'autenticazione client solo tramite Azure Active Directory in Service Fabric |Audit, Deny, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Service%20Fabric/ServiceFabric_AuditADAuth_Audit.json) |
 |[Alla sottoscrizione deve essere assegnato più di un proprietario](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F09024ccc-0c5f-475e-9457-b7c0d9ed487b) |È consigliabile designare più di un proprietario di sottoscrizione per assicurare la ridondanza dell'accesso amministratore. |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_DesignateMoreThanOneOwner_Audit.json) |
 
-### <a name="16135-methods-for-system-user-identification-and-authentication"></a>16.1.35 Metodi per l'identificazione utente e l'autenticazione del sistema
+### <a name="16135-methods-for-system-user-identification-and-authentication"></a>16.1.35 Metodi per l'identificazione e l'autenticazione degli utenti di sistema
 
-**ID:** NZISM Security Benchmark AC-3 **Proprietà**: Customer
+**ID:** NZISM Security Benchmark AC-3 **Proprietà:** Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -121,26 +121,26 @@ Questa iniziativa incorporata viene distribuita come parte dell'esempio di proge
 |[L'autenticazione MFA deve essere abilitata negli account con autorizzazioni di proprietario per la sottoscrizione](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Faa633080-8b72-40c4-a2d7-d00c03e80bed) |È necessario abilitare Multi-Factor Authentication (MFA) per tutti gli account della sottoscrizione con autorizzazioni di proprietario per evitare una violazione di account o risorse. |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableMFAForOwnerPermissions_Audit.json) |
 |[L'autenticazione MFA deve essere abilitata negli account con autorizzazioni di lettura per la sottoscrizione](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe3576e28-8b17-4677-84c3-db2990658d64) |È necessario abilitare Multi-Factor Authentication (MFA) per tutti gli account della sottoscrizione con privilegi di lettura per evitare una violazione di account o risorse. |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableMFAForReadPermissions_Audit.json) |
 
-### <a name="16140-password-selection-policy"></a>16.1.40 Criteri di selezione delle password
+### <a name="16140-password-selection-policy"></a>16.1.40 Criteri di selezione password
 
-**ID:** NZISM Security Benchmark AC-4 **Proprietà**: Customer
+**ID:** NZISM Security Benchmark AC-4 **Proprietà:** Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Distribuire - Configurare Dependency Agent per l'abilità nelle macchine virtuali Windows](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1c210e94-a481-4beb-95fa-1571b434fb04) |Distribuire Dependency Agent per le macchine virtuali Windows se l'immagine della macchina virtuale si trova nell'elenco definito e l'agente non è installato. |DeployIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/DependencyAgentExtension_Windows_VM_Deploy.json) |
+|[Distribuisci: configurare Dependency Agent per l'avirtualizzazione nelle macchine virtuali Windows](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1c210e94-a481-4beb-95fa-1571b434fb04) |Distribuire Dependency Agent per le macchine virtuali Windows se l'immagine della macchina virtuale è nell'elenco definito e l'agente non è installato. |DeployIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/DependencyAgentExtension_Windows_VM_Deploy.json) |
 |[I computer Windows devono soddisfare i requisiti per 'Impostazioni di sicurezza - Criteri account'](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff2143251-70de-4e81-87a8-36cee5a2f29d) |Nei computer Windows devono essere presenti le impostazioni di Criteri di gruppo specificate nella categoria 'Impostazioni di sicurezza - Criteri account' per cronologia, scadenza, lunghezza e complessità delle password e per archiviare le password con la crittografia reversibile. Questo criterio richiede che i prerequisiti di configurazione guest siano stati distribuiti nell'ambito dell'assegnazione dei criteri. Per informazioni dettagliate, vedere [https://aka.ms/gcpol](https://aka.ms/gcpol). |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_SecuritySettingsAccountPolicies_AINE.json) |
 
 ### <a name="16146-suspension-of-access"></a>16.1.46 Sospensione dell'accesso
 
-**ID:** NZISM Security Benchmark AC-5 **Proprietà**: Customer
+**ID:** NZISM Security Benchmark AC-5 **Proprietà:** Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Distribuire - Configurare Dependency Agent per l'abilità nelle macchine virtuali Windows](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1c210e94-a481-4beb-95fa-1571b434fb04) |Distribuire Dependency Agent per le macchine virtuali Windows se l'immagine della macchina virtuale si trova nell'elenco definito e l'agente non è installato. |DeployIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/DependencyAgentExtension_Windows_VM_Deploy.json) |
+|[Distribuisci: configurare Dependency Agent per l'avirtualizzazione nelle macchine virtuali Windows](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1c210e94-a481-4beb-95fa-1571b434fb04) |Distribuire Dependency Agent per le macchine virtuali Windows se l'immagine della macchina virtuale è nell'elenco definito e l'agente non è installato. |DeployIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/DependencyAgentExtension_Windows_VM_Deploy.json) |
 |[Gli account deprecati devono essere rimossi dalla sottoscrizione](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6b1cbf55-e8b6-442f-ba4c-7246b6381474) |È necessario rimuovere dalle sottoscrizioni gli account deprecati.  Gli account deprecati sono account a cui è stato bloccato l'accesso. |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_RemoveDeprecatedAccounts_Audit.json) |
 |[Gli account deprecati con autorizzazioni di proprietario devono essere rimossi dalla sottoscrizione](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Febb62a0c-3560-49e1-89ed-27e074e9f8ad) |Gli account deprecati con autorizzazioni di proprietario devono essere rimossi dalla sottoscrizione.  Gli account deprecati sono account a cui è stato bloccato l'accesso. |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_RemoveDeprecatedAccountsWithOwnerPermissions_Audit.json) |
 
-### <a name="1625-protecting-compartmented-information-on-systems"></a>16.2.5 Protezione delle informazioni in raggruppamento nei sistemi
+### <a name="1625-protecting-compartmented-information-on-systems"></a>16.2.5 Protezione delle informazioni compartimentate nei sistemi
 
 **ID:** NZISM Security Benchmark AC-7 **Proprietà**: Customer
 
@@ -212,7 +212,7 @@ Questa iniziativa incorporata viene distribuita come parte dell'esempio di proge
 
 ### <a name="17416-using-tls"></a>17.4.16 Uso di TLS
 
-**ID:** NZISM Security Benchmark CR-6 **Proprietà**: Customer
+**ID:** NZISM Security Benchmark CR-6 **Proprietà:** Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -220,13 +220,13 @@ Questa iniziativa incorporata viene distribuita come parte dell'esempio di proge
 |[Nell'app per le API è necessario usare la versione più recente di TLS](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F8cb6aa8b-9e41-4f4e-aa25-089a7ac2581e) |Esegui l'aggiornamento alla versione più recente di TLS |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_RequireLatestTls_ApiApp_Audit.json) |
 |[Nell'app per le funzioni è necessario usare la versione più recente di TLS](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff9d614c5-c173-4d56-95a7-b4437057d193) |Esegui l'aggiornamento alla versione più recente di TLS |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_RequireLatestTls_FunctionApp_Audit.json) |
 |[Nell'app Web è necessario usare la versione più recente di TLS](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff0e6e85b-9b9f-4a4b-b67b-f730d42f1b0b) |Esegui l'aggiornamento alla versione più recente di TLS |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_RequireLatestTls_WebApp_Audit.json) |
-|[I server Web Windows devono essere configurati per l'uso di protocolli di comunicazione sicuri](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5752e6d6-1206-46d8-8ab1-ecc2f71a8112) |Per proteggere la privacy delle informazioni comunicate tramite Internet, i server Web devono usare la versione più recente del protocollo di crittografia standard del settore, Transport Layer Security (TLS). TLS protegge le comunicazioni in rete usando i certificati di sicurezza per crittografare una connessione tra computer. TLS 1.3 è più veloce e sicuro rispetto alle versioni precedenti: TLS 1.0-1.2 e SSL 2-3, che sono tutti considerati protocolli legacy. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_SecureWebProtocol_AINE.json) |
+|[I server Web Windows devono essere configurati per l'uso di protocolli di comunicazione sicuri](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5752e6d6-1206-46d8-8ab1-ecc2f71a8112) |Per proteggere la privacy delle informazioni comunicate tramite Internet, i server Web devono usare la versione più recente del protocollo di crittografia standard del settore, Transport Layer Security (TLS). TLS protegge le comunicazioni in rete usando i certificati di sicurezza per crittografare una connessione tra computer. |AuditIfNotExists, Disabled |[2.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_SecureWebProtocol_AINE.json) |
 
 ## <a name="network-security"></a>Sicurezza di rete
 
 ### <a name="18113-limiting-network-access"></a>18.1.13 Limitazione dell'accesso alla rete
 
-**ID:** NZISM Security Benchmark NS-2 **Proprietà**: Customer
+**ID:** NZISM Security Benchmark NS-2 **Proprietà:** Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -237,15 +237,15 @@ Questa iniziativa incorporata viene distribuita come parte dell'esempio di proge
 
 ### <a name="18319-content-of-a-denial-of-service-dos-response-plan"></a>18.3.19 Contenuto di un piano di risposta Denial of Service (DoS)
 
-**ID:** NZISM Security Benchmark NS-5 **Proprietà**: Customer
+**ID:** NZISM Security Benchmark NS-5 **Proprietà:** Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[La protezione DDoS di Azure Standard deve essere abilitata](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa7aca53f-2ed4-4466-a25e-0b45ade68efd) |È necessario abilitare la protezione DDoS Standard per tutte le reti virtuali con una subnet che fa parte di un gateway applicazione con un indirizzo IP pubblico. |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableDDoSProtection_Audit.json) |
 
-### <a name="18410-malicious-code-counter-measures"></a>18.4.10 Contromise di codice dannoso
+### <a name="18410-malicious-code-counter-measures"></a>18.4.10 Contromisto da codice dannoso
 
-**ID:** NZISM Security Benchmark NS-7 **Proprietà**: Customer
+**ID:** NZISM Security Benchmark NS-7 **Proprietà:** Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -259,18 +259,18 @@ Questa iniziativa incorporata viene distribuita come parte dell'esempio di proge
 
 ### <a name="20310-antivirus-scans"></a>20.3.10 Analisi antivirus
 
-**ID:** NZISM Security Benchmark DM-4 **Proprietà**: Customer
+**ID:** NZISM Security Benchmark DM-4 **Proprietà:** Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Distribuire - Configurare Dependency Agent per l'abilità nei set di scalabilità di macchine virtuali Windows](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3be22e3b-d919-47aa-805e-8985dbeb0ad9) |Distribuire Dependency Agent per i set di scalabilità di macchine virtuali Windows se l'immagine della macchina virtuale è nell'elenco definito e l'agente non è installato. Se l'opzione upgradePolicy del set di scalabilità è impostata su Manuale, è necessario applicare l'estensione a tutte le macchine virtuali nel set aggiornandole. |DeployIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/DependencyAgentExtension_Windows_VMSS_Deploy.json) |
+|[Distribuisci: configurare Dependency Agent per l'avirtualizzazione nei set di scalabilità di macchine virtuali Windows](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3be22e3b-d919-47aa-805e-8985dbeb0ad9) |Distribuire Dependency Agent per i set di scalabilità di macchine virtuali Windows se l'immagine della macchina virtuale è nell'elenco definito e l'agente non è installato. Se upgradePolicy del set di scalabilità è impostato su Manuale, è necessario applicare l'estensione a tutte le macchine virtuali nel set aggiornandole. |DeployIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/DependencyAgentExtension_Windows_VMSS_Deploy.json) |
 |[La soluzione Endpoint Protection deve essere installata nei set di scalabilità di macchine virtuali](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F26a828e1-e88f-464e-bbb3-c134a282b9de) |Controlla la presenza e l'integrità di una soluzione Endpoint Protection nei set di scalabilità di macchine virtuali per proteggerli da minacce e vulnerabilità. |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_VmssMissingEndpointProtection_Audit.json) |
 |[Monitorare il server senza Endpoint Protection nel Centro sicurezza di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Faf6cd1bd-1635-48cb-bde7-5b15693900b9) |I server in cui non è installato un agente di Endpoint Protection verranno monitorati dal Centro sicurezza di Azure che invierà i consigli corrispondenti |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_MissingEndpointProtection_Audit.json) |
 |[Windows Defender Exploit Guard deve essere abilitato nei computer](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fbed48b13-6647-468e-aa2f-1af1d3f4dd40) |Windows Defender Exploit Guard usa l'Criteri di Azure di configurazione guest. Exploit Guard include quattro componenti progettati per bloccare i dispositivi da un'ampia gamma di vettori di attacco e comportamenti di blocco usati comunemente negli attacchi malware, consentendo al contempo alle aziende di bilanciare i requisiti di rischi per la sicurezza e produttività (solo Windows). |AuditIfNotExists, Disabled |[1.1.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_WindowsDefenderExploitGuard_AINE.json) |
 
 ### <a name="2044-database-files"></a>20.4.4 File di database
 
-**ID:** NZISM Security Benchmark DM-6 **Proprietà:** Customer
+**ID:** NZISM Security Benchmark DM-6 **Proprietà**: Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -282,13 +282,13 @@ Questa iniziativa incorporata viene distribuita come parte dell'esempio di proge
 |[Devono essere abilitate solo le connessioni sicure alla cache di Azure per Redis](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F22bee202-a82f-4305-9a2a-6d7f44d4dedb) |Controllare l'abilitazione delle sole connessioni tramite SSL a Cache Redis. L'uso di connessioni sicure garantisce l'autenticazione tra il server e il servizio e protegge i dati in transito dagli attacchi a livello rete, come attacchi man-in-the-middle, eavesdropping e hijack della sessione |Audit, Deny, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cache/RedisCache_AuditSSLPort_Audit.json) |
 |[È consigliabile abilitare il trasferimento sicuro agli account di archiviazione](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F404c3081-a854-4457-ae30-26a93ef643f9) |Requisito di controllo del trasferimento sicuro nell'account di archiviazione. Il trasferimento sicuro è un'opzione che impone all'account di archiviazione di accettare richieste solo da connessioni sicure (HTTPS). L'uso di HTTPS garantisce l'autenticazione tra il server e il servizio e protegge i dati in transito dagli attacchi a livello rete, come attacchi man-in-the-middle, eavesdropping e hijack della sessione |Audit, Deny, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/Storage_AuditForHTTPSEnabled_Audit.json) |
 |[È consigliabile abilitare Transparent Data Encryption nei database SQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F17k78e20-9358-41c9-923c-fb736d382a12) |Abilitare Transparent Data Encryption per proteggere i dati inattivi e rispettare i requisiti relativi alla conformità |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlDBEncryption_Audit.json) |
-|[I server Web Windows devono essere configurati per l'uso di protocolli di comunicazione sicuri](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5752e6d6-1206-46d8-8ab1-ecc2f71a8112) |Per proteggere la privacy delle informazioni comunicate tramite Internet, i server Web devono usare la versione più recente del protocollo di crittografia standard del settore, Transport Layer Security (TLS). TLS protegge le comunicazioni in rete usando i certificati di sicurezza per crittografare una connessione tra computer. TLS 1.3 è più veloce e sicuro rispetto alle versioni precedenti: TLS 1.0-1.2 e SSL 2-3, che sono tutti considerati protocolli legacy. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_SecureWebProtocol_AINE.json) |
+|[I server Web Windows devono essere configurati per l'uso di protocolli di comunicazione sicuri](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5752e6d6-1206-46d8-8ab1-ecc2f71a8112) |Per proteggere la privacy delle informazioni comunicate tramite Internet, i server Web devono usare la versione più recente del protocollo di crittografia standard del settore, Transport Layer Security (TLS). TLS protegge le comunicazioni in rete usando i certificati di sicurezza per crittografare una connessione tra computer. |AuditIfNotExists, Disabled |[2.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_SecureWebProtocol_AINE.json) |
 
 ## <a name="enterprise-systems-security"></a>Sicurezza dei sistemi aziendali
 
-### <a name="22126-backup-recovery-archiving-and-data-remanence"></a>22.1.26 Backup, archiviazione del ripristino e gestione dei dati
+### <a name="22126-backup-recovery-archiving-and-data-remanence"></a>22.1.26 Backup, archiviazione di ripristino e gestione dei dati
 
-**ID:** NZISM Security Benchmark ESS-3 **Proprietà:** Customer
+**ID:** NZISM Security Benchmark ESS-3 **Proprietà**: Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|

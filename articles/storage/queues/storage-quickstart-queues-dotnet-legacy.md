@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: storage
 ms.subservice: queues
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 10ab1c487095fe1587a3c665d8a06e0d5cbab7e0
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: df2f3593f904c5c6c6c9af0ae635a2e152f9eb82
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106275890"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107871076"
 ---
 # <a name="quickstart-use-the-azure-storage-sdk-v11-for-net-to-manage-a-queue"></a>Guida introduttiva: Usare Azure Storage SDK v11 per .NET per gestire una coda
 
@@ -31,19 +31,19 @@ Successivamente, scaricare e installare .NET Core 2.0 per il sistema operativo i
 
 ### <a name="windows"></a>Windows
 
-- Installare [.NET Core per Windows](https://www.microsoft.com/net/download/windows) o [.NET Framework](https://www.microsoft.com/net/download/windows), incluso in Visual Studio per Windows
+- Installare [.NET Core SDK per Windows](https://dotnet.microsoft.com/download) o [.NET Framework](https://dotnet.microsoft.com/download/dotnet-framework) (incluso in Visual Studio per Windows)
 - Installare [Visual Studio per Windows](https://www.visualstudio.com/). Se si usa .NET Core, l'installazione di Visual Studio è facoltativa.
 
 Per informazioni sulla scelta tra .NET Core e .NET Framework, vedere [Scegliere tra .NET Core o .NET Framework per le app server](/dotnet/standard/choosing-core-framework-server).
 
 ### <a name="linux"></a>Linux
 
-- Installare [.NET Core per Linux](https://www.microsoft.com/net/download/linux)
+- Installare [.NET Core SDK per Linux](/dotnet/core/install/linux)
 - Facoltativamente, installare [Visual Studio Code](https://www.visualstudio.com/) e l'[estensione C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
 
 ### <a name="macos"></a>macOS
 
-- Installare [.NET Core per macOS](https://www.microsoft.com/net/download/macos)
+- Installare [.NET Core SDK per macOS](https://dotnet.microsoft.com/download).
 - Facoltativamente, installare [Visual Studio per Mac](https://www.visualstudio.com/vs/visual-studio-mac/)
 
 ## <a name="download-the-sample-application"></a>Scaricare l'applicazione di esempio
@@ -283,4 +283,4 @@ In questa guida introduttiva è stato illustrato come aggiungere messaggi a una 
 > [!div class="nextstepaction"]
 > [Comunicazione tra applicazioni con Archiviazione code di Azure](/learn/modules/communicate-between-apps-with-azure-queue-storage/index)
 
-- Per altre informazioni su .NET Core, vedere [Get started with .NET in 10 minutes](https://www.microsoft.com/net/learn/get-started/) (Introduzione a .NET in 10 minuti).
+- Per altre informazioni su .NET Core, vedere [Get started with .NET in 10 minutes](https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/intro) (Introduzione a .NET in 10 minuti).

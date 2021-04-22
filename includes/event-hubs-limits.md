@@ -1,5 +1,5 @@
 ---
-title: includere la descrizione del file: includere i servizi file: Event-Hub Author: spelluru ms. Service: Event-Hub ms. Topic: include MS. Date: 03/31/2021 ms. Author: spelluru ms. Custom: "include file", "FastTrack-Edit", "Internet", "Event-Hub"
+title: include file description: include file services: event-hubs author: spelluru ms.service: event-hubs ms.topic: include ms.date: 31/03/2021 ms.author: spelluru ms.custom: "include file", "fasttrack-edit","iot","event-hubs"
 
 ---
 
@@ -17,7 +17,7 @@ I limiti seguenti sono comuni tra tutti i livelli.
 | Numero di ricevitori non epoch per gruppo consumer |- |5 |
 | Numero di regole di autorizzazione per spazio dei nomi | Le richieste successive di creazione di regole di autorizzazione vengono rifiutate.|12 |
 | Numero di chiamate al metodo GetRuntimeInformation |  - | 50 al secondo | 
-| Numero di reti virtuali (VNet) | - | 128 | 
+| Numero di reti virtuali | - | 128 | 
 | Numero di regole di configurazione IP | - | 128 | 
 
 ### <a name="basic-vs-standard-tiers"></a>Livelli Basic e Standard
@@ -25,7 +25,7 @@ La tabella seguente illustra i limiti che possono essere diversi per i livelli B
 
 | Limite | Note | Basic | Standard |
 |---|---|--|---|
-| Dimensioni massime della pubblicazione di hub eventi| &nbsp; | 256 KB | 1 MB |
+| Dimensioni massime della pubblicazione di Hub eventi| &nbsp; | 256 KB | 1 MB |
 | Numero di gruppi consumer per hub eventi | &nbsp; |1 |20 |
 | Numero di connessioni AMQP per spazio dei nomi | Le richieste successive di connessioni aggiuntive vengono rifiutate e il codice chiamante riceverà un'eccezione. |100 |5\.000|
 | Periodo di conservazione massimo dei dati dell'evento | &nbsp; |1 giorno |1-7 giorni |
@@ -34,8 +34,8 @@ La tabella seguente illustra i limiti che possono essere diversi per i livelli B
 
 > [!NOTE]
 >
-> È possibile pubblicare eventi singolarmente o in batch. 
-> Il limite di pubblicazione (in base allo SKU) si applica indipendentemente dal fatto che si tratti di un singolo evento o di un batch. La pubblicazione di eventi di dimensioni superiori alla soglia massima verrà rifiutata.
+> È possibile pubblicare gli eventi singolarmente o in batch. 
+> Il limite di pubblicazione (in base a SKU) si applica indipendentemente dal fatto che si tratta di un singolo evento o di un batch. Gli eventi di pubblicazione maggiori della soglia massima verranno rifiutati.
 
 ### <a name="dedicated-tier-vs-standard-tier"></a>Livello Dedicato e Standard
 L'offerta Hub eventi Dedicato viene fatturata a un prezzo mensile fisso, con un minimo di 4 ore di utilizzo. Il livello Dedicato offre tutte le funzionalità del piano Standard, ma con capacità e limiti su scala aziendale per i clienti con carichi di lavoro intensi. 
@@ -45,7 +45,7 @@ Fare riferimento a questo [documento](../articles/event-hubs/event-hubs-dedicate
 | Funzionalità | Standard | Dedicato |
 | --- |:---|:---|
 | Larghezza di banda | 20 unità elaborate (fino a 40 unità elaborate) | 20 unità di capacità |
-| Spazi dei nomi |  1 | 50 per unità di capacità |
+| Spazi dei nomi |  100 per sottoscrizione | 50 per cu (100 per sottoscrizione) |
 | Hub eventi |  10 per spazio dei nomi | 1\.000 per spazio dei nomi |
 | Eventi in ingresso | Pagamento per ogni milione di eventi | Incluso |
 | Dimensioni del messaggio | 1 milione di byte | 1 milione di byte |

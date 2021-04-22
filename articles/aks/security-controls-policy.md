@@ -1,16 +1,16 @@
 ---
 title: Controlli di conformità alle normative di Criteri di Azure per il servizio Azure Kubernetes
 description: Elenca i controlli di conformità alle normative di Criteri di Azure disponibili per il servizio Azure Kubernetes. Queste definizioni di criteri predefinite rappresentano approcci comuni per gestire la conformità delle risorse di Azure.
-ms.date: 04/14/2021
+ms.date: 04/21/2021
 ms.topic: sample
 ms.service: container-service
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: d86dcdea210c51f2668c3dffcc1319f4de391bcd
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 3deda4a55eed22a72d338fe2816eb8d5b2f7caff
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107505845"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107877113"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-kubernetes-service-aks"></a>Controlli di conformità alle normative di Criteri di Azure per il servizio Azure Kubernetes
 

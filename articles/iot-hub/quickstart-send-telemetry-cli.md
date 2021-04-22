@@ -11,12 +11,12 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 11/06/2019
-ms.openlocfilehash: a34fd5480ae47678f250dbf888005c396ba32f38
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 843db24707b8c826fe48e9d50aa7ec5bc135399f
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107792148"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107863606"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-monitor-it-with-the-azure-cli"></a>Avvio rapido: Inviare dati di telemetria da un dispositivo a un hub IoT e monitorarlo con l'interfaccia della riga di comando di Azure
 
@@ -94,7 +94,7 @@ In questa sezione viene usata l'interfaccia della riga di comando di Azure per c
 In questa sezione viene creato un dispositivo simulato nella prima sessione dell'interfaccia della riga di comando. Il dispositivo simulato invia i dati di telemetria del dispositivo all'hub IoT. Nella seconda sessione dell'interfaccia della riga di comando vengono monitorati eventi e dati di telemetria e viene inviato un messaggio dal cloud al dispositivo simulato.
 
 Per creare e avviare un dispositivo simulato:
-1. Eseguire il comando [az iot hub device-identity create](/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-create) nella prima sessione dell'interfaccia della riga di comando. Verrà creata l'identità del dispositivo simulato. 
+1. Eseguire il comando [az iot hub device-identity create](/cli/azure/iot/hub/device-identity#az_iot_hub_device_identity_create) nella prima sessione dell'interfaccia della riga di comando. Verrà creata l'identità del dispositivo simulato. 
 
     *YourIotHubName*. sostituire il segnaposto in basso con il nome scelto per l'hub IoT. 
 
@@ -104,7 +104,7 @@ Per creare e avviare un dispositivo simulato:
     az iot hub device-identity create --device-id simDevice --hub-name {YourIoTHubName} 
     ```
 
-1. Eseguire il comando [az iot device simulate](/cli/azure/ext/azure-iot/iot/device#ext-azure-iot-az-iot-device-simulate) nella prima sessione dell'interfaccia della riga di comando.  Verrà avviato il dispositivo simulato. Il dispositivo invia i dati di telemetria all'hub IoT e riceve i messaggi da quest'ultimo.  
+1. Eseguire il comando [az iot device simulate](/cli/azure/iot/device#az_iot_device_simulate) nella prima sessione dell'interfaccia della riga di comando.  Verrà avviato il dispositivo simulato. Il dispositivo invia i dati di telemetria all'hub IoT e riceve i messaggi da quest'ultimo.  
 
     *YourIotHubName*. sostituire il segnaposto in basso con il nome scelto per l'hub IoT. 
 
@@ -113,7 +113,7 @@ Per creare e avviare un dispositivo simulato:
     ```
 
 Per monitorare un dispositivo:
-1. Nella seconda sessione dell'interfaccia della riga di comando eseguire il comando [az iot hub monitor-events](/cli/azure/ext/azure-iot/iot/hub#ext-azure-iot-az-iot-hub-monitor-events). Verrà avviato il monitoraggio del dispositivo simulato. L'output mostra i dati di telemetria che il dispositivo simulato invia all'hub IoT.
+1. Nella seconda sessione dell'interfaccia della riga di comando eseguire il comando [az iot hub monitor-events](/cli/azure/iot/hub#az_iot_hub_monitor_events). Verrà avviato il monitoraggio del dispositivo simulato. L'output mostra i dati di telemetria che il dispositivo simulato invia all'hub IoT.
 
     *YourIotHubName*. sostituire il segnaposto in basso con il nome scelto per l'hub IoT. 
 
@@ -136,7 +136,7 @@ In questa sezione viene usata la seconda sessione dell'interfaccia della riga di
     az iot device simulate -d simDevice -n {YourIoTHubName}
     ```
 
-1. Nella seconda sessione dell'interfaccia della riga di comando, eseguire il comando [az iot device c2d-message send](/cli/azure/ext/azure-iot/iot/device/c2d-message#ext-azure-iot-az-iot-device-c2d-message-send). Viene inviato un messaggio da cloud a dispositivo dall'hub IoT al dispositivo simulato. Il messaggio include una stringa e due coppie chiave-valore.  
+1. Nella seconda sessione dell'interfaccia della riga di comando, eseguire il comando [az iot device c2d-message send](/cli/azure/iot/device/c2d-message#az_iot_device_c2d-message-send). Viene inviato un messaggio da cloud a dispositivo dall'hub IoT al dispositivo simulato. Il messaggio include una stringa e due coppie chiave-valore.  
 
     *YourIotHubName*. sostituire il segnaposto in basso con il nome scelto per l'hub IoT. 
 
