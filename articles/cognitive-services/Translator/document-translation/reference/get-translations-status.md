@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 03/25/2021
+ms.date: 04/21/2021
 ms.author: v-jansk
-ms.openlocfilehash: a67544dc4f654a692338c76099daa19934a9ea45
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: c3301283f0a7334a7c207ff7c80b4f71a13de465
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107836209"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107864830"
 ---
 # <a name="get-translations-status"></a>Ottenere lo stato delle traduzioni
 
@@ -69,7 +69,7 @@ Di seguito sono riportati i possibili codici di stato HTTP restituiti da una ric
 
 |Codice di stato|Descrizione|
 |--- |--- |
-|200|OK. Richiesta completata e restituisce lo stato di tutte le operazioni. HeadersRetry-After: integerETag: string|
+|200|OK. Richiesta riuscita e restituisce lo stato di tutte le operazioni. HeadersRetry-After: integerETag: string|
 |400|Richiesta non valida. Richiesta non valida. Controllare i parametri di input.|
 |401|Non autorizzato. Controllare le credenziali.|
 |500|Errore interno del server.|
@@ -77,9 +77,9 @@ Di seguito sono riportati i possibili codici di stato HTTP restituiti da una ric
 
 ## <a name="get-translations-status-response"></a>Ottenere la risposta dello stato delle traduzioni
 
-### <a name="successful-get-translations-status-response"></a>Risposta di stato get translations completata
+### <a name="successful-get-translations-status-response"></a>Risposta di stato get translations riuscita
 
-Le informazioni seguenti vengono restituite in una risposta corretta.
+Le informazioni seguenti vengono restituite in una risposta con esito positivo.
 
 |Nome|Type|Descrizione|
 |--- |--- |--- |
@@ -89,9 +89,9 @@ Le informazioni seguenti vengono restituite in una risposta corretta.
 |status|Stringa|Elenco di possibili stati per il processo o il documento: <ul><li>Cancellati</li><li>Cancelling</li><li>Non riuscito</li><li>NotStarted</li><li>In esecuzione</li><li>Completato</li><li>ValidationFailed</li></ul>|
 |riepilogo|StatusSummary[]|Riepilogo contenente i dettagli elencati di seguito.|
 |summary.total|numero intero|Conteggio dei documenti totali.|
-|summary.failed|numero intero|Numero di documenti non riusciti.|
+|summary.failed|numero intero|Conteggio dei documenti non riuscito.|
 |summary.success|numero intero|Numero di documenti tradotti correttamente.|
-|summary.inProgress|numero intero|Numero di documenti in corso.|
+|summary.inProgress|numero intero|Conteggio dei documenti in corso.|
 |summary.notYetStarted|numero intero|Numero di documenti non ancora avviati.|
 |summary.cancelled|numero intero|Numero di documenti annullati.|
 |summary.totalCharacterCharged|numero intero|Numero totale di caratteri addebitati.|
@@ -101,17 +101,17 @@ Le informazioni seguenti vengono restituite in una risposta corretta.
 |Nome|Type|Descrizione|
 |--- |--- |--- |
 |codice|string|Enumerazioni contenenti codici di errore di alto livello. Valori possibili:<br/><ul><li>InternalServerError</li><li>InvalidArgument</li><li>InvalidRequest</li><li>RequestRateTooHigh</li><li>ResourceNotFound</li><li>ServiceUnavailable</li><li>Non autorizzata</li></ul>|
-|message|string|Ottiene il messaggio di errore di alto livello.|
+|message|string|Ottiene un messaggio di errore di alto livello.|
 |target|string|Ottiene l'origine dell'errore. Ad esempio, sarebbe "documenti" o "ID documento" nel caso di un documento non valido.|
-|innerError|InnerErrorV2|Nuovo formato di errore interno, conforme alle linee guida dell'API Servizi cognitivi. Contiene le proprietà obbligatorie ErrorCode, message e optional properties target, details(key value pair), inner error (questo può essere annidato).|
+|innerError|InnerErrorV2|Nuovo formato di errore interno, conforme alle linee guida dell'API Servizi cognitivi. Contiene le proprietà obbligatorie ErrorCode, message e optional properties target, details(coppia chiave-valore), inner error (può essere annidato).|
 |innerError.code|string|Ottiene la stringa di errore del codice.|
-|innerError.message|string|Ottiene un messaggio di errore di alto livello.|
+|innerError.message|string|Ottiene il messaggio di errore di alto livello.|
 
 ## <a name="examples"></a>Esempio
 
-### <a name="example-successful-response"></a>Risposta riuscita di esempio
+### <a name="example-successful-response"></a>Esempio di risposta con esito positivo
 
-Di seguito è riportato un esempio di risposta corretta.
+Di seguito è riportato un esempio di risposta con esito positivo.
 
 ```JSON
 {

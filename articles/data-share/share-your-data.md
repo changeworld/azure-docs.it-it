@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 03/24/2021
-ms.openlocfilehash: 8e149270d8f98cbf72d3864d238a3d8ddfd61c67
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b8d49e3b3c6f6407fe241e00ada5039bd94fd706
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105639539"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107870878"
 ---
 # <a name="tutorial-share-data-using-azure-data-share"></a>Esercitazione: Condividere dati con Condivisione dati di Azure  
 
@@ -136,13 +136,13 @@ Usare questi comandi per creare la risorsa:
    az group create --name testresourcegroup --location "East US 2"
    ```
 
-1. Eseguire il comando [az datashare account create](/cli/azure/ext/datashare/datashare/account#ext_datashare_az_datashare_account_create) per creare un account di Condivisione dati:
+1. Eseguire il comando [az datashare account create](/cli/azure/datashare/account#az_datashare_account_create) per creare un account di Condivisione dati:
 
    ```azurecli
    az datashare account create --resource-group testresourcegroup --name datashareaccount --location "East US 2" 
    ```
 
-   Eseguire il comando [az datashare account list](/cli/azure/ext/datashare/datashare/account#ext_datashare_az_datashare_account_list) per visualizzare gli account di Condivisione dati:
+   Eseguire il comando [az datashare account list](/cli/azure/datashare/account#az_datashare_account_list) per visualizzare gli account di Condivisione dati:
 
    ```azurecli
    az datashare account list --resource-group testresourcegroup
@@ -172,7 +172,7 @@ Usare questi comandi per creare la risorsa:
 
     ![Aggiungere set di dati alla condivisione](./media/datasets.png "Set di dati")
 
-1. Selezionare il tipo di set di dati da aggiungere. Verrà visualizzato un elenco di tipi di set di dati diverso a seconda del tipo di condivisione (snapshot o sul posto) selezionato nel passaggio precedente. Se si condivide da un database SQL di Azure o da Azure sinapsi Analytics (in precedenza Azure SQL DW), verrà richiesto di specificare il metodo di autenticazione per elencare le tabelle. Selezionare autenticazione di AAD e selezionare la casella **di controllo Consenti condivisione dati per eseguire lo script di creazione utente precedente per conto dell'utente**. 
+1. Selezionare il tipo di set di dati da aggiungere. Verrà visualizzato un elenco di tipi di set di dati diverso a seconda del tipo di condivisione (snapshot o sul posto) selezionato nel passaggio precedente. Se si condivide da un database SQL di Azure o Azure Synapse Analytics (in precedenza Azure SQL DW), verrà richiesto il metodo di autenticazione per elencare le tabelle. Selezionare Autenticazione AAD e selezionare la casella di controllo Consenti a Condivisione dati di **eseguire lo script "crea utente" precedente per conto dell'utente.** 
 
     ![Aggiungere i set di dati](./media/add-datasets.png "Aggiungere i set di dati")    
 
@@ -210,7 +210,7 @@ Usare questi comandi per creare la risorsa:
    az storage container create --name ContosoMarketplaceContainer --account-name ContosoMarketplaceAccount
    ```
 
-1. Eseguire il comando [az datashare create](/cli/azure/ext/datashare/datashare#ext_datashare_az_datashare_create) per creare la condivisione dati:
+1. Eseguire il comando [az datashare create](/cli/azure/datashare#az_datashare_create) per creare la condivisione dati:
 
    ```azurecli
    az datashare create --resource-group testresourcegroup \
@@ -218,7 +218,7 @@ Usare questi comandi per creare la risorsa:
      --description "Data Share" --share-kind "CopyBased" --terms "Confidential"
    ```
 
-1. Usare il comando [az datashare invitation create](/cli/azure/ext/datashare/datashare/invitation#ext_datashare_az_datashare_invitation_create) per creare l'invito per l'indirizzo specificato:
+1. Usare il comando [az datashare invitation create](/cli/azure/datashare/invitation#az_datashare_invitation_create) per creare l'invito per l'indirizzo specificato:
 
    ```azurecli
    az datashare invitation create --resource-group testresourcegroup \

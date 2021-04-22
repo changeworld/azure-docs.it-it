@@ -13,7 +13,7 @@
         - name: Routing any-to-any
           displayName: Resource Manager Any-to-any routing
           href: quickstart-any-to-any-template.md
-        - name: Routing ai servizi condivisi reti virtuali
+        - name: Route alle reti virtuali dei servizi condivisi
           displayName: Resource Manager route to shared services VNets
           href: quickstart-route-shared-services-vnet-template.md
 - name: Esercitazioni
@@ -61,9 +61,9 @@
           href: scenario-isolate-vnets.md
         - name: Isolamento delle reti virtuali - personalizzato
           href: scenario-isolate-vnets-custom.md
-        - name: Isolamento di reti virtuali e Branch
+        - name: Isolamento di reti virtuali e rami
           href: scenario-isolate-virtual-networks-branches.md
-        - name: Servizi condivisi reti virtuali
+        - name: Reti virtuali di servizi condivisi
           href: scenario-shared-services-vnet.md
         - name: Routing tramite un'appliance virtuale di rete
           href: scenario-route-through-nva.md
@@ -87,7 +87,7 @@
       items:
         - name: Informazioni sui criteri IPsec P2S
           href: point-to-site-ipsec.md
-    - name: Sicurezza
+    - name: Security
       items:
         - name: Baseline di sicurezza
           href: security-baseline.md
@@ -117,6 +117,8 @@
           href: virtual-wan-site-to-site-portal.md
         - name: Connettere il gateway di rete virtuale alla rete WAN virtuale
           href: connect-virtual-network-gateway-vwan.md
+        - name: Eseguire un'acquisizione di pacchetti
+          href: virtual-wan-site-to-site-packet-capture.md
         - name: Configurare criteri IPSec personalizzati
           href: virtual-wan-custom-ipsec-portal.md
         - name: Configurare le regole NAT
@@ -131,7 +133,7 @@
           href: openvpn-azure-ad-tenant.md
         - name: Profili client
           items:
-            - name: Scaricare profili globali e basati su Hub
+            - name: Scaricare i profili globali e basati su hub
               href: global-hub-profile.md
             - name: Estrarre e visualizzare le informazioni sul profilo
               href: about-vpn-profile-download.md
@@ -143,7 +145,7 @@
               href: openvpn-azure-ad-client.md
             - name: OpenVPN
               href: howto-openvpn-clients.md?
-        - name: Configurare tunnel Always-On
+        - name: Configurare Always-On tunnel
           items:
             - name: Tunnel utente
               href: howto-always-on-user-tunnel.md
@@ -151,11 +153,11 @@
               href: howto-always-on-device-tunnel.md
         - name: Authentication
           items:
-            - name: Multi-Factor Authentication (autenticazione a più fattori)
+            - name: Multi-Factor Authentication (MFA)
               href: openvpn-azure-ad-mfa.md
             - name: Autenticazione di Azure AD
               href: virtual-wan-point-to-site-azure-ad.md
-            - name: Autenticazione Azure AD per più applicazioni
+            - name: Autenticazione basata Azure AD multiapp Azure AD multiapp
               href: openvpn-azure-ad-tenant-multi-app.md
     - name: Routing
       items:
@@ -188,7 +190,7 @@
     - name: REST
       href: /rest/api/azure
     - name: Interfaccia della riga di comando di Azure
-      href: /cli/azure/ext/virtual-wan
+      href: /cli/azure/
     - name: Python SDK
       href: 'https://azuresdkdocs.blob.core.windows.net/$web/python/azure-mgmt-network/10.0.0/azure.mgmt.network.v2019_02_01.operations.html#azure.mgmt.network.v2019_02_01.operations.VirtualWansOperations'
 - name: Risorse

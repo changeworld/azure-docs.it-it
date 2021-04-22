@@ -1,6 +1,6 @@
 ---
 title: "Avvio rapido: Effettuare il provisioning di un dispositivo X.509 simulato nell'hub IoT di Azure con C#"
-description: 'Guida introduttiva: creare ed effettuare il provisioning di un dispositivo X. 509 usando C# Device SDK per il servizio Device provisioning in hub Azure. Questa guida introduttiva usa registrazioni singole.'
+description: "Avvio rapido: Creare ed effettuare il provisioning di un dispositivo X.509 usando l'SDK per dispositivi C# per hub IoT di Azure Device Provisioning. Questa guida introduttiva usa registrazioni singole."
 author: wesmc7777
 ms.author: wesmc
 ms.date: 02/01/2021
@@ -9,18 +9,18 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: 7d2a21a30cefbc6e83e48c29d81191323387b8f2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7aca75d1abed5470d51de22f9285459381f684bd
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101705544"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107868592"
 ---
-# <a name="quickstart-create-and-provision-an-x509-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>Guida introduttiva: creare ed effettuare il provisioning di un dispositivo X. 509 usando C# Device SDK per il servizio Device provisioning in hub Internet
+# <a name="quickstart-create-and-provision-an-x509-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>Guida introduttiva: Creare ed effettuare il provisioning di un dispositivo X.509 usando l'SDK per dispositivi C# per il servizio Device Provisioning in hub IoT
 
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
 
-Questi passaggi illustrano come usare il codice del dispositivo degli [esempi di Azure per](https://github.com/Azure-Samples/azure-iot-samples-csharp) il provisioning di un dispositivo X. 509 per C#. In questo articolo si eseguirà il codice di esempio del dispositivo nel computer di sviluppo per connettersi a un hub Internet delle cose usando il servizio Device provisioning.
+Questi passaggi illustrano come usare il codice del dispositivo della Azure IoT [esempi per C#](https://github.com/Azure-Samples/azure-iot-samples-csharp) per effettuare il provisioning di un dispositivo X.509. In questo articolo si eseguirà il codice di esempio del dispositivo nel computer di sviluppo per connettersi a un hub IoT usando il servizio Device Provisioning.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -45,7 +45,7 @@ Questo articolo descrive le registrazioni singole.
     git clone https://github.com/Azure-Samples/azure-iot-samples-csharp.git
     ```
 
-1. Assicurarsi che nel computer sia installato [.NET Core 3.0.0 SDK o versione successiva](https://www.microsoft.com/net/download/windows) . Per controllare la versione, è possibile usare il comando seguente.
+1. Assicurarsi che nel computer sia [installato .NET Core 3.1 SDK](https://dotnet.microsoft.com/download) o versione successiva. È possibile usare il comando seguente per controllare la versione.
 
     ```bash
     dotnet --info
@@ -53,28 +53,28 @@ Questo articolo descrive le registrazioni singole.
 
 ## <a name="create-a-self-signed-x509-device-certificate"></a>Creare un certificato per un dispositivo X.509 autofirmato
 
-In questa sezione verrà creato un certificato di test X. 509 autofirmato utilizzando `iothubx509device1` come nome comune del soggetto. Tenere presente questi punti importanti:
+In questa sezione verrà creato un certificato di test X.509 autofirmato usando come nome comune `iothubx509device1` del soggetto. Tenere presente questi punti importanti:
 
 * I certificati autofirmati sono destinati solo alle operazioni di testing e non dovrebbero essere usati nell'ambiente di produzione.
 * La data di scadenza predefinita per un certificato autofirmato è un anno.
-* L'ID dispositivo del dispositivo Internet è il nome comune del soggetto nel certificato. Assicurarsi di usare un nome soggetto conforme ai [requisiti della stringa ID dispositivo](../iot-hub/iot-hub-devguide-identity-registry.md#device-identity-properties).
+* L'ID dispositivo del dispositivo IoT sarà il nome comune del soggetto nel certificato. Assicurarsi di usare un nome soggetto conforme ai requisiti della stringa [dell'ID dispositivo](../iot-hub/iot-hub-devguide-identity-registry.md#device-identity-properties).
 
 Si userà il codice di esempio di [X509Sample](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device/X509Sample) per creare il certificato da usare con la voce di registrazione singola per il dispositivo.
 
 
-1. In un prompt di PowerShell passare alla directory del progetto per l'esempio di provisioning dei dispositivi X. 509.
+1. In un prompt di PowerShell passare alla directory del progetto per l'esempio di provisioning di dispositivi X.509.
 
     ```powershell
     cd .\azure-iot-samples-csharp\provisioning\Samples\device\X509Sample
     ```
 
-2. Il codice di esempio è configurato per usare i certificati X.509 archiviati in un file di formato PKCS12 protetto da password (certificate.pfx). È anche necessario un file di certificato di chiave pubblica (certificate.cer) per creare una registrazione singola più avanti in questa guida di avvio rapido. Per generare il certificato autofirmato e i file con estensione CER e PFX associati, eseguire il comando seguente:
+2. Il codice di esempio è configurato per usare i certificati X.509 archiviati in un file di formato PKCS12 protetto da password (certificate.pfx). È anche necessario un file di certificato di chiave pubblica (certificate.cer) per creare una registrazione singola più avanti in questa guida di avvio rapido. Per generare il certificato autofirmato e i file cer e pfx associati, eseguire il comando seguente:
 
     ```powershell
     PS D:\azure-iot-samples-csharp\provisioning\Samples\device\X509Sample> .\GenerateTestCertificate.ps1 iothubx509device1
     ```
 
-3. Lo script chiede una password PFX. Ricordare questa password. è necessario riutilizzarla successivamente quando si esegue l'esempio. È possibile eseguire `certutil` per eseguire il dump del certificato e verificare il nome del soggetto.
+3. Lo script chiede una password PFX. Tenere presente questa password, è necessario usarla di nuovo in un secondo momento quando si esegue l'esempio. È possibile eseguire `certutil` per eseguire il dump del certificato e verificare il nome del soggetto.
 
     ```powershell
     PS D:\azure-iot-samples-csharp\provisioning\Samples\device\X509Sample> certutil .\certificate.pfx
@@ -127,20 +127,20 @@ Si userà il codice di esempio di [X509Sample](https://github.com/Azure-Samples/
 
 2. Digitare il comando seguente per compilare ed eseguire l'esempio di provisioning di dispositivo X.509. Sostituire il valore di `<IDScope>` con l'ID ambito del servizio di provisioning. 
 
-    Per impostazione predefinita, il file del certificato viene impostato su *./Certificate.pfx* e viene richiesta la password. pfx.  
+    Per impostazione predefinita, il file del certificato *sarà ./certificate.pfx* e verrà richiesta la password PFX.  
 
     ```powershell
     dotnet run -- -s <IDScope>
     ```
 
-    Se si vuole passare tutto come parametro, è possibile usare il formato di esempio seguente.
+    Se si vuole passare tutti gli elementi come parametro, è possibile usare il formato di esempio seguente.
 
     ```powershell
     dotnet run -- -s 0ne00000A0A -c certificate.pfx -p 1234
     ```
 
 
-3. Il dispositivo si connetterà a DPS e verrà assegnato a un hub Internet. Il dispositivo invierà inoltre un messaggio di telemetria all'hub.
+3. Il dispositivo si connetterà al servizio Device Backup e verrà assegnato a un hub IoT. Il dispositivo invierà anche un messaggio di telemetria all'hub.
 
     ```output
     Loading the certificate...
@@ -157,7 +157,7 @@ Si userà il codice di esempio di [X509Sample](https://github.com/Azure-Samples/
     Finished.
     ```
 
-4. Verificare che il provisioning del dispositivo sia stato effettuato. Al completamento del provisioning del dispositivo nell'hub Internet delle cose collegato al servizio di provisioning, l'ID del dispositivo viene visualizzato nel pannello **dispositivi** dell'hub. 
+4. Verificare che il provisioning del dispositivo sia stato effettuato. Al completamento del provisioning del dispositivo nell'hub IoT collegato al servizio di provisioning, l'ID dispositivo viene visualizzato nel pannello **Dispositivi IoT** dell'hub. 
 
     ![Il dispositivo viene registrato con l'hub IoT](./media/quick-create-simulated-device-x509-csharp/registration.png) 
 
@@ -175,7 +175,7 @@ Se si prevede di continuare a usare ed esplorare l'esempio di client dispositivo
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa Guida introduttiva è stato effettuato il provisioning di un dispositivo X. 509 nell'hub Internet delle cose usando il servizio Device provisioning in hub Azure. Per informazioni su come registrare il dispositivo X.509 a livello di codice, passare alla guida di avvio rapido per la registrazione a livello di codice dei dispositivi X.509. 
+In questa guida introduttiva è stato effettuato il provisioning di un dispositivo X.509 nell'hub IoT usando il hub IoT di Azure Device Provisioning. Per informazioni su come registrare il dispositivo X.509 a livello di codice, passare alla guida di avvio rapido per la registrazione a livello di codice dei dispositivi X.509. 
 
 > [!div class="nextstepaction"]
 > [Avvio rapido di Azure: Registrare dispositivi X.509 nel servizio Device Provisioning in hub IoT di Azure](quick-enroll-device-x509-csharp.md)

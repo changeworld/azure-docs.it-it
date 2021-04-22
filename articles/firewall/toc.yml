@@ -32,11 +32,11 @@
   items:
     - name: Funzionalità di Firewall di Azure
       href: features.md
-    - name: Funzionalità di Azure Firewall Premium
+    - name: Firewall di Azure Premium
       href: premium-features.md
-    - name: Azure Firewall Premium nel portale
+    - name: Firewall di Azure Premium nel portale
       href: premium-portal.md
-    - name: Certificati Premium di Azure firewall
+    - name: Firewall di Azure Premium
       href: premium-certificates.md
     - name: Tag FQDN
       href: fqdn-tags.md
@@ -97,16 +97,16 @@
       displayName: 'Azure CLI, az monitor diagnostic-settings create, monitor diagnostic settings'
     - name: Cartella di lavoro di Firewall di Azure
       href: firewall-workbook.md
-    - name: Distribuire e configurare il firewall Premium
+    - name: Distribuire e configurare Firewall Premium
       href: premium-deploy.md
-    - name: Distribuire i certificati della CA globale (Enterprise) per Premium
+    - name: Distribuire certificati ca globale (enterprise) per Premium
       href: premium-deploy-certificates-enterprise-ca.md
-    - name: Eseguire la migrazione ad Azure Firewall Premium
+    - name: Eseguire la migrazione Firewall di Azure Premium
       href: premium-migrate.md
 - name: Informazioni di riferimento
   items:
     - name: Interfaccia della riga di comando di Azure
-      href: /cli/azure/ext/azure-firewall/network/firewall
+      href: /cli/azure/network/firewall
     - name: Azure PowerShell
       href: /powershell/module/az.network/new-azfirewall
     - name: .NET

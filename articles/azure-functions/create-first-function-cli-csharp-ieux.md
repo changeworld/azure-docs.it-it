@@ -8,12 +8,12 @@ ms.custom:
 - devx-track-azurecli
 - devx-track-azurepowershell
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: fb287333ba8b0b4fc0bb35ce91d2e3113ff50e2b
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 45173a74c0e3189c1f356aea2f8024ff15409f32
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107831115"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107866198"
 ---
 # <a name="quickstart-create-a-c-function-in-azure-from-the-command-line"></a>Avvio rapido: Creare una funzione C# in Azure dalla riga di comando
 
@@ -35,7 +35,7 @@ Le procedure illustrate in questa guida di avvio rapido comportano l'addebito di
 
 + Ottenere un'istanza di Azure <abbr title="Profilo che gestisce le informazioni di fatturazione per l'utilizzo di Azure.">account</abbr> con un oggetto attivo <abbr title="Struttura organizzativa di base in cui si gestiscono le risorse in Azure, in genere associate a un singolo utente o a un reparto all'interno di un'organizzazione.">sottoscrizione</abbr>. [Creare un account gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-+ Installare [.NET Core SDK 3.1](https://www.microsoft.com/net/download)
++ Installare [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download)
 
 + Installare [Azure Functions Core Tools](functions-run-local.md#v2) versione 3.x.
 

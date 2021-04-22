@@ -1,7 +1,7 @@
 ---
-title: Distribuire modelli ML nel servizio Kubernetes
+title: Distribuire modelli di Machine Learning nel servizio Kubernetes
 titleSuffix: Azure Machine Learning
-description: Informazioni su come distribuire i modelli di Azure Machine Learning come servizio Web usando il servizio Azure Kubernetes.
+description: Informazioni su come distribuire i modelli Azure Machine Learning come servizio Web usando servizio Azure Kubernetes.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,142 +11,142 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 09/01/2020
-ms.openlocfilehash: 68fc4a10f5a54af7bab82843b7a921fd84e7af40
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 6030462fc7c9678200aa14fa852a82d35f8703b6
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107259269"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107877823"
 ---
-# <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Distribuire un modello in un cluster del servizio Kubernetes di Azure
+# <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Distribuire un modello in un cluster servizio Azure Kubernetes distribuzione
 
-Informazioni su come usare Azure Machine Learning per distribuire un modello come servizio Web in Azure Kubernetes Service (AKS). Il servizio Azure Kubernetes è ideale per distribuzioni di produzione su vasta scala. Usare il servizio Azure Kubernetes se sono necessarie una o più delle funzionalità seguenti:
+Informazioni su come usare Azure Machine Learning distribuire un modello come servizio Web in servizio Azure Kubernetes (AKS). servizio Azure Kubernetes è adatta per le distribuzioni di produzione su larga scala. Usare il servizio Azure Kubernetes se sono necessarie una o più delle funzionalità seguenti:
 
-- __Tempo di risposta rapido__
-- __Scalabilità__ automatica del servizio distribuito
+- __Tempi di risposta rapidi__
+- __Scalabilità automatica__ del servizio distribuito
 - __Logging__
 - __Raccolta di dati del modello__
 - __autenticazione__
 - __Terminazione TLS__
-- Opzioni di __accelerazione hardware__ quali GPU e FPGA (Field-Programmable Gate Array)
+- __Opzioni di__ accelerazione hardware come GPU e dispositivi FPGA (Field Programmable Gate Array)
 
-Quando si esegue la distribuzione nel servizio Azure Kubernetes, viene distribuito in un cluster AKS __connesso all'area di lavoro__. Per informazioni sulla connessione di un cluster AKS all'area di lavoro, vedere [creare e collegare un cluster del servizio Azure Kubernetes](how-to-create-attach-kubernetes.md).
+Quando si esegue la distribuzione in servizio Azure Kubernetes, si esegue la distribuzione in un cluster del servizio Web Diaks __connesso all'area di lavoro.__ Per informazioni sulla connessione di un cluster del servizio Web Disassoniato all'area di lavoro, vedere Creare e collegare [un cluster servizio Azure Kubernetes servizio.](how-to-create-attach-kubernetes.md)
 
 > [!IMPORTANT]
-> Si consiglia di eseguire il debug in locale prima della distribuzione nel servizio Web. Per ulteriori informazioni, vedere [debug in locale](./how-to-troubleshoot-deployment-local.md)
+> È consigliabile eseguire il debug in locale prima della distribuzione nel servizio Web. Per altre informazioni, vedere Eseguire il [debug in locale](./how-to-troubleshoot-deployment-local.md)
 >
 > È anche possibile fare riferimento ad Azure Machine Learning - [Eseguire la distribuzione a un notebook locale](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-to-local)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Un'area di lavoro di Azure Machine Learning. Per altre informazioni, vedere [creare un'area di lavoro Azure Machine Learning](how-to-manage-workspace.md).
+- Un'area di lavoro di Azure Machine Learning. Per altre informazioni, vedere [Creare un'area Azure Machine Learning lavoro.](how-to-manage-workspace.md)
 
-- Un modello di apprendimento automatico registrato nell'area di lavoro. Se non si dispone di un modello registrato, vedere [come e dove distribuire i modelli](how-to-deploy-and-where.md).
+- Un modello di Machine Learning registrato nell'area di lavoro. Se non si ha un modello registrato, vedere [Come e dove distribuire i modelli.](how-to-deploy-and-where.md)
 
-- Estensione dell'interfaccia della riga [di comando di Azure per il servizio Machine Learning](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro)o l' [estensione di Visual Studio code Azure Machine Learning](tutorial-setup-vscode-extension.md).
+- [L'estensione dell'interfaccia della riga Machine Learning azure per il](reference-azure-machine-learning-cli.md)servizio , Azure Machine Learning Python [SDK](/python/api/overview/azure/ml/intro)o l'estensione [Azure Machine Learning Visual Studio Code .](tutorial-setup-vscode-extension.md)
 
-- I frammenti di codice __Python__ in questo articolo presuppongono che siano impostate le variabili seguenti:
+- I __frammenti__ di codice Python in questo articolo presuppongono che siano impostate le variabili seguenti:
 
-    * `ws` -Impostare sull'area di lavoro.
-    * `model` : Impostare sul modello registrato.
-    * `inference_config` -Impostare sulla configurazione di inferenza per il modello.
+    * `ws` : impostare l'area di lavoro.
+    * `model` : impostare sul modello registrato.
+    * `inference_config` : impostare sulla configurazione di inferenza per il modello.
 
-    Per ulteriori informazioni sull'impostazione di queste variabili, vedere [come e dove distribuire i modelli](how-to-deploy-and-where.md).
+    Per altre informazioni sull'impostazione di queste variabili, vedere [Come e dove distribuire i modelli](how-to-deploy-and-where.md).
 
-- I frammenti di codice dell' __interfaccia__ della riga di comando in questo articolo presuppongono che sia stato creato un `inferenceconfig.json` documento. Per ulteriori informazioni sulla creazione di questo documento, vedere [come e dove distribuire i modelli](how-to-deploy-and-where.md).
+- I __frammenti__ di codice dell'interfaccia della riga di comando in questo articolo presuppongono che sia stato creato un `inferenceconfig.json` documento. Per altre informazioni sulla creazione di questo documento, vedere [Come e dove distribuire i modelli](how-to-deploy-and-where.md).
 
-- Un cluster del servizio Azure Kubernetes connesso all'area di lavoro. Per altre informazioni, vedere [creare e alleghi un cluster del servizio Azure Kubernetes](how-to-create-attach-kubernetes.md).
+- Un servizio Azure Kubernetes cluster connesso all'area di lavoro. Per altre informazioni, vedere [Creare e collegare un cluster servizio Azure Kubernetes cluster](how-to-create-attach-kubernetes.md).
 
-    - Se si desidera distribuire modelli a nodi GPU o a nodi FPGA (o a qualsiasi SKU specifico), è necessario creare un cluster con lo SKU specifico. Non è disponibile alcun supporto per la creazione di un pool di nodi secondari in un cluster esistente e la distribuzione di modelli nel pool di nodi secondari.
+    - Se si vogliono distribuire modelli in nodi GPU o FPGA (o in uno SKU specifico), è necessario creare un cluster con lo SKU specifico. Non è disponibile alcun supporto per la creazione di un pool di nodi secondari in un cluster esistente e la distribuzione di modelli nel pool di nodi secondari.
 
-## <a name="understand-the-deployment-processes"></a>Informazioni sui processi di distribuzione
+## <a name="understand-the-deployment-processes"></a>Comprendere i processi di distribuzione
 
-Il termine "distribuzione" viene usato sia in Kubernetes che in Azure Machine Learning. "Distribuzione" ha significati diversi in questi due contesti. In Kubernetes, `Deployment` è un'entità concreta, specificata con un file YAML dichiarativo. Un Kubernetes `Deployment` ha un ciclo di vita definito e relazioni concrete con altre entità Kubernetes, ad esempio `Pods` e `ReplicaSets` . Per informazioni su Kubernetes da documenti e video, vedere informazioni su [Kubernetes](https://aka.ms/k8slearning).
+La parola "distribuzione" viene usata sia in Kubernetes che Azure Machine Learning. "Distribuzione" ha significati diversi in questi due contesti. In Kubernetes un è `Deployment` un'entità concreta, specificata con un file YAML dichiarativo. Kubernetes ha un ciclo di vita definito e relazioni concrete con altre entità `Deployment` di Kubernetes, ad esempio `Pods` e `ReplicaSets` . Per altre informazioni su Kubernetes, vedere la documentazione e i video in [Che cos'è Kubernetes?](https://aka.ms/k8slearning).
 
-In Azure Machine Learning, "distribuzione" viene usato nel senso più generale di rendere disponibile e pulire le risorse del progetto. I passaggi che Azure Machine Learning considera parte della distribuzione sono:
+In Azure Machine Learning, la "distribuzione" viene usata nel senso più generale di rendere disponibili e pulire le risorse del progetto. I passaggi che Azure Machine Learning parte della distribuzione sono:
 
-1. Comprime i file nella cartella del progetto, ignorando quelli specificati in. amlignore o. gitignore
-1. Scalabilità verticale del cluster di elaborazione (correlato a Kubernetes)
-1. Compilazione o download di dockerfile nel nodo di calcolo (correlato a Kubernetes)
+1. Compressione dei file nella cartella del progetto, ignorando quelli specificati in .amlignore o .gitignore
+1. Aumento delle dimensioni del cluster di calcolo (correlato a Kubernetes)
+1. Compilazione o download del dockerfile nel nodo di calcolo (correlato a Kubernetes)
     1. Il sistema calcola un hash di: 
         - Immagine di base 
-        - Passaggi personalizzati di Docker (vedere [distribuire un modello usando un'immagine di base Docker personalizzata](./how-to-deploy-custom-docker-image.md))
-        - YAML per la definizione conda (vedere [creare & usare gli ambienti software in Azure Machine Learning](./how-to-use-environments.md))
-    1. Il sistema usa questo hash come chiave in una ricerca dell'area di lavoro Azure Container Registry (ACR)
-    1. Se non viene trovato, viene cercata una corrispondenza nell'ACR globale
-    1. Se non viene trovato, il sistema compila una nuova immagine, che verrà memorizzata nella cache e inserita nell'area di lavoro ACR.
+        - Passaggi docker personalizzati (vedere [Distribuire un modello usando un'immagine di base Docker personalizzata)](./how-to-deploy-custom-docker-image.md)
+        - La definizione YAML conda (vedere [Creare & usare ambienti software in Azure Machine Learning](./how-to-use-environments.md))
+    1. Il sistema usa questo hash come chiave in una ricerca dell'area di Registro Azure Container (ACR)
+    1. Se non viene trovato, cerca una corrispondenza nel Controllo di accesso globale
+    1. Se non viene trovato, il sistema compila una nuova immagine (che verrà memorizzata nella cache e inserita nel registro di controllo di accesso dell'area di lavoro)
 1. Download del file di progetto compresso nell'archiviazione temporanea nel nodo di calcolo
-1. Decompressione del file di progetto
+1. Decomprimere il file di progetto
 1. Nodo di calcolo in esecuzione `python <entry script> <arguments>`
-1. Salvataggio dei log, dei file di modello e di altri file scritti nell' `./outputs` account di archiviazione associato all'area di lavoro
-1. Riduzione delle prestazioni di calcolo, inclusa la rimozione dell'archiviazione temporanea (in relazione a Kubernetes)
+1. Salvataggio di log, file di modello e altri file scritti `./outputs` nell'account di archiviazione associato all'area di lavoro
+1. Riduzione delle risorse di calcolo, inclusa la rimozione dell'archiviazione temporanea (correlata a Kubernetes)
 
-### <a name="azure-ml-router"></a>Router Azure ML
+### <a name="azure-ml-router"></a>Router di Azure ML
 
-Il componente front-end (azureml-Fe) che instrada le richieste di inferenza in ingresso ai servizi distribuiti viene ridimensionato automaticamente in base alle esigenze. Il ridimensionamento di azureml-Fe è basato sullo scopo e sulle dimensioni del cluster AKS (numero di nodi). Lo scopo e i nodi del cluster vengono configurati quando si [Crea o si connette un cluster AKS](how-to-create-attach-kubernetes.md). È disponibile un servizio azureml-Fe per ogni cluster, che potrebbe essere in esecuzione su più POD.
+Il componente front-end (azureml-fe) che instrada le richieste di inferenza in ingresso ai servizi distribuiti viene ridimensionato automaticamente in base alle esigenze. Il ridimensionamento di azureml-fe si basa sullo scopo e sulle dimensioni del cluster del servizio AzureKs (numero di nodi). Lo scopo del cluster e i nodi vengono configurati quando si crea o si collega un cluster del servizio [Web Diaks.](how-to-create-attach-kubernetes.md) Esiste un servizio azureml-fe per cluster, che può essere in esecuzione in più pod.
 
 > [!IMPORTANT]
-> Quando si usa un cluster configurato come __dev-test__, lo scaler automatico è **disabilitato**.
+> Quando si usa un cluster configurato come __dev-test,__ l'utilità di scalabilità autonoma è **disabilitata.**
 
-Azureml-Fe scala sia verso l'alto (verticalmente) per usare più core, sia orizzontalmente per usare più baccelli. Quando si decide di eseguire la scalabilità verticale, viene usato il tempo necessario per instradare le richieste di inferenza in ingresso. Se questo tempo supera la soglia, viene eseguita una scalabilità verticale. Se il tempo di instradamento delle richieste in ingresso continua a superare la soglia, si verificherà una scalabilità orizzontale.
+Azureml-fe consente di aumentare le dimensioni (verticalmente) per usare più core e di aumentare (orizzontalmente) l'uso di più pod. Quando si decide di aumentare le dimensioni, viene usato il tempo necessario per instradare le richieste di inferenza in ingresso. Se questo tempo supera la soglia, si verifica un ridimensionamento. Se il tempo necessario per instradare le richieste in ingresso continua a superare la soglia, si verifica una scalabilità orizzontale.
 
-Quando si esegue il ridimensionamento in basso e in, viene utilizzato l'utilizzo della CPU. Se viene raggiunta la soglia di utilizzo della CPU, il front-end verrà prima ridimensionato. Se l'utilizzo della CPU scende alla soglia di riduzione delle prestazioni, viene eseguita un'operazione di riduzione del livello. La scalabilità verticale e orizzontale si verifica solo se sono disponibili risorse cluster sufficienti.
+In caso di riduzione e riduzione, viene usato l'utilizzo della CPU. Se viene raggiunta la soglia di utilizzo della CPU, il front-end verrà prima ridimensionato. Se l'utilizzo della CPU scende alla soglia di scalabilità verticale, viene eseguita un'operazione di ridimensionamento. La scalabilità verticale e orizzontale si verificherà solo se sono disponibili risorse cluster sufficienti.
 
 ## <a name="understand-connectivity-requirements-for-aks-inferencing-cluster"></a>Informazioni sui requisiti di connettività per il cluster di inferenza del servizio Azure Kubernetes
 
-Quando Azure Machine Learning crea o associa un cluster AKS, il cluster AKS viene distribuito con uno dei due modelli di rete seguenti:
+Quando Azure Machine Learning crea o collega un cluster del servizio AKS, viene distribuito un cluster del servizio Web Del servizio Web con uno dei due modelli di rete seguenti:When Azure Machine Learning creates or attaches an AKS cluster, AKS cluster is deployed with one of the following two network models:
 * Funzionalità di rete kubenet: le risorse di rete vengono in genere create e configurate quando viene distribuito il cluster del servizio Azure Kubernetes.
 * Funzionalità di rete Azure Container Networking Interface (Azure CNI): il cluster del servizio Azure Kubernetes viene connesso alle configurazioni e alle risorse di rete virtuale esistenti.
 
-Per la prima modalità di rete, la rete viene creata e configurata correttamente per Azure Machine Learning servizio. Per la seconda modalità di rete, poiché il cluster è connesso a una rete virtuale esistente, in particolare quando viene usato un DNS personalizzato per la rete virtuale esistente, il cliente deve prestare particolare attenzione ai requisiti di connettività per il cluster di inferenza di AKS e garantire la risoluzione DNS e la connettività in uscita per l'inferenza di AKS.
+Per la prima modalità di rete, la rete viene creata e configurata correttamente per servizio Azure Machine Learning. Per la seconda modalità di rete, poiché il cluster è connesso alla rete virtuale esistente, in particolare quando viene usato dns personalizzato per la rete virtuale esistente, il cliente deve prestare maggiore attenzione ai requisiti di connettività per il cluster di inferenza del servizio AKS e garantire la risoluzione DNS e la connettività in uscita per l'inferenza del servizio AKS.
 
-Il diagramma seguente acquisisce tutti i requisiti di connettività per l'inferenza di AKS. Le frecce nere rappresentano la comunicazione effettiva e le frecce blu rappresentano i nomi di dominio che devono essere risolti dal DNS controllato dal cliente.
+Il diagramma seguente acquisisce tutti i requisiti di connettività per l'inferenza del servizio AKS. Le frecce nere rappresentano la comunicazione effettiva e le frecce blu rappresentano i nomi di dominio che il DNS controllato dal cliente deve risolvere.
 
- ![Requisiti di connettività per l'inferenza di AKS](./media/how-to-deploy-aks/aks-network.png)
+ ![Requisiti di connettività per l'inferenza del servizio AKS](./media/how-to-deploy-aks/aks-network.png)
 
-### <a name="overall-dns-resolution-requirements"></a>Requisiti generali di risoluzione DNS
-La risoluzione DNS all'interno di VNET esistenti è sotto il controllo del cliente. Le seguenti voci DNS devono essere risolvibili:
-* Server API AKS nel formato \<cluster\> . HPC \<region\> . azmk8s.io
-* Microsoft Container Registry (mcr.microsoft.com):
-* Azure Container Registry (ARC) del cliente nel formato \<ACR name\> . azurecr.io
-* Account di archiviazione di Azure nel formato \<account\> . Table.Core.Windows.NET e \<account\> . blob.Core.Windows.NET
-* Opzionale Per l'autenticazione di AAD: api.azureml.ms
-* Nome di dominio dell'endpoint di assegnazione dei punteggi, generato automaticamente da Azure ML o nome di dominio personalizzato. Il nome di dominio generato automaticamente avrà un aspetto simile al seguente: \<leaf-domain-label \+ auto-generated suffix\> . \<region\> . cloudapp.azure.com
+### <a name="overall-dns-resolution-requirements"></a>Requisiti complessivi per la risoluzione DNS
+La risoluzione DNS all'interno della rete virtuale esistente è sotto il controllo del cliente. Le voci DNS seguenti devono essere risolvibili:
+* Il server API del servizio Web Diaks sotto forma \<cluster\> di .hcp. \<region\> azmk8s.io
+* Microsoft Container Registry (MCR): mcr.microsoft.com
+* L'Registro Azure Container del cliente (ARC) sotto forma di \<ACR name\> .azurecr.io
+* Archiviazione di Azure account nel formato \<account\> .table.core.windows.net \<account\> e .blob.core.windows.net
+* (Facoltativo) Per l'autenticazione di AAD: api.azureml.ms
+* Nome di dominio dell'endpoint di assegnazione dei punteggi, generato automaticamente da Azure ML o nome di dominio personalizzato. Il nome di dominio generato automaticamente sarà simile al seguente: \<leaf-domain-label \+ auto-generated suffix\> \<region\> . cloudapp.azure.com
 
 ### <a name="connectivity-requirements-in-chronological-order-from-cluster-creation-to-model-deployment"></a>Requisiti di connettività in ordine cronologico: dalla creazione del cluster alla distribuzione del modello
 
-Nel processo di creazione o connessione di AKS, il router Azure ML (azureml-Fe) viene distribuito nel cluster AKS. Per distribuire il router di Azure ML, il nodo AKS dovrebbe essere in grado di:
-* Risolvere il DNS per il server API AKS
-* Risolvere il DNS per il servizio di dominio di Azure per scaricare le immagini Docker per il router Azure ML
-* Scarica le immagini da "di", dove è richiesta la connettività in uscita
+Durante il processo di creazione o collegamento del servizio Azure Machine Learning, il router di Azure ML (azureml-fe) viene distribuito nel cluster del servizio AzureKs. Per distribuire il router di Azure ML, il nodo del servizio Azure Machine Learning deve essere in grado di:
+* Risolvere il DNS per il server DELL'API del servizio Web Disatteso
+* Risolvere il DNS per MCR per scaricare le immagini Docker per il router di Azure Machine Learning
+* Scaricare immagini da MCR, in cui è necessaria la connettività in uscita
 
-Subito dopo la distribuzione di azureml-Fe, verrà eseguito un tentativo di avvio e a questo scopo è necessario:
-* Risolvere il DNS per il server API AKS
-* Eseguire una query sul server API AKS per individuare altre istanze di se stesso (si tratta di un servizio con più POD)
-* Connetti ad altre istanze di se stesso
+Subito dopo la distribuzione di azureml-fe, verrà eseguito un tentativo di avvio, che richiede di:
+* Risolvere il DNS per il server DELL'API del servizio Web Disatteso
+* Eseguire una query sul server API del servizio Contenitore di Microsoft Service Pack per individuare altre istanze di se stesso (si tratta di un servizio multi-pod)
+* Connettersi ad altre istanze di se stesso
 
-Dopo l'avvio di azureml-Fe, è necessaria una connettività aggiuntiva per funzionare correttamente:
-* Connettersi ad archiviazione di Azure per scaricare la configurazione dinamica
-* Risolvere il DNS per il server di autenticazione AAD api.azureml.ms e comunicare con esso quando il servizio distribuito usa l'autenticazione di AAD.
-* Eseguire query sul server API AKS per individuare i modelli distribuiti
-* Comunicare con i pod del modello distribuito
+Dopo l'avvio di azureml-fe, è necessaria connettività aggiuntiva per il corretto funzionamento:
+* Connettersi a Archiviazione di Azure per scaricare la configurazione dinamica
+* Risolvere il DNS per il server di autenticazione api.azureml.ms AAD e comunicare con esso quando il servizio distribuito usa l'autenticazione AAD.
+* Eseguire query sul server API del servizio Web Diaks per individuare i modelli distribuiti
+* Comunicare con i modelli POD distribuiti
 
-Al momento della distribuzione del modello, per un nodo AKS della distribuzione del modello corretto dovrebbe essere possibile: 
-* Risolvere il DNS per l'ACR del cliente
-* Scaricare immagini dall'ACR del cliente
+In fase di distribuzione del modello, per una corretta distribuzione del modello, il nodo del servizio Web Disatteso deve essere in grado di: 
+* Risolvere il DNS per il record di controllo di errore del cliente
+* Scaricare immagini dal record di controllo di acr del cliente
 * Risolvere il DNS per i BLOB di Azure in cui è archiviato il modello
-* Scaricare i modelli dai BLOB di Azure
+* Scaricare modelli da BLOB di Azure
 
-Dopo la distribuzione del modello e l'avvio del servizio, azureml-Fe lo individuerà automaticamente usando l'API AKS e sarà pronto per instradare la richiesta. Deve essere in grado di comunicare con i pod del modello.
+Dopo la distribuzione del modello e l'avvio del servizio, azureml-fe lo individua automaticamente usando l'API servizio AzureKs e sarà pronto per instradare la richiesta. Deve essere in grado di comunicare con i POD del modello.
 >[!Note]
->Se il modello distribuito richiede una connettività, ad esempio l'esecuzione di query su un database esterno o un altro servizio REST, il download di un BLOB e così via, è necessario abilitare sia la risoluzione DNS che la comunicazione in uscita per questi servizi.
+>Se il modello distribuito richiede connettività ,ad esempio l'esecuzione di query su database esterni o altri servizi REST, il download di un BLOB e così via, è necessario che sia la risoluzione DNS che la comunicazione in uscita per questi servizi siano abilitate.
 
 ## <a name="deploy-to-aks"></a>Distribuire in servizio Azure Kubernetes
 
-Per distribuire un modello nel servizio Azure Kubernetes, creare una __configurazione di distribuzione__ che descriva le risorse di calcolo necessarie. Ad esempio, numero di core e memoria. È inoltre necessaria una __configurazione di inferenza__, che descrive l'ambiente necessario per ospitare il modello e il servizio Web. Per ulteriori informazioni sulla creazione della configurazione di inferenza, vedere [come e dove distribuire i modelli](how-to-deploy-and-where.md).
+Per distribuire un modello in servizio Azure Kubernetes, creare una configurazione __di distribuzione__ che descriva le risorse di calcolo necessarie. Ad esempio, numero di core e memoria. È anche necessaria una configurazione __di inferenza__, che descrive l'ambiente necessario per ospitare il modello e il servizio Web. Per altre informazioni sulla creazione della configurazione di inferenza, vedere [Come e dove distribuire i modelli](how-to-deploy-and-where.md).
 
 > [!NOTE]
-> Il numero di modelli da distribuire è limitato a 1.000 modelli per distribuzione (per contenitore).
+> Il numero di modelli da distribuire è limitato a 1.000 modelli per ogni distribuzione (per contenitore).
 
 <a id="using-the-cli"></a>
 
@@ -167,16 +167,16 @@ print(service.state)
 print(service.get_logs())
 ```
 
-Per ulteriori informazioni sulle classi, i metodi e i parametri utilizzati in questo esempio, vedere i documenti di riferimento seguenti:
+Per altre informazioni sulle classi, i metodi e i parametri usati in questo esempio, vedere i documenti di riferimento seguenti:
 
 * [AksCompute](/python/api/azureml-core/azureml.core.compute.aks.akscompute)
 * [AksWebservice.deploy_configuration](/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration)
-* [Model. deploy](/python/api/azureml-core/azureml.core.model.model#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-)
+* [Model.deploy](/python/api/azureml-core/azureml.core.model.model#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-)
 * [Webservice.wait_for_deployment](/python/api/azureml-core/azureml.core.webservice%28class%29#wait-for-deployment-show-output-false-)
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
-Per eseguire la distribuzione usando l'interfaccia della riga di comando, usare il comando seguente. Sostituire `myaks` con il nome della destinazione di calcolo AKS. Sostituire `mymodel:1` con il nome e la versione del modello registrato. Sostituire `myservice` con il nome da assegnare al servizio:
+Per eseguire la distribuzione tramite l'interfaccia della riga di comando, usare il comando seguente. Sostituire `myaks` con il nome della destinazione di calcolo del servizio AKS. Sostituire `mymodel:1` con il nome e la versione del modello registrato. Sostituire `myservice` con il nome per assegnare questo servizio:
 
 ```azurecli-interactive
 az ml model deploy --ct myaks -m mymodel:1 -n myservice --ic inferenceconfig.json --dc deploymentconfig.json
@@ -184,27 +184,27 @@ az ml model deploy --ct myaks -m mymodel:1 -n myservice --ic inferenceconfig.jso
 
 [!INCLUDE [deploymentconfig](../../includes/machine-learning-service-aks-deploy-config.md)]
 
-Per ulteriori informazioni, vedere il riferimento [AZ ml Model deploy](/cli/azure/ext/azure-cli-ml/ml/model#ext-azure-cli-ml-az-ml-model-deploy) .
+Per altre informazioni, vedere le informazioni di riferimento sulla distribuzione del modello [az ml.](/cli/azure/ml/model#az_ml_model_deploy)
 
 # <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-Per informazioni sull'uso di VS Code, vedere [Deploy to AKS by the vs code Extension](tutorial-train-deploy-image-classification-model-vscode.md#deploy-the-model).
+Per informazioni sull'uso di VS Code, vedere [Distribuire nel servizio Web Diaks tramite l'estensione VS Code .](tutorial-train-deploy-image-classification-model-vscode.md#deploy-the-model)
 
 > [!IMPORTANT]
-> Per la distribuzione tramite VS Code è necessario che il cluster AKS venga creato o collegato all'area di lavoro in anticipo.
+> La distribuzione tramite VS Code richiede la creazione o il collegamento anticipato del cluster del servizio Web Diaks all'area di lavoro.
 
 ---
 
 ### <a name="autoscaling"></a>Scalabilità automatica
 
-Il componente che gestisce la scalabilità automatica per le distribuzioni di modelli di Azure ML è azureml-Fe, che è un router di richiesta intelligente. Poiché tutte le richieste di inferenza passano attraverso di essa, sono presenti i dati necessari per ridimensionare automaticamente i modelli distribuiti.
+Il componente che gestisce la scalabilità automatica per le distribuzioni del modello di Azure Machine Learning è azureml-fe, un router di richiesta intelligente. Poiché tutte le richieste di inferenza passano attraverso di essa, sono presenti i dati necessari per ridimensionare automaticamente i modelli distribuiti.
 
 > [!IMPORTANT]
-> * Non **abilitare Kubernetes Horizontal Pod AutoScaler (hPa) per le distribuzioni di modelli**. Questa operazione causerebbe la competizione tra i due componenti di ridimensionamento automatico. Azureml-Fe è progettato per la scalabilità automatica dei modelli distribuiti da Azure ML, in cui HPA dovrebbe indovinare o approssimarsi all'utilizzo del modello da una metrica generica, ad esempio l'utilizzo della CPU o una configurazione della metrica personalizzata.
+> * **Non abilitare Kubernetes Horizontal Pod Autoscaler (HPA)** per le distribuzioni di modelli . In questo modo i due componenti di ridimensionamento automatico potrebbero essere in competizione tra loro. Azureml-fe è progettato per ridimensionare automaticamente i modelli distribuiti da Azure ML, in cui HPA deve indovinare o approssimare l'utilizzo del modello da una metrica generica come l'utilizzo della CPU o una configurazione di metrica personalizzata.
 > 
-> * **Azureml-Fe non ridimensiona il numero di nodi in un cluster AKS**, perché ciò potrebbe causare un aumento imprevisto dei costi. Ridimensiona invece **il numero di repliche per il modello** all'interno dei limiti del cluster fisico. Se è necessario ridimensionare il numero di nodi all'interno del cluster, è possibile ridimensionare manualmente il cluster o [configurare il servizio di scalabilità automatica del cluster AKS](../aks/cluster-autoscaler.md).
+> * **Azureml-fe non ridimensiona il numero** di nodi in un cluster del servizio AzureKs, perché ciò potrebbe causare aumenti imprevisti dei costi. Al contrario, **ridimensiona il numero di repliche per il modello entro** i limiti del cluster fisico. Se è necessario ridimensionare il numero di nodi all'interno del cluster, è possibile ridimensionare manualmente il cluster o configurare il ridimensionamento automatico del cluster del [servizio](../aks/cluster-autoscaler.md)Diaks.
 
-La scalabilità automatica può essere controllata impostando `autoscale_target_utilization` , `autoscale_min_replicas` e `autoscale_max_replicas` per il servizio Web AKS. Nell'esempio seguente viene illustrato come abilitare la scalabilità automatica:
+La scalabilità automatica può essere controllata impostando , e per il servizio Web `autoscale_target_utilization` `autoscale_min_replicas` `autoscale_max_replicas` AKS. L'esempio seguente illustra come abilitare la scalabilità automatica:
 
 ```python
 aks_config = AksWebservice.deploy_configuration(autoscale_enabled=True, 
@@ -213,11 +213,11 @@ aks_config = AksWebservice.deploy_configuration(autoscale_enabled=True,
                                                 autoscale_max_replicas=4)
 ```
 
-Le decisioni per la scalabilità verticale e orizzontale sono basate sull'utilizzo delle repliche del contenitore correnti. Il numero di repliche occupate (elaborazione di una richiesta) divise per il numero totale di repliche correnti è l'utilizzo corrente. Se questo numero è superiore a `autoscale_target_utilization` , vengono create altre repliche. Se è inferiore, le repliche vengono ridotte. Per impostazione predefinita, l'utilizzo della destinazione è pari al 70%.
+Le decisioni relative alla scalabilità verticale/verticale si basano sull'utilizzo delle repliche dei contenitori correnti. Il numero di repliche occupate (elaborazione di una richiesta) diviso per il numero totale di repliche correnti è l'utilizzo corrente. Se questo numero supera `autoscale_target_utilization` , vengono create più repliche. Se è inferiore, le repliche vengono ridotte. Per impostazione predefinita, l'utilizzo di destinazione è 70%.
 
-Le decisioni di aggiunta di repliche sono ansiose e veloci (circa 1 secondo). Le decisioni di rimozione delle repliche sono conservative (circa 1 minuto).
+Le decisioni relative all'aggiunta di repliche sono eager e veloci (circa 1 secondo). Le decisioni relative alla rimozione delle repliche sono conservativi (circa 1 minuto).
 
-È possibile calcolare le repliche richieste usando il codice seguente:
+È possibile calcolare le repliche necessarie usando il codice seguente:
 
 ```python
 from math import ceil
@@ -236,31 +236,31 @@ concurrentRequests = targetRps * reqTime / targetUtilization
 replicas = ceil(concurrentRequests / maxReqPerContainer)
 ```
 
-Per ulteriori informazioni sull'impostazione di `autoscale_target_utilization` , `autoscale_max_replicas` e `autoscale_min_replicas` , vedere il riferimento al modulo [AksWebservice](/python/api/azureml-core/azureml.core.webservice.akswebservice) .
+Per altre informazioni sull'impostazione `autoscale_target_utilization` di , e , vedere le informazioni di riferimento sul modulo `autoscale_max_replicas` `autoscale_min_replicas` [AksWebservice.](/python/api/azureml-core/azureml.core.webservice.akswebservice)
 
-## <a name="deploy-models-to-aks-using-controlled-rollout-preview"></a>Distribuire modelli in AKS usando l'implementazione controllata (anteprima)
+## <a name="deploy-models-to-aks-using-controlled-rollout-preview"></a>Distribuire modelli nel servizio AKS usando l'implementazione controllata (anteprima)
 
-Analizzare e innalzare di livello le versioni del modello in modo controllato usando gli endpoint. È possibile distribuire fino a sei versioni dietro un singolo endpoint. Gli endpoint offrono le funzionalità seguenti:
+Analizzare e alzare di livello le versioni del modello in modo controllato usando gli endpoint. È possibile distribuire fino a sei versioni dietro un singolo endpoint. Gli endpoint offrono le funzionalità seguenti:
 
-* Configurare la __percentuale di assegnazione del punteggio al traffico inviato a ogni endpoint__. Ad esempio, instrada il 20% del traffico all'endpoint "test" e il 80% a "produzione".
+* Configurare la __percentuale di assegnazione del punteggio al traffico inviato a ogni endpoint.__ Ad esempio, indirizzare il 20% del traffico all'endpoint 'test' e l'80% a 'production'.
 
     > [!NOTE]
-    > Se non si tiene conto del 100% del traffico, qualsiasi percentuale rimanente viene instradata alla versione dell'endpoint __predefinito__ . Se, ad esempio, si configura la versione endpoint ' test ' per ottenere il 10% del traffico è prod ' per il 30%, il 60% rimanente verrà inviato alla versione dell'endpoint predefinito.
+    > Se non si tratta del 100% del traffico, qualsiasi percentuale rimanente viene instradata alla __versione dell'endpoint__ predefinita. Ad esempio, se si configura la versione dell'endpoint 'test' per ottenere il 10% del traffico e 'prod' per il 30%, il restante 60% viene inviato alla versione dell'endpoint predefinita.
     >
-    > La prima versione dell'endpoint creata viene automaticamente configurata come predefinita. È possibile modificare questo valore impostando `is_default=True` quando si crea o si aggiorna una versione dell'endpoint.
+    > La prima versione dell'endpoint creata viene configurata automaticamente come predefinita. È possibile modificare questa impostazione durante la `is_default=True` creazione o l'aggiornamento di una versione dell'endpoint.
      
-* Contrassegnare una versione dell'endpoint come __controllo__ o __trattamento__. Ad esempio, la versione corrente dell'endpoint di produzione potrebbe essere il controllo, mentre i nuovi modelli potenziali vengono distribuiti come versioni di trattamento. Dopo aver valutato le prestazioni delle versioni di trattamento, se una supera il controllo corrente, è possibile che venga innalzata al nuovo ambiente di produzione/controllo.
+* Contrassegnare una versione dell'endpoint come __controllo__ o __trattamento.__ Ad esempio, la versione corrente dell'endpoint di produzione potrebbe essere il controllo , mentre i potenziali nuovi modelli vengono distribuiti come versioni di trattamento. Dopo la valutazione delle prestazioni delle versioni di trattamento, se uno supera il controllo corrente, potrebbe essere promosso al nuovo controllo/produzione.
 
     > [!NOTE]
-    > È possibile avere __un__ solo controllo. È possibile avere più trattamenti.
+    > È possibile avere un __solo__ controllo. È possibile avere più trattamento.
 
-È possibile abilitare App Insights per visualizzare le metriche operative degli endpoint e delle versioni distribuite.
+È possibile abilitare Le informazioni dettagliate sulle app per visualizzare le metriche operative degli endpoint e delle versioni distribuite.
 
 ### <a name="create-an-endpoint"></a>Creare un endpoint
-Quando si è pronti per distribuire i modelli, creare un endpoint di assegnazione dei punteggi e distribuire la prima versione. Nell'esempio seguente viene illustrato come distribuire e creare l'endpoint utilizzando l'SDK. La prima distribuzione verrà definita come versione predefinita, il che significa che il percentile di traffico non specificato in tutte le versioni passerà alla versione predefinita.  
+Quando si è pronti per distribuire i modelli, creare un endpoint di assegnazione dei punteggi e distribuire la prima versione. L'esempio seguente illustra come distribuire e creare l'endpoint usando l'SDK. La prima distribuzione verrà definita come versione predefinita, il che significa che il percentile del traffico non specificato in tutte le versioni passa alla versione predefinita.  
 
 > [!TIP]
-> Nell'esempio seguente la configurazione imposta la versione iniziale dell'endpoint per gestire il 20% del traffico. Poiché si tratta del primo endpoint, si tratta anche della versione predefinita. Poiché non sono disponibili altre versioni per l'altro 80% del traffico, viene indirizzato anche al valore predefinito. Fino a quando non vengono distribuite altre versioni che accettano una percentuale di traffico, questo riceve effettivamente il 100% del traffico.
+> Nell'esempio seguente la configurazione imposta la versione iniziale dell'endpoint per gestire il 20% del traffico. Poiché si tratta del primo endpoint, è anche la versione predefinita. E poiché non sono disponibili altre versioni per l'altro 80% del traffico, viene instradato anche all'impostazione predefinita. Fino a quando non vengono distribuite altre versioni che accettano una percentuale di traffico, questa riceve in modo efficace il 100% del traffico.
 
 ```python
 import azureml.core,
@@ -288,10 +288,10 @@ endpoint_deployment_config = AksEndpoint.deploy_configuration(cpu_cores = 0.1, m
 
 ### <a name="update-and-add-versions-to-an-endpoint"></a>Aggiornare e aggiungere versioni a un endpoint
 
-Aggiungere un'altra versione all'endpoint e configurare il punteggio del traffico di assegnazione dei punteggi per la versione. Esistono due tipi di versioni, un controllo e una versione di trattamento. Possono essere disponibili più versioni di trattamento che consentono di eseguire il confronto con una sola versione del controllo.
+Aggiungere un'altra versione all'endpoint e configurare il percentile del traffico di assegnazione dei punteggi per la versione. Esistono due tipi di versioni, un controllo e una versione di trattamento. Possono essere disponibili più versioni di trattamento per facilitare il confronto con una singola versione del controllo.
 
 > [!TIP]
-> La seconda versione, creata dal frammento di codice seguente, accetta il 10% del traffico. La prima versione è configurata per il 20%, quindi solo il 30% del traffico viene configurato per versioni specifiche. Il 70% rimanente viene inviato alla prima versione dell'endpoint, perché è anche la versione predefinita.
+> La seconda versione, creata dal frammento di codice seguente, accetta il 10% del traffico. La prima versione è configurata per il 20%, quindi solo il 30% del traffico è configurato per versioni specifiche. Il rimanente 70% viene inviato alla prima versione dell'endpoint, perché è anche la versione predefinita.
 
  ```python
 from azureml.core.webservice import AksEndpoint
@@ -307,10 +307,10 @@ endpoint.create_version(version_name = version_name_add,
 endpoint.wait_for_deployment(True)
 ```
 
-Aggiornare le versioni esistenti o eliminarle in un endpoint. È possibile modificare il tipo predefinito, il tipo di controllo e il percentile del traffico della versione. Nell'esempio seguente, la seconda versione aumenta il traffico al 40% ed è ora il valore predefinito.
+Aggiornare le versioni esistenti o eliminarle in un endpoint. È possibile modificare il tipo predefinito della versione, il tipo di controllo e il percentile del traffico. Nell'esempio seguente, la seconda versione aumenta il traffico al 40% ed è ora l'impostazione predefinita.
 
 > [!TIP]
-> Dopo il frammento di codice seguente, la seconda versione è ora predefinita. È ora configurato per il 40%, mentre la versione originale è ancora configurata per il 20%. Ciò significa che il 40% del traffico non è contabilizzato dalle configurazioni della versione. Il traffico rimanente verrà indirizzato alla seconda versione, perché ora è il valore predefinito. Riceve effettivamente il 80% del traffico.
+> Dopo il frammento di codice seguente, la seconda versione è ora predefinita. È ora configurato per il 40%, mentre la versione originale è ancora configurata per il 20%. Ciò significa che il 40% del traffico non viene in considerazione dalle configurazioni della versione. Il traffico rimanente verrà instradato alla seconda versione, perché è ora l'impostazione predefinita. Riceve in modo efficace l'80% del traffico.
 
  ```python
 from azureml.core.webservice import AksEndpoint
@@ -330,19 +330,19 @@ endpoint.delete_version(version_name="versionb")
 
 ## <a name="web-service-authentication"></a>Autenticazione del servizio Web
 
-Quando si esegue la distribuzione nel servizio Azure Kubernetes, l'autenticazione __basata su chiavi__ è abilitata per impostazione predefinita. È anche possibile abilitare l'autenticazione __basata su token__ . Per l'autenticazione basata su token è necessario che i client usino un account Azure Active Directory per richiedere un token di autenticazione, usato per eseguire richieste al servizio distribuito.
+Quando si esegue la distribuzione servizio Azure Kubernetes, __l'autenticazione basata su__ chiave è abilitata per impostazione predefinita. È anche possibile abilitare __l'autenticazione basata su token.__ L'autenticazione basata su token richiede ai client di usare un account Azure Active Directory per richiedere un token di autenticazione, usato per effettuare richieste al servizio distribuito.
 
-Per __disabilitare__ l'autenticazione, impostare il `auth_enabled=False` parametro durante la creazione della configurazione di distribuzione. Nell'esempio seguente viene disabilitata l'autenticazione tramite l'SDK:
+Per __disabilitare__ l'autenticazione, impostare `auth_enabled=False` il parametro durante la creazione della configurazione di distribuzione. L'esempio seguente disabilita l'autenticazione tramite l'SDK:
 
 ```python
 deployment_config = AksWebservice.deploy_configuration(cpu_cores=1, memory_gb=1, auth_enabled=False)
 ```
 
-Per informazioni sull'autenticazione da un'applicazione client, vedere la pagina relativa all' [utilizzo di un modello di Azure machine learning distribuito come servizio Web](how-to-consume-web-service.md).
+Per informazioni sull'autenticazione da un'applicazione client, vedere utilizzare un [modello Azure Machine Learning distribuito come servizio Web.](how-to-consume-web-service.md)
 
 ### <a name="authentication-with-keys"></a>Autenticazione con chiavi
 
-Se è abilitata l'autenticazione della chiave, è possibile usare il `get_keys` metodo per recuperare una chiave di autenticazione primaria e secondaria:
+Se l'autenticazione con chiave è abilitata, è possibile usare il metodo per recuperare una chiave di autenticazione primaria `get_keys` e secondaria:
 
 ```python
 primary, secondary = service.get_keys()
@@ -354,13 +354,13 @@ print(primary)
 
 ### <a name="authentication-with-tokens"></a>Autenticazione con token
 
-Per abilitare l'autenticazione del token, impostare il `token_auth_enabled=True` parametro durante la creazione o l'aggiornamento di una distribuzione. Nell'esempio seguente viene abilitata l'autenticazione del token tramite l'SDK:
+Per abilitare l'autenticazione basata su token, impostare `token_auth_enabled=True` il parametro durante la creazione o l'aggiornamento di una distribuzione. L'esempio seguente abilita l'autenticazione tramite l'SDK:
 
 ```python
 deployment_config = AksWebservice.deploy_configuration(cpu_cores=1, memory_gb=1, token_auth_enabled=True)
 ```
 
-Se l'autenticazione basata su token è abilitata, è possibile usare il `get_token` metodo per recuperare un token JWT e l'ora di scadenza del token:
+Se l'autenticazione del token è abilitata, è possibile usare il `get_token` metodo per recuperare un token JWT e l'ora di scadenza del token:
 
 ```python
 token, refresh_by = service.get_token()
@@ -368,25 +368,25 @@ print(token)
 ```
 
 > [!IMPORTANT]
-> Sarà necessario richiedere un nuovo token dopo l'ora del token `refresh_by` .
+> Sarà necessario richiedere un nuovo token dopo l'ora del `refresh_by` token.
 >
-> Microsoft consiglia di creare l'area di lavoro di Azure Machine Learning nella stessa area del cluster del servizio Azure Kubernetes. Per eseguire l'autenticazione con un token, il servizio Web effettuerà una chiamata all'area in cui viene creata l'area di lavoro Azure Machine Learning. Se l'area dell'area di lavoro non è disponibile, non sarà possibile recuperare un token per il servizio Web, anche se il cluster si trova in un'area diversa da quella dell'area di lavoro. In questo modo, l'autenticazione basata su token risulta non disponibile fino a quando l'area dell'area di lavoro non sarà nuovamente disponibile. Inoltre, maggiore è la distanza tra l'area del cluster e l'area dell'area di lavoro, più tempo sarà necessario per recuperare un token.
+> Microsoft consiglia di creare l'area di Azure Machine Learning nella stessa area del cluster servizio Azure Kubernetes locale. Per eseguire l'autenticazione con un token, il servizio Web effettuerà una chiamata all'area in cui viene creata l'area di lavoro Azure Machine Learning. Se l'area dell'area di lavoro non è disponibile, non sarà possibile recuperare un token per il servizio Web anche se il cluster si trova in un'area diversa rispetto all'area di lavoro. In questo modo l'autenticazione basata su token non sarà disponibile fino a quando l'area dell'area di lavoro non sarà nuovamente disponibile. Inoltre, maggiore è la distanza tra l'area del cluster e l'area dell'area di lavoro, più tempo sarà necessario per recuperare un token.
 >
-> Per recuperare un token, è necessario usare l'SDK Azure Machine Learning o il comando [AZ ml Service Get-Access-token](/cli/azure/ext/azure-cli-ml/ml/service#ext-azure-cli-ml-az-ml-service-get-access-token) .
+> Per recuperare un token, è necessario usare Azure Machine Learning SDK o [il comando az ml service get-access-token.](/cli/azure/ml/service#az_ml_service_get_access_token)
 
 
 ### <a name="vulnerability-scanning"></a>Analisi delle vulnerabilità
 
-Il Centro sicurezza di Azure fornisce la gestione unificata della sicurezza e la protezione avanzata dalle minacce per carichi di lavoro cloud ibridi. È consigliabile consentire al centro sicurezza di Azure di analizzare le risorse e seguire le indicazioni. Per altre informazioni, vedere [integrazione dei servizi Kubernetes di Azure con il Centro sicurezza](../security-center/defender-for-kubernetes-introduction.md).
+Il Centro sicurezza di Azure fornisce la gestione unificata della sicurezza e la protezione avanzata dalle minacce per carichi di lavoro cloud ibridi. È consigliabile Centro sicurezza di Azure analizzare le risorse e seguire le raccomandazioni. Per altre informazioni, vedere [Integrazione di Azure Kubernetes Services con il Centro sicurezza.](../security-center/defender-for-kubernetes-introduction.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Usa RBAC di Azure per l'autorizzazione Kubernetes](../aks/manage-azure-rbac.md)
-* [Proteggere l'ambiente inferencing con la rete virtuale di Azure](how-to-secure-inferencing-vnet.md)
+* [Usare il controllo degli accessi in base al ruolo di Azure per l'autorizzazione kubernetes](../aks/manage-azure-rbac.md)
+* [Proteggere l'ambiente di inferenza con Rete virtuale di Azure](how-to-secure-inferencing-vnet.md)
 * [Come distribuire un modello usando un'immagine Docker personalizzata](how-to-deploy-custom-docker-image.md)
 * [Risoluzione dei problemi di distribuzione](how-to-troubleshoot-deployment.md)
 * [Aggiornare un servizio Web](how-to-deploy-update-web-service.md)
 * [Usare TLS per proteggere un servizio Web tramite Azure Machine Learning](how-to-secure-web-service.md)
 * [Usare un modello di Machine Learning distribuito come servizio Web](how-to-consume-web-service.md)
-* [Monitorare i modelli di Azure Machine Learning con Application Insights](how-to-enable-app-insights.md)
+* [Monitorare i modelli Azure Machine Learning con Application Insights](how-to-enable-app-insights.md)
 * [Raccogliere i dati per i modelli nell'ambiente di produzione](how-to-enable-data-collection.md)

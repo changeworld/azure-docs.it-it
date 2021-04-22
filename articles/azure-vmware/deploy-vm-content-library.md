@@ -1,24 +1,24 @@
 ---
-title: Creare una raccolta contenuto per distribuire macchine virtuali in una soluzione VMware di Azure
-description: Creare una raccolta contenuto per distribuire una macchina virtuale in un cloud privato della soluzione VMware di Azure.
+title: Creare una raccolta contenuto per distribuire macchine virtuali in soluzione Azure VMware
+description: Creare una raccolta contenuto per distribuire una macchina virtuale in un soluzione Azure VMware cloud privato.
 ms.topic: how-to
 ms.date: 02/03/2021
-ms.openlocfilehash: a50b12ef8e139bf7de171398fd28f74fc3f310c9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b27d2682d8799bec6b09a08e5063359113b20a88
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100382005"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107873884"
 ---
-# <a name="create-a-content-library-to-deploy-vms-in-azure-vmware-solution"></a>Creare una raccolta contenuto per distribuire macchine virtuali in una soluzione VMware di Azure
+# <a name="create-a-content-library-to-deploy-vms-in-azure-vmware-solution"></a>Creare una raccolta contenuto per distribuire macchine virtuali in soluzione Azure VMware
 
 Una raccolta contenuto archivia e gestisce il contenuto sotto forma di elementi della raccolta. Un singolo elemento della raccolta è costituito da uno o più file usati per distribuire macchine virtuali. 
 
-Questo articolo illustra la procedura per la creazione di una raccolta contenuto.  Verrà quindi illustrata la distribuzione di una macchina virtuale usando un'immagine ISO dalla raccolta contenuto.
+In questo articolo verrà illustrata la procedura per la creazione di una raccolta contenuto.  Verrà quindi illustrata la distribuzione di una macchina virtuale usando un'immagine ISO dalla raccolta contenuto.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per completare questa esercitazione, sono necessari un segmento NSX-T (Commuter logico) e un servizio DHCP gestito.  Per altre informazioni, vedere l'articolo [How to Manage DHCP in Azure VMware Solution](manage-dhcp.md) .
+Per completare questa esercitazione sono necessari un segmento NSX-T (commutatore logico) e un servizio DHCP gestito.  Per altre informazioni, vedere [l'articolo Come gestire DHCP in soluzione Azure VMware.](manage-dhcp.md)
 
 ## <a name="create-a-content-library"></a>Creare una raccolta contenuto
 
@@ -26,7 +26,7 @@ Per completare questa esercitazione, sono necessari un segmento NSX-T (Commuter 
 
    ![Selezionare Menu -> Content Libraries](./media/content-library/vsphere-menu-content-libraries.png)
 
-1. Selezionare il pulsante **Aggiungi** per creare una nuova raccolta contenuto.
+1. Selezionare il **pulsante** Aggiungi per creare una nuova raccolta contenuto.
 
    ![Selezionare il pulsante Aggiungi per creare una nuova raccolta contenuto.](./media/content-library/create-new-content-library.png)
 
@@ -92,10 +92,10 @@ Ora che la raccolta contenuto è stata creata, è possibile aggiungere un'immagi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ora che è stata illustrata la creazione di una raccolta contenuto per la distribuzione di macchine virtuali in una soluzione VMware di Azure, è consigliabile:
+Dopo aver trattato la creazione di una raccolta contenuto per distribuire le macchine virtuali in soluzione Azure VMware, è possibile ottenere informazioni su:
 
-- [Distribuzione e configurazione di VMware HCX](tutorial-deploy-vmware-hcx.md) per la migrazione dei carichi di lavoro delle macchine virtuali nel cloud privato.
-- [Gestione del ciclo di vita delle macchine virtuali della soluzione VMware di Azure](lifecycle-management-of-azure-vmware-solution-vms.md).
+- [Come eseguire la migrazione dei carichi di lavoro delle macchine virtuali nel cloud privato](tutorial-deploy-vmware-hcx.md)
+- [Gestione del ciclo di vita soluzione Azure VMware macchine virtuali](lifecycle-management-of-azure-vmware-solution-vms.md)
 
 <!-- LINKS - external-->
 

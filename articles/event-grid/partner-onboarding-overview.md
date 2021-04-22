@@ -1,108 +1,108 @@
 ---
-title: Panoramica sull'onboarding del partner (griglia di eventi di Azure)
-description: Viene fornita una panoramica su come è possibile caricare come partner di griglia di eventi.
+title: Panoramica dell'onboarding dei partner (Griglia di eventi di Azure)
+description: Offre una panoramica su come eseguire l'onboarder come partner di Griglia di eventi.
 ms.topic: conceptual
 ms.date: 10/29/2020
-ms.openlocfilehash: d16337eada829a817110abf7842f763972d0718f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 40d0afe0aaeb40412948eb304a36a3627566551b
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105109340"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107869690"
 ---
-# <a name="partner-onboarding-overview-azure-event-grid"></a>Panoramica sull'onboarding del partner (griglia di eventi di Azure)
+# <a name="partner-onboarding-overview-azure-event-grid"></a>Panoramica dell'onboarding dei partner (Griglia di eventi di Azure)
 
-Questo articolo descrive come usare privatamente le risorse del partner di griglia di eventi di Azure e come diventare un tipo di argomento partner disponibile pubblicamente.
+Questo articolo descrive come usare privatamente le risorse Griglia di eventi di Azure partner e come diventare un tipo di argomento partner disponibile pubblicamente.
 
-Non è necessaria un'autorizzazione speciale per iniziare a usare i tipi di risorse di Griglia di eventi associati alla pubblicazione di eventi come partner di Griglia di eventi. Attualmente, è possibile usarli per pubblicare gli eventi privatamente nelle sottoscrizioni di Azure e per testare il modello di risorse se si sta valutando la possibilità di diventare partner.
+Non è necessaria un'autorizzazione speciale per iniziare a usare i tipi di risorse di Griglia di eventi associati alla pubblicazione di eventi come partner di Griglia di eventi. È infatti possibile usarli oggi stesso per pubblicare eventi privatamente nelle proprie sottoscrizioni di Azure e testare il modello di risorse se si sta valutando la possibilità di diventare partner.
 
 > [!NOTE]
-> Per istruzioni dettagliate su come eseguire l'onboarding come partner di griglia di eventi usando il portale di Azure, vedere [How to onboarding As a Event Grid partner (portale di Azure)](onboard-partner.md). 
+> Per istruzioni dettagliate su come eseguire l'onboarder come partner di Griglia di eventi usando il portale di Azure, vedere [How to onboard as an Event Grid partner (portale di Azure)](onboard-partner.md). 
 
-## <a name="how-partner-events-work"></a>Come funzionano gli eventi partner
-La funzionalità relativa agli eventi dei partner prende l'architettura esistente che griglia di eventi USA già per pubblicare gli eventi dalle risorse di Azure, ad esempio archiviazione di Azure e l'hub Azure e rende disponibili pubblicamente tali strumenti per chiunque possa usare. Per impostazione predefinita, l'uso di questi strumenti è privato solo per la sottoscrizione di Azure. Per rendere disponibili pubblicamente gli eventi, compila il modulo e [Contatta il team di griglia di eventi](mailto:gridpartner@microsoft.com).
+## <a name="how-partner-events-work"></a>Funzionamento degli eventi partner
+La funzionalità Eventi partner accetta l'architettura esistente già utilizzata da Griglia di eventi per pubblicare eventi da risorse di Azure, ad esempio Archiviazione di Azure e hub IoT di Azure, e rende questi strumenti disponibili pubblicamente a chiunque. L'uso di questi strumenti è privato per impostazione predefinita solo per la sottoscrizione di Azure. Per rendere disponibili pubblicamente gli eventi, compilare il modulo e [contattare il team di Griglia di eventi.](mailto:gridpartner@microsoft.com)
 
-La funzionalità eventi partner consente di pubblicare eventi in griglia di eventi di Azure per l'uso multi-tenant.
+La funzionalità Eventi partner consente di pubblicare eventi in Griglia di eventi di Azure per l'utilizzo multi-tenant.
 
 ## <a name="onboarding-and-event-publishing-overview"></a>Panoramica dell'onboarding e della pubblicazione di eventi
 
 ### <a name="partner-flow"></a>Flusso partner
 
 1. Creare un account di Azure, se non se ne ha già uno.
-1. Usare l'interfaccia della riga di comando di Azure per creare una nuova griglia di eventi `partnerRegistration` . Questa risorsa include informazioni quali il nome visualizzato, la descrizione, l'URI di installazione e così via.
+1. Usare l'interfaccia della riga di comando di Azure per creare una nuova griglia di `partnerRegistration` eventi. Questa risorsa include informazioni quali il nome visualizzato, la descrizione, l'URI di installazione e così via.
 
-    ![Creazione di un argomento partner](./media/partner-onboarding-how-to/create-partner-registration.png)
+    ![Creare un argomento partner](./media/partner-onboarding-how-to/create-partner-registration.png)
 
-1. Creare uno o più spazi dei nomi partner in ogni area in cui si desidera pubblicare gli eventi. Il servizio griglia di eventi effettua il provisioning di un endpoint di pubblicazione (ad esempio, `https://contoso.westus-1.eventgrid.azure.net/api/events` ) e delle chiavi di accesso.
+1. Creare uno o più spazi dei nomi partner in ogni area in cui si vogliono pubblicare gli eventi. Il servizio Griglia di eventi effettua il provisioning di un endpoint di pubblicazione ,ad esempio `https://contoso.westus-1.eventgrid.azure.net/api/events` , e delle chiavi di accesso.
 
     ![Creare uno spazio dei nomi partner](./media/partner-onboarding-how-to/create-partner-namespace.png)
 
-1. Consente ai clienti di eseguire la registrazione nel sistema che vogliono un argomento partner.
-1. Contattare il team di griglia di eventi per indicare che si desidera che il tipo di argomento del partner diventi pubblico.
+1. Consente ai clienti di registrarsi nel sistema in modo che vogliano un argomento partner.
+1. Contattare il team di Griglia di eventi per inserire il tipo di argomento partner come pubblico.
 
 ### <a name="customer-flow"></a>Flusso del cliente
 
-1. Il cliente visita il portale di Azure per prendere nota dell'ID sottoscrizione di Azure e del gruppo di risorse in cui si vuole creare l'argomento del partner.
-1. Il cliente richiede un argomento del partner tramite il sistema. In risposta, si crea un tunnel di eventi per lo spazio dei nomi del partner.
-1. Griglia di eventi crea un argomento partner in **sospeso** nella sottoscrizione e nel gruppo di risorse di Azure del cliente.
+1. Il cliente visita il portale di Azure per prendere nota dell'ID sottoscrizione di Azure e del gruppo di risorse in cui si vuole creare l'argomento partner.
+1. Il cliente richiede un argomento partner tramite il sistema. In risposta, si crea un tunnel eventi per lo spazio dei nomi del partner.
+1. Griglia di eventi crea un **argomento** partner In sospeso nella sottoscrizione e nel gruppo di risorse di Azure del cliente.
 
-    ![Creare un canale di eventi](./media/partner-onboarding-how-to/create-event-tunnel-partner-topic.png)
+    ![Creare un canale eventi](./media/partner-onboarding-how-to/create-event-tunnel-partner-topic.png)
 
-1. Il cliente attiva l'argomento del partner tramite il portale di Azure. Gli eventi possono ora fluire dal servizio alla sottoscrizione di Azure del cliente.
+1. Il cliente attiva l'argomento partner tramite il portale di Azure. Gli eventi possono ora essere generati dal servizio alla sottoscrizione di Azure del cliente.
 
-    ![Attivare un argomento del partner](./media/partner-onboarding-how-to/activate-partner-topic.png)
+    ![Attivare un argomento partner](./media/partner-onboarding-how-to/activate-partner-topic.png)
 
 ## <a name="resource-model"></a>Modello di risorsa
-Il modello di risorse seguente è per gli eventi del partner.
+Il modello di risorse seguente è per gli eventi partner.
 
-### <a name="partner-registrations"></a>Registrazioni partner
+### <a name="partner-registrations"></a>Registrazioni per i partner
 * Risorsa: `partnerRegistrations`
 * Usata da: Partner
-* Descrizione: acquisisce i metadati globali del partner Software as a Service (SaaS), ad esempio nome, nome visualizzato, descrizione, URI di installazione.
+* Descrizione: acquisisce i metadati globali del partner SaaS (Software as a Service), ad esempio nome, nome visualizzato, descrizione, URI di installazione.
     
-    La creazione o l'aggiornamento di una registrazione partner è un'operazione self-service per i partner. Questa funzionalità self-service consente ai partner di compilare e testare il flusso completo end-to-end.
+    La creazione o l'aggiornamento di una registrazione partner è un'operazione self-service per i partner. Questa capacità self-service consente ai partner di creare e testare il flusso end-to-end completo.
     
-    Solo le registrazioni dei partner approvate da Microsoft sono individuabili dai clienti.
+    Solo le registrazioni partner approvate da Microsoft sono individuabili dai clienti.
 * Ambito: creato nella sottoscrizione di Azure del partner. I metadati sono visibili ai clienti dopo che sono stati resi pubblici.
 
-### <a name="partner-namespaces"></a>Spazi dei nomi partner
+### <a name="partner-namespaces"></a>Spazi dei nomi dei partner
 * Risorsa: `partnerNamespaces`
 * Usata da: Partner
-* Descrizione: Fornisce una risorsa a livello di area per la pubblicazione di eventi del cliente. Ogni spazio dei nomi partner ha un endpoint di pubblicazione e le chiavi di autenticazione. Lo spazio dei nomi è anche il modo in cui il partner richiede un argomento partner per un determinato cliente ed elenca i clienti attivi.
+* Descrizione: Fornisce una risorsa a livello di area per la pubblicazione di eventi del cliente. Ogni spazio dei nomi partner ha un endpoint di pubblicazione e chiavi di autenticazione. Lo spazio dei nomi è anche il modo in cui il partner richiede un argomento partner per un determinato cliente ed elenca i clienti attivi.
 * Ambito: risiede nella sottoscrizione del partner.
 
 ### <a name="event-channel"></a>Canale eventi
 * Risorsa: `partnerNamespaces/eventChannels`
 * Usata da: Partner
-* Descrizione: i canali di evento sono un mirror dell'argomento del partner del cliente. Creando un canale di eventi e specificando la sottoscrizione e il gruppo di risorse di Azure del cliente nei metadati, si segnala a griglia di eventi di creare un argomento del partner per il cliente. Griglia di eventi genera una chiamata Azure Resource Manager per creare un argomento partner corrispondente nella sottoscrizione del cliente. L'argomento del partner viene creato in uno stato in sospeso. Esiste un collegamento uno-a-uno tra il canale di eventi e l'argomento del partner.
+* Descrizione: i canali eventi sono uno mirror dell'argomento partner del cliente. Creando un canale eventi e specificando la sottoscrizione e il gruppo di risorse di Azure del cliente nei metadati, si segnala a Griglia di eventi di creare un argomento partner per il cliente. Griglia di eventi e Azure Resource Manager una chiamata per creare un argomento partner corrispondente nella sottoscrizione del cliente. L'argomento partner viene creato in uno stato in sospeso. Esiste un collegamento uno-a-uno tra ogni canale eventi e argomento partner.
 * Ambito: risiede nella sottoscrizione del partner.
 
 ### <a name="partner-topics"></a>Argomenti per i partner
 * Risorsa: `partnerTopics`
 * Usata da: Clienti
-* Descrizione: gli argomenti del partner sono simili agli argomenti personalizzati e agli argomenti di sistema in griglia di eventi. Ogni argomento del partner è associato a un'origine specifica (ad esempio, `Contoso:myaccount` ) e a un tipo di argomento partner specifico, ad esempio contoso. I clienti creano sottoscrizioni di eventi nell'argomento partner per indirizzare gli eventi a diversi gestori eventi.
+* Descrizione: gli argomenti dei partner sono simili agli argomenti personalizzati e agli argomenti di sistema in Griglia di eventi. Ogni argomento partner è associato a un'origine specifica (ad esempio, `Contoso:myaccount` ) e a un tipo di argomento partner specifico (ad esempio, Contoso). I clienti creano sottoscrizioni di eventi nell'argomento partner per instradare gli eventi a vari gestori eventi.
 
-    I clienti non possono creare direttamente questa risorsa. L'unico modo per creare un argomento partner è tramite un'operazione del partner che crea un canale di eventi.
-* Ambito: risiede nella sottoscrizione del cliente.
+    I clienti non possono creare direttamente questa risorsa. L'unico modo per creare un argomento partner è tramite un'operazione partner che crea un canale eventi.
+* Ambito: si risiede nella sottoscrizione del cliente.
 
-### <a name="partner-topic-types"></a>Tipi di argomento partner
+### <a name="partner-topic-types"></a>Tipi di argomento per i partner
 * Risorsa: `partnerTopicTypes`
 * Usata da: Clienti
-* Descrizione: i tipi di argomento partner sono tipi di risorse a livello di tenant che consentono ai clienti di individuare l'elenco dei tipi di argomento Partner approvati. L'URL è simile a https://management.azure.com/providers/Microsoft.EventGrid/partnerTopicTypes)
+* Descrizione: i tipi di argomento partner sono tipi di risorse a livello di tenant che consentono ai clienti di individuare l'elenco dei tipi di argomenti partner approvati. L'URL è simile a https://management.azure.com/providers/Microsoft.EventGrid/partnerTopicTypes)
 * Ambito: Global
 
-## <a name="publish-events-to-event-grid"></a>Pubblica eventi in griglia di eventi
-Quando si crea uno spazio dei nomi partner in un'area di Azure, si ottiene un endpoint regionale e le chiavi di autenticazione corrispondenti. Consente di pubblicare batch di eventi in questo endpoint per tutti i canali di eventi del cliente nello spazio dei nomi. In base al campo di origine nell'evento, griglia di eventi di Azure esegue il mapping di ogni evento con gli argomenti partner corrispondenti.
+## <a name="publish-events-to-event-grid"></a>Pubblicare eventi in Griglia di eventi
+Quando si crea uno spazio dei nomi partner in un'area di Azure, si ottiene un endpoint a livello di area e le chiavi di autenticazione corrispondenti. Pubblicare batch di eventi in questo endpoint per tutti i canali eventi dei clienti nello spazio dei nomi. In base al campo di origine nell'evento, Griglia di eventi di Azure ogni evento viene mappato con gli argomenti partner corrispondenti.
 
-### <a name="event-schema-cloudevents-v10"></a>Schema dell'evento: CloudEvents v 1.0
-Pubblicare eventi in griglia di eventi di Azure usando lo schema CloudEvents 1,0. Griglia di eventi supporta sia la modalità strutturata che la modalità in batch. CloudEvents 1,0 è l'unico schema di eventi supportato per gli spazi dei nomi del partner.
+### <a name="event-schema-cloudevents-v10"></a>Schema eventi: CloudEvents v1.0
+Pubblicare eventi Griglia di eventi di Azure usando lo schema CloudEvents 1.0. Griglia di eventi supporta sia la modalità strutturata che la modalità in batch. CloudEvents 1.0 è l'unico schema di eventi supportato per gli spazi dei nomi dei partner.
 
 ### <a name="example-flow"></a>Flusso di esempio
 
 1.  Il servizio di pubblicazione esegue una richiesta POST HTTP a `https://contoso.westus2-1.eventgrid.azure.net/api/events?api-version=2018-01-01`.
-1.  Nella richiesta includere il valore di intestazione aeg-sas-key che contiene una chiave per l'autenticazione. Viene eseguito il provisioning di questa chiave durante la creazione dello spazio dei nomi partner. Un valore valido, ad esempio, è aeg-sas-key: VXbGWce53249Mt8wuotr0GPmyJ/nDT4hgdEj9DpBeRr38arnnm5OFg==.
-1.  Impostare l'intestazione Content-Type su "Application/cloudevents-batch + JSON; charset = UTF-8a ".
-1.  Eseguire una query HTTP POST sull'URL di pubblicazione con un batch di eventi corrispondenti a tale area. Ad esempio:
+1.  Nella richiesta includere il valore di intestazione aeg-sas-key che contiene una chiave per l'autenticazione. Il provisioning di questa chiave viene effettuato durante la creazione dello spazio dei nomi del partner. Un valore valido, ad esempio, è aeg-sas-key: VXbGWce53249Mt8wuotr0GPmyJ/nDT4hgdEj9DpBeRr38arnnm5OFg==.
+1.  Impostare l'intestazione Content-Type su "application/cloudevents-batch+json; charset=UTF-8a".
+1.  Eseguire una query HTTP POST all'URL di pubblicazione con un batch di eventi che corrispondono a tale area. Ad esempio:
 
 ``` json
 [
@@ -137,7 +137,7 @@ Pubblicare eventi in griglia di eventi di Azure usando lo schema CloudEvents 1,0
 ]
 ```
 
-Dopo la pubblicazione nell'endpoint dello spazio dei nomi partner, si riceve una risposta. La risposta è un codice di risposta HTTP standard. Alcune risposte comuni sono:
+Dopo la pubblicazione nell'endpoint dello spazio dei nomi del partner, si riceve una risposta. La risposta è un codice di risposta HTTP standard. Alcune risposte comuni sono:
 
 | Risultato                             | Risposta              |
 |------------------------------------|-----------------------|
@@ -151,9 +151,9 @@ Dopo la pubblicazione nell'endpoint dello spazio dei nomi partner, si riceve una
 
   * [Swagger](https://github.com/ahamad-MS/azure-rest-api-specs/blob/master/specification/eventgrid/resource-manager/Microsoft.EventGrid/preview/2020-04-01-preview/EventGrid.json)
   * [Modello ARM](/azure/templates/microsoft.eventgrid/allversions)
-  * [Schema modello ARM](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2020-04-01-preview/Microsoft.EventGrid.json)
+  * [Schema del modello di Arm](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2020-04-01-preview/Microsoft.EventGrid.json)
   * [API REST](/azure/templates/microsoft.eventgrid/2020-04-01-preview/partnernamespaces)
-  * [Estensione dell'interfaccia della riga di comando](/cli/azure/ext/eventgrid/)
+  * [Estensione dell'interfaccia della riga di comando](/cli/azure/)
 
 ### <a name="sdks"></a>SDK
   * [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.EventGrid/5.3.1-preview)
@@ -166,6 +166,6 @@ Dopo la pubblicazione nell'endpoint dello spazio dei nomi partner, si riceve una
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Panoramica degli argomenti partner](partner-events-overview.md)
-- [Modulo di onboarding degli argomenti del partner](https://aka.ms/gridpartnerform)
-- [Argomento del partner Auth0](auth0-overview.md)
+- [Modulo di onboarding degli argomenti dei partner](https://aka.ms/gridpartnerform)
+- [Argomento partner Auth0](auth0-overview.md)
 - [Come usare l'argomento partner Auth0](auth0-how-to.md)

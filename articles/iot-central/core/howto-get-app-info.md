@@ -1,44 +1,44 @@
 ---
-title: Ottenere informazioni sulla versione dell'applicazione IoT Central di Azure | Microsoft Docs
-description: Come ottenere informazioni sull'applicazione IoT Central in uso
+title: Ottenere informazioni sulla versione Azure IoT Central'applicazione | Microsoft Docs
+description: Come ottenere informazioni sull'IoT Central'applicazione in uso
 services: iot-central
-author: TheJasonAndrew
-ms.author: v-anjaso
+author: philmea
+ms.author: philmea
 ms.date: 02/26/2021
 ms.topic: how-to
 ms.service: iot-central
-ms.openlocfilehash: 80a35ab41b05609642667da9e8561921ecc20852
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 1fed73e460c2fde83fbcb239d31837e113477fe8
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102051710"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107865586"
 ---
 # <a name="about-your-application"></a>Informazioni sull'applicazione
 
-Questo articolo illustra come ottenere informazioni sull'applicazione IoT Central. Potrebbe essere necessario:
+Questo articolo illustra come ottenere informazioni sull'applicazione IoT Central applicazione. Potrebbe essere necessario:
 
-- Queste informazioni se si contatta il supporto tecnico.
-- Sottoscrizione di Azure usata dall'applicazione per individuare le informazioni di fatturazione nel portale di Azure.
+- Queste informazioni vengono fornite se si contatta il supporto tecnico.
+- Sottoscrizione di Azure che l'applicazione usa per individuare le informazioni di fatturazione nel portale di Azure.
 - ID dell'applicazione quando si lavora con l'API REST.
-- Versione dell'applicazione per completare attività, ad esempio l'aggiunta di un connettore.
+- Versione dell'applicazione per completare attività come l'aggiunta di un connettore.
 
 ## <a name="get-information-about-your-application"></a>Ottenere informazioni sull'applicazione
 
 Per ottenere informazioni sull'applicazione IoT Central: 
 
-1. Selezionare il collegamento **Guida** nel menu in alto.
+1. Selezionare il **collegamento** Guida nel menu in alto.
 
-1. Selezionare **informazioni sull'app**.
+1. Selezionare **About your app (Informazioni sull'app).**
 
-1. Nella pagina informazioni **sull'app** vengono visualizzate le informazioni sull'applicazione:  
+1. La pagina About your app (Informazioni **sull'app)** mostra le informazioni sull'applicazione:  
 
-    :::image type="content" source="media/howto-get-app-info/about-your-app2.png" alt-text="Schermata dell'app":::
+    :::image type="content" source="media/howto-get-app-info/about-your-app2.png" alt-text="Screenshot delle informazioni sull'app":::
 
-    Usare il pulsante **copia informazioni** per copiare le informazioni negli Appunti.
+    Usare il **pulsante Copia** informazioni per copiare le informazioni negli Appunti.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ora che si è appreso come trovare la versione dell'applicazione IoT Central, un passaggio successivo suggerito consiste nel continuare a esplorare le procedure per gli amministratori: [modificare IOT Central impostazioni dell'applicazione](howto-administer.md).
+Ora che si è in grado di trovare la versione dell'applicazione IoT Central, un passaggio successivo consigliato consiste nel continuare a esplorare gli articoli sulle procedure per gli amministratori: Modificare le IoT Central [dell'applicazione.](howto-administer.md)
 
-Se si dispone di un'applicazione V2, vedere [eseguire la migrazione dell'applicazione IoT Central V2 alla versione V3](howto-migrate.md).
+Se si ha un'applicazione V2, vedere [Eseguire la migrazione dell'applicazione IoT Central v2 alla versione 3.](howto-migrate.md)

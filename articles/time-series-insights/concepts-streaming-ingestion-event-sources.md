@@ -9,12 +9,12 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 03/18/2021
-ms.openlocfilehash: 499cb3c978a67f9ef71e6ad9dd03be9f05b45729
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: e0d40a4e0e376a42841bd8df5d76e5c83d11b1e3
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107726971"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107865483"
 ---
 # <a name="azure-time-series-insights-gen2-event-sources"></a>Azure Time Series Insights di eventi gen2
 
@@ -29,7 +29,7 @@ Gli eventi devono essere inviati come JSON con codifica UTF-8.
 
 L'origine evento è il collegamento tra l'hub e l'ambiente Azure Time Series Insights Gen2 e viene creata una risorsa separata di tipo `Time Series Insights event source` nel gruppo di risorse. Le risorse dell'hub IoT o dell'hub eventi possono essere presenti nella stessa sottoscrizione di Azure dell'ambiente Azure Time Series Insights Gen2 o in una sottoscrizione diversa. È tuttavia consigliabile ospitare l'ambiente Azure Time Series Insights e l'hub IoT o l'hub eventi all'interno della stessa area di Azure.
 
-È possibile usare i [portale di Azure,](./tutorials-set-up-tsi-environment.md#create-an-azure-time-series-insights-gen2-environment)l'interfaccia della riga di comando di [Azure,](https://docs.microsoft.com/cli/azure/ext/timeseriesinsights/tsi/event-source)i modelli Azure Resource Manager e l'API [REST](/rest/api/time-series-insights/management(gen1/gen2)/eventsources) per creare, modificare o rimuovere le origini eventi dell'ambiente. [](time-series-insights-manage-resources-using-azure-resource-manager-template.md)
+È possibile usare i [portale di Azure,](./tutorials-set-up-tsi-environment.md#create-an-azure-time-series-insights-gen2-environment)l'interfaccia della riga di comando di [Azure,](/cli/azure/tsi/event-source)i modelli Azure Resource Manager e l'API [REST](/rest/api/time-series-insights/management(gen1/gen2)/eventsources) per creare, modificare o rimuovere le origini eventi dell'ambiente. [](time-series-insights-manage-resources-using-azure-resource-manager-template.md)
 
 > [!WARNING]
 > Non limitare l'accesso a Internet pubblico a un hub o a un'origine evento usata Time Series Insights o la connessione necessaria verrà interrotta.
@@ -73,7 +73,7 @@ Quando si crea un'origine evento, è possibile specificare quali dati preesister
 
 - Usare l'inserimento streaming solo per i dati near real-time e recenti. I dati cronologici di streaming non sono supportati.
 
-- Comprendere in che modo le proprietà verranno precedute da caratteri di escape e i dati JSON [verranno appiattiti e archiviati.](./concepts-json-flattening-escaping-rules.md)
+- Comprendere come le proprietà verranno precedute da un carattere di escape e i dati JSON [verranno appiattiti e archiviati.](./concepts-json-flattening-escaping-rules.md)
 
 - Seguire il principio dei privilegi minimi quando si forniscono le stringhe di connessione dell'origine evento. Per Hub eventi, configurare un criterio di accesso condiviso solo con l'attestazione *di* invio e per l'hub IoT usare solo l'autorizzazione *di connessione* del servizio.
 
@@ -103,7 +103,7 @@ L'uso della pipeline di streaming per importare dati cronologici non è attualme
 
 ## <a name="event-source-timestamp"></a>Timestamp dell'origine evento
 
-Quando si configura un'origine evento, verrà chiesto di specificare una proprietà id timestamp. La proprietà timestamp viene usata per tenere traccia degli eventi nel tempo, che è l'ora che verrà usata come timestamp nelle API di query e per tracciare le serie `$ts` in Azure Time Series Insights Explorer. [](/rest/api/time-series-insights/dataaccessgen2/query/execute) Se non viene specificata alcuna proprietà in fase di creazione o se la proprietà timestamp non è presente in un evento, come impostazione predefinita verrà usata l'ora di accodamento dell'hub IoT o degli hub eventi dell'evento. I valori delle proprietà timestamp vengono archiviati in formato UTC.
+Quando si configura un'origine evento, verrà richiesto di specificare una proprietà id timestamp. La proprietà timestamp viene usata per tenere traccia degli eventi nel tempo, che è l'ora che verrà usata come timestamp nelle API di query e per tracciare le serie `$ts` in Azure Time Series Insights Explorer. [](/rest/api/time-series-insights/dataaccessgen2/query/execute) Se non viene specificata alcuna proprietà in fase di creazione o se la proprietà timestamp non è presente in un evento, come impostazione predefinita verrà usata l'ora di accodamento dell'hub IoT o degli hub eventi dell'evento. I valori delle proprietà timestamp vengono archiviati in formato UTC.
 
 In generale, gli utenti opteranno per personalizzare la proprietà timestamp e usare l'ora in cui il sensore o il tag ha generato la lettura anziché usare l'ora di accodamento predefinita dell'hub. Ciò è particolarmente necessario quando i dispositivi hanno una perdita di connettività intermittente e un batch di messaggi ritardati viene inoltrato a Azure Time Series Insights Gen2.
 
@@ -111,7 +111,7 @@ Se il timestamp personalizzato si trova all'interno di un oggetto JSON annidato 
 
 ### <a name="time-zone-offsets"></a>Offset del fuso orario
 
-I timestamp devono essere inviati in formato ISO 8601 e verranno archiviati in formato UTC. Se viene specificata una differenza di fuso orario, verrà applicata l'offset e quindi l'ora archiviata e restituita in formato UTC. Se l'offset è formattato in modo non corretto, verrà ignorato. Nelle situazioni in cui la soluzione potrebbe non avere il contesto dell'offset originale, è possibile inviare i dati di offset in una proprietà di evento separata aggiuntiva per assicurarsi che venga mantenuta e che l'applicazione possa fare riferimento in una risposta di query.
+I timestamp devono essere inviati in formato ISO 8601 e verranno archiviati in formato UTC. Se viene specificato un offset del fuso orario, verrà applicato l'offset e quindi l'ora archiviata e restituita in formato UTC. Se l'offset è formattato in modo non corretto, verrà ignorato. Nelle situazioni in cui la soluzione potrebbe non avere il contesto dell'offset originale, è possibile inviare i dati di offset in una proprietà di evento separata aggiuntiva per assicurarsi che venga mantenuta e che l'applicazione possa fare riferimento in una risposta di query.
 
 La offset del fuso orario deve essere formattata come una delle seguenti:
 

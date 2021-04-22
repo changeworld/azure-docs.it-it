@@ -12,17 +12,17 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/29/2020
-ms.openlocfilehash: 1d25f43ef5a694d8b94710055bf1be72a7fcb45c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 221b69d428556b031efd3bd91e16d12cfeb71393
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97705217"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107874802"
 ---
 # <a name="quickstart-use-net-core-c-to-query-a-database"></a>Avvio rapido: Usare .NET Core (C#) per eseguire query su un database
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-In questa guida di avvio rapido si userà [.NET Core](https://www.microsoft.com/net/) e il codice C# per la connessione a un database. Si eseguirà quindi un'istruzione Transact-SQL per eseguire query sui dati.
+In questa guida di avvio rapido si userà [.NET Core](https://dotnet.microsoft.com) e il codice C# per la connessione a un database. Si eseguirà quindi un'istruzione Transact-SQL per eseguire query sui dati.
 
 > [!TIP]
 > Il modulo di Microsoft Learn gratuito seguente contiene informazioni su come [sviluppare e configurare un'applicazione ASP.NET che esegue query su un database nel database SQL di Azure](/learn/modules/develop-app-that-queries-azure-sql/)
@@ -32,7 +32,7 @@ In questa guida di avvio rapido si userà [.NET Core](https://www.microsoft.com/
 Per completare l'esercitazione introduttiva, sono necessari gli elementi seguenti:
 
 - Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- Aver installato [.NET Core per il sistema operativo](https://www.microsoft.com/net/core).
+- [.NET Core SDK per il sistema operativo](https://dotnet.microsoft.com/download) installato.
 - Un database in cui sia possibile eseguire la query. 
 
   [!INCLUDE[create-configure-database](../includes/create-configure-database.md)]

@@ -9,12 +9,12 @@ metadata:
   author: shortpatti
   ms.author: v-patsho
   ms.date: 04/20/2021
-  ms.openlocfilehash: 8c754c7855848db3119d987a4147b08cd3aa2115
-  ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+  ms.openlocfilehash: 54a304e145d995e484f149488fbf5d4f0ad7854f
+  ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
   ms.translationtype: MT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 04/20/2021
-  ms.locfileid: "107765342"
+  ms.lasthandoff: 04/22/2021
+  ms.locfileid: "107878057"
 landingContent:
 - title: Informazioni sulla soluzione Azure VMware
   linkLists:
@@ -96,7 +96,7 @@ landingContent:
   linkLists:
   - linkListType: reference
     links:
-    - text: Richiedere la quota host soluzione Azure VMware
+    - text: Richiedere l'accesso alla quota host soluzione Azure VMware
       url: enable-azure-vmware-solution.md
     - text: Spostare sottoscrizioni EA e CSP
       url: move-ea-csp-subscriptions.md
@@ -163,10 +163,10 @@ landingContent:
     - text: API REST
       url: /rest/api/avs
     - text: Interfaccia della riga di comando di Azure
-      url: /cli/azure/ext/vmware/vmware
+      url: /cli/azure/vmware
     - text: Azure PowerShell
       url: /powershell/module/az.vmware
-    - text: Provider di Azure Terraform
+    - text: Provider Terraform di Azure
       url: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/vmware_private_cloud
   - linkListType: video
     links:
@@ -176,7 +176,7 @@ landingContent:
       url: https://youtu.be/m26iLu6DHbU
     - text: Integrazione con gateway applicazione di Azure
       url: https://youtu.be/BoQYvqzb6Y8
-    - text: Pianificazione della migrazione e della capacità
+    - text: Migrazione e pianificazione della capacità
       url: https://youtu.be/NoNG-hkksrA
     - text: Ruotare vCenter & password NSX-T usando App per la logica di Azure
       url: https://youtu.be/cK1qY3knj88

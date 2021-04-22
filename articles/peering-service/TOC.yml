@@ -22,7 +22,7 @@
       href: connection-telemetry.md
     - name: Modello di onboarding
       href: onboarding-model.md
-    - name: Sicurezza
+    - name: Security
       items:
         - name: Baseline di sicurezza
           href: security-baseline.md
@@ -39,7 +39,7 @@
     - name: Azure PowerShell
       href: /powershell/module/az.peering
     - name: Interfaccia della riga di comando di Azure
-      href: /cli/azure/ext/peering/peering
+      href: /cli/azure/peering
 - name: Risorse
   items:
     - name: Roadmap per Azure

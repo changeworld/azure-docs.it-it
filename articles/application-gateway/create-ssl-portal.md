@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 01/28/2021
 ms.author: victorh
-ms.openlocfilehash: c976ea236ae1d37cc0a543b10a9de55609035632
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aa7123a1c4dea5fcede3e94250576f6677671176
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98986753"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107872246"
 ---
 # <a name="tutorial-configure-an-application-gateway-with-tls-termination-using-the-azure-portal"></a>Esercitazione: Configurare un gateway applicazione con la terminazione TLS tramite il portale di Azure
 
@@ -36,7 +36,7 @@ Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://po
 
 ## <a name="create-a-self-signed-certificate"></a>Creare un certificato autofirmato
 
-In questa sezione viene creato un certificato autofirmato usando il comando [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate). Il certificato viene caricato nel portale di Azure quando si crea il listener per il gateway applicazione.
+In questa sezione viene creato un certificato autofirmato usando il comando [New-SelfSignedCertificate](/powershell/module/pki/new-selfsignedcertificate). Il certificato viene caricato nel portale di Azure quando si crea il listener per il gateway applicazione.
 
 Nel computer locale aprire una finestra di Windows PowerShell come amministratore. Eseguire il comando seguente per creare il certificato:
 
@@ -56,7 +56,7 @@ Thumbprint                                Subject
 E1E81C23B3AD33F9B4D1717B20AB65DBB91AC630  CN=www.contoso.com
 ```
 
-Usare [Export-PfxCertificate](/powershell/module/pkiclient/export-pfxcertificate) con l'identificazione personale restituita per esportare un file pfx dal certificato. Assicurarsi che la lunghezza della password sia compresa tra 4 e 12 caratteri:
+Usare [Export-PfxCertificate](/powershell/module/pki/export-pfxcertificate) con l'identificazione personale restituita per esportare un file pfx dal certificato. Assicurarsi che la lunghezza della password sia compresa tra 4 e 12 caratteri:
 
 
 ```powershell
@@ -106,7 +106,7 @@ Export-PfxCertificate `
    > [!NOTE]
    > Per lo SKU v2 del gateway applicazione, è possibile scegliere solo la configurazione **pubblica** dell'IP front-end. La configurazione di indirizzi IP front-end privati non è attualmente abilitata per questo SKU v2.
 
-2. Scegliere **Aggiungi nuovo** per l' **indirizzo IP pubblico** e immettere *myAGPublicIPAddress* per il nome dell'indirizzo IP pubblico e quindi fare clic su **OK**. 
+2. Scegliere **Aggiungi nuovo** per Indirizzo IP **pubblico** e immettere *myAGPublicIPAddress* come nome dell'indirizzo IP pubblico e quindi selezionare **OK.** 
 
    ![Creare il nuovo gateway applicazione: front-end](./media/application-gateway-create-gateway-portal/application-gateway-create-frontends.png)
 
@@ -116,7 +116,7 @@ Export-PfxCertificate `
 
 Il pool back-end viene usato per instradare le richieste ai server back-end che gestiscono la richiesta. I pool back-end possono essere costituiti da schede di interfaccia di rete, set di scalabilità di macchine virtuali, indirizzi IP pubblici, indirizzi IP interni, nomi di dominio completi (FQDN) e back-end multi-tenant come Servizio app di Azure. In questo esempio verrà creato un pool back-end vuoto con il gateway applicazione a cui verranno aggiunte le destinazioni back-end.
 
-1. Nella scheda Back- **end** selezionare **Aggiungi un pool back-end**.
+1. Nella scheda **Back-end selezionare** **Aggiungi un pool back-end**.
 
 2. Nella finestra **Aggiungi un pool back-end** visualizzata immettere i valori seguenti per creare un pool back-end vuoto:
 
@@ -133,7 +133,7 @@ Il pool back-end viene usato per instradare le richieste ai server back-end che 
 
 Nella scheda **Configurazione** verranno connessi il front-end e il pool back-end creati tramite una regola di routing.
 
-1. Selezionare **Aggiungi una regola di routing** nella colonna **regole di routing** .
+1. Selezionare **Aggiungi una regola di routing** nella colonna Regole **di** routing.
 
 2. Nella finestra **Aggiungi una regola di routing** visualizzata immettere *myRoutingRule* per **Nome regola**.
 
@@ -144,12 +144,12 @@ Nella scheda **Configurazione** verranno connessi il front-end e il pool back-en
     - **Protocollo**: selezionare **HTTPS**.
     - **Porta**: verificare che sia immesso 443 per la porta.
 
-   In **impostazioni HTTPS**:
+   In **Impostazioni HTTPS**:
 
-   - **Scegliere un certificato** : selezionare **carica un certificato**.
+   - **Scegliere un certificato:** selezionare **Carica un certificato**.
    - **File di certificato PFX**: individuare e selezionare il file c:\appgwcert.pfx creato in precedenza.
    - **Nome del certificato**: immettere *mycert1* come nome del certificato.
-   - **Password** : digitare la password usata per creare il certificato.
+   - **Password:** digitare la password usata per creare il certificato.
   
         Accettare i valori predefiniti per le altre impostazioni nella scheda **Listener**, quindi selezionare la scheda **Destinazioni back-end** per configurare il resto della regola di routing.
 
@@ -157,7 +157,7 @@ Nella scheda **Configurazione** verranno connessi il front-end e il pool back-en
 
 4. Nella scheda **Destinazioni back-end** selezionare **myBackendPool** per **Destinazione back-end**.
 
-5. Per l' **impostazione http**, selezionare **Aggiungi nuovo** per creare una nuova impostazione http. L'impostazione HTTP determinerà il comportamento della regola di routing. Nella finestra **Aggiungi un'impostazione http** visualizzata immettere *myHTTPSetting* per il **nome dell'impostazione http**. Accettare i valori predefiniti per le altre impostazioni nella finestra **Aggiungi un'impostazione http** , quindi selezionare **Aggiungi** per tornare alla finestra **Aggiungi una regola di routing** . 
+5. Per **l'impostazione HTTP** selezionare **Aggiungi nuovo** per creare una nuova impostazione HTTP. L'impostazione HTTP determinerà il comportamento della regola di routing. Nella finestra **Aggiungi un'impostazione HTTP** visualizzata immettere *myHTTPSetting* come **nome dell'impostazione HTTP**. Accettare i valori predefiniti per le altre impostazioni nella  finestra Aggiungi un'impostazione **HTTP,** quindi selezionare Aggiungi per tornare alla finestra **Aggiungi una regola di routing.** 
 
    :::image type="content" source="./media/create-ssl-portal/application-gateway-create-httpsetting.png" alt-text="Creare il nuovo gateway applicazione: impostazione HTTP":::
 
@@ -211,7 +211,7 @@ In questo esempio viene installato IIS nelle macchine virtuali solo per verifica
 
     ![Installare l'estensione personalizzata](./media/application-gateway-create-gateway-portal/application-gateway-extension.png)
 
-2. Modificare l'impostazione del percorso per l'ambiente, quindi eseguire il comando seguente per installare IIS nella macchina virtuale: 
+2. Modificare l'impostazione del percorso per l'ambiente e quindi eseguire il comando seguente per installare IIS nella macchina virtuale: 
 
    ```azurepowershell-interactive
           Set-AzVMExtension `
@@ -235,11 +235,11 @@ In questo esempio viene installato IIS nelle macchine virtuali solo per verifica
 
 3. Selezionare **myBackendPool**.
 
-4. In **tipo di destinazione** selezionare **macchina virtuale** dall'elenco a discesa.
+4. In **Tipo di** destinazione selezionare Macchina **virtuale** dall'elenco a discesa.
 
-5. In **destinazione** selezionare l'interfaccia di rete in **myVM** dall'elenco a discesa.
+5. In **Destinazione** selezionare l'interfaccia di rete in **myVM** nell'elenco a discesa.
 
-6. Ripetere l'aggiunta per aggiungere l'interfaccia di rete per **myVM2**.
+6. Ripetere l'operazione per aggiungere l'interfaccia di rete **per myVM2**.
 
     ![Aggiungere i server back-end](./media/application-gateway-create-gateway-portal/application-gateway-backend.png)
 

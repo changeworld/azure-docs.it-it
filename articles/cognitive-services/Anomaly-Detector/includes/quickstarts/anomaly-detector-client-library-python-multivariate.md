@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 11/25/2020
 ms.author: mbullwin
-ms.openlocfilehash: 684c61dfb34d55681904943160ca389c19a4c8db
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: b0eba6d0be1d6a65b911f05dabf3cdbecc9c666d
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107732214"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107879807"
 ---
 Introduzione alla libreria Rilevamento anomalie client multivariate per Python. Seguire questi passaggi per installare il pacchetto e iniziare a usare gli algoritmi forniti dal servizio. Le nuove API di rilevamento anomalie multivariate consentono agli sviluppatori di integrare facilmente l'intelligenza artificiale avanzata per rilevare anomalie da gruppi di metriche, senza la necessità di conoscenze di Machine Learning o dati etichettati. Le dipendenze e le interrelazioni tra segnali diversi vengono conteggiate automaticamente come fattori chiave. Ciò consente di proteggere in modo proattivo i sistemi complessi da errori.
 
@@ -21,9 +21,9 @@ Usare la Rilevamento anomalie client multivariata per Python per:
 
 * Rilevare anomalie a livello di sistema da un gruppo di serie tempore.
 * Quando una serie temporale singola non indica molto ed è necessario esaminare tutti i segnali per rilevare un problema.
-* Manutenzione predicativa di risorse fisiche costose con decine o centinaia di diversi tipi di sensori che misurano vari aspetti dell'integrità del sistema.
+* Manutenzione preventiva di risorse fisiche costose con decine o centinaia di diversi tipi di sensori che misurano vari aspetti dell'integrità del sistema.
 
-[Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/anomalydetector/azure-ai-anomalydetector)  |  [Pacchetto (PyPi)](https://pypi.org/project/azure-ai-anomalydetector/3.0.0b3/)
+[Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/anomalydetector/azure-ai-anomalydetector)  |  [Pacchetto (PyPi)](https://pypi.org/project/azure-ai-anomalydetector/3.0.0b3/)  |  [Codice di esempio](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/anomalydetector/azure-ai-anomalydetector/samples/sample_multivariate_detect.py)  |  [Jupyter Notebook](https://github.com/Azure-Samples/AnomalyDetector/blob/master/ipython-notebook/Multivariate%20API%20Demo%20Notebook.ipynb)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -79,7 +79,7 @@ Questi frammenti di codice mostrano come eseguire le operazioni seguenti con la 
 
 ## <a name="authenticate-the-client"></a>Autenticare il client
 
-Per creare un'istanza Rilevamento anomalie client è necessario passare la chiave Rilevamento anomalie di sottoscrizione e l'endpoint associato. Verrà anche stabilita un'origine dati.  
+Per creare un'istanza Rilevamento anomalie client, è necessario passare la chiave Rilevamento anomalie di sottoscrizione e l'endpoint associato. Verrà anche stabilita un'origine dati.  
 
 Per usare Rilevamento anomalie API multivariate, è necessario eseguire il training del modello prima di usare il rilevamento. I dati usati per il training sono un batch di serie temporali, ogni serie temporale deve essere in formato CSV con due colonne, timestamp e valore. Tutte le serie tempore devono essere compresse in un unico file ZIP e caricate [nell'archivio BLOB di Azure.](../../../../storage/blobs/storage-blobs-introduction.md#blobs) Per impostazione predefinita, il nome file verrà usato per rappresentare la variabile per la serie temporale. In alternativa, è possibile includere un meta.jsaggiuntivo nel file ZIP se si vuole che il nome della variabile sia diverso dal nome del file ZIP. Dopo aver generato [l'URL di firma](../../../../storage/common/storage-sas-overview.md)di accesso condiviso del BLOB , è possibile usare l'URL del file ZIP per il training.
 
@@ -103,7 +103,7 @@ def __init__(self, subscription_key, anomaly_detector_endpoint, data_source=None
 
 ## <a name="train-the-model"></a>Eseguire il training del modello
 
-Prima di tutto si esegue il training del modello, si controlla lo stato del modello durante il training per determinare quando il training è completato e quindi si recupera l'ID del modello più recente che sarà necessario quando si passa alla fase di rilevamento.
+Prima di tutto si esegue il training del modello, si controlla lo stato del modello durante il training per determinare quando il training è completato e quindi si recupera l'ID del modello più recente necessario quando si passa alla fase di rilevamento.
 
 ```python
 def train(self, start_time, end_time, max_tryout=500):
@@ -236,6 +236,11 @@ if __name__ == '__main__':
 
 ```
 
+Prima dell'esecuzione può essere utile controllare il progetto rispetto al codice di [esempio completo](https://github.com/Azure-Samples/AnomalyDetector/blob/master/ipython-notebook/Multivariate%20API%20Demo%20Notebook.ipynb) da cui deriva questa guida introduttiva.
+
+Sono disponibili anche [informazioni approfondite Jupyter Notebook](https://github.com/Azure-Samples/AnomalyDetector/blob/master/ipython-notebook/Multivariate%20API%20Demo%20Notebook.ipynb) per iniziare.
+
 Eseguire l'applicazione con il comando `python` e il nome del file.
+
 
 [!INCLUDE [anomaly-detector-next-steps](../quickstart-cleanup-next-steps.md)]

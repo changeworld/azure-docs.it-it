@@ -1,24 +1,24 @@
 ---
-title: Baseline della sicurezza di Azure per gestione firewall di Azure
-description: La linea di base di sicurezza di gestione firewall di Azure fornisce indicazioni e risorse procedurali per l'implementazione delle raccomandazioni di sicurezza specificate nel benchmark di sicurezza di Azure.
+title: Baseline di sicurezza di Azure per Gestione firewall di Azure
+description: La Gestione firewall di Azure di sicurezza fornisce indicazioni procedurali e risorse per l'implementazione delle raccomandazioni di sicurezza specificate in Azure Security Benchmark.
 author: msmbaldwin
 ms.service: firewall-manager
 ms.topic: conceptual
 ms.date: 11/24/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: bec5cafaf7d506d9ab25228c680d00af91dbf3d0
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 7cb37de7c5f101ea5f72ff87ccdf94e5925a95d4
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102200139"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107864416"
 ---
-# <a name="azure-security-baseline-for-azure-firewall-manager"></a>Baseline della sicurezza di Azure per gestione firewall di Azure
+# <a name="azure-security-baseline-for-azure-firewall-manager"></a>Baseline di sicurezza di Azure per Gestione firewall di Azure
 
-Questa linea di base di sicurezza applica le linee guida del [benchmark di sicurezza di Azure versione 2,0](../security/benchmarks/overview.md) ad Azure Firewall Manager. Azure Security Benchmark offre consigli sulla protezione delle soluzioni cloud in Azure. Il contenuto viene raggruppato in base ai **controlli di sicurezza** definiti dal benchmark di sicurezza di Azure e alle linee guida correlate applicabili a gestione firewall di Azure. I **controlli** non applicabili ad Azure Firewall Manager sono stati esclusi.
+Questa baseline di sicurezza applica le linee guida di [Azure Security Benchmark versione 2.0](../security/benchmarks/overview.md) a Gestione firewall di Azure. Azure Security Benchmark offre consigli sulla protezione delle soluzioni cloud in Azure. Il contenuto è raggruppato in base ai controlli **di** sicurezza definiti da Azure Security Benchmark e alle linee guida correlate applicabili a Gestione firewall di Azure. **I** controlli non applicabili Gestione firewall di Azure sono stati esclusi.
 
-Per informazioni sul modo in cui Azure Firewall Manager è completamente mappato al benchmark di sicurezza di Azure, vedere il file di mapping di base di sicurezza di Azure [Firewall Manager completo](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
+Per informazioni su come Gestione firewall di Azure completamente mappato a Azure Security Benchmark, vedere il file di mapping completo Gestione firewall di Azure baseline [di sicurezza](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
 ## <a name="identity-management"></a>Identity Management
 
@@ -26,15 +26,15 @@ Per informazioni sul modo in cui Azure Firewall Manager è completamente mappato
 
 ### <a name="im-1-standardize-azure-active-directory-as-the-central-identity-and-authentication-system"></a>IM-1: Standardizzare Azure Active Directory come sistema di identità e autenticazione centrale
 
-**Indicazioni**: Azure Firewall Manager USA Azure Active Directory (Azure ad) come servizio predefinito di gestione delle identità e degli accessi. È necessario standardizzare Azure AD per gestire la gestione delle identità e degli accessi dell'organizzazione in:
+**Linee** guida: Gestione firewall di Azure usa Azure Active Directory (Azure AD) come servizio di gestione delle identità e degli accessi predefinito. È consigliabile standardizzare Azure AD gestione delle identità e degli accessi dell'organizzazione in:
 
-- Microsoft Cloud risorse, ad esempio portale di Azure, archiviazione di Azure, macchine virtuali di Azure (Linux e Windows), Azure Key Vault, PaaS e applicazioni SaaS.
+- Risorse cloud Microsoft, ad esempio le applicazioni portale di Azure, Archiviazione di Azure, Macchina virtuale di Azure (Linux e Windows), Azure Key Vault, PaaS e SaaS.
 
 - Risorse dell'organizzazione, come le applicazioni in Azure o le risorse della rete aziendale.
 
 La protezione di Azure AD deve essere una priorità nella procedura di sicurezza del cloud dell'organizzazione. Azure AD offre un punteggio di sicurezza delle identità che consente di valutare il comportamento di sicurezza delle identità rispetto alle procedure consigliate di Microsoft. Usare il punteggio per misurare in che modo la configurazione aderisce alle procedure consigliate e per apportare miglioramenti al comportamento di sicurezza.
 
-Azure AD supporta l'identità esterna che consente agli utenti senza account Microsoft di accedere alle applicazioni e alle risorse con la loro identità esterna.
+Azure AD supporta l'identità esterna che consente agli utenti senza account Microsoft accedere alle applicazioni e alle risorse con la propria identità esterna.
 
 - [Tenancy in Azure Active Directory](../active-directory/develop/single-and-multi-tenant-apps.md)
 
@@ -50,7 +50,7 @@ Azure AD supporta l'identità esterna che consente agli utenti senza account Mic
 
 ### <a name="im-3-use-azure-ad-single-sign-on-sso-for-application-access"></a>IM-3: Usare l'accesso Single Sign-On (SSO) di Azure per accedere alle applicazioni
 
-**Indicazioni**: Azure Firewall Manager USA Azure Active Directory per fornire la gestione delle identità e dell'accesso alle risorse di Azure, alle applicazioni cloud e alle applicazioni locali. Sono incluse le identità aziendali, ad esempio i dipendenti, nonché le identità esterne come partner e fornitori. Ciò consente all'accesso Single Sign-On (SSO) di gestire e proteggere l'accesso ai dati e alle risorse dell'organizzazione in locale e nel cloud. Connettere tutti gli utenti, le applicazioni e i dispositivi ad Azure AD per un accesso facile e sicuro e maggior visibilità e controllo.
+**Linee** guida: Gestione firewall di Azure usa Azure Active Directory per fornire la gestione delle identità e degli accessi alle risorse di Azure, alle applicazioni cloud e alle applicazioni locali. Sono incluse le identità aziendali, ad esempio i dipendenti, nonché le identità esterne come partner e fornitori. Ciò consente all'accesso Single Sign-On (SSO) di gestire e proteggere l'accesso ai dati e alle risorse dell'organizzazione in locale e nel cloud. Connettere tutti gli utenti, le applicazioni e i dispositivi ad Azure AD per un accesso facile e sicuro e maggior visibilità e controllo.
 
 - [Informazioni sull'accesso Single Sign-On all'applicazione con Azure AD](../active-directory/manage-apps/what-is-single-sign-on.md)
 
@@ -60,11 +60,11 @@ Azure AD supporta l'identità esterna che consente agli utenti senza account Mic
 
 ### <a name="im-4-use-strong-authentication-controls-for-all-azure-active-directory-based-access"></a>IM-4: Usare i controlli di autenticazione avanzata per tutti gli accessi basati su Azure Active Directory
 
-**Indicazioni**: Azure Firewall Manager USA Azure Active Directory che supporta i controlli di autenticazione avanzata tramite l'autenticazione a più fattori e metodi avanzati con password.
+**Linee** guida: Gestione firewall di Azure usa Azure Active Directory che supporta controlli di autenticazione avanzata tramite l'autenticazione a più fattori (MFA) e metodi senza password avanzata.
 - Autenticazione a più fattori: abilitare l'autenticazione a più fattori di Azure AD e seguire le raccomandazioni dell'identità Centro sicurezza di Azure e di Gestione degli accessi per alcune procedure consigliate per la configurazione dell'autenticazione a più fattori. L'autenticazione a più fattori può essere applicata a tutti gli utenti, agli utenti selezionati o a livello di singolo utente in base alle condizioni di accesso e ai fattori di rischio.
 - Autenticazione senza password: sono disponibili tre opzioni di autenticazione senza password: Windows Hello for Business, l'app Microsoft Authenticator e i metodi di autenticazione locali come le smart card.
 
-Per gli amministratori e gli utenti con privilegi, assicurarsi che venga usato il livello più alto del metodo di autenticazione avanzata, seguito dall'implementazione dei criteri di autenticazione avanzata appropriati ad altri utenti.
+Per gli utenti con privilegi e amministratore, assicurarsi che sia usato il livello più alto del metodo di autenticazione avanzata, seguito dall'implementazione dei criteri di autenticazione avanzata appropriati ad altri utenti.
 
 - [Come abilitare MFA in Azure](../active-directory/authentication/howto-mfa-getstarted.md) 
 
@@ -80,15 +80,15 @@ Per gli amministratori e gli utenti con privilegi, assicurarsi che venga usato i
 
 ### <a name="im-5-monitor-and-alert-on-account-anomalies"></a>IM-5: Monitorare e segnalare le anomalie degli account
 
-**Indicazioni**: Azure Firewall Manager è integrato con Azure Active Directory in che fornisce le origini dati seguenti:
+**Indicazioni:** Gestione firewall di Azure è integrato con Azure Active Directory in cui fornisce le origini dati seguenti:
 - Accessi: il report sugli accessi fornisce informazioni sull'uso delle applicazioni gestite e sulle attività di accesso degli utenti.
 - Log di controllo: i log consentono la tracciabilità di tutte le modifiche apportate da varie funzionalità all'interno di Azure AD. I log di controllo registrano, ad esempio, le modifiche apportate a qualsiasi risorsa di Azure AD, ad esempio l'aggiunta o la rimozione di utenti, app, gruppi, ruoli e criteri.
 - Accessi a rischio. Un accesso rischioso è indicativo di un tentativo di accesso che potrebbe essere stato eseguito da qualcuno che non è il legittimo proprietario di un account utente.
 - Utenti contrassegnati per il rischio. Un utente rischioso è indicativo di un account utente che potrebbe essere stato compromesso.
 
-Queste origini dati possono essere integrate con monitoraggio di Azure, Azure Sentinel o sistemi SIEM di terze parti.
+Queste origini dati possono essere integrate con Monitoraggio di Azure, Azure Sentinel o sistemi SIEM di terze parti.
 
-Attualmente le azioni che circondano i gruppi di raccolta regole dei criteri firewall non sono supportate dal log attività, si tratta di un problema noto che verrà risolto in aggiornamenti futuri.
+Attualmente le azioni che circondano i gruppi di raccolta regole dei criteri firewall non sono supportate dal log attività. Si tratta di un problema noto che verrà risolto negli aggiornamenti futuri.
 
 Il Centro sicurezza di Azure può anche inviare avvisi relativi a determinate attività sospette, ad esempio un numero eccessivo di tentativi di autenticazione non riusciti o la presenza di account deprecati nella sottoscrizione.
 
@@ -102,7 +102,7 @@ Azure Advanced Threat Protection (ATP) è una soluzione di sicurezza che può us
 
 - [Come integrare i log attività di Azure in Monitoraggio di Azure](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-- [Problemi noti di gestione firewall di Azure](overview.md#known-issues)
+- [Gestione firewall di Azure problemi noti](overview.md#known-issues)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -110,7 +110,7 @@ Azure Advanced Threat Protection (ATP) è una soluzione di sicurezza che può us
 
 ### <a name="im-6-restrict-azure-resource-access-based-on-conditions"></a>IM-6: Limitare l'accesso alle risorse di Azure in base alle condizioni
 
-**Indicazioni**: gestione firewall di Azure supporta l'accesso condizionale Azure Active Directory (Azure ad) per un controllo di accesso più granulare in base alle condizioni definite dall'utente, ad esempio gli accessi degli utenti da determinati intervalli IP che devono usare l'autenticazione a più fattori per l'accesso. I criteri di gestione delle sessioni di autenticazione granulari possono essere usati anche per casi d'uso diversi.
+**Indicazioni:** Gestione firewall di Azure supporta l'accesso condizionale Azure Active Directory (Azure AD) per un controllo di accesso più granulare in base a condizioni definite dall'utente, ad esempio gli accessi utente da determinati intervalli IP che devono usare MFA per l'accesso. I criteri di gestione delle sessioni di autenticazione granulari possono essere usati anche per casi d'uso diversi.
 
 - [Panoramica dell'accesso condizionale di Azure](../active-directory/conditional-access/overview.md)
 
@@ -128,11 +128,11 @@ Azure Advanced Threat Protection (ATP) è una soluzione di sicurezza che può us
 
 ### <a name="pa-1-protect-and-limit-highly-privileged-users"></a>PA-1: Proteggere e limitare gli utenti con privilegi elevati
 
-**Indicazioni**: Azure Firewall Manager USA Azure Active Directory (Azure ad) per l'identità e l'accesso. I ruoli predefiniti più critici sono Azure AD amministratore globale e amministratore del ruolo con privilegi, perché gli utenti assegnati a questi due ruoli possono delegare i ruoli di amministratore:
-- Amministratore globale: gli utenti con questo ruolo hanno accesso a tutte le funzionalità amministrative di Azure AD, nonché ai servizi che usano Azure AD identità.
-- Amministratore del ruolo con privilegi: gli utenti con questo ruolo possono gestire le assegnazioni di ruolo in Azure AD, oltre che all'interno di Azure AD Privileged Identity Management (PIM). Inoltre, questo ruolo consente la gestione di tutti gli aspetti di PIM e delle unità amministrative.
+**Indicazioni:** Gestione firewall di Azure usa Azure Active Directory (Azure AD) per l'identità e l'accesso. I ruoli predefiniti più critici sono Azure AD amministratore globale e l'amministratore dei ruoli con privilegi come utenti assegnati a questi due ruoli possono delegare i ruoli di amministratore:
+- Amministratore globale: gli utenti con questo ruolo hanno accesso a tutte le funzionalità amministrative in Azure AD, nonché ai servizi che usano Azure AD identità.
+- Amministratore dei ruoli con privilegi: gli utenti con questo ruolo possono gestire le assegnazioni di ruolo in Azure AD e all'interno di Azure AD Privileged Identity Management (PIM). Inoltre, questo ruolo consente la gestione di tutti gli aspetti di PIM e delle unità amministrative.
 
-Se si utilizzano ruoli personalizzati con determinate autorizzazioni con privilegi assegnati, è possibile che si disponga di altri ruoli critici che devono essere regolati. Inoltre, è possibile che si desideri applicare controlli simili all'account Administrator degli asset aziendali critici.
+È possibile che siano disponibili altri ruoli critici che devono essere regolamentati se si usano ruoli personalizzati con determinate autorizzazioni con privilegi assegnati. È anche possibile applicare controlli simili all'account amministratore degli asset aziendali critici.
 
 È possibile abilitare l'accesso con privilegi just-in-time (JIT) alle risorse di Azure e ad Azure AD usando Azure AD Privileged Identity Management (PIM). JIT concede autorizzazioni temporanee per eseguire attività con privilegi solo quando gli utenti ne hanno la necessità. PIM può inoltre generare avvisi di sicurezza in caso di attività sospette o non sicure nell'organizzazione Azure AD.
 
@@ -148,19 +148,19 @@ Se si utilizzano ruoli personalizzati con determinate autorizzazioni con privile
 
 ### <a name="pa-2-restrict-administrative-access-to-business-critical-systems"></a>PA-2: Limitare l'accesso amministrativo ai sistemi business-critical
 
-**Indicazioni**: usare i ruoli di controllo degli accessi in base al ruolo di Azure personalizzati per isolare l'accesso ai gruppi di raccolta regole per i criteri Usare una definizione di ruolo personalizzata di Azure per evitare la rimozione accidentale dei criteri di base e fornire l'accesso selettivo ai gruppi di raccolta regole all'interno di una sottoscrizione o di un
+**Indicazioni:** usare ruoli personalizzati di Controllo degli accessi in base al ruolo di Azure per isolare l'accesso ai gruppi di raccolte di regole Firewall di Azure criteri. Usare una definizione di ruolo personalizzata di Azure per impedire la rimozione accidentale dei criteri di base e fornire l'accesso selettivo ai gruppi di raccolte di regole all'interno di una sottoscrizione o di un gruppo di risorse.
 
-Assicurarsi di limitare anche l'accesso ai sistemi di gestione, identità e sicurezza che dispongono di accesso amministrativo ai sistemi aziendali critici. Gli utenti malintenzionati che compromettono questi sistemi di gestione e sicurezza possono weaponizerli immediatamente per compromettere asset aziendali critici.
+Assicurarsi anche di limitare l'accesso ai sistemi di gestione, identità e sicurezza con accesso amministrativo ai sistemi business critical. Gli utenti malintenzionati che comprometteno questi sistemi di gestione e sicurezza possono immediatamente sfruttarli per compromettere gli asset business critical.
 
 Tutti i tipi di controlli di accesso devono essere allineati alla strategia di segmentazione aziendale per garantire un controllo di accesso coerente.
 
-- [Usare i criteri del firewall di Azure per definire una gerarchia di regole](rule-hierarchy.md)
+- [Usare Firewall di Azure criteri per definire un gerarchia delle regole](rule-hierarchy.md)
 
 - [Componenti di Azure e modello di riferimento](/security/compass/microsoft-security-compass-introduction#azure-components-and-reference-model-2151)
 
 - [Accesso al gruppo di gestione](../governance/management-groups/overview.md#management-group-access)
 
-- [Amministratori della sottoscrizione di Azure](../cost-management-billing/manage/add-change-subscription-administrator.md)
+- [Amministratori delle sottoscrizioni di Azure](../cost-management-billing/manage/add-change-subscription-administrator.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -168,13 +168,13 @@ Tutti i tipi di controlli di accesso devono essere allineati alla strategia di s
 
 ### <a name="pa-3-review-and-reconcile-user-access-regularly"></a>PA-3: Esaminare e riconciliare regolarmente gli accessi utente
 
-**Linee guida**: Azure Firewall Manager usa gli account Azure Active Directory (Azure ad) per gestire le proprie risorse. Esaminare gli account utente e l'assegnazione di accesso regolarmente per assicurarsi che gli account e il relativo accesso siano validi. È possibile utilizzare le verifiche di accesso di Azure AD per verificare l'appartenenza a gruppi, l'accesso alle applicazioni aziendali e le assegnazioni di ruolo. Azure AD Reporting può fornire log che consentono di individuare gli account obsoleti. Per semplificare il processo di revisione, è inoltre possibile utilizzare Azure AD Privileged Identity Management per creare il flusso di lavoro del report di verifica di accesso.
+**Linee** guida: Gestione firewall di Azure usa Azure Active Directory (Azure AD) per gestire le risorse. Esaminare regolarmente gli account utente e l'assegnazione di accesso per assicurarsi che gli account e il relativo accesso siano validi. È possibile usare le Azure AD di accesso per esaminare le appartenenze ai gruppi, l'accesso alle applicazioni aziendali e le assegnazioni di ruolo. Azure AD la creazione di report può fornire log per individuare gli account non obsoleti. È anche possibile usare le Azure AD Privileged Identity Management per creare il flusso di lavoro del report di verifica di accesso per semplificare il processo di revisione.
 
-Inoltre, Azure Privileged Identity Management può anche essere configurato in modo da avvisare quando viene creato un numero eccessivo di account amministratore e identificare gli account amministratore non aggiornati o non configurati correttamente.
+È anche possibile configurare Azure Privileged Identity Management per avvisare quando viene creato un numero eccessivo di account amministratore e per identificare gli account amministratore non obsoleti o configurati in modo non corretto.
 
-Alcuni servizi di Azure supportano utenti e ruoli locali che non sono gestiti tramite Azure AD. Sarà necessario gestire questi utenti separatamente.
+Alcuni servizi di Azure supportano utenti e ruoli locali che non sono gestiti tramite Azure AD. È necessario gestire questi utenti separatamente.
 
-- [Creare una verifica di accesso dei ruoli delle risorse di Azure in Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-resource-roles-start-access-review.md) 
+- [Creare una verifica di accesso dei ruoli delle risorse di Azure in Privileged Identity Management(PIM)](../active-directory/privileged-identity-management/pim-resource-roles-start-access-review.md) 
 
 - [Come usare le verifiche di accesso e delle identità di Azure AD](../active-directory/governance/access-reviews-overview.md)
 
@@ -184,7 +184,7 @@ Alcuni servizi di Azure supportano utenti e ruoli locali che non sono gestiti tr
 
 ### <a name="pa-4-set-up-emergency-access-in-azure-ad"></a>PA-4: Configurare l'accesso di emergenza in Azure AD
 
-**Indicazioni**: Azure Firewall Manager USA Azure Active Directory per autenticare gli utenti che gestiscono il servizio. Per evitare che vengano accidentalmente bloccati dall'organizzazione Azure AD, configurare un account di accesso di emergenza per l'accesso quando non è possibile usare gli account amministrativi normali. Gli account di accesso di emergenza sono in genere account con privilegi elevati e non devono essere assegnati a utenti specifici. Gli account di accesso di emergenza sono limitati a scenari di emergenza critici, in cui non è possibile usare i normali account amministrativi.
+**Linee** guida: Gestione firewall di Azure usa Azure Active Directory per autenticare gli utenti che gestiscono il servizio. Per evitare il blocco accidentale dell'organizzazione Azure AD, configurare un account di accesso di emergenza per l'accesso quando non è possibile usare normali account amministrativi. Gli account di accesso di emergenza sono in genere account con privilegi elevati e non devono essere assegnati a utenti specifici. Gli account di accesso di emergenza sono limitati a scenari di emergenza critici, in cui non è possibile usare i normali account amministrativi.
 
 È necessario assicurarsi che le credenziali (ad esempio password, certificato o smart card) per gli account di accesso di emergenza vengano conservate in modo sicuro e siano note solo a utenti autorizzati a usarle solo in caso di emergenza.
 
@@ -194,13 +194,13 @@ Alcuni servizi di Azure supportano utenti e ruoli locali che non sono gestiti tr
 
 **Responsabilità**: Customer
 
-### <a name="pa-5-automate-entitlement-management"></a>PA-5: automatizzare la gestione dei diritti 
+### <a name="pa-5-automate-entitlement-management"></a>PA-5: Automatizzare la gestione degli entitlement 
 
-**Indicazioni**: Azure Firewall Manager è integrato con Azure Active Directory per gestire le proprie risorse. Usare le funzionalità di gestione dei diritti Azure AD per automatizzare i flussi di lavoro delle richieste di accesso, incluse le assegnazioni di accesso, le verifiche e la scadenza. È supportata anche l'approvazione con due o più fasi.
+**Indicazioni:** Gestione firewall di Azure è integrato con Azure Active Directory per gestire le risorse. Usare Azure AD gestione entitlement per automatizzare i flussi di lavoro delle richieste di accesso, tra cui assegnazioni di accesso, verifiche e scadenza. È supportata anche l'approvazione doppia o in più fasi.
 
-- [Informazioni sulle verifiche di accesso Azure AD](../active-directory/governance/access-reviews-overview.md)
+- [Cosa sono le Azure AD di accesso](../active-directory/governance/access-reviews-overview.md)
 
-- [Informazioni sulla gestione dei diritti Azure AD](../active-directory/governance/entitlement-management-overview.md)
+- [Informazioni sulla Azure AD entitlement](../active-directory/governance/entitlement-management-overview.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -208,7 +208,7 @@ Alcuni servizi di Azure supportano utenti e ruoli locali che non sono gestiti tr
 
 ### <a name="pa-6-use-privileged-access-workstations"></a>PA-6: Usare le workstation con accesso con privilegi
 
-**Linee guida**: le workstation protette e isolate sono di fondamentale importanza per la sicurezza dei ruoli sensibili, ad esempio amministratori, sviluppatori e operatori di servizi critici. Usare workstation utente altamente sicure per eseguire attività di gestione amministrative con le risorse di Azure Firewall Manager negli ambienti di produzione. Usare Azure Active Directory, Microsoft Defender Advanced Threat Protection (ATP) e/o Microsoft Intune per distribuire una workstation utente protetta e gestita per le attività amministrative. Le workstation protette possono essere gestite centralmente per applicare la configurazione protetta, tra cui l'autenticazione avanzata, le linee di base software e hardware e l'accesso logico e di rete limitato.
+**Linee guida**: le workstation protette e isolate sono di fondamentale importanza per la sicurezza dei ruoli sensibili, ad esempio amministratori, sviluppatori e operatori di servizi critici. Usare workstation utente altamente protette per eseguire attività di gestione amministrativa con le risorse Gestione firewall di Azure negli ambienti di produzione. Usare Azure Active Directory, Microsoft Defender Advanced Threat Protection (ATP) e/o Microsoft Intune per distribuire una workstation utente protetta e gestita per le attività amministrative. Le workstation protette possono essere gestite centralmente per applicare una configurazione protetta, tra cui autenticazione avanzata, baseline software e hardware e accesso logico e di rete limitato.
 
 - [Informazioni sulle workstation con accesso con privilegi](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
@@ -220,13 +220,13 @@ Alcuni servizi di Azure supportano utenti e ruoli locali che non sono gestiti tr
 
 ### <a name="pa-7-follow-just-enough-administration-least-privilege-principle"></a>7\. Applicare all'amministrazione il principio dei privilegi minimi 
 
-**Indicazioni**: Azure Firewall Manager è integrato con il controllo degli accessi in base al ruolo di Azure per gestire le proprie risorse. Il controllo degli accessi in base al ruolo di Azure consente di gestire l'accesso alle risorse di Azure tramite le assegnazioni di ruoli. È possibile assegnare questi ruoli a utenti, gruppi di entità servizio e identità gestite. Per alcune risorse sono disponibili ruoli predefiniti, che possono essere inventariati o sottoposti a query tramite strumenti come l'interfaccia della riga di comando di Azure, Azure PowerShell o il portale di Azure. I privilegi assegnati alle risorse tramite il controllo degli accessi in base al ruolo di Azure devono essere sempre limitati ai requisiti dei ruoli. Questo approccio completa l'approccio just-in-time di Azure AD Privileged Identity Management (PIM) e deve essere rivisto periodicamente.
+**Indicazioni:** Gestione firewall di Azure è integrato con il controllo degli accessi in base al ruolo di Azure per gestire le risorse. Il controllo degli accessi in base al ruolo di Azure consente di gestire l'accesso alle risorse di Azure tramite le assegnazioni di ruoli. È possibile assegnare questi ruoli a utenti, entità servizio dei gruppi e identità gestite. Per alcune risorse sono disponibili ruoli predefiniti, che possono essere inventariati o sottoposti a query tramite strumenti come l'interfaccia della riga di comando di Azure, Azure PowerShell o il portale di Azure. I privilegi assegnati alle risorse tramite il controllo degli accessi in base al ruolo di Azure devono essere sempre limitati ai requisiti dei ruoli. Questo approccio completa l'approccio just-in-time di Azure AD Privileged Identity Management (PIM) e deve essere rivisto periodicamente.
 
 Usare i ruoli predefiniti per assegnare le autorizzazioni e creare ruoli personalizzati solo quando necessario.
 
-- [Che cos'è il controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../role-based-access-control/overview.md) 
+- [Informazioni sul controllo degli accessi in base al ruolo di Azure](../role-based-access-control/overview.md) 
 
-- [Come configurare RBAC di Azure](../role-based-access-control/role-assignments-portal.md)
+- [Come configurare il controllo degli accessi in base al ruolo di Azure](../role-based-access-control/role-assignments-portal.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -238,7 +238,7 @@ Usare i ruoli predefiniti per assegnare le autorizzazioni e creare ruoli persona
 
 ### <a name="dp-2-protect-sensitive-data"></a>DP-2: Proteggere i dati sensibili
 
-**Linee guida**: proteggere i dati sensibili, come i dati di configurazione per i criteri del firewall di Azure, limitando l'accesso tramite il controllo degli accessi in base al ruolo di Azure (RBAC di Azure), i controlli di accesso basati sulla rete e controlli specifici nei servizi di Azure.
+**Indicazioni:** proteggere i dati sensibili come i dati di configurazione per i criteri di Firewall di Azure limitando l'accesso tramite il controllo degli accessi in base al ruolo di Azure, i controlli degli accessi in base alla rete e controlli specifici nei servizi di Azure.
 
 Per garantire un controllo di accesso coerente, tutti i tipi di controllo di accesso devono essere in linea con la strategia di segmentazione aziendale. Questa strategia deve inoltre tenere conto della posizione dei dati e dei sistemi sensibili o business critical.
 
@@ -254,7 +254,7 @@ Per la piattaforma sottostante, gestita da Microsoft, Microsoft considera tutti 
 
 ### <a name="dp-3-monitor-for-unauthorized-transfer-of-sensitive-data"></a>DP-3: Monitorare il trasferimento non autorizzato di dati sensibili
 
-**Linee guida**: le risorse dei criteri del firewall di Azure sono accessibili solo agli utenti autenticati. I clienti dovranno assicurarsi che solo gli utenti autorizzati abbiano accesso ai dati.
+**Indicazioni:** Firewall di Azure le risorse dei criteri sono accessibili solo agli utenti autenticati. I clienti dovranno assicurarsi che solo gli utenti autorizzati hanno accesso ai dati.
 
 - [Creare ruoli personalizzati per accedere ai gruppi di raccolte regole](rule-hierarchy.md#create-custom-roles-to-access-the-rule-collection-groups)
 
@@ -264,19 +264,19 @@ Per la piattaforma sottostante, gestita da Microsoft, Microsoft considera tutti 
 
 ### <a name="dp-4-encrypt-sensitive-information-in-transit"></a>DP-4: Crittografare le informazioni sensibili in transito
 
-**Linee guida**: per integrare i controlli di accesso, i dati in transito devono essere protetti da attacchi fuori banda (ad esempio, l'acquisizione del traffico) usando la crittografia per assicurarsi che gli utenti malintenzionati non possano leggere o modificare facilmente i dati.
+**Indicazioni:** per integrare i controlli di accesso, i dati in transito devono essere protetti da attacchi "fuori banda" (ad esempio, l'acquisizione del traffico) usando la crittografia per garantire che gli utenti malintenzionati non siano in grado di leggere o modificare facilmente i dati.
 
-Azure Firewall Manager supporta la crittografia dei dati in transito con TLS v 1.2 o versione successiva.
+Gestione firewall di Azure supporta la crittografia dei dati in transito con TLS v1.2 o versione successiva.
 
-Sebbene sia facoltativo per il traffico su reti private, questo è fondamentale per il traffico su reti esterne e pubbliche. Per il traffico HTTP, assicurarsi che tutti i client che si connettono alle risorse di Azure possano negoziare TLS v 1.2 o versione successiva. Per la gestione remota, usare SSH (per Linux) o RDP/TLS (per Windows) invece di un protocollo non crittografato. Le versioni e i protocolli SSL, TLS e SSH obsoleti e le crittografie vulnerabili dovrebbero essere disabilitati.
+Anche se questo è facoltativo per il traffico sulle reti private, questo è fondamentale per il traffico su reti esterne e pubbliche. Per il traffico HTTP, assicurarsi che tutti i client che si connettono alle risorse di Azure possano negoziare TLS v1.2 o versione successiva. Per la gestione remota, usare SSH (per Linux) o RDP/TLS (per Windows) anziché un protocollo non crittografato. Le versioni e i protocolli SSL, TLS e SSH obsoleti e le crittografia deboli devono essere disabilitate.
 
-Per impostazione predefinita, Azure fornisce la crittografia per i dati in transito tra i Data Center di Azure.
+Per impostazione predefinita, Azure fornisce la crittografia per i dati in transito tra data center di Azure.
 
 - [Informazioni sulla crittografia in transito con Azure](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit) 
 
 - [Informazioni sulla sicurezza TLS](/security/engineering/solving-tls1-problem) 
 
-- [Crittografia doppia per i dati di Azure in transito](../security/fundamentals/double-encryption.md#data-in-transit)
+- [Doppia crittografia per i dati di Azure in transito](../security/fundamentals/double-encryption.md#data-in-transit)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -294,7 +294,7 @@ A seconda di come sono strutturate le responsabilità del team responsabile dell
 
 Le autorizzazioni di lettura per la sicurezza possono essere applicate su larga scala a un intero tenant (gruppo di gestione radice) oppure a gruppi di gestione o a sottoscrizioni specifiche. 
 
-Potrebbero essere necessarie autorizzazioni aggiuntive per ottenere visibilità sui carichi di lavoro e i servizi. 
+Potrebbero essere necessarie autorizzazioni aggiuntive per ottenere visibilità su carichi di lavoro e servizi. 
 
 - [Panoramica del ruolo con autorizzazioni di lettura per la sicurezza](../role-based-access-control/built-in-roles.md#security-reader)
 
@@ -306,15 +306,15 @@ Potrebbero essere necessarie autorizzazioni aggiuntive per ottenere visibilità 
 
 ### <a name="am-2-ensure-security-team-has-access-to-asset-inventory-and-metadata"></a>AM-2: Assicurarsi che il team di sicurezza abbia accesso all'inventario degli asset e ai metadati
 
-**Linee guida**: assicurarsi che i team di sicurezza abbiano accesso a un inventario continuamente aggiornato delle risorse di Azure Firewall Manager in Azure. Possono usare Azure Resource Graph per eseguire query e individuare tutte le risorse del firewall di Azure nelle sottoscrizioni, inclusi i servizi di Azure, le applicazioni e le risorse di rete.
+**Indicazioni:** assicurarsi che i team di sicurezza accertano l'accesso a un inventario aggiornato continuamente Gestione firewall di Azure asset in Azure. Possono usare i Azure Resource Graph per eseguire query e individuare tutte Firewall di Azure risorse nelle sottoscrizioni, inclusi servizi di Azure, applicazioni e risorse di rete.
 
-Applicare i tag alle risorse, ai gruppi di risorse e alle sottoscrizioni di Azure per organizzarli in modo logico in una tassonomia. Ogni tag è costituito da una coppia di nome e valore. Ad esempio, è possibile applicare il nome "Environment" e il valore "Production" a tutte le risorse nell'ambiente di produzione.
+Applicare tag alle risorse, ai gruppi di risorse e alle sottoscrizioni di Azure per organizzarli in modo logico in una tassonomia. Ogni tag è costituito da una coppia di nome e valore. Ad esempio, è possibile applicare il nome "Environment" e il valore "Production" a tutte le risorse nell'ambiente di produzione.
 
 - [Come creare query con Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md) 
 
-- [Gestione inventario asset del Centro sicurezza di Azure](../security-center/asset-inventory.md) 
+- [Centro sicurezza di Azure gestione inventario asset](../security-center/asset-inventory.md) 
 
-- [Per ulteriori informazioni sull'assegnazione di tag agli asset, vedere la guida alla decisione relativa alla denominazione delle risorse e all'assegnazione di tag](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=%2fazure%2fazure-resource-manager%2fmanagement%2ftoc.json)
+- [Per altre informazioni sull'assegnazione di tag alle risorse, vedere la guida alle decisioni relative alla denominazione delle risorse e all'assegnazione di tag](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=%2fazure%2fazure-resource-manager%2fmanagement%2ftoc.json)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -322,7 +322,7 @@ Applicare i tag alle risorse, ai gruppi di risorse e alle sottoscrizioni di Azur
 
 ### <a name="am-3-use-only-approved-azure-services"></a>AM-3: Usare solo i servizi di Azure approvati
 
-**Linee guida**: usare criteri di Azure per controllare e limitare i servizi di cui gli utenti possono eseguire il provisioning nell'ambiente, inclusa la possibilità di consentire o negare le distribuzioni delle risorse del firewall di Azure. Usare Azure Resource Graph per eseguire query e individuare le risorse all'interno delle sottoscrizioni. È anche possibile usare Monitoraggio di Azure per creare regole per attivare gli avvisi quando viene rilevato un servizio non approvato.
+**Indicazioni:** usare Criteri di Azure per controllare e limitare i servizi di cui gli utenti possono eseguire il provisioning nell'ambiente, inclusa la possibilità di consentire o negare distribuzioni di Firewall di Azure risorse. Usare Azure Resource Graph per eseguire query e individuare le risorse all'interno delle sottoscrizioni. È anche possibile usare Monitoraggio di Azure per creare regole per attivare gli avvisi quando viene rilevato un servizio non approvato.
 
 - [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md) 
 
@@ -336,21 +336,21 @@ Applicare i tag alle risorse, ai gruppi di risorse e alle sottoscrizioni di Azur
 
 ### <a name="am-4-ensure-security-of-asset-lifecycle-management"></a>4\. Garantire la sicurezza della gestione del ciclo di vita delle risorse
 
-**Linee guida**: rimuovere le risorse di Azure Firewall Manager quando non sono più necessarie per ridurre al minimo la superficie di attacco. Gli utenti possono gestire le risorse di Azure Firewall Manager tramite il portale di Azure, l'interfaccia della riga di comando o le API REST.
+**Linee** guida: rimuovere Gestione firewall di Azure risorse quando non sono più necessarie per ridurre al minimo la superficie di attacco. Gli utenti possono gestire le risorse Gestione firewall di Azure tramite l'interfaccia portale di Azure, l'interfaccia della riga di comando o le API REST.
 
-- [INTERFACCIA della riga di comando di Azure Firewall Policy](/cli/azure/ext/azure-firewall/network/firewall/policy)
+- [interfaccia della riga di comando di Firewall di Azure Policy](/cli/azure/network/firewall/policy)
 
-- [INTERFACCIA della riga di comando di Azure](/powershell/module/az.network/?preserve-view=true&view=azps-5.1.0#networking)
+- [Interfaccia della riga di comando di rete di Azure](/powershell/module/az.network/?preserve-view=true&view=azps-5.1.0#networking)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
 **Responsabilità**: Customer
 
-### <a name="am-5-limit-users-ability-to-interact-with-azure-resource-manager"></a>AM-5: limitare la capacità degli utenti di interagire con Azure Resource Manager
+### <a name="am-5-limit-users-ability-to-interact-with-azure-resource-manager"></a>AM-5: Limitare la capacità degli utenti di interagire con Azure Resource Manager
 
-**Linee guida**: gestione firewall di Azure è integrato con Azure Active Directory (Azure ad) per l'identità e l'autenticazione. È possibile usare l'accesso condizionale di Azure per limitare la capacità degli utenti di interagire con gestione risorse di Azure configurando "blocca l'accesso" per l'app "gestione Microsoft Azure".
+**Linee** guida: Gestione firewall di Azure è integrato con Azure Active Directory (Azure AD) per l'identità e l'autenticazione. È possibile usare l'accesso condizionale di Azure per limitare la possibilità degli utenti di interagire con Azure Resources Manager configurando "Blocca accesso" per l'app "Microsoft Azure Management".
 
-- [Come configurare l'accesso condizionale per bloccare l'accesso ad Azure Resource Manager](../role-based-access-control/conditional-access-azure-management.md)
+- [Come configurare l'accesso condizionale per bloccare l'accesso ad Azure Resources Manager](../role-based-access-control/conditional-access-azure-management.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -360,9 +360,9 @@ Applicare i tag alle risorse, ai gruppi di risorse e alle sottoscrizioni di Azur
 
 *Per altre informazioni, vedere [Azure Security Benchmark: Registrazione e rilevamento delle minacce](../security/benchmarks/security-controls-v2-logging-threat-detection.md).*
 
-### <a name="lt-1-enable-threat-detection-for-azure-resources"></a>LT-1: abilitazione del rilevamento delle minacce per le risorse di Azure
+### <a name="lt-1-enable-threat-detection-for-azure-resources"></a>LT-1: Abilitare il rilevamento delle minacce per le risorse di Azure
 
-**Linee guida**: inviare i log attività prodotti da o correlati ai criteri firewall a Siem che possono essere usati per configurare il rilevamento delle minacce personalizzato. Assicurarsi di monitorare diversi tipi di risorse di Azure per potenziali minacce e anomalie. Concentrati su come ottenere avvisi di alta qualità per ridurre i falsi positivi per gli analisti. Gli avvisi possono essere originati da dati di log, agenti o altri dati.
+**Indicazioni:** inoltrare i log attività prodotti da o correlati ai criteri firewall al sistema SIEM, che può essere usato per configurare rilevamenti di minacce personalizzati. Assicurarsi di monitorare diversi tipi di asset di Azure per individuare potenziali minacce e anomalie. Concentrarsi su come ricevere avvisi di alta qualità per ridurre i falsi positivi che gli analisti possono ordinare. Gli avvisi possono essere generati da dati di log, agenti o altri dati.
 
 - [Creare regole di analisi personalizzate per rilevare le minacce](../sentinel/tutorial-detect-threats-custom.md) 
 
@@ -383,9 +383,9 @@ Applicare i tag alle risorse, ai gruppi di risorse e alle sottoscrizioni di Azur
 - Accessi a rischio. Un accesso rischioso è indicativo di un tentativo di accesso che potrebbe essere stato eseguito da qualcuno che non è il legittimo proprietario di un account utente.
 - Utenti contrassegnati per il rischio. Un utente rischioso è indicativo di un account utente che potrebbe essere stato compromesso.
 
-Il Centro sicurezza di Azure può anche inviare avvisi relativi a determinate attività sospette, ad esempio un numero eccessivo di tentativi di autenticazione non riusciti o la presenza di account deprecati nella sottoscrizione. Oltre al monitoraggio della protezione della sicurezza di base, il modulo Protezione dalle minacce del Centro sicurezza di Azure può raccogliere anche avvisi di sicurezza più approfonditi dalle singole risorse di calcolo di Azure (macchine virtuali, contenitori, servizio app), dalle risorse dati (database SQL e archiviazione) e dai livelli di servizio di Azure. Questa funzionalità offre visibilità sulle anomalie dell'account all'interno delle singole risorse.
+Il Centro sicurezza di Azure può anche inviare avvisi relativi a determinate attività sospette, ad esempio un numero eccessivo di tentativi di autenticazione non riusciti o la presenza di account deprecati nella sottoscrizione. Oltre al monitoraggio della protezione della sicurezza di base, il modulo Protezione dalle minacce del Centro sicurezza di Azure può raccogliere anche avvisi di sicurezza più approfonditi dalle singole risorse di calcolo di Azure (macchine virtuali, contenitori, servizio app), dalle risorse dati (database SQL e archiviazione) e dai livelli di servizio di Azure. Questa funzionalità offre visibilità sulle anomalie degli account all'interno delle singole risorse.
 
-Attualmente le azioni che circondano i gruppi di raccolta regole dei criteri firewall non sono supportate dal log attività, si tratta di un problema noto che verrà risolto in aggiornamenti futuri.
+Attualmente le azioni che circondano i gruppi di raccolta regole dei criteri firewall non sono supportate dal log attività. Si tratta di un problema noto che verrà risolto negli aggiornamenti futuri.
 
 - [Report sulle attività di controllo in Azure Active Directory](../active-directory/reports-monitoring/concept-audit-logs.md)
 
@@ -399,13 +399,13 @@ Attualmente le azioni che circondano i gruppi di raccolta regole dei criteri fir
 
 ### <a name="lt-4-enable-logging-for-azure-resources"></a>LT-4: Abilitare la registrazione per le risorse di Azure
 
-**Linee guida**: i log attività, che sono automaticamente disponibili, contengono tutte le operazioni di scrittura (Put, post, Delete) per le risorse del criterio firewall, ad eccezione delle operazioni di lettura (Get). È possibile usare i log attività per trovare un errore durante la risoluzione dei problemi o per monitorare il modo in cui un utente dell'organizzazione ha modificato una risorsa.
+**Indicazioni:** i log attività, disponibili automaticamente, contengono tutte le operazioni di scrittura (PUT, POST, DELETE) per le risorse dei criteri del firewall, ad eccezione delle operazioni di lettura (GET). I log attività possono essere usati per trovare un errore durante la risoluzione dei problemi o per monitorare il modo in cui un utente dell'organizzazione ha modificato una risorsa.
 
-Attualmente le azioni che circondano i gruppi di raccolta regole dei criteri firewall non sono supportate dal log attività, si tratta di un problema noto che verrà risolto in aggiornamenti futuri.
+Attualmente le azioni che circondano i gruppi di raccolta regole dei criteri firewall non sono supportate dal log attività. Si tratta di un problema noto che verrà risolto negli aggiornamenti futuri.
 
-- [Come raccogliere i log e le metriche della piattaforma con monitoraggio di Azure](../azure-monitor/essentials/diagnostic-settings.md)
+- [Come raccogliere i log e le metriche della piattaforma con Monitoraggio di Azure](../azure-monitor/essentials/diagnostic-settings.md)
 
-- [Informazioni sulla registrazione e sui diversi tipi di log in Azure](../azure-monitor/essentials/platform-logs-overview.md)
+- [Informazioni sulla registrazione e i diversi tipi di log in Azure](../azure-monitor/essentials/platform-logs-overview.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -413,15 +413,15 @@ Attualmente le azioni che circondano i gruppi di raccolta regole dei criteri fir
 
 ### <a name="lt-5-centralize-security-log-management-and-analysis"></a>LT-5: Centralizzare la gestione e l'analisi dei log di sicurezza
 
-**Linee guida**: centralizzare l'archiviazione e l'analisi di registrazione per abilitare la correlazione. Per ogni origine di log, verificare di avere assegnato un proprietario di dati, le linee guida per l'accesso, il percorso di archiviazione, gli strumenti usati per elaborare e accedere ai dati e i requisiti di conservazione dei dati.
+**Indicazioni:** centralizzare l'archiviazione e l'analisi della registrazione per abilitare la correlazione. Per ogni origine log, assicurarsi di avere assegnato un proprietario dei dati, indicazioni di accesso, posizione di archiviazione, quali strumenti vengono usati per elaborare e accedere ai dati e requisiti di conservazione dei dati.
 
-Assicurarsi di integrare i log attività di Azure nella registrazione centrale. Inserire i log tramite monitoraggio di Azure per aggregare i dati di sicurezza generati dai dispositivi endpoint, le risorse di rete e altri sistemi di sicurezza. In monitoraggio di Azure usare le aree di lavoro Log Analytics per eseguire query ed eseguire analisi e usare gli account di archiviazione di Azure per l'archiviazione a lungo termine e di archiviazione.
+Assicurarsi di integrare i log attività di Azure nella registrazione centrale. Inserire i log tramite Monitoraggio di Azure aggregare i dati di sicurezza generati da dispositivi endpoint, risorse di rete e altri sistemi di sicurezza. In Monitoraggio di Azure usare le aree di lavoro Log Analytics per eseguire query ed eseguire analisi e usare Archiviazione di Azure per l'archiviazione a lungo termine e di archiviazione.
 
-Inoltre, abilitare e caricare i dati di log in Sentinel di Azure o in un SIEM di terze parti.
+Inoltre, abilitare e eseguire l'onboardmento dei dati di log Azure Sentinel o un SIEM di terze parti.
 
-Molte organizzazioni scelgono di usare Sentinel di Azure per i dati "attivi" usati di frequente e archiviazione di Azure per dati "a freddo" usati con minore frequenza.
+Molte organizzazioni scelgono di usare Azure Sentinel per i dati "ad accesso frequente" usati di frequente e Archiviazione di Azure per i dati "a freddo" usati meno frequentemente.
 
-- [Come raccogliere i log e le metriche della piattaforma con monitoraggio di Azure](../azure-monitor/essentials/diagnostic-settings.md)
+- [Come raccogliere log e metriche della piattaforma con Monitoraggio di Azure](../azure-monitor/essentials/diagnostic-settings.md)
 
 - [Come eseguire l'onboarding di Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -431,13 +431,13 @@ Molte organizzazioni scelgono di usare Sentinel di Azure per i dati "attivi" usa
 
 ### <a name="lt-6-configure-log-storage-retention"></a>LT-6: Configurare la conservazione dell'archiviazione dei log
 
-**Linee guida**: assicurarsi che gli account di archiviazione o le aree di lavoro di log Analytics usati per archiviare i log dei criteri firewall dispongano del periodo di conservazione del log impostato in base alle normative di conformità dell'organizzazione.
+**Indicazioni:** assicurarsi che per tutti gli account di archiviazione o le aree di lavoro Log Analytics usate per l'archiviazione dei log dei criteri firewall sia impostato il periodo di conservazione dei log in base alle normative di conformità dell'organizzazione.
 
-In monitoraggio di Azure è possibile impostare il periodo di conservazione dell'area di lavoro Log Analytics in base alle normative di conformità dell'organizzazione. Usare gli account di archiviazione di Azure, Data Lake o Log Analytics dell'area di lavoro per l'archiviazione a lungo termine e di archiviazione.
+In Monitoraggio di Azure, è possibile impostare il periodo di conservazione dell'area di lavoro Log Analytics in base alle normative di conformità dell'organizzazione. Usare Archiviazione di Azure, Data Lake o account dell'area di lavoro Log Analytics per l'archiviazione a lungo termine e di archiviazione.
 
 - [Come configurare il periodo di conservazione dell'area di lavoro Log Analytics](../azure-monitor/logs/manage-cost-storage.md)
 
-- [Archiviazione dei log delle risorse in un account di archiviazione di Azure](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage)
+- [Archiviazione dei log delle risorse in un account Archiviazione di Azure locale](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -475,7 +475,7 @@ In monitoraggio di Azure è possibile impostare il periodo di conservazione dell
 
 Gli avvisi di alta qualità possono essere creati in base all'esperienza degli eventi imprevisti passati, a origini della community convalidate e a strumenti progettati per generare e pulire gli avvisi unendo e correlando diverse origini dei segnali. 
 
-Il Centro sicurezza di Azure offre avvisi di alta qualità in molte risorse di Azure. È possibile usare il connettore dati del Centro sicurezza di Azure per trasmettere gli avvisi ad Azure Sentinel. Azure Sentinel consente di creare regole di avviso avanzate per generare automaticamente eventi imprevisti per un'analisi. 
+Centro sicurezza di Azure fornisce avvisi di alta qualità in molti asset di Azure. È possibile usare il connettore dati del Centro sicurezza di Azure per trasmettere gli avvisi ad Azure Sentinel. Azure Sentinel consente di creare regole di avviso avanzate per generare automaticamente eventi imprevisti per un'analisi. 
 
 Esportare gli avvisi e le raccomandazioni del Centro sicurezza di Azure usando la funzionalità di esportazione per contribuire a individuare i rischi per le risorse di Azure. È possibile esportare avvisi e raccomandazioni manualmente o in modo continuativo.
 
@@ -521,7 +521,7 @@ Azure Sentinel fornisce analisi approfondite dei dati in qualsiasi origine di lo
 
 **Indicazioni**: fornire un contesto agli analisti per consentire loro di capire su quali eventi imprevisti concentrarsi per primi in base al livello di gravità dell'avviso e di sensibilità delle risorse. 
 
-il Centro sicurezza di Azure assegna un livello di gravità a ogni avviso per facilitare la classificazione in ordine di priorità in base agli avvisi che devono essere analizzati per primi. La gravità è basata sul livello di attendibilità del Centro sicurezza nell'individuazione o sull'analisi utilizzata per emettere l'avviso, oltre che sul livello di confidenza che ha causato l'intento dannoso dietro l'attività che ha portato all'avviso.
+il Centro sicurezza di Azure assegna un livello di gravità a ogni avviso per facilitare la classificazione in ordine di priorità in base agli avvisi che devono essere analizzati per primi. La gravità si basa sulla sicurezza del Centro sicurezza nella ricerca o nell'analisi usata per rilasciare l'avviso, nonché sul livello di attendibilità che dietro l'attività era presente una finalità dannosa che ha generato l'avviso.
 
 Contrassegnare inoltre le risorse tramite tag e creare un sistema di denominazione per identificare e classificare le risorse di Azure, in particolare quelle che elaborano i dati sensibili.  È responsabilità dell'utente classificare in ordine di priorità la correzione degli avvisi in base alla criticità delle risorse e dell'ambiente di Azure in cui si è verificato l'evento imprevisto.
 
@@ -553,13 +553,13 @@ Contrassegnare inoltre le risorse tramite tag e creare un sistema di denominazio
 
 ### <a name="pv-1-establish-secure-configurations-for-azure-services"></a>PV-1: Definire configurazioni sicure per i servizi di Azure 
 
-**Linee guida**: automatizzare e proteggere la distribuzione e la configurazione delle risorse di Azure Firewall Manager negli ambienti, usando meccanismi come: Azure Resource Manager modelli, controlli RBAC di Azure e criteri di Azure. Definire configurazioni sicure per le risorse di Azure Firewall Manager in fase di distribuzione, controllare e applicare tali configurazioni definendo definizioni di criteri di Azure personalizzate usando gli alias nello spazio dei nomi "Azure. Network".
+**Linee** guida: automatizzare e proteggere la distribuzione e la configurazione delle risorse Gestione firewall di Azure negli ambienti, usando meccanismi come: modelli di Azure Resource Manager, controlli del controllo degli accessi in base al ruolo di Azure e Criteri di Azure. Definire configurazioni sicure per le risorse Gestione firewall di Azure in fase di distribuzione, controllare e applicare tali configurazioni definendo definizioni di Criteri di Azure personalizzate usando alias nello spazio dei nomi 'Azure.Network'.
 
-- [Informazioni di riferimento sui modelli di criteri del firewall di Azure](/azure/templates/microsoft.network/firewallpolicies)
+- [Firewall di Azure riferimento al modello di criteri](/azure/templates/microsoft.network/firewallpolicies)
 
-- [INTERFACCIA della riga di comando di Azure Firewall Policy](/cli/azure/ext/azure-firewall/network/firewall/policy)
+- [interfaccia della riga di comando di Firewall di Azure Policy](/cli/azure/network/firewall/policy)
 
-- [Illustrazione dell'implementazione di Guardrails nell'area di destinazione su scala aziendale](/azure/cloud-adoption-framework/ready/enterprise-scale/architecture#landing-zone-expanded-definition)
+- [Illustrazione dell'implementazione di guardrails nella zona di destinazione su scala aziendale](/azure/cloud-adoption-framework/ready/enterprise-scale/architecture#landing-zone-expanded-definition)
 
 - [Creare e gestire i criteri per applicare la conformità](../governance/policy/tutorials/create-and-manage.md)
 
@@ -569,13 +569,13 @@ Contrassegnare inoltre le risorse tramite tag e creare un sistema di denominazio
 
 ### <a name="pv-2-sustain-secure-configurations-for-azure-services"></a>PV-2: Supportare le configurazioni sicure per i servizi di Azure
 
-**Indicazioni**: Azure Firewall Manager supporta i modelli basati su Azure Resource Manager e l'applicazione delle impostazioni di configurazione tramite criteri di Azure. Definire le definizioni di criteri di Azure personalizzate per controllare e applicare le configurazioni delle risorse di Azure Firewall Manager usando gli alias nello spazio dei nomi "Azure. Network".
+**Indicazioni:** Gestione firewall di Azure supporta modelli Azure Resource Manager e l'applicazione di impostazioni di configurazione tramite Criteri di Azure. Definire definizioni Criteri di Azure personalizzate per controllare e applicare Gestione firewall di Azure delle risorse usando alias nello spazio dei nomi 'Azure.Network'.
 
 - [Informazioni sugli effetti di Criteri di Azure](../governance/policy/concepts/effects.md)
 
-- [Informazioni di riferimento sui modelli di criteri del firewall di Azure](/azure/templates/microsoft.network/firewallpolicies)
+- [Firewall di Azure riferimento al modello di criteri di sicurezza](/azure/templates/microsoft.network/firewallpolicies)
 
-- [Illustrazione dell'implementazione di Guardrails nell'area di destinazione su scala aziendale](/azure/cloud-adoption-framework/ready/enterprise-scale/architecture#landing-zone-expanded-definition)
+- [Illustrazione dell'implementazione delle protezioni nella zona di destinazione su scala aziendale](/azure/cloud-adoption-framework/ready/enterprise-scale/architecture#landing-zone-expanded-definition)
 
 - [Creare e gestire i criteri per applicare la conformità](../governance/policy/tutorials/create-and-manage.md)
 
@@ -583,9 +583,9 @@ Contrassegnare inoltre le risorse tramite tag e creare un sistema di denominazio
 
 **Responsabilità**: Customer
 
-### <a name="pv-3-establish-secure-configurations-for-compute-resources"></a>PV-3: stabilire configurazioni sicure per le risorse di calcolo
+### <a name="pv-3-establish-secure-configurations-for-compute-resources"></a>PV-3: Stabilire configurazioni sicure per le risorse di calcolo
 
-**Linee guida**: non applicabile; Azure Firewall Manager è il servizio di gestione del piano di controllo del firewall e non espone l'infrastruttura di calcolo del servizio sottostante per la configurazione dei clienti.
+**Indicazioni:** non applicabile; Gestione firewall di Azure è un servizio di gestione del piano di controllo del firewall e non espone l'infrastruttura di calcolo del servizio sottostante che i clienti possono configurare.
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -610,15 +610,15 @@ Attenersi alle regole di partecipazione dei test di penetrazione del cloud Micro
 
 *Per altre informazioni, vedere [Azure Security Benchmark: Backup e ripristino](../security/benchmarks/security-controls-v2-backup-recovery.md).*
 
-### <a name="br-1-ensure-regular-automated-backups"></a>BR-1: garantire backup automatici regolari
+### <a name="br-1-ensure-regular-automated-backups"></a>BR-1: Garantire backup automatizzati regolari
 
-**Indicazioni**: Azure Firewall Manager non ha il concetto di backup del sistema per i clienti, l'infrastruttura sottostante viene gestita da Microsoft.
+**Indicazioni:** Gestione firewall di Azure non ha il concetto di backup di sistema per i clienti, l'infrastruttura sottostante viene gestita da Microsoft.
 
-Per i backup di configurazione delle risorse, usare Azure Resource Manager per esportare i criteri firewall e le risorse correlate in un modello di JavaScript Object Notation (JSON) che può essere usato come backup della configurazione. È anche possibile esportare le configurazioni dei criteri firewall usando la funzionalità Esporta modello del firewall di Azure da portale di Azure. Usare automazione di Azure per eseguire gli script di backup personalizzati per acquisire automaticamente le configurazioni delle risorse di Azure Firewall Manager.
+Per i backup di configurazione delle risorse, usare Azure Resource Manager per esportare i criteri del firewall e le risorse correlate in un modello JavaScript Object Notation (JSON) che può essere usato come backup della configurazione. È anche possibile esportare le configurazioni dei criteri del firewall usando la funzionalità di esportazione dei modelli Firewall di Azure da portale di Azure. Usare Automazione di Azure eseguire script di backup personalizzati per acquisire automaticamente le configurazioni delle risorse Gestione firewall di Azure risorse.
 
 - [Distribuire un hub virtuale sicuro usando un modello](quick-secure-virtual-hub.md)
 
-- [Riferimento ai modelli di criteri di Microsoft Firewall](/azure/templates/microsoft.network/firewallpolicies)
+- [Informazioni di riferimento sui modelli di criteri di Microsoft Firewall](/azure/templates/microsoft.network/firewallpolicies)
 
 - [Informazioni su Automazione di Azure](../automation/automation-intro.md)
 
@@ -628,11 +628,11 @@ Per i backup di configurazione delle risorse, usare Azure Resource Manager per e
 
 ### <a name="br-3-validate-all-backups-including-customer-managed-keys"></a>BR-3: Convalidare tutti i backup che includono chiavi gestite dal cliente
 
-**Linee guida**: gestione firewall di Azure non ha il concetto di backup del sistema rivolte ai clienti. Per tutti i modelli di risorse di Azure Firewall Manager esportati, eseguire periodicamente il ripristino usando i file di modello Azure Resource Manager.
+**Indicazioni:** Gestione firewall di Azure non ha il concetto di backup del sistema rivolti ai clienti. Per tutti i modelli Gestione firewall di Azure risorse esportati eseguono periodicamente il ripristino usando Azure Resource Manager file modello.
 
-- [Distribuire un hub virtuale sicuro usando modelli di Azure Resource Manager](quick-secure-virtual-hub.md)
+- [Distribuire l'hub virtuale sicuro usando Azure Resource Manager personalizzati](quick-secure-virtual-hub.md)
 
-- [Riferimento ai modelli di criteri di Microsoft Firewall](/azure/templates/microsoft.network/firewallpolicies)
+- [Informazioni di riferimento sui modelli di criteri di Microsoft Firewall](/azure/templates/microsoft.network/firewallpolicies)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 

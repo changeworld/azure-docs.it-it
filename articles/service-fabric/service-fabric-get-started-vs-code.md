@@ -1,17 +1,17 @@
 ---
-title: Azure Service Fabric con VS Code Introduzione
+title: Azure Service Fabric con VS Code Attività iniziali
 description: Questo articolo fornisce una panoramica sulla creazione di applicazioni di Service Fabric usando Visual Studio Code.
 author: peterpogorski
 ms.topic: article
 ms.date: 06/29/2018
 ms.author: pepogors
 ms.custom: devx-track-js
-ms.openlocfilehash: a655199d854462285ca98a2d8f454c483c061f99
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7d54b4b048632324a58708f893a4778a56137916
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92316664"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107876080"
 ---
 # <a name="service-fabric-for-visual-studio-code"></a>Service Fabric per Visual Studio Code
 
@@ -48,7 +48,7 @@ I prerequisiti seguenti devono essere installati negli ambienti di sviluppo Java
 
 I prerequisiti seguenti devono essere installati negli ambienti di sviluppo .NET Core/C#:
 
-* [.NET Core](https://www.microsoft.com/net/learn/get-started) (versione 2.0.0 o successiva)
+* [.NET Core](https://dotnet.microsoft.com/download) (versione 2.0.0 o successiva)
 * [C# per Visual Studio Code (con tecnologia OmniSharp), estensione di Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp), necessaria per eseguire il debug di servizi di linguaggio C#. È possibile eseguire l'installazione facendo clic sull'icona delle estensioni nella **barra attività** in Visual Studio Code e ricercando l'estensione oppure dal marketplace di VS Code.
 
 ## <a name="setup"></a>Configurazione
@@ -70,7 +70,7 @@ L'estensione di Reliable Services di Service Fabric per Visual Studio Code offre
 
 Il comando **Service Fabric: Creare l'applicazione** crea una nuova applicazione di Service Fabric nell'area di lavoro corrente. A seconda che i generatori yeoman siano installati nel computer di sviluppo, è possibile creare diversi tipi di applicazioni di Service Fabric, inclusi i progetti Java, C#, contenitore e guest. 
 
-1.  Selezionare il comando **Service Fabric: Crea applicazione**
+1.  Selezionare il **comando Service Fabric: Crea** applicazione
 2.  Selezionare il tipo di nuova applicazione di Service Fabric. 
 3.  Immettere il nome dell'applicazione da creare
 3.  Selezionare il tipo di servizio che si vuole aggiungere all'applicazione di Service Fabric. 
@@ -81,7 +81,7 @@ Il comando **Service Fabric: Creare l'applicazione** crea una nuova applicazione
 ### <a name="service-fabric-add-service"></a>Service Fabric: Aggiungere un servizio
 Il comando **Service Fabric: Aggiungere un servizio** aggiunge un nuovo servizio a un'applicazione Service Fabric esistente. L'applicazione a cui verrà aggiunto il servizio deve essere la directory radice dell'area di lavoro. 
 
-1.  Selezionare il comando **Service Fabric: Aggiungi servizio** .
+1.  Selezionare il **Service Fabric: Aggiungi** servizio.
 2.  Selezionare il tipo di nuova applicazione di Service Fabric. 
 3.  Selezionare il tipo di servizio che si vuole aggiungere all'applicazione di Service Fabric. 
 4.  Seguire le istruzioni per assegnare un nome al servizio. 
@@ -99,7 +99,7 @@ Il comando **Service Fabric: Pubblicare l'applicazione** distribuisce l'applicaz
 Il comando **Service Fabric: Distribuire l'applicazione** distribuisce l'applicazione di Service Fabric in un cluster locale. Assicurarsi che il cluster locale sia in esecuzione prima di usare il comando. 
 
 1. Selezionare il comando **Service Fabric: Distribuire l'applicazione**
-2. Visualizzare il cluster locale con Service Fabric Explorer (http: \/ /localhost: 19080/Explorer) per verificare che l'applicazione sia stata installata. Questa operazione potrebbe richiedere tempo.
+2. Visualizzare il cluster locale con Service Fabric Explorer (http: \/ /localhost:19080/Explorer) per verificare che l'applicazione sia stata installata. Questa operazione potrebbe richiedere tempo.
 3. È anche possibile usare il comando **Service Fabric: Pubblicare l'applicazione** senza alcun parametro impostato nel file cloud.json da distribuire in un cluster locale.
 
 > [!NOTE]
@@ -112,7 +112,7 @@ Il comando **Service Fabric: Rimuovere l'applicazione** rimuove un'applicazione 
 2.  Consente di visualizzare il cluster con Service Fabric Explorer per confermare la rimozione dell'applicazione. Questa operazione potrebbe richiedere tempo.
 
 ### <a name="service-fabric-build-application"></a>Service Fabric: Compilare l'applicazione
-Il comando **Service Fabric: compila applicazione** può compilare applicazioni Java o C# Service Fabric. 
+Il **Service Fabric: Compila applicazione** può compilare applicazioni Java o C# Service Fabric applicazioni. 
 
 1.  Assicurarsi di essere nella cartella radice dell'applicazione prima di eseguire questo comando. Il comando identifica il tipo di applicazione (C# o Java) e compila l'applicazione di conseguenza.
 2.  Selezionare il comando **Service Fabric: Compilare l'applicazione**.

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 04/19/2021
+ms.date: 04/21/2021
 ms.author: b-juche
-ms.openlocfilehash: 3c6da2137f2db43284ce7a533ff763e9ef157f35
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: fa028d8fffd2a4097b5bf7d7326d355ae56aebd7
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107726647"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107862814"
 ---
 # <a name="whats-new-in-azure-netapp-files"></a>Novità di Azure NetApp Files
 
@@ -27,19 +27,23 @@ Azure NetApp Files viene aggiornato regolarmente. Questo articolo fornisce un ri
 
 ## <a name="april-2021"></a>Aprile 2021
 
+* [Supporto delle condivisioni di disponibilità continua SMB](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume) per i contenitori del profilo utente FSLogix (anteprima)  
+
+    [FSLogix è](/fslogix/overview) un set di soluzioni che migliorano, abilitano e semplificano gli ambienti di elaborazione Windows non persistenti. Le soluzioni FSLogix sono appropriate per gli ambienti virtuali nei cloud pubblici e privati. Le soluzioni FSLogix possono essere usate anche per creare sessioni di elaborazione più portabili quando si usano dispositivi fisici. FSLogix può essere usato per fornire l'accesso dinamico ai contenitori di profili utente permanenti archiviati nell'archiviazione di rete condivisa SMB, inclusi i Azure NetApp Files. Per migliorare ulteriormente la resilienza di FSLogix agli eventi di manutenzione del servizio di archiviazione, Azure NetApp Files ha esteso il supporto per il failover trasparente SMB tramite condivisioni di disponibilità continua [(CA) SMB](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume) in Azure NetApp Files per i contenitori dei profili utente. Per altre [Azure NetApp Files, vedere l'Azure NetApp Files](azure-netapp-files-solution-architectures.md#windows-virtual-desktop) di Desktop virtuale Windows.  
+
 * [Crittografia del protocollo SMB3](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume) (anteprima) 
 
     È ora possibile abilitare la crittografia del protocollo SMB3 Azure NetApp Files volumi SMB e dual protocol. Questa funzionalità abilita la crittografia per i dati SMB3 in uso, usando l'algoritmo [AES-CCM in SMB 3.0 e l'algoritmo AES-GCM nelle connessioni SMB 3.1.1.](/windows-server/storage/file-server/file-server-smb-overview#features-added-in-smb-311-with-windows-server-2016-and-windows-10-version-1607) I client SMB che non usano la crittografia SMB3 non saranno in grado di accedere a questo volume. I dati in stato di inquieto vengono crittografati indipendentemente da questa impostazione. La crittografia SMB migliora ulteriormente la sicurezza. Tuttavia, potrebbe influire sul client (sovraccarico della CPU per la crittografia e la decrittografia dei messaggi). Potrebbe anche influire sull'utilizzo delle risorse di archiviazione (riduzione della velocità effettiva). È consigliabile testare l'impatto delle prestazioni di crittografia sulle applicazioni prima di distribuire i carichi di lavoro nell'ambiente di produzione.
 
 * Active Directory Domain Services utente LDAP di Active Directory Domain Services [(ADDS) con gruppi estesi NFS](configure-ldap-extended-groups.md) (anteprima)   
 
-    Per impostazione predefinita, Azure NetApp Files supporta fino a 16 ID gruppo durante la gestione delle credenziali utente NFS, come definito in [RFC 5531.](https://tools.ietf.org/html/rfc5531) Con questa nuova funzionalità, è ora possibile aumentare il valore massimo fino a 1.024 se sono presenti utenti che sono membri di un numero di gruppi superiore a quello predefinito. Per supportare questa funzionalità, è ora possibile aggiungere volumi NFS anche ad ADDS LDAP, che consente agli utenti LDAP di Active Directory con voci di gruppi estesi (con un massimo di 1024 gruppi) di accedere al volume. 
+    Per impostazione predefinita, Azure NetApp Files supporta fino a 16 ID gruppo durante la gestione delle credenziali utente NFS, come definito in [RFC 5531.](https://tools.ietf.org/html/rfc5531) Con questa nuova funzionalità, è ora possibile aumentare il valore massimo fino a 1.024 se si hanno utenti membri di un numero maggiore del numero predefinito di gruppi. Per supportare questa funzionalità, è ora possibile aggiungere volumi NFS anche ad ADDS LDAP, che consente agli utenti LDAP di Active Directory con voci di gruppi estesi (con un massimo di 1024 gruppi) di accedere al volume. 
 
 ## <a name="march-2021"></a>Marzo 2021
  
-* [Condivisioni di disponibilità continua (CA) SMB](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume) (anteprima)  
+* [Condivisioni di disponibilità continua SMB (CA)](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume) (anteprima)  
 
-    Il failover trasparente SMB consente operazioni di manutenzione nel servizio Azure NetApp Files senza interrompere la connettività alle applicazioni server che archiviano e accedono ai dati nei volumi SMB. Per supportare il failover trasparente SMB, Azure NetApp Files ora supporta l'opzione condivisioni di disponibilità continua SMB da usare con le applicazioni SQL Server su SMB in esecuzione nelle macchine virtuali di Azure. Questa funzionalità è attualmente supportata in Windows SQL Server. La SQL Server Linux non è attualmente supportata. L'abilitazione di questa funzionalità SQL Server miglioramenti significativi delle prestazioni e dei vantaggi in termini di scalabilità e costi per istanze [singole, istanze](azure-netapp-files-solution-architectures.md#sql-server)del cluster di failover Always-On e distribuzioni Always-On del gruppo di disponibilità . Vedere [Vantaggi dell'uso di Azure NetApp Files per SQL Server distribuzione](solutions-benefits-azure-netapp-files-sql-server.md).
+    Il failover trasparente SMB consente le operazioni di manutenzione nel servizio Azure NetApp Files senza interrompere la connettività alle applicazioni server che archiviano e accedono ai dati nei volumi SMB. Per supportare il failover trasparente SMB, Azure NetApp Files ora supporta l'opzione condivisioni di disponibilità continua SMB da usare con le applicazioni SQL Server su SMB in esecuzione nelle macchine virtuali di Azure. Questa funzionalità è attualmente supportata in Windows SQL Server. La SQL Server Linux non è attualmente supportata. L'abilitazione di questa funzionalità SQL Server miglioramenti significativi delle prestazioni e dei vantaggi in termini di scalabilità e costi per istanze [singole, istanze](azure-netapp-files-solution-architectures.md#sql-server)del cluster di failover Always-On e distribuzioni Always-On del gruppo di disponibilità . Vedere [Vantaggi dell'uso di Azure NetApp Files per SQL Server distribuzione](solutions-benefits-azure-netapp-files-sql-server.md).
 
 * [Ridimensionamento automatico di un volume di destinazione della replica tra aree](azure-netapp-files-resize-capacity-pools-or-volumes.md#resize-a-cross-region-replication-destination-volume)
 

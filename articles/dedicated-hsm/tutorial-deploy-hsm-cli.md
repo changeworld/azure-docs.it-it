@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2021
 ms.author: keithp
-ms.openlocfilehash: fa1c01c2d9da19ec1f60878de83a509b7cf561e8
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b845ecabe74040e154886476a8ba28efecc99325
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105606828"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107868862"
 ---
 # <a name="tutorial-deploying-hsms-into-an-existing-virtual-network-using-the-azure-cli"></a>Esercitazione: Distribuzione di moduli di protezione hardware in una rete virtuale esistente usando l'interfaccia della riga di comando di Azure
 
@@ -102,7 +102,7 @@ az network vnet subnet create \
 
 Dopo aver configurato la rete, usare questi comandi dell'interfaccia della riga di comando di Azure per effettuare il provisioning dei moduli di protezione hardware.
 
-1. Usare il comando [az dedicated-hsm create](/cli/azure/ext/hardware-security-modules/dedicated-hsm#ext_hardware_security_modules_az_dedicated_hsm_create) per effettuare il provisioning del primo modulo di protezione hardware. Il modulo di protezione hardware è denominato hsm1. Sostituire la sottoscrizione:
+1. Usare il comando [az dedicated-hsm create](/cli/azure/dedicated-hsm#az_dedicated_hsm_create) per effettuare il provisioning del primo modulo di protezione hardware. Il modulo di protezione hardware è denominato hsm1. Sostituire la sottoscrizione:
 
    ```azurecli
    az dedicated-hsm create --location westus --name hsm1 --resource-group myRG --network-profile-network-interfaces \
@@ -111,7 +111,7 @@ Dopo aver configurato la rete, usare questi comandi dell'interfaccia della riga 
 
    Il completamento di questa distribuzione richiederà circa 25-30 minuti, impiegati prevalentemente per i dispositivi HSM.
 
-1. Per visualizzare un modulo di protezione hardware corrente, eseguire il comando [az dedicated-hsm show](/cli/azure/ext/hardware-security-modules/dedicated-hsm#ext_hardware_security_modules_az_dedicated_hsm_show):
+1. Per visualizzare un modulo di protezione hardware corrente, eseguire il comando [az dedicated-hsm show](/cli/azure/dedicated-hsm#az_dedicated_hsm_show):
 
    ```azurecli
    az dedicated-hsm show --resource group myRG --name hsm1
@@ -124,19 +124,19 @@ Dopo aver configurato la rete, usare questi comandi dell'interfaccia della riga 
         /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRG/providers/Microsoft.Network/virtualNetworks/MyHSM-vnet/subnets/MyHSM-vnet
    ```
 
-1. Eseguire il comando [az dedicated-hsm list](/cli/azure/ext/hardware-security-modules/dedicated-hsm#ext_hardware_security_modules_az_dedicated_hsm_list) per visualizzare i dettagli dei moduli di protezione hardware correnti:
+1. Eseguire il comando [az dedicated-hsm list](/cli/azure/dedicated-hsm#az_dedicated_hsm_list) per visualizzare i dettagli dei moduli di protezione hardware correnti:
 
    ```azurecli
    az dedicated-hsm list --resource-group myRG
    ```
 
-Sono disponibili altri comandi che potrebbero risultare utili. Usare il comando [az dedicated-hsm update](/cli/azure/ext/hardware-security-modules/dedicated-hsm#ext_hardware_security_modules_az_dedicated_hsm_update) per aggiornare un modulo di protezione hardware:
+Sono disponibili altri comandi che potrebbero risultare utili. Usare il comando [az dedicated-hsm update](/cli/azure/dedicated-hsm#az_dedicated_hsm_update) per aggiornare un modulo di protezione hardware:
 
 ```azurecli
 az dedicated-hsm update --resource-group myRG –name hsm1
 ```
 
-Per eliminare un modulo di protezione hardware, usare il comando [az dedicated-hsm delete](/cli/azure/ext/hardware-security-modules/dedicated-hsm#ext_hardware_security_modules_az_dedicated_hsm_delete):
+Per eliminare un modulo di protezione hardware, usare il comando [az dedicated-hsm delete](/cli/azure/dedicated-hsm#az_dedicated_hsm_delete):
 
 ```azurecli
 az dedicated-hsm delete --resource-group myRG –name hsm1
@@ -233,7 +233,7 @@ L'output sarà simile a quello riportato nell'immagine seguente:
 
 ![Screenshot che mostra l'output nella finestra di PowerShell.](media/tutorial-deploy-hsm-cli/hsm-show-output.png)
 
-A questo punto, sono state allocate tutte le risorse per una distribuzione a disponibilità elevata con due moduli di protezione hardware e sono stati convalidati l'accesso e lo stato operativo. Qualsiasi ulteriore configurazione o test prevede operazioni aggiuntive con il dispositivo HSM stesso. A tale proposito, seguire le istruzioni nella Guida dell'amministrazione del modulo di protezione hardware Thales Luna 7 del capitolo 7 per inizializzare il modulo HSM e creare partizioni. Tutta la documentazione e il software sono disponibili direttamente da Thales per il download dopo la registrazione nel [portale di supporto clienti Thales](https://supportportal.thalesgroup.com/csm) e con un ID cliente. Per ottenere tutti i componenti necessari, scaricare la versione 7.2 del software client.
+A questo punto, sono state allocate tutte le risorse per una distribuzione a disponibilità elevata con due moduli di protezione hardware e sono stati convalidati l'accesso e lo stato operativo. Qualsiasi ulteriore configurazione o test prevede operazioni aggiuntive con il dispositivo HSM stesso. A questo scopo, è necessario seguire le istruzioni riportate nel capitolo 7 della Guida all'amministrazione del servizio HSM Thales Luna 7 per inizializzare il servizio HSM e creare partizioni. Tutta la documentazione e il software sono disponibili direttamente da Thales per il download dopo essere stati registrati nel portale di supporto clienti [thales](https://supportportal.thalesgroup.com/csm) e avere un ID cliente. Per ottenere tutti i componenti necessari, scaricare la versione 7.2 del software client.
 
 ## <a name="delete-or-clean-up-resources"></a>Eliminazione o pulizia delle risorse
 

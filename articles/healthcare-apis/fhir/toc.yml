@@ -93,10 +93,10 @@
           href: export-data.md
         - name: Esportazione per cui è stata annullata l'identificazione
           href: de-identified-export.md
-    - name: Converti dati
+    - name: Convertire i dati
       expanded: false
       items:
-        - name: Modelli di estensione $convert-data e FHIR Converter
+        - name: $convert-data e FHIR Converter Extension Templates
           href: convert-data.md
     - name: Trovare ID oggetto identità
       href: find-identity-object-ids.md
@@ -127,7 +127,7 @@
           href: iot-data-flow.md
         - name: Modelli di mapping del connettore Azure IoT per FHIR (anteprima)
           href: iot-mapping-templates.md
-    - name: Sicurezza
+    - name: Security
       items:
         - name: Controlli di sicurezza in base a Criteri di Azure
           href: ./security-controls-policy.md
@@ -144,7 +144,7 @@
 - name: Informazioni di riferimento
   items:
     - name: Interfaccia della riga di comando di Azure
-      href: /cli/azure/ext/healthcareapis/healthcareapis
+      href: /cli/azure/healthcareapis
     - name: Criteri di Azure predefiniti
       displayName: 'samples, policies, definitions'
       href: ./policy-reference.md

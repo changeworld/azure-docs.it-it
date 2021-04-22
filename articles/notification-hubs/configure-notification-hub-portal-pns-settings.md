@@ -12,12 +12,12 @@ ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 02/14/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 5dd1044895ba55d1fbc6be7f4f4a2d7f615daa16
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 31d915cd44bcf60f3515eb1a84309980f45d40b0
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94887264"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107868286"
 ---
 # <a name="quickstart-set-up-push-notifications-in-a-notification-hub"></a>Avvio rapido: Configurare notifiche push in un hub di notifica
 
@@ -75,13 +75,13 @@ Sarà necessaria la **Chiave API** per il progetto Google Firebase Cloud Messagi
 
 ### <a name="set-up-push-notifications-for-google-fcm"></a>Configurare le notifiche push per Google FCM
 
-1. Usare il comando [az notification-hub credential gcm update](/cli/azure/ext/notification-hub/notification-hub/credential/gcm#ext-notification-hub-az-notification-hub-credential-gcm-update) per aggiungere la chiave dell'API Google all'hub di notifica.
+1. Usare il comando [az notification-hub credential gcm update](/cli/azure/notification-hub/credential/gcm#az_notification_hub_credential_gcm_update) per aggiungere la chiave dell'API Google all'hub di notifica.
 
    ```azurecli
    az notification-hub credential gcm update --resource-group spnhubrg --namespace-name spnhubns    --notification-hub-name spfcmtutorial1nhub --google-api-key myKey
    ```
 
-2. L'app Android necessita di una stringa di connessione per connettersi all'hub di notifica.  Usare il comando [az notification-hub authorization-rule list](/cli/azure/ext/notification-hub/notification-hub/authorization-rule#ext-notification-hub-az-notification-hub-authorization-rule-list) per elencare i criteri di accesso disponibili.  Usare il comando [az notification-hub authorization-rule list-keys](/cli/azure/ext/notification-hub/notification-hub/authorization-rule#ext-notification-hub-az-notification-hub-authorization-rule-list-keys) per ottenere le stringhe di connessione dei criteri di accesso.  Specificare il **primaryConnectionString** o **secondaryConnectionString** nel parametro `--query` per ottenere direttamente la stringa di connessione primaria.
+2. L'app Android necessita di una stringa di connessione per connettersi all'hub di notifica.  Usare il comando [az notification-hub authorization-rule list](/cli/azure/notification-hub/authorization-rule#az_notification_hub_authorization_rule_list) per elencare i criteri di accesso disponibili.  Usare il comando [az notification-hub authorization-rule list-keys](/cli/azure/notification-hub/authorization-rule#az_notification_hub_authorization_rule_list_keys) per ottenere le stringhe di connessione dei criteri di accesso.  Specificare il **primaryConnectionString** o **secondaryConnectionString** nel parametro `--query` per ottenere direttamente la stringa di connessione primaria.
 
    ```azurecli
    #list access policies for a notification hub
@@ -94,7 +94,7 @@ Sarà necessaria la **Chiave API** per il progetto Google Firebase Cloud Messagi
    az notification-hub authorization-rule list-keys --resource-group spnhubrg --namespace-name spnhubns --notification-hub-name spfcmtutorial1nhub --name myAccessPolicyName --query primaryConnectionString
    ```
 
-3. Usare il comando [az notification-hub test-send](/cli/azure/ext/notification-hub/notification-hub#ext-notification-hub-az-notification-hub-test-send) per testare l'invio di messaggi all'app Android.
+3. Usare il comando [az notification-hub test-send](/cli/azure/notification-hub#az_notification_hub_test_send) per testare l'invio di messaggi all'app Android.
 
    ```azurecli
    #test with message body
@@ -104,7 +104,7 @@ Sarà necessaria la **Chiave API** per il progetto Google Firebase Cloud Messagi
    az notification-hub test-send --resource-group spnhubrg --namespace-name spnhubns --notification-hub-name spfcmtutorial1nhub --notification-format gcm --payload "{\"data\":{\"message\":\"my JSON string\"}}"
    ```
 
-Ottenere i riferimenti all'interfaccia della riga di comando di Azure per altre piattaforme con il comando [az notification-hub credential](/cli/azure/ext/notification-hub/notification-hub/credential).
+Ottenere i riferimenti all'interfaccia della riga di comando di Azure per altre piattaforme con il comando [az notification-hub credential](/cli/azure/notification-hub/credential).
 
 Per altre informazioni sull'invio di notifiche a un'applicazione Android, vedere [Inviare notifiche push ai dispositivi Android con Firebase](notification-hubs-android-push-notification-google-fcm-get-started.md).
 

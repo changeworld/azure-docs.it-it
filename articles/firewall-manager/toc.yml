@@ -10,7 +10,7 @@
     - name: Hub virtuale protetto - Modello di Resource Manager
       displayName: Resource Manager
       href: quick-secure-virtual-hub.md
-    - name: Distribuire un firewall con un modello ARM
+    - name: Distribuire il firewall con i criteri - Modello di Gestione configurazione di Microsoft Windows
       displayName: Resource Manager
       href: quick-firewall-policy.md
 - name: Esercitazioni
@@ -43,7 +43,7 @@
       href: threat-intelligence-settings.md
     - name: Nome di dominio completo nelle regole di rete
       href: fqdn-filtering-network-rules.md
-    - name: Sicurezza
+    - name: Security
       items:
         - name: Baseline di sicurezza
           href: security-baseline.md
@@ -64,7 +64,7 @@
 - name: Informazioni di riferimento
   items:
     - name: Interfaccia della riga di comando di Azure
-      href: /cli/azure/ext/azure-firewall/network/firewall/policy
+      href: /cli/azure/network/firewall/policy
     - name: Azure PowerShell
       href: /powershell/module/az.network/new-azfirewallpolicy
     - name: .NET

@@ -1,25 +1,25 @@
 ---
 title: Annullare il metodo di conversione
 titleSuffix: Azure Cognitive Services
-description: Il metodo di annullamento della conversione annulla un'operazione attualmente in elaborazione o in coda.
+description: Il metodo cancel translation annulla un'operazione attualmente in elaborazione o in coda.
 services: cognitive-services
 author: jann-skotdal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 03/25/2021
+ms.date: 04/21/2021
 ms.author: v-jansk
-ms.openlocfilehash: 3de052f50676065a6656f77a0ea68cf8c9ab46a8
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: e3b7da30f54b9d9468b46a2cd0972a3397e5cdce
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107836203"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107865108"
 ---
 # <a name="cancel-translation"></a>Annullare la traduzione
 
-Annullare un'operazione attualmente in elaborazione o in coda. Un'operazione non verrà annullata se è già stata completata, non riuscita o annullata. Verrà restituita una richiesta non valida. Tutti i documenti che hanno completato la traduzione non verranno annullati e verranno addebitati costi. Tutti i documenti in sospeso verranno annullati, se possibile.
+Annullare un'operazione attualmente in elaborazione o in coda. Un'operazione non verrà annullata se è già stata completata, non riuscita o annullata. Verrà restituita una richiesta non valida. Tutti i documenti che hanno completato la traduzione non verranno annullati e verranno addebitati i costi. Tutti i documenti in sospeso verranno annullati, se possibile.
 
 ## <a name="request-url"></a>URL richiesta
 
@@ -33,8 +33,8 @@ Informazioni su come trovare il [nome di dominio personalizzato](../get-started-
 
 > [!IMPORTANT]
 >
-> * **Tutte le richieste API al servizio Di traduzione documenti richiedono un endpoint di dominio personalizzato.**
-> * Non è possibile usare l'endpoint presente nella  pagina chiavi ed endpoint della risorsa portale di Azure, né l'endpoint del traduttore globale, , per effettuare richieste HTTP a `api.cognitive.microsofttranslator.com` Document Translation.
+> * **Tutte le richieste API al servizio Traduzione documenti richiedono un endpoint di dominio personalizzato.**
+> * Non è possibile usare l'endpoint presente nella pagina delle chiavi e _dell'endpoint_ della risorsa portale di Azure, né l'endpoint del traduttore globale, per effettuare richieste `api.cognitive.microsofttranslator.com` HTTP alla traduzione dei documenti.
 
 ## <a name="request-parameters"></a>Parametri della richiesta
 
@@ -42,7 +42,7 @@ I parametri della richiesta inviati a una stringa di query sono:
 
 |Query parameter (Parametro di query)|Obbligatoria|Descrizione|
 |-----|-----|-----|
-|id|Vero|ID operazione.|
+|id|Vero|OPERATION-ID.|
 
 ## <a name="request-headers"></a>Intestazioni della richiesta
 
@@ -68,7 +68,7 @@ Di seguito sono riportati i possibili codici di stato HTTP restituiti da una ric
 
 ### <a name="successful-response"></a>Risposta di esito positivo
 
-Le informazioni seguenti vengono restituite in una risposta con esito positivo.
+Le informazioni seguenti vengono restituite in una risposta corretta.
 
 |Nome|Type|Descrizione|
 |--- |--- |--- |
@@ -78,29 +78,29 @@ Le informazioni seguenti vengono restituite in una risposta con esito positivo.
 |status|Stringa|Elenco di possibili stati per il processo o il documento: <ul><li>Cancellati</li><li>Cancelling</li><li>Non riuscito</li><li>NotStarted</li><li>In esecuzione</li><li>Completato</li><li>ValidationFailed</li></ul>|
 |riepilogo|StatusSummary|Riepilogo contenente i dettagli elencati di seguito.|
 |summary.total|numero intero|Conteggio dei documenti totali.|
-|summary.failed|numero intero|Conteggio dei documenti non riuscito.|
+|summary.failed|numero intero|Numero di documenti non riusciti.|
 |summary.success|numero intero|Numero di documenti tradotti correttamente.|
-|summary.inProgress|numero intero|Conteggio dei documenti in corso.|
+|summary.inProgress|numero intero|Numero di documenti in corso.|
 |summary.notYetStarted|numero intero|Numero di documenti non ancora avviati.|
-|summary.cancelled|numero intero|Numero di elementi annullati.|
-|summary.totalCharacterCharged|numero intero|Totale caratteri addebitati dall'API.|
+|summary.cancelled|numero intero|Numero di annullati.|
+|summary.totalCharacterCharged|numero intero|Totale dei caratteri addebitati dall'API.|
 
 ### <a name="error-response"></a>Risposta di errore
 
 |Nome|Type|Descrizione|
 |--- |--- |--- |
 |codice|string|Enumerazioni contenenti codici di errore di alto livello. Valori possibili:<br/><ul><li>InternalServerError</li><li>InvalidArgument</li><li>InvalidRequest</li><li>RequestRateTooHigh</li><li>ResourceNotFound</li><li>ServiceUnavailable</li><li>Non autorizzata</li></ul>|
-|message|string|Ottiene il messaggio di errore di alto livello.|
+|message|string|Ottiene un messaggio di errore di alto livello.|
 |target|string|Ottiene l'origine dell'errore. Ad esempio, sarebbe "documenti" o "ID documento" per un documento non valido.|
-|innerError|InnerErrorV2|Nuovo formato di errore interno, conforme alle linee guida dell'API Servizi cognitivi. Contiene le proprietà obbligatorie ErrorCode, message e le proprietà facoltative target, details(key value pair), inner error (può essere annidato).|
+|innerError|InnerErrorV2|Nuovo formato di errore interno, conforme alle linee guida dell'API Servizi cognitivi. Contiene le proprietà obbligatorie ErrorCode, message e optional properties target, details(key value pair), inner error (può essere annidato).|
 |innerError.code|string|Ottiene la stringa di errore del codice.|
-|Interno. Eraor.message|string|Ottiene il messaggio di errore di alto livello.|
+|Interno. Eroor.message|string|Ottiene un messaggio di errore di alto livello.|
 
 ## <a name="examples"></a>Esempio
 
-### <a name="example-successful-response"></a>Esempio di risposta con esito positivo
+### <a name="example-successful-response"></a>Risposta riuscita di esempio
 
-L'oggetto JSON seguente è un esempio di risposta con esito positivo.
+L'oggetto JSON seguente è un esempio di risposta riuscita.
 
 Codice di stato: 200
 

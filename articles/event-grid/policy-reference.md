@@ -1,15 +1,15 @@
 ---
 title: Definizioni di criteri predefiniti per Griglia di eventi di Azure
 description: Elenco di definizioni di criteri predefiniti di Criteri di Azure per Griglia di eventi di Azure. Queste definizioni di criteri predefiniti forniscono approcci comuni alla gestione delle risorse di Azure.
-ms.date: 04/14/2021
+ms.date: 04/21/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: b45d848a2627cfd38afb25d1679b098ea2adc66e
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 748c290698ded47e1bc47e38a65786624fd72e89
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107501613"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107869646"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-event-grid"></a>Definizioni predefinite di Criteri di Azure per Griglia di eventi di Azure
 
