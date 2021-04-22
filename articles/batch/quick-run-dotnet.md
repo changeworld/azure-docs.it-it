@@ -4,12 +4,12 @@ description: In questo argomento di avvio rapido si eseguono un processo e le at
 ms.topic: quickstart
 ms.date: 08/17/2020
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 48166faa016defb719d8b48c2fff84de32f6c2e4
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: 1c2328db520042ceff1861b740313befbed0e20d
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106168247"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107876725"
 ---
 # <a name="quickstart-run-your-first-azure-batch-job-with-the-net-api"></a>Avvio rapido: Eseguire il primo processo di Azure Batch con l'API .NET
 
@@ -25,7 +25,7 @@ Dopo aver completato questa guida introduttiva, saranno chiari i concetti fondam
 
 - Un account Batch e un account di archiviazione di Azure collegato. Per creare questi account, vedere le guide introduttive di Batch usando il [portale di Azure](quick-create-portal.md) o l'[interfaccia della riga di comando di Azure](quick-create-cli.md).
 
-- [Visual Studio 2017 o versioni successive](https://www.visualstudio.com/vs) oppure [.NET Core 2.1](https://www.microsoft.com/net/download/dotnet-core/2.1) per Linux, macOS o Windows. 
+- [Visual Studio 2017](https://www.visualstudio.com/vs)o versione successiva o [.NET Core 2.1 SDK](https://dotnet.microsoft.com/download/dotnet/2.1) per Linux, macOS o Windows. 
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
