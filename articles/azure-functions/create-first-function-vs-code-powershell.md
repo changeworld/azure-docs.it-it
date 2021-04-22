@@ -3,12 +3,12 @@ title: Creare una funzione in PowerShell con Visual Studio Code - Funzioni di Az
 description: Informazioni su come creare una funzione in PowerShell e quindi pubblicare il progetto locale nell'hosting serverless in Funzioni di Azure usando l'estensione Funzioni di Azure in Visual Studio Code.
 ms.topic: quickstart
 ms.date: 11/04/2020
-ms.openlocfilehash: 9833b154cdba24f8760e7e8d9040bfc72bbcd271
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 58a2b8a5fb386603361afa9fc26b4d323c487691
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99493593"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107862544"
 ---
 # <a name="quickstart-create-a-powershell-function-in-azure-using-visual-studio-code"></a>Avvio rapido: Creare una funzione in PowerShell in Azure con Visual Studio Code
 
@@ -30,7 +30,7 @@ Prima di iniziare, verificare che siano soddisfatti i requisiti seguenti:
 
 + [PowerShell 7](/powershell/scripting/install/installing-powershell-core-on-windows)
 
-+ Sia il [runtime di .NET Core 3.1](https://www.microsoft.com/net/download) che il [runtime di .NET Core 2.1](https://dotnet.microsoft.com/download/dotnet-core/2.1)  
++ Sia il [runtime di .NET Core 3.1](https://dotnet.microsoft.com/download) che il [runtime di .NET Core 2.1](https://dotnet.microsoft.com/download/dotnet/2.1)  
 
 + [Visual Studio Code](https://code.visualstudio.com/) in una delle [piattaforme supportate](https://code.visualstudio.com/docs/supporting/requirements#_platforms).    
 
@@ -79,7 +79,7 @@ Dopo aver verificato la corretta esecuzione della funzione nel computer locale, 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Si è usato [Visual Studio Code](functions-develop-vs-code.md?tabs=powershell) per creare un'app per le funzioni con una semplice funzione attivata tramite http. Nell'articolo successivo si espande la funzione connettendosi ad archiviazione di Azure. Per altre informazioni sulla connessione ad altri servizi di Azure, vedere [aggiungere binding a una funzione esistente in funzioni di Azure](add-bindings-existing-function.md?tabs=powershell).  
+È stato usato [Visual Studio Code](functions-develop-vs-code.md?tabs=powershell) per creare un'app per le funzioni con una semplice funzione attivata da HTTP. Nell'articolo successivo si espande la funzione connettendosi a Archiviazione di Azure. Per altre informazioni sulla connessione ad altri servizi di Azure, vedere [Aggiungere associazioni a una funzione esistente in Funzioni di Azure](add-bindings-existing-function.md?tabs=powershell).  
 
 > [!div class="nextstepaction"]
 > [Connettersi a una coda di Archiviazione di Azure](functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-powershell)

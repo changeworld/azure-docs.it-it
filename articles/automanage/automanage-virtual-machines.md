@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/23/2021
 ms.author: deanwe
 ms.custom: references_regions
-ms.openlocfilehash: 514f1af2a1b120254840986fc5ceb803dfc24345
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: 42b469963761ae1ffc736c719487ee93c3a1c149
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107363377"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107863120"
 ---
 # <a name="azure-automanage-for-virtual-machines"></a>Gestione automatica di Azure per le macchine virtuali
 
@@ -32,7 +32,7 @@ Gestione automatica di Azure per le macchine virtuali è un servizio che elimina
 
 Dopo l'onboarding delle macchine virtuali Gestione automatica di Azure, ogni servizio di procedure consigliate viene configurato in base alle impostazioni consigliate. Le procedure consigliate sono diverse per ognuno dei servizi. Un esempio potrebbe essere Backup di Azure, in cui la procedura consigliata potrebbe essere eseguire il backup della macchina virtuale una volta al giorno e avere un periodo di conservazione di sei mesi.
 
-Gestione automatica di Azure monitora automaticamente anche la deriva e corregge la deriva quando viene rilevata. Ciò significa che se la macchina virtuale viene onboarded in Gestione automatica di Azure, non solo verrà configurata in base alle procedure consigliate di Azure, ma verrà monitorata per assicurarsi che continui a essere conforme a queste procedure consigliate per l'intero ciclo di vita. Se la macchina virtuale si discosta o devia da queste procedure (ad esempio, se un servizio è offboarded), verrà corretto e il computer verrà riportato nello stato desiderato.
+Gestione automatica di Azure anche monitora automaticamente la deriva e corregge la deriva quando viene rilevata. Ciò significa che se la macchina virtuale viene onboarded in Gestione automatica di Azure, non solo verrà configurata in base alle procedure consigliate di Azure, ma verrà monitorata per assicurarsi che continui a essere conforme a queste procedure consigliate per l'intero ciclo di vita. Se la macchina virtuale si discosta o devia da queste procedure (ad esempio, se un servizio è offboarded), verrà corretto e il computer verrà riportato nello stato desiderato.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -41,7 +41,7 @@ Esistono diversi prerequisiti da considerare prima di provare a abilitare Gestio
 - Versioni [di Windows Server e](automanage-windows-server.md#supported-windows-server-versions) [distribuzioni Linux supportate](automanage-linux.md#supported-linux-distributions-and-versions)
 - Le macchine virtuali devono essere in un'area supportata (vedere di seguito)
 - L'utente deve avere le autorizzazioni corrette (vedere di seguito)
-- La gestione automatica al momento non supporta le sottoscrizioni sandbox
+- La gestione automatica non supporta le sottoscrizioni sandbox in questo momento
 
 ### <a name="supported-regions"></a>Aree supportate
 Gestione automatica supporta solo le macchine virtuali che si trovano nelle aree seguenti:
@@ -64,7 +64,7 @@ Gestione automatica supporta solo le macchine virtuali che si trovano nelle aree
 ### <a name="required-rbac-permissions"></a>Autorizzazioni di controllo degli accessi in base al ruolo necessarie
 L'account richiederà ruoli controllo degli accessi in base al ruolo leggermente diversi a seconda che si abilitazione di Gestione automatica con un nuovo account di Gestione automatica.
 
-Se si abilita Gestione automatica con un nuovo account di Gestione automatica:
+Se si abilita Gestione automatica con un nuovo account Di gestione automatica:
 * **Ruolo** proprietario nelle sottoscrizioni contenenti le macchine virtuali _**oppure**_
 * **Ruoli** **Collaboratore e Amministratore Accesso** utenti nelle sottoscrizioni contenenti le macchine virtuali
 
@@ -80,7 +80,7 @@ All'account Gestione automatica verranno  concesse le **autorizzazioni Collabora
 
 :::image type="content" source="media\automanage-virtual-machines\intelligently-onboard-services-1.png" alt-text="Onboard di servizi in modo intelligente.":::
 
-Per l'elenco completo dei servizi di Azure partecipanti e del relativo ambiente supportato, vedere gli argomenti seguenti:
+Per l'elenco completo dei servizi di Azure partecipanti e del relativo ambiente supportato, vedere quanto segue:
 - [Gestione automatica per Linux](automanage-linux.md)
 - [Gestione automatica per Windows Server](automanage-windows-server.md)
 
@@ -93,7 +93,7 @@ Per tutti questi servizi, verrà automaticamente onboard, configurata automatica
 
 Nel portale di Azure è possibile abilitare la gestione automatica in una macchina virtuale esistente o quando si crea una nuova macchina virtuale. Per i passaggi concisi di questo processo, vedere l'avvio rapido Gestione automatica per [le macchine virtuali](quick-create-virtual-machines-portal.md).
 
-Se è la prima volta che si abilita La gestione automatica per la macchina virtuale, è possibile cercare nel portale di Azure le procedure consigliate per la gestione automatica delle macchine **virtuali di Azure.** Fare **clic su Abilita** nella macchina virtuale esistente, selezionare le macchine virtuali di cui si vuole eseguire l'onboard, fare clic su Seleziona, fare clic su **Abilita** e al termine. 
+Se è la prima volta che si abilita La gestione automatica per la macchina virtuale, è possibile cercare nel portale di Azure per **Automanage -** Procedure consigliate per le macchine virtuali di Azure. Fare **clic su Abilita** nella macchina virtuale esistente, selezionare le macchine virtuali di cui si vuole eseguire l'onboard, fare clic su Seleziona, fare clic su **Abilita** e al termine. 
 
 L'unica volta che potrebbe essere necessario interagire con questa macchina virtuale per gestire questi servizi è nel caso in cui si sia tentato di correggere la macchina virtuale, ma non è stato possibile farlo. Se la macchina virtuale viene corretta, la macchina virtuale verrà nuovamente conforme senza avvisare l'utente. Per altre informazioni, vedere [Stato delle macchine virtuali.](#status-of-vms)
 
@@ -108,7 +108,7 @@ Un collegamento diretto ai criteri è [disponibile qui.](https://portal.azure.co
 1. In **Parametri** specificare i parametri per l'account di gestione automatica, il profilo di configurazione e l'effetto (l'effetto deve in genere essere DeployIfNotExists)
     1. Se non si ha un account di gestione automatica, sarà necessario [crearne uno.](./automanage-account.md)
 1. In **Correzione selezionare la** casella di controllo "Fare clic su un'attività di correzione". Verrà eseguito l'onboarding in Automanage.
-1. Fare **clic su Rivedi e** crea e verificare che tutte le impostazioni siano buone.
+1. Fare **clic su Rivedi e crea** e verificare che tutte le impostazioni siano buone.
 1. Fare clic su **Crea**.
 
 ## <a name="environment-configuration"></a>Configurazione dell'ambiente
@@ -131,10 +131,10 @@ Oltre ai servizi standard su cui si è stati emersi, è possibile configurare un
 > [!NOTE]
 > Nell'ambiente di sviluppo/test non verrà affatto backup della macchina virtuale.
 
-È possibile modificare le impostazioni di un ambiente predefinito tramite le preferenze. Per informazioni su come creare una [preferenza, vedere](virtual-machines-custom-preferences.md)qui .
+È possibile modificare le impostazioni di un ambiente predefinito tramite le preferenze. Per informazioni su come creare una [preferenza, vedere](virtual-machines-custom-preferences.md).
 
 > [!NOTE]
-> Non è possibile modificare la configurazione di registrazione nella macchina virtuale quando è abilitata la gestione automatica. Sarà necessario disabilitare La gestione automatica per la macchina virtuale e quindi riattivarla con l'ambiente e le preferenze desiderati.
+> Non è possibile modificare la configurazione di registrazione nella macchina virtuale quando l'opzione Gestione automatica è abilitata. Sarà necessario disabilitare La gestione automatica per la macchina virtuale e quindi riattivarla con l'ambiente e le preferenze desiderati.
 
 Per l'elenco completo dei servizi di Azure partecipanti e se supportano le preferenze, vedere qui:
 - [Gestione automatica per Linux](automanage-windows-server.md)
@@ -166,7 +166,7 @@ Se lo stato è **Non** *riuscito,* è possibile risolvere i problemi relativi al
 
 ## <a name="disabling-automanage-for-vms"></a>Disabilitazione della gestione automatica per le macchine virtuali
 
-È possibile decidere un giorno di disabilitare la gestione automatica in determinate macchine virtuali. Ad esempio, il computer esegue un carico di lavoro sicuro estremamente sensibile ed è necessario bloccarlo ulteriormente rispetto a quanto avrebbe fatto Naturalmente Azure, quindi è necessario configurare il computer al di fuori delle procedure consigliate di Azure.
+È possibile decidere un giorno di disabilitare la gestione automatica in determinate macchine virtuali. Ad esempio, il computer esegue un carico di lavoro sicuro estremamente sensibile ed è necessario bloccarlo ulteriormente rispetto a quanto avrebbe fatto naturalmente Azure, quindi è necessario configurare il computer al di fuori delle procedure consigliate di Azure.
 
 A tale scopo, nella portale di Azure, passare alla pagina **Automanage – Azure virtual machine best practices** (Gestione automatica - Procedure consigliate per le macchine virtuali di Azure) in cui sono elencate tutte le macchine virtuali gestite automaticamente. Selezionare la casella di controllo accanto alla macchina virtuale che si vuole disabilitare da Gestione automatica, quindi fare clic sul pulsante **Disabilita** gestione automatica.
 
@@ -182,13 +182,19 @@ Leggere attentamente i messaggi nella finestra popup visualizzata prima di fare 
 > - Il monitoraggio della deriva della gestione automatica si arresta immediatamente.
 
 
-Prima di tutto, la macchina virtuale non verrà disassociata da nessuno dei servizi in cui è stato onboarded e configurato. Pertanto, gli eventuali addebiti sostenuti da tali servizi continueranno a rimanere fatturabili. Se necessario, è necessario eseguire l'off-board. Qualsiasi comportamento di automanage verrà immediatamente interrotta. Ad esempio, non verrà più monitorata la macchina virtuale per la deriva.
+Prima di tutto, la macchina virtuale non verrà 1000 da nessuno dei servizi in cui è stato onboarded e configurato. Pertanto, gli eventuali addebiti sostenuti da tali servizi continueranno a rimanere fatturabili. Se necessario, è necessario eseguire l'off-board. Qualsiasi comportamento di automanage verrà immediatamente interrotta. Ad esempio, non verrà più monitorata la macchina virtuale per la deriva.
+
+## <a name="automanage-and-azure-disk-encryption"></a>Automanage and Crittografia dischi di Azure
+La gestione automatica è compatibile con le macchine virtuali con Crittografia dischi di Azure abilitate.
+
+Se si usa l'ambiente di produzione, verrà anche Backup di Azure. Esiste un prerequisito per l'uso corretto di AdE e Backup di Azure:
+* Prima di eseguire l'onboard della macchina virtuale abilitata per Registrazione automatica del dispositivo  nell'ambiente di produzione di Automanage, assicurarsi di aver seguito i passaggi descritti nella sezione Prima di iniziare di [questo documento.](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption#before-you-start)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 In questo articolo si è appreso che Gestione automatica per le macchine virtuali offre un mezzo per eliminare la necessità di conoscere, eseguire l'onboard e configurare le procedure consigliate per i servizi di Azure. Inoltre, se un computer di cui è stato onboarded in Gestione automatica per le macchine virtuali si allontana dalla configurazione dell'ambiente, verrà automaticamente riemandato alla conformità.
 
-Provare ad abilitare Gestione automatica per le macchine virtuali nel portale di Azure.
+Provare ad abilitare La gestione automatica per le macchine virtuali nel portale di Azure.
 
 > [!div class="nextstepaction"]
-> [Abilitare La gestione automatica per le macchine virtuali nel portale di Azure](quick-create-virtual-machines-portal.md)
+> [Abilitare la gestione automatica per le macchine virtuali nel portale di Azure](quick-create-virtual-machines-portal.md)

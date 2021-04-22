@@ -5,12 +5,12 @@ author: sajayantony
 ms.topic: article
 ms.date: 03/15/2021
 ms.author: sajaya
-ms.openlocfilehash: a8c007d7f4419ddbe1555b50ceb6fb92ea0a6f98
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: e5c855675990d6fd3ec97b839539acd843016a7d
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107783900"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107864704"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Domande frequenti su Registro Azure Container
 
@@ -274,15 +274,16 @@ az acr update --name myregistry --anonymous-pull-enabled
 > * Prima di tentare un'operazione pull anonima, eseguire per assicurarsi di cancellare `docker logout` le credenziali Docker esistenti.
 > * Solo le operazioni del piano dati sono disponibili per i client non autenticati.
 > * Il Registro di sistema può limitazione di una frequenza elevata di richieste non autenticate.
+> * Attualmente, l'accesso pull anonimo non è supportato nelle [aree del Registro](container-registry-geo-replication.md) di sistema con replica geografica.
 
 > [!WARNING]
 > L'accesso pull anonimo si applica attualmente a tutti i repository nel Registro di sistema. Se si gestisce l'accesso al repository usando token con ambito [repository,](container-registry-repository-scoped-permissions.md)tenere presente che tutti gli utenti possono eseguire il pull da tali repository in un registro abilitato per il pull anonimo. È consigliabile eliminare i token quando è abilitato l'accesso pull anonimo.
 
 ### <a name="how-do-i-push-non-distributable-layers-to-a-registry"></a>Ricerca per categorie eseguire il push di livelli non distribuibili in un registro?
 
-Un livello non distribuibile in un manifesto contiene un parametro URL da cui è possibile recuperare il contenuto. Alcuni casi d'uso possibili per l'abilitazione di push di livello non distribuibile sono per registri con restrizioni di rete, registri con accesso limitato o registri senza connettività Internet.
+Un livello non distribuibile in un manifesto contiene un parametro URL da cui è possibile recuperare il contenuto. Alcuni possibili casi d'uso per l'abilitazione di push di livello non distribuibile sono per registri con restrizioni di rete, registri con accesso limitato o registri senza connettività Internet.
 
-Ad esempio, se sono state impostate regole del gruppo di sicurezza di rete in modo che una macchina virtuale possa eseguire il pull delle immagini solo dal Registro Azure Container, Docker estrarrà gli errori per i livelli esterni/non distribuibili. Ad esempio, un'immagine di Windows Server Core conterrà riferimenti di livello esterno al Registro Azure Container nel manifesto e non riuscirà a eseguire il pull in questo scenario.
+Ad esempio, se sono state impostate regole del gruppo di sicurezza di rete in modo che una macchina virtuale possa eseguire il pull delle immagini solo dal Registro Azure Container, Docker estrarrà gli errori per i livelli esterni/non distribuibili. Ad esempio, un'immagine di Windows Server Core conterrà riferimenti di livello esterno a Registro Azure Container nel manifesto e non riuscirà a eseguire il pull in questo scenario.
 
 Per abilitare il push di livelli non distribuibili:
 
@@ -303,7 +304,7 @@ Per abilitare il push di livelli non distribuibili:
 Quando si esegue il push delle immagini nei registri nell'elenco, viene inserito nel registro i relativi livelli non distribuibili.
 
 > [!WARNING]
-> Gli artefatti non distribuibili hanno in genere restrizioni su come e dove possono essere distribuiti e condivisi. Usare questa funzionalità solo per eseguire il push degli artefatti nei registri privati. Assicurarsi di essere conformi ai termini relativi alla ridistribuzione di artefatti non distribuibili.
+> Gli artefatti non distribuibili hanno in genere restrizioni su come e dove possono essere distribuiti e condivisi. Usare questa funzionalità solo per eseguire il push degli artefatti nei registri privati. Assicurarsi di essere conformi ai termini che riguardano la ridistribuzione degli artefatti non distribuibili.
 
 ## <a name="diagnostics-and-health-checks"></a>Controlli di diagnostica e integrità
 
@@ -487,7 +488,7 @@ Di seguito sono riportati alcuni scenari in cui è possibile che le operazioni n
 * I registri classici non sono più supportati. Eseguire l'aggiornamento a un [livello di servizio](./container-registry-skus.md) supportato usando [az acr update](/cli/azure/acr#az_acr_update) o il portale di Azure.
 * L'immagine o il repository possono essere bloccati in modo che non possano essere eliminati o aggiornati. È possibile usare il comando [az acr show repository](./container-registry-image-lock.md) per visualizzare gli attributi correnti.
 * Alcune operazioni non sono consentite se l'immagine è in quarantena. Altre informazioni sulla [quarantena](https://github.com/Azure/acr/tree/master/docs/preview/quarantine).
-* È possibile che il registro abbia raggiunto il [limite di archiviazione](container-registry-skus.md#service-tier-features-and-limits).
+* È possibile che il registro abbia raggiunto il [limite di archiviazione .](container-registry-skus.md#service-tier-features-and-limits)
 
 ### <a name="repository-format-is-invalid-or-unsupported"></a>Il formato del repository non è valido o non è supportato
 

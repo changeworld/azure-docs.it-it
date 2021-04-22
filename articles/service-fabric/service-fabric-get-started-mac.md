@@ -1,15 +1,15 @@
 ---
 title: Configurare l'ambiente di sviluppo in macOS
-description: Installare il runtime, l'SDK e gli strumenti e creare un cluster di sviluppo locale. Al termine dell'installazione, sarà possibile creare applicazioni in macOS.
+description: Installare il runtime, l'SDK e gli strumenti e creare un cluster di sviluppo locale. Dopo aver completato questa configurazione, si sarà pronti per compilare applicazioni in macOS.
 ms.topic: conceptual
 ms.date: 10/16/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: d08046c8f29901dd9650a1edc886efa2ff226e00
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6fe551f8371322af8d955b5233e6d9d05741f3d9
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93086778"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107868124"
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Configurare l'ambiente di sviluppo in Mac OS X
 > [!div class="op_single_selector"]
@@ -45,34 +45,34 @@ Per configurare un contenitore Docker locale ed eseguirvi un cluster di Service 
     
     >[!NOTE]
     >
-    >La modifica del daemon direttamente in Docker è consigliata perché il percorso del daemon.jsnel file può variare da computer a computer. ad esempio ~/Library/Containers/com.docker.docker/Data/database/com.docker.driver.amd64-linux/etc/docker/daemon.json.
+    >È consigliabile modificare il daemon direttamente in Docker perché il percorso del daemon.jsnel file può variare da computer a computer. ad esempio ~/Library/Containers/com.docker.docker/Data/database/com.docker.driver.amd64-linux/etc/docker/daemon.json.
     >
 
     >[!TIP]
     >È consigliabile aumentare le risorse allocate per Docker durante il test di applicazioni di grandi dimensioni. Questa operazione può essere eseguita selezionando l'**icona Docker**, quindi selezionando **Advanced** (Avanzate) per modificare il numero di core e la quantità di memoria.
 
 2. Avviare il cluster.<br/>
-    <b>Ubuntu 18,04 LTS:</b>
+    <b>Ubuntu 18.04 LTS:</b>
     ```bash
     docker run --name sftestcluster -d -v /var/run/docker.sock:/var/run/docker.sock -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mcr.microsoft.com/service-fabric/onebox:u18
     ```
 
-    <b>Ubuntu 16,04 LTS:</b>
+    <b>Ubuntu 16.04 LTS:</b>
     ```bash
     docker run --name sftestcluster -d -v /var/run/docker.sock:/var/run/docker.sock -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mcr.microsoft.com/service-fabric/onebox:u16
     ```
 
     >[!TIP]
-    > Per impostazione predefinita, verrà eseguito il pull dell'immagine con la versione più recente di Service Fabric. Per le revisioni particolari, visitare la pagina [Service Fabric OneBox](https://hub.docker.com/_/microsoft-service-fabric-onebox) nell'hub docker.
+    > Per impostazione predefinita, verrà eseguito il pull dell'immagine con la versione più recente di Service Fabric. Per revisioni specifiche, visitare la pagina [Service Fabric Onebox](https://hub.docker.com/_/microsoft-service-fabric-onebox) in Docker Hub.
 
 
 
-3. Facoltativo: compilare l'immagine di Service Fabric estesa.
+3. Facoltativo: creare l'immagine Service Fabric estesa.
 
     In una nuova directory creare un file denominato `Dockerfile` per compilare l'immagine personalizzata:
 
     >[!NOTE]
-    >È possibile adattare l'immagine precedente con una Dockerfile per aggiungere altri programmi o dipendenze nel contenitore.
+    >È possibile adattare l'immagine precedente con un Dockerfile per aggiungere altri programmi o dipendenze nel contenitore.
     >Ad esempio, se si aggiunge `RUN apt-get install nodejs -y` sarà possibile supportare le applicazioni `nodejs` come eseguibili guest.
     ```Dockerfile
     FROM mcr.microsoft.com/service-fabric/onebox:u18
@@ -83,9 +83,9 @@ Per configurare un contenitore Docker locale ed eseguirvi un cluster di Service 
     ```
     
     >[!TIP]
-    > Per impostazione predefinita, verrà eseguito il pull dell'immagine con la versione più recente di Service Fabric. Per le revisioni particolari, visitare la pagina dell' [Hub Docker](https://hub.docker.com/r/microsoft/service-fabric-onebox/) .
+    > Per impostazione predefinita, verrà eseguito il pull dell'immagine con la versione più recente di Service Fabric. Per revisioni specifiche, visitare la [Docker Hub](https://hub.docker.com/r/microsoft/service-fabric-onebox/) pagina.
 
-    Per compilare l'immagine riutilizzabile dalla `Dockerfile` , aprire un terminale e `cd` al tenendo premuto il `Dockerfile` percorso seguente:
+    Per compilare l'immagine riutilizzabile da , aprire un terminale e a `Dockerfile` che contiene direttamente e quindi `cd` `Dockerfile` eseguire:
 
     ```bash 
     docker build -t mysfcluster .
@@ -94,7 +94,7 @@ Per configurare un contenitore Docker locale ed eseguirvi un cluster di Service 
     >[!NOTE]
     >Questa operazione richiederà del tempo, ma è necessaria eseguirla solo una volta.
 
-    A questo punto è possibile avviare rapidamente una copia locale di Service Fabric ogni volta che è necessaria eseguendo:
+    A questo punto è possibile avviare rapidamente una copia locale Service Fabric ogni volta che è necessaria eseguendo:
 
     ```bash 
     docker run --name sftestcluster -d -v /var/run/docker.sock:/var/run/docker.sock -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mysfcluster
@@ -125,8 +125,8 @@ Per configurare un contenitore Docker locale ed eseguirvi un cluster di Service 
  
  Le seguenti sono limitazioni note del cluster locale eseguito in un contenitore per Mac: 
  
- * Il servizio DNS non è in esecuzione e non è attualmente supportato nel contenitore. [#132 problema](https://github.com/Microsoft/service-fabric/issues/132)
- * Per l'esecuzione di app basate su contenitori è necessario eseguire SF in un host Linux. Le app contenitore annidate non sono attualmente supportate.
+ * Il servizio DNS non viene eseguito e non è attualmente supportato all'interno del contenitore. [Problema #132](https://github.com/Microsoft/service-fabric/issues/132)
+ * L'esecuzione di app basate su contenitori richiede l'esecuzione di Sf in un host Linux. Le app contenitore annidate non sono attualmente supportate.
 
 ## <a name="set-up-the-service-fabric-cli-sfctl-on-your-mac"></a>Configurare l'interfaccia della riga di comando di Service Fabric (sfctl) in un computer Mac
 
@@ -173,7 +173,7 @@ Service Fabric fornisce strumenti di scaffolding che consentono di creare un'app
     ```
 
     > [!IMPORTANT]
-    > Le versioni correnti di `brew cask install java` possono installare una versione più recente del JDK.
+    > Le versioni correnti `brew cask install java` di possono installare una versione più recente di JDK.
     > Assicurarsi di installare JDK 8.
 
 ## <a name="deploy-your-application-on-your-mac-from-the-terminal"></a>Distribuire l'applicazione nel computer Mac dal terminale
@@ -193,9 +193,9 @@ Dopo aver creato e compilato l'applicazione di Service Fabric, è possibile dist
     bash install.sh
     ```
 
-## <a name="set-up-net-core-31-development"></a>Configurare lo sviluppo per .NET Core 3,1
+## <a name="set-up-net-core-31-development"></a>Configurare lo sviluppo .NET Core 3.1
 
-Installare [.NET Core 3,1 SDK per Mac](https://www.microsoft.com/net/core#macos) per iniziare a [creare applicazioni C# Service Fabric](service-fabric-create-your-first-linux-application-with-csharp.md). I pacchetti per le applicazioni .NET Core Service Fabric sono ospitati in NuGet.org.
+Installare [.NET Core 3.1 SDK per Mac per iniziare](https://dotnet.microsoft.com/download?initial-os=macos) a creare applicazioni Service Fabric [C#.](service-fabric-create-your-first-linux-application-with-csharp.md) I pacchetti per le applicazioni Service Fabric .NET Core sono ospitati NuGet.org.
 
 ## <a name="install-the-service-fabric-plug-in-for-eclipse-on-your-mac"></a>Installare il plug-in Service Fabric per Eclipse nel computer Mac
 

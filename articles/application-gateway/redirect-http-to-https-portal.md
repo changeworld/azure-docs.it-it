@@ -1,5 +1,5 @@
 ---
-title: Reindirizzamento da HTTP a HTTPS nel portale applicazione Azure gateway
+title: Reindirizzamento da HTTP a HTTPS nel portale - gateway applicazione di Azure
 description: Informazioni su come creare un gateway applicazione con traffico reindirizzato da HTTP a HTTPS usando il portale di Azure.
 services: application-gateway
 author: vhorne
@@ -7,16 +7,16 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: 67153fa750fee765dcaa1072eec87a2f6169b918
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e7fb40d95c4659bf353366770da7c903ffa1bd09
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93397281"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107867224"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-portal"></a>Creare un gateway applicazione con reindirizzamento da HTTP a HTTPS tramite il portale di Azure
 
-È possibile usare la portale di Azure per creare un [gateway applicazione](overview.md) con un certificato per la terminazione TLS. Viene usata una regola di routing per reindirizzare il traffico HTTP verso la porta HTTPS nel gateway applicazione. In questo esempio viene creato anche un [set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/overview.md) per il pool back-end del gateway applicazione che contiene due istanze di macchine virtuali.
+È possibile usare il portale di Azure per creare un [gateway applicazione](overview.md) con un certificato per la terminazione TLS. Viene usata una regola di routing per reindirizzare il traffico HTTP verso la porta HTTPS nel gateway applicazione. In questo esempio viene creato anche un [set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/overview.md) per il pool back-end del gateway applicazione che contiene due istanze di macchine virtuali.
 
 In questo articolo vengono illustrate le operazioni seguenti:
 
@@ -30,11 +30,11 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Per questa esercitazione è necessario il modulo Azure PowerShell versione 1.0.0 o successiva per creare un certificato e installare IIS. Eseguire `Get-Module -ListAvailable Az` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-az-ps). Per eseguire i comandi in questa esercitazione, è anche necessario eseguire `Login-AzAccount` per creare una connessione con Azure.
+Per questa esercitazione è necessario Azure PowerShell modulo versione 1.0.0 o successiva per creare un certificato e installare IIS. Eseguire `Get-Module -ListAvailable Az` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-az-ps). Per eseguire i comandi in questa esercitazione, è anche necessario eseguire `Login-AzAccount` per creare una connessione con Azure.
 
 ## <a name="create-a-self-signed-certificate"></a>Creare un certificato autofirmato
 
-Per l'uso in ambiente di produzione è necessario importare un certificato valido firmato da un provider attendibile. Per questa esercitazione viene creato un certificato autofirmato usando il comando [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate). È possibile usare [Export-PfxCertificate](/powershell/module/pkiclient/export-pfxcertificate) con l'identificazione personale restituita per esportare un file pfx dal certificato.
+Per l'uso in ambiente di produzione è necessario importare un certificato valido firmato da un provider attendibile. Per questa esercitazione viene creato un certificato autofirmato usando il comando [New-SelfSignedCertificate](/powershell/module/pki/new-selfsignedcertificate). È possibile usare [Export-PfxCertificate](/powershell/module/pki/export-pfxcertificate) con l'identificazione personale restituita per esportare un file pfx dal certificato.
 
 ```powershell
 New-SelfSignedCertificate `
@@ -117,14 +117,14 @@ In primo luogo, aggiungere il listener denominato *myListener* per la porta 80.
 
 ### <a name=&quot;add-a-routing-rule-with-a-redirection-configuration&quot;></a>Aggiungere una regola di routing con una configurazione di reindirizzamento
 
-1. In **myAppGateway** selezionare **regole** e quindi selezionare **+ regola di routing richiesta**.
-2. Per il **nome della regola**, digitare *Rule2*.
+1. In **myAppGateway** selezionare **Regole e** quindi selezionare **+Richiedi regola di routing.**
+2. Per **Nome regola** digitare *Rule2*.
 3. Assicurarsi che come listener sia selezionato **MyListener**.
-4. Fare clic sulla scheda **destinazioni backend** e selezionare il **tipo di destinazione** come *Reindirizzamento*.
+4. Fare clic sulla **scheda Destinazioni back-end** e selezionare **Tipo di destinazione** come *Reindirizzamento.*
 5. Per **Tipo di reindirizzamento**, selezionare **Permanente**.
 6. Per **Destinazione di reindirizzamento**, selezionare **Listener**.
 7. Verificare che il **Listener di destinazione** sia impostato su **appGatewayHttpListener**.
-8. Per la **stringa di query include** e il **percorso di inclusione** Selezionare *Sì*.
+8. Per Includi **stringa di query e** Percorso di **inclusione** selezionare *Sì.*
 9. Selezionare **Aggiungi**.
 
 ## <a name=&quot;create-a-virtual-machine-scale-set&quot;></a>Creare un set di scalabilità di macchine virtuali
@@ -158,7 +158,7 @@ L'interfaccia utente del portale del set di scalabilità di macchine virtuali cr
 5. Selezionare **Rimuovi tutte le destinazioni dal pool back-end**.
 6. Selezionare **Salva**.
 7. Al termine del processo, selezionare il pool back-end **myAppGatewaymyvmss**, selezionare **Elimina** e quindi **OK** per confermare.
-8. Selezionare **appGatewayBackendPool**.
+8. Selezionare **appGatewayBackendPool.**
 9. In **Destinazioni** selezionare **VMSS**.
 10. In **VMSS** selezionare **myvmss**.
 11. In **Configurazioni dell'interfaccia di rete** selezionare **myvmssNic**.
@@ -218,7 +218,7 @@ Dopo aver modificato le istanze con IIS, è necessario aggiornare di nuovo il se
 
    ![Avviso di sicurezza](./media/redirect-http-to-https-powershell/application-gateway-secure.png)
 
-4. Per accettare l'avviso di sicurezza se è stato usato un certificato autofirmato, selezionare **Dettagli** e quindi **passare alla pagina Web**. Il sito Web IIS protetto viene quindi visualizzato come illustrato nell'esempio seguente:
+4. Per accettare l'avviso di sicurezza se è stato usato un certificato autofirmato, selezionare **Dettagli** e **quindi passare alla pagina Web**. Il sito Web IIS protetto viene quindi visualizzato come illustrato nell'esempio seguente:
 
    ![Testare l'URL di base nel gateway applicazione](./media/redirect-http-to-https-powershell/application-gateway-iistest.png)
 

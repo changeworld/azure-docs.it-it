@@ -1,7 +1,7 @@
 ---
 title: Creare esperimenti di Machine Learning automatizzato
 titleSuffix: Azure Machine Learning
-description: Informazioni su come definire le origini dati, le risorse di calcolo e le impostazioni di configurazione per gli esperimenti di Machine Learning automatizzato.
+description: Informazioni su come definire origini dati, calcoli e impostazioni di configurazione per gli esperimenti di Machine Learning automatizzati.
 author: cartacioS
 ms.author: sacartac
 ms.reviewer: nibaccam
@@ -11,19 +11,19 @@ ms.subservice: core
 ms.date: 09/29/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python,contperf-fy21q1, automl
-ms.openlocfilehash: 146697dec7e3d22e745fba2a1e9fae5d486195ef
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: d0a15b16c04a28bcc67caeeceedfcbad485b7157
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107819315"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107861464"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurare esperimenti di ML automatizzato in Python
 
 
 Questa guida illustra come definire diverse impostazioni di configurazione degli esperimenti di Machine Learning automatizzato con [Azure Machine Learning SDK](/python/api/overview/azure/ml/intro). Il processo di Machine Learning automatizzato seleziona un algoritmo e iperparametri per l'utente e genera un modello pronto per la distribuzione. Per configurare esperimenti di Machine Learning automatizzato sono disponibili varie opzioni.
 
-Per visualizzare esempi di esperimenti di Machine Learning automatizzato, vedere [Esercitazione:](tutorial-auto-train-models.md) Eseguire il training di un modello di classificazione con Machine Learning automatizzato o Eseguire il training di modelli con Machine [Learning automatizzato nel cloud.](how-to-auto-train-remote.md)
+Per un esempio end-to-end di un esperimento di Machine Learning automatizzato, vedere Esercitazione: Eseguire il training di un modello di classificazione [con Machine Learning automatizzato.](tutorial-auto-train-models.md)
 
 Opzioni di configurazione disponibili nell'apprendimento automatico:
 
@@ -39,14 +39,14 @@ Se si preferisce un'esperienza senza codice, è anche possibile [Creare gli espe
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per questo articolo è necessario: 
+Per questo articolo è necessario, 
 * Un'area di lavoro di Azure Machine Learning. Per creare l'area di lavoro, vedere [Creare un'area di lavoro di Azure Machine Learning](how-to-manage-workspace.md).
 
 * Il Azure Machine Learning Python SDK installato.
-    Per installare l'SDK, è possibile: 
-    * Creare un'istanza di calcolo, che installa automaticamente l'SDK ed è preconfigurata per i flussi di lavoro di Machine Learning. Per [altre informazioni, vedere Creare e gestire Azure Machine Learning'istanza di calcolo.](how-to-create-manage-compute-instance.md) 
+    Per installare l'SDK è possibile, 
+    * Creare un'istanza di calcolo, che installa automaticamente l'SDK ed è preconfigurata per i flussi di lavoro di Machine Learning. Per [altre informazioni, vedere Creare](how-to-create-manage-compute-instance.md) e gestire Azure Machine Learning di calcolo. 
 
-    * [Installare manualmente `automl` il pacchetto](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/README.md#setup-using-a-local-conda-environment), che include [l'installazione predefinita](/python/api/overview/azure/ml/install#default-install) dell'SDK.
+    * [Installare il `automl` pacchetto manualmente,](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/README.md#setup-using-a-local-conda-environment)che include [l'installazione predefinita](/python/api/overview/azure/ml/install#default-install) dell'SDK.
     
     > [!WARNING]
     > Python 3.8 non è compatibile con `automl` . 
@@ -68,7 +68,7 @@ automl_config = AutoMLConfig(task = "classification")
 
 Il processo di Machine Learning automatizzato supporta dati presenti nel desktop locale o nel cloud, ad esempio Archiviazione BLOB di Azure. I dati possono essere letti in un **dataframe Pandas** o in un **TabularDataset di Azure Machine Learning**. [Altre informazioni sui set di dati](how-to-create-register-datasets.md).
 
-Requisiti per i dati di training in Machine Learning:
+Requisiti per il training dei dati in Machine Learning:
 - I dati devono essere in formato tabulare.
 - Il valore da stimare, la colonna di destinazione, deve essere presente nei dati.
 
@@ -77,7 +77,7 @@ Requisiti per i dati di training in Machine Learning:
 I seti di dati di Azure Machine Learning espongono la funzionalità per:
 
 * Trasferire facilmente i dati da file statici o origini URL nell'area di lavoro.
-* rendere i dati disponibili per gli script di training durante l'esecuzione in risorse di calcolo sul cloud. Vedere [Come eseguire il training con i set di dati](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) per un esempio dell'uso della classe per `Dataset` montare i dati nella destinazione di calcolo remota.
+* rendere i dati disponibili per gli script di training durante l'esecuzione in risorse di calcolo sul cloud. Per [un esempio dell'uso](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) della classe per montare i dati nella destinazione di calcolo remota, vedere Come eseguire il training con i set di `Dataset` dati.
 
 Il codice seguente crea un oggetto TabularDataset da un URL Web. Vedere [Creare un oggetto TabularDatasets](how-to-create-register-datasets.md#create-a-tabulardataset) per esempi di codice su come creare set di dati da altre origini, ad esempio file locali e archivi dati.
 
@@ -114,13 +114,13 @@ A questo momento, è necessario fornire dati di **test personalizzati per** la v
 
 Successivamente, determinare dove verrà eseguito il training del modello. Un esperimento di training di Machine Learning automatizzato può essere eseguito sulle risorse di calcolo seguenti. Informazioni su [vantaggi e svantaggi delle opzioni di calcolo in locale e remoto](concept-automated-ml.md#local-remote). 
 
-* Computer **locale,** ad esempio un computer desktop o portatile locale: in genere quando si dispone di un set di dati di piccole dimensioni e si è ancora in fase di esplorazione. Vedere [questo notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/local-run-classification-credit-card-fraud/auto-ml-classification-credit-card-fraud-local.ipynb) per un esempio di calcolo locale. 
+* Computer **locale,** ad esempio un desktop o un portatile locale: in genere quando si ha un set di dati di piccole dimensioni e si è ancora in fase di esplorazione. Vedere [questo notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/local-run-classification-credit-card-fraud/auto-ml-classification-credit-card-fraud-local.ipynb) per un esempio di calcolo locale. 
  
 * Un **computer** remoto nel cloud Azure Machine Learning [Managed Compute](concept-compute-target.md#amlcompute) è un servizio gestito che consente di eseguire il training di modelli di Machine Learning in cluster di macchine virtuali di Azure. 
 
     Vedere [questo notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) per un esempio in remoto con il calcolo gestito di Azure Machine Learning. 
 
-* Un **Azure Databricks cluster** nella sottoscrizione di Azure. Per altri dettagli, vedere Configurare un cluster Azure Databricks per Machine Learning [automatizzato.](how-to-configure-databricks-automl-environment.md) Visitare il [sito GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-databricks/automl) per esempi di notebook con Azure Databricks.
+* Un **Azure Databricks cluster nella** sottoscrizione di Azure. Per altri dettagli, vedere Configurare un cluster Azure Databricks per Machine Learning [automatizzato.](how-to-configure-databricks-automl-environment.md) Visitare il [sito GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-databricks/automl) per esempi di notebook con Azure Databricks.
 
 <a name='configure-experiment'></a>
 
@@ -534,7 +534,7 @@ model = remote_run.register_model(model_name = model_name,
 Per informazioni dettagliate su come creare una configurazione di distribuzione e distribuire un modello registrato in un servizio Web, vedere come [e dove distribuire un modello](how-to-deploy-and-where.md?tabs=python#define-a-deployment-configuration).
 
 > [!TIP]
-> Per i modelli registrati, la distribuzione con un clic è disponibile tramite il [studio di Azure Machine Learning](https://ml.azure.com). Vedere [come distribuire modelli registrati da Studio.](how-to-use-automated-ml-for-ml-models.md#deploy-your-model) 
+> Per i modelli registrati, la distribuzione con un solo clic è disponibile tramite il [studio di Azure Machine Learning](https://ml.azure.com). Vedere [come distribuire modelli registrati da Studio](how-to-use-automated-ml-for-ml-models.md#deploy-your-model). 
 <a name="explain"></a>
 
 ## <a name="model-interpretability"></a>Interpretabilità dei modelli
@@ -552,8 +552,8 @@ Per informazioni generali su come abilitare le spiegazioni dei modelli e l'impor
 
 + Altre informazioni su [come e dove distribuire un modello](how-to-deploy-and-where.md).
 
-+ Altre informazioni su [come eseguire il training di un modello di regressione con il Machine Learning automatizzato](tutorial-auto-train-models.md) oppure [come eseguire il training con il Machine Learning automatizzato in una risorsa remota](how-to-auto-train-remote.md).
++ Altre informazioni su [come eseguire il training di un modello di regressione con Machine Learning automatizzato.](tutorial-auto-train-models.md)
 
 + Informazioni su come eseguire il training di più modelli con AutoML nell'acceleratore [di soluzioni Molti modelli](https://aka.ms/many-models).
 
-+ [Risolvere i problemi degli esperimenti automatizzati di Machine Learning](how-to-troubleshoot-auto-ml.md). 
++ [Risolvere i problemi degli esperimenti automatizzati di Machine Learning.](how-to-troubleshoot-auto-ml.md) 

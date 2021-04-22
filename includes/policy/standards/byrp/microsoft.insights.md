@@ -2,19 +2,19 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 04/14/2021
+ms.date: 04/21/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 99bad0658e43f9efe543f5bf58efe50657e7bb43
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: d77493bc05c068627d9de032864c9b457757d3e4
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107500355"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107869160"
 ---
 ## <a name="azure-security-benchmark"></a>Benchmark di sicurezza di Azure
 
-[Azure Security Benchmark](../../../../articles/security/benchmarks/overview.md) offre consigli sulla protezione delle soluzioni cloud in Azure. Per informazioni sul mapping completo di questo servizio ad Azure Security Benchmark, vedere i [file di mapping di Azure Security Benchmark](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
+[Azure Security Benchmark](/security/benchmark/azure/introduction) offre consigli sulla protezione delle soluzioni cloud in Azure. Per informazioni sul mapping completo di questo servizio ad Azure Security Benchmark, vedere i [file di mapping di Azure Security Benchmark](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
 Per informazioni sul mapping delle definizioni predefinite di Criteri di Azure per tutti i servizi di Azure a questo standard di conformità, vedere [Dettagli dell'iniziativa incorporata di conformità con le normative per Azure Security Benchmark](../../../../articles/governance/policy/samples/azure-security-benchmark.md).
 
@@ -33,7 +33,7 @@ Per informazioni sul mapping delle definizioni predefinite di Criteri di Azure p
 
 ## <a name="azure-security-benchmark-v1"></a>Azure Security Benchmark v1
 
-[Azure Security Benchmark](../../../../articles/security/benchmarks/overview.md) offre consigli sulla protezione delle soluzioni cloud in Azure. Per informazioni sul mapping completo di questo servizio ad Azure Security Benchmark, vedere i [file di mapping di Azure Security Benchmark](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
+[Azure Security Benchmark](/security/benchmark/azure/introduction) offre consigli sulla protezione delle soluzioni cloud in Azure. Per informazioni sul mapping completo di questo servizio ad Azure Security Benchmark, vedere i [file di mapping di Azure Security Benchmark](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
 Per informazioni sul mapping delle definizioni predefinite di Criteri di Azure per tutti i servizi di Azure a questo standard di conformità, vedere [Dettagli dell'iniziativa incorporata di conformità con le normative per Azure Security Benchmark](../../../../articles/governance/policy/samples/azure-security-benchmark.md).
 
@@ -81,7 +81,7 @@ Per altre informazioni su questo standard di conformità, vedere [CIS Microsoft 
 
 ## <a name="cis-microsoft-azure-foundations-benchmark-130"></a>CIS Microsoft Azure Foundations Benchmark 1.3.0
 
-Per esaminare il mapping delle Criteri di Azure disponibili per tutti i servizi di Azure a questo standard di conformità, vedere [Criteri di Azure Regulatory Compliance - CIS Microsoft Azure Foundations Benchmark 1.3.0 ( Conformità alle normative di Microsoft Azure Foundations Benchmark 1.3.0).](../../../../articles/governance/policy/samples/cis-azure-1-3-0.md)
+Per esaminare il mapping delle funzionalità Criteri di Azure disponibili per tutti i servizi di Azure a questo standard di conformità, vedere [Criteri di Azure Regulatory Compliance - CIS Microsoft Azure Foundations Benchmark 1.3.0 ( Conformità alle normative di Microsoft Azure Foundations Benchmark 1.3.0).](../../../../articles/governance/policy/samples/cis-azure-1-3-0.md)
 Per altre informazioni su questo standard di conformità, vedere [CIS Microsoft Azure Foundations Benchmark](https://www.cisecurity.org/benchmark/azure/).
 
 |Dominio |ID controllo |Titolo controllo |Policy<br /><sub>(Portale di Azure)</sub> |Versione del criterio<br /><sub>(GitHub)</sub>  |
@@ -166,7 +166,7 @@ Per altre informazioni su questo standard di conformità, vedere [Cybersecurity 
 |Gestione della configurazione |CM.2.065 |Tenere traccia, rivedere, approvare o approvare e registrare le modifiche ai sistemi aziendali. |[Per operazioni di sicurezza specifiche deve esistere un avviso del log attività](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3b980d31-7904-4bb7-8575-5665739a8052) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ActivityLog_SecurityOperations_Audit.json) |
 |Gestione della configurazione |CM.2.065 |Tenere traccia, rivedere, approvare o approvare e registrare le modifiche ai sistemi aziendali. |[Monitoraggio di Azure deve raccogliere i log attività da tutte le aree](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F41388f1c-2db0-4c25-95b2-35d7f5ccbfa9) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ActivityLog_CaptureAllRegions.json) |
 |Gestione della configurazione |CM.2.065 |Tenere traccia, rivedere, approvare o approvare e registrare le modifiche ai sistemi aziendali. |[Le sottoscrizioni di Azure devono avere un profilo di log per il log attività](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7796937f-307b-4598-941c-67d3a05ebfe7) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/Logprofile_activityLogs_Audit.json) |
-|Risposta agli eventi imprevisti |IR.2.093 |Rilevare e segnalare eventi. |[Per operazioni di sicurezza specifiche deve esistere un avviso del log attività](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3b980d31-7904-4bb7-8575-5665739a8052) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ActivityLog_SecurityOperations_Audit.json) |
+|Risposta agli eventi imprevisti |IR.2.093 |Rilevare e segnalare gli eventi. |[Per operazioni di sicurezza specifiche deve esistere un avviso del log attività](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3b980d31-7904-4bb7-8575-5665739a8052) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ActivityLog_SecurityOperations_Audit.json) |
 |Integrità del sistema e delle informazioni |SI.2.216 |Monitorare i sistemi aziendali, incluso il traffico delle comunicazioni in ingresso e in uscita, per rilevare attacchi e indicatori di potenziali attacchi. |[Per operazioni amministrative specifiche deve esistere un avviso del log attività](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb954148f-4c11-4c38-8221-be76711e194a) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ActivityLog_AdministrativeOperations_Audit.json) |
 |Integrità del sistema e delle informazioni |SI.2.216 |Monitorare i sistemi aziendali, incluso il traffico delle comunicazioni in ingresso e in uscita, per rilevare attacchi e indicatori di potenziali attacchi. |[Per operazioni amministrative specifiche deve esistere un avviso del log attività](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb954148f-4c11-4c38-8221-be76711e194a) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ActivityLog_AdministrativeOperations_Audit.json) |
 |Integrità del sistema e delle informazioni |SI.2.216 |Monitorare i sistemi aziendali, incluso il traffico delle comunicazioni in ingresso e in uscita, per rilevare attacchi e indicatori di potenziali attacchi. |[Per operazioni amministrative specifiche deve esistere un avviso del log attività](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb954148f-4c11-4c38-8221-be76711e194a) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ActivityLog_AdministrativeOperations_Audit.json) |

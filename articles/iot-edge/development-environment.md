@@ -8,12 +8,12 @@ ms.date: 01/04/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a253ff5fde0667c80be5a5b3af00e74abebdc609
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: 1070a5ddf298ad88100e7803635e970f9a314e52
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107030254"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107869582"
 ---
 # <a name="prepare-your-development-and-test-environment-for-iot-edge"></a>Preparare l'ambiente di sviluppo e test per IoT Edge
 
@@ -57,18 +57,18 @@ I modelli di moduli per alcuni linguaggi e servizi prevedono prerequisiti per co
 
 | Modello di modulo | Prerequisito |
 | --------------- | ------------ |
-| Funzioni di Azure | [SDK di .NET Core 2,1](https://www.microsoft.com/net/download) |
+| Funzioni di Azure | [.NET Core 2.1 SDK](https://dotnet.microsoft.com/download/dotnet/2.1) |
 | C | [Git](https://git-scm.com/) |
-| C# | [SDK di .NET Core 2,1](https://www.microsoft.com/net/download) |
+| C# | [.NET Core 2.1 SDK](https://dotnet.microsoft.com/download/dotnet/2.1) |
 | Java | <ul><li>[Java SE Development Kit 10](/azure/developer/java/fundamentals/java-jdk-long-term-support) <li> [Impostare la variabile di ambiente JAVA_HOME](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) <li> [Maven](https://maven.apache.org/)</ul> |
-| Node.js | <ul><li>[Node.js](https://nodejs.org/) <li> [Yeoman](https://www.npmjs.com/package/yo) <li> [Generatore del modulo Azure IoT Edge Node.js](https://www.npmjs.com/package/generator-azure-iot-edge-module)</ul> |
+| Node.js | <ul><li>[Node.JS](https://nodejs.org/) <li> [Yeoman](https://www.npmjs.com/package/yo) <li> [Generatore del modulo Azure IoT Edge Node.js](https://www.npmjs.com/package/generator-azure-iot-edge-module)</ul> |
 | Python |<ul><li> [Python](https://www.python.org/downloads/) <li> [Pip](https://pip.pypa.io/en/stable/installing/#installation) <li> [Git](https://git-scm.com/) </ul> |
 
-### <a name="visual-studio-20172019-extension"></a>Estensione di Visual Studio 2017/2019
+### <a name="visual-studio-20172019-extension"></a>Visual Studio'estensione 2017/2019
 
-Gli strumenti Azure IoT Edge per Visual Studio forniscono un modello di IoT Edge Module basato su C# e C.
+Gli Azure IoT Edge per Visual Studio un modello di modulo IoT Edge basato su C# e C.
 
-Per ulteriori informazioni e per il download, vedere [Azure IOT Edge Tools per Visual studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) o [Azure IOT Edge Tools per Visual Studio 2019](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools).
+Per altre informazioni e per il download, vedere [Azure IoT Edge Tools per Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) [o Azure IoT Edge Tools per Visual Studio 2019.](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools)
 
 ### <a name="iot-edge-dev-tool"></a>Strumento di sviluppo IoT Edge
 
@@ -105,13 +105,13 @@ Per altre informazioni, vedere [Azure IoT Edge dev container](https://github.com
 
 ### <a name="iot-edge-runtime-in-a-container"></a>Runtime IoT Edge in un contenitore
 
-Il runtime IoT Edge in un contenitore offre un runtime completo che accetta la stringa di connessione del dispositivo come variabile di ambiente. Questo contenitore consente di testare IoT Edge moduli e scenari in un sistema che potrebbe non supportare il runtime in modo nativo, ad esempio macOS. Eventuali moduli distribuiti verranno avviati all'esterno del contenitore di runtime. Se si desidera che il runtime e gli eventuali moduli distribuiti esistano all'interno dello stesso contenitore, prendere invece in considerazione il contenitore di dispositivi IoT Edge.
+Il runtime IoT Edge in un contenitore offre un runtime completo che accetta la stringa di connessione del dispositivo come variabile di ambiente. Questo contenitore consente di testare IoT Edge e scenari in un sistema che potrebbe non supportare il runtime in modo nativo, ad esempio macOS. Eventuali moduli distribuiti verranno avviati all'esterno del contenitore di runtime. Se si desidera che il runtime e gli eventuali moduli distribuiti esistano all'interno dello stesso contenitore, prendere invece in considerazione il contenitore di dispositivi IoT Edge.
 
 Per altre informazioni, vedere [Running Azure IoT Edge in a container](https://github.com/Azure/iotedgedev/tree/master/docker/runtime) (Eseguire Azure IoT Edge in un contenitore).
 
 ### <a name="iot-edge-device-container"></a>Contenitore di dispositivi IoT Edge
 
-Il contenitore di dispositivi IoT Edge è un dispositivo IoT Edge completo, pronto per essere avviato in qualsiasi computer con un motore del contenitore. Il contenitore di dispositivi include il runtime IoT Edge e il motore del contenitore stesso. Ogni istanza del contenitore è un dispositivo IoT Edge di provisioning automatico completamente funzionale. Il contenitore di dispositivi supporta il debug remoto dei moduli, purché sia presente una route di rete verso il modulo. Il contenitore di dispositivi è adatto per creare rapidamente un numero elevato di dispositivi IoT Edge per testare scenari su scala o Azure Pipelines. Supporta inoltre la distribuzione in Kubernetes tramite helm.
+Il contenitore di dispositivi IoT Edge è un dispositivo IoT Edge completo, pronto per essere avviato in qualsiasi computer con un motore del contenitore. Il contenitore di dispositivi include il runtime IoT Edge e il motore del contenitore stesso. Ogni istanza del contenitore è un dispositivo IoT Edge di provisioning automatico completamente funzionale. Il contenitore di dispositivi supporta il debug remoto dei moduli, purché sia presente una route di rete verso il modulo. Il contenitore di dispositivi è ottimo per creare rapidamente un numero elevato di IoT Edge per testare scenari su larga scala o Azure Pipelines. Supporta inoltre la distribuzione in Kubernetes tramite helm.
 
 Per altre informazioni, vedere [Azure IoT Edge device container](https://github.com/toolboc/azure-iot-edge-device-container) (Contenitore di dispositivi Azure IoT Edge).
 
@@ -122,5 +122,5 @@ Quando si è pronti per sviluppare soluzioni su larga scala per scenari di produ
 Per altre informazioni, indicazioni ed esempi, vedere le pagine seguenti:
 
 * [Integrazione e distribuzione continue in Azure IoT Edge](how-to-continuous-integration-continuous-deployment.md)
-* [Creare una pipeline di integrazione continua/distribuzione continua per IoT Edge con Azure DevOps Starter](how-to-devops-starter.md)
+* [Creare una pipeline CI/CD per IoT Edge con Azure DevOps Starter](how-to-devops-starter.md)
 * [IoT Edge DevOps GitHub repo](https://github.com/toolboc/IoTEdge-DevOps) (Repository GitHub DevOps IoT Edge)

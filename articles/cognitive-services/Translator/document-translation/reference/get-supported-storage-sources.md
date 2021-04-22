@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 03/25/2021
+ms.date: 04/21/2021
 ms.author: v-jansk
-ms.openlocfilehash: 97212a0da47a25330def26a5bff2b39ff840a23d
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 03203206da6ae3ea9a1174aebafda0b58e22ea41
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107836191"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107864848"
 ---
 # <a name="get-supported-storage-sources"></a>Ottenere le origini di archiviazione supportate
 
@@ -56,7 +56,7 @@ Di seguito sono riportati i possibili codici di stato HTTP restituiti da una ric
 ## <a name="get-supported-storage-sources-response"></a>Ottenere la risposta delle origini di archiviazione supportate
 
 ### <a name="successful-get-supported-storage-sources-response"></a>Risposta di ottenere correttamente le origini di archiviazione supportate
-Tipo di base per la restituzione dell'elenco nell'API Ottenere le origini di archiviazione supportate.
+Tipo di base per la restituzione dell'elenco nell'API Ottieni origini di archiviazione supportate.
 
 |Nome|Type|Descrizione|
 |--- |--- |--- |

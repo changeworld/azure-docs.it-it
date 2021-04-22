@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 11/04/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 3a7f9179822720b0e5ffc21bc560b4c6ccad9463
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
-ms.translationtype: HT
+ms.openlocfilehash: 8c418f7cbeb56b94b7a85b12e833301b979bff32
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93347423"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107871553"
 ---
 ::: zone target = "docs"
 
@@ -65,7 +65,7 @@ Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://po
 Questo passaggio richiede circa 5 minuti.
 
 1. Creare una nuova risorsa Azure Data Box nel portale di Azure.
-2. Selezionare una sottoscrizione esistente abilitata per questo servizio e scegliere **Importa** come tipo di trasferimento. Specificare il **paese di origine** in cui risiedono i dati e l' **area di destinazione di Azure** per il trasferimento dei dati.
+2. Selezionare una sottoscrizione esistente abilitata per questo servizio e scegliere **Importa** come tipo di trasferimento. Specificare il **paese di origine** in cui risiedono i dati e l'**area di destinazione di Azure** per il trasferimento dei dati.
 3. Selezionare **Data Box Heavy**. La capacità massima utilizzabile è di 770 TB ed è possibile creare più ordini per dimensioni dei dati più grandi.
 4. Immettere i dettagli dell'ordine e le informazioni per la spedizione. Se il servizio è disponibile nella propria area, specificare gli indirizzi di posta elettronica per le notifiche, controllare il riepilogo e quindi creare l'ordine.
 
@@ -89,7 +89,7 @@ Usare questi comandi dell'interfaccia della riga di comando di Azure per creare 
    az storage account create --resource-group databox-rg --name databoxtestsa
    ```
 
-1. Eseguire il comando [az databox job create](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_create) per creare un processo di Data Box con il valore `DataBoxHeavy` per **--sku** :
+1. Eseguire il comando [az databox job create](/cli/azure/databox/job#az_databox_job_create) per creare un processo di Data Box con il valore `DataBoxHeavy` per **--sku**:
 
    ```azurecli
    az databox job create --resource-group databox-rg --name databoxheavy-job \
@@ -102,37 +102,37 @@ Usare questi comandi dell'interfaccia della riga di comando di Azure per creare 
    > [!NOTE]
    > Assicurarsi che la sottoscrizione supporti Data Box Heavy.
 
-1. Eseguire il comando [az databox job update](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_update) per aggiornare un processo, come in questo esempio, in cui è necessario cambiare il nome e l'indirizzo di posta elettronica di contatto:
+1. Eseguire il comando [az databox job update](/cli/azure/databox/job#az_databox_job_update) per aggiornare un processo, come in questo esempio, in cui è necessario cambiare il nome e l'indirizzo di posta elettronica di contatto:
 
    ```azurecli
    az databox job update -g databox-rg --name databox-job --contact-name "Robert Anic" --email-list RobertAnic@contoso.com
    ```
 
-   Eseguire il comando [az databox job show](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_show) per ottenere informazioni sul processo:
+   Eseguire il comando [az databox job show](/cli/azure/databox/job#az_databox_job_show) per ottenere informazioni sul processo:
 
    ```azurecli
    az databox job show --resource-group databox-rg --name databox-job
    ```
 
-   Usare il comando [az databox job list]( /cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_list) per visualizzare tutti i processi di Data Box per un gruppo di risorse:
+   Usare il comando [az databox job list]( /cli/azure/databox/job#az_databox_job_list) per visualizzare tutti i processi di Data Box per un gruppo di risorse:
 
    ```azurecli
    az databox job list --resource-group databox-rg
    ```
 
-   Eseguire il comando [az databox job cancel](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_cancel) per annullare un processo:
+   Eseguire il comando [az databox job cancel](/cli/azure/databox/job#az_databox_job_cancel) per annullare un processo:
 
    ```azurecli
    az databox job cancel –resource-group databox-rg --name databox-job --reason "Cancel job."
    ```
 
-   Eseguire il comando [az databox job delete](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_delete) per eliminare un processo:
+   Eseguire il comando [az databox job delete](/cli/azure/databox/job#az_databox_job_delete) per eliminare un processo:
 
    ```azurecli
    az databox job delete –resource-group databox-rg --name databox-job
    ```
 
-1. Usare il comando [az databox job list-credentials]( /cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_list_credentials) per elencare le credenziali per un processo di Data Box:
+1. Usare il comando [az databox job list-credentials]( /cli/azure/databox/job#az_databox_job_list_credentials) per elencare le credenziali per un processo di Data Box:
 
    ```azurecli
    az databox job list-credentials --resource-group "databox-rg" --name "databoxdisk-job"

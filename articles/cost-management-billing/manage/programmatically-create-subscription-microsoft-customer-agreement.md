@@ -1,6 +1,6 @@
 ---
 title: Creare sottoscrizioni di Azure a livello di codice per un contratto del cliente Microsoft con le API più recenti
-description: Informazioni su come creare sottoscrizioni di Azure per un contratto cliente Microsoft a livello di codice usando le versioni più recenti dell'API REST, dell'interfaccia della riga di comando di Azure, Azure PowerShell e dei modelli di Azure Resource Manager.
+description: Informazioni su come creare sottoscrizioni di Azure per un Contratto del cliente Microsoft a livello di codice usando le versioni più recenti dell'API REST, dell'interfaccia della riga di comando di Azure, Azure PowerShell e Azure Resource Manager personalizzati.
 author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
@@ -9,12 +9,12 @@ ms.date: 03/29/2021
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 5409c30020db2c8d7acf3c23df5a7d709d872341
-ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.openlocfilehash: 324ca849e0f9c1282dc4b47ceba4654c76c07b35
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105963275"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107870824"
 ---
 # <a name="programmatically-create-azure-subscriptions-for-a-microsoft-customer-agreement-with-the-latest-apis"></a>Creare sottoscrizioni di Azure a livello di codice per un contratto del cliente Microsoft con le API più recenti
 
@@ -28,9 +28,9 @@ Quando si crea una sottoscrizione di Azure a livello di codice, tale sottoscrizi
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per creare sottoscrizioni, è necessario avere un ruolo di tipo Proprietario, Collaboratore o Autore di sottoscrizioni di Azure in una sezione della fattura oppure un ruolo di tipo Proprietario o Collaboratore in un profilo di fatturazione o un account di fatturazione. È anche possibile assegnare lo stesso ruolo a un nome dell'entità servizio (SPN). Per ulteriori informazioni sui ruoli e sull'assegnazione delle autorizzazioni, vedere [attività e ruoli di fatturazione della sottoscrizione](understand-mca-roles.md#subscription-billing-roles-and-tasks).
+Per creare sottoscrizioni, è necessario avere un ruolo di tipo Proprietario, Collaboratore o Autore di sottoscrizioni di Azure in una sezione della fattura oppure un ruolo di tipo Proprietario o Collaboratore in un profilo di fatturazione o un account di fatturazione. È anche possibile assegnare lo stesso ruolo a un nome dell'entità servizio (SPN). Per altre informazioni sui ruoli e sull'assegnazione di autorizzazioni, vedere Ruoli e attività [di fatturazione della sottoscrizione.](understand-mca-roles.md#subscription-billing-roles-and-tasks)
 
-Se si usa un nome SPN per creare sottoscrizioni, usare il valore ObjectId della registrazione dell'applicazione Azure AD come l'ObjectId dell'entità servizio usando [Azure Active Directory PowerShell](/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0) o l'interfaccia della riga di comando di [Azure](/cli/azure/ad/sp?view=azure-cli-latest#az_ad_sp_list). 
+Se si usa un nome SPN per creare sottoscrizioni, usare l'ObjectId della registrazione dell'applicazione Azure AD come ObjectId dell'entità servizio [usando Azure Active Directory PowerShell](/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0) o l'interfaccia della riga di [comando di Azure.](/cli/azure/ad/sp?view=azure-cli-latest#az_ad_sp_list) 
 
 Per sapere se si ha accesso a un account con contratto del cliente Microsoft, vedere [Verificare l'accesso a un Contratto del cliente Microsoft](../understand/mca-overview.md#check-access-to-a-microsoft-customer-agreement).
 
@@ -126,7 +126,7 @@ Usare la proprietà `displayName` per identificare l'account di fatturazione per
 
 Gli addebiti per la sottoscrizione vengono visualizzati in una sezione della fattura di un profilo di fatturazione. Usare l'API seguente per ottenere l'elenco di profili di fatturazione e sezioni della fattura per cui si è autorizzati a creare sottoscrizioni di Azure.
 
-Per prima cosa, si ottiene l'elenco dei profili di fatturazione con l'account di fatturazione a cui si ha accesso (usare `name` quello ottenuto nel passaggio precedente)
+Per prima cosa si ottiene l'elenco dei profili di fatturazione nell'account di fatturazione a cui si ha accesso (usare il ottenuto `name` nel passaggio precedente)
 
 ### <a name="rest"></a>[REST](#tab/rest)
 
@@ -216,7 +216,7 @@ Usare la proprietà `id` per identificare la sezione della fattura per cui si vo
 Get-AzBillingProfile -BillingAccountName 5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx
 ```
 
-Si otterrà l'elenco dei profili di fatturazione sotto questo account come parte della risposta.
+Si otterrà l'elenco dei profili di fatturazione in questo account come parte della risposta.
 
 ```json
 Name              : AW4F-xxxx-xxx-xxx
@@ -238,7 +238,7 @@ Country           : US
 PostalCode        : 98052
 ```
 
-Prendere nota del `name` profilo di fatturazione della risposta precedente. Il passaggio successivo consiste nell'ottenere la sezione relativa alla fattura a cui è possibile accedere sotto questo profilo di fatturazione. Sarà necessario disporre dell' `name` account di fatturazione e del profilo di fatturazione
+Prendere nota `name` del del profilo di fatturazione dalla risposta precedente. Il passaggio successivo consiste nell'ottenere la sezione della fattura a cui si ha accesso sotto questo profilo di fatturazione. Sarà necessario il `name` dell'account di fatturazione e del profilo di fatturazione
 
 ```azurepowershell
 Get-AzInvoiceSection -BillingAccountName 5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx -BillingProfileName AW4F-xxxx-xxx-xxx
@@ -251,7 +251,7 @@ Name        : SH3V-xxxx-xxx-xxx
 DisplayName : Development
 ```
 
-`name`Di cui sopra è il nome della sezione di fattura in cui è necessario creare una sottoscrizione. Costruire l'ambito di fatturazione usando il formato "/providers/Microsoft.Billing/billingAccounts/ <BillingAccountName> /BillingProfiles/ <BillingProfileName> /invoiceSections/ <InvoiceSectionName> ". In questo esempio, questo valore corrisponderà a `"/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx"` .
+Quello `name` precedente è il nome della sezione della fattura in cui è necessario creare una sottoscrizione. Costruire l'ambito di fatturazione usando il formato "/providers/Microsoft.Billing/billingAccounts/ <BillingAccountName> /billingProfiles/ <BillingProfileName> /invoiceSections/ <InvoiceSectionName> ". In questo esempio questo valore equivale a `"/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx"` .
 
 ### <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
@@ -259,7 +259,7 @@ DisplayName : Development
 az billing profile list --account-name "5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx" --expand "InvoiceSections"
 ```
 
-Questa API restituirà l'elenco dei profili di fatturazione e delle sezioni della fattura nell'account di fatturazione fornito.
+Questa API restituirà l'elenco dei profili di fatturazione e delle sezioni della fattura nell'account di fatturazione specificato.
 
 ```json
 [
@@ -323,7 +323,7 @@ Questa API restituirà l'elenco dei profili di fatturazione e delle sezioni dell
   }
 ]
 ```
-Utilizzare la `id` proprietà nell'oggetto sezione fattura per identificare la sezione della fattura per cui si desidera creare le sottoscrizioni. Copiare l'intera stringa. Ad esempio,/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-XX-XX/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx.
+Usare la `id` proprietà nell'oggetto sezione della fattura per identificare la sezione della fattura per cui si vogliono creare sottoscrizioni. Copiare l'intera stringa. Ad esempio, /providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx-xxx.
 
 ---
 
@@ -416,7 +416,7 @@ Si ottiene il valore subscriptionId come parte della risposta dal comando.
 
 Installare prima di tutto l'estensione eseguendo `az extension add --name account` e `az extension add --name alias`.
 
-Eseguire il comando [az account alias create](/cli/azure/ext/account/account/alias#ext_account_az_account_alias_create) seguente.
+Eseguire il comando [az account alias create](/cli/azure/account/alias#az_account_alias_create) seguente.
 
 ```azurecli
 az account alias create --name "sampleAlias" --billing-scope "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx" --display-name "Dev Team Subscription" --workload "Production"
@@ -440,9 +440,9 @@ Si ottiene il valore subscriptionId come parte della risposta dal comando.
 
 ## <a name="use-arm-template"></a>Usare un modello di Azure Resource Manager
 
-La sezione precedente ha illustrato come creare una sottoscrizione con PowerShell, l'interfaccia della riga di comando o l'API REST. Se è necessario automatizzare la creazione di sottoscrizioni, provare a usare un modello di Azure Resource Manager (modello ARM).
+Nella sezione precedente è stato illustrato come creare una sottoscrizione con PowerShell, l'interfaccia della riga di comando o l'API REST. Se è necessario automatizzare la creazione di sottoscrizioni, è consigliabile usare un modello di Azure Resource Manager (modello arm).
 
-Il modello seguente crea una sottoscrizione. Per `billingScope` , specificare l'ID della sezione della fattura. Per `targetManagementGroup` , specificare il gruppo di gestione in cui si desidera creare la sottoscrizione.
+Il modello seguente crea una sottoscrizione. Per `billingScope` , specificare l'ID della sezione della fattura. Per `targetManagementGroup` specificare il gruppo di gestione in cui si vuole creare la sottoscrizione.
 
 ```json
 {
@@ -486,7 +486,7 @@ Il modello seguente crea una sottoscrizione. Per `billingScope` , specificare l'
 }
 ```
 
-Distribuire il modello a [livello di gruppo di gestione](../../azure-resource-manager/templates/deploy-to-management-group.md).
+Distribuire il modello a livello [di gruppo di gestione.](../../azure-resource-manager/templates/deploy-to-management-group.md)
 
 ### <a name="rest"></a>[REST](#tab/rest)
 
@@ -549,4 +549,4 @@ az deployment mg create \
 
 * Ora che la sottoscrizione è stata creata, è possibile concedere la medesima possibilità ad altri utenti ed entità servizio. Per altre informazioni, vedere [Grant access to create Azure Enterprise subscriptions (preview)](grant-access-to-create-subscription.md) (Concedere l'accesso a creare sottoscrizioni di Azure Enterprise (anteprima)).
 * Per altre informazioni sulla gestione di un numero elevato di sottoscrizioni mediante i gruppi di gestione, vedere [Organizzare le risorse con i gruppi di gestione di Azure](../../governance/management-groups/overview.md).
-* Per modificare il gruppo di gestione per una sottoscrizione, vedere [spostare le sottoscrizioni](../../governance/management-groups/manage.md#move-subscriptions).
+* Per modificare il gruppo di gestione per una sottoscrizione, vedere [Spostare sottoscrizioni](../../governance/management-groups/manage.md#move-subscriptions).

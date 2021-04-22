@@ -5,12 +5,12 @@ ms.subservice: text-analytics
 ms.topic: include
 ms.date: 04/19/2021
 ms.author: aahi
-ms.openlocfilehash: cee201c11d0415e1f63e7e6a9157b96a059503ba
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: d36666ea35a4ce3fc894e35dd8ca3860900ecef6
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107765069"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107880536"
 ---
 <a name="HOLTop"></a>
 
@@ -805,7 +805,7 @@ key_phrase_extraction_example(client)
 
 [!INCLUDE [Analyze operation pricing](../analyze-operation-pricing-caution.md)]
 
-Creare una nuova funzione denominata `analyze_batch_actions_example()` che accetta il client come argomento e quindi chiama la funzione `begin_analyze_batch_actions()`. Il risultato sarà un'operazione a esecuzione prolungata sui cui verrà eseguito il polling per ottenere i risultati.
+Creare una nuova funzione denominata `analyze_batch_example()` che accetta il client come argomento e quindi chiama la funzione `begin_analyze_batch_actions()`. Il risultato sarà un'operazione a esecuzione prolungata sui cui verrà eseguito il polling per ottenere i risultati.
 
 ```python
 from azure.ai.textanalytics import (
@@ -862,7 +862,7 @@ Entity: Paul Allen
 ------------------------------------------
 ```
 
-È anche possibile usare l'operazione di analisi batch per rilevare le informazioni personali ed eseguire l'estrazione di frasi chiave. Vedere [l'esempio di analisi batch](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/samples/sample_analyze_batch_actions.py) su GitHub.
+È anche possibile usare l'operazione di analisi batch per rilevare le informazioni personali ed eseguire l'estrazione di frasi chiave. Vedere [l'esempio di analisi batch](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/samples/sample_analyze_batch_actions.py) in GitHub.
 
 # <a name="version-30"></a>[Versione 3.0](#tab/version-3)
 

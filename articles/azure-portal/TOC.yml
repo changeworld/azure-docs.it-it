@@ -79,7 +79,7 @@
     - name: Struttura dei dashboard di Azure
       href: azure-portal-dashboards-structure.md
     - name: Interfaccia della riga di comando di Azure
-      href: /cli/azure/ext/portal/portal
+      href: /cli/azure/portal
     - name: Criteri di Azure predefiniti
       displayName: 'samples, policies, definitions'
       href: ./policy-reference.md

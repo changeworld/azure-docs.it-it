@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Libreria client di Ricerca personalizzata Bing per C#'
+title: Ricerca personalizzata Bing guida introduttiva alla libreria client C#
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
@@ -8,16 +8,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 02/27/2020
 ms.author: aahi
-ms.openlocfilehash: 70f97b73b5cc6a06caf8f1dac4dec61b6ad6de29
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 504057be85902307a121a57dd421254d94167341
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98947346"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107880718"
 ---
-Introduzione alla libreria client di Ricerca personalizzata Bing per C#. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base. L'API Ricerca personalizzata Bing permette di creare esperienze di ricerca personalizzate senza annunci per specifici argomenti di interesse. Il codice sorgente per questo esempio è disponibile su [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingCustomWebSearch).
+Introduzione alla libreria Ricerca personalizzata Bing client per C#. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base. L'API Ricerca personalizzata Bing permette di creare esperienze di ricerca personalizzate senza annunci per specifici argomenti di interesse. Il codice sorgente per questo esempio è disponibile su [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingCustomWebSearch).
 
-Usare la libreria client di Ricerca personalizzata Bing per C# per:
+Usare la Ricerca personalizzata Bing client per C# per:
 * Trovare i risultati della ricerca sul Web dall'istanza di Ricerca personalizzata Bing.
 
 [Documentazione di riferimento](/dotnet/api/overview/azure/cognitiveservices/bing-custom-search-readme) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Search.BingCustomSearch) | [Pacchetto (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0) | [Esempi](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples)
@@ -26,10 +26,10 @@ Usare la libreria client di Ricerca personalizzata Bing per C# per:
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Un'istanza di Ricerca personalizzata Bing. Vedere [Avvio rapido: Creare la prima istanza di Ricerca personalizzata Bing](../../quick-start.md) per altre informazioni.
-- Microsoft [.NET Core](https://www.microsoft.com/net/download/core)
+- Microsoft [.NET Core](https://dotnet.microsoft.com/download)
 - Qualsiasi edizione di [Visual Studio 2017 o versioni successive](https://www.visualstudio.com/downloads/)
 - Se si usa Linux/MacOS, questa applicazione può essere eseguita tramite [Mono](https://www.mono-project.com/).
-- Il pacchetto NuGet [Ricerca personalizzata Bing](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0). 
+- Il [Ricerca personalizzata Bing](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0)  NuGet. 
     - Da **Esplora soluzioni** in Visual Studio fare clic con il pulsante destro del mouse sul progetto e scegliere **Gestisci pacchetti NuGet** dal menu. Installare il pacchetto `Microsoft.Azure.CognitiveServices.Search.CustomSearch`. L'installazione del pacchetto Ricerca personalizzata NuGet comporta anche l'installazione degli assembly seguenti:
         - Microsoft.Rest.ClientRuntime
         - Microsoft.Rest.ClientRuntime.Azure

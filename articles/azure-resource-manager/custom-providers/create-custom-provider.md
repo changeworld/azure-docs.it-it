@@ -5,12 +5,12 @@ author: MSEvanhi
 ms.topic: tutorial
 ms.date: 06/24/2020
 ms.author: evanhi
-ms.openlocfilehash: 721fe31f514cb948c93dc2a779a92ef3b2775ef9
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 915856e3f9875c0a3318bc19138eaae8742bf72f
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107779238"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107871742"
 ---
 # <a name="quickstart-create-a-custom-provider-and-deploy-custom-resources"></a>Avvio rapido: Creare un provider personalizzato e distribuire le risorse personalizzate
 
@@ -265,7 +265,7 @@ Si riceve la risposta:
 
 ## <a name="custom-resource-provider-commands"></a>Comandi del provider di risorse personalizzato
 
-Usare i comandi di [custom-providers](/cli/azure/ext/custom-providers/custom-providers/resource-provider) per gestire il provider di risorse personalizzato.
+Usare i comandi di [custom-providers](/cli/azure/custom-providers/resource-provider) per gestire il provider di risorse personalizzato.
 
 ### <a name="list-custom-resource-providers"></a>Elencare i provider di risorse personalizzati
 

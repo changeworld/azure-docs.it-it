@@ -1,5 +1,5 @@
 ---
-title: "Esercitazione: migliorare l'accesso alle applicazioni Web-applicazione Azure gateway"
+title: "Esercitazione: Migliorare l'accesso alle applicazioni Web - gateway applicazione di Azure"
 description: In questa esercitazione vengono fornite informazioni su come creare un gateway applicazione con ridondanza della zona e scalabilità automatica con un indirizzo IP riservato tramite Azure PowerShell.
 services: application-gateway
 author: vhorne
@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 03/08/2021
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 2a756313a4659dfc531289c2c86890371f700367
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 8196267ff7a71fb3910848fd0fef11a40a3c1c32
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102452289"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107869942"
 ---
-# <a name="tutorial-create-an-application-gateway-that-improves-web-application-access"></a>Esercitazione: creare un gateway applicazione che migliora l'accesso alle applicazioni Web
+# <a name="tutorial-create-an-application-gateway-that-improves-web-application-access"></a>Esercitazione: Creare un gateway applicazione che migliora l'accesso alle applicazioni Web
 
 Gli amministratori IT che desiderano migliorare l'accesso alle applicazioni Web possono ottimizzare il gateway applicazione in modo da ridimensionarsi in base alla richiesta dei clienti ed estendersi a più zone di disponibilità. Questa esercitazione aiuta a configurare funzioni del gateway applicazione di Azure per eseguire operazioni di scalabilità automatica, ridondanza della zona e indirizzi VIP riservati (indirizzi IP statici). Per risolvere il problema si useranno cmdlet di Azure PowerShell e il modello di distribuzione Azure Resource Manager.
 
@@ -36,7 +36,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Per questa esercitazione è necessario eseguire una sessione di Azure PowerShell amministrativa localmente. Deve essere installato il modulo Azure PowerShell 1.0.0 o versioni successive. Eseguire `Get-Module -ListAvailable Az` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-az-ps). Dopo avere verificato la versione di PowerShell, eseguire `Connect-AzAccount` per creare una connessione ad Azure.
+Per questa esercitazione è necessario eseguire una sessione di amministrazione Azure PowerShell locale. Deve essere installato il modulo Azure PowerShell 1.0.0 o versioni successive. Eseguire `Get-Module -ListAvailable Az` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-az-ps). Dopo avere verificato la versione di PowerShell, eseguire `Connect-AzAccount` per creare una connessione ad Azure.
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
@@ -58,7 +58,7 @@ New-AzResourceGroup -Name $rg -Location $location
 
 ## <a name="create-a-self-signed-certificate"></a>Creare un certificato autofirmato
 
-Per la produzione è necessario importare un certificato valido firmato da un provider attendibile. Per questa esercitazione viene creato un certificato autofirmato usando il comando [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate). È possibile usare [Export-PfxCertificate](/powershell/module/pkiclient/export-pfxcertificate) con l'identificazione personale restituita per esportare un file pfx dal certificato.
+Per la produzione è necessario importare un certificato valido firmato da un provider attendibile. Per questa esercitazione viene creato un certificato autofirmato usando il comando [New-SelfSignedCertificate](/powershell/module/pki/new-selfsignedcertificate). È possibile usare [Export-PfxCertificate](/powershell/module/pki/export-pfxcertificate) con l'identificazione personale restituita per esportare un file pfx dal certificato.
 
 ```powershell
 New-SelfSignedCertificate `
@@ -76,7 +76,7 @@ Thumbprint                                Subject
 E1E81C23B3AD33F9B4D1717B20AB65DBB91AC630  CN=www.contoso.com
 ```
 
-Usare l'identificazione personale per creare il file PFX. Sostituire *\<password>* con una password di propria scelta:
+Usare l'identificazione personale per creare il file pfx. Sostituire *\<password>* con una password di propria scelta:
 
 ```powershell
 $pwd = ConvertTo-SecureString -String "<password>" -Force -AsPlainText
@@ -88,7 +88,7 @@ Export-PfxCertificate `
 ```
 
 
-## <a name="create-a-virtual-network"></a>Crea rete virtuale
+## <a name="create-a-virtual-network"></a>Creare una rete virtuale
 
 Creare una rete virtuale con una subnet dedicata per un gateway applicazione con scalabilità automatica. Attualmente è possibile distribuire un solo gateway applicazione con scalabilità automatica in ogni subnet dedicata.
 
@@ -122,7 +122,7 @@ $gwSubnet = Get-AzVirtualNetworkSubnetConfig -Name "AppGwSubnet" -VirtualNetwork
 
 ## <a name="create-web-apps"></a>Creare app Web
 
-Configurare due app Web per il pool back-end. Sostituire *\<site1-name>* e *\<site-2-name>* con i nomi univoci nel `azurewebsites.net` dominio.
+Configurare due app Web per il pool back-end. Sostituire *\<site1-name>* e con nomi *\<site-2-name>* univoci nel `azurewebsites.net` dominio.
 
 ```azurepowershell
 New-AzAppServicePlan -ResourceGroupName $rg -Name "ASP-01"  -Location $location -Tier Basic `
@@ -135,7 +135,7 @@ New-AzWebApp -ResourceGroupName $rg -Name <site2-name> -Location $location -AppS
 
 Impostare la configurazione IP, la configurazione IP front-end, il pool back-end, le impostazioni HTTP, il certificato, la porta, il listener e la regola in un formato identico a quello del gateway applicazione Standard esistente. La nuova SKU segue lo stesso modello a oggetti della SKU Standard.
 
-Sostituire i due FQDN dell'app Web, ad esempio: `mywebapp.azurewebsites.net` , nella definizione della variabile $pool.
+Sostituire i due FQDN dell'app Web (ad esempio: ) nella `mywebapp.azurewebsites.net` definizione $pool variabile.
 
 ```azurepowershell
 $ipconfig = New-AzApplicationGatewayIPConfiguration -Name "IPConfig" -Subnet $gwSubnet

@@ -67,7 +67,7 @@
 - name: Informazioni di riferimento
   items:
     - name: Interfaccia della riga di comando di Azure
-      href: /cli/azure/ext/blockchain/blockchain
+      href: /cli/azure/blockchain
 - name: Risorse
   items:
     - name: Kit di sviluppo Azure Blockchain

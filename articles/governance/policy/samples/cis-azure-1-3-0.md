@@ -1,23 +1,23 @@
 ---
 title: Dettagli sulla conformità alle normative per CIS Microsoft Azure Foundations Benchmark 1.3.0
-description: Dettagli dell'iniziativa incorporata CIS Microsoft Azure Foundations Benchmark 1.3.0 Regulatory Compliance. Ogni controllo viene mappato a una o più definizioni di Criteri di Azure che assistono nella valutazione.
-ms.date: 04/14/2021
+description: Dettagli dell'iniziativa incorporata cis Microsoft Azure Foundations Benchmark 1.3.0 sulla conformità alle normative. Ogni controllo viene mappato a una o più definizioni di Criteri di Azure che assistono nella valutazione.
+ms.date: 04/21/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 3dc7578af93f36ba8f0400099bb21cdabdcffb70
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 14a93281eb93bee1bf6ecd15da8811088a692c29
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107497728"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107865622"
 ---
-# <a name="details-of-the-cis-microsoft-azure-foundations-benchmark-130-regulatory-compliance-built-in-initiative"></a>Dettagli dell'iniziativa incorporata CIS Microsoft Azure Foundations Benchmark 1.3.0 Regulatory Compliance
+# <a name="details-of-the-cis-microsoft-azure-foundations-benchmark-130-regulatory-compliance-built-in-initiative"></a>Dettagli dell'iniziativa incorporata di conformità alle normative CIS Microsoft Azure Foundations Benchmark 1.3.0
 
-L'articolo seguente illustra in dettaglio Criteri di Azure definizione dell'iniziativa  incorporata conformità alle normative viene mappata ai domini e ai controlli **di** conformità in CIS Microsoft Azure Foundations Benchmark 1.3.0.
-Per altre informazioni su questo standard di conformità, vedere [CIS Microsoft Azure Foundations Benchmark 1.3.0](https://www.cisecurity.org/benchmark/azure/). Per informazioni sulle _Proprietà_, vedere [Struttura delle definizioni di criteri in Criteri di Azure](../concepts/definition-structure.md#type) e [Responsabilità condivisa nel cloud](../../../security/fundamentals/shared-responsibility.md).
+L'articolo seguente illustra in dettaglio il mapping della definizione  dell'iniziativa incorporata di conformità alle normative di Criteri di Azure ai domini e ai controlli di conformità **in** CIS Microsoft Azure Foundations Benchmark 1.3.0.
+Per altre informazioni su questo standard di conformità, vedere [CIS Microsoft Azure Foundations Benchmark 1.3.0.](https://www.cisecurity.org/benchmark/azure/) Per informazioni sulle _Proprietà_, vedere [Struttura delle definizioni di criteri in Criteri di Azure](../concepts/definition-structure.md#type) e [Responsabilità condivisa nel cloud](../../../security/fundamentals/shared-responsibility.md).
 
 I mapping seguenti sono ai controlli **CIS Microsoft Azure Foundations Benchmark 1.3.0.** Usare la barra di spostamento a destra per passare direttamente a un **dominio di conformità** specifico. Molti controlli vengono implementati con una definizione dell'iniziativa [Criteri di Azure](../overview.md). Per esaminare la definizione dell'iniziativa completa, aprire **Criteri** nel portale di Azure e selezionare la pagina **Definizioni**.
-Individuare e selezionare quindi la definizione di **iniziativa predefinita CIS Microsoft Azure Foundations Benchmark v1.3.0** Regulatory Compliance.
+Trovare e selezionare quindi la definizione di **iniziativa incorporata CIS Microsoft Azure Foundations Benchmark v1.3.0** Conformità alle normative.
 
 > [!IMPORTANT]
 > Ogni controllo tra quelli riportati di seguito è associato a una o più definizioni di [Criteri di Azure](../overview.md).
@@ -54,7 +54,7 @@ Individuare e selezionare quindi la definizione di **iniziativa predefinita CIS 
 
 ### <a name="ensure-that-no-custom-subscription-owner-roles-are-created"></a>Assicurarsi che non siano stati creati ruoli di proprietario della sottoscrizione personalizzati
 
-**ID:** CIS Azure 1.21 **Proprietà**: Customer
+**ID:** CIS Azure 1.21 **Proprietà:** Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -78,7 +78,7 @@ Individuare e selezionare quindi la definizione di **iniziativa predefinita CIS 
 |---|---|---|---|
 |[Azure Defender per il Servizio app deve essere abilitato](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2913021d-f2fd-4f3d-b958-22354e2bdbcb) |Azure Defender per il Servizio app sfrutta la portata del cloud e la visibilità di Azure come provider di servizi cloud per monitorare gli attacchi alle app Web più comuni. |AuditIfNotExists, Disabled |[1.0.3](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableAdvancedThreatProtectionOnAppServices_Audit.json) |
 
-### <a name="ensure-that-azure-defender-is-set-to-on-for-azure-sql-database-servers"></a>Assicurarsi che Azure Defender sia impostato su Sì per i Azure SQL di database
+### <a name="ensure-that-azure-defender-is-set-to-on-for-azure-sql-database-servers"></a>Assicurarsi che Azure Defender sia impostato su Sì per i server Azure SQL database
 
 **ID**: CIS Azure 2.3 **Proprietà**: Customer
 
@@ -86,7 +86,7 @@ Individuare e selezionare quindi la definizione di **iniziativa predefinita CIS 
 |---|---|---|---|
 |[Azure Defender per i server di database SQL di Azure deve essere abilitato](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7fe3b40f-802b-4cdd-8bd4-fd799c948cc2) |Azure Defender per SQL fornisce funzionalità per l'individuazione e la mitigazione di potenziali vulnerabilità del database, il rilevamento di attività anomale che possono indicare minacce ai database SQL e l'individuazione e la classificazione di dati sensibili. |AuditIfNotExists, Disabled |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableAdvancedDataSecurityOnSqlServers_Audit.json) |
 
-### <a name="ensure-that-azure-defender-is-set-to-on-for-sql-servers-on-machines"></a>Assicurarsi che Azure Defender impostato su Sì per i server SQL nei computer
+### <a name="ensure-that-azure-defender-is-set-to-on-for-sql-servers-on-machines"></a>Assicurarsi che Azure Defender sia impostato su Sì per i server SQL nei computer
 
 **ID**: CIS Azure 2.4 **Proprietà**: Customer
 
@@ -102,7 +102,7 @@ Individuare e selezionare quindi la definizione di **iniziativa predefinita CIS 
 |---|---|---|---|
 |[Azure Defender per l'archiviazione deve essere abilitato](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F308fbb08-4ab8-4e67-9b29-592e93fb94fa) |Azure Defender per l'archiviazione offre il rilevamento di tentativi insoliti e potenzialmente dannosi di accesso o sfruttamento degli account di archiviazione. |AuditIfNotExists, Disabled |[1.0.3](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableAdvancedThreatProtectionOnStorageAccounts_Audit.json) |
 
-### <a name="ensure-that-azure-defender-is-set-to-on-for-kubernetes"></a>Assicurarsi che Azure Defender impostato su Sì per Kubernetes
+### <a name="ensure-that-azure-defender-is-set-to-on-for-kubernetes"></a>Assicurarsi che Azure Defender sia impostato su Sì per Kubernetes
 
 **ID**: CIS Azure 2.6 **Proprietà**: Customer
 
@@ -110,7 +110,7 @@ Individuare e selezionare quindi la definizione di **iniziativa predefinita CIS 
 |---|---|---|---|
 |[Azure Defender per Kubernetes deve essere abilitato](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F523b5cd1-3e23-492f-a539-13118b6d1e3a) |Azure Defender per Kubernetes fornisce protezione dalle minacce in tempo reale per gli ambienti containerizzati e genera avvisi per le attività sospette. |AuditIfNotExists, Disabled |[1.0.3](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableAdvancedThreatProtectionOnKubernetesService_Audit.json) |
 
-### <a name="ensure-that-azure-defender-is-set-to-on-for-container-registries"></a>Assicurarsi che Azure Defender impostato su Sì per registri contenitori
+### <a name="ensure-that-azure-defender-is-set-to-on-for-container-registries"></a>Assicurarsi che Azure Defender sia impostato su Sì per i registri contenitori
 
 **ID**: CIS Azure 2.7 **Proprietà**: Customer
 
@@ -118,9 +118,9 @@ Individuare e selezionare quindi la definizione di **iniziativa predefinita CIS 
 |---|---|---|---|
 |[Azure Defender per i registri contenitori deve essere abilitato](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc25d9a16-bc35-4e15-a7e5-9db606bf9ed4) |Azure Defender per i registri contenitori fornisce l'analisi delle vulnerabilità delle immagini di cui è stato eseguito il pull negli ultimi 30 giorni oppure di cui è stato eseguito il push o l'importazione nel registro ed espone i risultati dettagliati per immagine. |AuditIfNotExists, Disabled |[1.0.3](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableAdvancedThreatProtectionOnContainerRegistry_Audit.json) |
 
-### <a name="ensure-that-azure-defender-is-set-to-on-for-key-vault"></a>Assicurarsi che Azure Defender impostato su Sì per Key Vault
+### <a name="ensure-that-azure-defender-is-set-to-on-for-key-vault"></a>Assicurarsi che Azure Defender sia impostato su Sì per Key Vault
 
-**ID:** CIS Azure 2.8 **Proprietà**: Customer
+**ID:** CIS Azure 2.8 **Proprietà:** Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -128,13 +128,13 @@ Individuare e selezionare quindi la definizione di **iniziativa predefinita CIS 
 
 ### <a name="ensure-that-automatic-provisioning-of-monitoring-agent-is-set-to-on"></a>Assicurarsi che "Provisioning automatico dell'agente di monitoraggio" sia impostata su "Sì"
 
-**ID:** CIS Azure 2.11 **Proprietà**: Customer
+**ID:** CIS Azure 2.11 **Proprietà:** Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[È consigliabile abilitare il provisioning automatico dell'agente di Log Analytics nella sottoscrizione](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F475aae12-b88a-4572-8b36-9b712b2b3a17) |Per monitorare le minacce e le vulnerabilità della sicurezza, Centro sicurezza di Azure raccoglie i dati dalle macchine virtuali di Azure. I dati vengono raccolti dall'agente di Log Analytics, precedentemente noto come Microsoft Monitoring Agent (MMA), che esegue la lettura di varie configurazioni relative alla sicurezza e log eventi dalla macchina virtuale e copia i dati nell'area di lavoro Log Analytics per l'analisi. È consigliabile abilitare il provisioning automatico per distribuire automaticamente l'agente in tutte le macchine virtuali di Azure supportate e in tutte le nuove macchine virtuali che vengono create. |AuditIfNotExists, Disabled |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_Automatic_provisioning_log_analytics_monitoring_agent.json) |
 
-### <a name="ensure-additional-email-addresses-is-configured-with-a-security-contact-email"></a>Assicurarsi che "Indirizzi di posta elettronica aggiuntivi" sia configurato con un messaggio di posta elettronica del contatto di sicurezza
+### <a name="ensure-additional-email-addresses-is-configured-with-a-security-contact-email"></a>Assicurarsi che "Indirizzi di posta elettronica aggiuntivi" sia configurato con un indirizzo di posta elettronica del contatto di sicurezza
 
 **ID**: CIS Azure 2.13 **Proprietà**: Customer
 
@@ -160,7 +160,7 @@ Individuare e selezionare quindi la definizione di **iniziativa predefinita CIS 
 |---|---|---|---|
 |[È consigliabile abilitare il trasferimento sicuro agli account di archiviazione](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F404c3081-a854-4457-ae30-26a93ef643f9) |Requisito di controllo del trasferimento sicuro nell'account di archiviazione. Il trasferimento sicuro è un'opzione che impone all'account di archiviazione di accettare richieste solo da connessioni sicure (HTTPS). L'uso di HTTPS garantisce l'autenticazione tra il server e il servizio e protegge i dati in transito dagli attacchi a livello rete, come attacchi man-in-the-middle, eavesdropping e hijack della sessione |Audit, Deny, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/Storage_AuditForHTTPSEnabled_Audit.json) |
 
-### <a name="ensure-that-public-access-level-is-set-to-private-for-blob-containers"></a>Assicurarsi che "Livello di accesso pubblico" sia impostato su Privato per i contenitori BLOB
+### <a name="ensure-that-public-access-level-is-set-to-private-for-blob-containers"></a>Assicurarsi che 'Livello di accesso pubblico' sia impostato su Privato per i contenitori BLOB
 
 **ID:** CIS Azure 3.5 **Proprietà**: Customer
 
@@ -217,7 +217,7 @@ Individuare e selezionare quindi la definizione di **iniziativa predefinita CIS 
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[I server SQL con controllo sulla destinazione dell'account di archiviazione devono essere configurati con una conservazione di 90 giorni o superiore](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F89099bee-89e0-4b26-a5f4-165451757743) |Ai fini dell'analisi degli eventi imprevisti, è consigliabile impostare la conservazione dei dati per il controllo SQL Server'account di archiviazione sulla destinazione dell'account di archiviazione su almeno 90 giorni. Verificare di soddisfare le regole di conservazione necessarie per le aree in cui si opera. Questa operazione è talvolta necessaria per la conformità agli standard normativi. |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlServerAuditingRetentionDays_Audit.json) |
+|[I server SQL con controllo sulla destinazione dell'account di archiviazione devono essere configurati con conservazione di 90 giorni o superiore](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F89099bee-89e0-4b26-a5f4-165451757743) |Ai fini dell'analisi degli eventi imprevisti, è consigliabile impostare la conservazione dei dati per il controllo SQL Server'account di archiviazione sulla destinazione dell'account di archiviazione su almeno 90 giorni. Verificare di soddisfare le regole di conservazione necessarie per le aree in cui si opera. Questa operazione è talvolta necessaria per la conformità agli standard normativi. |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlServerAuditingRetentionDays_Audit.json) |
 
 ### <a name="ensure-that-advanced-threat-protection-atp-on-a-sql-server-is-set-to-enabled"></a>Assicurarsi che Advanced Threat Protection (ATP) in un server SQL sia impostato su "Abilitato"
 
@@ -471,7 +471,7 @@ Individuare e selezionare quindi la definizione di **iniziativa predefinita CIS 
 |---|---|---|---|
 |[È consigliabile applicare la crittografia del disco nelle macchine virtuali](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0961003e-5a0a-4549-abde-af6a37f2724d) |Le macchine virtuali per cui non è abilitata la crittografia dei dischi verranno monitorate dal Centro sicurezza di Azure che invierà raccomandazioni. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_UnencryptedVMDisks_Audit.json) |
 
-### <a name="ensure-that-unattached-disks-are-encrypted-with-cmk"></a>Assicurarsi che i "dischi non associati" siano crittografati con la chiave CMK
+### <a name="ensure-that-unattached-disks-are-encrypted-with-cmk"></a>Assicurarsi che "Dischi non associati" siano crittografati con la chiave CMK
 
 **ID**: CIS Azure 7.3 **Proprietà**: Customer
 

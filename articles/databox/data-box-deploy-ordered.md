@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 03/08/2021
 ms.author: alkohli
-ms.openlocfilehash: eae8cca0302993c16ea29adddf6e4ee9b5b24be8
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: ed539df9fec3c66b3881257ff1ce68d03cf4c382
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107770899"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107878597"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Esercitazione: Ordinare Azure Data Box
 
@@ -449,7 +449,7 @@ Seguire questa procedura nell'interfaccia della riga di comando di Azure per ord
    |query| Stringa di query JMESPath. Per altre informazioni, vedere [JMESPath](http://jmespath.org/). | --query <string>|
    |verbose| Include la registrazione dettagliata. | --verbose |
 
-2. Nel prompt dei comandi preferito o nel terminale eseguire il comando [az data box job create](/cli/azure/ext/databox/databox/job#ext-databox-az-databox-job-create) per creare l'ordine di Azure Data Box.
+2. Nel prompt dei comandi preferito o nel terminale eseguire il comando [az data box job create](/cli/azure/databox/job#az_databox_job_create) per creare l'ordine di Azure Data Box.
 
    ```azurecli
    az databox job create --resource-group <resource-group> --name <order-name> --location <azure-location> --sku <databox-device-type> --contact-name <contact-name> --phone <phone-number> --email-list <email-list> --street-address1 <street-address-1> --street-address2 <street-address-2> --city "contact-city" --state-or-province <state-province> --country <country> --postal-code <postal-code> --company-name <company-name> --storage-account "storage-account"
@@ -617,7 +617,7 @@ Microsoft prepara e spedisce quindi il dispositivo tramite un corriere locale. S
 
 ### <a name="track-a-single-order"></a>Monitorare un singolo ordine
 
-Per ottenere informazioni di rilevamento su un singolo ordine di Azure Data Box esistente, eseguire [`az databox job show`](/cli/azure/ext/databox/databox/job#ext-databox-az-databox-job-show) . Il comando visualizza le informazioni sull'ordine, ad esempio: nome, gruppo di risorse, informazioni di tracciabilità, ID sottoscrizione, informazioni di contatto, tipo di spedizione e SKU del dispositivo.
+Per ottenere informazioni di rilevamento su un singolo ordine di Azure Data Box esistente, eseguire [`az databox job show`](/cli/azure/databox/job#az_databox_job_show) . Il comando visualizza le informazioni sull'ordine, ad esempio: nome, gruppo di risorse, informazioni di tracciabilità, ID sottoscrizione, informazioni di contatto, tipo di spedizione e SKU del dispositivo.
 
    ```azurecli
    az databox job show --resource-group <resource-group> --name <order-name>
@@ -658,7 +658,7 @@ Per ottenere informazioni di rilevamento su un singolo ordine di Azure Data Box 
 
 ### <a name="list-all-orders"></a>Elencare tutti gli ordini
 
-Se sono stati ordinati più dispositivi, è possibile eseguire [`az databox job list`](/cli/azure/ext/databox/databox/job#ext-databox-az-databox-job-list) per visualizzare tutti i Azure Data Box ordini. Il comando elenca tutti gli ordini che appartengono a un gruppo di risorse specifico. Nell'output sono visualizzate anche le informazioni seguenti: nome dell'ordine, stato di spedizione, area di Azure, tipo di recapito, stato dell'ordine. Nell'elenco sono anche inclusi gli ordini annullati.
+Se sono stati ordinati più dispositivi, è possibile eseguire [`az databox job list`](/cli/azure/databox/job#az_databox_job_list) per visualizzare tutti i Azure Data Box ordini. Il comando elenca tutti gli ordini che appartengono a un gruppo di risorse specifico. Nell'output sono visualizzate anche le informazioni seguenti: nome dell'ordine, stato di spedizione, area di Azure, tipo di recapito, stato dell'ordine. Nell'elenco sono anche inclusi gli ordini annullati.
 Il comando visualizza inoltre i timestamp di ogni ordine.
 
 ```azurecli
@@ -777,7 +777,7 @@ Per eliminare un ordine annullato, passare a **Panoramica** e fare clic su **Eli
 
 ### <a name="cancel-an-order"></a>Annullare un ordine
 
-Per annullare un ordine Azure Data Box, eseguire [`az databox job cancel`](/cli/azure/ext/databox/databox/job#ext-databox-az-databox-job-cancel) . È necessario specificare il motivo per l'annullamento dell'ordine.
+Per annullare un ordine Azure Data Box, eseguire [`az databox job cancel`](/cli/azure/databox/job#az_databox_job_cancel) . È necessario specificare il motivo per l'annullamento dell'ordine.
 
    ```azurecli
    az databox job cancel --resource-group <resource-group> --name <order-name> --reason <cancel-description>
@@ -814,7 +814,7 @@ Per annullare un ordine Azure Data Box, eseguire [`az databox job cancel`](/cli/
 
 ### <a name="delete-an-order"></a>Eliminare un ordine
 
-Se è stato annullato un ordine Azure Data Box, è possibile eseguire [`az databox job delete`](/cli/azure/ext/databox/databox/job#ext-databox-az-databox-job-delete) per eliminare l'ordine.
+Se è stato annullato un ordine Azure Data Box, è possibile eseguire [`az databox job delete`](/cli/azure/databox/job#az_databox_job_delete) per eliminare l'ordine.
 
    ```azurecli
    az databox job delete --name [-n] <order-name> --resource-group <resource-group> [--yes] [--verbose]

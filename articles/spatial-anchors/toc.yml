@@ -83,7 +83,7 @@
           href: how-tos/set-up-coarse-reloc-cpp-ndk.md
         - name: In C++/WinRT
           href: how-tos/set-up-coarse-reloc-cpp-winrt.md
-    - name: Usare la rilocalizzazione grossolana senza una sessione di ancoraggio
+    - name: Usare la rilocalizzazione grosso modo senza una sessione di ancoraggio
       href: how-tos/use-coarse-relocalization-without-anchor-session.md
     - name: Configurazione del progetto
       items:
@@ -107,7 +107,7 @@
       href: concepts/logging-diagnostics.md
     - name: Rilocalizzazione grossolana
       href: concepts/coarse-reloc.md
-    - name: Individuare la strategia di ancoraggio
+    - name: Strategia di individuazione dell'ancoraggio
       href: concepts/anchor-locate-strategy.md
 - name: Riferimenti
   items:
@@ -122,7 +122,7 @@
     - name: SDK per HoloLens C++/WinRT
       href: /cpp/api/spatial-anchors/winrt/
     - name: Interfaccia della riga di comando di Azure
-      href: /cli/azure/ext/mixed-reality/spatial-anchors-account
+      href: /cli/azure/spatial-anchors-account
     - name: Azure PowerShell
       href: /powershell/module/az.mixedreality
 - name: Risorse

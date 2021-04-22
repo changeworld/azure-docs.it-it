@@ -1,18 +1,18 @@
 ---
 title: Criteri di Azure controlli di conformità alle normative per Azure SignalR
 description: Elenca Criteri di Azure controlli di conformità alle normative disponibili per Azure SignalR. Queste definizioni di criteri predefinite rappresentano approcci comuni alla gestione della conformità delle risorse di Azure.
-ms.date: 04/14/2021
+ms.date: 04/21/2021
 ms.topic: sample
 author: sffamily
 ms.author: zhshang
 ms.service: signalr
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 9331f42103f02044c20c6c2af3fa68e18dddd43b
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: f98cab7f08b6541932485fd3dfa93af22853dc3b
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107501358"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107869830"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-signalr"></a>Criteri di Azure controlli di conformità alle normative per Azure SignalR
 

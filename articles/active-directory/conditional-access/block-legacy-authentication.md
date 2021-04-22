@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09f98e3d6c7997d9cae2737b25f4323021e29bfb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 84c8b82219f2b2aea39bbcd23f030243d9ea8635
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98892440"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107861806"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Procedura: Bloccare l'autenticazione legacy ad Azure AD con l'accesso condizionale   
 
 Per consentire agli utenti di accedere facilmente alle app cloud, Azure Active Directory (Azure AD) supporta una vasta gamma di protocolli di autenticazione, inclusa l'autenticazione legacy. I protocolli legacy, tuttavia, non supportano l'autenticazione a più fattori (MFA). La MFA è in molti ambienti un requisito comune contro il furto di identità di indirizzo. 
 
-Alex Weinert, Director of Identity Security di Microsoft, nel post di blog del 12 marzo 2020 [Nuovi strumenti per bloccare l'autenticazione legacy in un'organizzazione](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/new-tools-to-block-legacy-authentication-in-your-organization/ba-p/1225302#) evidenzia i motivi per cui le organizzazioni dovrebbero bloccare l'autenticazione legacy nonché gli strumenti aggiuntivi offerti da Microsoft a tale scopo:
+Alex Weinert, Direttore di Identity Security di Microsoft, nel post di blog del 12 marzo 2020 Nuovi strumenti per bloccare l'autenticazione [legacy](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/new-tools-to-block-legacy-authentication-in-your-organization/ba-p/1225302#) nell'organizzazione sottolinea perché le organizzazioni devono bloccare l'autenticazione legacy e quali altri strumenti microsoft offre per eseguire questa attività:
 
 > Affinché l'autenticazione MFA sia efficace, è anche necessario bloccare l'autenticazione legacy. I protocolli di autenticazione legacy come POP, SMTP, IMAP e MAPI, infatti, non possono imporre l'autenticazione MFA e costituiscono pertanto i punti di ingresso preferiti dagli antagonisti che attaccano l'organizzazione...
 > 
@@ -33,11 +33,11 @@ Alex Weinert, Director of Identity Security di Microsoft, nel post di blog del 1
 > - Gli account Azure AD delle organizzazioni che hanno disabilitato l'esperienza di autenticazione legacy sono soggetti al 67% di compromissioni in meno rispetto a quelli per cui l'autenticazione legacy è abilitata
 >
 
-Se l'ambiente è pronto per il blocco dell'autenticazione legacy per migliorare la protezione dei tenant, è possibile usare a tale scopo l'accesso condizionale. Questo articolo illustra come configurare i criteri di accesso condizionale che bloccano l'autenticazione legacy per un tenant.
+Se l'ambiente è pronto per il blocco dell'autenticazione legacy per migliorare la protezione dei tenant, è possibile usare a tale scopo l'accesso condizionale. Questo articolo illustra come configurare i criteri di accesso condizionale che bloccano l'autenticazione legacy per un tenant. I clienti senza licenze che includono l'accesso condizionale possono usare le impostazioni [predefinite di sicurezza](../fundamentals/concept-fundamentals-security-defaults.md)) per bloccare l'autenticazione legacy.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Questo articolo presuppone che l'utente abbia familiarità con i [concetti di base](overview.md) di Azure ad l'accesso condizionale.
+Questo articolo presuppone che si abbia familiarità con i concetti [di base](overview.md) dell'Azure AD condizionale.
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
 
@@ -46,7 +46,7 @@ Azure AD supporta diversi dei protocolli di autenticazione e autorizzazione più
 - App Microsoft Office meno recenti
 - App che usano protocolli di posta elettronica quali POP, IMAP e SMTP
 
-Al giorno d’oggi, l'autenticazione a fattore singolo (ad esempio, nome utente e password) non è più sufficiente. Le password non sono sicure perché sono facili da indovinare e le persone non sanno scegliere password efficaci. Le password sono anche vulnerabili a numerosi attacchi, ad esempio il phishing e lo spray password. Una delle operazioni più semplici da eseguire per la protezione da minacce per le password consiste nell'implementare multi-factor authentication. Con la MFA, anche se un utente malintenzionato entra in possesso di una password utente, la sola password non è sufficiente per l’autenticazione e l’accesso ai dati.
+Al giorno d’oggi, l'autenticazione a fattore singolo (ad esempio, nome utente e password) non è più sufficiente. Le password non sono sicure perché sono facili da indovinare e le persone non sanno scegliere password efficaci. Le password sono inoltre vulnerabili a vari attacchi, ad esempio phishing e password spray. Una delle operazioni più semplici da eseguire per la protezione dalle minacce alle password è l'implementazione dell'autenticazione a più fattori(MFA). Con la MFA, anche se un utente malintenzionato entra in possesso di una password utente, la sola password non è sufficiente per l’autenticazione e l’accesso ai dati.
 
 Come si può impedire alle app che usano l'autenticazione legacy di accedere alle risorse dei tenant? È consigliabile bloccarle con criteri di accesso condizionale. Se necessario, è possibile autorizzare solo determinati utenti e percorsi di rete specifici per l’uso delle app basate sull’autenticazione legacy.
 
@@ -82,10 +82,10 @@ Prima di poter bloccare l'autenticazione legacy nella directory, è necessario a
 
 1. Passare al **portale di Azure** > **Azure Active Directory** > **Accessi**.
 1. Se non viene visualizzata, aggiungere la colonna App client facendo clic su **Colonne** > **App client**.
-1. **Aggiungi filtri**  >  **App Client** > selezionare tutti i protocolli di autenticazione legacy. Selezionare all'esterno della finestra di dialogo filtro per applicare le selezioni e chiudere la finestra di dialogo.
-1. Se è stata attivata la [nuova anteprima dei report delle attività di accesso](../reports-monitoring/concept-all-sign-ins.md), ripetere i passaggi precedenti anche nella scheda **accessi utente (non interattivo)** .
+1. **Aggiungere filtri**  >  **App client** > tutti i protocolli di autenticazione legacy. Selezionare all'esterno della finestra di dialogo di filtro per applicare le selezioni e chiudere la finestra di dialogo.
+1. Se è stata [](../reports-monitoring/concept-all-sign-ins.md)attivata l'anteprima dei nuovi report attività di accesso, ripetere i passaggi precedenti anche nella scheda User **sign-ins (non-interactive) (Account** di accesso utente (non interattivo).
 
-Applicando il filtro verranno visualizzati solo i tentativi di accesso eseguiti dai protocolli di autenticazione legacy. Facendo clic su ogni singolo tentativo di accesso vengono visualizzati altri dettagli. Nel campo **App client** nella scheda **Info di base** sarà indicato il protocollo di autenticazione legacy che è stato usato.
+Applicando il filtro verranno visualizzati solo i tentativi di accesso eseguiti dai protocolli di autenticazione legacy. Facendo clic su ogni singolo tentativo di accesso verranno visualizzati altri dettagli. Nel campo **App client** nella scheda **Info di base** sarà indicato il protocollo di autenticazione legacy che è stato usato.
 
 Questi log indicano quali utenti ancora dipendono dall'autenticazione legacy e quali applicazioni usano protocolli legacy per eseguire le richieste di autenticazione. Per gli utenti che non sono riportati in questi log e per i quali è confermato che non usano l'autenticazione legacy, implementare criteri di accesso condizionale specifici.
 
@@ -98,13 +98,13 @@ Esistono due modi per usare i criteri di accesso condizionale per bloccare l'aut
  
 ### <a name="directly-blocking-legacy-authentication"></a>Blocco diretto dell'autenticazione legacy
 
-Il modo più semplice per bloccare l'autenticazione legacy nell'intera organizzazione consiste nel configurare criteri di accesso condizionale che si applicano in modo specifico ai client di autenticazione legacy e blocca l'accesso. Quando si assegnano utenti e applicazioni ai criteri, assicurarsi di escludere gli utenti e gli account di servizio che devono ancora accedere usando l'autenticazione legacy. Configurare la condizione delle app client selezionando **client di Exchange ActiveSync** e **altri client**. Per bloccare l'accesso per queste app client, configurare i controlli di accesso per bloccare l'accesso.
+Il modo più semplice per bloccare l'autenticazione legacy nell'intera organizzazione è configurare criteri di accesso condizionale che si applicano in modo specifico ai client di autenticazione legacy e bloccano l'accesso. Quando si assegnano utenti e applicazioni ai criteri, assicurarsi di escludere gli utenti e gli account del servizio che devono comunque accedere usando l'autenticazione legacy. Configurare la condizione delle app client selezionando **Client Exchange ActiveSync** **e Altri client**. Per bloccare l'accesso per queste app client, configurare i controlli di accesso su Blocca l'accesso.
 
 ![Condizione delle app client configurata per bloccare l'autenticazione legacy](./media/block-legacy-authentication/client-apps-condition-configured-yes.png)
 
 ### <a name="indirectly-blocking-legacy-authentication"></a>Blocco indiretto dell'autenticazione legacy
 
-Anche se l'organizzazione non è pronta a bloccare l'autenticazione legacy nell'intera organizzazione, è necessario assicurarsi che gli accessi che usano l'autenticazione legacy non ignorino i criteri che richiedono controlli di concessione, ad esempio la richiesta di autenticazione a più fattori o i dispositivi conformi/ibridi Azure AD aggiunti. Durante l'autenticazione, i client di autenticazione legacy non supportano l'invio di informazioni su autenticazione a più fattori, conformità del dispositivo o stato di join a Azure AD. Pertanto, applicare i criteri con i controlli di concessione a tutte le applicazioni client in modo che gli accessi basati sull'autenticazione legacy che non possono soddisfare i controlli di concessione siano bloccati. Con la disponibilità generale della condizione delle app client nel 2020 agosto, i criteri di accesso condizionale appena creati si applicano a tutte le app client per impostazione predefinita.
+Anche se l'organizzazione non è pronta a bloccare l'autenticazione legacy nell'intera organizzazione, è necessario assicurarsi che gli account di accesso che usano l'autenticazione legacy non esercitino i criteri che richiedono controlli di concessione, ad esempio la richiesta di autenticazione a più fattori o dispositivi aggiunti Azure AD conformi o ibridi. Durante l'autenticazione, i client di autenticazione legacy non supportano l'invio di informazioni sull'autenticazione a più fattori, la conformità del dispositivo o l'aggiunta di informazioni sullo stato Azure AD. Applicare quindi criteri con controlli di concessione a tutte le applicazioni client in modo che gli account di accesso legacy basati sull'autenticazione che non possono soddisfare i controlli di concessione siano bloccati. Con la disponibilità generale della condizione delle app client di agosto 2020, i criteri di accesso condizionale appena creati si applicano a tutte le app client per impostazione predefinita.
 
 ![Configurazione predefinita della condizione delle app client](./media/block-legacy-authentication/client-apps-condition-configured-no.png)
 
@@ -118,13 +118,13 @@ Perché il criterio abbia effetto, possono essere necessarie fino a 24 ore.
 
 È possibile selezionare tutti i controlli di concessione disponibili per la condizione **Altri client**, ma l'esperienza dell'utente finale sarà sempre la stessa: l'accesso è bloccato.
 
-### <a name="sharepoint-online-and-b2b-guest-users"></a>Utenti Guest SharePoint Online e B2B
+### <a name="sharepoint-online-and-b2b-guest-users"></a>Utenti guest di SharePoint Online e B2B
 
-Per bloccare l'accesso degli utenti B2B tramite l'autenticazione legacy a SharePoint Online, le organizzazioni devono disabilitare l'autenticazione legacy in SharePoint usando il `Set-SPOTenant` comando di PowerShell e impostando il `-LegacyAuthProtocolsEnabled` parametro su `$false` . Altre informazioni sull'impostazione di questo parametro sono disponibili nel documento di riferimento di PowerShell per SharePoint relativo a [set-SPOTenant](/powershell/module/sharepoint-online/set-spotenant)
+Per bloccare l'accesso utente B2B tramite l'autenticazione legacy a SharePoint Online, le organizzazioni devono disabilitare l'autenticazione legacy in SharePoint usando il comando di PowerShell e impostando `Set-SPOTenant` il `-LegacyAuthProtocolsEnabled` parametro su `$false` . Altre informazioni sull'impostazione di questo parametro sono disponibili nel documento di riferimento di PowerShell per SharePoint [relativo a Set-SPOTenant](/powershell/module/sharepoint-online/set-spotenant)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Determinare l'impatto dell'uso della modalità di accesso condizionale solo report](howto-conditional-access-insights-reporting.md)
 - Se non si ha ancora familiarità con la configurazione dei criteri di accesso condizionale, per un esempio vedere [Richiedere l'autenticazione MFA per app specifiche con l'accesso condizionale di Azure Active Directory](../authentication/tutorial-enable-azure-mfa.md).
 - Per altre informazioni sull'autenticazione moderna, vedere [Funzionamento dell'autenticazione moderna per le app client di Office 2013 e Office 2016](/office365/enterprise/modern-auth-for-office-2013-and-2016). 
-- [Come configurare un dispositivo multifunzione o un'applicazione per l'invio di messaggi di posta elettronica tramite Microsoft 365](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-microsoft-365-or-office-365)
+- [Come configurare un dispositivo multifunzione o un'applicazione per inviare messaggi di posta elettronica usando Microsoft 365](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-microsoft-365-or-office-365)

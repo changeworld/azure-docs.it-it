@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 2d23e073a43d61a501e93e0288f222ef26407744
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: f61936e622a539b29c6788f631df5de42bb2f242
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107538240"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107861248"
 ---
 # <a name="create-an-azure-machine-learning-compute-cluster"></a>Creare un cluster di elaborazione di Azure Machine Learning
 
@@ -34,9 +34,9 @@ In questo articolo viene spiegato come:
 
 * Un'area di lavoro di Azure Machine Learning. Per altre informazioni, vedere [Creare un'area Azure Machine Learning lavoro.](how-to-manage-workspace.md)
 
-* [L'estensione dell'interfaccia della riga](reference-azure-machine-learning-cli.md)di comando di Azure Machine Learning, Azure Machine Learning Python [SDK](/python/api/overview/azure/ml/intro)o [l'Azure Machine Learning Visual Studio Code.](tutorial-setup-vscode-extension.md)
+* [L'estensione dell'interfaccia della](reference-azure-machine-learning-cli.md)riga di comando di Azure Machine Learning, [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro)o [l'Azure Machine Learning Visual Studio Code.](tutorial-setup-vscode-extension.md)
 
-* Se si usa Python SDK, [configurare l'ambiente di sviluppo con un'area di lavoro](how-to-configure-environment.md).  Dopo aver configurato l'ambiente, collegarsi all'area di lavoro nello script Python:
+* Se si usa Python SDK, [configurare l'ambiente di sviluppo con un'area di lavoro](how-to-configure-environment.md).  Dopo aver configurato l'ambiente, connettersi all'area di lavoro nello script Python:
 
     ```python
     from azureml.core import Workspace
@@ -64,7 +64,7 @@ I cluster di calcolo possono eseguire processi in modo sicuro in un ambiente [di
 > I cluster possono in genere essere ridimensionati fino a 100 nodi, purché si disponga di una quota sufficiente per il numero di core necessari. Per impostazione predefinita, i cluster sono impostati con la comunicazione tra i nodi abilitata, ad esempio per supportare i processi MPI. È tuttavia possibile ridimensionare i cluster a 1000 nodi semplicemente generando un [ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)di supporto e richiedendo di consentire l'elenco della sottoscrizione o dell'area di lavoro o un cluster specifico per disabilitare la comunicazione tra nodi.
 
 
-## <a name="create"></a>Crea
+## <a name="create"></a>Create
 
 **Tempo stimato:** circa 5 minuti.
 
@@ -96,7 +96,7 @@ Durante la creazione di un ambiente di calcolo di Machine Learning è anche poss
 az ml computetarget create amlcompute -n cpu --min-nodes 1 --max-nodes 1 -s STANDARD_D3_V2
 ```
 
-Per altre informazioni, vedere [az ml computetarget create amlcompute](/cli/azure/ext/azure-cli-ml/ml/computetarget/create#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute).
+Per altre informazioni, vedere [az ml computetarget create amlcompute](/cli/azure/ml/computetarget/create#az_ml_computetarget_create_amlcompute).
 
 # <a name="studio"></a>[Studio](#tab/azure-studio)
 
@@ -222,9 +222,9 @@ Vedere [Configurare l'identità gestita in Studio.](how-to-create-attach-compute
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
-È possibile che alcuni utenti che hanno creato l'area di lavoro Azure Machine Learning dall'portale di Azure prima della versione di Ga non siano in grado di creare AmlCompute in tale area di lavoro. È possibile generare una richiesta di supporto per il servizio o creare una nuova area di lavoro tramite il portale o l'SDK per sbloccarsi immediatamente.
+Esiste la possibilità che alcuni utenti che hanno creato l'area di lavoro Azure Machine Learning dall'portale di Azure prima della versione ga-to-ga non siano in grado di creare AmlCompute in tale area di lavoro. È possibile generare una richiesta di supporto per il servizio o creare una nuova area di lavoro tramite il portale o l'SDK per sbloccarsi immediatamente.
 
-Se il cluster Azure Machine Learning di calcolo viene bloccato al ridimensionamento (0 -> 0) per lo stato del nodo, ciò potrebbe essere causato dai blocchi delle risorse di Azure.
+Se il cluster Azure Machine Learning di calcolo viene bloccato in fase di ridimensionamento (0 -> 0) per lo stato del nodo, ciò potrebbe essere causato da blocchi delle risorse di Azure.
 
 [!INCLUDE [resource locks](../../includes/machine-learning-resource-lock.md)]
 

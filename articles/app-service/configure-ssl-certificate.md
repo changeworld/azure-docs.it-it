@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 03/02/2021
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 99dc8cb2acf06faae16df6d3a48c4d38b1be46d8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1e05435f364cc30b351275439a04caff47c35512
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104577785"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107871796"
 ---
 # <a name="add-a-tlsssl-certificate-in-azure-app-service"></a>Aggiungere un certificato TLS/SSL nel Servizio app di Azure
 
@@ -35,16 +35,16 @@ La tabella seguente elenca le opzioni disponibili per aggiungere certificati nel
 ## <a name="prerequisites"></a>Prerequisiti
 
 - [Creare un'app del servizio app](./index.yml).
-- Per un certificato privato, verificare che soddisfi tutti i [requisiti del servizio app](#private-certificate-requirements).
-- **Solo certificato gratuito**:
-    - Eseguire il mapping del dominio per il quale si vuole ottenere un certificato per il servizio app. Per informazioni, vedere [esercitazione: eseguire il mapping di un nome DNS personalizzato esistente al servizio app Azure](app-service-web-tutorial-custom-domain.md).
-    - Per un dominio radice (ad esempio contoso.com), assicurarsi che l'app non abbia alcuna [restrizione IP](app-service-ip-restrictions.md) configurata. La creazione del certificato e il relativo rinnovo periodico per un dominio radice dipendono dall'app raggiungibile da Internet.
+- Per un certificato privato, assicurarsi che soddisfi tutti i [requisiti del servizio app](#private-certificate-requirements).
+- **Solo certificato gratuito:**
+    - Eseguire il mapping del dominio per cui si vuole ottenere un certificato al servizio app. Per informazioni, vedere [Esercitazione: Eseguire il mapping di un nome DNS](app-service-web-tutorial-custom-domain.md)personalizzato esistente Servizio app di Azure .
+    - Per un dominio radice (ad esempio contoso.com), assicurarsi che l'app non abbia restrizioni [IP](app-service-ip-restrictions.md) configurate. La creazione del certificato e il relativo rinnovo periodico per un dominio radice dipendono dal fatto che l'app sia raggiungibile da Internet.
 
 ## <a name="private-certificate-requirements"></a>Requisiti dei certificati privati
 
-Il [certificato gestito del servizio app gratuito](#create-a-free-managed-certificate-preview) e il [certificato del servizio app](#import-an-app-service-certificate) soddisfano già i requisiti del servizio app. Se si sceglie di caricare o importare un certificato privato nel servizio app, il certificato deve soddisfare i requisiti seguenti:
+Il [certificato gestito del servizio app gratuito e](#create-a-free-managed-certificate-preview) il certificato del servizio [app](#import-an-app-service-certificate) soddisfano già i requisiti del servizio app. Se si sceglie di caricare o importare un certificato privato nel servizio app, il certificato deve soddisfare i requisiti seguenti:
 
-* Viene esportato come [file PFX protetto da password](https://en.wikipedia.org/w/index.php?title=X.509&section=4#Certificate_filename_extensions), crittografato con triple des.
+* Esportato come [file PFX protetto da password,](https://en.wikipedia.org/w/index.php?title=X.509&section=4#Certificate_filename_extensions)crittografato con triple DES.
 * Deve contenere una chiave privata costituita da almeno 2048 bit
 * Deve contenere tutti i certificati intermedi nella catena di certificati.
 
@@ -58,17 +58,17 @@ Per proteggere un dominio personalizzato in un'associazione TLS/SSL, il certific
 
 [!INCLUDE [Prepare your web app](../../includes/app-service-ssl-prepare-app.md)]
 
-## <a name="create-a-free-managed-certificate-preview"></a>Creazione di un certificato gestito gratuito (anteprima)
+## <a name="create-a-free-managed-certificate-preview"></a>Creare un certificato gestito gratuito (anteprima)
 
 > [!NOTE]
-> Prima di creare un certificato gestito gratuito, verificare di aver [soddisfatto i prerequisiti](#prerequisites) per l'app.
+> Prima di creare un certificato gestito gratuito, assicurarsi di aver [soddisfatto i prerequisiti per](#prerequisites) l'app.
 
 Il certificato gratuito gestito dal servizio app è una soluzione rapida ed efficace per proteggere il proprio nome DNS personalizzato nel servizio app. Si tratta di un certificato TLS/SSL completamente funzionante che viene gestito dal servizio app e rinnovato automaticamente. Il certificato gratuito presenta le limitazioni seguenti:
 
 - Non supporta i certificati con caratteri jolly.
 - Non è esportabile.
 - Non è supportato in ambiente del servizio app (ASE).
-- Non è supportato con i domini radice che sono integrati con gestione traffico.
+- Non è supportato con i domini radice integrati con Gestione traffico.
 
 > [!NOTE]
 > Il certificato gratuito viene rilasciato da DigiCert. Per alcuni domini di primo livello, è necessario consentire in modo esplicito a DigiCert di agire come autorità di certificazione creando un [record di dominio CAA](https://wikipedia.org/wiki/DNS_Certification_Authority_Authorization) con il valore seguente: `0 issue digicert.com`.
@@ -217,7 +217,7 @@ Al termine dell'operazione, il certificato viene visualizzato nell'elenco **Cert
 ![Importazione del certificato di Key Vault completata](./media/configure-ssl-certificate/import-app-service-cert-finished.png)
 
 > [!NOTE]
-> Se si aggiorna il certificato in Key Vault con un nuovo certificato, il servizio app sincronizza automaticamente il certificato entro 48 ore.
+> Se si aggiorna il certificato in Key Vault con un nuovo certificato, il servizio app sincronizza automaticamente il certificato entro 24 ore.
 
 > [!IMPORTANT] 
 > Per proteggere un dominio personalizzato con questo certificato, è necessario anche creare un'associazione di certificato. Seguire la procedura descritta in [Creare l'associazione](configure-ssl-bindings.md#create-binding).
@@ -325,7 +325,7 @@ Con la reimpostazione viene emesso un nuovo certificato da parte dell'autorità 
 Al termine dell'operazione di reimpostazione della chiave, fare clic su **Sincronizza**. L'operazione di sincronizzazione aggiorna automaticamente le associazioni di nome host per il certificato nel servizio app senza causare tempi di inattività per le app.
 
 > [!NOTE]
-> Se non si fa clic su **Sincronizza**, il servizio app sincronizza automaticamente il certificato entro 48 ore.
+> Se non si fa clic su **Sincronizza**, il servizio app sincronizza automaticamente il certificato entro 24 ore.
 
 ### <a name="renew-certificate"></a>Certificato da rinnovare
 
@@ -340,7 +340,7 @@ Per rinnovare il certificato manualmente, fare clic su **Rinnovo manuale**. È p
 Al termine dell'operazione di rinnovo, fare clic su **Sincronizza**. L'operazione di sincronizzazione aggiorna automaticamente le associazioni di nome host per il certificato nel servizio app senza causare tempi di inattività per le app.
 
 > [!NOTE]
-> Se non si fa clic su **Sincronizza**, il servizio app sincronizza automaticamente il certificato entro 48 ore.
+> Se non si fa clic su **Sincronizza,** il servizio app sincronizza automaticamente il certificato entro 24 ore.
 
 ### <a name="export-certificate"></a>Esportare il certificato
 

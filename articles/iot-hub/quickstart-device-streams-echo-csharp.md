@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: comunicare con l'app per dispositivi in C# con i flussi di dispositivi dell'hub Azure."
+title: "Guida introduttiva: Comunicare con l'app per dispositivo in C# con hub IoT di Azure dei dispositivi"
 description: In questo argomento di avvio rapido verranno eseguite due applicazioni C# di esempio che comunicano tramite un flusso del dispositivo stabilito tramite l'hub IoT.
 author: robinsh
 ms.service: iot-hub
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 3eb65db27e5b96f4b12973154bc860a2ab3df020
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c4f6e06524412c76661623cb5ef2985a41f2d7fc
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98624609"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107864085"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>Guida introduttiva: Comunicare con un'applicazione del dispositivo in C# tramite i flussi dispositivo dell'hub IoT (anteprima)
 
@@ -36,7 +36,7 @@ I [flussi dispositivo dell'hub IoT](./iot-hub-device-streams-overview.md) consen
 
 * Le due applicazioni di esempio eseguite in questo argomento sono scritte in C#. È necessario .NET Core SDK 2.1.0 o versione successiva nel computer di sviluppo.
 
-    Scaricare [.NET Core SDK per più piattaforme da .NET](https://www.microsoft.com/net/download/all).
+    Scaricare [.NET Core SDK per più piattaforme da .NET](https://dotnet.microsoft.com/download).
 
     Verificare la versione corrente di C# installata nel computer di sviluppo tramite il comando seguente:
 

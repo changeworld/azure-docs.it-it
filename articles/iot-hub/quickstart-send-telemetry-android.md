@@ -1,5 +1,5 @@
 ---
-title: Guida introduttiva-inviare dati di telemetria alla Guida introduttiva all'hub Azure Internet (Android) | Microsoft Docs
+title: 'Avvio rapido: Inviare dati di telemetria hub IoT di Azure guida introduttiva (Android) | Microsoft Docs'
 description: In questa guida introduttiva si esegue un'applicazione Android di esempio per inviare dati di telemetria simulati a un hub IoT e leggere i dati di telemetria dall'hub IoT per l'elaborazione nel cloud.
 author: wesmc7777
 manager: philmea
@@ -14,12 +14,12 @@ ms.custom:
 - devx-track-azurecli
 ms.date: 03/15/2019
 ms.author: wesmc
-ms.openlocfilehash: c9e81786f9bd45961b38dbd9336ea98be1ab2010
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 4bc8dfb879f362463153819cdf99869522c55c1b
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106059793"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107863822"
 ---
 # <a name="quickstart-send-iot-telemetry-from-an-android-device"></a>Avvio rapido: inviare dati di telemetria IoT da un dispositivo Android
 
@@ -100,7 +100,7 @@ In questa guida di avvio rapido si inviano dati di telemetria a un hub IoT di Az
 
 ## <a name="read-the-telemetry-from-your-hub"></a>Leggere i dati di telemetria dell'hub
 
-In questa sezione si eseguirà il monitoraggio dei messaggi inviati dal dispositivo Android usando Azure Cloud Shell con l'[estensione IoT](/cli/azure/ext/azure-iot/iot).
+In questa sezione si eseguirà il monitoraggio dei messaggi inviati dal dispositivo Android usando Azure Cloud Shell con l'[estensione IoT](/cli/azure/iot).
 
 1. Tramite Azure Cloud Shell, eseguire il comando seguente per connettersi e leggere i messaggi dall'hub IoT:
 

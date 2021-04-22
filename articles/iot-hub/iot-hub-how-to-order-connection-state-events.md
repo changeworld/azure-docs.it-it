@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: asrastog
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 90b7b6aebfce1c37bef76d371d829048d755e39e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bcbfc0941e3c97e96ebc3746b946553e67a10f93
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92147273"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107878543"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Ordinare gli eventi di connessione dei dispositivi dall'hub IoT di Azure tramite Azure Cosmos DB
 
@@ -227,11 +227,11 @@ Nel flusso di lavoro dell'app per la logica, le condizioni consentono di eseguir
 
 5. Selezionare **Aggiungi nuovo parametro**. Nell'elenco a discesa visualizzato selezionare le caselle accanto a **Chiave di partizione** e **Parametri per la stored procedure**, quindi fare clic in un punto qualsiasi dello schermo; verrà aggiunto un campo per il valore della chiave di partizione e un campo per i parametri per la stored procedure.
 
-   ![Screenshot mostra un elemento EXECUTE stored procedure con Aggiungi nuovo parametro selezionato.](./media/iot-hub-how-to-order-connection-state-events/logicapp-stored-procedure.png)
+   ![Screenshot che mostra un elemento Execute stored procedure con l'opzione Add new parameter selezionata.](./media/iot-hub-how-to-order-connection-state-events/logicapp-stored-procedure.png)
 
 6. Immettere ora il valore della chiave di partizione e i parametri come illustrato di seguito. Assicurarsi di effettuare l'inserimento tra parentesi quadre e virgolette doppie, come illustrato. Potrebbe essere necessario fare clic su **Aggiungi contenuto dinamico** per ottenere i valori validi che è possibile usare qui.
 
-   ![Screenshot mostra un elemento EXECUTE stored procedure con i parametri immessi.](./media/iot-hub-how-to-order-connection-state-events/logicapp-stored-procedure-2.png)
+   ![Screenshot che mostra un elemento Execute stored procedure con i parametri immessi.](./media/iot-hub-how-to-order-connection-state-events/logicapp-stored-procedure-2.png)
 
 7. Nella parte superiore del riquadro in cui viene indicato **Per ogni**, in **Seleziona un output dai passaggi precedenti**, assicurarsi di selezionare **Corpo**.
 
@@ -335,7 +335,7 @@ Dovrebbe essere visibile un output simile al seguente che mostra i dati del sens
 
 ## <a name="use-the-azure-cli"></a>Utilizzare l’interfaccia della riga di comando di Azure
 
-Anziché tramite il [portale di Azure](https://portal.azure.com), è possibile eseguire le procedure relative all'hub IoT usando l'interfaccia della riga di comando di Azure. Per informazioni dettagliate, vedere le pagine relative all'interfaccia della riga di comando di Azure per la [creazione di una sottoscrizione di eventi](/cli/azure/eventgrid/event-subscription) e la [creazione di un dispositivo IoT](/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-create).
+Anziché tramite il [portale di Azure](https://portal.azure.com), è possibile eseguire le procedure relative all'hub IoT usando l'interfaccia della riga di comando di Azure. Per informazioni dettagliate, vedere le pagine relative all'interfaccia della riga di comando di Azure per la [creazione di una sottoscrizione di eventi](/cli/azure/eventgrid/event-subscription) e la [creazione di un dispositivo IoT](/cli/azure/iot/hub/device-identity#az_iot_hub_device_identity_create).
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

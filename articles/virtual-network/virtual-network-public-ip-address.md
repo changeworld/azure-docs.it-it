@@ -17,12 +17,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/06/2019
 ms.author: kumud
-ms.openlocfilehash: adc78dceb5269d65bcf76dc99af309fb5e28f450
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 3277d5836d85f1071b7aa169cc83896934a2f63d
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107774114"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107872444"
 ---
 # <a name="manage-public-ip-addresses"></a>Gestire gli indirizzi IP pubblici
 
@@ -60,7 +60,7 @@ Per altri dettagli sugli attributi specifici di un indirizzo IP pubblico durante
 
    |Impostazione|Necessaria?|Dettagli|
    |---|---|---|
-   |Versione indirizzo IP|Sì| Selezionare IPv4 o IPv6 o Entrambi. Se si seleziona Entrambi, verranno creati 2 indirizzi IP pubblici, 1 indirizzo IPv4 e 1 indirizzo IPv6. Altre informazioni su [IPv6 nelle reti virtuali di Azure](../virtual-network/ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).|
+   |Versione indirizzo IP|Sì| Selezionare IPv4 o IPv6 o Entrambi. Se si seleziona Entrambi, verranno creati 2 indirizzi IP pubblici: 1 indirizzo IPv4 e 1 indirizzo IPv6. Altre informazioni su [IPv6 nelle reti virtuali di Azure](../virtual-network/ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).|
    |SKU|Sì|Tutti gli indirizzi IP pubblici creati prima dell'introduzione degli SKU sono **indirizzi** IP pubblici SKU di base. Dopo aver creato l'indirizzo IP pubblico, non è possibile modificare lo SKU. Una macchina virtuale autonoma, le macchine virtuali all'interno di un set di disponibilità o i set di scalabilità di macchine virtuali possono usare SKU Basic o Standard. La combinazione di SKU tra macchine virtuali all'interno di set di disponibilità o set di scalabilità o di macchine virtuali autonome non è consentita. SKU **Basic**: se si sta creando un indirizzo IP pubblico in un'area che supporta zone di disponibilità, l'opzione **Zona di disponibilità** è impostata su *Nessuna* per impostazione predefinita. Gli IP pubblici di base non supportano le zone di disponibilità. SKU **Standard**: un indirizzo IP pubblico con SKU Standard può essere associato a una macchina virtuale o a un front-end di bilanciamento del carico. Se si sta creando un indirizzo IP pubblico in un'area che supporta zone di disponibilità, l'opzione **Zona di disponibilità** è impostata su *Con ridondanza della zona* per impostazione predefinita. Per altre informazioni sulle zone di disponibilità, vedere l'impostazione **Zona di disponibilità**. Lo SKU Standard è necessario se si associa l'indirizzo a un bilanciamento del carico Standard. Per saperne di più sui servizi di bilanciamento del carico standard, vedere [Azure load balancer standard SKU](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (SKU Standard per il bilanciamento del carico di Azure). Quando si assegna un indirizzo IP pubblico con SKU Standard all'interfaccia di rete di una macchina virtuale, è necessario consentire in modo esplicito il traffico previsto con un [gruppo di sicurezza di rete](./network-security-groups-overview.md#network-security-groups). La comunicazione con la risorsa non riesce finché non si crea e si associa un gruppo di sicurezza di rete e si consente in modo esplicito il traffico desiderato.|
    |Livello|Sì|Indica se l'indirizzo IP è associato a un'area (**Area**) o è "anycast" da più aree (**Globale**). *Si noti che un INDIRIZZO IP di "livello globale"* è una funzionalità di anteprima per gli indirizzi IP Standard e attualmente viene utilizzato solo per l'area Load Balancer .|
    |Nome|Sì|Il nome deve essere univoco all'interno del gruppo di risorse selezionato.|
@@ -93,11 +93,11 @@ Per altri dettagli sugli attributi specifici di un indirizzo IP pubblico durante
 |---|---|---|---|
 |[Macchina virtuale](./remove-public-ip-address-vm.md)|Selezionare **Dissocia per** dissociare l'indirizzo IP dalla configurazione della scheda di interfaccia di rete e quindi selezionare **Elimina.**|[Set-AzPublicIpAddress](/powershell/module/az.network/set-azpublicipaddress) per dissociare l'indirizzo IP dalla configurazione della scheda di interfaccia di rete. [Remove-AzPublicIpAddress](/powershell/module/az.network/remove-azpublicipaddress) da eliminare|[az network public-ip update --remove](/cli/azure/network/public-ip#az_network_public_ip_update) per rimuovere l'associazione dell'indirizzo IP dalla configurazione della scheda di interfaccia di rete. [az network public-ip delete](/cli/azure/network/public-ip#az_network_public_ip_delete) da eliminare |
 |Load Balancer Front-end | Passare a un indirizzo IP  pubblico inutilizzato e selezionare Associa e selezionare il Load Balancer con la configurazione IP front-end pertinente per sostituirlo (quindi l'INDIRIZZO IP precedente può essere eliminato usando lo stesso metodo usato per la macchina virtuale)  | [Set-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/set-azloadbalancerfrontendipconfig) per associare la nuova configurazione IP front-end alla configurazione Load Balancer; [Remove-AzPublicIpAddress](/powershell/module/az.network/remove-azpublicipaddress) da eliminare; può anche usare [Remove-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/remove-azloadbalancerfrontendipconfig) per rimuovere la configurazione IP front-end se sono presenti più di uno |[az network lb frontend-ip update](/cli/azure/network/lb/frontend-ip#az_network_lb_frontend_ip_update) per associare la nuova configurazione IP front-end alla configurazione Load Balancer; [Remove-AzPublicIpAddress](/powershell/module/az.network/remove-azpublicipaddress) da eliminare; può anche usare [az network lb frontend-ip delete](/cli/azure/network/lb/frontend-ip#az_network_lb_frontend_ip_delete) per rimuovere la configurazione IP front-end se sono presenti più di una|
-|Firewall|N/D| [Deallocate() per](../firewall/firewall-faq.yml#how-can-i-stop-and-start-azure-firewall) deallocare il firewall e rimuovere tutte le configurazioni IP | [az network firewall ip-config delete](/cli/azure/ext/azure-firewall/network/firewall/ip-config#ext_azure_firewall_az_network_firewall_ip_config_delete) per rimuovere l'indirizzo IP (ma deve usare PowerShell per deallocare prima)|
+|Firewall|N/D| [Deallocate() per](../firewall/firewall-faq.yml#how-can-i-stop-and-start-azure-firewall) deallocare il firewall e rimuovere tutte le configurazioni IP | [az network firewall ip-config delete](/cli/azure/network/firewall/ip-config#az_network_firewall_ip_config_delete) per rimuovere l'indirizzo IP (ma deve usare PowerShell per deallocare prima)|
 
 ## <a name="virtual-machine-scale-sets"></a>Set di scalabilità di macchine virtuali
 
-Quando si usa un set di scalabilità di macchine virtuali con indirizzi IP pubblici, non sono presenti oggetti IP pubblici separati associati alle singole istanze di macchina virtuale. È tuttavia possibile usare un oggetto Prefisso IP [pubblico per generare gli INDIRIZZI IP dell'istanza.](https://azure.microsoft.com/resources/templates/101-vmms-with-public-ip-prefix/)
+Quando si usa un set di scalabilità di macchine virtuali con indirizzi IP pubblici, non sono presenti oggetti IP pubblici separati associati alle singole istanze di macchina virtuale. Tuttavia, un oggetto Prefisso IP [pubblico può essere usato per generare gli INDIRIZZI IP dell'istanza.](https://azure.microsoft.com/resources/templates/101-vmms-with-public-ip-prefix/)
 
 Per elencare gli indirizzi IP pubblici in un set di scalabilità di macchine virtuali, è possibile usare PowerShell ([Get-AzPublicIpAddress -VirtualMachineScaleSetName](/powershell/module/az.network/get-azpublicipaddress)) o l'interfaccia della riga di comando ([az vmss list-instance-public-ips](/cli/azure/vmss#az_vmss_list_instance_public_ips)).
 

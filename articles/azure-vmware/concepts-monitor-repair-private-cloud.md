@@ -1,49 +1,49 @@
 ---
-title: Concetti-monitoraggio e ripristino di cloud privati della soluzione VMware di Azure
-description: Scopri in che modo la soluzione VMware di Azure monitora e ripristina VMware ESXi Server in un cloud privato della soluzione VMware di Azure.
+title: Concetti - Monitorare e ripristinare soluzione Azure VMware cloud privati
+description: Informazioni su soluzione Azure VMware monitoraggio e ripristino VMware ESXi server in un soluzione Azure VMware cloud privato.
 ms.topic: conceptual
 ms.custom: contperf-fy21q2
 ms.date: 02/16/2021
-ms.openlocfilehash: 59319b5598be9770e82b9676a28444648230a019
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9fa94d6093e03432f20672ecf5c0160ce479e175
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100633139"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107871670"
 ---
-# <a name="monitor-and-repair-azure-vmware-solution-private-clouds"></a>Monitorare e ripristinare i cloud privati della soluzione VMware di Azure
+# <a name="monitor-and-repair-azure-vmware-solution-private-clouds"></a>Monitorare e ripristinare soluzione Azure VMware cloud privati
 
-La soluzione VMware di Azure monitora costantemente i server VMware ESXi in un cloud privato della soluzione VMware di Azure. 
+soluzione Azure VMware monitora continuamente i server VMware ESXi in un soluzione Azure VMware cloud privato. 
 
-## <a name="what-azure-vmware-solution-monitors"></a>Quali monitoraggi della soluzione VMware di Azure
+## <a name="what-azure-vmware-solution-monitors"></a>Quali soluzione Azure VMware monitoraggi
 
-La soluzione VMware di Azure monitora le condizioni seguenti nell'host:  
+soluzione Azure VMware monitora le condizioni seguenti nell'host:  
 
-- Stato processore 
-- Stato memoria 
-- Stato di connessione e di alimentazione 
-- Stato della ventola hardware 
+- Stato del processore 
+- Stato della memoria 
+- Stato di connessione e alimentazione 
+- Stato ventola hardware 
 - Perdita di connettività di rete 
-- Stato della lavagna del sistema hardware 
-- Si sono verificati errori sui dischi di un host rete VSAN 
+- Stato della scheda del sistema hardware 
+- Si sono verificati errori nei dischi di un host vSAN 
 - Tensione hardware 
-- Stato temperatura hardware 
-- Stato di alimentazione hardware 
-- Stato di archiviazione 
+- Stato della temperatura hardware 
+- Stato di alimentazione dell'hardware 
+- Stato dell'archiviazione 
 - Errore di connessione 
 
 > [!NOTE]
-> Gli amministratori tenant della soluzione VMware di Azure non devono modificare o eliminare gli avvisi di VMware vCenter definiti sopra, perché sono gestiti dal piano di controllo della soluzione VMware di Azure in vCenter. Questi avvisi vengono usati dal monitoraggio della soluzione VMware di Azure per attivare il processo di correzione dell'host della soluzione VMware di Azure.
+> soluzione Azure VMware gli amministratori del tenant non devono modificare o eliminare gli avvisi VMware vCenter definiti in precedenza, poiché sono gestiti dal piano di controllo soluzione Azure VMware in vCenter. Questi allarmi vengono usati dal monitoraggio soluzione Azure VMware per attivare il soluzione Azure VMware di correzione dell'host.
 
-## <a name="azure-vmware-solution-host-remediation"></a>Monitoraggio e aggiornamento dell'host della soluzione VMware di Azure  
+## <a name="azure-vmware-solution-host-remediation"></a>soluzione Azure VMware monitoraggio e aggiornamento dell'host  
 
-Quando la soluzione VMware di Azure rileva un calo o un errore in un nodo della soluzione VMware di Azure, attiva il processo di monitoraggio e aggiornamento dell'host. La correzione host comporta la sostituzione del nodo difettoso con un nuovo nodo integro.  
+Quando soluzione Azure VMware rileva una riduzione o un errore in un nodo soluzione Azure VMware, attiva il processo di correzione dell'host. La correzione dell'host comporta la sostituzione del nodo difettoso con un nuovo nodo integro.  
 
-La correzione dell'host inizia con l'aggiunta di un nuovo nodo integro nel cluster. Quindi, quando possibile, l'host difettoso viene inserito in modalità di manutenzione VMware vSphere. VMware vMotion sposta le VM dall'host difettoso ad altri server disponibili nel cluster, consentendo potenzialmente un tempo di inattività per la migrazione in tempo reale dei carichi di lavoro. Se l'host difettoso non può essere inserito in modalità di manutenzione, l'host viene rimosso dal cluster.
+La correzione host inizia aggiungendo un nuovo nodo integro nel cluster. Quando possibile, l'host difettoso viene quindi inserito in VMware vSphere di manutenzione. VMware vMotion sposta le macchine virtuali dall'host difettoso ad altri server disponibili nel cluster, consentendo potenzialmente tempi di inattività pari a zero per la migrazione in tempo reale dei carichi di lavoro. Se l'host difettoso non può essere inserito in modalità di manutenzione, l'host viene rimosso dal cluster.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ora che è stato illustrato il modo in cui la soluzione VMware di Azure monitora e ripristina i cloud privati, è possibile ottenere informazioni su:
+Ora che è stato illustrato soluzione Azure VMware e ripara i cloud privati, è possibile ottenere informazioni su:
 
-- [Aggiornamenti del cloud privato della soluzione VMware di Azure](concepts-upgrades.md).
-- [Come abilitare la risorsa della soluzione VMware di Azure](enable-azure-vmware-solution.md).
+- [soluzione Azure VMware aggiornamenti del cloud privato](concepts-upgrades.md)
+- [Come abilitare soluzione Azure VMware risorsa](enable-azure-vmware-solution.md)

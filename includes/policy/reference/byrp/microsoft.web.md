@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 04/14/2021
+ms.date: 04/21/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: c498f0d81a6532c980a6b25e6d42a335ccaa31f4
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 5de838421d2efd6ffb512bfbacfb29a7ff1e3777
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107503975"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107863867"
 ---
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -52,6 +52,6 @@ ms.locfileid: "107503975"
 |[Il debug remoto deve essere disattivato per le app per le API](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe9c8d085-d9cc-4b17-9cdc-059f1f01f19e) |Il debug remoto richiede che le porte in ingresso siano aperte nelle app per le API. Il debug remoto deve essere disattivato. |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_DisableRemoteDebugging_ApiApp_Audit.json) |
 |[Il debug remoto deve essere disattivato per l'app per le funzioni](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0e60b895-3786-45da-8377-9c6b4b6ac5f9) |Il debug remoto richiede che vengano aperte le porte in ingresso nelle app per le funzioni. Il debug remoto deve essere disattivato. |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_DisableRemoteDebugging_FunctionApp_Audit.json) |
 |[Il debug remoto deve essere disattivato per le applicazioni Web](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcb510bfd-1cba-4d9f-a230-cb0976f4bb71) |Il debug remoto richiede che le porte in ingresso siano aperte in un'applicazione Web. Il debug remoto deve essere disattivato. |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_DisableRemoteDebugging_WebApp_Audit.json) |
-|[I log delle risorse in Servizi app devono essere abilitati](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F91a78b24-f231-4a8a-8da9-02c35b2b6510) |Controllare l'abilitazione dei log delle risorse nell'app. Ciò consente di ricreare la traccia delle attività per scopi di analisi se si verifica un evento imprevisto della sicurezza o la rete viene compromessa. |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_ResourceLoggingMonitoring_Audit.json) |
+|[I log delle risorse nei servizi app devono essere abilitati](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F91a78b24-f231-4a8a-8da9-02c35b2b6510) |Controlla l'abilitazione dei log delle risorse nell'app. Ciò consente di ricreare la traccia delle attività per scopi di analisi se si verifica un evento imprevisto della sicurezza o la rete viene compromessa. |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_ResourceLoggingMonitoring_Audit.json) |
 |[L'applicazione Web deve essere accessibile solo tramite HTTPS](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa4af4a39-4135-47fb-b175-47fbdf85311d) |L'uso di HTTPS assicura l'autenticazione di server/servizi e protegge i dati in transito da attacchi di intercettazione a livello rete. |Audit, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppServiceWebapp_AuditHTTP_Audit.json) |
 |[Le app Web devono usare una condivisione file di Azure per la directory del contenuto](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fdcbc65aa-59f3-4239-8978-3bb869d82604) |La directory del contenuto di un'app Web deve trovarsi in una condivisione file di Azure. Le informazioni sull'account di archiviazione per la condivisione file devono essere fornite prima di qualsiasi attività di pubblicazione. Per altre informazioni sull'uso di File di Azure per l'hosting del contenuto del servizio app, vedere [https://go.microsoft.com/fwlink/?linkid=2151594](https://go.microsoft.com/fwlink/?linkid=2151594) . |Audit, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_WebApp_StorageAccountRequired_Audit.json) |

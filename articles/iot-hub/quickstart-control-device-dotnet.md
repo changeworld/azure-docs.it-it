@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: controllare un dispositivo dalla Guida introduttiva all'hub Internet Azure (.NET) | Microsoft Docs"
+title: 'Avvio rapido: Controllare un dispositivo da hub IoT di Azure di avvio rapido (.NET) | Microsoft Docs'
 description: In questa guida introduttiva vengono eseguite due applicazioni C# di esempio. Una è un'applicazione di servizio che può controllare in remoto i dispositivi connessi all'hub. L'altra applicazione simula un dispositivo connesso all'hub che può essere controllato in remoto.
 author: robinsh
 manager: philmea
@@ -14,12 +14,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - devx-track-azurecli
 ms.date: 03/04/2020
-ms.openlocfilehash: b89cc9dfb0a98f61b74ecf42471d08129661fb22
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 92f27c16b5dd45352a3a6cb65dd4bf78e88188f0
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106059869"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107868556"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-net"></a>Guida introduttiva: Controllare un dispositivo connesso a un hub IoT (.NET)
 
@@ -39,7 +39,7 @@ La guida introduttiva usa due applicazioni .NET già scritte.
 
 * Le due applicazioni di esempio eseguite in questa guida introduttiva sono scritte in C#. È necessario .NET Core SDK 3.1 o versione successiva nel computer di sviluppo.
 
-    È possibile scaricare .NET Core SDK per più piattaforme da [.NET](https://www.microsoft.com/net/download/all).
+    È possibile scaricare .NET Core SDK per più piattaforme da [.NET](https://dotnet.microsoft.com/download).
 
     È possibile verificare la versione corrente di C# installata nel computer di sviluppo tramite il comando seguente:
 
