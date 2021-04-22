@@ -1,18 +1,18 @@
 ---
 title: Definizioni di criteri predefiniti per set di scalabilità di macchine virtuali di Azure
 description: Elenco di definizioni di criteri predefiniti di Criteri di Azure per set di scalabilità di macchine virtuali di Azure. Queste definizioni di criteri predefiniti forniscono approcci comuni alla gestione delle risorse di Azure.
-ms.date: 04/14/2021
+ms.date: 04/21/2021
 ms.topic: reference
 author: ju-shim
 ms.author: jushiman
 ms.service: virtual-machine-scale-sets
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 638d44f32084aed066690219eddb5f8613f8d1e4
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 7cef7c299dc6fac8cf16828bc9c39789f38d572d
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107503712"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107877247"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-virtual-machine-scale-sets"></a>Definizioni predefinite di Criteri di Azure per set di scalabilità di macchine virtuali di Azure
 

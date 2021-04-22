@@ -1,33 +1,33 @@
 ---
-title: Inviare dati di telemetria del dispositivo hub IoT di Azure guida introduttiva (Python)
-description: In questa guida introduttiva si usa l'SDK hub IoT di Azure dispositivo per Python per inviare dati di telemetria da un dispositivo a un hub Iot.
+title: 'Avvio rapido: Inviare dati di telemetria hub IoT di Azure dispositivo a un dispositivo (Python)'
+description: In questa guida introduttiva si usa l'SDK per dispositivi hub IoT di Azure per Python per inviare dati di telemetria da un dispositivo a un hub IoT.
 author: timlt
 ms.author: timlt
 ms.service: iot-develop
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 03/24/2021
-ms.openlocfilehash: ea0b161a9038666e1e7ddd5a6c6af2078afff8aa
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: be44ecf6dd154a21fd024ee37d92f61504350664
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107766526"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107876432"
 ---
-# <a name="quickstart-send-telemetry-from-a-device-to-an-azure-iot-hub-python"></a>Avvio rapido: Inviare dati di telemetria da un dispositivo a un hub Azure IoT (Python)
+# <a name="quickstart-send-telemetry-from-a-device-to-an-azure-iot-hub-python"></a>Guida introduttiva: Inviare dati di telemetria da un dispositivo a un hub Azure IoT (Python)
 
-**Si applica a**: [Sviluppo di applicazioni per dispositivi](about-iot-develop.md#device-application-development)
+**Si applica a:** [Sviluppo di applicazioni per dispositivi](about-iot-develop.md#device-application-development)
 
-In questa guida introduttiva si apprenderà un flusso di lavoro di sviluppo di applicazioni per dispositivi IoT di base. Usare l'interfaccia della riga di comando di Azure per creare un hub Azure IoT e un dispositivo, quindi usare Azure IoT Python SDK per compilare un dispositivo client simulato e inviare dati di telemetria all'hub. 
+In questa guida introduttiva si apprenderà un flusso di lavoro di base per lo sviluppo di applicazioni per dispositivi IoT. Si usa l'interfaccia della riga di comando di Azure per creare un hub Azure IoT e un dispositivo, quindi si usa Azure IoT Python SDK per creare un dispositivo client simulato e inviare dati di telemetria all'hub. 
 
 ## <a name="prerequisites"></a>Prerequisiti
 - Se non si dispone di sottoscrizione di Azure, [crearne una gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 - Interfaccia della riga di comando di Azure. È possibile eseguire tutti i comandi in questa Guida introduttiva in Azure Cloud Shell, una shell interattiva dell'interfaccia della riga di comando eseguita nel browser. Se si usa Cloud Shell, non è necessario installare alcun componente. Se si preferisce installare e usare l'interfaccia della riga di comando in locale, per questa Guida introduttiva è necessaria l'interfaccia della riga di comando di Azure versione 2.0.76 o successiva. Eseguire az --version per trovare la versione. Per installare o eseguire l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli).
 - [Python 3.7+](https://www.python.org/downloads/). Per informazioni sulle altre versioni di Python supportate, vedere [Funzionalità per i dispositivi IoT di Azure](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device#azure-iot-device-features).
     
-    Per assicurarsi che la versione di Python sia aggiornata, eseguire `python --version` . Se sono installati Sia Python 2 che Python 3 e si usa un ambiente Python 3, installare tutte le librerie usando `pip3` . Questo comando garantisce che le librerie siano installate nel runtime di Python 3.
+    Per assicurarsi che la versione di Python sia aggiornata, eseguire `python --version` . Se sono installati sia Python 2 che Python 3 e si usa un ambiente Python 3, installare tutte le librerie usando `pip3` . Questo comando garantisce che le librerie siano installate nel runtime di Python 3.
     > [!IMPORTANT]
-    > Nel programma di installazione di Python selezionare l'opzione **Aggiungi Python a PATH**. Se Python 3.7 o versione successiva è già installato, verificare di aver aggiunto la cartella di installazione di Python alla `PATH` variabile di ambiente.
+    > Nel programma di installazione di Python selezionare l'opzione **Add Python to PATH (Aggiungi Python a PATH).** Se Python 3.7 o versione successiva è già installato, verificare di aver aggiunto la cartella di installazione di Python alla variabile `PATH` di ambiente .
 
 [!INCLUDE [iot-hub-include-create-hub-cli](../../includes/iot-hub-include-create-hub-cli.md)]
 
@@ -36,7 +36,7 @@ In questa sezione si userà Python SDK per inviare messaggi dal dispositivo simu
 
 1. Aprire una nuova finestra del terminale. Questo terminale verrà utilizzato per installare Python SDK e usare il codice di esempio Python. A questo punto dovrebbero essere aperti due terminali: quello appena aperto per lavorare con Python e la shell dell'interfaccia della riga di comando usata nelle sezioni precedenti per immettere i comandi dell'interfaccia della riga di comando di Azure.       
 
-1. Copiare [Azure IoT di dispositivo python SDK](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples) nel computer locale:
+1. Copiare [gli esempi Azure IoT dispositivo Python SDK](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples) nel computer locale:
 
     ```console
     git clone https://github.com/Azure/azure-iot-sdk-python
@@ -85,7 +85,7 @@ In questa sezione si userà Python SDK per inviare messaggi dal dispositivo simu
     export IOTHUB_DEVICE_SECURITY_TYPE="connectionString"
     ```
 
-1. Nella shell dell'interfaccia della riga di comando aperta eseguire [il comando az iot hub monitor-events](/cli/azure/ext/azure-iot/iot/hub#ext-azure-iot-az-iot-hub-monitor-events) per avviare il monitoraggio degli eventi nel dispositivo IoT simulato.  I messaggi di evento vengono stampati nel terminale all'arrivo.
+1. Nella shell dell'interfaccia della riga di comando aperta eseguire [il comando az iot hub monitor-events](/cli/azure/iot/hub#az_iot_hub_monitor_events) per avviare il monitoraggio degli eventi nel dispositivo IoT simulato.  I messaggi di evento vengono stampati nel terminale all'arrivo.
 
     ```azurecli
     az iot hub monitor-events --output table --hub-name {YourIoTHubName}
@@ -134,7 +134,7 @@ Per eliminare un gruppo di risorse per nome:
     ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questa guida introduttiva è stato appreso un flusso di lavoro di base Azure IoT'applicazione per connettere in modo sicuro un dispositivo al cloud e inviare dati di telemetria da dispositivo a cloud. È stata usata l'interfaccia della riga di comando di Azure per creare un hub IoT e un dispositivo, quindi è stato usato Azure IoT Python SDK per compilare un dispositivo simulato e inviare dati di telemetria all'hub. 
+In questa guida introduttiva è stato appreso un flusso di Azure IoT di applicazioni di base per connettere in modo sicuro un dispositivo al cloud e inviare dati di telemetria da dispositivo a cloud. È stata usata l'interfaccia della riga di comando di Azure per creare un hub IoT e un dispositivo, quindi è stato usato Azure IoT Python SDK per compilare un dispositivo simulato e inviare dati di telemetria all'hub. 
 
 Come passaggio successivo, esplorare l'sdk Azure IoT Python tramite esempi di applicazioni.
 

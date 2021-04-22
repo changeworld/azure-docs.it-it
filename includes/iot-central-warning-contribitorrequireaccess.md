@@ -1,19 +1,19 @@
 ---
-title: Accesso collaboratore avviso | Microsoft Docs
-description: Questo articolo è un avviso statico per alcuni articoli che necessitano di un avviso in Internet delle cose-Central
+title: Avviso accesso collaboratore | Microsoft Docs
+description: Questo articolo è un avviso statico per diversi articoli che necessitano di un avviso in iot-central
 services: iot-central
 ms.service: iot-central
-author: TheJasonAndrew
-ms.author: v-anjaso
+author: philmea
+ms.author: philmea
 ms.date: 12/28/2020
 ms.topic: include
 manager: dominicbetts
-ms.openlocfilehash: d0e2c488d35b7c35e4d6a9a988e2cf7c397f82ac
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 94d458edd7ab9357ac5eb318036febd040dd0562
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98203329"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107879867"
 ---
 > [!WARNING]
-> Per creare un'app IoT Central, è necessario l'accesso come collaboratore alla sottoscrizione di Azure. Anche se possono essere presenti livelli di accesso alternativi per creare un'app, il percorso consigliato è l'accesso a livello di collaboratore alla sottoscrizione.
+> Per creare un'app IoT Central collaboratore. Anche se possono essere disponibili livelli di accesso alternativi per creare un'app, l'accesso a livello di collaboratore alla sottoscrizione è il percorso consigliato.

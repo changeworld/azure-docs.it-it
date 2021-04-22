@@ -9,20 +9,20 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: fea8f52ebf40ba8195de134098693f90315bb384
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 10742ec277f5742067c432a2823cbb7592e6a752
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103461420"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107874695"
 ---
-# <a name="tutorial-develop-iot-edge-modules-with-linux-containers"></a>Esercitazione: sviluppare moduli di IoT Edge con contenitori Linux
+# <a name="tutorial-develop-iot-edge-modules-with-linux-containers"></a>Esercitazione: Sviluppare IoT Edge moduli con contenitori Linux
 
 [!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
-Usare Visual Studio Code per sviluppare e distribuire il codice nei dispositivi che eseguono IoT Edge.
+Usare Visual Studio Code per sviluppare e distribuire codice nei dispositivi che eseguono IoT Edge.
 
-Nella Guida introduttiva è stato creato un dispositivo IoT Edge ed è stato distribuito un modulo da Azure Marketplace. Questa esercitazione illustra come sviluppare e distribuire codice personalizzato in un dispositivo IoT Edge. Questo articolo è un prerequisito utile per le altre esercitazioni, che descrivono in maggior dettaglio specifici linguaggi di programmazione o servizi di Azure.
+Nella guida introduttiva è stato creato un dispositivo IoT Edge e è stato distribuito un modulo dal Azure Marketplace. Questa esercitazione illustra come sviluppare e distribuire codice personalizzato in un dispositivo IoT Edge. Questo articolo è un prerequisito utile per le altre esercitazioni, che descrivono in maggior dettaglio specifici linguaggi di programmazione o servizi di Azure.
 
 Questa esercitazione usa l'esempio di distribuzione di un **modulo C# in un dispositivo Linux**. Questo esempio è stato scelto perché è lo scenario di sviluppo più comune per le soluzioni IoT Edge. Anche se si prevede di usare un linguaggio diverso o di distribuire un servizio di Azure, questa esercitazione è comunque utile per apprendere i concetti e gli strumenti di sviluppo. Completare questa introduzione al processo di distribuzione, quindi scegliere il linguaggio o il servizio di Azure che si preferisce per approfondire i dettagli.
 
@@ -44,7 +44,7 @@ Un computer di sviluppo:
 * Per lo sviluppo di moduli IoT Edge per dispositivi Linux, è possibile usare la maggior parte dei sistemi operativi in grado di eseguire un motore per i contenitori. Questa esercitazione usa un computer Windows, ma vengono evidenziate le differenze note in macOS o Linux.
 * Installare [Git](https://git-scm.com/) per eseguire il pull dei pacchetti di modelli di moduli più avanti in questa esercitazione.  
 * [Estensione C# per Visual Studio Code con tecnologia OmniSharp](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
-* [.NET Core 2.1 SDK](https://www.microsoft.com/net/download).
+* [.NET Core 2.1 SDK](https://dotnet.microsoft.com/download/dotnet/2.1).
 
 Un dispositivo Azure IoT Edge:
 
@@ -64,9 +64,9 @@ Questa esercitazione illustra in modo dettagliato le fasi di sviluppo di un modu
 Quando si sviluppano moduli IoT Edge, è importante comprendere la differenza tra il computer di sviluppo e il dispositivo IoT Edge di destinazione in cui il modulo verrà distribuito. Il contenitore creato per inserire il codice dei moduli deve corrispondere al sistema operativo del *dispositivo di destinazione*. Ad esempio, lo scenario più comune è quello in cui si sviluppa in un computer Windows un modulo destinato a un dispositivo Linux che esegue IoT Edge. In tal caso, il sistema operativo del contenitore è Linux. Mentre si procede con questa esercitazione, tenere presente la differenza tra *sistema operativo del computer di sviluppo* e *sistema operativo del contenitore*.
 
 >[!TIP]
->Se si usa [IOT Edge per Linux in Windows](iot-edge-for-linux-on-windows.md), il dispositivo di *destinazione* nello scenario è la macchina virtuale Linux e non l'host Windows.
+>Se si usa IoT Edge linux *in* [Windows,](iot-edge-for-linux-on-windows.md)il dispositivo di destinazione nello scenario è la macchina virtuale Linux, non l'host Windows.
 
-Questa esercitazione è destinata ai dispositivi che eseguono IoT Edge con i contenitori Linux. È possibile usare il sistema operativo preferito, purché il computer di sviluppo esegua i contenitori Linux. Si consiglia di usare Visual Studio Code per lo sviluppo con i contenitori Linux, quindi questo è il risultato che verrà usato in questa esercitazione. È possibile usare anche Visual Studio, ma esistono alcune differenze in termini di supporto tra i due strumenti.
+Questa esercitazione è destinata ai dispositivi IoT Edge con contenitori Linux. È possibile usare il sistema operativo preferito, purché il computer di sviluppo esegua i contenitori Linux. È consigliabile usare Visual Studio Code per sviluppare con contenitori Linux, quindi questa esercitazione userà questo. È possibile usare anche Visual Studio, ma esistono alcune differenze in termini di supporto tra i due strumenti.
 
 La tabella seguente elenca gli scenari di sviluppo supportati per i **contenitori Linux** in Visual Studio Code e Visual Studio.
 

@@ -154,7 +154,7 @@
     - name: Interfaccia della riga di comando di Azure
       items:
         - name: Frontdoor
-          href: /cli/azure/ext/front-door/network
+          href: /cli/azure/network
         - name: Gateway applicazione
           href: /cli/azure/network/application-gateway
         - name: RETE CDN

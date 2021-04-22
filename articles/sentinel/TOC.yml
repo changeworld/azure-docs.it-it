@@ -96,6 +96,8 @@
               href: connect-azure-kubernetes-service.md
             - name: Log di database SQL di Azure
               href: connect-azure-sql-logs.md
+            - name: Account di archiviazione di Azure
+              href: connect-azure-storage-account.md
             - name: Web application firewall (WAF) di Azure
               href: connect-azure-waf.md
             - name: Defender per IoT (in precedenza ASC per IoT)
@@ -154,7 +156,7 @@
               href: connect-f5-big-ip.md
             - name: Forcepoint DLP
               href: connect-forcepoint-dlp.md
-            - name: Google Workspace (G Suite)
+            - name: Area di lavoro Di Google (G Suite)
               href: connect-google-workspace.md
             - name: Infoblox NIOS
               href: connect-infoblox.md
@@ -214,7 +216,7 @@
                   items:
                     - name: AI Vectra Detect
                       href: connect-ai-vectra-detect.md
-                    - name: Eventi di sicurezza di Akamai
+                    - name: Eventi di sicurezza Akamai
                       href: connect-akamai-security-events.md
                     - name: Aruba ClearPass
                       href: connect-aruba-clearpass.md
@@ -298,7 +300,7 @@
     - name: Cartelle di lavoro Azure Sentinel principali
       href: top-workbooks.md
     - name: Interfaccia della riga di comando di Azure
-      href: /cli/azure/ext/sentinel/sentinel
+      href: /cli/azure/sentinel
     - name: Ruoli del controllo degli accessi in base al ruolo di Azure
       items:
         - name: Tutti i ruoli di Azure
@@ -315,7 +317,7 @@
           href: watchlist-with-rest-api.md
     - name: Connettore per app per la logica di Azure Sentinel
       href: /connectors/azuresentinel/
-    - name: Informazioni di riferimento su entità
+    - name: Informazioni di riferimento per le entità
       href: entities-reference.md
     - name: Schema di normalizzazione della rete
       href: normalization-schema.md
@@ -331,7 +333,7 @@
           href: ../azure-monitor/logs/query-optimization.md
     - name: Arricchimenti tramite UEBA
       href: ueba-enrichments.md
-    - name: Mapping dei campi del log CEF
+    - name: Mapping dei campi di log CEF
       href: cef-name-mapping.md
 - name: Risorse
   items:

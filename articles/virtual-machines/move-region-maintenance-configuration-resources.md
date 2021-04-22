@@ -6,34 +6,34 @@ ms.service: virtual-machines
 ms.topic: how-to
 ms.date: 03/04/2020
 ms.author: shants
-ms.openlocfilehash: 88082c441dafdc7571f2b9775bfc07ebe3ca5aa4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4427071edf237d82e8a99d44678d77d23e180fff
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98730507"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107865244"
 ---
 # <a name="move-resources-in-a-maintenance-control-configuration-to-another-region"></a>Spostare le risorse in una configurazione di controllo di manutenzione in un'altra area
 
-Seguire questo articolo per spostare le risorse associate a una configurazione del controllo di manutenzione in un'area di Azure diversa. Potrebbe essere necessario spostare una configurazione per diversi motivi. Ad esempio, per sfruttare i vantaggi di una nuova area, per distribuire le funzionalità o i servizi disponibili in un'area specifica, per soddisfare i requisiti di governance e criteri interni oppure in risposta alla pianificazione della capacità.
+Seguire questo articolo per spostare le risorse associate a una configurazione di Controllo di manutenzione in un'area di Azure diversa. Potrebbe essere necessario spostare una configurazione per diversi motivi. Ad esempio, per sfruttare i vantaggi di una nuova area, per distribuire funzionalità o servizi disponibili in un'area specifica, per soddisfare i requisiti interni di criteri e governance o in risposta alla pianificazione della capacità.
 
-Il [controllo della manutenzione](maintenance-control.md), con configurazioni di manutenzione personalizzate, consente di controllare la modalità di applicazione degli aggiornamenti della piattaforma alle macchine virtuali e agli host dedicati di Azure. Esistono un paio di scenari per lo trasferimento del controllo di manutenzione tra le aree:
+[Il controllo della](maintenance-control.md)manutenzione, con configurazioni di manutenzione personalizzate, consente di controllare il modo in cui gli aggiornamenti della piattaforma vengono applicati alle macchine virtuali e agli host dedicati di Azure. Esistono un paio di scenari per lo spostamento del controllo di manutenzione tra aree:
 
-- Per spostare le risorse associate a una configurazione di manutenzione, ma non la configurazione stessa, seguire questo articolo.
-- Per spostare la configurazione del controllo di manutenzione, ma non le risorse associate alla configurazione, seguire [queste istruzioni](move-region-maintenance-configuration.md).
-- Per spostare sia la configurazione di manutenzione che le risorse associate, seguire prima [queste istruzioni](move-region-maintenance-configuration.md). Quindi, seguire le istruzioni riportate in questo articolo.
+- Per spostare le risorse associate a una configurazione di manutenzione, ma non alla configurazione stessa, seguire questo articolo.
+- Per spostare la configurazione del controllo di manutenzione, ma non le risorse associate alla configurazione, seguire [queste istruzioni.](move-region-maintenance-configuration.md)
+- Per spostare sia la configurazione di manutenzione che le risorse associate, seguire prima [queste istruzioni.](move-region-maintenance-configuration.md) Seguire quindi le istruzioni in questo articolo.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di iniziare a trasferire le risorse associate a una configurazione del controllo di manutenzione:
+Prima di iniziare a spostare le risorse associate a una configurazione del controllo di manutenzione:
 
-- Prima di iniziare, assicurarsi che le risorse che si stanno muovendo siano presenti nella nuova area.
-- Verificare le configurazioni del controllo di manutenzione associate alle macchine virtuali di Azure e agli host dedicati di Azure che si desidera spostare. Controllare ogni risorsa singolarmente. Attualmente non è possibile recuperare le configurazioni per più risorse.
+- Assicurarsi che le risorse da spostare esistano nella nuova area prima di iniziare.
+- Verificare le configurazioni di Controllo di manutenzione associate alle macchine virtuali di Azure e agli host dedicati di Azure da spostare. Controllare ogni risorsa singolarmente. Attualmente non è possibile recuperare le configurazioni per più risorse.
 - Quando si recuperano le configurazioni per una risorsa:
-    - Assicurarsi di usare l'ID sottoscrizione per l'account, non un ID host dedicato di Azure.
-    - INTERFACCIA della riga di comando: il parametro--output Table viene usato solo per la leggibilità e può essere eliminato o modificato.
-    - PowerShell: il parametro del nome del Format-Table viene usato solo per la leggibilità e può essere eliminato o modificato.
-    - Se si usa PowerShell, viene ricevuto un errore se si tenta di elencare le configurazioni per una risorsa che non dispone di configurazioni associate. L'errore sarà simile al seguente: "operazione non riuscita con stato:' non trovato '. Dettagli: 404 errore del client: Impossibile trovare l'URL ".
+    - Assicurarsi di usare l'ID sottoscrizione per l'account, non un ID host dedicato di Azure sottoscrizione.
+    - Interfaccia della riga di comando: il parametro --output table viene usato solo per la leggibilità e può essere eliminato o modificato.
+    - PowerShell: il Format-Table name viene usato solo per la leggibilità e può essere eliminato o modificato.
+    - Se si usa PowerShell, viene visualizzato un errore se si tenta di elencare le configurazioni per una risorsa a cui non sono associate configurazioni. L'errore sarà simile al seguente: "Operazione non riuscita con stato: 'Non trovato'. Dettagli: 404 Errore client: Non trovato per url".
 
     
 ## <a name="prepare-to-move"></a>Preparare lo spostamento
@@ -42,14 +42,14 @@ Prima di iniziare a trasferire le risorse associate a una configurazione del con
 
     **Variabile** | **Dettagli** | **Esempio**
     --- | ---
-    $subId | ID per la sottoscrizione contenente le configurazioni di manutenzione | "The-Subscription-ID"
-    $rsrcGroupName | Nome del gruppo di risorse (VM di Azure) | "VMResourceGroup"
-    $vmName | Nome della risorsa VM |  MyVM
+    $subId | ID per la sottoscrizione contenente le configurazioni di manutenzione | "our-subscription-ID"
+    $rsrcGroupName | Nome gruppo di risorse (macchina virtuale di Azure) | "VMResourceGroup"
+    $vmName | Nome risorsa macchina virtuale |  "myVM"
     $adhRsrcGroupName |  Gruppo di risorse (host dedicati) | "HostResourceGroup"
-    $adh | Nome host dedicato | MyHost
-    $adhParentName | Nome risorsa padre | HostGroup
+    $adh | Nome host dedicato | "myHost"
+    $adhParentName | Nome risorsa padre | "HostGroup"
     
-2. Per recuperare le configurazioni di manutenzione usando il comando PowerShell [Get-AZConfigurationAssignment](/powershell/module/az.maintenance/get-azconfigurationassignment) :
+2. Per recuperare le configurazioni di manutenzione usando il [comando Get-AZConfigurationAssignment di](/powershell/module/az.maintenance/get-azconfigurationassignment) PowerShell:
 
     - Per gli host dedicati di Azure, eseguire:
         ```
@@ -61,7 +61,7 @@ Prima di iniziare a trasferire le risorse associate a una configurazione del con
         ```
         Get-AzConfigurationAssignment -ResourceGroupName $rgName -ResourceName $vmName -ProviderName Microsoft.Compute -ResourceType virtualMachines | Format-Table Name
         ```
-3. Per recuperare le configurazioni di manutenzione usando l'interfaccia della riga di comando [AZ Maintenance Assignment](/cli/azure/ext/maintenance/maintenance/assignment) Command:
+3. Per recuperare le configurazioni di manutenzione usando il comando [az maintenance assignment](/cli/azure/maintenance/assignment) dell'interfaccia della riga di comando:
 
     - Per gli host dedicati di Azure:
 
@@ -79,7 +79,7 @@ Prima di iniziare a trasferire le risorse associate a una configurazione del con
 ## <a name="move"></a>Sposta 
 
 1. [Seguire queste istruzioni](../site-recovery/azure-to-azure-tutorial-migrate.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json) per spostare le macchine virtuali di Azure nella nuova area.
-2. Dopo lo spostamento delle risorse, riapplicare le configurazioni di manutenzione alle risorse nella nuova area in base alle esigenze, a seconda che siano state spostate le configurazioni di manutenzione. È possibile applicare una configurazione di manutenzione a una risorsa usando [PowerShell](../virtual-machines/maintenance-control-powershell.md) o l' [interfaccia](../virtual-machines/maintenance-control-cli.md)della riga di comando.
+2. Dopo aver spostato le risorse, riapplicare le configurazioni di manutenzione alle risorse nella nuova area in base alle esigenze, a seconda che le configurazioni di manutenzione siano state spostate o meno. È possibile applicare una configurazione di manutenzione a una risorsa usando [PowerShell](../virtual-machines/maintenance-control-powershell.md) o l'interfaccia della [riga di comando.](../virtual-machines/maintenance-control-cli.md)
 
 
 ## <a name="verify-the-move"></a>Verificare lo spostamento
@@ -93,4 +93,4 @@ Dopo lo spostamento, provare a eliminare le risorse spostate nell'area di origin
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Seguire [queste istruzioni](move-region-maintenance-configuration.md) se è necessario spostare le configurazioni di manutenzione. 
+Se [è necessario spostare](move-region-maintenance-configuration.md) le configurazioni di manutenzione, seguire queste istruzioni. 

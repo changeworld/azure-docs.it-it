@@ -70,11 +70,11 @@
           href: tutorial-migrate-aws-virtual-machines.md
         - name: Eseguire la migrazione di istanze GCP
           href: tutorial-migrate-gcp-virtual-machines.md
-    - name: Contenitori
+    - name: Creare un contenitore
       items:
-        - name: Creare un contenitore ASP.NET app ed eseguire la migrazione al servizio App Container
+        - name: Creare un contenitore ASP.NET app ed eseguire la migrazione ad AKS
           href: tutorial-app-containerization-aspnet-kubernetes.md
-        - name: Creare un contenitore di app Web Java ed eseguire la migrazione al servizio App Container
+        - name: Creare un contenitore per app Web Java ed eseguire la migrazione al servizio Contenitore di Microsoft
           href: tutorial-containerize-java-kubernetes.md
 - name: Concetti
   items:
@@ -104,7 +104,7 @@
       items:
         - name: Panoramica delle valutazioni (migrazione a VM di Azure)
           href: concepts-assessment-calculation.md
-        - name: Panoramica delle valutazioni (eseguire la migrazione a Azure SQL)
+        - name: Panoramica delle valutazioni (eseguire la migrazione Azure SQL)
           href: concepts-azure-sql-assessment-calculation.md
         - name: Panoramica della valutazione (migrazione alla soluzione Azure VMware)
           href: concepts-azure-vmware-solution-assessment-calculation.md
@@ -154,7 +154,7 @@
           href: add-server-credentials.md
         - name: 'Individuare applicazioni, ruoli e funzionalità'
           href: how-to-discover-applications.md
-        - name: Individuare le istanze DI SQL in un progetto esistente
+        - name: Individuare le istanze di SQL in un progetto esistente
           href: how-to-discover-sql-existing-project.md
         - name: Analizzare le dipendenze dei computer (in base ad agente)
           href: how-to-create-group-machine-dependencies.md
@@ -237,7 +237,7 @@
 - name: Informazioni di riferimento
   items:
     - name: Interfaccia della riga di comando di Azure
-      href: /cli/azure/ext/offazure/offazure
+      href: /cli/azure/offazure
     - name: Azure PowerShell
       href: /powershell/module/az.migrate/
     - name: Criteri di Azure predefiniti

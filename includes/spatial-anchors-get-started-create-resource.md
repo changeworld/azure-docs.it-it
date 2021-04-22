@@ -4,12 +4,12 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 11/20/2020
 ms.author: parkerra
-ms.openlocfilehash: 596b73f8fb205b6a5681fecf3d00fd2a67c1f59f
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
-ms.translationtype: HT
+ms.openlocfilehash: 2c85e26d5a9115b00621c4099e3ed36afb224e3f
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97628706"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107880959"
 ---
 ## <a name="create-a-spatial-anchors-resource"></a>Creare una risorsa di Ancoraggi nello spazio
 
@@ -76,7 +76,7 @@ Per iniziare, preparare l'ambiente per l'interfaccia della riga di comando di Az
 
    [!INCLUDE [resource group intro text](resource-group.md)]
 
-   Per visualizzare gli attuali account di ancoraggi nello spazio per un gruppo di risorse, usare il comando [az spatial-anchors-account list](/cli/azure/ext/mixed-reality/spatial-anchors-account#ext_mixed_reality_az_spatial_anchors_account_list):
+   Per visualizzare gli attuali account di ancoraggi nello spazio per un gruppo di risorse, usare il comando [az spatial-anchors-account list](/cli/azure/spatial-anchors-account#az_spatial_anchors_account_list):
 
    ```azurecli
    az spatial-anchors-account list --resource-group myResourceGroup
@@ -88,13 +88,13 @@ Per iniziare, preparare l'ambiente per l'interfaccia della riga di comando di Az
    az spatial-anchors-account list
    ```
 
-1. Eseguire il comando [az spatial-anchors-account create](/cli/azure/ext/mixed-reality/spatial-anchors-account#ext_mixed_reality_az_spatial_anchors_account_create) per creare l'account di ancoraggi nello spazio:
+1. Eseguire il comando [az spatial-anchors-account create](/cli/azure/spatial-anchors-account#az_spatial_anchors_account_create) per creare l'account di ancoraggi nello spazio:
 
    ```azurecli
    az spatial-anchors-account create --resource-group myResourceGroup --name MySpatialAnchorsQuickStart --location eastus2
    ```
 
-1. Per visualizzare le proprietà delle risorse, usare il comando [az spatial-anchors-account show](/cli/azure/ext/mixed-reality/spatial-anchors-account#ext_mixed_reality_az_spatial_anchors_account_show):
+1. Per visualizzare le proprietà delle risorse, usare il comando [az spatial-anchors-account show](/cli/azure/spatial-anchors-account#az_spatial_anchors_account_show):
 
    ```azurecli
    az spatial-anchors-account show --resource-group myResourceGroup --name MySpatialAnchorsQuickStart
@@ -102,7 +102,7 @@ Per iniziare, preparare l'ambiente per l'interfaccia della riga di comando di Az
 
    Copiare i valori di **ID account** e di **Dominio account** della risorsa in un editor di testo per un uso successivo.
 
-1. Eseguire il comando [az spatial-anchors-account key show](/cli/azure/ext/mixed-reality/spatial-anchors-account/key#ext_mixed_reality_az_spatial_anchors_account_key_show) per ottenere le chiavi primaria e secondaria:
+1. Eseguire il comando [az spatial-anchors-account key show](/cli/azure/spatial-anchors-account/key#az_spatial_anchors_account_key_show) per ottenere le chiavi primaria e secondaria:
 
    ```azurecli
    az spatial-anchors-account key show --resource-group myResourceGroup --name MySpatialAnchorsQuickStart
@@ -110,14 +110,14 @@ Per iniziare, preparare l'ambiente per l'interfaccia della riga di comando di Az
 
    Copiare i valori delle chiavi in un editor di testo per un uso successivo.
 
-   Se è necessario rigenerare le chiavi, usare il comando [az spatial-anchors-account key renew](/cli/azure/ext/mixed-reality/spatial-anchors-account/key#ext_mixed_reality_az_spatial_anchors_account_key_renew):
+   Se è necessario rigenerare le chiavi, usare il comando [az spatial-anchors-account key renew](/cli/azure/spatial-anchors-account/key#az_spatial_anchors_account_key_renew):
 
    ```azurecli
    az spatial-anchors-account key renew --resource-group myResourceGroup --name example --key primary
    az spatial-anchors-account key renew --resource-group myResourceGroup --name example --key secondary
    ```
 
-Per eliminare un account, usare il comando [az spatial-anchors-account delete](/cli/azure/ext/mixed-reality/spatial-anchors-account#ext_mixed_reality_az_spatial_anchors_account_delete):
+Per eliminare un account, usare il comando [az spatial-anchors-account delete](/cli/azure/spatial-anchors-account#az_spatial_anchors_account_delete):
 
 ```azurecli
 az spatial-anchors-account delete --resource-group myResourceGroup --name MySpatialAnchorsQuickStart

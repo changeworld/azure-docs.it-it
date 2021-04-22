@@ -1,14 +1,14 @@
 ---
 title: Creare dashboard di Azure a livello di codice
-description: Usare un dashboard nell'portale di Azure come modello per creare dashboard di Azure a livello di codice. Include informazioni di riferimento JSON.
+description: Usare un dashboard nel portale di Azure come modello per creare dashboard di Azure a livello di codice. Include informazioni di riferimento JSON.
 ms.topic: how-to
 ms.date: 12/4/2020
-ms.openlocfilehash: 416eeb772e347b28fcb4a4dcc93c746562ea3571
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 92848ac238ff11a90afc82713639b8abebf076ec
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107767060"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107878795"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Creare dashboard di Azure a livello di codice
 
@@ -18,21 +18,21 @@ Questo articolo illustra il processo di creazione e pubblicazione di dashboard d
 
 ## <a name="overview"></a>Panoramica
 
-I dashboard condivisi nel [portale di Azure](https://portal.azure.com) sono [risorse come](../azure-resource-manager/management/overview.md) le macchine virtuali e gli account di archiviazione. È possibile gestire le risorse a livello di codice usando Azure Resource Manager [API REST,](/rest/api/)l'interfaccia della riga di comando di [Azure](/cli/azure)e [Azure PowerShell comandi](/powershell/azure/get-started-azureps).
+I dashboard condivisi nel [portale di Azure](https://portal.azure.com) sono [risorse come](../azure-resource-manager/management/overview.md) le macchine virtuali e gli account di archiviazione. È possibile gestire le risorse a livello di codice usando Azure Resource Manager [API REST,](/rest/api/)l'interfaccia della riga di comando di [Azure](/cli/azure) [e Azure PowerShell comandi](/powershell/azure/get-started-azureps).
 
 Molte funzionalità si basano su queste API per semplificare la gestione delle risorse. Ognuno degli strumenti e delle API permette di creare, elencare, recuperare, modificare ed eliminare risorse in modi diversi. Poiché i dashboard sono risorse, è possibile scegliere l'API o lo strumento preferito da usare.
 
 A seconda degli strumenti utilizzati, per creare un dashboard a livello di codice, si costruisce una rappresentazione JSON dell'oggetto dashboard. Questo oggetto contiene informazioni sui riquadri nel dashboard. Include dimensioni, posizioni, risorse a cui sono associati ed eventuali personalizzazioni dell'utente.
 
-Il modo più pratico per creare questo documento JSON è usare il portale di Azure. È possibile aggiungere e posizionare i riquadri in modo interattivo. Esportare quindi il codice JSON e creare un modello dal risultato per usarlo successivamente in script, programmi e strumenti di distribuzione.
+Il modo più pratico per creare questo documento JSON è usare il portale di Azure. È possibile aggiungere e posizionare i riquadri in modo interattivo. Esportare quindi il codice JSON e creare un modello dal risultato per usarlo in un secondo momento in script, programmi e strumenti di distribuzione.
 
 ## <a name="create-a-dashboard"></a>Creare un dashboard
 
-Per creare un dashboard, selezionare **Dashboard** dal [menu](https://portal.azure.com) portale di Azure, quindi selezionare Nuovo **dashboard.**
+Per creare un dashboard, selezionare **Dashboard** dal [menu](https://portal.azure.com) portale di Azure e quindi selezionare Nuovo **dashboard.**
 
 ![Comando Nuovo dashboard](./media/azure-portal-dashboards-create-programmatically/new-dashboard-command.png)
 
-Usare la raccolta di riquadri per trovare e aggiungere riquadri. Per aggiungere i riquadri, trascinarli e rilasciarli. Alcuni riquadri supportano il ridimensionamento usando un punto di manipolazione di trascinamento.
+Usare la raccolta di riquadri per trovare e aggiungere riquadri. Per aggiungere i riquadri, trascinarli e rilasciarli. Alcuni riquadri supportano il ridimensionamento usando un quadratino di trascinamento.
 
 ![trascinare il punto di manipolazione per modificare le dimensioni](./media/azure-portal-dashboards-create-programmatically/drag-handle.png)
 
@@ -69,15 +69,15 @@ Per pubblicare questo dashboard per qualsiasi macchina virtuale in futuro, impos
 Esistono due approcci per le API che creano risorse in Azure:
 
 * Le API imperative creano una risorsa alla volta. Per altre informazioni, vedere [Risorse](/rest/api/resources/resources).
-* Un sistema di distribuzione basato su modello che crea più risorse dipendenti con una singola chiamata API. Per altre informazioni, vedere  [Distribuire risorse con modelli Resource Manager e Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md).
+* Un sistema di distribuzione basato su modello che crea più risorse dipendenti con una singola chiamata API. Per altre informazioni, vedere  [Distribuire risorse con Resource Manager e Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md).
 
-La distribuzione basata su modello supporta la parametrizzazione e la modellizzazione. Questo approccio viene utilizzato in questo articolo.
+La distribuzione basata su modelli supporta la parametrizzazione e la modellizzazione. Questo approccio viene utilizzato in questo articolo.
 
 ## <a name="programmatically-create-a-dashboard-from-your-template-using-a-template-deployment"></a>Creare un dashboard a livello di codice dal modello usando una distribuzione di modelli
 
-Azure offre la possibilità di orchestrare la distribuzione di più risorse. Si crea un modello di distribuzione che esprime il set di risorse da distribuire e le relazioni tra di esse.  Il formato JSON di ogni risorsa è lo stesso di quando le risorse vengono create una per una. La differenza è che il linguaggio del modello aggiunge alcuni concetti come variabili, parametri, funzioni di base e altro ancora. Questa sintassi estesa è supportata solo nel contesto della distribuzione di un modello. Non funziona se usato con le API imperative descritte in precedenza. Per altre informazioni, vedere [Comprendere la struttura e la sintassi dei Azure Resource Manager modelli.](../azure-resource-manager/templates/template-syntax.md)
+Azure offre la possibilità di orchestrare la distribuzione di più risorse. Si crea un modello di distribuzione che esprime il set di risorse da distribuire e le relazioni tra di esse.  Il formato JSON di ogni risorsa è lo stesso di quando le risorse vengono create una per una. La differenza è che il linguaggio del modello aggiunge alcuni concetti come variabili, parametri, funzioni di base e altro ancora. Questa sintassi estesa è supportata solo nel contesto di una distribuzione di modelli. Non funziona se usato con le API imperative descritte in precedenza. Per altre informazioni, vedere [Comprendere la struttura e la sintassi Azure Resource Manager modelli.](../azure-resource-manager/templates/template-syntax.md)
 
-La parametrizzazione deve essere eseguita usando la sintassi dei parametri del modello.  Sostituire tutte le istanze dell'ID risorsa trovato in precedenza, come illustrato di seguito.
+La parametrizzazione deve essere eseguita usando la sintassi dei parametri del modello.  Tutte le istanze dell'ID risorsa trovate in precedenza vengono sostituite come illustrato di seguito.
 
 Proprietà JSON di esempio con ID risorsa hard-coded:
 
@@ -91,7 +91,7 @@ Proprietà JSON di esempio convertita in versione parametrizzata basata sui para
 id: "[resourceId(parameters('virtualMachineResourceGroup'), 'Microsoft.Compute/virtualMachines', parameters('virtualMachineName'))]"
 ```
 
-Dichiarare i metadati del modello necessari e i parametri all'inizio del modello JSON come illustrato di seguito:
+Dichiarare i metadati del modello necessari e i parametri nella parte superiore del modello JSON come segue:
 
 ```json
 
@@ -118,13 +118,13 @@ Dopo aver configurato il modello, distribuirlo usando uno dei metodi seguenti:
 * [API REST](/rest/api/resources/deployments)
 * [PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
 * [Interfaccia della riga di comando di Azure](/cli/azure/group/deployment#az_group_deployment_create)
-* [Pagina portale di Azure distribuzione del modello di distribuzione](https://portal.azure.com/#create/Microsoft.Template)
+* [Pagina portale di Azure distribuzione del modello](https://portal.azure.com/#create/Microsoft.Template)
 
 Verranno quindi mostrate due versioni del codice JSON del dashboard di esempio. La prima è la versione esportata dal portale e già associata a una risorsa. Il secondo è la versione del modello che può essere associata a livello di codice a qualsiasi macchina virtuale e distribuita usando Azure Resource Manager.
 
 ### <a name="json-representation-of-our-example-dashboard-before-templating"></a>Rappresentazione JSON del dashboard di esempio prima della creazione di modelli
 
-Questo esempio mostra cosa ci si può aspettare di vedere se è stato seguito con questo articolo. Le istruzioni hanno esportato la rappresentazione JSON di un dashboard già distribuito. Gli identificatori di risorsa hard-coded mostrano che questo dashboard punta a una macchina virtuale di Azure specifica.
+Questo esempio mostra cosa si può aspettarsi di vedere se è stato seguito insieme a questo articolo. Le istruzioni hanno esportato la rappresentazione JSON di un dashboard già distribuito. Gli identificatori di risorsa hard-coded mostrano che questo dashboard punta a una macchina virtuale di Azure specifica.
 
 ```json
 
@@ -378,7 +378,7 @@ Questo esempio mostra cosa ci si può aspettare di vedere se è stato seguito co
 
 ### <a name="template-representation-of-our-example-dashboard"></a>Rappresentazione basata su modello del dashboard di esempio
 
-La versione del modello del dashboard ha definito tre parametri denominati `virtualMachineName` , `virtualMachineResourceGroup` e `dashboardName` .  I parametri permettono di fare in modo che il dashboard punti a una macchina virtuale di Azure diversa a ogni distribuzione. Questo dashboard può essere configurato e distribuito a livello di codice in modo che punti a qualsiasi macchina virtuale di Azure. Per testare questa funzionalità, copiare il modello seguente e incollarlo nella pagina [portale di Azure di distribuzione del modello.](https://portal.azure.com/#create/Microsoft.Template)
+La versione del modello del dashboard ha definito tre parametri denominati `virtualMachineName` , `virtualMachineResourceGroup` e `dashboardName` .  I parametri permettono di fare in modo che il dashboard punti a una macchina virtuale di Azure diversa a ogni distribuzione. Questo dashboard può essere configurato e distribuito a livello di codice per puntare a qualsiasi macchina virtuale di Azure. Per testare questa funzionalità, copiare il modello seguente e incollarlo nella [pagina portale di Azure distribuzione del modello.](https://portal.azure.com/#create/Microsoft.Template)
 
 Questo esempio distribuisce solo un dashboard, ma il linguaggio del modello permette di distribuire più risorse e di generare un bundle di uno o più dashboard insieme.
 
@@ -648,7 +648,7 @@ Questo esempio distribuisce solo un dashboard, ma il linguaggio del modello perm
 }
 ```
 
-Dopo aver visto un esempio di uso di un modello con parametri per distribuire un dashboard, è possibile provare a distribuire il modello usando le API [REST di Azure Resource Manager](/rest/api/), l'interfaccia della riga di comando di [Azure](/cli/azure)o i comandi [Azure PowerShell](/powershell/azure/get-started-azureps).
+Dopo aver visto un esempio dell'uso di un modello con parametri per distribuire un dashboard, è possibile provare a distribuire il modello usando le API [REST di Azure Resource Manager](/rest/api/), l'interfaccia della riga di comando di [Azure](/cli/azure)o i comandi [Azure PowerShell](/powershell/azure/get-started-azureps).
 
 ## <a name="programmatically-create-a-dashboard-by-using-azure-cli"></a>Creare un dashboard a livello di codice usando l'interfaccia della riga di comando di Azure
 
@@ -656,29 +656,29 @@ Preparare l'ambiente per l'interfaccia della riga di comando di Azure.
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-- Questi esempi usano il dashboard seguente: [portal-dashboard-template-testvm.jsin](https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/azure-portal/portal-dashboard-template-testvm.json). Sostituire il contenuto tra parentesi angolari con i valori.
+- Questi esempi usano il dashboard seguente: [portal-dashboard-template-testvm.jsin](https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/azure-portal/portal-dashboard-template-testvm.json). Sostituire il contenuto tra parentesi angolari con i valori specificati.
 
-Eseguire il [comando az portal dashboard create](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_create) per creare un dashboard:
+Eseguire il [comando az portal dashboard create](/cli/azure/portal/dashboard#az_portal_dashboard_create) per creare un dashboard:
 
 ```azurecli
 az portal dashboard create --resource-group myResourceGroup --name 'Simple VM Dashboard' \
    --input-path portal-dashboard-template-testvm.json --location centralus
 ```
 
-È possibile aggiornare un dashboard con il comando [az portal dashboard update](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_update):
+È possibile aggiornare un dashboard con il comando [az portal dashboard update](/cli/azure/portal/dashboard#az_portal_dashboard_update):
 
 ```azurecli
 az portal dashboard update --resource-group myResourceGroup --name 'Simple VM Dashboard' \
 --input-path portal-dashboard-template-testvm.json --location centralus
 ```
 
-Visualizzare i dettagli di un dashboard eseguendo il [comando az portal dashboard show:](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_show)
+Per visualizzare i dettagli di un dashboard, eseguire il [comando az portal dashboard show:](/cli/azure/portal/dashboard#az_portal_dashboard_show)
 
 ```azurecli
 az portal dashboard show --resource-group myResourceGroup --name 'Simple VM Dashboard'
 ```
 
-Per visualizzare tutti i dashboard della sottoscrizione corrente, usare [az portal dashboard list](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_list):
+Per visualizzare tutti i dashboard della sottoscrizione corrente, usare [az portal dashboard list](/cli/azure/portal/dashboard#az_portal_dashboard_list):
 
 ```azurecli
 az portal dashboard list
@@ -694,4 +694,4 @@ az portal dashboard list --resource-group myResourceGroup
 
 Per altre informazioni sui desktop, vedere [Gestire le portale di Azure e le preferenze.](set-preferences.md)
 
-Per altre informazioni sul supporto dell'interfaccia della riga di comando di Azure per i dashboard, vedere [az portal dashboard](/cli/azure/ext/portal/portal/dashboard).
+Per altre informazioni sul supporto dell'interfaccia della riga di comando di Azure per i dashboard, vedere [az portal dashboard](/cli/azure/portal/dashboard).

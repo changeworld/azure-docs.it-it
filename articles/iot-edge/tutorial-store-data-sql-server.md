@@ -9,18 +9,18 @@ ms.date: 08/04/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 709c7bf352635ffb1c17f6cb24aee59dcae2e033
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: bd64c95bcf59cef27aa988712315403c00a5dfd7
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107479764"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107871256"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Esercitazione: Archiviare dati sul perimetro con database di SQL Server
 
 [!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
-Distribuire un modulo SQL Server per archiviare i dati in un dispositivo che esegue Azure IoT Edge contenitori Linux.
+Distribuire un SQL Server per archiviare i dati in un dispositivo che esegue Azure IoT Edge contenitori Linux.
 
 Usare Azure IoT Edge e SQL Server per archiviare i dati ed eseguirne query nei dispositivi perimetrali. Azure IoT Edge offre funzionalità di archiviazione di base che memorizzano nella cache i messaggi se un dispositivo passa alla modalità offline e quindi li inoltrano quando viene ristabilita la connessione. È tuttavia possibile che siano necessarie funzionalità di archiviazione più avanzate, ad esempio la possibilità di eseguire query sui dati in locale. I dispositivi IoT Edge possono usare database locale per eseguire elaborazioni più complesse senza la necessità di mantenere una connessione all'hub IoT.
 
@@ -42,8 +42,8 @@ In questa esercitazione verranno illustrate le procedure per:
 Prima di iniziare questa esercitazione è necessario aver completato l'esercitazione precedente per configurare l'ambiente di sviluppo per i contenitori Linux: [Sviluppare moduli IoT Edge per i dispositivi Linux](tutorial-develop-for-linux.md). Completando tale esercitazione, saranno soddisfatti i prerequisiti seguenti:
 
 * Un [hub IoT](../iot-hub/iot-hub-create-through-portal.md) di livello Gratuito o Standard in Azure.
-* Un dispositivo AMD64 che esegue Azure IoT Edge con contenitori Linux. È possibile usare le guide introduttive per configurare un [dispositivo Linux o](quickstart-linux.md) Un dispositivo [Windows.](quickstart.md)
-  * I dispositivi ARM, ad esempio Raspberry Pis, non possono eseguire SQL Server. Se si vuole usare SQL in un dispositivo ARM, è possibile usare [SQL Edge di Azure](../azure-sql-edge/overview.md).
+* Un dispositivo AMD64 che esegue Azure IoT Edge contenitori Linux. È possibile usare le guide introduttive per configurare un [dispositivo Linux o](quickstart-linux.md) [Windows.](quickstart.md)
+  * I dispositivi ARM, ad esempio Raspberry Pis, non possono eseguire SQL Server. Se si vuole usare SQL in un dispositivo ARM, è possibile [usare](../azure-sql-edge/overview.md)SQL Edge di Azure .
 * Un registro contenitori, ad esempio [Registro Azure Container](../container-registry/index.yml).
 * [Visual Studio Code](https://code.visualstudio.com/) configurato con [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * [Docker CE](https://docs.docker.com/install/) configurato per eseguire i contenitori Linux.
@@ -51,7 +51,7 @@ Prima di iniziare questa esercitazione è necessario aver completato l'esercitaz
 In questa esercitazione si usa un modulo di Funzioni di Azure per inviare dati a SQL Server. Per sviluppare un modulo IoT Edge con Funzioni di Azure, installare i prerequisiti aggiuntivi seguenti nel computer di sviluppo:
 
 * [Estensione C# per Visual Studio Code (con tecnologia OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
-* [.NET Core 2.1 SDK](https://www.microsoft.com/net/download).
+* [.NET Core 2.1 SDK](https://dotnet.microsoft.com/download/dotnet/2.1).
 
 ## <a name="create-a-function-project"></a>Creare un progetto per le funzioni
 

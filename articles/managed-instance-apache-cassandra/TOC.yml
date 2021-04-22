@@ -6,21 +6,21 @@
       href: introduction.md
 - name: Avvi rapidi
   items:
-    - name: Creare un cluster-portale
+    - name: Creare un cluster - Portale
       href: create-cluster-portal.md
-    - name: Creare un cluster-interfaccia della riga di comando
+    - name: Creare un cluster - Interfaccia della riga di comando
       displayName: 'az managed-cassandra, cluster, datacenter, connect'
       href: create-cluster-cli.md
     - name: Configurare un cluster ibrido
       href: configure-hybrid-cluster.md
-    - name: Distribuire un cluster Spark con databricks
+    - name: Distribuire un cluster Spark con Databricks
       href: deploy-cluster-databricks.md
 - name: Concetti
   items:
     - name: Domande frequenti
       displayName: 'cost, region, monitor, backup'
       href: faq.md
-    - name: Confronto tra istanza gestita e Azure Cosmos DB API Cassandra
+    - name: Istanza gestita vs Azure Cosmos DB API Cassandra
       href: compare-cosmosdb-managed-instance.md
 - name: Guide pratiche
   items:
@@ -35,7 +35,7 @@
       items:
         - name: Cluster Cassandra
           href: /rest/api/cosmos-db-resource-provider/2021-03-01-preview/cassandraclusters
-        - name: Data Center Cassandra
+        - name: Data center Cassandra
           href: /rest/api/cosmos-db-resource-provider/2021-03-01-preview/cassandradatacenters
     - name: Interfaccia della riga di comando di Azure
-      href: /cli/azure/ext/cosmosdb-preview/managed-cassandra
+      href: /cli/azure/managed-cassandra

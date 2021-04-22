@@ -9,16 +9,16 @@ ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 2bd57344f0bd7f3b97c523f9378a5820c1a90a84
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aefd52ad7b92f6cf7f702d6b8c9496ac535da70c
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93396567"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107866288"
 ---
 # <a name="create-an-application-gateway-with-tls-termination-using-azure-powershell"></a>Creare un gateway applicazione con la terminazione TLS tramite Azure PowerShell
 
-È possibile usare Azure PowerShell per creare un [gateway applicazione](overview.md) con un certificato per la [terminazione TLS/SSL](ssl-overview.md) che usa un [set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/overview.md) per i server back-end. In questo esempio il set di scalabilità contiene due istanze di macchine virtuali che vengono aggiunte al pool back-end predefinito del gateway applicazione. 
+È possibile usare Azure PowerShell per creare un [gateway](overview.md) applicazione con un certificato per la [terminazione TLS/SSL](ssl-overview.md) che usa un set di scalabilità [di](../virtual-machine-scale-sets/overview.md) macchine virtuali per i server back-end. In questo esempio il set di scalabilità contiene due istanze di macchine virtuali che vengono aggiunte al pool back-end predefinito del gateway applicazione. 
 
 In questo articolo vengono illustrate le operazioni seguenti:
 
@@ -35,7 +35,7 @@ Questo articolo richiede il modulo Azure PowerShell versione 1.0.0 o successiva.
 
 ## <a name="create-a-self-signed-certificate"></a>Creare un certificato autofirmato
 
-Per la produzione è necessario importare un certificato valido firmato da un provider attendibile. Per questo articolo, si crea un certificato autofirmato usando [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate). È possibile usare [Export-PfxCertificate](/powershell/module/pkiclient/export-pfxcertificate) con l'identificazione personale restituita per esportare un file pfx dal certificato.
+Per la produzione è necessario importare un certificato valido firmato da un provider attendibile. Per questo articolo si crea un certificato autofirmato usando [New-SelfSignedCertificate.](/powershell/module/pki/new-selfsignedcertificate) È possibile usare [Export-PfxCertificate](/powershell/module/pki/export-pfxcertificate) con l'identificazione personale restituita per esportare un file pfx dal certificato.
 
 ```powershell
 New-SelfSignedCertificate `

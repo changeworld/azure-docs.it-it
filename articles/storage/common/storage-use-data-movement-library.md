@@ -1,7 +1,7 @@
 ---
-title: Trasferire dati con la libreria per lo spostamento dei dati per .NET
+title: Trasferire dati con la libreria di spostamento dati per .NET
 titleSuffix: Azure Storage
-description: Usare la libreria per lo spostamento dei dati per spostare o copiare dati da o verso BLOB e contenuto del file. Copiare i dati in archiviazione di Azure da file locali o copiare i dati all'interno o tra account di archiviazione. Migrare facilmente i dati in archiviazione di Azure.
+description: Usare la libreria Di spostamento dati per spostare o copiare dati da o verso blob e contenuto di file. Copiare i dati in archiviazione di Azure da file locali o copiare i dati all'interno o tra account di archiviazione. Migrare facilmente i dati in archiviazione di Azure.
 services: storage
 author: tamram
 ms.service: storage
@@ -11,16 +11,16 @@ ms.date: 06/16/2020
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8ec35a651d4d3ef9e0877463329a654bc7491f4c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f87379f48f82757916aef0fa0d358835f48cb9a5
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96023415"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107875936"
 ---
 # <a name="transfer-data-with-the-data-movement-library"></a>Trasferire dati con la libreria di Spostamento dati
 
-La libreria per lo spostamento dei dati di archiviazione di Azure è una libreria open source multipiattaforma progettata per prestazioni elevate di caricamento, download e copia di BLOB e file. La libreria per lo spostamento dei dati fornisce metodi pratici che non sono disponibili nella libreria client di archiviazione di Azure per .NET. Questi metodi offrono la possibilità di impostare il numero di operazioni parallele, tenere traccia dello stato del trasferimento, riprendere facilmente un trasferimento annullato e molto altro ancora.
+La Archiviazione di Azure di spostamento dei dati è una libreria open source multipiattaforma progettata per il caricamento, il download e la copia di BLOB e file ad alte prestazioni. La libreria di spostamento dati offre metodi pratici che non sono disponibili nella Archiviazione di Azure client per .NET. Questi metodi consentono di impostare il numero di operazioni parallele, tenere traccia dello stato di avanzamento del trasferimento, riprendere facilmente un trasferimento annullato e molto altro ancora.
 
 La libreria usa inoltre .NET Core, utile quando si creano app .NET per Windows, Linux e macOS. Per altre informazioni su .NET Core, consultare la [documentazione di .NET Core](https://dotnet.github.io/). La libreria è compatibile anche con le app .NET Framework tradizionali per Windows.
 
@@ -40,7 +40,7 @@ In questo documento viene spiegato come creare un'applicazione console di .NET C
 
 ## <a name="setup"></a>Configurazione
 
-1. Consultare la [guida all'installazione di .NET Core](https://www.microsoft.com/net/core) per installare .NET Core. Quando si seleziona l'ambiente, scegliere l'opzione della riga di comando.
+1. Visitare la [Guida all'installazione di .NET Core](https://dotnet.microsoft.com/download) per installare il .NET Core SDK. Quando si seleziona l'ambiente, scegliere l'opzione della riga di comando.
 2. Dalla riga di comando creare una directory per il progetto. Passare a questa directory, quindi digitare `dotnet new console -o <sample-project-name>` per creare un progetto console C#.
 3. Aprire la directory in Visual Studio Code. Questo passaggio può essere eseguito rapidamente tramite la riga di comando digitando `code .` in Windows.
 4. Installare l'[estensione C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) dal marketplace di Visual Studio Code. Riavviare Visual Studio Code.
@@ -48,9 +48,9 @@ In questo documento viene spiegato come creare un'applicazione console di .NET C
 6. Modificare `launch.json` in `.vscode` per usare il terminale esterno come una console. Questa impostazione deve essere impostata su `"console": "externalTerminal"`
 7. Visual Studio Code consente di eseguire il debug delle applicazioni di .NET Core. Premere `F5` per eseguire l'applicazione e verificare che l'installazione funzioni. Dovrebbe essere visualizzato "Hello World!" sulla console.
 
-## <a name="add-the-data-movement-library-to-your-project"></a>Aggiungere la libreria per lo spostamento dei dati al progetto
+## <a name="add-the-data-movement-library-to-your-project"></a>Aggiungere la libreria di spostamento dati al progetto
 
-1. Aggiungere la versione più recente della libreria per lo spostamento dei dati alla `dependencies` sezione del `<project-name>.csproj` file. Al momento della redazione di questo documento, la versione è `"Microsoft.Azure.Storage.DataMovement": "0.6.2"`
+1. Aggiungere la versione più recente della libreria di spostamento dati `dependencies` alla sezione del `<project-name>.csproj` file. Al momento della redazione di questo documento, la versione è `"Microsoft.Azure.Storage.DataMovement": "0.6.2"`
 2. Per ripristinare il progetto dovrebbe essere visualizzato un prompt dei comandi. Fare clic sul pulsante "ripristina". È inoltre possibile ripristinare il progetto dalla riga di comando digitando il comando `dotnet restore` nella radice della directory del progetto.
 
 Modificare `<project-name>.csproj`:
@@ -196,7 +196,7 @@ Premere `F5` per eseguire l'applicazione. È possibile verificare l'avvenuto car
 
 ## <a name="set-the-number-of-parallel-operations"></a>Impostare il numero di operazioni parallele
 
-Una funzionalità offerta dalla libreria per lo spostamento dei dati è la possibilità di impostare il numero di operazioni parallele per aumentare la velocità effettiva di trasferimento dei dati. Per impostazione predefinita, la libreria per lo spostamento dei dati imposta il numero di operazioni parallele su 8 * il numero di core nel computer.
+Una funzionalità offerta dalla libreria di spostamento dati è la possibilità di impostare il numero di operazioni parallele per aumentare la velocità effettiva di trasferimento dei dati. Per impostazione predefinita, la libreria di spostamento dati imposta il numero di operazioni parallele su 8 * il numero di core nel computer.
 
 Tenere presente che un numero elevato di operazioni parallele in un ambiente con larghezza di banda ridotta potrebbe sovraccaricare la connessione di rete e impedire il corretto completamento delle operazioni. È necessario fare qualche prova con questa impostazione per determinare la soluzione migliore in base alla larghezza di banda di rete disponibile.
 
@@ -260,7 +260,7 @@ public static async Task TransferLocalFileToAzureBlob(CloudStorageAccount accoun
 
 ## <a name="track-transfer-progress"></a>Monitorare lo stato del trasferimento dati
 
-È utile sapere quanto tempo è necessario per il trasferimento dei dati. Tuttavia, la possibilità di visualizzare lo stato di avanzamento del trasferimento *durante* l'operazione di trasferimento è ancora migliore. Per realizzare questo scenario, è necessario creare un oggetto `TransferContext`. L'oggetto `TransferContext` è disponibile in due forme: `SingleTransferContext` e `DirectoryTransferContext`. Il primo è per il trasferimento di un singolo file e il secondo è per il trasferimento di una directory di file.
+Sapere quanto tempo è necessario per il trasferimento dei dati è utile. Tuttavia, la possibilità di visualizzare lo stato di avanzamento del trasferimento *durante* l'operazione di trasferimento sarebbe ancora migliore. Per realizzare questo scenario, è necessario creare un oggetto `TransferContext`. L'oggetto `TransferContext` è disponibile in due forme: `SingleTransferContext` e `DirectoryTransferContext`. Il primo è per il trasferimento di un singolo file e il secondo per il trasferimento di una directory di file.
 
 Aggiungere i metodi `GetSingleTransferContext` e `GetDirectoryTransferContext` a `Program.cs`:
 
@@ -310,7 +310,7 @@ public static async Task TransferLocalFileToAzureBlob(CloudStorageAccount accoun
 
 ## <a name="resume-a-canceled-transfer"></a>Riprendere un trasferimento annullato
 
-Un'altra utile funzionalità offerta dalla libreria per lo spostamento dei dati è la possibilità di riprendere un trasferimento annullato. Aggiungere un codice che consente di annullare temporaneamente il trasferimento digitando `c`, quindi riprendere il trasferimento dopo 3 secondi.
+Un'altra funzionalità utile offerta dalla libreria di spostamento dati è la possibilità di riprendere un trasferimento annullato. Aggiungere un codice che consente di annullare temporaneamente il trasferimento digitando `c`, quindi riprendere il trasferimento dopo 3 secondi.
 
 Modificare `TransferLocalFileToAzureBlob`:
 
@@ -368,7 +368,7 @@ Fino a questo momento il valore `checkpoint` è sempre rimasto impostato su `nul
 
 ## <a name="transfer-a-local-directory-to-blob-storage"></a>Trasferire una directory locale nell'archivio BLOB
 
-Sarebbe deludente se la libreria per lo spostamento dei dati potesse trasferire un solo file alla volta. Per fortuna però non è così. La libreria per lo spostamento dei dati consente di trasferire una directory di file e tutte le relative sottodirectory. Aggiungere un codice che consente questa operazione.
+Sarebbe spiacente se la libreria di spostamento dati potesse trasferire un solo file alla volta. Per fortuna però non è così. La libreria Di spostamento dati consente di trasferire una directory di file e tutte le relative sottodirectory. Aggiungere un codice che consente questa operazione.
 
 Per prima cosa, aggiungere il metodo `GetBlobDirectory` a `Program.cs`:
 
@@ -447,7 +447,7 @@ public static async Task TransferLocalDirectoryToAzureBlobDirectory(CloudStorage
 
 Esistono alcune differenze tra questo metodo e il metodo di caricamento di un singolo file. Attualmente sono in uso `TransferManager.UploadDirectoryAsync` e il metodo `getDirectoryTransferContext` creato in precedenza. Ora è disponibile anche un valore `options` per l'operazione di caricamento, che consente di indicare la volontà di includere le sottodirectory nel caricamento.
 
-## <a name="copy-a-file-from-url-to-a-blob"></a>Copiare un file da un URL a un BLOB
+## <a name="copy-a-file-from-url-to-a-blob"></a>Copiare un file dall'URL a un BLOB
 
 A questo punto, aggiungere un codice che consente di copiare un file da un URL a un BLOB di Azure.
 
@@ -507,7 +507,7 @@ Un importante caso in cui viene usata questa funzionalità è quando è necessar
 
 ## <a name="copy-a-blob"></a>Copiare un BLOB
 
-Un'altra funzionalità fornita in modo univoco dalla libreria per lo spostamento dei dati è la possibilità di copiare da una risorsa di archiviazione di Azure a un'altra.
+Un'altra funzionalità fornita in modo univoco dalla libreria di spostamento dati è la possibilità di copiare da una risorsa Archiviazione di Azure a un'altra.
 
 Modificare `TransferAzureBlobToAzureBlob`:
 
@@ -563,10 +563,10 @@ public static async Task TransferAzureBlobToAzureBlob(CloudStorageAccount accoun
 
 In questo esempio il parametro booleano in `TransferManager.CopyAsync` viene impostato su `false` per indicare che si desidera eseguire una copia sincrona. Ciò significa che la risorsa viene prima scaricata sul computer locale e successivamente caricata sul BLOB di Azure. L'opzione di copia sincrona è un ottimo modo per assicurarsi che l'operazione di copia avvenga a velocità costante. Al contrario, la velocità di una copia asincrona sul lato server dipende dalla larghezza di banda di rete disponibile sul server, che può variare. La copia sincrona, tuttavia, può generare costi aggiuntivi in uscita rispetto alla copia asincrona. Per evitare costi in uscita, si consiglia quindi di usare la copia sincrona in una macchina virtuale di Azure che si trova nella stessa area dell'account di archiviazione di origine.
 
-L'applicazione per lo spostamento dei dati è ora completata. [L'esempio di codice completo è disponibile su GitHub](https://github.com/azure-samples/storage-dotnet-data-movement-library-app).
+L'applicazione di spostamento dei dati è ora completa. [L'esempio di codice completo è disponibile su GitHub](https://github.com/azure-samples/storage-dotnet-data-movement-library-app).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Documentazione di riferimento della libreria di spostamento dei dati di archiviazione di Azure](https://azure.github.io/azure-storage-net-data-movement).
+[Archiviazione di Azure di riferimento della libreria di spostamento dati](https://azure.github.io/azure-storage-net-data-movement).
 
 [!INCLUDE [storage-try-azure-tools-blobs](../../../includes/storage-try-azure-tools-blobs.md)]

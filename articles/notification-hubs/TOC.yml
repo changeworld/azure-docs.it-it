@@ -24,7 +24,7 @@
       items:
         - name: Firebase Cloud Messaging
           items:
-            - name: Invia notifiche push a tutte le registrazioni (SDK corrente)
+            - name: Inviare notifiche push a tutte le registrazioni (SDK corrente)
               href: android-sdk.md
             - name: Inviare notifiche push a tutte le registrazioni (SDK legacy)
               href: notification-hubs-android-push-notification-google-fcm-get-started.md
@@ -151,14 +151,14 @@
       href: notification-hubs-baidu-china-android-notifications-get-started.md
     - name: Usare APNS VOIP tramite Hub di notifica
       href: voip-apns.md
-    - name: Abilitare i log di diagnostica per gli hub di notifica
+    - name: Abilitare i log di diagnostica per Hub di notifica
       href: notification-hubs-diagnostic-logs.md
 - name: Informazioni di riferimento
   items:
     - name: .NET
       href: /dotnet/api/microsoft.azure.notificationhubs
     - name: Interfaccia della riga di comando di Azure
-      href: /cli/azure/ext/notification-hub/notification-hub
+      href: /cli/azure/notification-hub
     - name: PowerShell
       href: /powershell/module/az.notificationhubs
     - name: REST

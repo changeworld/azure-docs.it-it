@@ -1,34 +1,34 @@
 ---
 title: Ottenere lo stato dei documenti
 titleSuffix: Azure Cognitive Services
-description: Il metodo get documents status restituisce lo stato di tutti i documenti in una richiesta di conversione di documenti batch.
+description: Il metodo get documents status restituisce lo stato di tutti i documenti in una richiesta di traduzione di documenti batch.
 services: cognitive-services
 author: jann-skotdal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 03/25/2021
+ms.date: 04/21/2021
 ms.author: v-jansk
-ms.openlocfilehash: 1e52d4ff5ccb5047ed82cca2764e98a8bd212305
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 8476c4891cef9d9055b16c7ac574e569ecf5b3f2
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107836221"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107864865"
 ---
 # <a name="get-documents-status"></a>Ottenere lo stato dei documenti
 
-Il metodo Get documents status restituisce lo stato di tutti i documenti in una richiesta di conversione di documenti batch.
+Il metodo Get documents status (Ottieni stato documenti) restituisce lo stato di tutti i documenti in una richiesta di traduzione di documenti batch.
 
-I documenti inclusi nella risposta sono ordinati in base all'ID documento in ordine decrescente. Se il numero di documenti nella risposta supera il limite di paging, viene usato il paging sul lato server. Le risposte impaginate indicano un risultato parziale e includono un token di continuazione nella risposta. L'assenza di un token di continuazione significa che non sono disponibili altre pagine.
+I documenti inclusi nella risposta vengono ordinati in base all'ID documento in ordine decrescente. Se il numero di documenti nella risposta supera il limite di paging, viene usato il paging sul lato server. Le risposte impaginate indicano un risultato parziale e includono un token di continuazione nella risposta. L'assenza di un token di continuazione significa che non sono disponibili altre pagine.
 
 $top e $skip parametri di query possono essere usati per specificare un numero di risultati da restituire e un offset per la raccolta. Il server rispetta i valori specificati dal client. Tuttavia, i client devono essere preparati a gestire le risposte che contengono dimensioni di pagina diverse o che contengono un token di continuazione.
 
 Quando sono $top e $skip, il server deve prima applicare $skip e quindi $top alla raccolta.
 
 > [!NOTE]
-> Se il server non è in grado di rispettare $top e/o $skip, il server deve restituire un errore al client che ne informa anziché ignorare semplicemente le opzioni di query. In questo modo si riduce il rischio che il client presunzioni sui dati restituiti.
+> Se il server non può rispettare $top e/o $skip, il server deve restituire un errore al client che ne informa anziché semplicemente ignorare le opzioni di query. In questo modo si riduce il rischio che il client assunsi presupposti sui dati restituiti.
 
 ## <a name="request-url"></a>URL richiesta
 
@@ -41,8 +41,8 @@ Informazioni su come trovare il [nome di dominio personalizzato](../get-started-
 
 > [!IMPORTANT]
 >
-> * **Tutte le richieste API al servizio Di traduzione documenti richiedono un endpoint di dominio personalizzato.**
-> * Non è possibile usare l'endpoint presente nella  pagina chiavi ed endpoint della risorsa portale di Azure, né l'endpoint del traduttore globale, , per effettuare richieste HTTP a `api.cognitive.microsofttranslator.com` Document Translation.
+> * **Tutte le richieste API al servizio Traduzione documenti richiedono un endpoint di dominio personalizzato.**
+> * Non è possibile usare l'endpoint presente nella pagina delle chiavi e _dell'endpoint_ della risorsa portale di Azure, né l'endpoint del traduttore globale, per effettuare richieste HTTP alla `api.cognitive.microsofttranslator.com` traduzione dei documenti.
 
 ## <a name="request-parameters"></a>Parametri della richiesta
 
@@ -52,7 +52,7 @@ I parametri della richiesta inviati a una stringa di query sono:
 |--- |--- |--- |
 |id|Vero|ID dell'operazione.|
 |$skip|Falso|Ignorare le $skip nella raccolta. Quando vengono $top e $skip, $skip viene applicato per primo.|
-|$top|Falso|Accetta le $top voci nella raccolta. Quando vengono $top e $skip, $skip viene applicato per primo.|
+|$top|Falso|Accetta le $top nella raccolta. Quando vengono $top e $skip, $skip viene applicato per primo.|
 
 ## <a name="request-headers"></a>Intestazioni della richiesta
 
@@ -76,16 +76,16 @@ Di seguito sono riportati i possibili codici di stato HTTP restituiti da una ric
 |Altri codici di stato|<ul><li>Numero eccessivo di richieste</li><li>Server temporaneo non disponibile</li></ul>|
 
 
-## <a name="get-documents-status-response"></a>Ottenere la risposta sullo stato dei documenti
+## <a name="get-documents-status-response"></a>Ottenere la risposta dello stato dei documenti
 
-### <a name="successful-get-documents-status-response"></a>Risposta di stato dei documenti ricevuta correttamente
+### <a name="successful-get-documents-status-response"></a>Risposta con esito positivo per ottenere lo stato dei documenti
 
-Le informazioni seguenti vengono restituite in una risposta corretta.
+Le informazioni seguenti vengono restituite in una risposta con esito positivo.
 
 |Nome|Type|Descrizione|
 |--- |--- |--- |
 |@nextLink|string|URL per la pagina successiva. Null se non sono disponibili altre pagine.|
-|Valore|DocumentStatusDetail []|Stato dei dettagli dei singoli documenti elencati di seguito.|
+|Valore|DocumentStatusDetail []|Lo stato dettagliato dei singoli documenti elencati di seguito.|
 |value.path|string|Percorso del documento o della cartella.|
 |value.createdDateTimeUtc|string|Data e ora di creazione dell'operazione.|
 |value.lastActionDateTimeUt|string|Data e ora in cui lo stato dell'operazione è stato aggiornato.|
@@ -100,17 +100,17 @@ Le informazioni seguenti vengono restituite in una risposta corretta.
 |Nome|Type|Descrizione|
 |--- |--- |--- |
 |codice|string|Enumerazioni contenenti codici di errore di alto livello. Valori possibili:<br/><ul><li>InternalServerError</li><li>InvalidArgument</li><li>InvalidRequest</li><li>RequestRateTooHigh</li><li>ResourceNotFound</li><li>ServiceUnavailable</li><li>Non autorizzata</li></ul>|
-|message|string|Ottiene il messaggio di errore di alto livello.|
+|message|string|Ottiene un messaggio di errore di alto livello.|
 |target|string|Ottiene l'origine dell'errore. Ad esempio, sarebbe "documenti" o "ID documento" nel caso di un documento non valido.|
-|innerError|InnerErrorV2|Nuovo formato di errore interno, conforme alle linee guida dell'API Servizi cognitivi. Contiene le proprietà obbligatorie ErrorCode, message e optional properties target, details(key value pair), inner error (questo può essere annidato).|
+|innerError|InnerErrorV2|Nuovo formato di errore interno, conforme alle linee guida dell'API Servizi cognitivi. Contiene le proprietà obbligatorie ErrorCode, message e optional properties target, details(coppia chiave-valore), inner error (può essere annidato).|
 |innerError.code|string|Ottiene la stringa di errore del codice.|
-|innerError.message|string|Ottiene un messaggio di errore di alto livello.|
+|innerError.message|string|Ottiene il messaggio di errore di alto livello.|
 
 ## <a name="examples"></a>Esempio
 
-### <a name="example-successful-response"></a>Risposta riuscita di esempio
+### <a name="example-successful-response"></a>Esempio di risposta con esito positivo
 
-Di seguito è riportato un esempio di risposta corretta.
+Di seguito è riportato un esempio di risposta con esito positivo.
 
 ```JSON
 {

@@ -6,14 +6,14 @@ ms.subservice: reservations
 author: bandersmsft
 ms.reviewer: yashesvi
 ms.topic: how-to
-ms.date: 03/29/2021
+ms.date: 04/21/2021
 ms.author: banders
-ms.openlocfilehash: 1523ca77b06281b84ed57fbc0e2e49ffede85fb4
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e8a5e6d40b745efb7fcd50919cd27664b3406b7d
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105934343"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107862850"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Gestire le prenotazioni per le risorse di Azure
 
@@ -57,8 +57,8 @@ L'ambito si applica solo a singole sottoscrizioni con pagamento in base al consu
 
 Per impostazione predefinita, le prenotazioni possono essere visualizzate e gestite dagli utenti seguenti:
 
-- La persona che ha acquistato la prenotazione e il proprietario dell'account per la sottoscrizione di fatturazione ottengono l'accesso RBAC di Azure all'ordine di prenotazione.
--  Contratto Enterprise e i collaboratori per la fatturazione del contratto clienti Microsoft possono gestire tutte le prenotazioni da gestione costi + fatturazione > transazioni di prenotazione > selezionare il banner blu.
+- La persona che ha acquistato la prenotazione e il proprietario dell'account per la sottoscrizione di fatturazione ottengono l'accesso di Controllo degli accessi in base al ruolo di Azure all'ordine di prenotazione.
+-  Contratto Enterprise e Contratto del cliente Microsoft fatturazione possono gestire tutte le prenotazioni da Gestione costi e fatturazione > transazioni di prenotazione > selezionare il banner blu.
 
 Per consentire ad altre persone di gestire le prenotazioni sono disponibili due opzioni:
 
@@ -177,23 +177,9 @@ In caso di domande o per assistenza, [creare una richiesta di supporto](https://
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni sulle prenotazioni di Azure, vedere gli articoli seguenti:
-
-- [Informazioni sulle prenotazioni di Azure](save-compute-costs-reservations.md)
-
-Acquistare un piano di servizio:
-- [Pagare in anticipo le macchine virtuali tramite le istanze di macchina virtuale riservate di Azure](../../virtual-machines/prepay-reserved-vm-instances.md)
-- [Pagare in anticipo le risorse di calcolo del database SQL con capacità riservata del database SQL di Azure](../../azure-sql/database/reserved-capacity-overview.md)
-- [Pagare in anticipo le risorse di Azure Cosmos DB con capacità riservata di Azure Cosmos DB](../../cosmos-db/cosmos-db-reserved-capacity.md)
-
-Acquistare un piano software:
-- [Pagare in anticipo i piani software Red Hat dalle prenotazioni di Azure](../../virtual-machines/linux/prepay-suse-software-charges.md)
-- [Pagare in anticipo per i piani software SUSE dalle prenotazioni di Azure](../../virtual-machines/linux/prepay-suse-software-charges.md)
-
-Informazioni su sconti e utilizzo:
-- [Informazioni su come viene applicato lo sconto sulla prenotazione di macchine virtuali](../manage/understand-vm-reservation-charges.md)
-- [Informazioni su come viene applicato lo sconto relativo al piano software Red Hat Enterprise Linux](understand-rhel-reservation-charges.md)
-- [Informazioni su come viene applicato lo sconto relativo al piano software SUSE Linux Enterprise](understand-suse-reservation-charges.md)
-- [Informazioni su come vengono applicati gli altri sconti sulla prenotazione](understand-reservation-charges.md)
-- [Informazioni sull'utilizzo della prenotazione per la sottoscrizione con pagamento in base al consumo](understand-reserved-instance-usage.md)
-- [Informazioni sull'utilizzo della prenotazione per l'iscrizione Enterprise](understand-reserved-instance-usage-ea.md)
-- [Costi del software Windows non inclusi nelle prenotazioni](reserved-instance-windows-software-costs.md)
+ - [Visualizzare l'utilizzo della prenotazione](reservation-utilization.md)
+ - [Scambio e rimborso](exchange-and-refund-azure-reservations.md)
+ - [Esaminare le prenotazioni](reservation-renew.md)
+ - [Trasferimenti tra tenant](troubleshoot-reservation-transfers-between-tenants.md)
+ - [Trovare un acquirente di prenotazioni dai log di Azure](find-reservation-purchaser-from-logs.md)
+ - [Rinnovare una prenotazione](reservation-renew.md)

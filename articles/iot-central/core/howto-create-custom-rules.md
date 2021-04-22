@@ -1,32 +1,32 @@
 ---
-title: Estendere IoT Central di Azure con regole e notifiche personalizzate | Microsoft Docs
-description: Per gli sviluppatori di soluzioni, configurare un'applicazione IoT Central per inviare notifiche tramite posta elettronica quando un dispositivo smette di inviare dati di telemetria. Questa soluzione USA analisi di flusso di Azure, funzioni di Azure e SendGrid.
-author: TheJasonAndrew
-ms.author: v-anjaso
+title: Estendere Azure IoT Central con regole personalizzate e notifiche | Microsoft Docs
+description: Gli sviluppatori di soluzioni possono configurare un'applicazione IoT Central per l'invio di notifiche tramite posta elettronica quando un dispositivo smette di inviare dati di telemetria. Questa soluzione usa Analisi di flusso di Azure, Funzioni di Azure e SendGrid.
+author: philmea
+ms.author: philmea
 ms.date: 02/09/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc, devx-track-csharp
 manager: philmea
-ms.openlocfilehash: 824308b66803d2dfa05383ff06ce97c48626619d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a65d9dbaed4d197c2e0843e73ff3f45b8678017e
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102179341"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107864218"
 ---
 # <a name="extend-azure-iot-central-with-custom-rules-using-stream-analytics-azure-functions-and-sendgrid"></a>Estendere Azure IoT Central con regole personalizzate usando Analisi di flusso, Funzioni di Azure e SendGrid
 
-Questa guida illustra come uno sviluppatore di soluzioni, come estendere l'applicazione IoT Central con regole e notifiche personalizzate. Nell'esempio viene illustrato l'invio di una notifica a un operatore quando un dispositivo interrompe l'invio di dati di telemetria. La soluzione USA una query di [analisi di flusso di Azure](../../stream-analytics/index.yml) per rilevare quando un dispositivo ha interrotto l'invio della telemetria. Il processo di analisi di flusso usa [funzioni di Azure](../../azure-functions/index.yml) per inviare messaggi di posta elettronica di notifica usando [SendGrid](https://sendgrid.com/docs/for-developers/partners/microsoft-azure/).
+Questa guida dettagliata illustra agli sviluppatori di soluzioni come estendere l'applicazione IoT Central con regole e notifiche personalizzate. L'esempio mostra l'invio di una notifica a un operatore quando un dispositivo smette di inviare dati di telemetria. La soluzione usa una query [Analisi di flusso di Azure](../../stream-analytics/index.yml) per rilevare quando un dispositivo ha smesso di inviare dati di telemetria. Il processo di Analisi di flusso usa [Funzioni di Azure](../../azure-functions/index.yml) per inviare messaggi di posta elettronica di notifica [tramite SendGrid.](https://sendgrid.com/docs/for-developers/partners/microsoft-azure/)
 
-Questa guida dettagliata illustra come estendere IoT Central oltre quello che può già fare con le regole e le azioni predefinite.
+Questa guida dettagliata illustra come estendere le IoT Central oltre a ciò che può già fare con le regole e le azioni predefinite.
 
-In questa guida dettagliata si apprenderà come:
+Questa guida dettagliata illustra come:
 
-* Trasmettere i dati di telemetria da un'applicazione IoT Central usando l' *esportazione continua dei dati*.
-* Creare una query di analisi di flusso che rilevi quando un dispositivo ha interrotto l'invio dei dati.
-* Inviare una notifica tramite posta elettronica usando funzioni di Azure e i servizi SendGrid.
+* Trasmettere dati di telemetria da IoT Central'applicazione usando *l'esportazione continua dei dati.*
+* Creare una query di Analisi di flusso che rilevi quando un dispositivo ha smesso di inviare dati.
+* Inviare una notifica tramite posta elettronica usando Funzioni di Azure e SendGrid.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -36,29 +36,29 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ### <a name="iot-central-application"></a>Applicazione IoT Central
 
-Creare un'applicazione IoT Central nel sito Web di [Azure IOT Central Application Manager](https://aka.ms/iotcentral) con le impostazioni seguenti:
+Creare un IoT Central app applicazione nel sito [Web Azure IoT Central application manager](https://aka.ms/iotcentral) con le impostazioni seguenti:
 
 | Impostazione | Valore |
 | ------- | ----- |
 | Piano tariffario | Standard |
-| Modello di applicazione | Analisi in-Store-monitoraggio delle condizioni |
-| Nome applicazione | Accetta il nome predefinito o scegli il tuo nome |
-| URL | Accettare l'impostazione predefinita o scegliere il prefisso URL univoco |
-| Directory | Tenant di Azure Active Directory |
+| Modello di applicazione | Analisi dei negozi: monitoraggio delle condizioni |
+| Nome applicazione | Accettare l'impostazione predefinita o scegliere un nome personalizzato |
+| URL | Accettare il valore predefinito o scegliere un prefisso URL univoco personalizzato |
+| Directory | Tenant Azure Active Directory |
 | Sottoscrizione di Azure | Sottoscrizione di Azure |
-| Region | Area geografica più vicina |
+| Region | Area più vicina |
 
-Gli esempi e le schermate in questo articolo usano l'area **Stati Uniti** . Scegliere una località vicina e assicurarsi di creare tutte le risorse nella stessa area.
+Gli esempi e gli screenshot in questo articolo usano **l'Stati Uniti** geografica. Scegliere una località vicina e assicurarsi di creare tutte le risorse nella stessa area.
 
-Questo modello di applicazione include due dispositivi termotermostati simulati che inviano dati di telemetria.
+Questo modello di applicazione include due dispositivi termostati simulati che inviano dati di telemetria.
 
 ### <a name="resource-group"></a>Resource group
 
-Usare il [portale di Azure per creare un gruppo di risorse](https://portal.azure.com/#create/Microsoft.ResourceGroup) denominato **DetectStoppedDevices** per contenere le altre risorse create. Creare le risorse di Azure nello stesso percorso dell'applicazione IoT Central.
+Usare il [portale di Azure per creare un gruppo](https://portal.azure.com/#create/Microsoft.ResourceGroup) di risorse denominato **DetectStoppedDevices** che contenga le altre risorse create. Creare le risorse di Azure nella stessa posizione dell'applicazione IoT Central servizio.
 
 ### <a name="event-hubs-namespace"></a>Spazio dei nomi di Hub eventi
 
-Usare il [portale di Azure per creare uno spazio dei nomi di hub eventi](https://portal.azure.com/#create/Microsoft.EventHub) con le impostazioni seguenti:
+Usare il [portale di Azure per creare uno spazio dei nomi di Hub eventi](https://portal.azure.com/#create/Microsoft.EventHub) con le impostazioni seguenti:
 
 | Impostazione | Valore |
 | ------- | ----- |
@@ -71,7 +71,7 @@ Usare il [portale di Azure per creare uno spazio dei nomi di hub eventi](https:/
 
 ### <a name="stream-analytics-job"></a>Processo di Analisi di flusso
 
-Usare il [portale di Azure per creare un processo di analisi di flusso](https://portal.azure.com/#create/Microsoft.StreamAnalyticsJob)  con le impostazioni seguenti:
+Usare il [portale di Azure per creare un processo di Analisi di flusso](https://portal.azure.com/#create/Microsoft.StreamAnalyticsJob)  con le impostazioni seguenti:
 
 | Impostazione | Valore |
 | ------- | ----- |
@@ -97,27 +97,27 @@ Usare il [portale di Azure per creare un'app per le funzioni](https://portal.azu
 | Stack di runtime | .NET |
 | Archiviazione | Creare un nuovo gruppo di risorse |
 
-### <a name="sendgrid-account-and-api-keys"></a>Chiavi API e account SendGrid
+### <a name="sendgrid-account-and-api-keys"></a>Account SendGrid e chiavi API
 
-Se non si ha un account SendGrid, creare un [account gratuito](https://app.sendgrid.com/) prima di iniziare.
+Se non si ha un account Sendgrid, creare un [account gratuito](https://app.sendgrid.com/) prima di iniziare.
 
-1. Dalle impostazioni del dashboard di SendGrid nel menu a sinistra selezionare **chiavi API**.
-1. Fare clic su **Crea chiave API.**
-1. Denominare la nuova chiave API **AzureFunctionAccess.**
-1. Fare clic su **crea & visualizzazione**.
+1. In Impostazioni dashboard Sendgrid nel menu a sinistra selezionare **Chiavi API.**
+1. Fare clic **su Crea chiave API.**
+1. Assegnare alla nuova chiave API il **nome AzureFunctionAccess.**
+1. Fare **clic su Crea & visualizzazione**.
 
     :::image type="content" source="media/howto-create-custom-rules/sendgrid-api-keys.png" alt-text="Screenshot della chiave API Create SendGrid.":::
 
-Successivamente, verrà fornita una chiave API. Salvare questa stringa per un uso successivo.
+Successivamente, verrà data una chiave API. Salvare questa stringa per usarla in un secondo momento.
 
 ## <a name="create-an-event-hub"></a>Creare un hub eventi
 
-È possibile configurare un'applicazione IoT Central per esportare continuamente i dati di telemetria in un hub eventi. In questa sezione viene creato un hub eventi per ricevere i dati di telemetria dall'applicazione IoT Central. L'hub eventi recapita i dati di telemetria al processo di analisi di flusso per l'elaborazione.
+È possibile configurare un'applicazione IoT Central per esportare continuamente i dati di telemetria in un hub eventi. In questa sezione viene creato un hub eventi per ricevere i dati di telemetria dall IoT Central app. L'hub eventi recapita i dati di telemetria al processo di Analisi di flusso per l'elaborazione.
 
-1. Nella portale di Azure passare allo spazio dei nomi di hub eventi e selezionare **+ Hub eventi**.
-1. Denominare il **centralexport** dell'hub eventi e selezionare **Crea**.
+1. Nell'portale di Azure passare allo spazio dei nomi di Hub eventi e selezionare **+ Hub eventi.**
+1. Assegnare all'hub eventi il nome **centralexport** e selezionare **Crea**.
 
-Lo spazio dei nomi di hub eventi è simile allo screenshot seguente: 
+Lo spazio dei nomi di Hub eventi è simile allo screenshot seguente: 
 
 ```:::image type="content" source="media/howto-create-custom-rules/event-hubs-namespace.png" alt-text="Screenshot of Event Hubs namespace." border="false":::
 
@@ -226,7 +226,7 @@ To test the function in the portal, first choose **Logs** at the bottom of the c
 [{"deviceid":"test-device-1","time":"2019-05-02T14:23:39.527Z"},{"deviceid":"test-device-2","time":"2019-05-02T14:23:50.717Z"},{"deviceid":"test-device-3","time":"2019-05-02T14:24:28.919Z"}]
 ```
 
-I messaggi del log delle funzioni vengono visualizzati nel pannello **logs** :
+I messaggi del log delle funzioni vengono visualizzati **nel pannello** Log:
 
 ```:::image type="content" source="media/howto-create-custom-rules/function-app-logs.png" alt-text="Function log output":::
 
@@ -241,11 +241,11 @@ test-device-2    2019-05-02T14:23:50.717Z
 test-device-3    2019-05-02T14:24:28.919Z
 ```
 
-## <a name="add-stream-analytics-query"></a>Aggiungere una query di analisi di flusso
+## <a name="add-stream-analytics-query"></a>Aggiungere una query di Analisi di flusso
 
-Questa soluzione USA una query di analisi di flusso per rilevare quando un dispositivo smette di inviare dati di telemetria per più di 120 secondi. La query usa i dati di telemetria dell'hub eventi come input. Il processo invia i risultati della query all'app per le funzioni. In questa sezione si configura il processo di analisi di flusso:
+Questa soluzione usa una query di Analisi di flusso per rilevare quando un dispositivo smette di inviare dati di telemetria per più di 120 secondi. La query usa i dati di telemetria dell'hub eventi come input. Il processo invia i risultati della query all'app per le funzioni. In questa sezione viene configurato il processo di Analisi di flusso:
 
-1. Nel portale di Azure passare al processo di analisi di flusso, in **topologia processi** selezionare **input**, scegliere **+ Aggiungi input flusso**, quindi scegliere **Hub eventi**.
+1. Nel portale di Azure passare al processo di Analisi  di flusso, in Topologia processi selezionare **Input,** **scegliere + Aggiungi input** flusso e quindi Hub **eventi.**
 1. Usare le informazioni nella tabella seguente per configurare l'input usando l'hub eventi creato in precedenza, quindi scegliere **Salva**:
 
     | Impostazione | Valore |
@@ -253,9 +253,9 @@ Questa soluzione USA una query di analisi di flusso per rilevare quando un dispo
     | Alias di input | centraltelemetry |
     | Subscription | Sottoscrizione in uso |
     | Spazio dei nomi dell'hub eventi | Spazio dei nomi dell'hub eventi |
-    | Nome dell'hub eventi | USA **centralexport** esistente |
+    | Nome dell'hub eventi | Usa esistente - **centralexport** |
 
-1. In **topologia processi** selezionare **output**, fare clic su **+ Aggiungi**, quindi scegliere **funzione di Azure**.
+1. In **Topologia processi** selezionare **Output,** scegliere **+ Aggiungi** e quindi Funzione **di Azure.**
 1. Usare le informazioni nella tabella seguente per configurare l'output, quindi scegliere **Salva**:
 
     | Impostazione | Valore |
@@ -265,7 +265,7 @@ Questa soluzione USA una query di analisi di flusso per rilevare quando un dispo
     | App per le funzioni | App per le funzioni |
     | Funzione  | HttpTrigger1 |
 
-1. In **topologia processi** selezionare **query** e sostituire la query esistente con la seguente SQL:
+1. In **Topologia processi** selezionare **Query** e sostituire la query esistente con il codice SQL seguente:
 
     ```sql
     with
@@ -307,38 +307,38 @@ Questa soluzione USA una query di analisi di flusso per rilevare quando un dispo
     ```
 
 1. Selezionare **Salva**.
-1. Per avviare il processo di analisi di flusso, scegliere **Panoramica**, **Avvia**, quindi **ora**, quindi **Avvia**:
+1. Per avviare il processo di Analisi di flusso, scegliere **Panoramica,** **quindi Avvia**, **ora** e infine **Avvia**:
 
-    :::image type="content" source="media/howto-create-custom-rules/stream-analytics.png" alt-text="Screenshot di analisi di flusso.":::
+    :::image type="content" source="media/howto-create-custom-rules/stream-analytics.png" alt-text="Screenshot di Analisi di flusso.":::
 
 ## <a name="configure-export-in-iot-central"></a>Configurare l'esportazione in IoT Central 
 
-Nel sito Web di [Azure IOT Central Application Manager](https://aka.ms/iotcentral) passare all'applicazione IoT Central creata.
+Nel sito [Web Azure IoT Central application manager](https://aka.ms/iotcentral) passare alla IoT Central'applicazione creata.
 
-In questa sezione l'applicazione viene configurata in modo da trasmettere i dati di telemetria dai dispositivi simulati all'hub eventi. Per configurare l'esportazione:
+In questa sezione viene configurata l'applicazione per trasmettere i dati di telemetria dai dispositivi simulati all'hub eventi. Per configurare l'esportazione:
 
-1. Passare alla pagina **esportazione dati** , selezionare **+ nuovo**, quindi **Hub eventi di Azure**.
+1. Passare alla pagina **Esportazione dati,** selezionare **+ Nuovo** e quindi **Hub eventi di Azure**.
 1. Usare le impostazioni seguenti per configurare l'esportazione, quindi selezionare **Salva**: 
 
     | Impostazione | Valore |
     | ------- | ----- |
-    | Nome visualizzato | Esporta in hub eventi |
+    | Nome visualizzato | Esportare in Hub eventi |
     | Abilitato | On |
     | Tipo di dati da esportare | Telemetria |
-    | Arricchimenti | Immettere la chiave e il valore desiderati per organizzare i dati esportati | 
-    | Destination | Crea nuovo e immettere le informazioni per la posizione in cui verranno esportati i dati |
+    | Arricchimenti | Immettere la chiave o il valore desiderato per l'organizzazione dei dati esportati | 
+    | Destination | Creare nuovo e immettere le informazioni per la posizione in cui verranno esportati i dati |
 
-    :::image type="content" source="media/howto-create-custom-rules/cde-configuration.png" alt-text="Screenshot dell'esportazione dei dati.":::
+    :::image type="content" source="media/howto-create-custom-rules/cde-configuration.png" alt-text="Screenshot dell'esportazione dati.":::
 
-Prima di continuare, attendere che lo stato di esportazione sia **in esecuzione** .
+Attendere che lo stato dell'esportazione **sia In esecuzione** prima di continuare.
 
 ## <a name="test"></a>Test
 
-Per testare la soluzione, è possibile disabilitare l'esportazione dei dati continui da IoT Central a dispositivi arrestati simulati:
+Per testare la soluzione, è possibile disabilitare l'esportazione continua dei dati IoT Central ai dispositivi arrestati simulati:
 
-1. Nell'applicazione IoT Central passare alla pagina **esportazione dati** e selezionare la configurazione Esporta **in hub eventi** .
-1. Impostare **abilitato** su **disattivato** e scegliere **Salva**.
-1. Dopo almeno due minuti, l'indirizzo **di** posta elettronica a riceve uno o più messaggi di posta elettronica simili al contenuto di esempio seguente:
+1. Nell'applicazione IoT Central passare alla pagina **Esportazione** dati e selezionare la configurazione Esporta in Hub eventi per **l'esportazione.**
+1. Impostare **Abilitato** su **Disattivato e** scegliere **Salva.**
+1. Dopo almeno due minuti, **l'indirizzo di** posta elettronica A riceve uno o più messaggi di posta elettronica simili al contenuto di esempio seguente:
 
     ```txt
     The following device(s) have stopped sending telemetry:
@@ -349,16 +349,16 @@ Per testare la soluzione, è possibile disabilitare l'esportazione dei dati cont
 
 ## <a name="tidy-up"></a>Operazioni finali
 
-Per riordinare dopo questa procedura ed evitare i costi non necessari, eliminare il gruppo di risorse **DetectStoppedDevices** nel portale di Azure.
+Per riordinare dopo questa procedura ed evitare costi non necessari, eliminare il gruppo di risorse **DetectStoppedDevices** nel portale di Azure.
 
-È possibile eliminare l'applicazione IoT Central dalla pagina di **gestione** all'interno dell'applicazione.
+È possibile eliminare l'IoT Central'applicazione dalla **pagina Gestione** all'interno dell'applicazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 In questa guida procedurale si è appreso come:
 
-* Trasmettere i dati di telemetria da un'applicazione IoT Central usando l' *esportazione continua dei dati*.
-* Creare una query di analisi di flusso che rilevi quando un dispositivo ha interrotto l'invio dei dati.
-* Inviare una notifica tramite posta elettronica usando funzioni di Azure e i servizi SendGrid.
+* Trasmettere dati di telemetria da IoT Central'applicazione usando *l'esportazione continua dei dati.*
+* Creare una query di Analisi di flusso che rilevi quando un dispositivo ha smesso di inviare dati.
+* Inviare una notifica tramite posta elettronica usando Funzioni di Azure e SendGrid.
 
-Ora che si è appreso come creare regole e notifiche personalizzate, il passaggio successivo suggerito consiste nell'apprendere come [estendere IOT Central di Azure con l'analisi personalizzata](howto-create-custom-analytics.md).
+Ora che si è appreso come creare regole e notifiche personalizzate, il passaggio successivo consigliato consiste nell'apprendere come estendere le Azure IoT Central [con l'analisi personalizzata.](howto-create-custom-analytics.md)

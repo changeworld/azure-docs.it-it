@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
 ms.custom: contperf-fy21q2, devx-track-azurecli
-ms.openlocfilehash: 9b73eeccad6d17df8c711671c56fbb7cee20b17a
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 4d0062258919de29750b644b2f8e12990e25098b
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107484728"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107873211"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Guida introduttiva: Esplorare e analizzare i costi con l'analisi dei costi
 
@@ -70,7 +70,7 @@ La visualizzazione dell'analisi dei costi iniziale include le aree seguenti.
 
 In base all'utilizzo recente, le previsioni dei costi mostrano una proiezione dei costi stimati per il periodo di tempo selezionato. Se un budget è configurato nell'analisi dei costi, è possibile visualizzare quando la spesa prevista supera probabilmente la soglia del budget. Il modello di previsione può stimare i costi futuri per un massimo di un anno. Selezionare i filtri per visualizzare il costo previsto granulare per la dimensione selezionata.
 
-Il modello di previsione è basato su un modello di regressione della serie temporale. Richiede almeno 10 giorni di dati recenti relativi a costi e utilizzo per poter fare una previsione accurata dei costi. Per poter eleborare un modello di previsione per un determinato periodo di tempo, è necessario disporre di dati di training relativi a un periodo di tempo della stessa durata. Ad esempio, per una proiezione di tre mesi sono necessari almeno tre mesi di dati recenti relativi a costi e utilizzo.
+Il modello di previsione è basato su un modello di regressione di serie tempo reale. Richiede almeno 10 giorni di dati recenti relativi a costi e utilizzo per poter fare una previsione accurata dei costi. Per poter eleborare un modello di previsione per un determinato periodo di tempo, è necessario disporre di dati di training relativi a un periodo di tempo della stessa durata. Ad esempio, per una proiezione di tre mesi sono necessari almeno tre mesi di dati recenti relativi a costi e utilizzo.
 
 ## <a name="customize-cost-views"></a>Personalizzare le visualizzazioni dei costi
 
@@ -169,7 +169,7 @@ Per iniziare, preparare l'ambiente per l'interfaccia della riga di comando di Az
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-Dopo aver eseguito l'accesso, usare il comando [az costmanagement query](/cli/azure/ext/costmanagement/costmanagement#ext_costmanagement_az_costmanagement_query) per eseguire una query sulle informazioni di utilizzo da inizio mese per la sottoscrizione:
+Dopo aver eseguito l'accesso, usare il comando [az costmanagement query](/cli/azure/costmanagement#az_costmanagement_query) per eseguire una query sulle informazioni di utilizzo da inizio mese per la sottoscrizione:
 
 ```azurecli
 az costmanagement query --timeframe MonthToDate --type Usage \
@@ -186,7 +186,7 @@ az costmanagement query --timeframe MonthToDate --type Usage \
 
 Il parametro **--dataset-filter** accetta una stringa JSON o `@json-file`.
 
-È anche possibile usare i comandi [az costmanagement export](/cli/azure/ext/costmanagement/costmanagement/export) per esportare i dati di utilizzo in un account di archiviazione di Azure da cui è possibile scaricarli.
+È anche possibile usare i comandi [az costmanagement export](/cli/azure/costmanagement/export) per esportare i dati di utilizzo in un account di archiviazione di Azure da cui è possibile scaricarli.
 
 1. Creare un gruppo di risorse o usarne uno esistente. Per creare un gruppo di risorse, eseguire il comando [az group create](/cli/azure/group#az_group_create):
 
@@ -200,7 +200,7 @@ Il parametro **--dataset-filter** accetta una stringa JSON o `@json-file`.
    az storage account create --resource-group TreyNetwork --name cmdemo
    ```
 
-1. Per creare l'esportazione, eseguire il comando [az costmanagement export create](/cli/azure/ext/costmanagement/costmanagement/export#ext_costmanagement_az_costmanagement_export_create):
+1. Per creare l'esportazione, eseguire il comando [az costmanagement export create](/cli/azure/costmanagement/export#az_costmanagement_export_create):
 
    ```azurecli
    az costmanagement export create --name DemoExport --type Usage \
