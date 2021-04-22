@@ -9,14 +9,14 @@ ms.date: 07/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: b7695c825dbdd2c207c87799ea801026f7506bcb
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: e24c04152911f976907e6bdc433c33e035ade639
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106219451"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107874730"
 ---
-# <a name="tutorial-develop-a-c-iot-edge-module-using-linux-containers"></a>Esercitazione: sviluppare un modulo di IoT Edge C# con i contenitori Linux
+# <a name="tutorial-develop-a-c-iot-edge-module-using-linux-containers"></a>Esercitazione: Sviluppare un modulo IoT Edge C# usando contenitori Linux
 
 [!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
@@ -37,9 +37,9 @@ Il modulo di IoT Edge creato in questa esercitazione filtra i dati relativi alla
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Questa esercitazione illustra come sviluppare un modulo in **C#** usando **Visual Studio Code** e distribuirlo in un dispositivo IOT Edge. Se si stanno sviluppando moduli con i contenitori di Windows, passare a [sviluppare un modulo IOT Edge C# usando i contenitori di Windows](tutorial-csharp-module-windows.md) .
+Questa esercitazione illustra come sviluppare un modulo in **C#** usando **Visual Studio Code** e distribuirlo in un IoT Edge dispositivo. Se si sviluppano moduli usando contenitori Windows, vedere Sviluppare un modulo [IoT Edge C# usando](tutorial-csharp-module-windows.md) i contenitori Windows.
 
-Usare la tabella seguente per comprendere le opzioni per lo sviluppo e la distribuzione di moduli C# con i contenitori Linux:
+Usare la tabella seguente per comprendere le opzioni per lo sviluppo e la distribuzione di moduli C# usando contenitori Linux:
 
 | C# | Visual Studio Code | Visual Studio |
 | -- | ------------------ | ------------- |
@@ -49,10 +49,10 @@ Usare la tabella seguente per comprendere le opzioni per lo sviluppo e la distri
 >[!NOTE]
 >Il supporto per i dispositivi Linux ARM64 è disponibile in [anteprima pubblica](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Per altre informazioni, vedere [Sviluppare ed eseguire il debug di moduli IoT Edge ARM64 in Visual Studio Code (anteprima)](https://devblogs.microsoft.com/iotdev/develop-and-debug-arm64-iot-edge-modules-in-visual-studio-code-preview).
 
-Prima di iniziare questa esercitazione, è necessario eseguire l'esercitazione precedente per configurare l'ambiente di sviluppo, [sviluppare un modulo IOT Edge con i contenitori Linux](tutorial-develop-for-linux.md). Dopo aver completato questa esercitazione, saranno già stati soddisfatti i prerequisiti seguenti:
+Prima di iniziare questa esercitazione, è necessario aver fatto riferimento all'esercitazione precedente per configurare l'ambiente di sviluppo, Sviluppare un modulo IoT Edge usando contenitori [Linux.](tutorial-develop-for-linux.md) Dopo aver completato questa esercitazione, saranno già stati soddisfatti i prerequisiti seguenti:
 
 * Un [hub IoT](../iot-hub/iot-hub-create-through-portal.md) di livello Gratuito o Standard in Azure.
-* Un dispositivo che esegue Azure IoT Edge con i contenitori Linux. È possibile usare le guide introduttive per configurare un [dispositivo Linux](quickstart-linux.md) o un [dispositivo Windows](quickstart.md).
+* Un dispositivo che esegue Azure IoT Edge con contenitori Linux. È possibile usare le guide introduttive per configurare un [dispositivo Linux o](quickstart-linux.md) Un dispositivo [Windows.](quickstart.md)
 * Un registro contenitori, ad esempio [Registro Azure Container](../container-registry/index.yml).
 * [Visual Studio Code](https://code.visualstudio.com/) configurato con [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * [Docker CE](https://docs.docker.com/install/) configurato per eseguire i contenitori Linux.
@@ -60,7 +60,7 @@ Prima di iniziare questa esercitazione, è necessario eseguire l'esercitazione p
 Per completare queste esercitazioni, preparare i prerequisiti aggiuntivi seguenti nel computer di sviluppo:
 
 * [Estensione C# per Visual Studio Code con tecnologia OmniSharp](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
-* [.NET Core 2.1 SDK](https://www.microsoft.com/net/download).
+* [.NET Core 2.1 SDK](https://dotnet.microsoft.com/download/dotnet/2.1).
 
 ## <a name="create-a-module-project"></a>Creare un progetto di modulo
 

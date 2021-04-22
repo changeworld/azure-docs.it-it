@@ -1,5 +1,5 @@
 ---
-title: Avviare, arrestare ed eliminare l'applicazione Azure Spring cloud | Microsoft Docs
+title: Avviare, arrestare ed eliminare il Azure Spring Cloud'applicazione | Microsoft Docs
 description: Come avviare, arrestare ed eliminare un'applicazione Azure Spring Cloud
 author: bmitchell287
 ms.service: spring-cloud
@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 46d79de612a17c7b21e7cc51dcf4904209e1625d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 914325aba3d123fb1b700f0eff8ddb17119c5d12
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104877999"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107863210"
 ---
-# <a name="start-stop-and-delete-your-azure-spring-cloud-application"></a>Avviare, arrestare ed eliminare l'applicazione Azure Spring cloud
+# <a name="start-stop-and-delete-your-azure-spring-cloud-application"></a>Avviare, arrestare ed eliminare l'Azure Spring Cloud applicazione
 
 **Questo articolo si applica a:** ✔️ Java ✔️ C#
 
-Questa guida illustra come modificare lo stato di un'applicazione nel cloud Spring di Azure usando l'interfaccia della riga di portale di Azure o l'interfaccia della riga di comando di Azure.
+Questa guida illustra come modificare lo stato di un'applicazione in Azure Spring Cloud usando il portale di Azure o l'interfaccia della riga di comando di Azure.
 
 ## <a name="using-the-azure-portal"></a>Uso del portale di Azure
 
@@ -27,20 +27,20 @@ Dopo aver distribuito un'applicazione, è possibile avviarla, arrestarla ed elim
 1. Passare all'istanza del servizio Azure Spring Cloud nel portale di Azure.
 1. Selezionare la scheda **Dashboard dell'applicazione**.
 1. Selezionare l'applicazione di cui cambiare lo stato.
-1. Nella pagina **Panoramica** relativa a tale applicazione selezionare **Start/Stop**, **Restart** o **Delete**.
+1. Nella pagina **Panoramica** per l'applicazione selezionare **Avvia/Arresta**, **Riavvia** o **Elimina**.
 
 ## <a name="using-the-azure-cli"></a>Con l'interfaccia della riga di comando di Azure
 
 > [!NOTE]
-> È possibile usare parametri facoltativi e configurare le impostazioni predefinite con l'interfaccia della riga di comando di Azure. Per altre informazioni sull'interfaccia della riga di comando di Azure, leggere la [documentazione di riferimento](/cli/azure/ext/spring-cloud/spring-cloud).  
+> È possibile usare parametri facoltativi e configurare le impostazioni predefinite con l'interfaccia della riga di comando di Azure. Per altre informazioni sull'interfaccia della riga di comando di Azure, [vedere la documentazione di riferimento.](/cli/azure/spring-cloud)  
 
-Installare prima di tutto l'estensione Azure Spring cloud per l'interfaccia della riga di comando di Azure come indicato di seguito:
+Prima di tutto, installare l'estensione Azure Spring Cloud per l'interfaccia della riga di comando di Azure come indicato di seguito:
 
 ```azurecli
 az extension add --name spring-cloud
 ```
 
-Selezionare quindi una delle operazioni dell'interfaccia della riga di comando di Azure seguenti:
+Selezionare quindi una di queste operazioni dell'interfaccia della riga di comando di Azure:
 
 * Per avviare l'applicazione:
 

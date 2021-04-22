@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 03/24/2021
-ms.openlocfilehash: ccfda4975b6453ed67edc2640520bc0a76df5709
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d063a0870616b5b977df18c56d9d66515b03d0a5
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105644882"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107870860"
 ---
 # <a name="tutorial-accept-and-receive-data-using-azure-data-share"></a>Esercitazione: Accettare e ricevere dati con Condivisione dati di Azure  
 
@@ -106,7 +106,7 @@ Per iniziare, preparare l'ambiente per l'interfaccia della riga di comando di Az
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-Eseguire il comando [az datashare consumer invitation list](/cli/azure/ext/datashare/datashare/consumer/invitation#ext_datashare_az_datashare_consumer_invitation_list) per visualizzare gli inviti correnti:
+Eseguire il comando [az datashare consumer invitation list](/cli/azure/datashare/consumer/invitation#az_datashare_consumer_invitation_list) per visualizzare gli inviti correnti:
 
 ```azurecli
 az datashare consumer invitation list --subscription 11111111-1111-1111-1111-111111111111
@@ -140,7 +140,7 @@ Copiare l'ID invito per usarlo nella sezione successiva.
 
 ### <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
-Usare il comando [az datashare consumer share-subscription create](/cli/azure/ext/datashare/datashare/consumer/share-subscription#ext_datashare_az_datashare_consumer_share_subscription_create) per creare la condivisione dati.
+Usare il comando [az datashare consumer share-subscription create](/cli/azure/datashare/consumer/share-subscription#az_datashare_consumer_share_subscription_create) per creare la condivisione dati.
 
 ```azurecli
 az datashare consumer share-subscription create --resource-group share-rg \
@@ -161,13 +161,13 @@ Seguire questa procedura per configurare la posizione in cui si desidera ricever
 
    ![Esegui mapping alla destinazione](./media/dataset-map-target.png "Esegui mapping alla destinazione") 
 
-1. Selezionare un tipo di archivio dati di destinazione in cui verranno ospitati i dati. Eventuali tabelle o file di dati nell'archivio dati di destinazione con lo stesso percorso e nome verranno sovrascritti. Se si ricevono dati nel database SQL di Azure o in Azure sinapsi Analytics (in precedenza Azure SQL DW), selezionare la casella **di controllo Consenti condivisione dati per eseguire lo script di creazione utente precedente per conto dell'utente**.
+1. Selezionare un tipo di archivio dati di destinazione in cui verranno ospitati i dati. Eventuali tabelle o file di dati nell'archivio dati di destinazione con lo stesso percorso e nome verranno sovrascritti. Se si ricevono dati in database SQL di Azure o Azure Synapse Analytics (in precedenza Azure SQL DW), selezionare la casella di controllo Consenti a Condivisione dati di eseguire lo **script "crea utente"** precedente per conto dell'utente.
 
    Per la condivisione sul posto selezionare un archivio dati nella località specificata. La località è il data center di Azure in cui si trova l'archivio dati di origine del provider di dati. Una volta eseguito il mapping del set di dati, è possibile seguire il collegamento nel percorso di destinazione per accedere ai dati.
 
    ![Account di archiviazione di destinazione](./media/dataset-map-target-sql.png "Archiviazione di destinazione") 
 
-1. Per la condivisione basata su snapshot, se il provider di dati ha creato una pianificazione degli snapshot per fornire aggiornamenti regolari ai dati, è anche possibile abilitare la pianificazione degli snapshot selezionando la scheda **Pianificazione degli snapshot**. Selezionare la casella accanto alla pianificazione degli snapshot e selezionare **+ Abilita**. Si noti che il primo snapshot pianificato viene avviato entro un minuto dall'ora di pianificazione e gli snapshot successivi vengono avviati entro pochi secondi dall'orario pianificato.
+1. Per la condivisione basata su snapshot, se il provider di dati ha creato una pianificazione degli snapshot per fornire aggiornamenti regolari ai dati, è anche possibile abilitare la pianificazione degli snapshot selezionando la scheda **Pianificazione degli snapshot**. Selezionare la casella accanto alla pianificazione degli snapshot e selezionare **+ Abilita**. Si noti che il primo snapshot pianificato inizierà entro un minuto dall'ora di pianificazione e gli snapshot successivi inizieranno entro pochi secondi dall'ora pianificata.
 
    ![Abilitare la pianificazione degli snapshot](./media/enable-snapshot-schedule.png "Abilitare la pianificazione degli snapshot")
 
@@ -175,7 +175,7 @@ Seguire questa procedura per configurare la posizione in cui si desidera ricever
 
 Usare questi comandi per configurare la posizione in cui ricevere i dati.
 
-1. Eseguire il comando [az datashare consumer share-subscription list-source-dataset](/cli/azure/ext/datashare/datashare/consumer/share-subscription#ext_datashare_az_datashare_consumer_share_subscription_list_source_dataset) per ottenere l'ID set di dati:
+1. Eseguire il comando [az datashare consumer share-subscription list-source-dataset](/cli/azure/datashare/consumer/share-subscription#az_datashare_consumer_share_subscription_list_source_dataset) per ottenere l'ID set di dati:
 
    ```azurecli
    az datashare consumer share-subscription list-source-dataset \
@@ -221,7 +221,7 @@ Usare questi comandi per configurare la posizione in cui ricevere i dati.
      \"storage_account_name\":\"datashareconsumersa\",\"kind\":\"BlobFolder\",\"prefix\":\"consumer\"}'
    ```
 
-1. Usare il comando [az datashare consumer dataset-mapping create](/cli/azure/ext/datashare/datashare/consumer/dataset-mapping#ext_datashare_az_datashare_consumer_dataset_mapping_create) per creare il mapping del set di dati:
+1. Usare il comando [az datashare consumer dataset-mapping create](/cli/azure/datashare/consumer/dataset-mapping#az_datashare_consumer_dataset_mapping_create) per creare il mapping del set di dati:
 
    ```azurecli
    az datashare consumer dataset-mapping create --resource-group "share-rg" \
@@ -230,7 +230,7 @@ Usare questi comandi per configurare la posizione in cui ricevere i dati.
      --subscription 11111111-1111-1111-1111-111111111111
    ```
 
-1. Eseguire il comando [az datashare consumer share-subscription synchronization start](/cli/azure/ext/datashare/datashare/consumer/share-subscription/synchronization#ext_datashare_az_datashare_consumer_share_subscription_synchronization_start) per avviare la sincronizzazione del set di dati.
+1. Eseguire il comando [az datashare consumer share-subscription synchronization start](/cli/azure/datashare/consumer/share-subscription/synchronization#az_datashare_consumer_share_subscription_synchronization_start) per avviare la sincronizzazione del set di dati.
 
    ```azurecli
    az datashare consumer share-subscription synchronization start \
@@ -239,7 +239,7 @@ Usare questi comandi per configurare la posizione in cui ricevere i dati.
      --subscription 11111111-1111-1111-1111-111111111111
    ```
 
-   Eseguire il comando [az datashare consumer share-subscription synchronization list](/cli/azure/ext/datashare/datashare/consumer/share-subscription/synchronization#ext_datashare_az_datashare_consumer_share_subscription_synchronization_list) per visualizzare un elenco di sincronizzazioni:
+   Eseguire il comando [az datashare consumer share-subscription synchronization list](/cli/azure/datashare/consumer/share-subscription/synchronization#az_datashare_consumer_share_subscription_synchronization_list) per visualizzare un elenco di sincronizzazioni:
 
    ```azurecli
    az datashare consumer share-subscription synchronization list \
@@ -248,7 +248,7 @@ Usare questi comandi per configurare la posizione in cui ricevere i dati.
      --subscription 11111111-1111-1111-1111-111111111111
    ```
 
-   Usare il comando [az datashare consumer share-subscription list-source-share-synchronization-setting](/cli/azure/ext/datashare/datashare/consumer/share-subscription#ext_datashare_az_datashare_consumer_share_subscription_list_source_share_synchronization_setting) per visualizzare le impostazioni di sincronizzazione impostate nella condivisione.
+   Usare il comando [az datashare consumer share-subscription list-source-share-synchronization-setting](/cli/azure/datashare/consumer/share-subscription#az_datashare_consumer_share_subscription_list_source_share_synchronization_setting) per visualizzare le impostazioni di sincronizzazione impostate nella condivisione.
 
    ```azurecli
    az datashare consumer share-subscription list-source-share-synchronization-setting \
@@ -274,7 +274,7 @@ Questa procedura si applica solo alla condivisione basata su snapshot.
 
 ### <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
-Eseguire il comando [az datashare consumer trigger create](/cli/azure/ext/datashare/datashare/consumer/trigger#ext_datashare_az_datashare_consumer_trigger_create) per attivare uno snapshot:
+Eseguire il comando [az datashare consumer trigger create](/cli/azure/datashare/consumer/trigger#az_datashare_consumer_trigger_create) per attivare uno snapshot:
 
 ```azurecli
 az datashare consumer trigger create --resource-group "share-rg" \

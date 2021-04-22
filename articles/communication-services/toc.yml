@@ -65,7 +65,7 @@
       href: tutorials/hmac-header-tutorial.md
     - name: Preparare un'app Web per Servizi di comunicazione (Node.js)
       href: tutorials/building-app-start.md
-    - name: Firmare e inviare richieste ai API SMS ACS con Postman
+    - name: Firmare e inviare richieste al API SMS ACS con Postman
       href: tutorials/postman-tutorial.md
 - name: Concetti
   expanded: false
@@ -152,7 +152,7 @@
     - name: Panoramica della documentazione di riferimento
       href: concepts/reference.md
     - name: Interfaccia della riga di comando di Azure
-      href: /cli/azure/ext/communication/communication
+      href: /cli/azure/communication
     - name: Documentazione relativa alle API REST
       href: /rest/api/communication/
     - name: Librerie Chiamata

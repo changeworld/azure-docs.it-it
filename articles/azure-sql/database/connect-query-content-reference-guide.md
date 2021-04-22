@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/17/2021
-ms.openlocfilehash: a8419ff2ba269b05d1fbf7e9d08a284085465fd8
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 96b52c80fa06be8c157ad39fd65be4e491e0cbe3
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107257416"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107874856"
 ---
 # <a name="azure-sql-database-and-azure-sql-managed-instance-connect-and-query-articles"></a>Articoli su come connettersi al database SQL di Azure e all'istanza gestita di SQL di Azure ed eseguire query
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -86,7 +86,7 @@ La tabella seguente elenca le librerie di connettività o *driver* che le applic
 
 | Linguaggio | Piattaforma | Risorse aggiuntive | Download | Introduzione |
 | :-- | :-- | :-- | :-- | :-- |
-| C# | Windows, Linux, macOS | [Microsoft ADO.NET per SQL Server](/sql/connect/ado-net/microsoft-ado-net-sql-server) | [Scaricare](https://www.microsoft.com/net/download/) | [Operazioni preliminari](https://www.microsoft.com/sql-server/developer-get-started/csharp/ubuntu)
+| C# | Windows, Linux, macOS | [Microsoft ADO.NET per SQL Server](/sql/connect/ado-net/microsoft-ado-net-sql-server) | [Scaricare](https://dotnet.microsoft.com/download) | [Operazioni preliminari](https://www.microsoft.com/sql-server/developer-get-started/csharp/ubuntu)
 | Java | Windows, Linux, macOS | [Microsoft JDBC Driver per SQL Server](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server/) | [Scaricare](/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server) |  [Operazioni preliminari](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu)
 | PHP | Windows, Linux, macOS| [Driver SQL PHP per SQL Server](/sql/connect/php/microsoft-php-driver-for-sql-server) | [Scaricare](/sql/connect/php/download-drivers-php-sql-server) | [Operazioni preliminari](https://www.microsoft.com/sql-server/developer-get-started/php/ubuntu/)
 | Node.js | Windows, Linux, macOS | [Driver Node.js per SQL Server](/sql/connect/node-js/node-js-driver-for-sql-server/) | [Installazione](/sql/connect/node-js/step-1-configure-development-environment-for-node-js-development/) |  [Operazioni preliminari](https://www.microsoft.com/sql-server/developer-get-started/node/ubuntu)
@@ -117,7 +117,7 @@ La tabella seguente elenca esempi di framework ORM (Object Relational Mapping) e
   - [Connettersi ed eseguire query con Java](connect-query-java.md)
   - [Connettersi ed eseguire query con Python](connect-query-python.md)
   - [Connettersi ed eseguire query con Ruby](connect-query-ruby.md)
-  - [Installare sqlcmd e bcp i SQL Server gli strumenti da riga di comando in Linux](/sql/linux/sql-server-linux-setup-tools) : per gli utenti Linux, provare a connettersi al database SQL di Azure o al istanza gestita SQL di Azure tramite [SQLCMD](/sql/ssms/scripting/sqlcmd-use-the-utility).
+  - [Installare sqlcmd](/sql/linux/sql-server-linux-setup-tools) e bcp SQL Server strumenti da riga di comando in Linux: per gli utenti Linux, provare a connettersi a database SQL di Azure o Istanza gestita di SQL di Azure [usando sqlcmd](/sql/ssms/scripting/sqlcmd-use-the-utility).
 - Esempi di codice di logica di ripetizione dei tentativi:
   - [Connettersi in modo resiliente con ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
   - [Connettersi in modo resiliente con PHP][step-4-connect-resiliently-to-sql-with-php-p42h]

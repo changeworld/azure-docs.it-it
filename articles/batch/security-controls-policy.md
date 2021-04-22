@@ -1,18 +1,18 @@
 ---
 title: Controlli di conformità alle normative di Criteri di Azure per Azure Batch
 description: Elenca i controlli di conformità alle normative di Criteri di Azure disponibili per Azure Batch. Queste definizioni di criteri predefiniti rappresentano approcci comuni per gestire la conformità delle risorse di Azure.
-ms.date: 04/14/2021
+ms.date: 04/21/2021
 ms.topic: sample
 author: JnHs
 ms.author: jenhayes
 ms.service: batch
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 773338d5d66ca9fff99d73744c7ea18bdc7268b4
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: cddbe9bf872108d54b431696687a557a56b2fc49
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107504548"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107869016"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-batch"></a>Controlli di conformità alle normative di Criteri di Azure per Azure Batch
 

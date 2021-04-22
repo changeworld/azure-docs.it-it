@@ -1,18 +1,18 @@
 ---
 title: Definizioni di criteri predefiniti per Cache di Azure per Redis
 description: Elenco di definizioni di criteri predefiniti di Criteri di Azure per Cache di Azure per Redis. Queste definizioni di criteri predefiniti forniscono approcci comuni alla gestione delle risorse di Azure.
-ms.date: 04/14/2021
+ms.date: 04/21/2021
 ms.topic: reference
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.custom: subject-policy-reference
-ms.openlocfilehash: b587f1775fba844acf10444cc532f0761b0402ac
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 652d0318d24788a9546f4129c55b8ba593cf1ef0
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107503924"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107872094"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-cache-for-redis"></a>Definizioni predefinite di Criteri di Azure per Cache di Azure per Redis
 

@@ -42,7 +42,7 @@
     - name: Benchmark di sicurezza di Azure
       displayName: 'standards, azure, benchmark'
       href: ./samples/azure-security-benchmark.md
-    - name: Azure Security benchmark Foundation
+    - name: Azure Security Benchmark Foundation
       items:
         - name: Panoramica
           displayName: 'standards, azure, benchmark, foundation'
@@ -72,13 +72,13 @@
         - name: Procedura per la distribuzione
           displayName: 'standards, canada, federal, pbmm'
           href: ./samples/canada-federal-pbmm/deploy.md
-    - name: 1.3.0 di base di Microsoft Azure CIS per le fondamenta v
+    - name: CIS Microsoft Azure Foundations Benchmark v1.3.0
       displayName: 'standards, cis'
       href: ./samples/cis-azure-1-3-0.md
     - name: CIS Microsoft Azure Foundations Benchmark v1.1.0
       displayName: 'standards, cis'
       href: ./samples/cis-azure-1-1-0.md
-    - name: Livello CMMC 3
+    - name: CMMC Livello 3
       displayName: 'standards, cmmc'
       href: ./samples/cmmc-l3.md
     - name: DoD Impact Level 4
@@ -175,7 +175,7 @@
         - name: Procedura per la distribuzione
           displayName: 'standards, Media'
           href: ./samples/media/deploy.md
-    - name: New Zealand ISM con restrizioni
+    - name: Nuova Zelanda - ISM con restrizioni
       displayName: 'standards, NZISM'
       href: ./samples/new-zealand-ism.md
     - name: NIST SP 800-53 R4
@@ -272,7 +272,7 @@
 - name: Informazioni di riferimento
   items:
     - name: Interfaccia della riga di comando di Azure
-      href: /cli/azure/ext/blueprint/blueprint
+      href: /cli/azure/blueprint
     - name: Azure PowerShell
       href: /powershell/module/az.blueprint/#blueprint
     - name: Azure SDK per .NET

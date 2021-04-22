@@ -1,5 +1,5 @@
 ---
-title: guida introduttiva alla libreria client JavaScript multivariata Rilevamento anomalie
+title: Rilevamento anomalie avvio rapido della libreria client JavaScript multivariata
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: mrbullwinkle
@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/06/2021
 ms.author: mbullwin
-ms.openlocfilehash: 261dbb7cab2ac17a39777241d24e2c73cf550873
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 656270c80e8da0ece83bb04190fa7e5710a0203e
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107800003"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107879987"
 ---
 Introduzione alla libreria Rilevamento anomalie client multivariate per JavaScript. Seguire questa procedura per installare il pacchetto e iniziare a usare gli algoritmi forniti dal servizio. Le nuove API di rilevamento anomalie multivariate consentono agli sviluppatori di integrare facilmente l'intelligenza artificiale avanzata per rilevare anomalie da gruppi di metriche, senza la necessità di conoscenze di Machine Learning o dati etichettati. Le dipendenze e le interrelazioni tra segnali diversi vengono conteggiate automaticamente come fattori chiave. Ciò consente di proteggere in modo proattivo i sistemi complessi da errori.
 
@@ -23,7 +23,7 @@ Usare la Rilevamento anomalie client multivariata per JavaScript per:
 * Quando una serie temporale singola non indica molto ed è necessario esaminare tutti i segnali per rilevare un problema.
 * Manutenzione predicativa di risorse fisiche costose con decine o centinaia di diversi tipi di sensori che misurano vari aspetti dell'integrità del sistema.
 
-[Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/anomalydetector/ai-anomaly-detector)  |  [Pacchetto (npm)](https://www.npmjs.com/package/@azure/ai-anomaly-detector)
+[Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/anomalydetector/ai-anomaly-detector)  |  [Pacchetto (npm)](https://www.npmjs.com/package/@azure/ai-anomaly-detector)  |  [Codice di esempio](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/anomalydetector/ai-anomaly-detector/samples/v3/javascript/sample_multivariate_detection.js)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -183,6 +183,8 @@ console.log("New model has been deleted.")
 ```
 
 ## <a name="run-the-application"></a>Eseguire l'applicazione
+
+Prima di eseguire l'applicazione può essere utile controllare il codice rispetto al [codice di esempio completo](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/anomalydetector/ai-anomaly-detector/samples/v3/javascript/sample_multivariate_detection.js)
 
 Eseguire l'applicazione con il comando `node` nel file quickstart.
 

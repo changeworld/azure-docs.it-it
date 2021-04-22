@@ -1,25 +1,25 @@
 ---
 title: Ottenere lo stato della traduzione
 titleSuffix: Azure Cognitive Services
-description: Il metodo get translation status restituisce lo stato di una richiesta di traduzione del documento.
+description: Il metodo get translation status restituisce lo stato di una richiesta di traduzione di documenti.
 services: cognitive-services
 author: jann-skotdal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 03/25/2021
+ms.date: 04/21/2021
 ms.author: v-jansk
-ms.openlocfilehash: 8b129974396e420948737c9bdf47a5707decab6b
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: c17cd6cb97aaac3cd08342270e4eafa07eb5fd7d
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107836212"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107864884"
 ---
 # <a name="get-translation-status"></a>Ottenere lo stato della traduzione
 
-Il metodo Get translation status (Ottieni stato traduzione) restituisce lo stato di una richiesta di traduzione di documenti. Lo stato include lo stato complessivo della richiesta e lo stato dei documenti tradotti come parte di tale richiesta.
+Il metodo Get translation status restituisce lo stato di una richiesta di traduzione di documenti. Lo stato include lo stato complessivo della richiesta e lo stato dei documenti tradotti come parte di tale richiesta.
 
 ## <a name="request-url"></a>URL richiesta
 
@@ -32,8 +32,8 @@ Informazioni su come trovare il [nome di dominio personalizzato](../get-started-
 
 > [!IMPORTANT]
 >
-> * **Tutte le richieste API al servizio Traduzione documenti richiedono un endpoint di dominio personalizzato.**
-> * Non è possibile usare l'endpoint presente nella pagina delle chiavi e _dell'endpoint_ della risorsa portale di Azure, né l'endpoint del traduttore globale, per effettuare richieste `api.cognitive.microsofttranslator.com` HTTP alla traduzione dei documenti.
+> * **Tutte le richieste API al servizio Di traduzione documenti richiedono un endpoint di dominio personalizzato.**
+> * Non è possibile usare l'endpoint presente nella  pagina chiavi ed endpoint della risorsa portale di Azure, né l'endpoint del traduttore globale, , per effettuare richieste HTTP a `api.cognitive.microsofttranslator.com` Document Translation.
 
 
 ## <a name="request-parameters"></a>Parametri della richiesta
@@ -66,9 +66,9 @@ Di seguito sono riportati i possibili codici di stato HTTP restituiti da una ric
 
 ## <a name="get-translation-status-response"></a>Ottenere la risposta dello stato della traduzione
 
-### <a name="successful-get-translation-status-response"></a>Risposta riuscita per ottenere lo stato della traduzione
+### <a name="successful-get-translation-status-response"></a>Risposta per ottenere lo stato della traduzione riuscita
 
-Le informazioni seguenti vengono restituite in una risposta corretta.
+Le informazioni seguenti vengono restituite in una risposta con esito positivo.
 
 |Nome|Type|Descrizione|
 |--- |--- |--- |
@@ -78,29 +78,29 @@ Le informazioni seguenti vengono restituite in una risposta corretta.
 |status|Stringa|Elenco di possibili stati per il processo o il documento: <ul><li>Cancellati</li><li>Cancelling</li><li>Non riuscito</li><li>NotStarted</li><li>In esecuzione</li><li>Completato</li><li>ValidationFailed</li></ul>|
 |riepilogo|StatusSummary|Riepilogo contenente i dettagli elencati di seguito.|
 |summary.total|numero intero|Numero totale.|
-|summary.failed|numero intero|Numero di tentativi non riusciti.|
+|summary.failed|numero intero|Conteggio non riuscito.|
 |summary.success|numero intero|Numero di operazioni riuscite.|
 |summary.inProgress|numero intero|Numero di in corso.|
 |summary.notYetStarted|numero intero|Conteggio di non ancora avviato.|
-|summary.cancelled|numero intero|Numero di annullati.|
-|summary.totalCharacterCharged|numero intero|Totale caratteri addebitati dall'API.|
+|summary.cancelled|numero intero|Numero di elementi annullati.|
+|summary.totalCharacterCharged|numero intero|Totale dei caratteri addebitati dall'API.|
 
 ###<a name="error-response"></a>Risposta di errore
 
 |Nome|Type|Descrizione|
 |--- |--- |--- |
 |codice|string|Enumerazioni contenenti codici di errore di alto livello. Valori possibili:<br/><ul><li>InternalServerError</li><li>InvalidArgument</li><li>InvalidRequest</li><li>RequestRateTooHigh</li><li>ResourceNotFound</li><li>ServiceUnavailable</li><li>Non autorizzata</li></ul>|
-|message|string|Ottiene un messaggio di errore di alto livello.|
+|message|string|Ottiene il messaggio di errore di alto livello.|
 |target|string|Ottiene l'origine dell'errore. Ad esempio, sarebbe "documenti" o "ID documento" per un documento non valido.|
-|innerError|InnerErrorV2|Nuovo formato di errore interno, conforme alle linee guida dell'API Servizi cognitivi. Contiene le proprietà obbligatorie ErrorCode, message e optional properties target, details(key value pair), inner error (può essere annidato).|
+|innerError|InnerErrorV2|Nuovo formato di errore interno, conforme alle linee guida dell'API Servizi cognitivi. Contiene le proprietà obbligatorie ErrorCode, message e le proprietà facoltative target, details(key value pair), inner error (può essere annidato).|
 |innerError.code|string|Ottiene la stringa di errore del codice.|
-|innerError.message|string|Ottiene un messaggio di errore di alto livello.|
+|innerError.message|string|Ottiene il messaggio di errore di alto livello.|
 
 ## <a name="examples"></a>Esempio
 
-### <a name="example-successful-response"></a>Risposta di esempio riuscita
+### <a name="example-successful-response"></a>Esempio di risposta con esito positivo
 
-L'oggetto JSON seguente è un esempio di risposta riuscita.
+L'oggetto JSON seguente è un esempio di risposta con esito positivo.
 
 ```JSON
 {

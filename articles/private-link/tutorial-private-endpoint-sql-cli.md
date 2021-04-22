@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/03/2020
 ms.author: allensu
 ms.custom: fasttrack-edit, devx-track-azurecli
-ms.openlocfilehash: a8fafeaaf974893c9a1a71115912f2a7b019ddd9
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 5a66749a3e773328e6c6c02375e76998bd6531cd
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107771822"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107871958"
 ---
 # <a name="tutorial-connect-to-an-azure-sql-server-using-an-azure-private-endpoint---azure-cli"></a>Esercitazione: Connettersi a un server di Azure SQL usando un endpoint privato di Azure - Interfaccia della riga di comando di Azure
 
@@ -220,9 +220,9 @@ az network private-endpoint create \
 
 ## <a name="configure-the-private-dns-zone"></a>Configurare la zona DNS privato
 
-In questa sezione si creerà e si configurerà la zona DNS privato con il comando [az network private-dns zone create](/cli/azure/network/private-dns/zone#ext_privatedns_az_network_private_dns_zone_create).  
+In questa sezione si creerà e si configurerà la zona DNS privato con il comando [az network private-dns zone create](/cli/azure/network/private-dns/zone#az_network_private_dns_zone_create).  
 
-Si userà [az network private-dns link vnet create](/cli/azure/network/private-dns/link/vnet#ext_privatedns_az_network_private_dns_link_vnet_create) per creare il collegamento della rete virtuale alla zona DNS.
+Si userà [az network private-dns link vnet create](/cli/azure/network/private-dns/link/vnet#az_network_private_dns_link_vnet_create) per creare il collegamento della rete virtuale alla zona DNS.
 
 Verrà creato un gruppo di zone DNS con [az network private-endpoint dns-zone-group create](/cli/azure/network/private-endpoint/dns-zone-group#az_network_private_endpoint_dns_zone_group_create).
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zhshang
 ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: cd5b709843ba2d98170aaa58eb5c3cc1ec8883af
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aace45f78bab273b792d10754be431ed3949e4c6
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98734682"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107869852"
 ---
 # <a name="azure-signalr-service-authentication"></a>autenticazione del servizio Azure SignalR
 
@@ -47,8 +47,8 @@ Per completare questa esercitazione, sono previsti i prerequisiti seguenti:
 
 - Un account creato in [GitHub](https://github.com/)
 - [Git](https://git-scm.com/)
-- [ASP.NET Core SDK](https://www.microsoft.com/net/download/windows)
-- [Azure cloud Shell](../cloud-shell/quickstart.md) configurata per l'ambiente bash.
+- [ASP.NET Core SDK](https://dotnet.microsoft.com/download)
+- [Azure Cloud Shell](../cloud-shell/quickstart.md) configurato per l'ambiente bash.
 - Scaricare o clonare il repository GitHub [AzureSignalR-sample](https://github.com/aspnet/AzureSignalR-samples).
 
 ## <a name="create-an-oauth-app"></a>Creare un'app OAuth
@@ -390,7 +390,7 @@ Preparare l'ambiente per l'interfaccia della riga di comando di Azure:
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-In questa sezione si userà l'interfaccia della riga di comando di Azure per creare una nuova app Web nel [servizio app Azure](../app-service/index.yml) per ospitare l'applicazione ASP.NET in Azure. L'app Web verrà configurata per usare la distribuzione Git locale. L'app Web verrà configurata anche con la stringa di connessione SignalR, i segreti dell'app OAuth di GitHub e un utente di distribuzione.
+In questa sezione si userà l'interfaccia della riga di comando di Azure per creare una nuova app Web in [Servizio app di Azure](../app-service/index.yml) per ospitare l'applicazione ASP.NET in Azure. L'app Web verrà configurata per usare la distribuzione Git locale. L'app Web verrà configurata anche con la stringa di connessione SignalR, i segreti dell'app OAuth di GitHub e un utente di distribuzione.
 
 Quando si creano le risorse seguenti, assicurarsi di usare lo stesso gruppo di risorse in cui si trova la risorsa servizio SignalR. Questo approccio semplificherà la pulizia quando in seguito si vorrà rimuovere tutte le risorse. Gli esempi proposti presuppongono che si usi il nome di gruppo consigliato nelle esercitazioni precedenti: *SignalRTestResources*.
 

@@ -8,11 +8,11 @@
   items:
     - name: Pianificare lo spazio dei nomi aggregato
       href: hpc-cache-namespace.md
-    - name: Informazioni sui modelli di utilizzo della cache
+    - name: Informazioni su modelli di utilizzo della cache
       href: cache-usage-models.md
-    - name: Decidere se la cache HPC è la soluzione corretta
+    - name: Decidere se la cache HPC è la soluzione giusta
       href: usage-scenarios.md
-    - name: Sicurezza
+    - name: Security
       items:
         - name: Baseline di sicurezza
           href: security-baseline.md
@@ -57,7 +57,7 @@
 - name: Informazioni di riferimento
   items:
     - name: Interfaccia della riga di comando di Azure
-      href: /cli/azure/ext/hpc-cache/hpc-cache
+      href: /cli/azure/hpc-cache
     - name: Azure PowerShell
       href: /powershell/module/Az.HPCCache
 - name: Risorse
@@ -70,7 +70,7 @@
       href: hpc-cache-blob-firewall-fix.md
     - name: Risolvere i problemi di creazione della destinazione di archiviazione NFS
       href: troubleshoot-nas.md
-    - name: Usare l'archiviazione BLOB montata da NFS con la cache HPC di Azure
+    - name: Usare l'archiviazione BLOB montata su NFS con Cache HPC di Azure
       href: nfs-blob-considerations.md
     - name: Ripristino dopo un'interruzione a livello di area
       href: hpc-region-recovery.md

@@ -6,13 +6,13 @@ ms.author: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 11/21/2019
-ms.openlocfilehash: 1bfae8c7afbfdc6e73dd8bb17b94e6543361e9ce
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/21/2021
+ms.openlocfilehash: 7d807a15d358bd621baedbff253f0c731e43ed26
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "83848229"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107874172"
 ---
 # <a name="iot-hub-ip-addresses"></a>Indirizzi IP dell'hub IoT
 
@@ -45,7 +45,7 @@ I prefissi degli indirizzi IP degli endpoint pubblici dell'hub IoT vengono pubbl
 
 ## <a name="limitations-and-workarounds"></a>Limitazioni e soluzioni alternative
 
-* La funzionalità di filtro IP dell'hub IoT ha un limite di 10 regole. Questo limite può essere aumentato con richieste tramite l'assistenza clienti di Azure. 
+* La funzionalità di filtro IP dell'hub IoT ha un limite di 100 regole. Questo limite può essere aumentato con richieste tramite l'assistenza clienti di Azure. 
 
 * Le [regole di filtro IP](iot-hub-ip-filtering.md) configurate sono applicate solo agli endpoint IP dell'hub IoT e non all'endpoint predefinito dell'hub eventi dell'hub IoT. Se è necessario applicare anche il filtro IP nell'hub eventi in cui sono archiviati i messaggi, è possibile usare la risorsa dell'hub eventi in cui configurare direttamente le regole di filtro IP desiderate. A tale scopo, è necessario effettuare il provisioning della risorsa dell'hub eventi e configurare il [routing dei messaggi](./iot-hub-devguide-messages-d2c.md) per inviare i messaggi alla risorsa anziché all'hub eventi predefinito dell'hub IoT. Infine, come illustrato nella tabella precedente, per abilitare la funzionalità di routing dei messaggi, è necessario anche consentire la connettività dai prefissi degli indirizzi IP dell'hub IoT alla risorsa dell'hub eventi di cui è stato effettuato il provisioning.
 

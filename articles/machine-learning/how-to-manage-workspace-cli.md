@@ -1,7 +1,7 @@
 ---
 title: Creare aree di lavoro con l'interfaccia della riga di comando di Azure
 titleSuffix: Azure Machine Learning
-description: Informazioni su come usare l'estensione dell'interfaccia della riga di comando di Azure per machine learning per creare una nuova area di lavoro Azure Machine Learning.
+description: Informazioni su come usare l'estensione dell'interfaccia della riga di comando di Azure per Machine Learning per creare una nuova area Azure Machine Learning lavoro.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ author: Blackmist
 ms.date: 04/02/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-azurecli
-ms.openlocfilehash: 5e9df582ce6eddd50fbecf02858f4afe611dcf18
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 8a00f5474fb73677125b85e48fcc2a42f34fdeb0
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106220216"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107876404"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Creare un'area di lavoro per Azure Machine Learning con l'interfaccia della riga di comando di Azure
 
@@ -56,13 +56,13 @@ Per altri metodi di autenticazione, vedere [Accedere con l'interfaccia della rig
 L'area di lavoro di Azure Machine Learning si basa sui servizi o sulle entità seguenti di Azure:
 
 > [!IMPORTANT]
-> Se non si specifica un servizio di Azure esistente, ne verrà creato uno automaticamente durante la creazione dell'area di lavoro. È necessario specificare sempre un gruppo di risorse. Quando si collega il proprio account di archiviazione, verificare che soddisfi i criteri seguenti:
+> Se non si specifica un servizio di Azure esistente, ne verrà creato uno automaticamente durante la creazione dell'area di lavoro. È necessario specificare sempre un gruppo di risorse. Quando si collega il proprio account di archiviazione, assicurarsi che soddisfi i criteri seguenti:
 >
-> * L'account di archiviazione _non_ è un account premium (Premium_LRS e Premium_GRS)
-> * Sia il BLOB di Azure che le funzionalità file di Azure sono abilitati
-> * Lo spazio dei nomi gerarchico (ADLS gen 2) è disabilitato
+> * L'account di _archiviazione non è_ un account Premium (Premium_LRS e Premium_GRS)
+> * Funzionalità BLOB di Azure e File di Azure abilitate
+> * Lo spazio dei nomi gerarchico (ADLS Gen 2) è disabilitato
 >
-> Questi requisiti sono solo per l'account di archiviazione _predefinito_ usato dall'area di lavoro.
+> Questi requisiti sono solo per l'account _di_ archiviazione predefinito usato dall'area di lavoro.
 
 | Service | Parametro per specificare un'istanza esistente |
 | ---- | ---- |
@@ -72,7 +72,7 @@ L'area di lavoro di Azure Machine Learning si basa sui servizi o sulle entità s
 | **Insieme di credenziali chiave Azure** | `--keyvault <service-id>` |
 | **Registro Azure Container** | `--container-registry <service-id>` |
 
-Azure Container Registry (ACR) attualmente non supporta i caratteri Unicode nei nomi dei gruppi di risorse. Per attenuare questo problema, usare un gruppo di risorse che non contiene questi caratteri.
+Registro Azure Container (ACR) non supporta attualmente i caratteri Unicode nei nomi dei gruppi di risorse. Per risolvere questo problema, usare un gruppo di risorse che non contenga questi caratteri.
 
 ### <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
@@ -137,48 +137,48 @@ L'output di questo comando è simile al codice JSON seguente:
 }
 ```
 
-### <a name="virtual-network-and-private-endpoint"></a>Rete virtuale e endpoint privato
+### <a name="virtual-network-and-private-endpoint"></a>Rete virtuale ed endpoint privato
 
 > [!IMPORTANT]
-> L'uso di un'area di lavoro Azure Machine Learning con collegamento privato non è disponibile nelle aree di Azure per enti pubblici.
+> L'Azure Machine Learning di lavoro con collegamento privato non è disponibile nelle aree Azure per enti pubblici lavoro.
 
 Se si vuole limitare l'accesso all'area di lavoro a una rete virtuale, è possibile usare i parametri seguenti:
 
-* `--pe-name`: Nome dell'endpoint privato creato.
-* `--pe-auto-approval`: Se le connessioni all'area di lavoro dell'endpoint privato devono essere approvate automaticamente.
-* `--pe-resource-group`: Il gruppo di risorse in cui creare l'endpoint privato. Deve essere lo stesso gruppo che contiene la rete virtuale.
-* `--pe-vnet-name`: Rete virtuale esistente in cui creare l'endpoint privato.
-* `--pe-subnet-name`: Nome della subnet in cui creare l'endpoint privato. Il valore predefinito è `default`.
+* `--pe-name`: nome dell'endpoint privato creato.
+* `--pe-auto-approval`: indica se le connessioni endpoint private all'area di lavoro devono essere approvate automaticamente.
+* `--pe-resource-group`: gruppo di risorse in cui creare l'endpoint privato. Deve essere lo stesso gruppo che contiene la rete virtuale.
+* `--pe-vnet-name`: rete virtuale esistente in cui creare l'endpoint privato.
+* `--pe-subnet-name`: nome della subnet in cui creare l'endpoint privato. Il valore predefinito è `default`.
 
-Per ulteriori informazioni sull'utilizzo di un endpoint privato e di una rete virtuale con l'area di lavoro, vedere [Panoramica dell'isolamento e della privacy della rete virtuale](how-to-network-security-overview.md).
+Per altre informazioni sull'uso di un endpoint privato e di una rete virtuale con l'area di lavoro, vedere Panoramica dell'isolamento della rete [virtuale e della privacy.](how-to-network-security-overview.md)
 
-### <a name="customer-managed-key-and-high-business-impact-workspace"></a>Area di lavoro della chiave gestita dal cliente e dell'elevata incidenza aziendale
+### <a name="customer-managed-key-and-high-business-impact-workspace"></a>Area di lavoro con chiave gestita dal cliente e impatto aziendale elevato
 
-Per impostazione predefinita, i metadati per l'area di lavoro vengono archiviati in un'istanza di Azure Cosmos DB gestita da Microsoft. Questi dati vengono crittografati tramite chiavi gestite da Microsoft.
+Per impostazione predefinita, i metadati per l'area di lavoro vengono archiviati in un'Azure Cosmos DB che Viene mantenuta da Microsoft. Questi dati vengono crittografati usando chiavi gestite da Microsoft.
 
 > [!NOTE]
-> Azure Cosmos DB __non__ viene usato per archiviare informazioni quali le prestazioni del modello, le informazioni registrate dagli esperimenti o le informazioni registrate dalle distribuzioni del modello. Per altre informazioni sul monitoraggio di questi elementi, vedere la sezione [monitoraggio e registrazione](concept-azure-machine-learning-architecture.md) nell'articolo architettura e concetti.
+> Azure Cosmos DB __viene usato per__ archiviare informazioni quali le prestazioni del modello, le informazioni registrate dagli esperimenti o le informazioni registrate dalle distribuzioni del modello. Per altre informazioni sul monitoraggio di questi elementi, vedere la sezione [Monitoraggio e registrazione](concept-azure-machine-learning-architecture.md) dell'articolo architettura e concetti.
 
-Invece di usare la chiave gestita da Microsoft, è possibile usare la chiave specifica. In questo modo viene creata l'istanza Azure Cosmos DB che archivia i metadati nella sottoscrizione di Azure. Usare il `--cmk-keyvault` parametro per specificare il Azure Key Vault che contiene la chiave e `--resource-cmk-uri` per specificare l'URL della chiave all'interno dell'insieme di credenziali.
+Invece di usare la chiave gestita da Microsoft, è possibile usare per specificare la propria chiave. In questo modo viene creata Azure Cosmos DB istanza che archivia i metadati nella sottoscrizione di Azure. Usare il parametro per specificare il Azure Key Vault che contiene la chiave e per specificare l'URL della chiave all'interno `--cmk-keyvault` `--resource-cmk-uri` dell'insieme di credenziali.
 
-Prima di usare `--cmk-keyvault` i `--resource-cmk-uri` parametri e, è prima necessario eseguire le azioni seguenti:
+Prima di usare `--cmk-keyvault` i parametri e , è necessario eseguire le azioni `--resource-cmk-uri` seguenti:
 
-1. Autorizzare l' __App Machine Learning__ (in gestione delle identità e degli accessi) con le autorizzazioni di collaboratore per la sottoscrizione.
-1. Seguire i passaggi in [configurare le chiavi gestite dal cliente](../cosmos-db/how-to-setup-cmk.md) per:
-    * Registrare il provider di Azure Cosmos DB
+1. Autorizzare __l'app Machine Learning__ (in Gestione delle identità e degli accessi) con autorizzazioni di collaboratore per la sottoscrizione.
+1. Seguire la procedura descritta in [Configurare le chiavi gestite dal cliente](../cosmos-db/how-to-setup-cmk.md) per:
+    * Registrare il provider Azure Cosmos DB
     * Creare e configurare un Azure Key Vault
-    * Genera una chiave
+    * Generare una chiave
 
-Non è necessario creare manualmente l'istanza di Azure Cosmos DB, ne verrà creata una automaticamente durante la creazione dell'area di lavoro. Questa istanza di Azure Cosmos DB verrà creata in un gruppo di risorse distinto usando un nome basato su questo modello: `<your-resource-group-name>_<GUID>` .
+Non è necessario creare manualmente l'istanza Azure Cosmos DB, che verrà creata automaticamente durante la creazione dell'area di lavoro. Questa Azure Cosmos DB istanza verrà creata in un gruppo di risorse separato usando un nome basato su questo modello: `<your-resource-group-name>_<GUID>` .
 
 [!INCLUDE [machine-learning-customer-managed-keys.md](../../includes/machine-learning-customer-managed-keys.md)]
 
-Per limitare i dati raccolti da Microsoft nell'area di lavoro, usare il `--hbi-workspace` parametro. 
+Per limitare i dati raccolti da Microsoft nell'area di lavoro, usare il `--hbi-workspace` parametro . 
 
 > [!IMPORTANT]
-> Quando si crea un'area di lavoro, è possibile selezionare un elevato effetto aziendale. Questa impostazione non può essere modificata dopo la creazione dell'area di lavoro.
+> La selezione di un impatto aziendale elevato può essere eseguita solo durante la creazione di un'area di lavoro. Non è possibile modificare questa impostazione dopo la creazione dell'area di lavoro.
 
-Per ulteriori informazioni sulle chiavi gestite dal cliente e sull'area di lavoro di alto livello di business, vedere [sicurezza aziendale per Azure Machine Learning](concept-data-encryption.md#encryption-at-rest).
+Per altre informazioni sulle chiavi gestite dal cliente e sull'area di lavoro ad alto impatto aziendale, vedere [Sicurezza aziendale per](concept-data-encryption.md#encryption-at-rest)Azure Machine Learning .
 
 ### <a name="use-existing-resources"></a>Usare le risorse esistenti
 
@@ -194,7 +194,7 @@ Per creare un'area di lavoro che usa risorse esistenti, è necessario fornire l'
     `"/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-account-name>"`
 
     > [!IMPORTANT]
-    > Se si vuole usare un account di archiviazione di Azure esistente, non può essere un account Premium (Premium_LRS e Premium_GRS). Non può inoltre avere uno spazio dei nomi gerarchico (usato con Azure Data Lake Storage Gen2). Con l'account di archiviazione _predefinito_ dell'area di lavoro non sono supportati né archiviazione Premium né spazio dei nomi gerarchico. È possibile usare archiviazione Premium o uno spazio dei nomi gerarchico con account di archiviazione _non predefiniti_ .
+    > Se si vuole usare un account Archiviazione di Azure esistente, non può essere un account Premium (Premium_LRS e Premium_GRS). Non può inoltre avere uno spazio dei nomi gerarchico (usato con Azure Data Lake Storage Gen2). Né l'archiviazione Premium né lo spazio dei nomi gerarchico sono supportati _con_ l'account di archiviazione predefinito dell'area di lavoro. È possibile usare l'archiviazione Premium o lo spazio dei nomi gerarchico _con account di archiviazione non_ predefiniti.
 
 + **Azure Application Insights**:
 
@@ -283,7 +283,7 @@ L'output di questo comando è simile al codice JSON seguente:
 ]
 ```
 
-Per altre informazioni, vedere la documentazione sulla [creazione dell’area di lavoro di Azure Machine Learning](/cli/azure/ext/azure-cli-ml/ml/workspace#ext-azure-cli-ml-az-ml-workspace-list).
+Per altre informazioni, vedere la documentazione sulla [creazione dell’area di lavoro di Azure Machine Learning](/cli/azure/ml/workspace#az_ml_workspace_list).
 
 ## <a name="get-workspace-information"></a>Ottenere informazioni sull’area di lavoro
 
@@ -316,7 +316,7 @@ L'output di questo comando è simile al codice JSON seguente:
 }
 ```
 
-Per altre informazioni, vedere la documentazione sulla [visualizzazione dell’area di lavoro di Azure Machine Learning](/cli/azure/ext/azure-cli-ml/ml/workspace#ext-azure-cli-ml-az-ml-workspace-show).
+Per altre informazioni, vedere la documentazione sulla [visualizzazione dell’area di lavoro di Azure Machine Learning](/cli/azure/ml/workspace#az_ml_workspace_show).
 
 ## <a name="update-a-workspace"></a>Aggiornare un’area di lavoro
 
@@ -349,7 +349,7 @@ L'output di questo comando è simile al codice JSON seguente:
 }
 ```
 
-Per altre informazioni, vedere la documentazione sull’[aggiornamento dell’area di lavoro di Azure Machine Learning](/cli/azure/ext/azure-cli-ml/ml/workspace#ext-azure-cli-ml-az-ml-workspace-update).
+Per altre informazioni, vedere la documentazione sull’[aggiornamento dell’area di lavoro di Azure Machine Learning](/cli/azure/ml/workspace#az_ml_workspace_update).
 
 ## <a name="share-a-workspace-with-another-user"></a>Condividere un'area di lavoro con un altro utente
 
@@ -359,13 +359,13 @@ Per condividere un'area di lavoro con un altro utente nell’ambito della sottos
 az ml workspace share -w <workspace-name> -g <resource-group-name> --user <user> --role <role>
 ```
 
-Per altre informazioni sul controllo degli accessi in base al ruolo di Azure (RBAC di Azure) con Azure Machine Learning, vedere [gestire utenti e ruoli](how-to-assign-roles.md).
+Per altre informazioni sul controllo degli accessi in base al ruolo di Azure con Azure Machine Learning, vedere [Gestire utenti e ruoli.](how-to-assign-roles.md)
 
-Per altre informazioni, vedere la documentazione sulla [condivisione dell’area di lavoro di Azure Machine Learning](/cli/azure/ext/azure-cli-ml/ml/workspace#ext-azure-cli-ml-az-ml-workspace-share).
+Per altre informazioni, vedere la documentazione sulla [condivisione dell’area di lavoro di Azure Machine Learning](/cli/azure/ml/workspace#az_ml_workspace_share).
 
 ## <a name="sync-keys-for-dependent-resources"></a>Sincronizzare le chiavi per le risorse dipendenti
 
-Se si modificano le chiavi di accesso per una delle risorse usate dall'area di lavoro, la sincronizzazione dell'area di lavoro con la nuova chiave richiede circa un'ora. Per forzare la sincronizzazione immediata delle nuove chiavi da parte dell'area di lavoro, usare il comando seguente:
+Se si modificano le chiavi di accesso per una delle risorse usate dall'area di lavoro, la sincronizzazione dell'area di lavoro con la nuova chiave richiede circa un'ora. Per forzare la sincronizzazione immediata delle nuove chiavi nell'area di lavoro, usare il comando seguente:
 
 ```azurecli-interactive
 az ml workspace sync-keys -w <workspace-name> -g <resource-group-name>
@@ -373,7 +373,7 @@ az ml workspace sync-keys -w <workspace-name> -g <resource-group-name>
 
 Per altre informazioni sulla modifica delle chiavi, vedere [Rigenerare le chiavi di accesso alle risorse di archiviazione](how-to-change-storage-access-key.md).
 
-Per altre informazioni, vedere la documentazione sulla [sincronizzazione delle chiavi con l’area di lavoro di Azure Machine Learning](/cli/azure/ext/azure-cli-ml/ml/workspace#ext-azure-cli-ml-az-ml-workspace-sync-keys).
+Per altre informazioni, vedere la documentazione sulla [sincronizzazione delle chiavi con l’area di lavoro di Azure Machine Learning](/cli/azure/ml/workspace#az_ml_workspace_sync-keys).
 
 ## <a name="delete-a-workspace"></a>Eliminazione di un'area di lavoro
 
@@ -392,7 +392,7 @@ az ml workspace delete -w <workspace-name> -g <resource-group-name>
 az group delete -g <resource-group-name>
 ```
 
-Per altre informazioni, vedere la documentazione sull’[eliminazione dell’area di lavoro di Azure Machine Learning](/cli/azure/ext/azure-cli-ml/ml/workspace#ext-azure-cli-ml-az-ml-workspace-delete).
+Per altre informazioni, vedere la documentazione sull’[eliminazione dell’area di lavoro di Azure Machine Learning](/cli/azure/ml/workspace#az_ml_workspace_delete).
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
@@ -413,4 +413,4 @@ L'area di lavoro di Azure Machine Learning usa il Registro Azure Container (ACR)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sull'estensione dell'interfaccia della riga di comando di Azure per Machine Learning, vedere la documentazione di [Azure Machine Learning](/cli/azure/ext/azure-cli-ml/ml).
+Per altre informazioni sull'estensione dell'interfaccia della riga di comando di Azure per Machine Learning, vedere la documentazione di [Azure Machine Learning](/cli/azure/ml).

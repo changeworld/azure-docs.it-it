@@ -8,20 +8,20 @@ ms.service: ddos-protection
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/14/2021
+ms.date: 04/21/2021
 ms.author: yitoh
 ms.custom: subject-policy-reference
 ms.topic: include
-ms.openlocfilehash: 86fa383fe2456eabe0cce142bd4a9c665fb95a2a
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: b58dddef0aa63aec525e039f333a7a785c32d23e
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107505701"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107875648"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-ddos-protection-standard"></a>Criteri di Azure definizioni incorporate per Protezione DDoS di Azure Standard
 
-Questa pagina è un indice [delle](../governance/policy/overview.md) Criteri di Azure di criteri predefiniti per Protezione DDoS di Azure Standard. Per informazioni su altre definizioni predefinite di Criteri di Azure per altri servizi, vedere [Definizioni di criteri predefiniti di Criteri di Azure](../governance/policy/samples/built-in-policies.md).
+Questa pagina è un indice [di](../governance/policy/overview.md) Criteri di Azure di criteri predefiniti per Protezione DDoS di Azure Standard. Per informazioni su altre definizioni predefinite di Criteri di Azure per altri servizi, vedere [Definizioni di criteri predefiniti di Criteri di Azure](../governance/policy/samples/built-in-policies.md).
 
 Il nome di ogni definizione di criterio predefinito punta alla definizione del criterio nel portale di Azure. Usare il collegamento nella colonna **Versione** per visualizzare l'origine nel [repository GitHub di Criteri di Azure](https://github.com/Azure/azure-policy).
 

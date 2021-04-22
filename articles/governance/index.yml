@@ -11,207 +11,201 @@ metadata:
   author: DCtheGeek
   ms.author: dacoulte
   ms.date: 03/16/2021
-  ms.openlocfilehash: 7840800a6507794ec28a2b4e82e80bd8e80554a4
-  ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
-  ms.translationtype: MT
-  ms.contentlocale: it-IT
-  ms.lasthandoff: 03/26/2021
-  ms.locfileid: "105557344"
 highlightedContent:
   items:
-  - title: panoramica della governance
-    itemType: overview
-    url: ./azure-management.md
-  - title: Canale dedicato alla governance su YouTube
-    itemType: video
-    url: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ
-  - title: Governance in Cloud Adoption Framework
-    itemType: architecture
-    url: /azure/architecture/cloud-adoption/governance
-  - title: Creare una strategia di governance cloud in Azure
-    itemType: learn
-    url: /learn/modules/build-cloud-governance-strategy-azure/
+    - title: panoramica della governance
+      itemType: overview
+      url: ./azure-management.md
+    - title: Canale dedicato alla governance su YouTube
+      itemType: video
+      url: 'https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ'
+    - title: Governance in Cloud Adoption Framework
+      itemType: architecture
+      url: /azure/architecture/cloud-adoption/governance
+    - title: Creare una strategia di governance cloud in Azure
+      itemType: learn
+      url: /learn/modules/build-cloud-governance-strategy-azure/
 productDirectory:
   title: Componenti e servizi
   items:
-  - title: Gruppi di gestione di Azure
-    imageSrc: ./media/management-groups.svg
-    links:
-    - url: ./management-groups/overview.md
-      text: Panoramica
-    - url: ./management-groups/how-to/protect-resource-hierarchy.md
-      text: Proteggere la gerarchia delle risorse
-    - url: ./management-groups/index.yml
-      text: Altro >
-  - title: Criteri di Azure
-    imageSrc: ./media/azure-policy.svg
-    links:
-    - url: ./policy/overview.md
-      text: Panoramica
-    - url: ./policy/how-to/get-compliance-data.md
-      text: Valutare la conformità
-    - url: ./policy/concepts/policy-for-kubernetes.md
-      text: Gestire la configurazione di Kubernetes
-    - url: ./policy/concepts/guest-configuration.md
-      text: Gestire la configurazione delle macchine virtuali
-    - url: ./policy/index.yml
-      text: Altro >
-  - title: Azure Blueprint
-    imageSrc: ./media/azure-blueprints.svg
-    links:
-    - url: ./blueprints/overview.md
-      text: Panoramica
-    - url: ./blueprints/tutorials/protect-new-resources.md
-      text: Proteggere le risorse
-    - url: ./blueprints/index.yml
-      text: Altro >
-  - title: Diagramma delle risorse di Azure
-    imageSrc: ./media/azure-resource-graph.svg
-    links:
-    - url: ./resource-graph/overview.md
-      text: Panoramica
-    - url: ./resource-graph/concepts/explore-resources.md
-      text: Esplora le tue risorse di Azure
-    - url: ./resource-graph/how-to/get-resource-changes.md
-      text: Rilevare le modifiche
-    - url: ./resource-graph/index.yml
-      text: Altro >
-  - title: Gestione costi
-    imageSrc: ./media/cost-management.svg
-    links:
-    - url: ../cost-management-billing/cost-management-billing-overview.md
-      text: Panoramica
-    - url: ../cost-management-billing/costs/aws-integration-manage.md
-      text: Gestire costo e utilizzo di AWS
-    - url: ../cost-management-billing/index.yml
-      text: Altro >
+    - title: Gruppi di gestione di Azure
+      imageSrc: ./media/management-groups.svg
+      links:
+        - url: ./management-groups/overview.md
+          text: Panoramica
+        - url: ./management-groups/how-to/protect-resource-hierarchy.md
+          text: Proteggere la gerarchia delle risorse
+        - url: ./management-groups/index.yml
+          text: Altro >
+    - title: Criteri di Azure
+      imageSrc: ./media/azure-policy.svg
+      links:
+        - url: ./policy/overview.md
+          text: Panoramica
+        - url: ./policy/how-to/get-compliance-data.md
+          text: Valutare la conformità
+        - url: ./policy/concepts/policy-for-kubernetes.md
+          text: Gestire la configurazione di Kubernetes
+        - url: ./policy/concepts/guest-configuration.md
+          text: Gestire la configurazione delle macchine virtuali
+        - url: ./policy/index.yml
+          text: Altro >
+    - title: Azure Blueprint
+      imageSrc: ./media/azure-blueprints.svg
+      links:
+        - url: ./blueprints/overview.md
+          text: Panoramica
+        - url: ./blueprints/tutorials/protect-new-resources.md
+          text: Proteggere le risorse
+        - url: ./blueprints/index.yml
+          text: Altro >
+    - title: Diagramma delle risorse di Azure
+      imageSrc: ./media/azure-resource-graph.svg
+      links:
+        - url: ./resource-graph/overview.md
+          text: Panoramica
+        - url: ./resource-graph/concepts/explore-resources.md
+          text: Esplora le tue risorse di Azure
+        - url: ./resource-graph/how-to/get-resource-changes.md
+          text: Rilevare le modifiche
+        - url: ./resource-graph/index.yml
+          text: Altro >
+    - title: Gestione costi
+      imageSrc: ./media/cost-management.svg
+      links:
+        - url: ../cost-management-billing/cost-management-billing-overview.md
+          text: Panoramica
+        - url: ../cost-management-billing/costs/aws-integration-manage.md
+          text: Gestire costo e utilizzo di AWS
+        - url: ../cost-management-billing/index.yml
+          text: Altro >
 tools:
   title: Esempi
-  summary: Definizioni dei criteri, progetti di conformità, query sulle risorse e altro ancora
+  summary: 'Definizioni dei criteri, progetti di conformità, query sulle risorse e altro ancora'
   items:
-  - title: Criteri di Azure
-    imageSrc: ./media/azure-policy.svg
-    url: ./policy/samples/index.md
-  - title: Azure Blueprint
-    imageSrc: ./media/azure-blueprints.svg
-    url: ./blueprints/samples/index.md
-  - title: Diagramma delle risorse di Azure
-    imageSrc: ./media/azure-resource-graph.svg
-    url: ./resource-graph/samples/starter.md
-  - title: Gestione costi
-    imageSrc: ./media/cost-management.svg
-    url: https://github.com/Azure-Samples/Cost-Management-Samples
+    - title: Criteri di Azure
+      imageSrc: ./media/azure-policy.svg
+      url: ./policy/samples/index.md
+    - title: Azure Blueprint
+      imageSrc: ./media/azure-blueprints.svg
+      url: ./blueprints/samples/index.md
+    - title: Diagramma delle risorse di Azure
+      imageSrc: ./media/azure-resource-graph.svg
+      url: ./resource-graph/samples/starter.md
+    - title: Gestione costi
+      imageSrc: ./media/cost-management.svg
+      url: 'https://github.com/Azure-Samples/Cost-Management-Samples'
 additionalContent:
   sections:
-  - title: Risorse per sviluppatori
-    items:
-    - title: Gruppi di gestione
-      links:
-      - text: Interfaccia della riga di comando di Azure
-        url: /cli/azure/account/management-group
-      - text: Azure PowerShell
-        url: /powershell/module/az.resources/#resources
-      - text: Azure SDK per .NET
-        url: /dotnet/api/overview/azure/managementgroups
-      - text: Azure SDK per Go
-        url: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/services/preview/resources/mgmt/2018-03-01-preview/managementgroups
-      - text: Azure SDK per JavaScript
-        url: /javascript/api/@azure/arm-managementgroups/managementgroups
-      - text: Azure SDK per Python
-        url: /python/api/azure-mgmt-managementgroups/azure.mgmt.managementgroups
-      - text: REST
-        url: /rest/api/managementgroups
-      - text: Modelli di Gestione risorse
-        url: /azure/templates/microsoft.management/managementgroups
-    - title: Criteri di Azure
-      links:
-      - text: Interfaccia della riga di comando di Azure
-        url: /cli/azure/policy
-      - text: Azure PowerShell
-        url: /powershell/module/az.resources/#policy
-        note: (Criteri)
-      - text: Azure PowerShell
-        url: /powershell/module/az.policyinsights#policy-insights
-        note: (Policy Insights)
-      - text: Azure PowerShell
-        url: https://www.powershellgallery.com/packages/Az.GuestConfiguration
-        note: (Configurazione guest)
-      - text: REST
-        url: /rest/api/policy/
-        note: (Criteri)
-      - text: REST
-        url: /rest/api/guestconfiguration/
-        note: (Configurazione guest)
-      - text: Modelli di Gestione risorse
-        url: /azure/templates/microsoft.authorization/allversions
-    - title: Criteri di Azure (altro)
-      links:
-      - text: Azure SDK per .NET
-        url: /dotnet/api/microsoft.azure.management.resourcemanager.models.policyassignment
-        note: (Assegnazioni)
-      - text: Azure SDK per .NET
-        url: /dotnet/api/microsoft.azure.management.resourcemanager.models.policydefinition
-        note: (Definizioni dei criteri)
-      - text: Azure SDK per JavaScript
-        url: /javascript/api/@azure/arm-policy
-        note: (Criteri)
-      - text: Azure SDK per JavaScript
-        url: /javascript/api/@azure/arm-policyinsights
-        note: (Policy Insights)
-      - text: Azure SDK per Python
-        url: /python/api/azure-mgmt-policyinsights/azure.mgmt.policyinsights
-    - title: Azure Blueprint
-      links:
-      - text: Funzioni di progetto
-        url: ./blueprints/reference/blueprint-functions.md
-      - text: Interfaccia della riga di comando di Azure
-        url: /cli/azure/ext/blueprint/blueprint
-      - text: Azure PowerShell
-        url: /powershell/module/az.blueprint/#blueprint
-      - text: Azure PowerShell
-        url: https://www.powershellgallery.com/packages/Az.Blueprint
-        note: (Modulo della raccolta PowerShell)
-      - text: Azure SDK per .NET
-        url: /dotnet/api/overview/azure/blueprints/management
-      - text: REST
-        url: /rest/api/blueprints/
-    - title: Diagramma delle risorse di Azure
-      links:
-      - text: Interfaccia della riga di comando di Azure
-        url: /cli/azure/ext/resource-graph/graph
-      - text: Azure PowerShell
-        url: /powershell/module/az.resourcegraph/#resourcegraph
-      - text: Azure SDK per .NET
-        url: /dotnet/api/Microsoft.Azure.Management.ResourceGraph
-      - text: Azure SDK per .NET
-        url: https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceGraph/
-        note: (NuGet)
-      - text: Azure SDK per Go
-        url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/resourcegraph/mgmt/2019-04-01/resourcegraph
-      - text: Azure SDK per Java
-        url: /java/api/overview/azure/resourcegraph/management
-      - text: Azure SDK per Java
-        url: https://search.maven.org/artifact/com.microsoft.azure.resourcegraph.v2019_04_01/azure-mgmt-resourcegraph/1.0.0-beta/jar
-        note: (Maven)
-      - text: Azure SDK per JavaScript
-        url: /javascript/api/@azure/arm-resourcegraph
-      - text: Azure SDK per Python
-        url: /python/api/azure-mgmt-resourcegraph/azure.mgmt.resourcegraph
-      - text: Azure SDK per Ruby
-        url: https://rubygems.org/gems/azure_mgmt_resourcegraph
-        note: (Gem)
-      - text: REST
-        url: /rest/api/azure-resourcegraph/
-      - text: Modelli di Gestione risorse
-        url: /azure/templates/microsoft.resourcegraph/allversions
-    - title: Gestione costi
-      links:
-      - text: REST
-        url: /rest/api/cost-management
-        note: (Gestione costi)
-      - text: REST
-        url: /rest/api/consumption
-        note: (Consumo)
-      - text: Modelli di Gestione risorse
-        url: /azure/templates/microsoft.consumption/budgets
-  footer: '[UserVoice](https://feedback.azure.com/forums/915958-azure-governance) | [Microsoft Tech Community - Governance di Azure](https://techcommunity.microsoft.com/t5/Azure-Governance/bd-p/AzureGovernance) | [Supporto tecnico di Azure](https://azure.microsoft.com/support/create-ticket/)'
+    - title: Risorse per sviluppatori
+      items:
+        - title: Gruppi di gestione
+          links:
+            - text: Interfaccia della riga di comando di Azure
+              url: /cli/azure/account/management-group
+            - text: Azure PowerShell
+              url: /powershell/module/az.resources/#resources
+            - text: Azure SDK per .NET
+              url: /dotnet/api/overview/azure/managementgroups
+            - text: Azure SDK per Go
+              url: 'https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/services/preview/resources/mgmt/2018-03-01-preview/managementgroups'
+            - text: Azure SDK per JavaScript
+              url: /javascript/api/@azure/arm-managementgroups/managementgroups
+            - text: Azure SDK per Python
+              url: /python/api/azure-mgmt-managementgroups/azure.mgmt.managementgroups
+            - text: REST
+              url: /rest/api/managementgroups
+            - text: Modelli di Gestione risorse
+              url: /azure/templates/microsoft.management/managementgroups
+        - title: Criteri di Azure
+          links:
+            - text: Interfaccia della riga di comando di Azure
+              url: /cli/azure/policy
+            - text: Azure PowerShell
+              url: /powershell/module/az.resources/#policy
+              note: (Policy)
+            - text: Azure PowerShell
+              url: /powershell/module/az.policyinsights#policy-insights
+              note: (Policy Insights)
+            - text: Azure PowerShell
+              url: 'https://www.powershellgallery.com/packages/Az.GuestConfiguration'
+              note: (Guest Configuration)
+            - text: REST
+              url: /rest/api/policy/
+              note: (Policy)
+            - text: REST
+              url: /rest/api/guestconfiguration/
+              note: (Guest Configuration)
+            - text: Modelli di Gestione risorse
+              url: /azure/templates/microsoft.authorization/allversions
+        - title: Criteri di Azure (altro)
+          links:
+            - text: Azure SDK per .NET
+              url: /dotnet/api/microsoft.azure.management.resourcemanager.models.policyassignment
+              note: (Assignments)
+            - text: Azure SDK per .NET
+              url: /dotnet/api/microsoft.azure.management.resourcemanager.models.policydefinition
+              note: (Policy Definitions)
+            - text: Azure SDK per JavaScript
+              url: /javascript/api/@azure/arm-policy
+              note: (Policy)
+            - text: Azure SDK per JavaScript
+              url: /javascript/api/@azure/arm-policyinsights
+              note: (Policy Insights)
+            - text: Azure SDK per Python
+              url: /python/api/azure-mgmt-policyinsights/azure.mgmt.policyinsights
+        - title: Azure Blueprint
+          links:
+            - text: Funzioni di progetto
+              url: ./blueprints/reference/blueprint-functions.md
+            - text: Interfaccia della riga di comando di Azure
+              url: /cli/azure/blueprint
+            - text: Azure PowerShell
+              url: /powershell/module/az.blueprint/#blueprint
+            - text: Azure PowerShell
+              url: 'https://www.powershellgallery.com/packages/Az.Blueprint'
+              note: (PS Gallery Module)
+            - text: Azure SDK per .NET
+              url: /dotnet/api/overview/azure/blueprints/management
+            - text: REST
+              url: /rest/api/blueprints/
+        - title: Diagramma delle risorse di Azure
+          links:
+            - text: Interfaccia della riga di comando di Azure
+              url: /cli/azure/graph
+            - text: Azure PowerShell
+              url: /powershell/module/az.resourcegraph/#resourcegraph
+            - text: Azure SDK per .NET
+              url: /dotnet/api/Microsoft.Azure.Management.ResourceGraph
+            - text: Azure SDK per .NET
+              url: 'https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceGraph/'
+              note: (NuGet)
+            - text: Azure SDK per Go
+              url: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/resourcegraph/mgmt/2019-04-01/resourcegraph'
+            - text: Azure SDK per Java
+              url: /java/api/overview/azure/resourcegraph/management
+            - text: Azure SDK per Java
+              url: 'https://search.maven.org/artifact/com.microsoft.azure.resourcegraph.v2019_04_01/azure-mgmt-resourcegraph/1.0.0-beta/jar'
+              note: (Maven)
+            - text: Azure SDK per JavaScript
+              url: /javascript/api/@azure/arm-resourcegraph
+            - text: Azure SDK per Python
+              url: /python/api/azure-mgmt-resourcegraph/azure.mgmt.resourcegraph
+            - text: Azure SDK per Ruby
+              url: 'https://rubygems.org/gems/azure_mgmt_resourcegraph'
+              note: (Gem)
+            - text: REST
+              url: /rest/api/azure-resourcegraph/
+            - text: Modelli di Gestione risorse
+              url: /azure/templates/microsoft.resourcegraph/allversions
+        - title: Gestione costi
+          links:
+            - text: REST
+              url: /rest/api/cost-management
+              note: (Cost Management)
+            - text: REST
+              url: /rest/api/consumption
+              note: (Consumption)
+            - text: Modelli di Gestione risorse
+              url: /azure/templates/microsoft.consumption/budgets
+  footer: '[UserVoice](https://feedback.azure.com/forums/915958-azure-governance) | [Microsoft Tech Community - Azure Governance](https://techcommunity.microsoft.com/t5/Azure-Governance/bd-p/AzureGovernance) | [Azure Support](https://azure.microsoft.com/support/create-ticket/)'

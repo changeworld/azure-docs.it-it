@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 04/20/2021
 ms.author: b-juche
-ms.openlocfilehash: 28fc465627032522afb9da8f6ec0fad704834d09
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: d3ca94524c334a20f5ee75e5300ad419fa1542c5
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107813705"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107873272"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Creare un volume SMB per Azure NetApp Files
 
@@ -116,7 +116,7 @@ Prima di creare un volume SMB, è necessario creare una connessione Active Direc
         > [!IMPORTANT]   
         > La funzionalità disponibilità continua SMB è attualmente disponibile in anteprima pubblica. È necessario inviare una richiesta di elenco di attesa per accedere alla funzionalità tramite la pagina di invio della lista di attesa Azure NetApp Files di disponibilità continua **[SMB](https://aka.ms/anfsmbcasharespreviewsignup)** in anteprima pubblica . Attendere un messaggio di posta elettronica di conferma ufficiale dal team Azure NetApp Files prima di usare la funzionalità disponibilità continua.   
         > 
-        > È consigliabile abilitare la disponibilità continua solo per SQL Server e i contenitori dei profili utente [FsLogix](../virtual-desktop/create-fslogix-profile-container.md). L'uso di condivisioni di disponibilità continua SMB per carichi di lavoro diversi SQL Server e i contenitori del profilo utente FsLogix *non è* supportato. Questa funzionalità è attualmente supportata in Windows SQL Server. La SQL Server Linux non è attualmente supportata. Se si usa un account non amministratore (dominio) per installare SQL Server, assicurarsi che all'account siano assegnati i privilegi di sicurezza necessari. Se l'account di dominio non dispone del privilegio di sicurezza necessario ( ) e il privilegio non può essere impostato a livello di dominio, è possibile concedere il privilegio all'account usando il campo Utenti con privilegi di sicurezza delle connessioni `SeSecurityPrivilege` Active Directory.  Vedere [Creare una connessione Active Directory.](create-active-directory-connections.md#create-an-active-directory-connection)
+        > È consigliabile abilitare la disponibilità continua solo per SQL Server e i contenitori dei profili utente [FSLogix](../virtual-desktop/create-fslogix-profile-container.md). L'uso di condivisioni di disponibilità continua SMB per carichi di lavoro diversi SQL Server contenitori del profilo utente FSLogix *non è* supportato. Questa funzionalità è attualmente supportata in Windows SQL Server. La SQL Server Linux non è attualmente supportata. Se si usa un account non amministratore (dominio) per installare SQL Server, assicurarsi che all'account siano assegnati i privilegi di sicurezza necessari. Se l'account di dominio non dispone del privilegio di sicurezza necessario ( ) e il privilegio non può essere impostato a livello di dominio, è possibile concedere il privilegio all'account usando il campo Utenti con privilegi di sicurezza delle connessioni `SeSecurityPrivilege` Active Directory.  Vedere [Creare una connessione Active Directory](create-active-directory-connections.md#create-an-active-directory-connection).
 
     <!-- [1/13/21] Commenting out command-based steps below, because the plan is to use form-based (URL) registration, similar to CRR feature registration -->
     <!-- 

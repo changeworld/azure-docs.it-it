@@ -3,16 +3,16 @@ title: Configurare l'indirizzo IP in uscita statico
 description: Configurare il firewall di Azure e le route definite dall'utente per Istanze di Azure Container che usano l'indirizzo IP pubblico del firewall per il traffico in ingresso e in uscita
 ms.topic: article
 ms.date: 07/16/2020
-ms.openlocfilehash: 1cd0ff48da58706a1be59caf4b9d5974dc5f552a
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: a03c59652b9409d54bbe63c63a31fdd2228ac34e
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107790816"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107878687"
 ---
 # <a name="configure-a-single-public-ip-address-for-outbound-and-inbound-traffic-to-a-container-group"></a>Configurare un singolo indirizzo IP pubblico per il traffico in uscita e in ingresso verso un gruppo di contenitori
 
-La configurazione di [un gruppo di contenitori](container-instances-container-groups.md) con un indirizzo IP esterno consente ai client esterni di usare l'indirizzo IP per accedere a un contenitore nel gruppo. Ad esempio, un browser può accedere a un'app Web in esecuzione in un contenitore. Tuttavia, attualmente un gruppo di contenitori usa un indirizzo IP diverso per il traffico in uscita. Questo indirizzo IP in uscita non viene esposto a livello di codice, quindi il monitoraggio e la configurazione dei gruppi di contenitori delle regole del firewall client sono più complesse.
+La configurazione di [un gruppo di contenitori](container-instances-container-groups.md) con un indirizzo IP esterno consente ai client esterni di usare l'indirizzo IP per accedere a un contenitore nel gruppo. Ad esempio, un browser può accedere a un'app Web in esecuzione in un contenitore. Tuttavia, attualmente un gruppo di contenitori usa un indirizzo IP diverso per il traffico in uscita. Questo indirizzo IP in uscita non viene esposto a livello di codice, quindi il monitoraggio e la configurazione dei gruppi di contenitori delle regole del firewall client sono più complessi.
 
 Questo articolo illustra i passaggi per configurare un gruppo di contenitori in [una rete virtuale](container-instances-virtual-network-concepts.md) integrata con [Firewall di Azure](../firewall/overview.md). Configurando una route definita dall'utente per il gruppo di contenitori e le regole del firewall, è possibile instradare e identificare il traffico da e verso il gruppo di contenitori. I dati in ingresso e in uscita del gruppo di contenitori usano l'indirizzo IP pubblico del firewall. Un singolo indirizzo IP in uscita può essere usato da più gruppi di contenitori distribuiti nella subnet della rete virtuale delegata a Istanze di Azure Container.
 
@@ -187,7 +187,7 @@ Per impostazione predefinita, Firewall di Azure nega (blocca) il traffico in ing
 
 ### <a name="configure-nat-rule-on-firewall-to-aci-subnet"></a>Configurare la regola NAT nel firewall per la subnet ACI
 
-Creare una [regola NAT nel](../firewall/rule-processing.md) firewall per convertire e filtrare il traffico Internet in ingresso nel contenitore di applicazioni avviato in precedenza nella rete. Per informazioni dettagliate, vedere [Filtrare il traffico Internet in ingresso Firewall di Azure DNAT](../firewall/tutorial-firewall-dnat.md)
+Creare una [regola NAT nel](../firewall/rule-processing.md) firewall per convertire e filtrare il traffico Internet in ingresso nel contenitore dell'applicazione avviato in precedenza nella rete. Per informazioni dettagliate, vedere [Filtrare il traffico Internet in ingresso Firewall di Azure DNAT](../firewall/tutorial-firewall-dnat.md)
 
 Creare una regola NAT e una raccolta usando il [comando az network firewall nat-rule create:][az-network-firewall-nat-rule-create]
 
@@ -290,15 +290,15 @@ Per altre informazioni sulla gestione del traffico e sulla protezione delle riso
 [az-container-create]: /cli/azure/container#az_container_create
 [az-network-vnet-subnet-create]: /cli/azure/network/vnet/subnet#az_network_vnet_subnet_create
 [az-extension-add]: /cli/azure/extension#az_extension_add
-[az-network-firewall-update]: /cli/azure/ext/azure-firewall/network/firewall#ext-azure-firewall-az-network-firewall-update
+[az-network-firewall-update]: /cli/azure/network/firewall#az_network_firewall_update
 [az-network-public-ip-show]: /cli/azure/network/public-ip/#az_network_public_ip_show
 [az-network-route-table-create]:/cli/azure/network/route-table/#az_network_route_table_create
 [az-network-route-table-route-create]: /cli/azure/network/route-table/route#az_network_route_table_route_create
-[az-network-firewall-ip-config-list]: /cli/azure/ext/azure-firewall/network/firewall/ip-config#ext-azure-firewall-az-network-firewall-ip-config-list
+[az-network-firewall-ip-config-list]: /cli/azure/network/firewall/ip-config#az_network_firewall_ip_config_list
 [az-network-vnet-subnet-update]: /cli/azure/network/vnet/subnet#az_network_vnet_subnet_update
 [az-container-exec]: /cli/azure/container#az_container_exec
 [az-vm-create]: /cli/azure/vm#az_vm_create
 [az-vm-open-port]: /cli/azure/vm#az_vm_open_port
 [az-vm-list-ip-addresses]: /cli/azure/vm#az_vm_list_ip_addresses
-[az-network-firewall-application-rule-create]: /cli/azure/ext/azure-firewall/network/firewall/application-rule#ext-azure-firewall-az-network-firewall-application-rule-create
-[az-network-firewall-nat-rule-create]: /cli/azure/ext/azure-firewall/network/firewall/nat-rule#ext-azure-firewall-az-network-firewall-nat-rule-create
+[az-network-firewall-application-rule-create]: /cli/azure/network/firewall/application-rule#az_network_firewall_application_rule_create
+[az-network-firewall-nat-rule-create]: /cli/azure/network/firewall/nat-rule#az_network_firewall_nat_rule_create

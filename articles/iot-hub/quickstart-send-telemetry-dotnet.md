@@ -1,5 +1,5 @@
 ---
-title: Guida introduttiva-inviare dati di telemetria alla Guida introduttiva all'hub Azure. (C#) | Microsoft Docs
+title: Avvio rapido- Inviare dati di telemetria hub IoT di Azure guida introduttiva (C#) | Microsoft Docs
 description: In questa guida introduttiva si eseguono due applicazioni C# di esempio per inviare dati di telemetria simulati a un hub IoT e leggere i dati di telemetria dall'hub IoT per l'elaborazione nel cloud.
 author: robinsh
 manager: philmea
@@ -14,12 +14,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - devx-track-azurecli
 ms.date: 06/01/2020
-ms.openlocfilehash: 1a681cd3f1c624268fdc9bc62cf9841e9ac28827
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: ec26e4a42cdeb7a693c8078c0f065241f32da949
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106057508"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107863986"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-service-application-net"></a>Avvio rapido: Inviare dati di telemetria da un dispositivo a un hub IoT e leggerli con un'applicazione di servizio (.NET)
 
@@ -35,7 +35,7 @@ La guida introduttiva usa due applicazioni C# già pronte, una per inviare i dat
 
 * Le due applicazioni di esempio eseguite in questa guida introduttiva sono scritte in C#. È necessario .NET Core SDK 3.1 o versione successiva nel computer di sviluppo.
 
-    È possibile scaricare .NET Core SDK per più piattaforme da [.NET](https://www.microsoft.com/net/download/all).
+    È possibile scaricare .NET Core SDK per più piattaforme da [.NET](https://dotnet.microsoft.com/download).
 
     È possibile verificare la versione corrente di C# installata nel computer di sviluppo tramite il comando seguente:
 

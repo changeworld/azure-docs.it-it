@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.date: 09/02/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 28e94cdb0df0a18b41f4c8a0ded362b50df6dcac
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a64ccec49248f48a85782cfe9537513a97b2bdfc
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100652973"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107868160"
 ---
 # <a name="get-started-with-service-bus-topics"></a>Introduzione agli argomenti del bus di servizio
 Questa esercitazione illustra i passaggi seguenti:
@@ -19,7 +19,7 @@ Questa esercitazione illustra i passaggi seguenti:
 2. Scrivere un'applicazione console .NET Core per ricevere tali messaggi dalla sottoscrizione.
 
 > [!WARNING]
-> Questa Guida introduttiva usa il vecchio pacchetto Microsoft. Azure. ServiceBus. Per una guida introduttiva che usa il pacchetto Azure. Messaging. ServiceBus più recente, vedere [inviare e ricevere messaggi con il pacchetto Azure. Messaging. ServiceBus](service-bus-dotnet-how-to-use-topics-subscriptions.md). Per spostare l'applicazione dall'uso della libreria precedente a una nuova, vedere la [Guida per eseguire la migrazione da Microsoft. Azure. ServiceBus ad Azure. Messaging. ServiceBus](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/MigrationGuide.md). 
+> Questa guida introduttiva usa il pacchetto Microsoft.Azure.ServiceBus precedente. Per una guida introduttiva che usa il pacchetto Azure.Messaging.ServiceBus più recente, vedere Inviare e ricevere messaggi usando il pacchetto [Azure.Messaging.ServiceBus](service-bus-dotnet-how-to-use-topics-subscriptions.md). Per spostare l'applicazione dall'uso della libreria precedente a una nuova, vedere la Guida alla migrazione da [Microsoft.Azure.ServiceBus ad Azure.Messaging.ServiceBus.](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/MigrationGuide.md) 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -28,9 +28,9 @@ Questa esercitazione illustra i passaggi seguenti:
     1. Creare uno **spazio dei nomi** del bus di servizio.
     2. Ottenere la **stringa di connessione**.
     3. Creare un **argomento** nello spazio dei nomi.
-    4. Creare **una sottoscrizione** dell'argomento nello spazio dei nomi.
+    4. Creare **una sottoscrizione** all'argomento nello spazio dei nomi .
 3. [Visual Studio 2017 Update 3 (versione 15.3, 26730.01)](https://www.visualstudio.com/vs) o versioni successive.
-4. [NET Core SDK](https://www.microsoft.com/net/download/windows) versione 2.0 o successiva.
+4. [NET Core SDK](https://dotnet.microsoft.com/download) versione 2.0 o successiva.
  
 ## <a name="send-messages-to-the-topic"></a>Inviare messaggi all'argomento
 
@@ -66,7 +66,7 @@ Avviare Visual Studio e creare un nuovo progetto **Console App (.NET Core)** (Ap
     static ITopicClient topicClient;
     ``` 
 
-3. Sostituire il `Main()` metodo con il metodo **asincrono** seguente `Main` che invia messaggi in modo asincrono usando il metodo SendMessagesAsync che verrà aggiunto nel passaggio successivo. 
+3. Sostituire il metodo con il metodo asincrono seguente che invia messaggi in modo asincrono usando il `Main()` metodo SendMessagesAsync che verrà  `Main` aggiunto nel passaggio successivo. 
 
     ```csharp
     public static async Task Main(string[] args)
@@ -179,7 +179,7 @@ Avviare Visual Studio e creare un nuovo progetto **Console App (.NET Core)** (Ap
 
 ## <a name="receive-messages-from-the-subscription"></a>Ricevere messaggi dalla sottoscrizione
 
-Per ricevere i messaggi inviati, creare un'altra applicazione console .NET Core e installare il pacchetto NuGet **Microsoft. Azure. ServiceBus** , in modo analogo all'applicazione mittente precedente.
+Per ricevere i messaggi inviati, creare un'altra applicazione console .NET Core e installare il pacchetto **NuGet Microsoft.Azure.ServiceBus,** simile all'applicazione mittente precedente.
 
 ### <a name="write-code-to-receive-messages-from-the-subscription"></a>Scrivere il codice per ricevere messaggi dalla sottoscrizione
 
@@ -201,7 +201,7 @@ Per ricevere i messaggi inviati, creare un'altra applicazione console .NET Core 
     static ISubscriptionClient subscriptionClient;
     ```
 
-3. Sostituire il metodo `Main()` con il metodo `Main` **asincrono** seguente. Viene chiamato il `RegisterOnMessageHandlerAndReceiveMessages()` metodo che verrà aggiunto nel passaggio successivo. 
+3. Sostituire il metodo `Main()` con il metodo `Main` **asincrono** seguente. Chiama il `RegisterOnMessageHandlerAndReceiveMessages()` metodo che verrà aggiunto nel passaggio successivo. 
 
     ```csharp
     public static async Task Main(string[] args)

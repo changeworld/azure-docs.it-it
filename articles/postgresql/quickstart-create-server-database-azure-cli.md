@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 06/25/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: a595d677cf0964083526cb7e2c73471148be0fd4
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: d4d3b44b0ee878028df369de41451e3dc1d3c6de
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107778428"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107875216"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-by-using-the-azure-cli"></a>Avvio rapido: Creare un server di Database di Azure per PostgreSQL con l'interfaccia della riga di comando di Azure
 
@@ -24,7 +24,7 @@ Questo argomento di avvio rapido illustra come usare i comandi dell'[interfaccia
 - Questo articolo richiede la versione 2.0 dell'interfaccia della riga di comando di Azure. Se si usa Azure Cloud Shell, la versione più recente è già installata.
 
     > [!TIP]
-    >  Può essere opportuno usare il comando dell'interfaccia della riga di comando di Azure più semplice, [az postgres up](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up), attualmente disponibile in anteprima. Provare l'[argomento di avvio rapido](./quickstart-create-server-up-azure-cli.md).
+    >  Può essere opportuno usare il comando dell'interfaccia della riga di comando di Azure più semplice, [az postgres up](/cli/azure/postgres#az_postgres_up), attualmente disponibile in anteprima. Provare l'[argomento di avvio rapido](./quickstart-create-server-up-azure-cli.md).
 
 - Selezionare l'ID sottoscrizione specifico nell'account usando il comando [az account set](/cli/azure/account).
 

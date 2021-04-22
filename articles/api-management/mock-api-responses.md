@@ -7,12 +7,12 @@ ms.custom: mvc, devx-track-azurecli
 ms.topic: tutorial
 ms.date: 02/09/2021
 ms.author: apimpm
-ms.openlocfilehash: a7617a36ed800f1765ed7723568a4b612fcb6518
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.openlocfilehash: 6214594f825908388762ac35cc8c8722ff9135f1
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107587596"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107874352"
 ---
 # <a name="tutorial-mock-api-responses"></a>Esercitazione: Simulare le risposte di un'API
 
@@ -110,7 +110,7 @@ az apim api operation list --resource-group apim-hello-word-resource-group \
     --api-id test-api --service-name apim-hello-world --output table
 ```
 
-Per rimuovere un'operazione, usare [il comando az apim api operation delete.](/cli/azure/apim/api/operation#az_apim_api_operation_delete) Ottenere l'ID operazione dal comando precedente.
+Per rimuovere un'operazione, usare il [comando az apim api operation delete.](/cli/azure/apim/api/operation#az_apim_api_operation_delete) Ottenere l'ID operazione dal comando precedente.
 
 ```azurecli
 az apim api operation delete --resource-group apim-hello-word-resource-group \
@@ -118,7 +118,7 @@ az apim api operation delete --resource-group apim-hello-word-resource-group \
     --service-name apim-hello-world
 ```
 
-Mantenere questa operazione per l'uso nella parte restante di questo articolo.
+Mantenere questa operazione per l'uso nel resto di questo articolo.
 
 ---
 

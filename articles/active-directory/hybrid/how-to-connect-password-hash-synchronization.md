@@ -15,12 +15,12 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47d7d541ed7d9805641ffdfde381d482c8700006
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ee22ba3816e667bc58247fa81142e54587124fd6
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96858740"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107865298"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implementare la sincronizzazione dell'hash delle password con il servizio di sincronizzazione Azure AD Connect
 Questo articolo contiene le informazioni necessarie per sincronizzare le password utente da un'istanza di Active Directory locale a un'istanza di Azure Active Directory (Azure AD) basata sul cloud.
@@ -32,7 +32,7 @@ Per sincronizzare la password, il servizio di sincronizzazione Azure AD Connect 
 
 Il flusso di dati del processo di sincronizzazione hash delle password è simile alla sincronizzazione dei dati utente. Le password vengono tuttavia sincronizzate con una frequenza maggiore rispetto alla finestra di sincronizzazione standard della directory per altri attributi. Il processo di sincronizzazione dell'hash delle password viene eseguito ogni 2 minuti. Non è possibile modificare la frequenza del processo. Se si sincronizza una password, la password sincronizzata sovrascrive quella esistente nel cloud.
 
-Quando si abilita la funzionalità di sincronizzazione dell'hash delle password per la prima volta, viene eseguita una sincronizzazione iniziale delle password di tutti gli utenti inclusi nell'ambito. Non è possibile definire in modo esplicito un subset di password utente da sincronizzare. Tuttavia, se sono presenti più connettori, è possibile disabilitare la sincronizzazione dell'hash delle password per alcuni connettori, ma non altri, usando il cmdlet [set-ADSyncAADPasswordSyncConfiguration](../../active-directory-domain-services/tutorial-configure-password-hash-sync.md) .
+Quando si abilita la funzionalità di sincronizzazione dell'hash delle password per la prima volta, viene eseguita una sincronizzazione iniziale delle password di tutti gli utenti inclusi nell'ambito. Non è possibile definire in modo esplicito un subset di password utente da sincronizzare. Tuttavia, se sono presenti più connettori, è possibile disabilitare la sincronizzazione dell'hash delle password per alcuni connettori, ma non altri usando il cmdlet [Set-ADSyncAADPasswordSyncConfiguration.](../../active-directory-domain-services/tutorial-configure-password-hash-sync.md)
 
 Quando si modifica una password locale, la password aggiornata viene sincronizzata, spesso in pochi minuti.
 In caso di sincronizzazioni non riuscite, la funzionalità di sincronizzazione dell'hash delle password esegue automaticamente nuovi tentativi di sincronizzazione. Se si verifica un errore durante un tentativo di sincronizzazione di una password, viene registrato un errore nel visualizzatore eventi.
@@ -57,7 +57,7 @@ La sezione seguente illustra in dettaglio il funzionamento della sincronizzazion
 4. L'agente di sincronizzazione dell'hash delle password espande l'hash della password binario a 16 byte in 64 byte convertendo per prima cosa l'hash in una stringa esadecimale a 32 byte e quindi riconvertendo questa stessa stringa in formato binario con la codifica UTF-16.
 5. L'agente di sincronizzazione dell'hash delle password aggiunge un valore salt per utente lungo 10 byte al file binario a 64 byte per proteggere ulteriormente l'hash originale.
 6. L'agente di sincronizzazione dell'hash delle password combina quindi l'hash MD4 con il valore salt per utente e li inserisce nella funzione [PBKDF2](https://www.ietf.org/rfc/rfc2898.txt). Vengono usate 1000 iterazioni dell'algoritmo di hash con chiave [HMAC-SHA256](/dotnet/api/system.security.cryptography.hmacsha256). 
-7. L'agente di sincronizzazione dell'hash delle password accetta l'hash a 32 byte risultante, concatena sia il Salt per utente che il numero di iterazioni SHA256 (per l'uso da parte di Azure AD), quindi trasmette la stringa da Azure AD Connect a Azure AD su TLS.</br> 
+7. L'agente di sincronizzazione dell'hash delle password accetta l'hash a 32 byte risultante, concatena sia il salt per utente che il numero di iterazioni SHA256 (per l'uso da parte di Azure AD), quindi trasmette la stringa da Azure AD Connect a Azure AD tramite TLS.</br> 
 8. Quando un utente prova ad accedere ad Azure AD e immette la password, la password viene eseguita tramite lo stesso processo MD4 + valore salt + PBKDF2 + HMAC-SHA256. Se l'hash risultante corrisponde all'hash archiviato in Azure AD, l'utente ha immesso la password corretta e viene autenticato.
 
 > [!NOTE]
@@ -85,19 +85,19 @@ Quando la sincronizzazione dell'hash delle password è abilitata, i criteri di c
 
 #### <a name="password-expiration-policy"></a>Criteri di scadenza delle password
 
-Se un utente rientra nell'ambito della sincronizzazione dell'hash delle password, per impostazione predefinita la password dell'account cloud viene impostata in modo da *non scadere mai*.
+Se un utente si trova nell'ambito della sincronizzazione dell'hash delle password, per impostazione predefinita la password dell'account cloud è impostata su *Non scadere mai*.
 
 È possibile continuare ad accedere ai servizi cloud usando una password sincronizzata che è in realtà scaduta nell'ambiente locale. La password cloud viene aggiornata alla modifica successiva della password nell'ambiente locale.
 
 ##### <a name="enforcecloudpasswordpolicyforpasswordsyncedusers"></a>EnforceCloudPasswordPolicyForPasswordSyncedUsers
 
-Se sono presenti utenti sincronizzati che interagiscono solo con Azure AD servizi integrati e devono essere conformi ai criteri di scadenza delle password, è possibile forzarli a conformarsi ai criteri di scadenza della password Azure AD abilitando la funzionalità *EnforceCloudPasswordPolicyForPasswordSyncedUsers* .
+Se sono presenti utenti sincronizzati che interagiscono solo con i servizi integrati di Azure AD e devono anche rispettare i criteri di scadenza della password, è possibile forzarli a rispettare i criteri di scadenza della password Azure AD abilitando la funzionalità *EnforceCloudPasswordPolicyForPasswordSyncedUsers.*
 
-Quando *EnforceCloudPasswordPolicyForPasswordSyncedUsers* è disabilitato (impostazione predefinita), Azure ad Connect imposta l'attributo PasswordPolicies degli utenti sincronizzati su "DisablePasswordExpiration". Questa operazione viene eseguita ogni volta che la password di un utente viene sincronizzata e indica Azure AD di ignorare i criteri di scadenza della password cloud per tale utente. È possibile controllare il valore dell'attributo usando il modulo Azure AD PowerShell con il comando seguente:
+Quando *EnforceCloudPasswordPolicyForPasswordSyncedUsers* è disabilitato (impostazione predefinita), Azure AD Connect imposta l'attributo PasswordPolicies degli utenti sincronizzati su "DisablePasswordExpiration". Questa operazione viene eseguita ogni volta che la password di un utente viene sincronizzata e Azure AD di ignorare i criteri di scadenza della password cloud per tale utente. È possibile controllare il valore dell'attributo usando il Azure AD di PowerShell con il comando seguente:
 
 `(Get-AzureADUser -objectID <User Object ID>).passwordpolicies`
 
-Per abilitare la funzionalità EnforceCloudPasswordPolicyForPasswordSyncedUsers, eseguire il comando seguente usando il modulo PowerShell di MSOnline, come illustrato di seguito. È necessario digitare yes per il parametro enable come illustrato di seguito:
+Per abilitare la funzionalità EnforceCloudPasswordPolicyForPasswordSyncedUsers, eseguire il comando seguente usando il modulo MSOnline PowerShell, come illustrato di seguito. È necessario digitare yes per il parametro Enable, come illustrato di seguito:
 
 ```
 Set-MsolDirSyncFeature -Feature EnforceCloudPasswordPolicyForPasswordSyncedUsers
@@ -109,36 +109,36 @@ Continue with this operation?
 [Y] Yes [N] No [S] Suspend [?] Help (default is "Y"): y
 ```
 
-Una volta abilitata, Azure AD non passa a ogni utente sincronizzato per rimuovere il `DisablePasswordExpiration` valore dall'attributo PasswordPolicies. Al contrario, il `DisablePasswordExpiration` valore viene rimosso da PasswordPolicies durante la successiva sincronizzazione degli hash delle password per ogni utente, alla successiva modifica della password in Active Directory locale.
+Dopo l'Azure AD, non passa a ogni utente sincronizzato per rimuovere il valore `DisablePasswordExpiration` dall'attributo PasswordPolicies. Il valore viene invece rimosso da PasswordPolicies durante la successiva sincronizzazione dell'hash delle password per ogni utente, alla successiva `DisablePasswordExpiration` modifica della password in AD locale.
 
-È consigliabile abilitare EnforceCloudPasswordPolicyForPasswordSyncedUsers, prima di abilitare la sincronizzazione dell'hash delle password, in modo che la sincronizzazione iniziale degli hash delle password non aggiunga il `DisablePasswordExpiration` valore all'attributo PasswordPolicies per gli utenti.
+È consigliabile abilitare EnforceCloudPasswordPolicyForPasswordSyncedUsers prima di abilitare la sincronizzazione dell'hash delle password, in modo che la sincronizzazione iniziale degli hash delle password non abiliti il valore dell'attributo PasswordPolicies per gli `DisablePasswordExpiration` utenti.
 
-I criteri predefiniti per le password Azure AD richiedono agli utenti di modificare le password ogni 90 giorni. Se il criterio in Active Directory è anche di 90 giorni, i due criteri devono corrispondere. Tuttavia, se i criteri di Active Directory non sono di 90 giorni, è possibile aggiornare i criteri di Azure AD password in modo che corrispondano usando il comando Set-MsolPasswordPolicy PowerShell.
+Il criterio Azure AD password predefinito richiede agli utenti di modificare le password ogni 90 giorni. Se i criteri in Active Directory sono anche di 90 giorni, i due criteri devono corrispondere. Tuttavia, se i criteri di Active Directory non sono di 90 giorni, è possibile aggiornare i criteri password Azure AD in modo che corrispondano usando il comando Set-MsolPasswordPolicy PowerShell.
 
-Azure AD supporta un criterio di scadenza della password separato per ogni dominio registrato.
+Azure AD supporta criteri di scadenza delle password separati per ogni dominio registrato.
 
-Avvertenza: se sono presenti account sincronizzati che devono avere password non in scadenza in Azure AD, è necessario aggiungere in modo esplicito il `DisablePasswordExpiration` valore all'attributo PasswordPolicies dell'oggetto utente nel Azure ad.  È possibile eseguire questa operazione eseguendo il comando seguente.
+Avvertenza: se sono presenti account sincronizzati che devono avere password non in scadenza in Azure AD, è necessario aggiungere in modo esplicito il valore all'attributo PasswordPolicies dell'oggetto utente `DisablePasswordExpiration` in Azure AD.  A tale scopo, eseguire il comando seguente.
 
 `Set-AzureADUser -ObjectID <User Object ID> -PasswordPolicies "DisablePasswordExpiration"`
 
 > [!NOTE]
-> Il comando Set-MsolPasswordPolicy PowerShell non funzionerà sui domini federati. 
+> Il Set-MsolPasswordPolicy di PowerShell non funzionerà nei domini federati. 
 
-#### <a name="synchronizing-temporary-passwords-and-force-password-change-on-next-logon"></a>Sincronizzazione delle password temporanee e "forzare la modifica della password all'accesso successivo"
+#### <a name="synchronizing-temporary-passwords-and-force-password-change-on-next-logon"></a>Sincronizzazione delle password temporanee e "Forza modifica password all'accesso successivo"
 
-È tipico forzare un utente a modificare la password durante il primo accesso, soprattutto dopo la reimpostazione della password amministratore.  È comunemente nota come impostazione di una password "temporanea" e viene completata selezionando il flag "utente necessario modificare la password al successivo accesso" per un oggetto utente in Active Directory (AD).
+È normale forzare un utente a modificare la password durante il primo accesso, soprattutto dopo la reimpostazione della password dell'amministratore.  È comunemente nota come impostazione di una password "temporanea" e viene completata controllando il flag "L'utente deve cambiare la password all'accesso successivo" in un oggetto utente in Active Directory (AD).
   
-La funzionalità relativa alle password temporanee consente di garantire che il trasferimento della proprietà delle credenziali venga completato al primo utilizzo, per ridurre al minimo la durata del tempo in cui più persone hanno la conoscenza di tale credenziale.
+La funzionalità di password temporanea consente di garantire che il trasferimento della proprietà delle credenziali sia completato al primo utilizzo, per ridurre al minimo la durata in cui più di un utente è a conoscenza di tale credenziale.
 
-Per supportare password temporanee in Azure AD per gli utenti sincronizzati, è possibile abilitare la funzionalità *ForcePasswordChangeOnLogOn* eseguendo il comando seguente nel server Azure ad Connect:
+Per supportare le password temporanee Azure AD per gli utenti sincronizzati, è possibile abilitare la funzionalità *ForcePasswordChangeOnLogOn* eseguendo il comando seguente nel server Azure AD Connect:
 
 `Set-ADSyncAADCompanyFeature -ForcePasswordChangeOnLogOn $true`
 
 > [!NOTE]
-> Per forzare l'utente a modificare la password all'accesso successivo è necessario modificare la password nello stesso momento.  Azure AD Connect non preleverà il flag di modifica Force password da solo; è supplementare per la modifica della password rilevata che si verifica durante la sincronizzazione dell'hash delle password.
+> Per forzare un utente a modificare la password all'accesso successivo, è necessario modificare la password contemporaneamente.  Azure AD Connect il flag di modifica della password forzato non verrà visualizzato da solo. è supplementare alla modifica della password rilevata che si verifica durante la sincronizzazione dell'hash delle password.
 
 > [!CAUTION]
-> Usare questa funzionalità solo quando SSPR e il writeback delle password sono abilitati nel tenant.  In questo modo, se un utente modifica la password tramite SSPR, verrà sincronizzato con Active Directory.
+> È consigliabile usare questa funzionalità solo quando la reimpostazione della password e il writeback delle password sono abilitati nel tenant.  In questo modo, se un utente modifica la password tramite reimpostazione della password, verrà sincronizzata con Active Directory.
 
 #### <a name="account-expiration"></a>Scadenza dell'account
 
@@ -161,38 +161,38 @@ La sincronizzazione di una password non ha alcun impatto sull'utente di Azure co
 
 ## <a name="password-hash-sync-process-for-azure-ad-domain-services"></a>Processo di sincronizzazione dell'hash delle password per Azure AD Domain Services
 
-Se si usa Azure AD Domain Services per fornire l'autenticazione legacy per le applicazioni e i servizi che devono usare Kerberos, LDAP o NTLM, alcuni processi aggiuntivi fanno parte del flusso di sincronizzazione dell'hash delle password. Azure AD Connect usa il processo aggiuntivo seguente per sincronizzare gli hash delle password con Azure AD da usare nei Azure AD Domain Services:
+Se si usa Azure AD Domain Services per fornire l'autenticazione legacy per applicazioni e servizi che devono usare Kerberos, LDAP o NTLM, alcuni processi aggiuntivi fanno parte del flusso di sincronizzazione dell'hash delle password. Azure AD Connect usa il processo aggiuntivo seguente per sincronizzare gli hash delle password con Azure AD da usare in Azure AD Domain Services:
 
 > [!IMPORTANT]
 > Azure AD Connect deve essere installato e configurato solo per la sincronizzazione con gli ambienti AD DS locali. Non è supportata l'installazione di Azure AD Connect in un dominio gestito di Azure AD DS per sincronizzare gli oggetti con Azure AD.
 >
-> Azure AD Connect sincronizza solo gli hash delle password legacy quando si Abilita Azure AD DS per il tenant di Azure AD. La procedura seguente non viene usata se si usa solo Azure AD Connect per sincronizzare un ambiente Active Directory Domain Services locale con Azure AD.
+> Azure AD Connect sincronizza gli hash delle password legacy solo quando si Azure AD DS per il tenant Azure AD legacy. I passaggi seguenti non vengono usati se si usa solo Azure AD Connect per sincronizzare un ambiente di Servizi di dominio Active Directory locale con Azure AD.
 >
-> Se le applicazioni legacy non usano l'autenticazione NTLM o binding semplici LDAP, è consigliabile disabilitare la sincronizzazione dell'hash delle password NTLM per Azure AD DS. Per altre informazioni, vedere disabilitare i pacchetti di [crittografia vulnerabili e la sincronizzazione degli hash delle credenziali NTLM](../../active-directory-domain-services/secure-your-domain.md).
+> Se le applicazioni legacy non usano l'autenticazione NTLM o i binding semplici LDAP, è consigliabile disabilitare la sincronizzazione dell'hash delle password NTLM per Azure AD DS. Per altre informazioni, vedere [Disabilitare suite di crittografia debole e Sincronizzazione dell'hash delle credenziali NTLM.](../../active-directory-domain-services/secure-your-domain.md)
 
 1. Azure AD Connect recupera la chiave pubblica per l'istanza del tenant di Azure AD Domain Services.
 1. Quando un utente modifica la password, il controller di dominio locale archivia il risultato della modifica della password (hash) in due attributi:
-    * *unicodePwd* per l'hash della password NTLM.
-    * *supplementalCredentials* per l'hash della password Kerberos.
-1. Azure AD Connect rileva le modifiche della password tramite il canale di replica della directory (le modifiche dell'attributo che devono essere replicate in altri controller di dominio).
-1. Per ogni utente la cui password è stata modificata, Azure AD Connect esegue i passaggi seguenti:
-    * Genera una chiave simmetrica casuale AES a 256 bit.
-    * Genera un vettore di inizializzazione casuale necessario per il primo ciclo di crittografia.
-    * Estrae gli hash delle password Kerberos dagli attributi *supplementalCredentials* .
-    * Verifica l'impostazione di *SyncNtlmPasswords* di configurazione della sicurezza del Azure ad Domain Services.
-        * Se questa impostazione è disabilitata, genera un hash NTLM casuale ad alta entropia (diverso dalla password dell'utente). Questo hash viene quindi combinato con gli hash della password Kerberos esatti dall'attributo *supplementalCrendetials* in una struttura di dati.
-        * Se abilitata, combina il valore dell'attributo *unicodePwd* con gli hash della password Kerberos estratti dall'attributo *supplementalCredentials* in una struttura di dati.
+    * *unicodePwd per* l'hash della password NTLM.
+    * *supplementalCredentials per* l'hash delle password Kerberos.
+1. Azure AD Connect le modifiche delle password tramite il canale di replica della directory (modifiche degli attributi che devono essere replicate in altri controller di dominio).
+1. Per ogni utente la cui password è stata modificata, Azure AD Connect la procedura seguente:
+    * Genera una chiave simmetrica AES casuale a 256 bit.
+    * Genera un vettore di inizializzazione casuale necessario per il primo round di crittografia.
+    * Estrae gli hash delle password Kerberos dagli *attributi supplementalCredentials.*
+    * Controlla l'Azure AD Domain Services di sicurezza *syncNtlmPasswords.*
+        * Se questa impostazione è disabilitata, genera un hash NTLM casuale ad entropia elevata (diverso dalla password dell'utente). Questo hash viene quindi combinato con gli hash delle password Kerberos esatti dall'attributo *supplementalCrendetials* in un'unica struttura di dati.
+        * Se abilitata, combina il valore dell'attributo *unicodePwd* con gli hash delle password Kerberos estratti dall'attributo *supplementalCredentials* in un'unica struttura di dati.
     * Crittografa la singola struttura di dati utilizzando la chiave simmetrica AES.
-    * Crittografa la chiave simmetrica AES usando la chiave pubblica Azure AD Domain Services del tenant.
-1. Azure AD Connect trasmette la chiave simmetrica AES crittografata, la struttura dei dati crittografati contenente gli hash delle password e il vettore di inizializzazione per Azure AD.
+    * Crittografa la chiave simmetrica AES usando la chiave Azure AD Domain Services pubblica del tenant.
+1. Azure AD Connect trasmette la chiave simmetrica AES crittografata, la struttura dei dati crittografati contenente gli hash delle password e il vettore di inizializzazione Azure AD.
 1. Azure AD archivia la chiave simmetrica AES crittografata, la struttura dei dati crittografati e il vettore di inizializzazione per l'utente.
-1. Azure AD inserisce la chiave simmetrica AES crittografata, la struttura dei dati crittografati e il vettore di inizializzazione usando un meccanismo di sincronizzazione interno su una sessione HTTP crittografata per Azure AD Domain Services.
+1. Azure AD esegue il push della chiave simmetrica AES crittografata, della struttura dei dati crittografati e del vettore di inizializzazione usando un meccanismo di sincronizzazione interno su una sessione HTTP crittografata per Azure AD Domain Services.
 1. Azure AD Domain Services recupera la chiave privata per l'istanza del tenant da Azure Key Vault.
-1. Per ogni set di dati crittografato (che rappresenta la modifica della password di un singolo utente), Azure AD Domain Services esegue quindi i passaggi seguenti:
+1. Per ogni set di dati crittografato (che rappresenta la modifica della password di un singolo utente), Azure AD Domain Services quindi esegue la procedura seguente:
     * Usa la chiave privata per decrittografare la chiave simmetrica AES.
     * Usa la chiave simmetrica AES con il vettore di inizializzazione per decrittografare la struttura dei dati crittografati che contiene gli hash delle password.
-    * Scrive gli hash della password Kerberos ricevuti dal controller di dominio Azure AD Domain Services. Gli hash vengono salvati nell'attributo *supplementalCredentials* dell'oggetto utente crittografato con la chiave pubblica del controller di dominio Azure ad Domain Services.
-    * Azure AD Domain Services scrive l'hash della password NTLM ricevuto per il controller di dominio Azure AD Domain Services. L'hash viene salvato nell'attributo *unicodePwd* dell'oggetto utente crittografato con la chiave pubblica del controller di dominio Azure ad Domain Services.
+    * Scrive gli hash delle password Kerberos ricevuti nel controller Azure AD Domain Services dominio. Gli hash vengono salvati nell'attributo *supplementalCredentials* dell'oggetto utente crittografato Azure AD Domain Services chiave pubblica del controller di dominio.
+    * Azure AD Domain Services scrive l'hash della password NTLM ricevuto nel controller Azure AD Domain Services di dominio. L'hash viene salvato nell'attributo *unicodePwd* dell'oggetto utente crittografato Azure AD Domain Services chiave pubblica del controller di dominio.
 
 ## <a name="enable-password-hash-synchronization"></a>Abilitare la sincronizzazione dell'hash delle password
 
@@ -210,7 +210,7 @@ Se il server è stato bloccato in conformità allo standard FIPS (Federal Inform
 
 **Per abilitare MD5 per la sincronizzazione dell'hash delle password, seguire questa procedura:**
 
-1. Passare a %programmi%\Azure AD Sync\Bin.
+1. Passare a %programfiles%\Microsoft Azure AD Sync\Bin.
 2. Aprire miiserver.exe.config.
 3. Passare al nodo configuration/runtime alla fine del file.
 4. Aggiungere il nodo seguente: `<enforceFIPSPolicy enabled="false"/>`

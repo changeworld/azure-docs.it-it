@@ -128,7 +128,7 @@
       href: key-distribution-center-proxy.md
     - name: Avviare la macchina virtuale alla connessione
       items:
-        - name: Configurare Start VM on Connect
+        - name: Configurare Start VM on Connect (Avvia macchina virtuale alla connessione)
           href: start-virtual-machine-connect.md
         - name: Domande frequenti sull'avvio della macchina virtuale in Connect
           href: start-virtual-machine-connect-faq.md
@@ -182,7 +182,7 @@
       href: azure-monitor-glossary.md
     - name: Posizioni dei dati
       href: data-locations.md
-    - name: Sicurezza
+    - name: Security
       items:
         - name: Baseline di sicurezza
           href: security-baseline.md
@@ -215,7 +215,7 @@
     - name: Supporto di Linux
       href: linux-overview.md
     - name: Interfaccia della riga di comando di Azure
-      href: /cli/azure/ext/desktopvirtualization/desktopvirtualization
+      href: /cli/azure/desktopvirtualization
     - name: Stimare Monitoraggio di Azure costi
       href: azure-monitor-costs.md
     - name: Impostazioni supportate del file RDP
@@ -223,7 +223,7 @@
     - name: Linee guida per il ridimensionamento delle macchine virtuali
       href: /windows-server/remote/remote-desktop-services/virtual-machine-recs?context=/azure/virtual-desktop/context/context
     - name: interfaccia della riga di comando di Azure (CLI)
-      href: /cli/azure/ext/desktopvirtualization/
+      href: /cli/azure/
     - name: Scenari di esempio di Azure
       href: /azure/architecture/example-scenario/wvd/windows-virtual-desktop
     - name: Individuazione della posta elettronica

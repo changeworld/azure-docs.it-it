@@ -1,6 +1,6 @@
 ---
 title: Domande frequenti sulla soluzione Connected Factory - Azure | Microsoft Docs
-description: Questo articolo risponde alle domande frequenti relative all'acceleratore della soluzione di Connected Factory. Include i collegamenti al repository GitHub.
+description: Questo articolo risponde alle domande frequenti sull'acceleratore di soluzioni di connected factory. Include collegamenti al repository GitHub.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: c6a695030d399cb1609c63ef5652419a9bef1bbf
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 038403743caf13087655066f4acbec4dcee598c7
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105646081"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107874208"
 ---
 # <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>Domande frequenti sull'acceleratore di soluzioni di connected factory
 
@@ -125,7 +125,7 @@ In alternativa, accedere alla VM tramite SSH ed esaminare i file di log in fase 
 
 ### <a name="how-can-i-check-if-the-simulation-is-sending-data-to-the-cloud"></a>Come è possibile controllare se la simulazione sta inviando dati al cloud?
 
-Con il comando Azure Internet Explorer o Azure Internet [Explorer](https://github.com/Azure/azure-iot-explorer) [Extension monitor-Events](/cli/azure/ext/azure-iot/iot/hub#ext-azure-iot-az-iot-hub-monitor-events) è possibile esaminare i dati inviati all'hub delle cose da determinati dispositivi. Per usare questi strumenti, è necessario conoscere la stringa di connessione per l'hub IoT della distribuzione. Vedere [Come è possibile trovare la stringa di connessione dell'hub IoT usato dalla soluzione?](#how-do-i-find-out-the-connection-string-of-the-iot-hub-used-by-my-solution)
+Con Azure IoT [Explorer](https://github.com/Azure/azure-iot-explorer) o il comando [monitor-events](/cli/azure/iot/hub#az_iot_hub_monitor_events) dell'estensione dell'interfaccia della riga di comando di Azure IoT, è possibile esaminare i dati inviati all'hub IoT da determinati dispositivi. Per usare questi strumenti, è necessario conoscere la stringa di connessione per l'hub IoT della distribuzione. Vedere [Come è possibile trovare la stringa di connessione dell'hub IoT usato dalla soluzione?](#how-do-i-find-out-the-connection-string-of-the-iot-hub-used-by-my-solution)
 
 Esaminare i dati inviati da uno dei dispositivi di pubblicazione:
 
@@ -148,7 +148,7 @@ Quando si esegue la distribuzione usando lo script `build.ps1` disponibile nel r
 
 È anche possibile aggiungere una chiave dell'account Mappe di Azure all'acceleratore di soluzione dopo la distribuzione. Passare al portale di Azure e accedere alla risorsa Servizio app nella distribuzione della soluzione Connected Factory. Passare a **Impostazioni dell'applicazione**, in cui si trova una sezione **Impostazioni applicazione**. Impostare **MapApiQueryKey** sulla [chiave dell'account Mappe di Azure](../azure-maps/how-to-manage-account-keys.md). Salvare le impostazioni e quindi passare a **Panoramica** e riavviare il servizio app.
 
-### <a name="how-do-i-create-an-azure-maps-account"></a>Ricerca per categorie creare un account Azure Maps?
+### <a name="how-do-i-create-an-azure-maps-account"></a>Ricerca per categorie creare un account Mappe di Azure?
 
 Vedere [Come gestire l'account e le chiavi di Mappe di Azure](../azure-maps/how-to-manage-account-keys.md).
 

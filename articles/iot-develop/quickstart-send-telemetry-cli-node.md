@@ -7,12 +7,12 @@ ms.service: iot-develop
 ms.devlang: node
 ms.topic: quickstart
 ms.date: 03/25/2021
-ms.openlocfilehash: 3d42ac814678136c2f6342cd1064e3c3ff394507
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 0e1c99124228da9490abaa17ecc41b931631d9fb
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107777240"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107876977"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-nodejs"></a>Avvio rapido: Inviare dati di telemetria da un dispositivo a un hub IoT (Node.js)
 
@@ -34,7 +34,7 @@ In questa guida introduttiva si apprenderà un flusso di lavoro di sviluppo di a
 [!INCLUDE [iot-hub-include-create-hub-cli](../../includes/iot-hub-include-create-hub-cli.md)]
 
 ## <a name="use-the-nodejs-sdk-to-send-messages"></a>Usare l'SDK Node.js per inviare messaggi
-In questa sezione si userà Node.js SDK per inviare messaggi dal dispositivo simulato all'hub IoT. 
+In questa sezione si userà l'SDK Node.js per inviare messaggi dal dispositivo simulato all'hub IoT. 
 
 1. Aprire una nuova finestra del terminale. Questo terminale verrà utilizzato per installare Node.js SDK e usare il Node.js di esempio. Dovrebbero ora essere aperti due terminali: quello appena aperto per usare Node.js e la shell dell'interfaccia della riga di comando usata nelle sezioni precedenti per immettere i comandi dell'interfaccia della riga di comando di Azure.
 
@@ -91,7 +91,7 @@ In questa sezione si userà Node.js SDK per inviare messaggi dal dispositivo sim
     ```bash
     export IOTHUB_DEVICE_SECURITY_TYPE="connectionString"
     ```
-1. Nella shell dell'interfaccia della riga di comando aperta eseguire [il comando az iot hub monitor-events](/cli/azure/ext/azure-iot/iot/hub#ext-azure-iot-az-iot-hub-monitor-events) per avviare il monitoraggio degli eventi nel dispositivo IoT simulato.  I messaggi di evento verranno stampati nel terminale non appena arrivano.
+1. Nella shell dell'interfaccia della riga di comando aperta eseguire [il comando az iot hub monitor-events](/cli/azure/iot/hub#az_iot_hub_monitor_events) per avviare il monitoraggio degli eventi nel dispositivo IoT simulato.  I messaggi di evento verranno stampati nel terminale non appena arrivano.
 
     ```azurecli
     az iot hub monitor-events --output table --hub-name {YourIoTHubName}

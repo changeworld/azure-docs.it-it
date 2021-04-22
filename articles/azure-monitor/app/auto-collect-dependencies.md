@@ -4,12 +4,12 @@ description: Application Insights raccoglie e visualizza automaticamente le dipe
 ms.topic: reference
 ms.custom: devx-track-dotnet
 ms.date: 05/06/2020
-ms.openlocfilehash: 8a4d79e52465e93fb4db2625217cb37a06917218
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aa4d39ca8964e95ca787d236223e2b475a9597c1
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91930867"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107873830"
 ---
 # <a name="dependency-auto-collection"></a>Raccolta automatica delle dipendenze
 
@@ -22,18 +22,18 @@ Di seguito è riportato l'elenco delle chiamate di dipendenza attualmente suppor
 | Web Form ASP.NET | 4.5+ |
 | ASP.NET MVC | 4+ |
 | WebAPI ASP.NET | 4.5+ |
-| ASP.NET Core | 1.1+ |
+| Risultato dell'azione di | 1.1+ |
 | <b>Librerie di comunicazione</b> |
-| [HttpClient](https://www.microsoft.com/net/) | 4.5+, .NET Core 1.1+ |
+| [HttpClient](https://dotnet.microsoft.com) | 4.5+, .NET Core 1.1+ |
 | [SqlClient](https://www.nuget.org/packages/System.Data.SqlClient) | .NET Core 1.0+, NuGet 4.3.0 |
-| [Microsoft.Data.SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient/1.1.2)| 1.1.0-versione stabile più recente. (Vedere la nota di seguito).
+| [Microsoft.Data.SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient/1.1.2)| 1.1.0 - versione stabile più recente. Vedere la nota seguente.
 | [SDK Client di hub eventi](https://www.nuget.org/packages/Microsoft.Azure.EventHubs) | 1.1.0 |
 | [SDK Client di ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus) | 3.0.0 |
 | <b>Client di archiviazione</b>|  |
 | ADO.NET | 4.5+ |
 
 > [!NOTE]
-> Si è verificato un [problema noto](https://github.com/microsoft/ApplicationInsights-dotnet/issues/1347) con le versioni precedenti di Microsoft. Data. SqlClient. Per attenuare questo problema, è consigliabile usare 1.1.0 o versione successiva. Entity Framework Core non è necessariamente fornito con la versione stabile più recente di Microsoft. Data. SqlClient, quindi è consigliabile confermare di avere almeno 1.1.0 per evitare questo problema.   
+> Si è verificato [un problema noto](https://github.com/microsoft/ApplicationInsights-dotnet/issues/1347) con le versioni precedenti di Microsoft.Data.SqlClient. È consigliabile usare la versione 1.1.0 o successiva per attenuare questo problema. Entity Framework Core non viene necessariamente disponibile con la versione stabile più recente di Microsoft.Data.SqlClient, quindi è necessario confermare che si è in almeno la versione 1.1.0 per evitare questo problema.   
 
 
 ## <a name="java"></a>Java
@@ -43,16 +43,16 @@ Di seguito è riportato l'elenco delle chiamate di dipendenza attualmente suppor
 | [JBoss EAP](https://developers.redhat.com/products/eap/download/) | 6, 7 |
 | [Jetty](https://www.eclipse.org/jetty/) | 9 |
 | <b>Framework per app</b> |  |
-| [Spring](https://spring.io/) | 3.0 |
-| [Spring Boot](https://spring.io/projects/spring-boot) | 1.5.9 +<sup>*</sup> |
+| [Spring](https://spring.io/) | 3,0 |
+| [Spring Boot](https://spring.io/projects/spring-boot) | 1.5.9+<sup>*</sup> |
 | Servlet Java | 3.1+ |
 | <b>Librerie di comunicazione</b> |  |
-| [Client HTTP Apache](https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient) | 4.3 +<sup>†</sup> |
+| [Client HTTP Apache](https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient) | 4.3+<sup>†</sup> |
 | <b>Client di archiviazione</b> | |
-| [SQL Server]( https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc) | 1 +<sup>†</sup> |
+| [SQL Server]( https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc) | 1+<sup>†</sup> |
 | [PostgreSQL (supporto beta)](https://github.com/Microsoft/ApplicationInsights-Java/blob/master/CHANGELOG.md#version-240-beta) | |
-| [Oracle]( https://www.oracle.com/technetwork/database/application-development/jdbc/downloads/index.html) | 1 +<sup>†</sup> |
-| [MySql]( https://mvnrepository.com/artifact/mysql/mysql-connector-java) | 1 +<sup>†</sup> |
+| [Oracle]( https://www.oracle.com/technetwork/database/application-development/jdbc/downloads/index.html) | 1+<sup>†</sup> |
+| [Mysql]( https://mvnrepository.com/artifact/mysql/mysql-connector-java) | 1+<sup>†</sup> |
 | <b>Librerie di registrazione</b> | |
 | [Logback](https://logback.qos.ch/) | 1+ |
 | [Log4j](https://logging.apache.org/log4j/) | 1.2+ |
@@ -67,17 +67,17 @@ Di seguito è riportato l'elenco delle chiamate di dipendenza attualmente suppor
 
 | Librerie di comunicazione | Versioni |
 | ------------------------|----------|
-| [http](https://nodejs.org/api/http.html), [https](https://nodejs.org/api/https.html) | 0.10+ |
+| [HTTP](https://nodejs.org/api/http.html), [HTTPS](https://nodejs.org/api/https.html) | 0.10+ |
 | <b>Client di archiviazione</b> | |
 | [Redis](https://www.npmjs.com/package/redis) | 2.x |
-| [MongoDb](https://www.npmjs.com/package/mongodb); [MongoDb Core](https://www.npmjs.com/package/mongodb-core) | 2. x-3. x |
-| [MySQL](https://www.npmjs.com/package/mysql) | 2.0.0-2.16. x |
-| [PostgreSQL](https://www.npmjs.com/package/pg); | 6. x-7. x |
-| [pg-pool](https://www.npmjs.com/package/pg-pool) | 1. x-2. x |
+| [MongoDb](https://www.npmjs.com/package/mongodb); [MongoDb Core](https://www.npmjs.com/package/mongodb-core) | 2.x - 3.x |
+| [MySQL](https://www.npmjs.com/package/mysql) | 2.0.0 - 2.16.x |
+| [PostgreSql](https://www.npmjs.com/package/pg); | 6.x - 7.x |
+| [pg-pool](https://www.npmjs.com/package/pg-pool) | 1.x - 2.x |
 | <b>Librerie di registrazione</b> | |
 | [Console](https://nodejs.org/api/console.html) | 0.10+ |
 | [Bunyan](https://www.npmjs.com/package/bunyan) | 1.x |
-| [Winston](https://www.npmjs.com/package/winston) | 2. x-3. x |
+| [Winston](https://www.npmjs.com/package/winston) | 2.x - 3.x |
 
 ## <a name="javascript"></a>JavaScript
 
@@ -89,7 +89,7 @@ Di seguito è riportato l'elenco delle chiamate di dipendenza attualmente suppor
 
 - Impostare il rilevamento personalizzato delle dipendenze per [.NET](./asp-net-dependencies.md).
 - Impostare il rilevamento personalizzato delle dipendenze per [Java](./java-agent.md).
-- Configurare il rilevamento delle dipendenze personalizzato per [OpenCensus Python](./opencensus-python-dependency.md).
+- Configurare il rilevamento delle dipendenze personalizzato [per OpenCensus Python.](./opencensus-python-dependency.md)
 - [Scrivere dati di telemetria delle dipendenze personalizzate](./api-custom-events-metrics.md#trackdependency)
 - Per informazioni sul modello di dati e sui tipi di Application Insights, vedere il [modello di dati](./data-model.md).
 - Verificare quali [piattaforme](./platforms.md) supportano Application Insights.

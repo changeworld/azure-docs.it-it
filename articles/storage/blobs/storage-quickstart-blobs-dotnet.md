@@ -1,6 +1,6 @@
 ---
-title: 'Guida introduttiva: libreria di archiviazione BLOB di Azure V12-.NET'
-description: In questa Guida introduttiva si apprenderà come usare la libreria client di archiviazione BLOB di Azure versione 12 per .NET per creare un contenitore e un BLOB nell'archiviazione BLOB (oggetto). Verrà successivamente illustrato come scaricare il BLOB nel computer locale e come elencare tutti i BLOB in un contenitore.
+title: 'Guida introduttiva: Archiviazione BLOB di Azure libreria v12 - .NET'
+description: In questa guida introduttiva si apprenderà come usare la libreria client Archiviazione BLOB di Azure versione 12 per .NET per creare un contenitore e un BLOB nell'archiviazione BLOB (oggetto). Verrà successivamente illustrato come scaricare il BLOB nel computer locale e come elencare tutti i BLOB in un contenitore.
 author: twooley
 ms.author: twooley
 ms.date: 03/03/2021
@@ -8,18 +8,18 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7ab7c52f6fe392cfebd056a86f0566705fb2b8e6
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: f913b33d0bea425a24d2fd336c9d065978606e82
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106280667"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107869258"
 ---
-# <a name="quickstart-azure-blob-storage-client-library-v12-for-net"></a>Guida introduttiva: libreria client di archiviazione BLOB di Azure V12 per .NET
+# <a name="quickstart-azure-blob-storage-client-library-v12-for-net"></a>Guida introduttiva: Archiviazione BLOB di Azure libreria client v12 per .NET
 
-Introduzione alla libreria client di archiviazione BLOB di Azure V12 per .NET. Archiviazione BLOB di Azure è la soluzione di archiviazione di oggetti Microsoft per il cloud. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base. L'archiviazione BLOB è ottimizzata per archiviare enormi quantità di dati non strutturati.
+Introduzione alla libreria Archiviazione BLOB di Azure client v12 per .NET. Archiviazione BLOB di Azure è la soluzione di archiviazione di oggetti Microsoft per il cloud. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base. L'archiviazione BLOB è ottimizzata per archiviare enormi quantità di dati non strutturati.
 
-Usare la libreria client V12 di archiviazione BLOB di Azure per .NET per:
+Usare la Archiviazione BLOB di Azure client v12 per .NET per:
 
 * Creare un contenitore
 * Caricare un oggetto BLOB in Archiviazione di Azure
@@ -44,7 +44,7 @@ Risorse aggiuntive:
 
 ## <a name="setting-up"></a>Configurazione
 
-Questa sezione illustra la preparazione di un progetto per l'uso con la libreria client di archiviazione BLOB di Azure V12 per .NET.
+In questa sezione viene illustrata la preparazione di un progetto per l'Archiviazione BLOB di Azure della libreria client v12 per .NET.
 
 ### <a name="create-the-project"></a>Creare il progetto
 
@@ -80,10 +80,10 @@ dotnet add package Azure.Storage.Blobs
 
 Dalla directory del progetto:
 
-1. Aprire il file *Program. cs* nell'editor.
+1. Aprire il file *Program.cs* nell'editor.
 1. Rimuovere l'istruzione `Console.WriteLine("Hello World!");` .
-1. Aggiungere `using` direttive.
-1. Aggiornare la `Main` dichiarazione di metodo per supportare Async.
+1. Aggiungere `using` direttive .
+1. Aggiornare la `Main` dichiarazione del metodo per supportare async.
 
     Ecco il codice:
 
@@ -112,7 +112,7 @@ Per interagire con queste risorse, usare le classi .NET seguenti:
 
 ## <a name="code-examples"></a>Esempi di codice
 
-Questi frammenti di codice di esempio illustrano come eseguire le operazioni seguenti con la libreria client di archiviazione BLOB di Azure per .NET:
+Questi frammenti di codice di esempio illustrano come eseguire le operazioni seguenti con la Archiviazione BLOB di Azure client per .NET:
 
 * [Ottenere la stringa di connessione](#get-the-connection-string)
 * [Creare un contenitore](#create-a-container)
@@ -225,7 +225,7 @@ In questa guida introduttiva si è appreso come caricare, scaricare ed elencare 
 Per visualizzare le app di esempio di Archiviazione BLOB, procedere con:
 
 > [!div class="nextstepaction"]
-> [Esempi .NET di Azure BLOB Storage SDK V12](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples)
+> [Archiviazione BLOB di Azure SDK v12 .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples)
 
 * Per esercitazioni, esempi, guide introduttive e altra documentazione, vedere [Azure per gli sviluppatori .NET e .NET Core](/dotnet/azure/).
-* Per altre informazioni su .NET Core, vedere [Get started with .NET in 10 minutes](https://www.microsoft.com/net/learn/get-started/) (Introduzione a .NET in 10 minuti).
+* Per altre informazioni su .NET Core, vedere [Get started with .NET in 10 minutes](https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/intro) (Introduzione a .NET in 10 minuti).

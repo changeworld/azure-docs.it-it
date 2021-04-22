@@ -9,12 +9,12 @@ ms.date: 03/03/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3
-ms.openlocfilehash: e878be5351362923e163c0a6f617b96ab72a36d8
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 2d4885f23e775f84a412d176568d992ebe01166b
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102177552"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107875702"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Usare il servizio Importazione/Esportazione di Azure per esportare dati da Archiviazione BLOB di Azure
 
@@ -28,7 +28,7 @@ Prima di creare un processo di esportazione per trasferire dati da Archiviazione
 - Avere una sottoscrizione di Azure attiva che possa essere usata per il servizio Importazione/Esportazione.
 - Avere almeno un account di archiviazione di Azure. Vedere l'elenco di [account di archiviazione e tipi di archiviazione supportati per il servizio Importazione/Esportazione](storage-import-export-requirements.md). Per informazioni sulla creazione di un nuovo account di archiviazione, vedere [Come creare un account di archiviazione](../storage/common/storage-account-create.md).
 - Avere un numero adeguato di dischi dei [tipi supportati](storage-import-export-requirements.md#supported-disks).
-- Avere un account FedEx o DHL. Se si vuole usare un vettore diverso da FedEx/DHL, contattare Azure Data Box team operativo all'indirizzo `adbops@microsoft.com` .
+- Avere un account FedEx o DHL. Se si vuole usare un vettore diverso da FedEx/DHL, contattare il team Azure Data Box Operations all'indirizzo `adbops@microsoft.com` .
   - L'account deve essere valido, deve avere un saldo e deve avere le funzionalità di spedizione di ritorno.
   - Generare un numero di tracciabilità per il processo di esportazione.
   - Ogni processo deve avere un numero di tracciabilità separato. Più processi con lo stesso numero di tracciabilità non sono supportati.
@@ -45,16 +45,16 @@ Per creare un processo di esportazione nel portale di Azure, eseguire le operazi
 1. Accedere all'indirizzo <https://portal.azure.com/>.
 2. Cercare i **processi di importazione/esportazione**.
 
-    ![Cerca processi di importazione/esportazione](./media/storage-import-export-data-to-blobs/import-to-blob-1.png)
+    ![Cercare processi di importazione/esportazione](./media/storage-import-export-data-to-blobs/import-to-blob-1.png)
 
 3. Selezionare **+ Nuovo**.
 
-    ![Selezionare + nuovo per creare un nuovo ](./media/storage-import-export-data-to-blobs/import-to-blob-2.png)
+    ![Selezionare + Nuovo per creare un nuovo ](./media/storage-import-export-data-to-blobs/import-to-blob-2.png)
 
 4. In **Nozioni di base**:
 
    1. Selezionare una sottoscrizione.
-   1. Selezionare un gruppo di risorse oppure selezionare **Crea nuovo** e crearne uno nuovo.
+   1. Selezionare un gruppo di risorse oppure **selezionare Crea nuovo** e crearne uno nuovo.
    1. Immettere un nome descrittivo per il processo di importazione. Usare il nome per tenere traccia dello stato dei processi.
        * Il nome può contenere solo lettere minuscole, numeri e segni meno.
        * Il nome deve iniziare con una lettera e non può contenere spazi.
@@ -63,12 +63,12 @@ Per creare un processo di esportazione nel portale di Azure, eseguire le operazi
 
     ![Opzioni di base per un ordine di esportazione](./media/storage-import-export-data-from-blobs/export-from-blob-3.png)
 
-    Selezionare **Avanti: dettagli processo >** per continuare.
+    Selezionare **Avanti: Dettagli processo per >** continuare.
 
 5. In **Dettagli processo**:
 
-   1. Selezionare l'area di Azure in cui sono attualmente presenti i dati.
-   1. Selezionare l'account di archiviazione da cui si desidera esportare i dati. Usare un account di archiviazione vicino al percorso.
+   1. Selezionare l'area di Azure in cui si trova attualmente i dati.
+   1. Selezionare l'account di archiviazione da cui esportare i dati. Usare un account di archiviazione vicino alla propria posizione.
 
       La località di consegna viene immessa automaticamente in base all'area dell'account di archiviazione selezionato.
 
@@ -78,42 +78,42 @@ Per creare un processo di esportazione nel portale di Azure, eseguire le operazi
 
         ![Esporta tutti](./media/storage-import-export-data-from-blobs/export-from-blob-4.png)
 
-      - Scegliere i contenitori e i **BLOB selezionati** e specificare i contenitori e i BLOB da esportare. È possibile usare più di uno dei metodi di selezione. Selezionando un'opzione **Aggiungi** si apre un pannello a destra in cui è possibile aggiungere le stringhe di selezione.
+      - Scegliere **Contenitori e BLOB selezionati** e specificare i contenitori e i BLOB da esportare. È possibile usare più metodi di selezione. Selezionando **un'opzione** Aggiungi si apre un pannello a destra in cui è possibile aggiungere le stringhe di selezione.
 
         |Opzione|Descrizione|
         |------|-----------|      
-        |**Aggiungi contenitori**|Esportare tutti i BLOB in un contenitore.<br>Selezionare **Aggiungi contenitori** e immettere il nome di ogni contenitore.|
-        |**Aggiungi BLOB**|Specificare i singoli BLOB da esportare.<br>Selezionare **Aggiungi BLOB**. Specificare quindi il percorso relativo del BLOB, iniziando con il nome del contenitore. Utilizzare *$root* per specificare il contenitore radice.<br>I percorsi BLOB devono essere specificati in un formato valido per evitare errori durante l'elaborazione, come mostrato in questo screenshot. Per altre informazioni, vedere [Esempi di percorsi BLOB validi](#examples-of-valid-blob-paths).|
-        |**Aggiungere i prefissi**|Usare un prefisso per selezionare un set di contenitori denominati in modo analogo o BLOB denominati in un contenitore. Il prefisso può essere il prefisso del nome del contenitore, il nome completo del contenitore o un nome di contenitore completo seguito dal prefisso del nome del BLOB. |
+        |**Aggiungere contenitori**|Esportare tutti i BLOB in un contenitore.<br>Selezionare **Aggiungi contenitori** e immettere il nome di ogni contenitore.|
+        |**Aggiungere BLOB**|Specificare i singoli BLOB da esportare.<br>Selezionare **Aggiungi BLOB**. Specificare quindi il percorso relativo del BLOB, a partire dal nome del contenitore. Utilizzare *$root* per specificare il contenitore radice.<br>I percorsi BLOB devono essere specificati in un formato valido per evitare errori durante l'elaborazione, come mostrato in questo screenshot. Per altre informazioni, vedere [Esempi di percorsi BLOB validi](#examples-of-valid-blob-paths).|
+        |**Aggiungere prefissi**|Usare un prefisso per selezionare un set di contenitori con nome simile o BLOB con nome simile in un contenitore. Il prefisso può essere il prefisso del nome del contenitore, il nome completo del contenitore o un nome di contenitore completo seguito dal prefisso del nome del BLOB. |
 
         ![Esportare contenitori e BLOB selezionati](./media/storage-import-export-data-from-blobs/export-from-blob-5.png)
 
-    - Scegliere **Esporta da file elenco BLOB (formato XML)** e selezionare un file XML contenente un elenco di percorsi e prefissi per i BLOB da esportare dall'account di archiviazione. È necessario creare il file XML e archiviarlo in un contenitore per l'account di archiviazione. Il file non può essere vuoto.
+    - Scegliere Esporta da file di elenco BLOB **(formato XML)** e selezionare un file XML contenente un elenco di percorsi e prefissi per i BLOB da esportare dall'account di archiviazione. È necessario costruire il file XML e archiviarlo in un contenitore per l'account di archiviazione. Il file non può essere vuoto.
 
       > [!IMPORTANT]
-      > Se si utilizza un file XML per selezionare i BLOB da esportare, verificare che nel codice XML siano contenuti i percorsi e/o i prefissi validi. Se il file non è valido o non è presente alcun dato corrispondente ai percorsi specificati, l'ordine termina con dati parziali o senza dati esportati.
+      > Se si usa un file XML per selezionare i BLOB da esportare, assicurarsi che il file XML contenga percorsi e/o prefissi validi. Se il file non è valido o nessun dato corrisponde ai percorsi specificati, l'ordine termina con dati parziali o nessun dato esportato.
 
-       Per informazioni su come aggiungere un file XML a un contenitore, vedere [esportare l'ordine usando il file XML](../databox/data-box-deploy-export-ordered.md#export-order-using-xml-file).
+       Per informazioni su come aggiungere un file XML a un contenitore, vedere Esportare un ordine [usando un file XML.](../databox/data-box-deploy-export-ordered.md#export-order-using-xml-file)
 
       ![Esportare dal file elenco di BLOB](./media/storage-import-export-data-from-blobs/export-from-blob-6.png)
 
    > [!NOTE]
-   > Se un BLOB da esportare viene usato durante la copia dei dati, il servizio importazione/esportazione di Azure esegue uno snapshot del BLOB e copia lo snapshot.
+   > Se durante la copia dei dati è in uso un BLOB da esportare, il servizio Importazione/Esportazione di Azure crea uno snapshot del BLOB e lo copia.
 
-   Selezionare **Avanti: spedizione >** per continuare.
+   Selezionare **Avanti: Spedizione >** per continuare.
 
-6. In **spedizione**:
+6. In **Spedizione**:
 
-    - Selezionare il vettore nell'elenco a discesa. Se si vuole usare un vettore diverso da FedEx/DHL, scegliere un'opzione esistente nell'elenco a discesa. Contattare Azure Data Box team operativo in `adbops@microsoft.com`  con le informazioni relative al vettore che si intende usare.
-    - Immettere un numero di account di vettore valido creato con il vettore. Microsoft usa questo account per inviare le unità al termine del processo di esportazione.
-    - Fornire un nome di contatto completo e valido, un telefono, un indirizzo di posta elettronica, via, città, CAP, stato/provincia e paese/area geografica.
+    - Selezionare il vettore nell'elenco a discesa. Se si vuole usare un vettore diverso da FedEx/DHL, scegliere un'opzione esistente nell'elenco a discesa. Contattare Azure Data Box operations team `adbops@microsoft.com`  all'indirizzo con le informazioni relative al vettore che si prevede di usare.
+    - Immettere un numero di account di vettore valido creato con il vettore. Microsoft usa questo account per spedire le unità all'utente al termine del processo di esportazione.
+    - Specificare un nome di contatto completo e valido, telefono, indirizzo di posta elettronica, indirizzo, città, zip, stato/provincia e paese/area geografica.
 
         > [!TIP]
         > Anziché specificare un indirizzo di posta elettronica per un singolo utente, fornire un indirizzo di posta elettronica di gruppo. Ciò garantisce la ricezione di notifiche anche se non c'è più un amministratore.
 
-    Selezionare **Verifica + crea** per continuare.
+    Selezionare **Rivedi e crea** per continuare.
 
-7. In **Verifica + crea**:
+7. In **Rivedi e crea:**
 
    1. Esaminare i dettagli del processo.
    1. Annotare il nome del processo e le informazioni sul mittente della spedizione per spedire i dischi ad Azure.
@@ -121,11 +121,11 @@ Per creare un processo di esportazione nel portale di Azure, eseguire le operazi
       > [!NOTE]
       > Inviare sempre i dischi al data center indicato nel portale di Azure. Se i dischi vengono spediti al data center errato, non verrà elaborato il processo.
 
-   1. Esaminare le **condizioni** per l'ordine di eliminazione dei dati sulla privacy e sull'origine. Se si accettano le condizioni, selezionare la casella di controllo sotto i termini. Inizio della convalida dell'ordine.
+   1. Esaminare le Condizioni **per l'ordine** per l'eliminazione dei dati di origine e sulla privacy. Se si accettano le condizioni, selezionare la casella di controllo sotto le condizioni. Viene avviata la convalida dell'ordine.
 
    ![Esaminare e creare l'ordine di esportazione](./media/storage-import-export-data-from-blobs/export-from-blob-6-a.png)
 
- 1. Al termine della convalida, selezionare **Crea**.
+ 1. Al termine della convalida selezionare **Crea**.
 
 <!--Replaced text: Steps 4 - end of "Create an export job." Wizard design changes required both screen and text updates.
 
@@ -190,19 +190,19 @@ Usare la procedura seguente per creare un processo di esportazione nel portale d
 
 ### <a name="create-a-job"></a>Creare un processo
 
-1. Usare il comando [AZ Extension Add](/cli/azure/extension#az_extension_add) per aggiungere l'estensione [AZ Import-Export](/cli/azure/ext/import-export/import-export) :
+1. Usare il [comando az extension add](/cli/azure/extension#az_extension_add) per aggiungere l'estensione [az import-export:](/cli/azure/import-export)
 
     ```azurecli
     az extension add --name import-export
     ```
 
-1. Per ottenere un elenco dei percorsi da cui è possibile ricevere dischi, usare il comando [AZ Import-Export Location list](/cli/azure/ext/import-export/import-export/location#ext_import_export_az_import_export_location_list) :
+1. Per ottenere un elenco dei percorsi da cui è possibile ricevere dischi, usare [il comando az import-export location list:](/cli/azure/import-export/location#az_import_export_location_list)
 
     ```azurecli
     az import-export location list
     ```
 
-1. Eseguire il comando [AZ Import-Export create](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_create) seguente per creare un processo di esportazione che usa l'account di archiviazione esistente:
+1. Eseguire il comando [az import-export create seguente](/cli/azure/import-export#az_import_export_create) per creare un processo di esportazione che usa l'account di archiviazione esistente:
 
     ```azurecli
     az import-export create \
@@ -226,15 +226,15 @@ Usare la procedura seguente per creare un processo di esportazione nel portale d
     > [!TIP]
     > Anziché specificare un indirizzo di posta elettronica per un singolo utente, fornire un indirizzo di posta elettronica di gruppo. Ciò garantisce la ricezione di notifiche anche se non c'è più un amministratore.
 
-   Questo processo Esporta tutti i BLOB nell'account di archiviazione. È possibile specificare un BLOB da esportare sostituendo questo valore per **--Export**:
+   Questo processo esporta tutti i BLOB nell'account di archiviazione. È possibile specificare un BLOB per l'esportazione sostituendo questo valore per **--export**:
 
     ```azurecli
     --export blob-path=$root/logo.bmp
     ```
 
-   Questo valore di parametro Esporta il BLOB denominato *logo.bmp* nel contenitore radice.
+   Questo valore del parametro esporta il BLOB *logo.bmp* nel contenitore radice.
 
-   È anche possibile selezionare tutti i BLOB in un contenitore usando un prefisso. Sostituire questo valore per **--Export**:
+   È anche possibile selezionare tutti i BLOB in un contenitore usando un prefisso. Sostituire questo valore per **--export**:
 
     ```azurecli
     blob-path-prefix=/myiecontainer
@@ -245,13 +245,13 @@ Usare la procedura seguente per creare un processo di esportazione nel portale d
    > [!NOTE]
    > Se il BLOB da esportare è in uso durante la copia dei dati, il servizio Importazione/Esportazione di Azure acquisisce uno snapshot del BLOB e copia lo snapshot.
 
-1. Usare il comando [AZ Import-Export List](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_list) per visualizzare tutti i processi per il gruppo di risorse myierg:
+1. Usare il [comando az import-export list](/cli/azure/import-export#az_import_export_list) per visualizzare tutti i processi per il gruppo di risorse myierg:
 
     ```azurecli
     az import-export list --resource-group myierg
     ```
 
-1. Per aggiornare il processo o annullare il processo, eseguire il comando [AZ Import-Export Update](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_update) :
+1. Per aggiornare il processo o annullarlo, eseguire il [comando az import-export update:](/cli/azure/import-export#az_import_export_update)
 
     ```azurecli
     az import-export update --resource-group myierg --name MyIEjob1 --cancel-requested true
@@ -259,12 +259,12 @@ Usare la procedura seguente per creare un processo di esportazione nel portale d
 
 ### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
-Utilizzare la procedura seguente per creare un processo di esportazione in Azure PowerShell.
+Usare la procedura seguente per creare un processo di esportazione in Azure PowerShell.
 
 [!INCLUDE [azure-powershell-requirements-h3.md](../../includes/azure-powershell-requirements-h3.md)]
 
 > [!IMPORTANT]
-> Mentre il modulo di PowerShell **AZ. importexport** è in anteprima, è necessario installarlo separatamente usando il `Install-Module` cmdlet. Quando il modulo di PowerShell diventerà disponibile a livello generale, entrerà a far parte delle future versioni del modulo Az di PowerShell e sarà disponibile per impostazione predefinita all'interno di Azure Cloud Shell.
+> Mentre il **modulo Az.ImportExport** di PowerShell è disponibile in anteprima, è necessario installarlo separatamente usando il `Install-Module` cmdlet . Quando il modulo di PowerShell diventerà disponibile a livello generale, entrerà a far parte delle future versioni del modulo Az di PowerShell e sarà disponibile per impostazione predefinita all'interno di Azure Cloud Shell.
 
 ```azurepowershell-interactive
 Install-Module -Name Az.ImportExport
@@ -272,13 +272,13 @@ Install-Module -Name Az.ImportExport
 
 ### <a name="create-a-job"></a>Creare un processo
 
-1. Per ottenere un elenco dei percorsi da cui è possibile ricevere dischi, usare il cmdlet [Get-AzImportExportLocation](/powershell/module/az.importexport/get-azimportexportlocation) :
+1. Per ottenere un elenco dei percorsi da cui è possibile ricevere dischi, usare il cmdlet [Get-AzImportExportLocation:](/powershell/module/az.importexport/get-azimportexportlocation)
 
    ```azurepowershell-interactive
    Get-AzImportExportLocation
    ```
 
-1. Eseguire il seguente esempio [New-AzImportExport](/powershell/module/az.importexport/new-azimportexport) per creare un processo di esportazione che usa l'account di archiviazione esistente:
+1. Eseguire [l'esempio New-AzImportExport](/powershell/module/az.importexport/new-azimportexport) seguente per creare un processo di esportazione che usa l'account di archiviazione esistente:
 
    ```azurepowershell-interactive
    $Params = @{
@@ -313,15 +313,15 @@ Install-Module -Name Az.ImportExport
     > [!TIP]
     > Anziché specificare un indirizzo di posta elettronica per un singolo utente, fornire un indirizzo di posta elettronica di gruppo. Ciò garantisce la ricezione di notifiche anche se non c'è più un amministratore.
 
-   Questo processo Esporta tutti i BLOB nell'account di archiviazione. È possibile specificare un BLOB da esportare sostituendo questo valore per **-ExportBlobListblobPath**:
+   Questo processo esporta tutti i BLOB nell'account di archiviazione. È possibile specificare un BLOB per l'esportazione sostituendo questo valore per **-ExportBlobListblobPath**:
 
    ```azurepowershell-interactive
    -ExportBlobListblobPath $root\logo.bmp
    ```
 
-   Questo valore di parametro Esporta il BLOB denominato *logo.bmp* nel contenitore radice.
+   Questo valore del parametro esporta il BLOB denominato *logo.bmp* nel contenitore radice.
 
-   È anche possibile selezionare tutti i BLOB in un contenitore usando un prefisso. Sostituire questo valore con **-ExportBlobListblobPath**:
+   È anche possibile selezionare tutti i BLOB in un contenitore usando un prefisso. Sostituire questo valore per **-ExportBlobListblobPath**:
 
    ```azurepowershell-interactive
    -ExportBlobListblobPath '/myiecontainer'
@@ -338,7 +338,7 @@ Install-Module -Name Az.ImportExport
    Get-AzImportExport -ResourceGroupName myierg
    ```
 
-1. Per aggiornare il processo o annullare il processo, eseguire il cmdlet [Update-AzImportExport](/powershell/module/az.importexport/update-azimportexport) :
+1. Per aggiornare il processo o annullarlo, eseguire il cmdlet [Update-AzImportExport:](/powershell/module/az.importexport/update-azimportexport)
 
    ```azurepowershell-interactive
    Update-AzImportExport -Name MyIEjob1 -ResourceGroupName myierg -CancelRequested
@@ -363,7 +363,7 @@ In caso di dubbi sul numero di unità necessarie, passare a [Controllare il nume
 Quando il dashboard segnala che il processo è completo, i dischi vengono spediti all'utente e il numero di tracciabilità per la spedizione è disponibile nel portale.
 
 1. Dopo aver ricevuto le unità con i dati esportati, è necessario ottenere le chiavi BitLocker per sbloccare le unità. Passare al processo di esportazione nel portale di Azure. Fare clic sulla scheda **Importazione/Esportazione**.
-2. Selezionare e fare clic sul processo di esportazione nell'elenco. Passare a **crittografia** e copiare le chiavi.
+2. Selezionare e fare clic sul processo di esportazione nell'elenco. Passare a **Crittografia** e copiare le chiavi.
 
    ![Visualizzare le chiavi BitLocker per il processo di esportazione](./media/storage-import-export-data-from-blobs/export-from-blob-7.png)
 
@@ -371,7 +371,7 @@ Quando il dashboard segnala che il processo è completo, i dischi vengono spedit
 
 L'esportazione è stata completata.
 
-## <a name="step-5-unlock-the-disks"></a>Passaggio 5: sbloccare i dischi
+## <a name="step-5-unlock-the-disks"></a>Passaggio 5: Sbloccare i dischi
 
 Usare il comando seguente per sbloccare l'unità:
 
@@ -381,11 +381,11 @@ Di seguito è riportato un esempio dell'input di esempio.
 
    `WAImportExport.exe Unlock /bk:CAAcwBoAG8AdQBsAGQAIABiAGUAIABoAGkAZABkAGUAbgA= /driveLetter:e`
 
-A questo punto, è possibile eliminare il processo o lasciarlo. I processi vengono eliminati automaticamente dopo 90 giorni.
+A questo momento, è possibile eliminare il processo o lasciarlo. I processi vengono eliminati automaticamente dopo 90 giorni.
 
 ## <a name="check-the-number-of-drives"></a>Controllare il numero di unità
 
-Questo passaggio *facoltativo* consente di determinare il numero di unità necessarie per il processo di esportazione. Eseguire questo passaggio in un sistema Windows con una [versione supportata del sistema operativo](storage-import-export-requirements.md#supported-operating-systems).
+Questo *passaggio* facoltativo consente di determinare il numero di unità necessarie per il processo di esportazione. Eseguire questo passaggio in un sistema Windows con una [versione supportata del sistema operativo](storage-import-export-requirements.md#supported-operating-systems).
 
 1. [Scaricare WAImportExport versione 1](https://www.microsoft.com/download/details.aspx?id=42659) nel sistema Windows.
 2. Decomprimere la cartella predefinita `waimportexportv1`. Ad esempio: `C:\WaImportExportV1`.
@@ -401,12 +401,12 @@ Questo passaggio *facoltativo* consente di determinare il numero di unità neces
 
     |Parametro della riga di comando|Descrizione|
     |--------------------------|-----------------|
-    |**/LogDir**|facoltativo. Directory dei log. in cui vengono scritti file di log dettagliati. Se non è specificato, come directory dei log viene usata la directory corrente.|
-    |**Ésn**|Obbligatorio. Il nome dell'account di archiviazione per il processo di esportazione.|
-    |**/SK**|Obbligatorio solo se non è specificata una firma di accesso condiviso del contenitore. Chiave dell'account per l'account di archiviazione per il processo di esportazione.|
+    |**/logdir:**|facoltativo. Directory dei log. in cui vengono scritti file di log dettagliati. Se non è specificato, come directory dei log viene usata la directory corrente.|
+    |**/sn:**|Obbligatorio. Il nome dell'account di archiviazione per il processo di esportazione.|
+    |**/sk:**|Obbligatorio solo se non è specificata una firma di accesso condiviso del contenitore. Chiave dell'account per l'account di archiviazione per il processo di esportazione.|
     |**/csas:**|Obbligatorio solo se non è specificata una chiave dell'account di archiviazione. Firma di accesso condiviso del contenitore per l'elenco dei BLOB da esportare nel processo di esportazione.|
     |**/ExportBlobListFile:**|Obbligatorio. Percorso del file XML contenente l'elenco dei percorsi o dei prefissi dei percorsi BLOB per i BLOB da esportare. Formato di file usato nell'elemento `BlobListBlobPath` nell'operazione [Put Job](/rest/api/storageimportexport/jobs) dell'API REST del servizio Importazione/Esportazione.|
-    |**/DriveSize:**|Obbligatorio. Dimensioni delle unità da usare per un processo di esportazione, *ad esempio* 500 GB, 1,5 TB.|
+    |**/DriveSize:**|Obbligatorio. Dimensioni delle unità da usare per un processo di esportazione, ad *esempio,* 500 GB, 1,5 TB.|
 
     Vedere [Esempio di comando PreviewExport](#example-of-previewexport-command).
 

@@ -9,12 +9,12 @@ ms.date: 03/03/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3
-ms.openlocfilehash: b62c3c4be4fdffd9f509b86d248cd028518ae89a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 9c13ffc597349cdd2b304889d142ca7c2f89c713
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102181942"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107861536"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Usare il servizio Importazione/Esportazione di Azure per importare i dati in File di Azure
 
@@ -31,11 +31,11 @@ Prima di creare un processo di importazione per trasferire dati in File di Azure
 - Avere un numero adeguato di dischi dei [tipi supportati](storage-import-export-requirements.md#supported-disks).
 - Predisporre un sistema Windows con una [versione del sistema operativo supportata](storage-import-export-requirements.md#supported-operating-systems).
 - [Scaricare WAImportExport versione 2](https://aka.ms/waiev2) nel sistema Windows. Decomprimere la cartella predefinita `waimportexport`. Ad esempio: `C:\WaImportExport`.
-- Avere un account FedEx o DHL. Se si vuole usare un vettore diverso da FedEx/DHL, contattare Azure Data Box team operativo all'indirizzo `adbops@microsoft.com` .
+- Avere un account FedEx o DHL. Se si vuole usare un vettore diverso da FedEx/DHL, contattare il team Azure Data Box Operations all'indirizzo `adbops@microsoft.com` .
     - L'account deve essere valido, deve avere un saldo e deve avere le funzionalità di spedizione di ritorno.
     - Generare un numero di tracciabilità per il processo di esportazione.
     - Ogni processo deve avere un numero di tracciabilità separato. Più processi con lo stesso numero di tracciabilità non sono supportati.
-    - Se non si dispone di un account del vettore, vedere:
+    - Se non si ha un account del vettore, passare a:
         - [Creare un account FedEx](https://www.fedex.com/en-us/create-account.html)o
         - [Creare un account DHL](http://www.dhl-usa.com/en/express/shipping/open_account.html).
 
@@ -44,13 +44,13 @@ Prima di creare un processo di importazione per trasferire dati in File di Azure
 
 Questo passaggio genera un file journal. Il file journal archivia le informazioni di base, come numero di serie delle unità, chiave di crittografia e dettagli relativi all'account di archiviazione.
 
-Per preparare le unità, seguire questa procedura.
+Eseguire la procedura seguente per preparare le unità.
 
 1. Connettere le unità disco al sistema Windows tramite connettori SATA.
 2. Creare un singolo volume NTFS in ogni unità. Assegnare una lettera di unità al volume. Non usare punti di montaggio.
-3. Modificare il file di *dataset.csv* nella cartella radice in cui si trova lo strumento. A seconda che si voglia importare un file o una cartella oppure entrambi, aggiungere nel file *dataset.csv* voci simili a quelle mostrate negli esempi seguenti.
+3. Modificare il *dataset.csv* file nella cartella radice in cui si trova lo strumento. A seconda che si voglia importare un file o una cartella oppure entrambi, aggiungere nel file *dataset.csv* voci simili a quelle mostrate negli esempi seguenti.
 
-   - **Per importare un file**: nell'esempio seguente, i dati da copiare si trova nell'unità F:. Il file *MyFile1.txt* viene copiato nella radice *MyAzureFileshare1*. Se il *MyAzureFileshare1* non esiste, viene creato nell'account di archiviazione di Azure. La struttura di cartelle viene mantenuta.
+   - **Per importare un file**: nell'esempio seguente i dati da copiare si trova nell'unità F:. Il file *MyFile1.txt* viene copiato nella radice *MyAzureFileshare1*. Se *MyAzureFileshare1* non esiste, viene creato nell'account Archiviazione di Azure. La struttura di cartelle viene mantenuta.
 
        ```
            BasePath,DstItemPathOrPrefix,ItemType,Disposition,MetadataFile,PropertiesFile
@@ -73,7 +73,7 @@ Per preparare le unità, seguire questa procedura.
      Ulteriori informazioni su [come preparare un file CSV del set di dati](/previous-versions/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import).
 
 
-4. Modificare il file di *driveset.csv* nella cartella radice in cui si trova lo strumento. Aggiungere nel file *driveset.csv* voci simili a quelle mostrate negli esempi seguenti. Il file driveset include l'elenco dei dischi e delle lettere di unità corrispondenti in modo che lo strumento possa individuare correttamente l'elenco dei dischi da preparare.
+4. Modificare il *driveset.csv* file nella cartella radice in cui si trova lo strumento. Aggiungere nel file *driveset.csv* voci simili a quelle mostrate negli esempi seguenti. Il file driveset include l'elenco dei dischi e delle lettere di unità corrispondenti in modo che lo strumento possa individuare correttamente l'elenco dei dischi da preparare.
 
     Questo esempio presuppone che siano collegati due dischi e che vengano creati i volumi NTFS di base G:\ e H:\. H:\ non è crittografato, mentre G:\ è già crittografato. Lo strumento formatta e crittografa solo il disco che ospita H:\ (e non G:\).
 
@@ -116,7 +116,7 @@ Per altri esempi, passare a [Esempi per i file journal](#samples-for-journal-fil
 
 ### <a name="portal"></a>[Portale](#tab/azure-portal)
 
-Eseguire i passaggi seguenti per creare un processo di importazione nel portale di Azure.
+Seguire questa procedura per creare un processo di importazione nel portale di Azure.
 1. Accedere all'indirizzo https://portal.azure.com/.
 2. Cercare i **processi di importazione/esportazione**.
 
@@ -124,12 +124,12 @@ Eseguire i passaggi seguenti per creare un processo di importazione nel portale 
 
 3. Selezionare **+ Nuovo**.
 
-    ![Selezionare nuovo per creare un nuovo ](./media/storage-import-export-data-to-blobs/import-to-blob-2.png)
+    ![Selezionare Nuovo per creare un nuovo ](./media/storage-import-export-data-to-blobs/import-to-blob-2.png)
 
 4. In **Nozioni di base**:
 
    1. Selezionare una sottoscrizione.
-   1. Selezionare un gruppo di risorse oppure selezionare **Crea nuovo** e crearne uno nuovo.
+   1. Selezionare un gruppo di risorse oppure **selezionare Crea nuovo** e crearne uno nuovo.
    1. Immettere un nome descrittivo per il processo di importazione. Usare il nome per tenere traccia dello stato dei processi.
        * Il nome può contenere solo lettere minuscole, numeri e segni meno.
        * Il nome deve iniziare con una lettera e non può contenere spazi.
@@ -137,7 +137,7 @@ Eseguire i passaggi seguenti per creare un processo di importazione nel portale 
 
     ![Creare il processo di importazione - Passaggio 1](./media/storage-import-export-data-to-blobs/import-to-blob-3.png)
 
-   Selezionare **Avanti: dettagli processo >** per continuare.
+   Selezionare **Avanti: Dettagli processo per >** continuare.
 
 5. In **Dettagli processo**:
 
@@ -147,16 +147,16 @@ Eseguire i passaggi seguenti per creare un processo di importazione nel portale 
 
       La località di consegna viene popolata automaticamente in base all'area dell'account di archiviazione selezionato.
 
-   1. Se non si vuole salvare un log dettagliato, deselezionare l'opzione **Salva il log dettagliato nel contenitore BLOB ' waimportexport '** .
+   1. Se non si vuole salvare un log dettagliato, deselezionare l'opzione Save verbose log (Salva log dettagliato) nel contenitore **BLOB "waimportexport".**
 
 
    ![Creare il processo di importazione - Passaggio 2](./media/storage-import-export-data-to-blobs/import-to-blob-4.png)
 
-   Selezionare **Avanti: spedizione >** per continuare.
+   Selezionare **Avanti: Spedizione >** per continuare.
 
-4. In **spedizione**:
+4. In **Spedizione**:
 
-    1. Selezionare il vettore nell'elenco a discesa. Se si vuole usare un vettore diverso da FedEx/DHL, scegliere un'opzione esistente nell'elenco a discesa. Contattare Azure Data Box team operativo in `adbops@microsoft.com`  con le informazioni sul vettore che si intende usare.
+    1. Selezionare il vettore nell'elenco a discesa. Se si vuole usare un vettore diverso da FedEx/DHL, scegliere un'opzione esistente nell'elenco a discesa. Contattare Azure Data Box operations team `adbops@microsoft.com`  all'indirizzo con le informazioni sul vettore che si prevede di usare.
     1. Immettere un numero di account di vettore valido creato con il vettore. Microsoft usa questo account per restituire le unità al cliente al termine del processo di importazione.
     1. Specificare un nome di contatto completo e valido, insieme a numero di telefono, indirizzo di posta elettronica, indirizzo, città, CAP, stato/provincia e paese/area.
 
@@ -165,11 +165,11 @@ Eseguire i passaggi seguenti per creare un processo di importazione nel portale 
 
     ![Creare il processo di importazione - Passaggio 3](./media/storage-import-export-data-to-blobs/import-to-blob-5.png)
 
-   Selezionare **Verifica + crea** per continuare.
+   Selezionare **Rivedi e crea** per continuare.
 
-5. Nel riepilogo degli ordini:
+5. Nel riepilogo dell'ordine:
 
-   1. Esaminare le **condizioni** e quindi selezionare "Accetto che tutte le informazioni fornite siano corrette e accettino i termini e le condizioni." Viene quindi eseguita la convalida.
+   1. Esaminare le **Condizioni** e quindi selezionare "Accetto che tutte le informazioni fornite siano corrette e accettino i termini e le condizioni". Viene quindi eseguita la convalida.
    1. Esaminare le informazioni sul processo fornite nel riepilogo. Prendere nota del nome del processo e dell'indirizzo di spedizione del data center di Azure per rispedire i dischi ad Azure. Queste informazioni verranno usate successivamente sull'etichetta indirizzo.
    1. Selezionare **Crea**.
 
@@ -183,7 +183,7 @@ Usare la procedura seguente per creare un processo di importazione nell'interfac
 
 ### <a name="create-a-job"></a>Creare un processo
 
-1. Usare il comando [AZ Extension Add](/cli/azure/extension#az_extension_add) per aggiungere l'estensione [AZ Import-Export](/cli/azure/ext/import-export/import-export) :
+1. Usare il [comando az extension add](/cli/azure/extension#az_extension_add) per aggiungere l'estensione [az import-export:](/cli/azure/import-export)
 
     ```azurecli
     az extension add --name import-export
@@ -195,25 +195,25 @@ Usare la procedura seguente per creare un processo di importazione nell'interfac
     az group create --name myierg --location "West US"
     ```
 
-1. È possibile usare un account di archiviazione esistente o crearne uno. Per creare un account di archiviazione, eseguire il comando [AZ storage account create](/cli/azure/storage/account#az_storage_account_create) :
+1. È possibile usare un account di archiviazione esistente o crearne uno. Per creare un account di archiviazione, eseguire il [comando az storage account create:](/cli/azure/storage/account#az_storage_account_create)
 
     ```azurecli
     az storage account create -resource-group myierg -name myssdocsstorage --https-only
     ```
 
-1. Per ottenere un elenco delle posizioni in cui è possibile spedire i dischi, usare il comando [AZ Import-Export Location list](/cli/azure/ext/import-export/import-export/location#ext_import_export_az_import_export_location_list) :
+1. Per ottenere un elenco dei percorsi in cui è possibile spedire i dischi, usare il [comando az import-export location list:](/cli/azure/import-export/location#az_import_export_location_list)
 
     ```azurecli
     az import-export location list
     ```
 
-1. Usare il comando [AZ Import-Export Location Show](/cli/azure/ext/import-export/import-export/location#ext_import_export_az_import_export_location_show) per ottenere i percorsi per l'area geografica:
+1. Usare il [comando az import-export location show](/cli/azure/import-export/location#az_import_export_location_show) per ottenere i percorsi per l'area:
 
     ```azurecli
     az import-export location show --location "West US"
     ```
 
-1. Eseguire il comando [AZ Import-Export create](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_create) seguente per creare un processo di importazione:
+1. Eseguire il comando [az import-export create seguente](/cli/azure/import-export#az_import_export_create) per creare un processo di importazione:
 
     ```azurecli
     az import-export create \
@@ -241,13 +241,13 @@ Usare la procedura seguente per creare un processo di importazione nell'interfac
    > Anziché specificare un indirizzo di posta elettronica per un singolo utente, fornire un indirizzo di posta elettronica di gruppo. Ciò garantisce la ricezione di notifiche anche se non c'è più un amministratore.
 
 
-1. Usare il comando [AZ Import-Export List](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_list) per visualizzare tutti i processi per il gruppo di risorse myierg:
+1. Usare il [comando az import-export list](/cli/azure/import-export#az_import_export_list) per visualizzare tutti i processi per il gruppo di risorse myierg:
 
     ```azurecli
     az import-export list --resource-group myierg
     ```
 
-1. Per aggiornare il processo o annullare il processo, eseguire il comando [AZ Import-Export Update](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_update) :
+1. Per aggiornare il processo o annullarlo, eseguire il [comando az import-export update:](/cli/azure/import-export#az_import_export_update)
 
     ```azurecli
     az import-export update --resource-group myierg --name MyIEjob1 --cancel-requested true
@@ -255,12 +255,12 @@ Usare la procedura seguente per creare un processo di importazione nell'interfac
 
 ### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
-Utilizzare la procedura seguente per creare un processo di importazione in Azure PowerShell.
+Usare la procedura seguente per creare un processo di importazione in Azure PowerShell.
 
 [!INCLUDE [azure-powershell-requirements-h3.md](../../includes/azure-powershell-requirements-h3.md)]
 
 > [!IMPORTANT]
-> Mentre il modulo di PowerShell **AZ. importexport** è in anteprima, è necessario installarlo separatamente usando il `Install-Module` cmdlet. Quando il modulo di PowerShell diventerà disponibile a livello generale, entrerà a far parte delle future versioni del modulo Az di PowerShell e sarà disponibile per impostazione predefinita all'interno di Azure Cloud Shell.
+> Mentre il **modulo Az.ImportExport** di PowerShell è in anteprima, è necessario installarlo separatamente usando il `Install-Module` cmdlet . Quando il modulo di PowerShell diventerà disponibile a livello generale, entrerà a far parte delle future versioni del modulo Az di PowerShell e sarà disponibile per impostazione predefinita all'interno di Azure Cloud Shell.
 
 ```azurepowershell-interactive
 Install-Module -Name Az.ImportExport
@@ -268,31 +268,31 @@ Install-Module -Name Az.ImportExport
 
 ### <a name="create-a-job"></a>Creare un processo
 
-1. È possibile usare un gruppo di risorse esistente o crearne uno. Per creare un gruppo di risorse, eseguire il cmdlet [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) :
+1. È possibile usare un gruppo di risorse esistente o crearne uno. Per creare un gruppo di risorse, eseguire il cmdlet [New-AzResourceGroup:](/powershell/module/az.resources/new-azresourcegroup)
 
    ```azurepowershell-interactive
    New-AzResourceGroup -Name myierg -Location westus
    ```
 
-1. È possibile usare un account di archiviazione esistente o crearne uno. Per creare un account di archiviazione, eseguire il cmdlet [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) :
+1. È possibile usare un account di archiviazione esistente o crearne uno. Per creare un account di archiviazione, eseguire il cmdlet [New-AzStorageAccount:](/powershell/module/az.storage/new-azstorageaccount)
 
    ```azurepowershell-interactive
    New-AzStorageAccount -ResourceGroupName myierg -AccountName myssdocsstorage -SkuName Standard_RAGRS -Location westus -EnableHttpsTrafficOnly $true
    ```
 
-1. Per ottenere un elenco delle posizioni in cui è possibile spedire i dischi, usare il cmdlet [Get-AzImportExportLocation](/powershell/module/az.importexport/get-azimportexportlocation) :
+1. Per ottenere un elenco dei percorsi in cui è possibile spedire dischi, usare il cmdlet [Get-AzImportExportLocation:](/powershell/module/az.importexport/get-azimportexportlocation)
 
    ```azurepowershell-interactive
    Get-AzImportExportLocation
    ```
 
-1. Usare il `Get-AzImportExportLocation` cmdlet con il `Name` parametro per ottenere i percorsi per l'area:
+1. Usare il `Get-AzImportExportLocation` cmdlet con il parametro per ottenere i percorsi per `Name` l'area:
 
    ```azurepowershell-interactive
    Get-AzImportExportLocation -Name westus
    ```
 
-1. Eseguire il seguente esempio [New-AzImportExport](/powershell/module/az.importexport/new-azimportexport) per creare un processo di importazione:
+1. Eseguire [l'esempio New-AzImportExport](/powershell/module/az.importexport/new-azimportexport) seguente per creare un processo di importazione:
 
    ```azurepowershell-interactive
    $driveList = @(@{
@@ -343,7 +343,7 @@ Install-Module -Name Az.ImportExport
    Get-AzImportExport -ResourceGroupName myierg
    ```
 
-1. Per aggiornare il processo o annullare il processo, eseguire il cmdlet [Update-AzImportExport](/powershell/module/az.importexport/update-azimportexport) :
+1. Per aggiornare il processo o annullarlo, eseguire il cmdlet [Update-AzImportExport:](/powershell/module/az.importexport/update-azimportexport)
 
    ```azurepowershell-interactive
    Update-AzImportExport -Name MyIEjob1 -ResourceGroupName myierg -CancelRequested
@@ -361,13 +361,13 @@ Install-Module -Name Az.ImportExport
 
 ## <a name="step-5-verify-data-upload-to-azure"></a>Passaggio 5: Verificare il caricamento dei dati in Azure
 
-Tracciare il processo fino al completamento. Una volta completato il processo, verificare che i dati siano caricati in Azure. Eliminare i dati locali solo dopo avere verificato che il caricamento è stato eseguito correttamente.
+Tracciare il processo fino al completamento. Una volta completato il processo, verificare che i dati siano caricati in Azure. Eliminare i dati locali solo dopo aver verificato che il caricamento ha avuto esito positivo.
 
 ## <a name="samples-for-journal-files"></a>Esempi per i file journal
 
 Per **aggiungere altre unità**, creare un nuovo file driveset ed eseguire il comando come indicato di seguito.
 
-Per le sessioni di copia successive a unità disco diverse da quelle specificate nel file *InitialDriveset. csv* , specificare un nuovo file con estensione *CSV* e fornirlo come valore al parametro `AdditionalDriveSet` . Usare il **medesimo file journal** e indicare un **nuovo ID di sessione**. Il formato del file CSV AdditionalDriveset corrisponde a quello del file InitialDriveSet.
+Per le sessioni di copia successive in unità disco diverse da quelle specificate nel file con estensione *csv InitialDriveset,* specificare un nuovo file con estensione *csv* del set di unità e specificarlo come valore per il parametro `AdditionalDriveSet` . Usare il **medesimo file journal** e indicare un **nuovo ID di sessione**. Il formato del file CSV AdditionalDriveset corrisponde a quello del file InitialDriveSet.
 
 ```cmd
 WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> /AdditionalDriveSet:<driveset.csv>

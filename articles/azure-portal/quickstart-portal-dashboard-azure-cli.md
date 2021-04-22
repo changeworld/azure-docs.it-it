@@ -4,12 +4,12 @@ description: "Avvio rapido: Informazioni su come creare un dashboard nel portale
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.date: 12/4/2020
-ms.openlocfilehash: d951c692c7d3c282ae68c5f9b53e9cda5407df10
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 581c8cc4c2da275467bc39c5c2008b29a5bc0e0e
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107481022"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107875756"
 ---
 # <a name="quickstart-create-an-azure-portal-dashboard-with-azure-cli"></a>Avvio rapido: Creare un dashboard del portale di Azure con l'interfaccia della riga di comando di Azure
 
@@ -73,20 +73,20 @@ Per altre informazioni, vedere [Informazioni di riferimento sui modelli di dashb
 
 È ora possibile distribuire il modello dall'interfaccia della riga di comando di Azure.
 
-1. Eseguire il comando [az portal dashboard create](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_create) per distribuire il modello:
+1. Eseguire il comando [az portal dashboard create](/cli/azure/portal/dashboard#az_portal_dashboard_create) per distribuire il modello:
 
    ```azurecli
    az portal dashboard create --resource-group myResourceGroup --name 'Simple VM Dashboard' \
       --input-path portal-dashboard-template-testvm.json --location centralus
    ```
 
-1. Verificare che il dashboard sia stato creato correttamente eseguendo il comando [az portal dashboard show](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_show):
+1. Verificare che il dashboard sia stato creato correttamente eseguendo il comando [az portal dashboard show](/cli/azure/portal/dashboard#az_portal_dashboard_show):
 
    ```azurecli
    az portal dashboard show --resource-group myResourceGroup --name 'Simple VM Dashboard'
    ```
 
-Per visualizzare tutti i dashboard della sottoscrizione corrente, usare [az portal dashboard list](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_list):
+Per visualizzare tutti i dashboard della sottoscrizione corrente, usare [az portal dashboard list](/cli/azure/portal/dashboard#az_portal_dashboard_list):
 
 ```azurecli
 az portal dashboard list
@@ -98,7 +98,7 @@ az portal dashboard list
 az portal dashboard list --resource-group myResourceGroup
 ```
 
-È possibile aggiornare un dashboard con il comando [az portal dashboard update](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_update):
+È possibile aggiornare un dashboard con il comando [az portal dashboard update](/cli/azure/portal/dashboard#az_portal_dashboard_update):
 
 ```azurecli
 az portal dashboard update --resource-group myResourceGroup --name 'Simple VM Dashboard' \
@@ -119,7 +119,7 @@ Per rimuovere la macchina virtuale e il dashboard associato, eliminare il gruppo
 az group delete --name myResourceGroup
 ```
 
-Per rimuovere solo il dashboard, usare il comando [az portal dashboard delete](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_delete):
+Per rimuovere solo il dashboard, usare il comando [az portal dashboard delete](/cli/azure/portal/dashboard#az_portal_dashboard_delete):
 
 ```azurecli
 az portal dashboard delete --resource-group myResourceGroup --name "Simple VM Dashboard"
@@ -127,4 +127,4 @@ az portal dashboard delete --resource-group myResourceGroup --name "Simple VM Da
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sul supporto dell'interfaccia della riga di comando di Azure per i dashboard, vedere [az portal dashboard](/cli/azure/ext/portal/portal/dashboard).
+Per altre informazioni sul supporto dell'interfaccia della riga di comando di Azure per i dashboard, vedere [az portal dashboard](/cli/azure/portal/dashboard).

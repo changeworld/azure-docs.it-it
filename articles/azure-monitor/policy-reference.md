@@ -1,17 +1,17 @@
 ---
 title: Definizioni di criteri predefiniti per Monitoraggio di Azure
 description: Elenco di definizioni di criteri predefiniti di Criteri di Azure per Monitoraggio di Azure. Queste definizioni di criteri predefiniti forniscono approcci comuni alla gestione delle risorse di Azure.
-ms.date: 04/14/2021
+ms.date: 04/21/2021
 ms.topic: reference
 author: bwren
 ms.author: bwren
 ms.custom: subject-policy-reference
-ms.openlocfilehash: c9a2a4259833b2cc37033e7ce0d3da1e64f777e6
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 7c1a7dbfd625f9ee46ab358cdf5b2c77154c12b5
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107502114"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107862914"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-monitor"></a>Definizioni predefinite di Criteri di Azure per Monitoraggio di Azure
 

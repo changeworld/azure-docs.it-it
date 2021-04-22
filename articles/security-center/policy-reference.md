@@ -1,22 +1,22 @@
 ---
 title: Definizioni di criteri predefiniti per Centro sicurezza di Azure
 description: Elenco di definizioni di criteri predefiniti di Criteri di Azure per Centro sicurezza di Azure. Queste definizioni di criteri predefiniti forniscono approcci comuni alla gestione delle risorse di Azure.
-ms.date: 04/14/2021
+ms.date: 04/21/2021
 ms.topic: reference
 author: memildin
 ms.author: memildin
 ms.service: security-center
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 8023dcc29fe8ea3af853237e911524549e4d2bcb
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.openlocfilehash: 0fc5e2ed183020f32b59fec7f4436754467968e0
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107739639"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107872422"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-security-center"></a>Definizioni predefinite di Criteri di Azure per Centro sicurezza di Azure
 
-Questa pagina è un indice [Criteri di Azure](../governance/policy/overview.md) definizioni di criteri predefiniti correlate Centro sicurezza di Azure. Sono disponibili i raggruppamenti seguenti di definizioni di criteri:
+Questa pagina è un indice [Criteri di Azure](../governance/policy/overview.md) definizioni di criteri predefiniti correlate Centro sicurezza di Azure. Sono disponibili i raggruppamenti di definizioni di criteri seguenti:
 
 - Il [gruppo di iniziative](#azure-security-center-initiatives) elenca le Criteri di Azure di iniziative nella categoria "Centro sicurezza".
 - Il [gruppo di iniziative](#azure-security-center-initiatives) predefinito elenca tutte le Criteri di Azure che fanno parte dell'iniziativa predefinita del Centro sicurezza, Azure Security [Benchmark.](https://docs.microsoft.com/security/benchmark/azure/introduction) Questo benchmark, ampiamente rispettato e creato da Microsoft, si basa sui controlli del [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) e del National Institute of Standards and Technology [(NIST)](https://www.nist.gov/) con particolare attenzione alla sicurezza incentrata sul cloud.
